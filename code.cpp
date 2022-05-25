@@ -24,7 +24,7 @@ void solve(void){
 
     for(int i = 0; i < n; i++)
         for(int j = 1; j < m; j++) 
-            if(ar[j-1] > ar[j]){
+            if(ar[i][j-1] > ar[i][j]){
                 r = i;
                 break;
             }
