@@ -29,7 +29,7 @@ void solve(void){
                 break;
             }
     if(r == -1)
-        cout << "-8";
+        cout << "-1";
     else{
         ll temp[m], a = -1, b = -1;
         bool flag = true;
