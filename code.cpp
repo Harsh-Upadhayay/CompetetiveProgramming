@@ -47,7 +47,7 @@ void solve(void){
                     flag = false;
                     break;
                 }
-        // cout << a << b; 
+        cout << a << " " <<  b << "\n"; 
 
         }
         if(!flag){
