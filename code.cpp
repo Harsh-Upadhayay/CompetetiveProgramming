@@ -47,9 +47,8 @@ void solve(void){
                     flag = false;
                     break;
                 }
-        cout << a << " " <<  b << "\n"; 
-
         }
+        // cout << a << " " <<  b << "\n"
         if(!flag){
             for(int i = 0; i < n; i++){
                 swap(ar[i][a], ar[i][b]);
