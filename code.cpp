@@ -28,11 +28,15 @@ ll getMaxDigit(ll x){
 void solve(void){
     ll n, x, ans = 0;
     cin >> n >> x;
-    
+
     while(count(x) < n){
         ans++;
         pair<ll, ll> target(INT_MIN, 0);
         ll temp = x;
+        if(getMaxDigit(x)<2){
+            ans = -1;
+            break;
+        }
         while(temp){
             ll digit =  temp%10;
             temp = temp/10;
