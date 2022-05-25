@@ -31,7 +31,6 @@ void solve(void){
     if(r == -1)
         cout << "1 1";
     else{
-        cout <<r;
         ll temp[m], a = -1, b = -1;
         bool flag = true;
         for(int i = 0; i < m; i++)
@@ -48,6 +47,8 @@ void solve(void){
                     flag = false;
                     break;
                 }
+        cout << a << b; 
+
         }
         if(!flag){
             for(int i = 0; i < n; i++){
