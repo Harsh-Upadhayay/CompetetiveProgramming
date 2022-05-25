@@ -44,7 +44,7 @@ void solve(void){
             } 
 
         }
-        cout << x << " ";
+        cout << x << "\n";
         x = target.second;
     }
     cout << ans << " ";
