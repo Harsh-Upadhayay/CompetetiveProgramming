@@ -1,7 +1,6 @@
 #include<iostream>
-#include<math.h>
-#include <vector>
-#include <climits>
+#include<algorithm>
+#include<stdio.h>
 using namespace std;
 
 #define ll long long int
@@ -10,51 +9,61 @@ using namespace std;
 
 #define inf INT_MAX
 
-#define TESTCAS
+#define TESTCASE
 ll t,T;
 
-#define count(x) (ceil(log10(x)))
-
-ll getMaxDigit(ll x){
-    ll ans = 0;
-    x = abs(x);
-    while(x){
-        ans = max(ans, x%10);
-        x = x/10;
-    }
-    return ans;
-}
-
 void solve(void){
-    ll n, x, ans = 0;
-    cin >> n >> x;
+    ll n, m, ans;
+    cin  >> n >> m;
+    ll ar[n][m];
+    for(int i = 0; i < n; i++)
+        for(int j = 0; j < m; j++) 
+            cin >> ar[i][j];
+    
+    ll r = -1;
 
-    while(count(x) < n){
-        ans++;
-        pair<ll, ll> target(INT_MIN, 0);
-        ll temp = x;
-        if(getMaxDigit(x)<2){
-            ans = -1;
-            break;
+    for(int i = 0; i < n; i++)
+        for(int j = 1; j < m; j++) 
+            if(ar[j-1] > ar[j]){
+                r = i;
+                break;
+            }
+    if(r == -1)
+        cout << "-1";
+    else{
+        ll temp[m], a = -1, b = -1;
+        bool flag = true;
+        for(int i = 0; i < m; i++)
+            temp[m] = ar[r][i];
+        sort(temp, temp+m);
+        for(int i = 0; i < m; i++){
+            if(ar[r][i] != temp[i])
+                if(-1 == a)
+                    a = i;
+                else if(-1 == b)
+                    b = i;
+                else{
+                    cout << "-1";
+                    flag = false;
+                    break;
+                }
         }
-        while(temp){
-            ll digit =  temp%10;
-            temp = temp/10;
-            ll thisProduct = digit * x;
-            if(count(target.second) < count(thisProduct)
-             || (count(target.second) == count(thisProduct) 
-                && getMaxDigit(thisProduct) > target.first)){
-                target.first = getMaxDigit(thisProduct);
-                target.second = thisProduct;
-            } 
-
+        if(!flag){
+            for(int i = 0; i < n; i++){
+                swap(ar[i][a], ar[i][b]);
+            }
+             for(int i = 0; i < n; i++)
+                for(int j = 1; j < m; j++) 
+                    if(ar[j-1] > ar[j]){
+                        cout << "-1";
+                        flag = true;
+                        break;
+                    }
+            if(!flag)
+                cout << a << " " << b;
         }
-        cout << x << "\n";
-        x = target.second;
     }
-    cout << ans << " ";
-    cout << "\n";
-
+    cout<<endl;
 }
 
 int main() {
@@ -64,7 +73,6 @@ int main() {
         freopen("input.txt","r",stdin);
         freopen("output.txt","w",stdout);
     #endif
-        
 
     ios_base::sync_with_stdio(0);
     cin.tie(NULL);
@@ -81,6 +89,5 @@ int main() {
 
     return 0;
 }
-
 
 
