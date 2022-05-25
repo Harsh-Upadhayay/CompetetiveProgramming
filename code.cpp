@@ -28,6 +28,7 @@ ll getMaxDigit(ll x){
 void solve(void){
     ll n, x, ans = 0;
     cin >> n >> x;
+    
     while(count(x) < n){
         ans++;
         pair<ll, ll> target(INT_MIN, 0);
