@@ -32,13 +32,13 @@ void solve(void){
             cin >> x1 >> y1 >> x2 >> y2;
             ll rookx = -1, rooky = -1;
 
-            if(rook_r.upper_bound(y1) != rook_r.end())
-                rookx = *(rook_r.upper_bound(y1));
+            if(rook_r.upper_bound(x1) != rook_r.end())
+                rookx = *(rook_r.upper_bound(x1));
             
-            if(rook_c.upper_bound(x1) != rook_c.end())
-                rooky = *(rook_c.upper_bound(x1));
+            if(rook_c.upper_bound(y1) != rook_c.end())
+                rooky = *(rook_c.upper_bound(y1));
             
-            // cout << rookx << " " << rooky;
+            cout << rookx << " " << rooky;
 
             if(
             rooky >= y1 && rooky <= y2
