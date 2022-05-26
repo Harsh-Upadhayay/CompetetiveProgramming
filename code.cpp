@@ -42,6 +42,7 @@ void solve(void){
                 cout << "No";
 
         }
+        cout << "\n";
     }
     cout<<endl;
 
