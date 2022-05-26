@@ -63,7 +63,7 @@ void solve(void){
                         break;
                     }
             if(flag)
-                cout << a << " " << b;
+                cout << (a+1) << " " << (b+1);
         }
     }
     cout<<endl;
