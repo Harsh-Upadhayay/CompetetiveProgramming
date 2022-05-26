@@ -49,6 +49,7 @@ void solve(void){
                     break;
                 }
         }
+        cout << "HE";
         if(flag){
             for(int i = 0; i < n; i++){
                 swap(ar[i][a], ar[i][b]);
