@@ -38,7 +38,7 @@ void solve(void){
             if(rook_c.upper_bound(y1) != rook_c.end())
                 rooky = *(rook_c.upper_bound(y1));
             
-            cout << rookx << " " << rooky;
+            cout << rookx << " " << rooky << " ";
 
             if(
             rooky >= y1 && rooky <= y2
