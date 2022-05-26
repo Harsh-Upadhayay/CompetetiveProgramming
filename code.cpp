@@ -30,13 +30,20 @@ void solve(void){
         else {
             ll x1, y1, x2, y2;
             cin >> x1 >> y1 >> x2 >> y2;
-            ll rookC = (rook_c.upper_bound(y1) == rook_c.end()?(*(rook_c.upper_bound(y1))):-1),
-             rookR = (rook_r.upper_bound(x1) == rook_r.end()?(*(rook_r.upper_bound(x1))):-1);
-            cout << *rook_c.upper_bound(y1) << " " << rookR;
+            ll rookx = -1, rooky = -1;
+
+            if(rook_r.upper_bound(x1) != rook_r.end())
+                rookx = *(rook_r.upper_bound(x1));
+            
+            if(rook_c.upper_bound(y1) != rook_c.end())
+                rooky = *(rook_c.upper_bound(y1));
+            
+            cout << rookx << " " << rooky;
+
             if(
-            rookC >= y1 && rookC <= y2
+            rooky >= y1 && rooky <= y2
             || 
-            rookR >= x1 && rookR <= x2
+            rookx >= x1 && rookx <= x2
             )
                 cout << "Yes\n";
             else
