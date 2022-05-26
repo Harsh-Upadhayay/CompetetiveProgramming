@@ -50,12 +50,12 @@ void solve(void){
                 cout << "No\n";
 
         }
-        for(auto x : rook_r)
-                cout << x << " ";
-        cout << "\n";
-        for(auto x : rook_c)
-                cout << x << " ";
-        cout << "\n";
+        // for(auto x : rook_r)
+        //         cout << x << " ";
+        // cout << "\n";
+        // for(auto x : rook_c)
+        //         cout << x << " ";
+        // cout << "\n";
     }
 }
 
