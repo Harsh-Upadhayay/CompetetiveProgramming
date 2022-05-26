@@ -44,7 +44,7 @@ void solve(void){
                 else if(-1 == b)
                     b = i;
                 else{
-                    cout << "-1";
+                    cout << "-2";
                     flag = false;
                     break;
                 }
