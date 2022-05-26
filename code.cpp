@@ -37,9 +37,9 @@ void solve(void){
             || 
             rookR >= x1 && rookR <= x2
             )
-                cout << "Yes";
+                cout << "Yes\n";
             else
-                cout << "No";
+                cout << "No\n";
 
         }
     }
