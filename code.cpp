@@ -37,7 +37,7 @@ void solve(void){
             else if(rook_r.upper_bound(x1) != rook_r.end())
                 rookx = *(rook_r.upper_bound(x1));
             
-            if(rook_r.count(y1))
+            if(rook_c.count(y1))
                 rooky = y1;
             else if(rook_c.upper_bound(y1) != rook_c.end())
                 rooky = *(rook_c.upper_bound(y1));
