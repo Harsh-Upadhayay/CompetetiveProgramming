@@ -27,6 +27,7 @@ void solve(void){
         for(int j = 1; j < m; j++) 
             if(ar[i][j-1] > ar[i][j]){
                 r = i;
+                cout << r;
                 break;
             }
     if(r == -1)
@@ -44,7 +45,7 @@ void solve(void){
                 else if(-1 == b)
                     b = i;
                 else{
-                    cout << r ;
+
                     cout << "-1";
                     flag = false;
                     break;
