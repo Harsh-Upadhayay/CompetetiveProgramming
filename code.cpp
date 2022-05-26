@@ -31,7 +31,7 @@ void solve(void){
             ll x1, y1, x2, y2;
             cin >> x1 >> y1 >> x2 >> y2;
             ll rookC = (rook_c.upper_bound(y1) == rook_c.end()?(*(rook_c.upper_bound(y1))):-1),
-             rookR = *(rook_r.upper_bound(x1));
+             rookR = (rook_r.upper_bound(x1) == rook_r.end()?(*(rook_r.upper_bound(x1))):-1);
         
             if(
             rookC >= y1 && rookC <= y2
