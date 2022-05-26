@@ -19,13 +19,13 @@ void solve(void){
         ll x, y;
         if(1 == t){
             cin >> x >> y;
-            rook_r.insert(x);
-            rook_c.insert(y);
+            rook_c.insert(x);
+            rook_r.insert(y);
         }
         else if (2 == t){
             cin >> x >> y;
-            rook_r.erase(x);
-            rook_c.erase(y);
+            rook_c.erase(x);
+            rook_r.erase(y);
         }
         else {
             ll x1, y1, x2, y2;
