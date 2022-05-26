@@ -32,6 +32,7 @@ void solve(void){
         if(r != -1)
             break;
     }
+    cout << r;
     if(r == -1)
         cout << "1 1";
     else{
