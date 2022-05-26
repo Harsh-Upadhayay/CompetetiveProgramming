@@ -46,10 +46,10 @@ void solve(void){
                 else{
                     cout << "-1";
                     flag = false;
+        cout << "HE";
                     break;
                 }
         }
-        cout << "HE";
         if(flag){
             for(int i = 0; i < n; i++){
                 swap(ar[i][a], ar[i][b]);
