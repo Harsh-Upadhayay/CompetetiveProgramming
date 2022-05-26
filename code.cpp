@@ -38,7 +38,7 @@ void solve(void){
         ll temp[m], a = -1, b = -1;
         bool flag = true;
         for(int i = 0; i < m; i++)
-            temp[m] = ar[r][i];
+            temp[i] = ar[r][i];
         sort(temp, temp+m);
         for(int i = 0; i < m; i++){
             if(ar[r][i] != temp[i])
