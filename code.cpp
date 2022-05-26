@@ -12,6 +12,7 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
+
 void solve(void){
     ll n, m, ans;
     cin  >> n >> m;
@@ -48,8 +49,7 @@ void solve(void){
                     break;
                 }
         }
-        // cout << a << " " <<  b << "\n"
-        if(!flag){
+        if(flag){
             for(int i = 0; i < n; i++){
                 swap(ar[i][a], ar[i][b]);
             }
