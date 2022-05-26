@@ -44,7 +44,8 @@ void solve(void){
                 else if(-1 == b)
                     b = i;
                 else{
-                    cout << "-2";
+                    cout << ar[r][i];
+                    cout << "-1";
                     flag = false;
                     break;
                 }
