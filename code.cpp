@@ -56,12 +56,12 @@ void solve(void){
                 swap(ar[i][a], ar[i][b]);
             }
 
-    for(int i = 0; i < n; i++)
-        for(int j = 0; j < m; j++) 
-            cout << ar[i][j] << " ";
+    // for(int i = 0; i < n; i++)
+    //     for(int j = 0; j < m; j++) 
+    //         cout << ar[i][j] << " ";
              for(int i = 0; i < n; i++)
                 for(int j = 1; j < m; j++) 
-                    if(ar[j-1] > ar[j]){
+                    if(ar[i][j-1] > ar[i][j]){
                         cout << "-1";
                         flag = false;
                         break;
