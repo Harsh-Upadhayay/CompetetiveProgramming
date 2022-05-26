@@ -19,13 +19,13 @@ void solve(void){
         ll x, y;
         if(1 == t){
             cin >> x >> y;
-            rook_c.insert(x);
-            rook_r.insert(y);
+            rook_r.insert(x);
+            rook_c.insert(y);
         }
         else if (2 == t){
             cin >> x >> y;
-            rook_c.erase(x);
-            rook_r.erase(y);
+            rook_r.erase(x);
+            rook_c.erase(y);
         }
         else {
             ll x1, y1, x2, y2;
@@ -50,6 +50,11 @@ void solve(void){
                 cout << "No\n";
 
         }
+        for(auto x : rook_r)
+                cout << x << " ";
+        for(auto x : rook_c)
+                cout << x << " ";
+        cout << "\n";
     }
 }
 
