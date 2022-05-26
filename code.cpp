@@ -1,6 +1,4 @@
-#include<iostream>
-#include<algorithm>
-#include<stdio.h>
+    #include<bits/stdc++.h>
 using namespace std;
 
 #define ll long long int
@@ -9,79 +7,48 @@ using namespace std;
 
 #define inf INT_MAX
 
-#define TESTCASE
+#define TESTCAS
 ll t,T;
 
-
 void solve(void){
-    ll n, m, ans;
-    cin  >> n >> m;
-    ll ar[n][m];
-    for(int i = 0; i < n; i++)
-        for(int j = 0; j < m; j++) 
-            cin >> ar[i][j];
-    
-    ll r = -1;
-
-    for(int i = 0; i < n; i++){
-        for(int j = 1; j < m; j++) 
-            if(ar[i][j-1] > ar[i][j]){
-                r = i;
-                break;
-            }
-        if(r != -1)
-            break;
-    }
-    if(r == -1)
-        cout << "1 1";
-    else{
-        ll temp[m], a = -1, b = -1;
-        bool flag = true;
-        for(int i = 0; i < m; i++)
-            temp[i] = ar[r][i];
-        sort(temp, temp+m);
-        for(int i = 0; i < m; i++){
-            if(ar[r][i] != temp[i])
-                if(-1 == a)
-                    a = i;
-                else if(-1 == b)
-                    b = i;
-                else{
-                    // cout << temp[a] << temp[b] << temp[i];
-                    cout << "-1";
-                    flag = false;
-                    break;
-                }
+    ll n, q, t;
+    cin >> n >> q;
+    set<ll> rook_c, rook_r;
+    while(q--){
+        cin >> t;
+        ll x, y;
+        if(1 == t){
+            cin >> x >> y;
+            rook_r.insert(x);
+            rook_c.insert(y);
         }
-        // cout << a << " " << b;
-        if(flag){
-            // cout << "S";
-            for(int i = 0; i < n; i++){
-                swap(ar[i][a], ar[i][b]);
-            }
+        else if (2 == t){
+            cin >> x >> y;
+            rook_r.erase(x);
+            rook_c.erase(y);
+        }
+        else {
+            ll x1, y1, x2, y2;
+            cin >> x1 >> y1 >> x2 >> y2;
+            ll rookC = *(rook_c.upper_bound(y1)), rookR = *(rook_r.upper_bound(x1));
+            
+            if(
+            rookC >= y1 && rookC <= y2
+            || 
+            rookR >= x1 && rookR <= x2
+            )
+                cout << "Yes";
+            else
+                cout << "No";
 
-    // for(int i = 0; i < n; i++)
-    //     for(int j = 0; j < m; j++) 
-    //         cout << ar[i][j] << " ";
-             for(int i = 0; i < n; i++){
-                for(int j = 1; j < m; j++) 
-                    if(ar[i][j-1] > ar[i][j]){
-                        cout << "-1";
-                        flag = false;
-                        break;
-                    }
-                if(!flag)
-                    break;
-            }
-            if(flag)
-                cout << (a+1) << " " << (b+1);
         }
     }
     cout<<endl;
+
 }
 
 int main() {
-    // srand(time(0));
+    srand(time(0));
 
     #ifndef ONLINE_JUDGE
         freopen("input.txt","r",stdin);
