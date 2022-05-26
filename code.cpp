@@ -51,7 +51,7 @@ void solve(void){
         }
         // cout << a << " " << b;
         if(flag){
-            cout << "S";
+            // cout << "S";
             for(int i = 0; i < n; i++){
                 swap(ar[i][a], ar[i][b]);
             }
@@ -59,10 +59,10 @@ void solve(void){
                 for(int j = 1; j < m; j++) 
                     if(ar[j-1] > ar[j]){
                         cout << "-1";
-                        flag = true;
+                        flag = false;
                         break;
                     }
-            if(!flag)
+            if(flag)
                 cout << a << " " << b;
         }
     }
