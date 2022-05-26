@@ -47,7 +47,7 @@ void solve(void){
                 else if(-1 == b)
                     b = i;
                 else{
-                    cout << temp[a] << temp[b] << temp[i];
+                    // cout << temp[a] << temp[b] << temp[i];
                     cout << "-1";
                     flag = false;
                     break;
