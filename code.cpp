@@ -23,13 +23,15 @@ void solve(void){
     
     ll r = -1;
 
-    for(int i = 0; i < n; i++)
+    for(int i = 0; i < n; i++){
         for(int j = 1; j < m; j++) 
             if(ar[i][j-1] > ar[i][j]){
                 r = i;
-                cout << r;
                 break;
             }
+        if(r != -1)
+            break;
+    }
     if(r == -1)
         cout << "1 1";
     else{
@@ -61,13 +63,16 @@ void solve(void){
     // for(int i = 0; i < n; i++)
     //     for(int j = 0; j < m; j++) 
     //         cout << ar[i][j] << " ";
-             for(int i = 0; i < n; i++)
+             for(int i = 0; i < n; i++){
                 for(int j = 1; j < m; j++) 
                     if(ar[i][j-1] > ar[i][j]){
                         cout << "-1";
                         flag = false;
                         break;
                     }
+                if(!flag)
+                    break;
+            }
             if(flag)
                 cout << (a+1) << " " << (b+1);
         }
