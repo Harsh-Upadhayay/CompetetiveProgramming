@@ -44,8 +44,6 @@ void solve(void){
         }
         cout << "\n";
     }
-    cout<<endl;
-
 }
 
 int main() {
