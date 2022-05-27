@@ -20,14 +20,12 @@ void solve(void){
         cin >> x;
         m[x]++;
     }
-    for(auto x : m)
-        if(x.second < k)
-            m.erase(x.first);
-
-    ll r = -1, l = -1, prev = -1;
     vector<ll> v;
     for(auto x : m)
-        v.pb(x.first);
+        if(x.second >= k)
+            v.pb(x.first);
+
+    ll r = -1, l = -1, prev = -1;
 
 
     ll curr = 0;
