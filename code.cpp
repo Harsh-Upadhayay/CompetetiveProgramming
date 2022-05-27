@@ -11,12 +11,16 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n,  ans;
+    ll n,  ans, root;
     cin >> n;
     unordered_map<ll, vector<ll>> m;
     rpt(n){
         ll x; 
         cin >> x;
+        if(x == i){
+            root = x;
+            continue;
+        }
         auto tmp = m.find(x);
         if(tmp != m.end())
             (*tmp).second.pb(i+1);
