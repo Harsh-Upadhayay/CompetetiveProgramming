@@ -12,7 +12,7 @@ ll t,T;
 
     
 ll fun(const unordered_map<ll, vector<ll>> &m, const string &color, ll root, ll &ans){
-    ll ret = (color[root] == 'W' ? 1 : -1);
+    ll ret = (color[root-1] == 'W' ? 1 : -1);
 
     auto list = m.find(root);
     if(list != m.end())
