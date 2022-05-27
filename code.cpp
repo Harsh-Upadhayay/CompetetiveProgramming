@@ -50,6 +50,7 @@ void solve(void){
             else
                 cout << (find(ar, n, *tmp) + 1);
         }
+        cout << "\n";
     }
     cout<<endl;
 
