@@ -47,7 +47,7 @@ void solve(void){
     cin >> s;
     ll ans = 0;
     ll t = fun(m, s, 1, ans);
-    cout << ans+t;
+    cout << (ans+t);
 
     // for(auto x : m){
     //     cout << x.first << " : ";
