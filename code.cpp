@@ -41,8 +41,7 @@ void solve(void){
             curr = 0;
         }
     }
-    for(auto x : v)
-        cout << x << " ";
+    
     if(v.size())
         if(curr >= ans){
             l = v[v.size()-1-curr];
