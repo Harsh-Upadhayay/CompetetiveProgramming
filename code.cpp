@@ -35,16 +35,17 @@ void solve(void){
         }
         else{
             if(curr >= ans){
-                l = v[i-curr];
+                l = v[i-curr-1];
                 ans = curr;
             }
-            curr = 1;
+            curr = 0;
         }
     }
-    if(curr >= ans){
-        l = v[v.size()-1-curr];
-        ans = curr;
-    }
+    if(v.size())
+        if(curr >= ans){
+            l = v[v.size()-1-curr];
+            ans = curr;
+        }
     if(v.size())
         if(l == -1)
             cout << v[0] << " " << (v[curr-1]);
