@@ -10,50 +10,47 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-void solve(void){
-    ll n, ans = INT_MIN, k;
-    map<ll, ll> m;
-    cin >> n >> k;
-
-    rpt(n){
-        ll x;
-        cin >> x;
-        m[x]++;
-    }
-    vector<ll> v;
-    for(auto x : m)
-        if(x.second >= k)
-            v.pb(x.first);
-
-    ll r = -1, l = -1, prev = -1;
-
-
-    ll curr = 0;
-    for(int i = 1; i < v.size(); i++){
-        if(v[i] - v[i-1] == 1){
-            curr++;
-        }
-        else{
-            if(curr >= ans){
-                l = v[i-curr-1];
-                ans = curr;
-            }
-            curr = 0;
-        }
-    }
-    
-    if(v.size())
-        if(curr >= ans){
-            l = v[v.size()-1-curr];
-            ans = curr;
-        }
-    if(v.size())
-        if(l == -1)
-            cout << v[0] << " " << (v[curr-1]);
+ll find(ll v[], ll n, ll key){
+    ll l = 0, r = n-1;
+    while(l <= r){
+        ll mid = l + (r-l)/2;
+        if(v[mid] == key)
+            return mid;
+        else if(v[mid] > key)
+            l = mid+1;
         else
-            cout << l << " " << (l+curr);
-    else
-        cout << "-1";
+            r = mid-1;
+    }
+    return -1;
+}
+
+void solve(void){
+    ll n, q;
+    cin >> n >> q;
+    ll ar[n], preSum[n] = {0};
+    rpt(n)
+        cin >> ar[i];
+    sort(ar, ar+n);
+    reverse(ar, ar+n);
+    preSum[0] = ar[0];
+    for(int i = 1; i < n; i++)
+        preSum[i] = ar[i] + preSum[i-1];
+    set<ll> s;
+    rpt(n)
+        s.insert(preSum[i]); 
+    rpt(q){
+        ll qry;
+        cin >> qry;
+        if(find(ar, n, qry) != -1)
+            cout << (find(ar, n, qry) + 1);
+        else{
+            auto tmp = (s.upper_bound(qry));
+            if(tmp == s.end())
+                cout << "-1";
+            else
+                cout << (find(ar, n, *tmp) + 1);
+        }
+    }
     cout<<endl;
 
 }
