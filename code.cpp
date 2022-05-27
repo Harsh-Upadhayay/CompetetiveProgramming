@@ -15,7 +15,7 @@ void solve(void){
     cin >> n;
     string s;
     unordered_map<ll, vector<ll>> m;
-    rpt(n){
+    rpt(n-1){
         ll x;
         cin >> x;
         auto t = m.find(x);
@@ -29,6 +29,7 @@ void solve(void){
         }
     }
     cin >> s;
+
     for(auto x : m){
         cout << x.first << " : ";
         for(auto y : x.second)
