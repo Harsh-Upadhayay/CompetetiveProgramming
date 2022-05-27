@@ -19,10 +19,10 @@ void solve(void){
         cin >> x;
         auto tmp = m.find(x);
         if(tmp != m.end())
-            (*tmp).second.pb(i);
+            (*tmp).second.pb(i+1);
         else{
             vector<ll> v;
-            v.pb(i);
+            v.pb(i+1);
             m[x] = v;
         }
     }
