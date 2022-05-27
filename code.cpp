@@ -20,9 +20,9 @@ ll fun(const unordered_map<ll, vector<ll>> &m, const string &color, ll root, ll 
             ll tmp = fun(m, color, x, ans);
             if(tmp == 0)
                 ans++;
-            // cout << "\n***";
-            // cout << x << " " << tmp;
-            // cout << "***\n";
+            cout << "\n***";
+            cout << x << " " << tmp;
+            cout << "***\n";
             ret += tmp;
         }
 
