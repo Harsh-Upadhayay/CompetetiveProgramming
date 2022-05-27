@@ -41,6 +41,10 @@ void solve(void){
             curr = 1;
         }
     }
+    if(curr >= ans){
+        l = v[v.size()-1-curr];
+        ans = curr;
+    }
     if(v.size())
         if(l == -1)
             cout << v[0] << " " << (v[curr-1]);
