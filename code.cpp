@@ -16,7 +16,7 @@ ll find(ll v[], ll n, ll key){
         ll mid = l + (r-l)/2;
         if(v[mid] == key)
             return mid;
-        else if(v[mid] > key)
+        else if(v[mid] < key)
             l = mid+1;
         else
             r = mid-1;
@@ -31,7 +31,6 @@ void solve(void){
     rpt(n)
         cin >> ar[i];
     sort(ar, ar+n);
-    reverse(ar, ar+n);
     preSum[0] = ar[0];
     for(int i = 1; i < n; i++)
         preSum[i] = ar[i] + preSum[i-1];
