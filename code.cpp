@@ -14,6 +14,7 @@ void solve(void){
     ll n, ans = INT_MIN, k;
     map<ll, ll> m;
     cin >> n >> k;
+
     rpt(n){
         ll x;
         cin >> x;
@@ -32,12 +33,13 @@ void solve(void){
     for(int i = 1; i < v.size(); i++){
         if(v[i] - v[i-1] == 1){
             curr++;
-            if(-1 == l)
-                l = v[i];
         }
         else{
+            if(curr > ans){
+                l = v[i-curr];
+                ans = curr;
+            }
             curr = 1;
-            l = -1;
         }
     }
 
