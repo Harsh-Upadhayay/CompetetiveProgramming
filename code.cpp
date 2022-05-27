@@ -66,7 +66,7 @@ void solve(void){
     //         cout << y << " ";
     //     cout << "\n";
     // }
-    // cout<<endl;
+    cout<<endl;
 
 }
 
