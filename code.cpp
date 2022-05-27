@@ -1,4 +1,4 @@
-    #include<bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 #define ll long long int
@@ -7,61 +7,36 @@ using namespace std;
 
 #define inf INT_MAX
 
-#define TESTCAS
+#define TESTCASE
 ll t,T;
 
 void solve(void){
-    ll n, q, t;
-    cin >> n >> q;
-    set<ll> rook_c, rook_r;
-    while(q--){
-        cin >> t;
-        ll x, y;
-        if(1 == t){
-            cin >> x >> y;
-            rook_r.insert(x);
-            rook_c.insert(y);
+    ll n;
+    cin >> n;
+    string s;
+    unordered_map<ll, vector<ll>> m;
+    rpt(n){
+        ll x;
+        cin >> x;
+        auto t = m.find(x);
+        if(t != m.end()){
+            (*t).second.push_back(i+2);
         }
-        else if (2 == t){
-            cin >> x >> y;
-            rook_r.erase(x);
-            rook_c.erase(y);
+        else{
+            vector<ll> v;
+            v.push_back(i+2);
+            m[x] = (v);
         }
-        else {
-            ll x1, y1, x2, y2;
-            cin >> x1 >> y1 >> x2 >> y2;
-            ll rookx = -1, rooky = -1;
-
-            if(rook_r.count(x1))
-                rookx = x1;
-            else if(rook_r.upper_bound(x1) != rook_r.end())
-                rookx = *(rook_r.upper_bound(x1));
-            
-            if(rook_c.count(y1))
-                rooky = y1;
-            else if(rook_c.upper_bound(y1) != rook_c.end())
-                rooky = *(rook_c.upper_bound(y1));
-            
-            // cout << rookx << " " << rooky << " ";
-
-            if(
-            rooky >= y1 && rooky <= y2
-            || 
-            rookx >= x1 && rookx <= x2
-            )
-                cout << "Yes\n";
-            else
-                cout << "No\n";
-
-        }
-        // cout << "***\n";
-        // for(auto x : rook_r)
-        //         cout << x << " ";
-        // cout << "\n";
-        // for(auto x : rook_c)
-        //         cout << x << " ";
-        // cout << "\n***\n";
     }
+    cin >> s;
+    for(auto x : m){
+        cout << x.first << " : ";
+        for(auto y : x.second)
+            cout << y << " ";
+        cout << "\n";
+    }
+    cout<<endl;
+
 }
 
 int main() {
