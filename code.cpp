@@ -17,7 +17,7 @@ void solve(void){
     rpt(n){
         ll x; 
         cin >> x;
-        if(x == i){
+        if(x == (i+1)){
             root = x;
             continue;
         }
