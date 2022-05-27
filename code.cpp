@@ -36,7 +36,7 @@ void solve(void){
         }
         else{
             if(curr > ans){
-                l = v[i-curr];
+                l = v[i-curr+1];
                 ans = curr;
             }
             curr = 1;
