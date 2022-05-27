@@ -53,7 +53,8 @@ void solve(void){
         }
     }
 
-    cout << "HERE";
+    fun(m, root);
+
     while(!q.empty()){
         auto x = q.top();
         cout << x.first << " " << x.second << " \n";
