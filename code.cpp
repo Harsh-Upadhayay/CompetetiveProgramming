@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+        #include<bits/stdc++.h>
 using namespace std;
 
 #define ll long long int
@@ -10,54 +10,41 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-    
-ll fun(const unordered_map<ll, vector<ll>> &m, const string &color, ll root, ll &ans){
-    ll ret = (color[root-1] == 'W' ? 1 : -1);
-
-    auto list = m.find(root);
-    if(list != m.end())
-        for(auto x : (*list).second){
-            ll tmp = fun(m, color, x, ans);
-            if(tmp == 0)
-                ans++;
-            // cout << "\n***";
-            // cout << x << " " << tmp;
-            // cout << "***\n";
-            ret += tmp;
-        }
-
-    return ret;
-}
-
 void solve(void){
-    ll n;
-    cin >> n;
-    string s;
-    unordered_map<ll, vector<ll>> m;
-    rpt(n-1){
+    ll n, ans = INT_MIN, k;
+    map<ll, ll> m;
+    cin >> n >> k;
+    rpt(n){
         ll x;
         cin >> x;
-        auto t = m.find(x);
-        if(t != m.end()){
-            (*t).second.push_back(i+2);
+        m[x]++;
+    }
+    for(auto x : m)
+        if(x.second < k)
+            m.erase(x.first);
+
+    ll r = -1, l = -1, prev = -1;
+    vector<ll> v;
+    for(auto x : m)
+        v.pb(x.first);
+
+    ll curr = 1;
+    for(int i = 1; i < v.size(); i++){
+        if(v[i] - v[i-1] == 1){
+            curr++;
+            if(-1 == l)
+                l = v[i];
         }
         else{
-            vector<ll> v;
-            v.push_back(i+2);
-            m[x] = (v);
+            curr = 1;
+            l = -1;
         }
     }
-    cin >> s;
-    ll ans = 0;
-    ll t = fun(m, s, 1, ans);
-    cout <<  (ans + (!t)) ;
 
-    // for(auto x : m){
-    //     cout << x.first << " : ";
-    //     for(auto y : x.second)
-    //         cout << y << " ";
-    //     cout << "\n";
-    // }
+    if(v.size())
+        cout << l << " " << (l + curr);
+    else
+        cout << "-1";
     cout<<endl;
 
 }
