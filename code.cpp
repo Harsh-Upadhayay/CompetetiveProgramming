@@ -29,8 +29,6 @@ void solve(void){
     for(auto x : m)
         v.pb(x.first);
 
-    for(auto x : v)
-        cout << x << " ";
 
     ll curr = 1;
     for(int i = 1; i < v.size(); i++){
@@ -38,7 +36,7 @@ void solve(void){
             curr++;
         }
         else{
-            if(curr > ans){
+            if(curr >= ans){
                 l = v[i-curr];
                 ans = curr;
             }
