@@ -44,7 +44,8 @@ void solve(void){
     }
 
     if(v.size())
-        cout << l << " " << (l + curr);
+        if(l == -1)
+        cout << v[0] << " " << (v[curr-1]);
     else
         cout << "-1";
     cout<<endl;
