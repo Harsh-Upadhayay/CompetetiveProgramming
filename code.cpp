@@ -20,9 +20,9 @@ ll fun(const unordered_map<ll, vector<ll>> &m, const string &color, ll root, ll 
             ll tmp = fun(m, color, x, ans);
             if(tmp == 0)
                 ans++;
-            // cout << "\n***";
-            // cout << x << " " << tmp;
-            // cout << "***\n";
+            cout << "\n***";
+            cout << x << " " << tmp;
+            cout << "***\n";
             ret += tmp;
         }
 
@@ -52,12 +52,12 @@ void solve(void){
     ll t = fun(m, s, 1, ans);
     cout << (ans + (!t));
 
-    for(auto x : m){
-        cout << x.first << " : ";
-        for(auto y : x.second)
-            cout << y << " ";
-        cout << "\n";
-    }
+    // for(auto x : m){
+    //     cout << x.first << " : ";
+    //     for(auto y : x.second)
+    //         cout << y << " ";
+    //     cout << "\n";
+    // }
     cout<<endl;
 
 }
