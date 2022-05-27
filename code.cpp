@@ -31,23 +31,25 @@ void solve(void){
     rpt(n)
         cin >> ar[i];
     sort(ar, ar+n);
+    reverse(ar, ar+n);
     preSum[0] = ar[0];
     for(int i = 1; i < n; i++)
         preSum[i] = ar[i] + preSum[i-1];
     set<ll> s;
+    reverse(ar, ar+n);
     rpt(n)
         s.insert(preSum[i]); 
     rpt(q){
         ll qry;
         cin >> qry;
-        if(find(ar, n, qry) != -1)
-            cout << (find(ar, n, qry) + 1);
+        if(find(preSum, n, qry) != -1)
+            cout << (find(preSum, n, qry) + 1);
         else{
             auto tmp = (s.upper_bound(qry));
             if(tmp == s.end())
                 cout << "-1";
             else
-                cout << (find(ar, n, *tmp) + 1);
+                cout << (find(preSum, n, *tmp) + 1);
         }
         cout << "\n";
     }
