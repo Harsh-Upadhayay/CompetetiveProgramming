@@ -34,6 +34,7 @@ void solve(void){
     else
         cout << "NO";
 
+    cout << endl;
 }
 
 int main() {
