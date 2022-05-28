@@ -7,37 +7,32 @@ using namespace std;
 
 #define inf INT_MAX
 
-#define TESTCAS
+#define TESTCASE
 ll t,T;
 
-bool lucky(ll x){
-    while(x){
-        ll t = x%10;
-        x = x/10;
-        if(t == 4 || t == 7)
-            continue;
-        else
+bool isSorted(vector<ll> v){
+    for(int i = 1; i < v.size(); i++)
+        if(v[i] < v[i-1])
             return false;
-    }
     return true;
 }
 
 void solve(void){
-    ll n, m, ans;
+    ll n;
     cin >> n;
-    if(lucky(n) || !(n%4) || !(n%7)){
-        cout << "YES\n";
-        return;
-    }
+    vector<ll> v(n);
+    rpt(n)
+        cin >> v[i];
 
-    for(int i = 2; i < n; i++)
-        if(!(n%i) && lucky(i)){
-            cout << "YES\n";
-            return;
-        }
-    cout << "NO";
+    for(int i = (n%2); i < n; i += 2)
+        if(v[i] > v[i+1])
+            swap(v[i], v[i+1]);
 
-    cout<<endl;
+
+    if(isSorted(v))
+        cout << "YES";
+    else
+        cout << "NO";
 
 }
 
