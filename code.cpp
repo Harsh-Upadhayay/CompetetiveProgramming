@@ -10,12 +10,12 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-priority_queue<pair<ll, ll>> q;
+map<ll, ll> univisited;
 
 ll fun(unordered_map<ll, vector<ll>> m, ll root){
     
     if(!(m.count(root))){
-        q.push(make_pair(1, root));
+        univisited.insert(make_pair(1, root));
         return 1;
     }
     
@@ -26,12 +26,12 @@ ll fun(unordered_map<ll, vector<ll>> m, ll root){
         ans = max(ans, tmp);
     }
 
-    q.push(make_pair(ans+1, root));
+    univisited.insert(make_pair(ans+1, root)); 
     return ans + 1;
 }
 
 void solve(void){
-    q = priority_queue<pair<ll, ll>>();
+    univisited.clear();
     ll n,  ans, root;
     cin >> n;
     unordered_map<ll, vector<ll>> m;
@@ -54,18 +54,22 @@ void solve(void){
     }
 
     fun(m, root);
+    
+    // /*PrintQ*/
+    // while(!univisited.empty()){
+    //     auto x = univisited.top();
+    //     cout << x.first << " " << x.second << " \n";
+    //     univisited.pop();
+    // }
 
-    while(!q.empty()){
-        auto x = q.top();
-        cout << x.first << " " << x.second << " \n";
-        q.pop();
-    }
+    // /*PrintM*/
     // for(auto x : m){
     //     cout << x.first << " : ";
     //     for(auto y : x.second)
     //         cout << y << " ";
     //     cout << "\n";
     // }
+    
     cout<<endl;
 
 }
