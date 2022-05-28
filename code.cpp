@@ -7,69 +7,36 @@ using namespace std;
 
 #define inf INT_MAX
 
-#define TESTCASE
+#define TESTCAS
 ll t,T;
 
-map<ll, ll> univisited;
-
-ll fun(unordered_map<ll, vector<ll>> m, ll root){
-    
-    if(!(m.count(root))){
-        univisited.insert(make_pair(1, root));
-        return 1;
+bool lucky(ll x){
+    while(x){
+        ll t = x%10;
+        x = x/10;
+        if(t == 4 || t == 7)
+            continue;
+        else
+            return false;
     }
-    
-    ll ans = INT_MIN;
-    auto list = m[root];
-    for(auto x : list){
-        ll tmp = fun(m, x);
-        ans = max(ans, tmp);
-    }
-
-    univisited.insert(make_pair(ans+1, root)); 
-    return ans + 1;
+    return true;
 }
 
 void solve(void){
-    univisited.clear();
-    ll n,  ans, root;
+    ll n, m, ans;
     cin >> n;
-    unordered_map<ll, vector<ll>> m;
-        
-    rpt(n){
-        ll x; 
-        cin >> x;
-        if(x == (i+1)){
-            root = x;
-            continue;
-        }
-        auto tmp = m.find(x);
-        if(tmp != m.end())
-            (*tmp).second.pb(i+1);
-        else{
-            vector<ll> v;
-            v.pb(i+1);
-            m[x] = v;
-        }
+    if(lucky(n) || !(n%4) || !(n%7)){
+        cout << "YES\n";
+        return;
     }
 
-    fun(m, root);
-    
-    // /*PrintQ*/
-    // while(!univisited.empty()){
-    //     auto x = univisited.top();
-    //     cout << x.first << " " << x.second << " \n";
-    //     univisited.pop();
-    // }
+    for(int i = 2; i < n; i++)
+        if(!(n%i) && lucky(i)){
+            cout << "YES\n";
+            return;
+        }
+    cout << "NO";
 
-    // /*PrintM*/
-    // for(auto x : m){
-    //     cout << x.first << " : ";
-    //     for(auto y : x.second)
-    //         cout << y << " ";
-    //     cout << "\n";
-    // }
-    
     cout<<endl;
 
 }
