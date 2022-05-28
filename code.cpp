@@ -14,18 +14,20 @@ void solve(void){
     ll n, r, b;
     cin >> n >> r >> b;
     ll f = round(r/(b+1));
-    // while(r || b){
-    //     ll t = f;
-    //     if(r)
-    //         while(t-- && r){
-    //             cout << "R";
-    //             r--;
-    //         }
-    //     if(b){
-    //         cout << "B";
-    //         b--;
-    //     }
-    // }
+
+    while(r || b){
+        ll t = f;
+        if(r)
+            while(t-- && r){
+                cout << "R";
+                r--;
+            }
+        if(b){
+            cout << "B";
+            b--;
+        }
+    }
+   
     cout<<endl;
 
 }
