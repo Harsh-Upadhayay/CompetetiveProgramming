@@ -10,31 +10,24 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-bool isSorted(vector<ll> v){
-    for(int i = 1; i < v.size(); i++)
-        if(v[i] < v[i-1])
-            return false;
-    return true;
-}
-
 void solve(void){
-    ll n;
-    cin >> n;
-    vector<ll> v(n);
-    rpt(n)
-        cin >> v[i];
+    ll n, r, b;
+    cin >> n >> r >> b;
+    ll f = round(r/(b+1));
+    while(r || b){
+        ll t = f;
+        if(r)
+            while(t-- && r){
+                cout << "R";
+                r--;
+            }
+        if(b){
+            cout << "B";
+            b--;
+        }
+    }
+    cout<<endl;
 
-    for(int i = (n%2); i < n; i += 2)
-        if(v[i] > v[i+1])
-            swap(v[i], v[i+1]);
-
-
-    if(isSorted(v))
-        cout << "YES";
-    else
-        cout << "NO";
-
-    cout << endl;
 }
 
 int main() {
