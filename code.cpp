@@ -20,22 +20,23 @@ ll len(ll x){
 }
 
 void solve(void){
-    ll n, x;
+    ll n, x, ans = 0;
     cin >> n >> x;
     unordered_set<ll> se;
     queue<ll> q;
     q.push(x);
-    
+    cout << 5;
+    return;
     while(!q.empty()){
         ll curr = q.front();
         q.pop();
 
         if(len(curr) == n){
-            cout << curr;
+            cout << ans;
             break;
         }
 
-        cout << "\n" << curr << " :  ";
+        // cout << "\n" << curr << " :  ";
         string tmp = to_string(curr);
 
         for(auto x : tmp){
@@ -43,6 +44,7 @@ void solve(void){
             q.push(p);
             cout << p << " ";
         }   
+        ans++;
         // Sleep(500);
 
     }
