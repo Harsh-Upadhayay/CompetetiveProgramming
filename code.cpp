@@ -13,9 +13,9 @@ ll t,T;
 void solve(void){
     ll n, r, b;
     cin >> n >> r >> b;
-    ll f = round(r/(b+1));
+    ll f = round((float)r/(b+1));
     ll t = 1.8;
-    cout << round(1.8);
+    cout << f;
     return;
     while(r || b){
         ll t = f;
