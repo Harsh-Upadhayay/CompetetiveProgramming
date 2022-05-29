@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+#include <windows.h>
 using namespace std;
 
 #define ll long long int
@@ -10,7 +11,7 @@ using namespace std;
 #define TESTCAS
 ll t,T;
 
-#define toInt(x) x - '0'
+#define toInt(x) (x - '0')
 
 ll len(ll x){
     ll ans;
@@ -24,7 +25,8 @@ void solve(void){
     unordered_set<ll> se;
     queue<ll> q;
     q.push(x);
-
+    cout << len(x);
+    return;
     while(!q.empty()){
         ll curr = q.front();
         q.pop();
@@ -35,13 +37,14 @@ void solve(void){
         }
 
         cout << "\n" << curr << " :  ";
-        break;
         string tmp = to_string(curr);
+
         for(auto x : tmp){
             ll p = toInt(x)*curr;
             q.push(p);
             cout << p << " ";
-        }
+        }   
+        // Sleep(500);
 
     }
 
