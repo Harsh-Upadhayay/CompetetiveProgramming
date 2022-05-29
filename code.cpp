@@ -25,6 +25,7 @@ void solve(void){
     queue<ll> q;
     q.push(x);
     string s = to_string(x);
+    cout << s;
     return;
     while(!q.empty()){
         ll curr = q.front();
