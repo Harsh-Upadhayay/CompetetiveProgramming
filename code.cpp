@@ -7,31 +7,46 @@ using namespace std;
 
 #define inf INT_MAX
 
-#define TESTCASE
+#define TESTCAS
 ll t,T;
 
-void solve(void){
-    ll n, r, b;
-    cin >> n >> r >> b;
-    ll f = round((float)r/(b+1));
-    ll t = 1.8;
-    cout << f;
-    return;
-    while(r || b){
-        ll t = f;
-        if(r)
-            while(t-- && r){
-                cout << "R";
-                r--;
-            }
-        if(b){
-            cout << "B";
-            b--;
-        }
-    }
-   
-    cout<<endl;
+#define toInt(x) x - '0'
 
+ll len(ll x){
+    ll ans;
+    for(; x; x /= 10, ans++);
+    return ans;
+}
+
+void solve(void){
+    ll n, x;
+    cin >> n >> x;
+    unordered_set<ll> se;
+    queue<ll> q;
+    q.push(x);
+    string s = to_string(x);
+    return;
+    while(!q.empty()){
+        ll curr = q.front();
+        q.pop();
+
+        if(len(curr) == n){
+            cout << curr;
+            break;
+        }
+
+        cout << "\n" << curr << " :  ";
+
+        string tmp = to_string(curr);
+        for(auto x : tmp){
+            ll p = toInt(x)*curr;
+            q.push(p);
+            cout << p << " ";
+        }
+
+    }
+
+    cout<<endl;
 }
 
 int main() {
