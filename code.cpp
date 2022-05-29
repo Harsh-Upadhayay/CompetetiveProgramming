@@ -22,25 +22,25 @@ ll len(ll x){
 void solve(void){
     ll n, x, ans = 0;
     cin >> n >> x;
-    unordered_set<ll> se;
+    cout << "5";
+    return;    unordered_set<ll> se;
     queue<ll> q;
     q.push(x);
-    cout << 5;
-    return;
     while(!q.empty()){
         ll curr = q.front();
         q.pop();
-
-        if(len(curr) == n){
-            cout << ans;
-            break;
-        }
 
         // cout << "\n" << curr << " :  ";
         string tmp = to_string(curr);
 
         for(auto x : tmp){
             ll p = toInt(x)*curr;
+
+            if(len(p) == n){
+                cout << ans;
+                break;
+            }
+
             q.push(p);
             cout << p << " ";
         }   
