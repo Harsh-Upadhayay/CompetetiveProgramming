@@ -24,10 +24,7 @@ void solve(void){
     unordered_set<ll> se;
     queue<ll> q;
     q.push(x);
-    string s = to_string(x);
-    for(auto x : s)
-        cout << toInt(x) << " ";
-    return;
+
     while(!q.empty()){
         ll curr = q.front();
         q.pop();
@@ -38,7 +35,7 @@ void solve(void){
         }
 
         cout << "\n" << curr << " :  ";
-
+        break;
         string tmp = to_string(curr);
         for(auto x : tmp){
             ll p = toInt(x)*curr;
