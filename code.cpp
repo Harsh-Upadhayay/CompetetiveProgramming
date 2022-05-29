@@ -14,7 +14,7 @@ ll t,T;
 #define toInt(x) (x - '0')
 
 ll len(ll x){
-    ll ans;
+    ll ans = 0;
     for(; x; x /= 10, ans++);
     return ans;
 }
