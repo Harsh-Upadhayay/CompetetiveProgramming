@@ -25,8 +25,7 @@ void solve(void){
     unordered_set<ll> se;
     queue<ll> q;
     q.push(x);
-    cout << len(x);
-    return;
+    
     while(!q.empty()){
         ll curr = q.front();
         q.pop();
