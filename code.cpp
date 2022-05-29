@@ -26,7 +26,7 @@ void solve(void){
     q.push(x);
     string s = to_string(x);
     for(auto x : s)
-        cout << toInt(x);
+        cout << toInt(x) << " ";
     return;
     while(!q.empty()){
         ll curr = q.front();
