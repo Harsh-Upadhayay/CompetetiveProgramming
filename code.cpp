@@ -1,4 +1,4 @@
-        #include<bits/stdc++.h>
+    #include<bits/stdc++.h>
 using namespace std;
 
 #define ll long long int
@@ -7,37 +7,65 @@ using namespace std;
 
 #define inf INT_MAX
 
-#define TESTCASE
+#define TESTCAS
 ll t,T;
 
 void solve(void){
-    ll n, m, ans;
-    cin >> n;
-    bool o_flag = false, e_flag = false;
-    unordered_set<ll> s;
-    rpt(n){
-        ll x;
-        cin >> x;
-        s.insert(x);
-        if(x == 0 || x == 2)
-            o_flag = true;
-        if(x == 1)
-            e_flag = true;
-    }
-    if(!(o_flag | e_flag) || o_flag^e_flag){
-        if(e_flag)
-            for(auto x : s)
-                if(s.count(x-1)){
-                    cout << "NO\n";
-                    return;
-                }
+    ll n, q, t;
+    cin >> n >> q;
+    set<ll> rook_c, rook_r;
+    // while(q--){
+    //     cin >> t;
+    //     ll x, y;
+    //     if(1 == t){
+    //         cin >> x >> y;
+    //         rook_r.insert(x);
+    //         rook_c.insert(y);
+    //     }
+    //     else if (2 == t){
+    //         cin >> x >> y;
+    //         rook_r.erase(x);
+    //         rook_c.erase(y);
+    //     }
+    //     else {
+    //         ll x1, y1, x2, y2;
+    //         cin >> x1 >> y1 >> x2 >> y2;
+    //         ll rookx = -1, rooky = -1;
 
-        cout << "YES";
-    }
-    else
-        cout << "NO";
-    cout<<endl;
+    //         if(rook_r.count(x1)){
 
+    //             auto it = rook_r.find(x1);
+    //             auto expected = *(it + (x2 - x1));
+                
+    //             if(expected == x2)
+    //                 cout << "YES";
+
+    //             else if(rook_c.count(y1)){
+
+    //                 auto it = rook_c.find(y1);
+    //                 auto expected = *(it + (y2 - y1));
+
+    //                 if(expected == y2)
+    //                     cout << "YES";
+    //             }
+    //         }
+    //         else
+    //             cout << "NO";
+
+           
+    //         // cout << rookx << " " << rooky << " ";
+
+
+    //     }
+    //     // cout << "***\n";
+    //     // for(auto x : rook_r)
+    //     //         cout << x << " ";
+    //     // cout << "\n";
+    //     // for(auto x : rook_c)
+    //     //         cout << x << " ";
+    //     // cout << "\n***\n";
+    // }
+    auto it = rook_r.begin();
 }
 
 int main() {
@@ -63,5 +91,3 @@ int main() {
 
     return 0;
 }
-
-
