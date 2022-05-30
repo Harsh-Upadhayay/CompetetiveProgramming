@@ -80,7 +80,7 @@ void solve(void){
             else
                 cout << "NO";
 
-           
+           cout << "\n";
             // cout << rookx << " " << rooky << " ";
 
 
