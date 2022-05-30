@@ -10,62 +10,91 @@ using namespace std;
 #define TESTCAS
 ll t,T;
 
+
+
 void solve(void){
     ll n, q, t;
     cin >> n >> q;
     set<ll> rook_c, rook_r;
-    // while(q--){
-    //     cin >> t;
-    //     ll x, y;
-    //     if(1 == t){
-    //         cin >> x >> y;
-    //         rook_r.insert(x);
-    //         rook_c.insert(y);
-    //     }
-    //     else if (2 == t){
-    //         cin >> x >> y;
-    //         rook_r.erase(x);
-    //         rook_c.erase(y);
-    //     }
-    //     else {
-    //         ll x1, y1, x2, y2;
-    //         cin >> x1 >> y1 >> x2 >> y2;
-    //         ll rookx = -1, rooky = -1;
+    while(q--){
+        cin >> t;
+        ll x, y;
+        if(1 == t){
+            cin >> x >> y;
+            rook_r.insert(x);
+            rook_c.insert(y);
+        }
+        else if (2 == t){
+            cin >> x >> y;
+            rook_r.erase(x);
+            rook_c.erase(y);
+        }
+        else {
+            ll x1, y1, x2, y2;
+            cin >> x1 >> y1 >> x2 >> y2;
+            ll rookx = -1, rooky = -1;
 
-    //         if(rook_r.count(x1)){
+            if(rook_r.count(x1) && rook_r.count(x2)){
 
-    //             auto it = rook_r.find(x1);
-    //             auto expected = *(it + (x2 - x1));
-                
-    //             if(expected == x2)
-    //                 cout << "YES";
+                bool flag = true;
+                auto end = rook_r.find(x2), start = rook_r.find(x1);
+                while(start != end){
 
-    //             else if(rook_c.count(y1)){
+                    if(x1++ != *(start))
+                        flag = false;
+                    start++;
 
-    //                 auto it = rook_c.find(y1);
-    //                 auto expected = *(it + (y2 - y1));
+                }
+                if(flag)
+                    cout << "YES";
 
-    //                 if(expected == y2)
-    //                     cout << "YES";
-    //             }
-    //         }
-    //         else
-    //             cout << "NO";
+                else if(rook_c.count(y1) && rook_c.count(y1)){
+
+                    bool flag = true;
+                    auto end = rook_c.find(y2), start = rook_c.find(y1);
+                    while(start != end){
+
+                        if(y1++ != *(start))
+                            flag = false;
+                        start++;
+                    }
+
+                    if(flag)
+                        cout << "YES";
+                }
+
+            // if(rook_r.count(x1) && rook_r.count(x2)){
+
+            //     ll diff = rook_r.find(x2) - rook_r.find(x1);
+            //     if(diff == (x2 - x1))
+            //         cout << "YES";
+
+            //     else if(rook_c.count(y1) && rook_c.count(y1)){
+
+            //         ll diff = rook_c.find(y2) - rook_c.find(y1);
+
+            //         if(diff == x2 - x1)
+            //             cout << "YES";
+            //     }
+            }
+            else
+                cout << "NO";
 
            
-    //         // cout << rookx << " " << rooky << " ";
+            // cout << rookx << " " << rooky << " ";
 
 
-    //     }
-    //     // cout << "***\n";
-    //     // for(auto x : rook_r)
-    //     //         cout << x << " ";
-    //     // cout << "\n";
-    //     // for(auto x : rook_c)
-    //     //         cout << x << " ";
-    //     // cout << "\n***\n";
-    // }
-    auto it = rook_r.begin();
+        }
+        // cout << "***\n";
+        // for(auto x : rook_r)
+        //         cout << x << " ";
+        // cout << "\n";
+        // for(auto x : rook_c)
+        //         cout << x << " ";
+        // cout << "\n***\n";
+    }
+    // auto it = rook_r.begin();
+    // it = it + 5;
 }
 
 int main() {
