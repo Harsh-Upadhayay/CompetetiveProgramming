@@ -45,7 +45,7 @@ void solve(void){
                         flag = false;
                 }
                 if(flag)
-                    cout << "YES";
+                    cout << "Yes";
             }    
             else if(rook_c.count(y1) && rook_c.count(y1)){
 
@@ -59,23 +59,23 @@ void solve(void){
                 }
 
                 if(flag)
-                    cout << "YES";
+                    cout << "Yes";
                 
             }
             else
-                cout << "NO";
+                cout << "No";
             // if(rook_r.count(x1) && rook_r.count(x2)){
 
             //     ll diff = rook_r.find(x2) - rook_r.find(x1);
             //     if(diff == (x2 - x1))
-            //         cout << "YES";
+            //         cout << "Yes";
 
             //     else if(rook_c.count(y1) && rook_c.count(y1)){
 
             //         ll diff = rook_c.find(y2) - rook_c.find(y1);
 
             //         if(diff == x2 - x1)
-            //             cout << "YES";
+            //             cout << "Yes";
             //     }
             
 
