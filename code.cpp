@@ -50,8 +50,9 @@ void solve(void){
                     ans = true;
             } 
                
-            if(!ans && rook_c.count(y1) && rook_c.count(y1)){
+            if(!ans && rook_c.count(y1) && rook_c.count(y2)){
 
+                bool flag = false;
                 auto end = (y2), start = (y1);
 
                 while(start <= end){
