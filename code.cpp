@@ -14,6 +14,7 @@ ll t,T;
 
 void solve(void){
     ll n, q, t;
+    bool ans;
     cin >> n >> q;
     unordered_set<ll> rook_c, rook_r;
     while(q--){
@@ -30,6 +31,7 @@ void solve(void){
             rook_c.erase(y);
         }
         else {
+            ans = false;
             ll x1, y1, x2, y2;
             cin >> x1 >> y1 >> x2 >> y2;
             ll rookx = -1, rooky = -1;
@@ -45,7 +47,7 @@ void solve(void){
                         flag = false;
                 }
                 if(flag)
-                    cout << "Yes";
+                    ans = true;
             } 
                
             if(!flag && rook_c.count(y1) && rook_c.count(y1)){
@@ -59,12 +61,14 @@ void solve(void){
                 }
 
                 if(!flag)
-                    cout << "Yes";
+                    ans = true;
                 
-            }
+            }         
+            if(ans)
+                cout << "Yes";
             else
-                cout << "Noo";           
-
+                cout << "No";
+            
            cout << "\n";
 
 
