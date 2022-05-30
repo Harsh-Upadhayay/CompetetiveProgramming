@@ -25,7 +25,7 @@ void solve(void){
             e_flag = true;
     }
     if(!(o_flag | e_flag) || o_flag^e_flag){
-        if(e_flag)
+        // if(e_flag)
             for(auto x : s)
                 if(s.count(x-1)){
                     cout << "NO\n";
