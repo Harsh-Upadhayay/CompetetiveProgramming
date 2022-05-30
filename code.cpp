@@ -13,7 +13,7 @@ ll t,T;
 void solve(void){
     ll n, m, ans;
     cin >> n;
-    bool flag;
+    bool flag = 0;
     vector<ll> v(n);
     rpt(n){
         cin >> v[i];
