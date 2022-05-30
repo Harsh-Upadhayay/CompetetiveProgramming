@@ -16,28 +16,17 @@ void solve(void){
     bool o_flag = true, e_flag = true;
     vector<ll> v(n);
     rpt(n){
-        cin >> v[i];
-        if(v[i] % 2)
-            e_flag = false;
-        else 
-            o_flag = false;
+        ll x;
+        cin >> x;
+        if( x == 0 || x == 2)
+            o_flag = true;
+        if(x == 1)
+            e_flag = true;
     }
-    if(!o_flag && !e_flag){
-        rpt(n){
-            v[i] = v[i] % 3;
-            v[i] = v[i] % 2;
-        }
-    }
-    else{
-        cout << "YES\n";
-        return;
-    }
-    for(int i = 1; i < n; i++)
-        if(v[i] != v[0]){
-            cout << "NO\n";
-            return;
-        }
-    cout << "YES";
+    if(o_flag^e_flag)
+        cout << "YES";
+    else
+        cout << "NO";
     cout<<endl;
 
 }
