@@ -17,7 +17,8 @@ void solve(void){
     vector<ll> v(n);
     rpt(n){
         cin >> v[i];
-        flag = v[i] % 2;
+        if(!flag)
+            flag = v[i] % 2;
     }
     if(flag){
         rpt(n){
