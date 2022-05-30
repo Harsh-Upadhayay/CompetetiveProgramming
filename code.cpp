@@ -23,7 +23,7 @@ void solve(void){
         if(x == 1)
             e_flag = true;
     }
-    if(o_flag^e_flag)
+    if(!(o_flag | e_flag) || o_flag^e_flag)
         cout << "YES";
     else
         cout << "NO";
