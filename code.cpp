@@ -15,7 +15,7 @@ ll t,T;
 void solve(void){
     ll n, q, t;
     cin >> n >> q;
-    set<ll> rook_c, rook_r;
+    unordered_set<ll> rook_c, rook_r;
     while(q--){
         cin >> t;
         ll x, y;
@@ -37,13 +37,11 @@ void solve(void){
             if(rook_r.count(x1) && rook_r.count(x2)){
 
                 bool flag = true;
-                auto end = rook_r.find(x2), start = rook_r.find(x1);
+                auto end = x2, start = x1;
                 while(start != end){
 
-                    if(x1++ != *(start))
+                    if(!(rook_r.count(start++)))
                         flag = false;
-                    start++;
-
                 }
                 if(flag)
                     cout << "YES";
@@ -51,12 +49,11 @@ void solve(void){
                 else if(rook_c.count(y1) && rook_c.count(y1)){
 
                     bool flag = true;
-                    auto end = rook_c.find(y2), start = rook_c.find(y1);
+                    auto end = (y2), start = (y1);
                     while(start != end){
 
-                        if(y1++ != *(start))
+                        if(!(rook_c.count(start++)))
                             flag = false;
-                        start++;
                     }
 
                     if(flag)
