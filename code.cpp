@@ -35,7 +35,7 @@ void solve(void){
             cout << "NO\n";
             return;
         }
-    cout << "YeES";
+    cout << "YES";
     cout<<endl;
 
 }
