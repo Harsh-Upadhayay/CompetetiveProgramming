@@ -38,6 +38,7 @@ void solve(void){
 
                 bool flag = true;
                 auto end = x2, start = x1;
+
                 while(start != end){
 
                     if(!(rook_r.count(start++)))
@@ -45,23 +46,24 @@ void solve(void){
                 }
                 if(flag)
                     cout << "YES";
+            }    
+            else if(rook_c.count(y1) && rook_c.count(y1)){
 
-                else if(rook_c.count(y1) && rook_c.count(y1)){
+                bool flag = true;
+                auto end = (y2), start = (y1);
 
-                    bool flag = true;
-                    auto end = (y2), start = (y1);
-                    while(start != end){
+                while(start != end){
 
-                        if(!(rook_c.count(start++)))
-                            flag = false;
-                    }
-
-                    if(flag)
-                        cout << "YES";
-                    else
-                        cout << "NO";
+                    if(!(rook_c.count(start++)))
+                        flag = false;
                 }
 
+                if(flag)
+                    cout << "YES";
+                
+            }
+            else
+                cout << "NO";
             // if(rook_r.count(x1) && rook_r.count(x2)){
 
             //     ll diff = rook_r.find(x2) - rook_r.find(x1);
@@ -75,7 +77,7 @@ void solve(void){
             //         if(diff == x2 - x1)
             //             cout << "YES";
             //     }
-            }
+            
 
            cout << "\n";
             // cout << rookx << " " << rooky << " ";
