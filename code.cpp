@@ -1,5 +1,4 @@
-#include<bits/stdc++.h>
-#include <windows.h>
+        #include<bits/stdc++.h>
 using namespace std;
 
 #define ll long long int
@@ -8,48 +7,36 @@ using namespace std;
 
 #define inf INT_MAX
 
-#define TESTCAS
+#define TESTCASE
 ll t,T;
 
-#define toInt(x) (x - '0')
-
-ll len(ll x){
-    ll ans = 0;
-    for(; x; x /= 10, ans++);
-    return ans;
-}
-
 void solve(void){
-    ll n, x, ans = 0;
-    cin >> n >> x;
-    cout << "5";
-    return;    unordered_set<ll> se;
-    queue<ll> q;
-    q.push(x);
-    while(!q.empty()){
-        ll curr = q.front();
-        q.pop();
-
-        // cout << "\n" << curr << " :  ";
-        string tmp = to_string(curr);
-
-        for(auto x : tmp){
-            ll p = toInt(x)*curr;
-
-            if(len(p) == n){
-                cout << ans;
-                break;
-            }
-
-            q.push(p);
-            cout << p << " ";
-        }   
-        ans++;
-        // Sleep(500);
-
+    ll n, m, ans;
+    cin >> n;
+    bool flag;
+    vector<ll> v(n);
+    rpt(n){
+        cin >> v[i];
+        flag = v[i] % 2;
     }
-
+    if(flag){
+        rpt(n){
+            v[i] = v[i] % 3;
+            v[i] = v[i] % 2;
+        }
+    }
+    else{
+        cout << "YES\n";
+        return;
+    }
+    for(int i = 1; i < n; i++)
+        if(v[i] != v[0]){
+            cout << "NO\n";
+            return;
+        }
+    cout << "YES";
     cout<<endl;
+
 }
 
 int main() {
@@ -69,6 +56,7 @@ int main() {
         #else
         t = 1;
     #endif
+
     while(t--) 
         solve();
 
