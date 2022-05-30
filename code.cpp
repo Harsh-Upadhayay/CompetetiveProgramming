@@ -75,7 +75,7 @@ void solve(void){
             //     }
             }
             else
-                cout << "NO";
+                cout << "NoO";
 
            cout << "\n";
             // cout << rookx << " " << rooky << " ";
