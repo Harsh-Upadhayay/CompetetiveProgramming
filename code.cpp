@@ -16,19 +16,23 @@ void solve(void){
     ll n, q, t;
     bool ans;
     cin >> n >> q;
-    unordered_set<ll> rook_c, rook_r;
+    unordered_map<ll, ll> rook_c, rook_r;
     while(q--){
         cin >> t;
         ll x, y;
         if(1 == t){
             cin >> x >> y;
-            rook_r.insert(x);
-            rook_c.insert(y);
+            rook_r[(x)]++;
+            rook_c[(y)]++;
         }
         else if (2 == t){
             cin >> x >> y;
-            rook_r.erase(x);
-            rook_c.erase(y);
+            rook_r[(x)]--;
+            rook_c[(y)]--;
+            // if(rook_r[x] == 0)
+            //     rook_r.erase(x);
+            // if(rook_c[y] == 0)
+            //     rook_c.erase(y);
         }
         else {
             ans = false;
@@ -37,13 +41,13 @@ void solve(void){
             ll rookx = -1, rooky = -1;
             bool flag = true;
 
-            if(rook_r.count(x1) && rook_r.count(x2)){
+            if(rook_r[(x1)] && rook_r[(x2)]){
 
                 auto end = x2, start = x1;
 
                 while(start <= end){
 
-                    if(!(rook_r.count(start++)))
+                    if(!(rook_r[(start++)]))
                         flag = false;
                 }
                 if(flag)
@@ -57,7 +61,7 @@ void solve(void){
 
                 while(start <= end){
 
-                    if(!(rook_c.count(start++)))
+                    if(!(rook_c[(start++)]))
                         flag = true;
                 }
 
@@ -74,13 +78,13 @@ void solve(void){
 
         }
 
-        cout << "***\n";
-        for(auto x : rook_r)
-                cout << x << " ";
-        cout << "\n";
-        for(auto x : rook_c)
-                cout << x << " ";
-        cout << "\n***\n";
+        // cout << "***\n";
+        // for(auto x : rook_r)
+        //         cout << x << " ";
+        // cout << "\n";
+        // for(auto x : rook_c)
+        //         cout << x << " ";
+        // cout << "\n***\n";
     }
 }
 
