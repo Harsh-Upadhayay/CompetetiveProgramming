@@ -50,7 +50,7 @@ void solve(void){
                     ans = true;
             } 
                
-            if(!flag && rook_c.count(y1) && rook_c.count(y1)){
+            if(!ans && rook_c.count(y1) && rook_c.count(y1)){
 
                 auto end = (y2), start = (y1);
 
