@@ -14,17 +14,25 @@ void solve(void){
     ll n, m, ans;
     cin >> n;
     bool o_flag = false, e_flag = false;
-    vector<ll> v(n);
+    unordered_set<ll> s;
     rpt(n){
         ll x;
         cin >> x;
-        if( x == 0 || x == 2)
+        s.insert(x);
+        if(x == 0 || x == 2)
             o_flag = true;
         if(x == 1)
             e_flag = true;
     }
-    if(!(o_flag | e_flag) || o_flag^e_flag)
+    if(!(o_flag | e_flag) || o_flag^e_flag){
+        for(auto x : s)
+            if(s.count(x-1)){
+                cout << "NO\n";
+                return;
+            }
+        
         cout << "YES";
+    }
     else
         cout << "NO";
     cout<<endl;
