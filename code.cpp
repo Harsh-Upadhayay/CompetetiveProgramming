@@ -63,37 +63,13 @@ void solve(void){
                 
             }
             else
-                cout << "No";
-            // if(rook_r.count(x1) && rook_r.count(x2)){
-
-            //     ll diff = rook_r.find(x2) - rook_r.find(x1);
-            //     if(diff == (x2 - x1))
-            //         cout << "Yes";
-
-            //     else if(rook_c.count(y1) && rook_c.count(y1)){
-
-            //         ll diff = rook_c.find(y2) - rook_c.find(y1);
-
-            //         if(diff == x2 - x1)
-            //             cout << "Yes";
-            //     }
-            
+                cout << "No";           
 
            cout << "\n";
-            // cout << rookx << " " << rooky << " ";
 
 
         }
-        // cout << "***\n";
-        // for(auto x : rook_r)
-        //         cout << x << " ";
-        // cout << "\n";
-        // for(auto x : rook_c)
-        //         cout << x << " ";
-        // cout << "\n***\n";
     }
-    // auto it = rook_r.begin();
-    // it = it + 5;
 }
 
 int main() {
