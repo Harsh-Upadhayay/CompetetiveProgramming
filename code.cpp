@@ -13,14 +13,16 @@ ll t,T;
 void solve(void){
     ll n, m, ans;
     cin >> n;
-    bool flag = 0;
+    bool o_flag = true, e_flag = true;
     vector<ll> v(n);
     rpt(n){
         cin >> v[i];
-        if(!flag)
-            flag = v[i] % 2;
+        if(v[i] % 2)
+            e_flag = false;
+        else 
+            o_flag = false;
     }
-    if(flag){
+    if(!o_flag && !e_flag){
         rpt(n){
             v[i] = v[i] % 3;
             v[i] = v[i] % 2;
