@@ -58,6 +58,8 @@ void solve(void){
 
                     if(flag)
                         cout << "YES";
+                    else
+                        cout << "NO";
                 }
 
             // if(rook_r.count(x1) && rook_r.count(x2)){
@@ -74,8 +76,6 @@ void solve(void){
             //             cout << "YES";
             //     }
             }
-            else
-                cout << "NoO";
 
            cout << "\n";
             // cout << rookx << " " << rooky << " ";
