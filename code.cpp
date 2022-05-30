@@ -63,7 +63,7 @@ void solve(void){
                 
             }
             else
-                cout << "No";           
+                cout << "Noo";           
 
            cout << "\n";
 
