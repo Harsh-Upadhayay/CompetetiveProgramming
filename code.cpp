@@ -33,26 +33,27 @@ void solve(void){
             ll x1, y1, x2, y2;
             cin >> x1 >> y1 >> x2 >> y2;
             ll rookx = -1, rooky = -1;
+            bool flag = true;
 
             if(rook_r.count(x1) && rook_r.count(x2)){
 
-                bool flag = true;
                 auto end = x2, start = x1;
 
-                while(start != end){
+                while(start <= end){
 
                     if(!(rook_r.count(start++)))
                         flag = false;
                 }
                 if(flag)
                     cout << "Yes";
-            }    
-            else if(rook_c.count(y1) && rook_c.count(y1)){
+            } 
+               
+            if(!flag && rook_c.count(y1) && rook_c.count(y1)){
 
-                bool flag = true;
+                flag = true;
                 auto end = (y2), start = (y1);
 
-                while(start != end){
+                while(start <= end){
 
                     if(!(rook_c.count(start++)))
                         flag = false;
@@ -62,7 +63,8 @@ void solve(void){
                     cout << "Yes";
                 
             }
-            else
+
+            if(!flag)
                 cout << "No";           
 
            cout << "\n";
