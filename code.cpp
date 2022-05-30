@@ -50,21 +50,19 @@ void solve(void){
                
             if(!flag && rook_c.count(y1) && rook_c.count(y1)){
 
-                flag = true;
                 auto end = (y2), start = (y1);
 
                 while(start <= end){
 
                     if(!(rook_c.count(start++)))
-                        flag = false;
+                        flag = true;
                 }
 
-                if(flag)
+                if(!flag)
                     cout << "Yes";
                 
             }
-
-            if(!flag)
+            else
                 cout << "No";           
 
            cout << "\n";
