@@ -32,9 +32,9 @@ void solve(void){
 
     rpt(n){
         if(!m.count(v[i])){
-            vector<ll> v;
-            v.pb(i);
-            m[v[i]] = v;
+            vector<ll> x;
+            x.pb(i);
+            m[v[i]] = x;
         }
         else
             m[v[i]].pb(i);
