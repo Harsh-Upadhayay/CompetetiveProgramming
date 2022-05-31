@@ -34,7 +34,7 @@ void solve(void){
                 break;
             }
         }
-    // cout << ans << " : ";        cout << s[0] << " " << s[1] << " ";
+    // cout << ans << " : ";
 
     for(ll i = 0; i < n-1; i++)
 
