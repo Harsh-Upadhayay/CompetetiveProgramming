@@ -28,6 +28,7 @@ void solve(void){
     if(s[0] == '0')
         for(ll i = 1; i < n-1; i++){
             if(s[i] == '1' && ((i) <= k)){
+                cout << "H";
                 ans -= 1;
                 k -= (i);
             }
