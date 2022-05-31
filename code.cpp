@@ -35,7 +35,9 @@ void solve(void){
             }
         }
     // cout << ans << " : ";
+        cout << s;
         cout << s[0] << " " << s[1] << " ";
+
     for(ll i = 0; i < n-1; i++)
 
         if(s[i] == '1' && s[i+1] == '1')
