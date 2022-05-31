@@ -48,7 +48,7 @@ void solve(void){
             ans += 0;
 
     cout << ans;
-    cout<<endl<<endl;
+    cout<<endl;
 
 }
 
