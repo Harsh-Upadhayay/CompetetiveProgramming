@@ -25,7 +25,7 @@ void solve(void){
             }
         }
     }
-    // cout << " " << k << " ";
+    cout << " " << k << " ";
     if(s[0] == '0')
         for(ll i = 1; i < n-1; i++){
             if(s[i] == '1' && ((i) <= k)){
@@ -48,7 +48,7 @@ void solve(void){
             ans += 0;
 
     cout << ans;
-    cout<<endl<<endl;
+    cout<<endl;
 
 }
 
