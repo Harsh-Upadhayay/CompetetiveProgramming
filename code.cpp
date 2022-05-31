@@ -35,16 +35,18 @@ void solve(void){
             }
         }
     // cout << ans << " : ";
+        cout << s[0] << " " << s[1];
     for(ll i = 0; i < n-1; i++)
-        cout << "HE";
-        // if(s[i] == '1' && s[i+1] == '1')
-        //     ans += 11;
-        // else if(s[i] == '1' && s[i+1] == '0')
-        //     ans += 10;
-        // else if(s[i] == '0' && s[i+1] == '1')
-        //     ans += 1;
-        // else if(s[i] == '0' && s[i+1] == '0')
-        //     ans += 0;
+
+        if(s[i] == '1' && s[i+1] == '1')
+            ans += 11;
+        else if(s[i] == '1' && s[i+1] == '0')
+            ans += 10;
+        else if(s[i] == '0' && s[i+1] == '1')
+            ans += 1;
+        else if(s[i] == '0' && s[i+1] == '0')
+            ans += 0;
+
     cout << ans;
     cout<<endl;
 
