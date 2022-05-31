@@ -49,7 +49,7 @@ void solve(void){
         ans[t[tn-1]] = t[0];
     }        
     for(auto x : ans)
-        cout << x << " ";
+        cout << (x+1) << " ";
     // for(auto x : m){
     //     cout << x.first << " : ";
     //     for(auto y : x.second)
