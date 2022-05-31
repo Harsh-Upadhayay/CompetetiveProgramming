@@ -1,4 +1,4 @@
-        #include<bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 #define ll long long int
@@ -48,7 +48,7 @@ void solve(void){
             ans += 0;
 
     cout << ans;
-    cout<<endl;
+    cout<<endl<<endl;
 
 }
 
