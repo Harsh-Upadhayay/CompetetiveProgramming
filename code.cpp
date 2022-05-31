@@ -25,7 +25,7 @@ void solve(void){
         freq[x]++;
     
     for(auto x : freq)
-        if(x.second > 1){
+        if(x.second == 1){
             cout << "-1" << "\n";
             return;
         }    
