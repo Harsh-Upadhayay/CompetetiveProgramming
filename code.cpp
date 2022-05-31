@@ -40,13 +40,22 @@ void solve(void){
             m[v[i]].pb(i);
     }
 
-
     for(auto x : m){
-        cout << x.first << " : ";
-        for(auto y : x.second)
-            cout << y << " ";
-        cout << endl;
-    }    
+        auto t = x.second;
+        ll tn = t.size();
+        rpt(tn-1){
+            ans[t[i]] = t[i+1];
+        }
+        ans[t[tn-1]] = t[0];
+    }        
+    for(auto x : ans)
+        cout << x << " ";
+    // for(auto x : m){
+    //     cout << x.first << " : ";
+    //     for(auto y : x.second)
+    //         cout << y << " ";
+    //     cout << endl;
+    // }    
 
     cout<<endl;
 
