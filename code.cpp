@@ -31,7 +31,7 @@ void solve(void){
                 k -= (n-i);
             }
         }
-    cout << ans << " : ";
+    // cout << ans << " : ";
     for(ll i = 0; i < n-1; i++)
         if(s[i] == '1' && s[i+1] == '1')
             ans += 11;
