@@ -13,15 +13,41 @@ ll t,T;
 void solve(void){
     ll n;
     cin >> n;
-    vector<ll> v(n);
-    rpt(n)
-        cin >> v[i];
-    ll odd = 0;
-    rpt(n)
-        if(v[i]%2)
-            odd++;
+    vector<ll> v(n), ans(n, 0);
+    unordered_map<ll, vector<ll>> m;
+    unordered_map<ll, ll> freq;
 
-    cout << min(odd, n-odd);
+    rpt(n){
+        cin >> v[i];
+    }
+
+    for(auto x : v)
+        freq[x]++;
+    
+    for(auto x : freq)
+        if(x.second%2){
+            cout << "-1" << "\n";
+            return;
+        }    
+
+    rpt(n){
+        if(!m.count(v[i])){
+            vector<ll> v;
+            v.pb(i);
+            m[v[i]] = v;
+        }
+        else
+            m[v[i]].pb(i);
+    }
+
+
+    for(auto x : m){
+        cout << x.first << " : ";
+        for(auto y : x.second)
+            cout << y << " ";
+        cout << endl;
+    }    
+
     cout<<endl;
 
 }
