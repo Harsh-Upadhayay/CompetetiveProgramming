@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+        #include<bits/stdc++.h>
 using namespace std;
 
 #define ll long long int
@@ -11,45 +11,52 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, k, ans = 0;
-    cin >> n >> k;
-    string s;
-    cin >> s;
-    
-    if(s[n-1] == '0'){
-        for(ll i = n-2; i >=0; i--){
-            if(s[i] == '1' && ((n-i-1) <= k)){
-                swap(s[i], s[n-1]);
-                // ans -= 10;
-                k -= (n-i-1);
-                break;
-            }
-        }
+    ll n;
+    cin >> n;
+    vector<ll> v(n), ans(n, 0);
+    map<ll, vector<ll>> m;
+    map<ll, ll> freq;
+
+    rpt(n){
+        cin >> v[i];
     }
-    // cout << " " << k << " ";
-    if(s[0] == '0')
-        for(ll i = 1; i < n-1; i++){
-            if(s[i] == '1' && ((i) <= k)){
-                swap(s[i], s[0]);
-                // ans -= 1;
-                k -= (i);
-                break;
-            }
+
+    for(auto x : v)
+        freq[x]++;
+    
+    for(auto x : freq)
+        if(x.second == 1){
+            cout << "-1" << "\n";
+            return;
+        }    
+
+    rpt(n){
+        if(!m.count(v[i])){
+            vector<ll> x;
+            x.pb(i);
+            m[v[i]] = x;
         }
-    // cout << ans << " : ";
+        else
+            m[v[i]].pb(i);
+    }
 
-    for(ll i = 0; i < n-1; i++)
+    for(auto x : m){
+        auto t = x.second;
+        ll tn = t.size();
+        rpt(tn-1){
+            ans[t[i]] = t[i+1];
+        }
+        ans[t[tn-1]] = t[0];
+    }        
+    for(auto x : ans)
+        cout << (x+1) << " ";
+    // for(auto x : m){
+    //     cout << x.first << " : ";
+    //     for(auto y : x.second)
+    //         cout << y << " ";
+    //     cout << endl;
+    // }    
 
-        if(s[i] == '1' && s[i+1] == '1')
-            ans += 11;
-        else if(s[i] == '1' && s[i+1] == '0')
-            ans += 10;
-        else if(s[i] == '0' && s[i+1] == '1')
-            ans += 1;
-        else if(s[i] == '0' && s[i+1] == '0')
-            ans += 0;
-
-    cout << ans;
     cout<<endl;
 
 }
