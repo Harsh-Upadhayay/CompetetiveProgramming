@@ -16,14 +16,15 @@ void solve(void){
     string s;
     cin >> s;
     
-    if(s[n-1] == '0')
+    if(s[n-1] == '0'){
+     cout << "JE";
         for(ll i = n-2; i >=0; i--){
             if(s[i] == 1 && (n-i) <= k){
                 ans -= 10;
                 k -= (n-i);
             }
         }
-
+    }
     if(s[0] == '0')
         for(ll i = 1; i < n-1; i++){
             if(s[i] == 1 && (n-i) <= k){
