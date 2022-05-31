@@ -18,7 +18,7 @@ void solve(void){
     
     if(s[n-1] == '0'){
         for(ll i = n-2; i >=0; i--){
-            if(s[i] == '1' && ((n-i) <= k)){
+            if(s[i] == '1' && ((n-i-1) <= k)){
                 ans -= 10;
                 k -= (n-i);
             }
