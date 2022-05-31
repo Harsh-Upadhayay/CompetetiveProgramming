@@ -20,7 +20,7 @@ void solve(void){
         for(ll i = n-2; i >=0; i--){
             if(s[i] == '1' && ((n-i-1) <= k)){
                 ans -= 10;
-                k -= (n-i);
+                k -= (n-i-1);
             }
         }
     }
@@ -29,7 +29,7 @@ void solve(void){
         for(ll i = 1; i < n-1; i++){
             if(s[i] == '1' && ((i) <= k)){
                 ans -= 1;
-                k -= (n-i);
+                k -= (i);
             }
         }
     // cout << ans << " : ";
