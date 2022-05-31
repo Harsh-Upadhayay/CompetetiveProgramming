@@ -17,9 +17,8 @@ void solve(void){
     cin >> s;
     
     if(s[n-1] == '0'){
-     cout << "JE";
         for(ll i = n-2; i >=0; i--){
-            if(s[i] == 1 && (n-i) <= k){
+            if(s[i] == '1' && ((n-i) <= k)){
                 ans -= 10;
                 k -= (n-i);
             }
@@ -27,7 +26,7 @@ void solve(void){
     }
     if(s[0] == '0')
         for(ll i = 1; i < n-1; i++){
-            if(s[i] == 1 && (n-i) <= k){
+            if(s[i] == '1' && ((n-i) <= k)){
                 ans -= 1;
                 k -= (n-i);
             }
