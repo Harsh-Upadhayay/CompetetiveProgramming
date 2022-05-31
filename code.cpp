@@ -27,6 +27,7 @@ void solve(void){
     }
     // cout << " " << k << " ";
     if(s[0] == '0')
+        cout << "HE";
         for(ll i = 1; i < n-2; i++){
             if(s[i] == '1' && ((i) <= k)){
                 ans -= 1;
