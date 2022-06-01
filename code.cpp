@@ -48,7 +48,7 @@ pair<ll, ll> fun(vector<ll> str)
 }
 
 void solve(void){
-    ll n, m, ans;
+    ll n, m, ans = 0;
     cin >> n;
     vector<ll> v(n);
     rpt(n)
@@ -57,7 +57,27 @@ void solve(void){
     reverse(v.begin(), v.end());
     auto y = fun(v);
 
-    cout << y.first << " " << y.second;
+    if(x.first <= y.first){
+        if(x.first < (n-x.second-1)){
+            ans += (2*x.first);
+            ans += (n-x.second-1);
+        }
+        else{
+            ans += (2*(n-x.second-1));
+            ans += (x.first);
+        }
+    }
+    else{
+        if(y.first < (n-y.second-1)){
+            ans += (2*y.first);
+            ans += (n-y.second-1);
+        }
+        else{
+            ans += (2*(n-y.second-1));
+            ans += (y.first);
+        }
+    }
+    cout << ans;
     cout<<endl;
 
 }
