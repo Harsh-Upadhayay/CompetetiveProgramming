@@ -11,18 +11,12 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll x, y;
-    cin >> x >> y;
-    if(x <= y)
-        cout << (y-x);
-    else{
-        if((x-y)%2){
-            cout << (((x-y+1)/2)+1);
-        }
-        else
-            cout << (x-y)/2;
-    }
-
+    ll n, k;
+    cin >> n >> k;
+    if(n%2 == k)
+        cout << "YES";
+    else
+        cout << "NO";
     cout<<endl;
 
 }
