@@ -10,16 +10,49 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
+pair<ll, ll> fun(vector<ll> str)
+{
+    pair<ll, ll> ans;
+
+    ll n = str.size();
+ 
+    ll res = 0; // result
+ 
+    // last index of all characters is initialized
+    // as -1
+    map<ll, ll> lastIndex; 
+    // Initialize start of current window
+    ll i = 0;
+ 
+    // Move end of current window
+    for (ll j = 0; j < n; j++) {
+ 
+        // Find the last index of str[j]
+        // Update i (starting index of current window)
+        // as maximum of current value of i and last
+        // index plus 1
+        if(lastIndex[str[j]])
+            i = max(i, lastIndex[str[j]] + 1);
+        
+        // Update result if we get a larger window
+        if(res < (j-i+1)){
+            res =( j - i + 1);
+            ans = make_pair(i, i+res-1);
+        }
+        
+        // Update last index of j.
+        lastIndex[str[j]] = j;
+    }
+    return ans;
+}
 void solve(void){
-    ll n, k;
-    cin >> n >> k;
-    if(k == 1)
-        cout << ((n%2)?"ODD":"EVEN");
-    else if (k == 2)
-        cout << "ODD";
-    else
-        cout << "EVEN";
-    
+    ll n, m, ans;
+    cin >> n;
+    vector<ll> v(n);
+    rpt(n)
+        cin >> v[i];
+    auto x = fun(v);
+    cout << x.first << " " << x.second;
     cout<<endl;
 
 }
