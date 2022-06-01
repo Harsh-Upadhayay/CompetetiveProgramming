@@ -19,7 +19,7 @@ void solve(void){
     vector<ll> t(v.begin(), v.end());
     sort(t.begin(), t.end());
     vector<pair<ll, ll>> idx;
-    ll start = 0, end = -1;
+    ll start = 0, end = 0;
     rpt(n){
         if(t[i] != v[i])
             end++;
