@@ -11,14 +11,18 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll a, b, c,d ;
-    cin >> a >> b >> c >> d;
-    if(max(a, b) > max(c, d))
-        cout << "P";
-    else if (max(a, b) < max(c, d))
-        cout << "Q";
-    else
-        cout << "TIE";
+    ll x, y;
+    cin >> x >> y;
+    if(x <= y)
+        cout << (y-x);
+    else{
+        if((x-y)%2){
+            cout << (((x-y+1)/2)+1);
+        }
+        else
+            cout << (x-y)/2;
+    }
+
     cout<<endl;
 
 }
