@@ -54,7 +54,10 @@ void solve(void){
     rpt(n)
         cin >> v[i];
     auto x = fun(v);
-    cout << x.first << " " << x.second;
+    reverse(v.begin(), v.end());
+    auto y = fun(v);
+
+    cout << y.first << " " << y.second;
     cout<<endl;
 
 }
