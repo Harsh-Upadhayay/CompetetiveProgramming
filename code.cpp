@@ -19,14 +19,15 @@ void solve(void){
     vector<ll> t(v.begin(), v.end());
     sort(t.begin(), t.end());
     vector<pair<ll, ll>> idx;
-    ll start = 0, end = 0;
+    ll start = 0, end = -1;
     rpt(n){
         if(t[i] != v[i])
             end++;
         else{
-            idx.pb(make_pair(start, end));
+            if(start <= end)
+                idx.pb(make_pair(start, end));
             start = i + 1;
-            end = i;
+            end = i -1 ;
         }
     }
     for(auto x : idx){
