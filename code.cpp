@@ -41,6 +41,8 @@ void solve(void){
         cout << endl;
     }
 
+    cout << "\n";
+
 }
 
 int main() {
