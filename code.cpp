@@ -11,18 +11,14 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, ans = 0;
-    cin >> n;
-    vector<ll> v(n);
-    rpt(n)
-        cin >> v[i];
-    rpt(n-1){
-        if(v[i] > v[i+1]){
-            ans++;
-            i++;
-        }
-    }
-    cout << ans;
+    ll a, b, c,d ;
+    cin >> a >> b >> c >> d;
+    if(max(a, b) > max(c, d))
+        cout << "P";
+    else if (max(a, b) < max(c, d))
+        cout << "Q";
+    else
+        cout << "TIE";
     cout<<endl;
 
 }
