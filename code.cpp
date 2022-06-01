@@ -30,6 +30,9 @@ void solve(void){
             end = i;
         }
     }
+    if(start <= end)
+        idx.pb(make_pair(start, end));
+    
     for(auto x : idx){
         cout << x.first << " " << x.second << endl;
     }
