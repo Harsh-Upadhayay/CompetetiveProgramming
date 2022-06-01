@@ -32,7 +32,7 @@ pair<ll, ll> fun(vector<ll> str)
         // as maximum of current value of i and last
         // index plus 1
         if(lastIndex.count(str[j]))
-            i = max(i, lastIndex[str[j]] + 1);
+            // i = max(i, lastIndex[str[j]] + 1);
         
         // Update result if we get a larger window
         if(res < (j-i+1)){
