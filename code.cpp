@@ -13,13 +13,13 @@ ll t,T;
 void solve(void){
     ll n, k;
     cin >> n >> k;
-    if(n%2)
-        if(k)
-            cout << "YES";
-        else
-            cout << "NO";
+    if(k == 1)
+        cout << ((n%2)?"ODD":"EVEN");
+    else if (k == 2)
+        cout << "ODD";
     else
-        cout << "YES";
+        cout << "EVEN";
+    
     cout<<endl;
 
 }
