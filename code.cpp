@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+        #include<bits/stdc++.h>
 using namespace std;
 
 #define ll long long int
@@ -11,32 +11,35 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans;
+    ll n;
     cin >> n;
     vector<ll> v(n);
     rpt(n)
         cin >> v[i];
-    vector<ll> t(v.begin(), v.end());
-    sort(t.begin(), t.end());
-    vector<pair<ll, ll>> idx;
-    ll start = 0, end = -1;
-    rpt(n){
-        if(t[i] != v[i])
-            end++;
+    vector<ll> req(n);
+    rpt(n)
+        cin >> req[i];
+    map<ll, vector<ll>> tree;
+
+    rpt(n-1){
+        ll u, v; 
+        cin >> u >> v;
+        if(tree.count(u)){
+            auto x = tree.find(u);
+            x->second.pb(v);
+        }
         else{
-            if(start <= end)
-                idx.pb(make_pair(start, end));
-            start = i + 1;
-            end = i;
+            vector<ll> x;
+            x.pb(v);
+            tree[u] = x;
         }
     }
-    if(start <= end)
-        idx.pb(make_pair(start, end));
-    
-    for(auto x : idx){
-        cout << x.first << " " << x.second << endl;
+    for(auto x : tree){
+        cout << x.first << " : ";
+        for(auto y : x.second)
+            cout << y << " ";
+        cout << endl;
     }
-    cout<<endl;
 
 }
 
