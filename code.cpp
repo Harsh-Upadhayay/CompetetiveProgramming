@@ -11,52 +11,18 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n;
+    ll n, ans = 0;
     cin >> n;
-    vector<ll> v(n), ans(n, 0);
-    map<ll, vector<ll>> m;
-    map<ll, ll> freq;
-
-    rpt(n){
+    vector<ll> v(n);
+    rpt(n)
         cin >> v[i];
-    }
-
-    for(auto x : v)
-        freq[x]++;
-    
-    for(auto x : freq)
-        if(x.second == 1){
-            cout << "-1" << "\n";
-            return;
-        }    
-
-    rpt(n){
-        if(!m.count(v[i])){
-            vector<ll> x;
-            x.pb(i);
-            m[v[i]] = x;
+    rpt(n-1){
+        if(v[i+1] > v[i]){
+            ans++;
+            i++;
         }
-        else
-            m[v[i]].pb(i);
     }
-
-    for(auto x : m){
-        auto t = x.second;
-        ll tn = t.size();
-        rpt(tn-1){
-            ans[t[i]] = t[i+1];
-        }
-        ans[t[tn-1]] = t[0];
-    }        
-    for(auto x : ans)
-        cout << (x+1) << " ";
-    // for(auto x : m){
-    //     cout << x.first << " : ";
-    //     for(auto y : x.second)
-    //         cout << y << " ";
-    //     cout << endl;
-    // }    
-
+    cout << ans;
     cout<<endl;
 
 }
@@ -84,3 +50,5 @@ int main() {
 
     return 0;
 }
+
+
