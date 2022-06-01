@@ -17,7 +17,7 @@ void solve(void){
     rpt(n)
         cin >> v[i];
     rpt(n-1){
-        if(v[i+1] > v[i]){
+        if(v[i] > v[i+1]){
             ans++;
             i++;
         }
