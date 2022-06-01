@@ -43,8 +43,8 @@ pair<ll, ll> fun(vector<ll> str)
         // Update last index of j.
         lastIndex[str[j]] = j;
     }
-    if(res < (n-i+1)){
-        res =( n - i + 1);
+    if(res < (n-i)){
+        res =( n - i );
         ans = make_pair(i, i+res-1);
     }
     return ans;
