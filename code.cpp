@@ -1,4 +1,4 @@
-        #include<bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 #define ll long long int
@@ -18,11 +18,21 @@ void solve(void){
         cin >> v[i];
     vector<ll> t(v.begin(), v.end());
     sort(t.begin(), t.end());
-    for(auto x : t)
-        cout << x << " " ;
-    cout <<endl;
-    for(auto x : v)
-        cout << x << " ";
+    vector<pair<ll, ll>> idx;
+    ll start = 0, end = -1;
+    rpt(n){
+        if(t[i] != v[i])
+            end++;
+        else{
+            if(start <= end)
+                idx.pb(make_pair(start, end));
+            start = i + 1;
+            end = start - 1;
+        }
+    }
+    for(auto x : idx){
+        cout << x.first << " " << x.second << endl;
+    }
     cout<<endl;
 
 }
