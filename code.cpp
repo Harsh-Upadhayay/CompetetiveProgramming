@@ -36,6 +36,7 @@ pair<ll, ll> fun(vector<ll> str)
         
         // Update result if we get a larger window
         if(res < (j-i+1)){
+            cout << i << " ";
             res =( j - i + 1);
             ans = make_pair(i, i+res-1);
         }
