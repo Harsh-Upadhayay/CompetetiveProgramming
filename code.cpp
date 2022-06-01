@@ -27,7 +27,7 @@ void solve(void){
             if(start <= end)
                 idx.pb(make_pair(start, end));
             start = i + 1;
-            end = i -1 ;
+            end = i;
         }
     }
     for(auto x : idx){
