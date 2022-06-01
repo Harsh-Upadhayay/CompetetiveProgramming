@@ -10,74 +10,19 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-pair<ll, ll> fun(vector<ll> str)
-{
-    pair<ll, ll> ans;
-
-    ll n = str.size();
- 
-    ll res = 0; // result
- 
-    // last index of all characters is initialized
-    // as -1
-    map<ll, ll> lastIndex; 
-    // Initialize start of current window
-    ll i = 0;
- 
-    // Move end of current window
-    for (ll j = 0; j < n; j++) {
- 
-        // Find the last index of str[j]
-        // Update i (starting index of current window)
-        // as maximum of current value of i and last
-        // index plus 1
-        if(lastIndex.count(str[j]))
-            i = max(i, lastIndex[str[j]] + 1);
-        
-        // Update result if we get a larger window
-        if(res < (j-i+1)){
-            // cout << i << " ";
-            res = (j - i + 1);
-            ans = make_pair(i, i+res-1);
-        }
-        
-        // Update last index of j.
-        lastIndex[str[j]] = j;
-    }    
-    return ans;
-}
-
 void solve(void){
-    ll n, m, ans = 0;
+    ll n, m, ans;
     cin >> n;
     vector<ll> v(n);
     rpt(n)
         cin >> v[i];
-    auto x = fun(v);
-    reverse(v.begin(), v.end());
-    auto y = fun(v);
-
-    if(x.first <= y.first){
-        if(x.first < (n-x.second-1)){
-            ans += (2*x.first);
-            ans += (n-x.second-1);
-        }
-        else{
-            ans += (2*(n-x.second-1));
-            ans += (x.first);
-        }
-    }
-    else{
-        if(y.first < (n-y.second-1)){
-            ans += (2*y.first);
-            ans += (n-y.second-1);
-        }
-        else{
-            ans += (2*(n-y.second-1));
-            ans += (y.first);
-        }
-    }
-    cout << ans;
+    vector<ll> t(v.begin(), v.end());
+    sort(t.begin(), t.end());
+    for(auto x : t)
+        cout << x << " " ;
+    cout <<endl;
+    for(auto x : v)
+        cout << x << " ";
     cout<<endl;
 
 }
