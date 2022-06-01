@@ -46,6 +46,7 @@ pair<ll, ll> fun(vector<ll> str)
     }    
     return ans;
 }
+
 void solve(void){
     ll n, m, ans;
     cin >> n;
