@@ -24,8 +24,7 @@ void solve(void){
         if(t[i] != v[i])
             end++;
         else{
-            if(start <= end)
-                idx.pb(make_pair(start, end));
+            idx.pb(make_pair(start, end));
             start = i + 1;
             end = i;
         }
