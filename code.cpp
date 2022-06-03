@@ -13,7 +13,7 @@ ll t,T;
 void solve(void){
     ll n, m, ans;
     cin>>n;
-    ans = pow(2, log2(n & -n) + 1);
+    ans = pow(2, log2(n & -n));
     if(ans == n)
         cout << (ans + 1);
     else
