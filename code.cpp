@@ -26,7 +26,7 @@ ll fun(vector<ll> v, ll x){
         else
             return mid;
     }
-    return -1;
+    return 1;
 }
 
 void solve(void){
