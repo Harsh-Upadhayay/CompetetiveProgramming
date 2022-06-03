@@ -11,20 +11,18 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, k, ans;
+    ll n, k;
     cin >> n;
-    vector<ll> v(n);
-    ll sum = 0;
-    bool flag = false;
-    rpt(n){
-        cin >> v[i];
-        sum += v[i];
-    }
-    for(auto x : v){
-        if((sum - x) == (n-1)*x)
-            flag = 1;
-    }
-    cout << (flag?"YES":"NO");
+    string s;
+    cin >> s;
+    ll ans = n%2;
+    ll i = n/2 - 1;
+    while(i >= 0)
+        if(s[i] == s[n-(i--)-1])
+            ans++;
+        else
+            break;
+    cout << ans;
     cout<<endl;
 
 }
