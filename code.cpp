@@ -44,7 +44,7 @@ void solve(void){
     for(ll i = 1; i < n; i++)
         preSum[i] = preSum[i-1] + v[i];
 
-    cout << fun(v, 4);
+    cout << fun(v, x);
     // while(1){
     //     ll f = fun(preSum, x);
     //     if(x != -1)
