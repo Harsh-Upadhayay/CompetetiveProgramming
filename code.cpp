@@ -20,8 +20,6 @@ ll fun(vector<ll> v, ll x){
             if(mid + 1 < v.size())
                 if(v[mid+1] > x)
                 return mid;
-            else 
-                return -1;
             l = mid + 1;
         }
         else
