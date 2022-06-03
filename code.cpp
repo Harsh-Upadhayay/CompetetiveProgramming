@@ -13,7 +13,7 @@ ll t,T;
 void solve(void){
     ll n, k, ans;
     cin >> n >> k;
-    if(n == k-1){
+    if(n == k+1){
         cout << "-1";
         return;
     }
