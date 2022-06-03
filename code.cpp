@@ -12,7 +12,6 @@ ll t,T;
 
 void solve(void){
     ll n, m, ans = inf, odd = 0, even = 0;
-    cin>>n;
     cin >> n;
     vector<ll> v(n);
     rpt(n){
@@ -24,7 +23,6 @@ void solve(void){
             even++;
         ans = max(ans, x);
     }
-    cout << even;
     if(!even)
         cout << "0";
     else if(odd && even)
