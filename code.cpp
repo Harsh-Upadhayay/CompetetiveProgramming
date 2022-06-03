@@ -17,11 +17,13 @@ void solve(void){
     cin >> s;
     ll ans = n%2;
     ll i = n/2 - 1;
-    while(i >= 0)
-        if(s[i] == s[n-(i--)-1])
+    while(i >= 0){
+        if(s[i] == s[n-i-1])
             ans++;
         else
             break;
+        i--;
+    }
     cout << ans;
     cout<<endl;
 
