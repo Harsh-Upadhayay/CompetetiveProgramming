@@ -29,6 +29,7 @@ void solve(void){
         cout << even;
     
     else{
+        cout << "F";
         ll i = 0;
         while(ans%2) {ans /= 2; i++;}
         cout << (even -1 +i);
