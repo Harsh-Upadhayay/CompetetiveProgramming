@@ -10,20 +10,50 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-void solve(void){
-    ll n, k;
-    cin >> n;
-    ll ans_max = 0, ans_min = 0;
-    ans_max = n/4;
-    ans_min = (n/6);
-    ans_min += ((n%6)?1:0);
+ll fun(vector<ll> v, ll x){
+    ll l = 0, r = v.size() - 1; 
+    while(l <= r){
+        ll mid = r - (r-l)/2;
+        if(v[mid] > x)
+            r = mid - 1;
+        else if(v[mid] < x){
+            if(mid + 1 < v.size())
+                if(v[mid+1] > x)
+                return mid;
+            else return -1;
+            l = mid + 1;
+        }
+        else
+            return mid;
+    }
+    return -1;
+}
 
-    if(!ans_max || ((n%4) && (n%6)) )
-        cout << "-1";
-    else if(!ans_min)
-        cout << ans_max << " " << ans_max;
-    else
-        cout << ans_min << " " << ans_max;
+void solve(void){
+    ll n, x, ans = 0;
+    cin >> n;
+    vector<ll> v(n);
+    
+    rpt(n)
+        cin >> v[i];
+    
+    sort(v.begin(), v.end());
+    vector<ll> preSum(n);
+    preSum[0] = v[0];
+    
+    for(ll i = 1; i < n; i++)
+        preSum[i] = preSum[i-1] + v[i];
+
+    cout << fun(v, 4);
+    // while(1){
+    //     ll f = fun(preSum, x);
+    //     if(x != -1)
+    //         ans += f+1;
+    //     else
+    //         break;
+    //     x--;
+    // }
+
     cout<<endl;
 
 }
