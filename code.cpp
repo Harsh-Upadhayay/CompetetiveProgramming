@@ -13,18 +13,15 @@ ll t,T;
 void solve(void){
     ll n, k;
     cin >> n;
-    string s;
-    cin >> s;
-    ll ans = n%2;
-    ll i = n/2 - 1;
-    while(i >= 0){
-        if(s[i] == s[n/2])
-            ans += 2;
-        else
-            break;
-        i--;
-    }
-    cout << ans;
+    ll ans_max = 0, ans_min = 0;
+    ans_max = n/4;
+    ans_min = n/6;
+    if(!ans_max)
+        cout << "-1";
+    else if(!ans_min)
+        cout << ans_max << " " << ans_max;
+    else
+        cout << ans_min << " " << ans_max;
     cout<<endl;
 
 }
