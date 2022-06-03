@@ -11,13 +11,29 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans;
+    ll n, m, ans = inf, odd = 0, even = 0;
     cin>>n;
-    ans = pow(2, log2(n & -n));
-    if(ans == n)
-        cout << (ans + 1);
-    else
-    cout << ans;
+    cin >> n;
+    vector<ll> v(n);
+    rpt(n){
+        ll x;
+        cin >> x;
+        if(x%2)
+            odd++;
+        else
+            even++;
+        ans = max(ans, x);
+    }
+    if(!even)
+        cout << "0";
+    else if(odd && even)
+        cout << even;
+    
+    else{
+        ll i = 0;
+        while(ans%2) {ans /= 2; i++;}
+        cout << (even -1 +i);
+    }
     cout<<endl;
 
 }
