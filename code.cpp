@@ -15,7 +15,9 @@ void solve(void){
     cin >> n;
     ll ans_max = 0, ans_min = 0;
     ans_max = n/4;
-    ans_min = n/6 + ((n%6)?(!((n/6) % 4)):0);
+    ans_min = (n/6);
+    ans_min += ((n%6)?1:0);
+
     if(!ans_max || ((n%4) && (n%6)) )
         cout << "-1";
     else if(!ans_min)
