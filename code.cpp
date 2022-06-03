@@ -18,7 +18,8 @@ void solve(void){
         return;
     }
     cout << "0 " << (n-k-1) << "\n";
-    cout << (n-1) << " " << k << "\n";
+    if(k)
+        cout << (n-1) << " " << k << "\n";
 
     rpt(n/2){
         if(i == 0 || i == (n-k-1) || i == k)
