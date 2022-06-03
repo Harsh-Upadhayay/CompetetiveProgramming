@@ -14,13 +14,17 @@ void solve(void){
     ll n, k, ans;
     cin >> n;
     vector<ll> v(n);
-    ll x, odd = 0;
+    ll sum = 0;
+    bool flag = false;
     rpt(n){
-        cin >> x;
-        if(x%2)
-            odd++;
+        cin >> v[i];
+        sum += v[i];
     }
-    cout << ((odd < (n-odd))?odd:(n-odd));
+    for(auto x : v){
+        if((sum - x) == (n-1)*x)
+            flag = 1;
+    }
+    cout << (flag?"YES":"NO");
     cout<<endl;
 
 }
