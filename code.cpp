@@ -18,8 +18,8 @@ void solve(void){
     ll ans = n%2;
     ll i = n/2 - 1;
     while(i >= 0){
-        if(s[i] == s[n-i-1])
-            ans++;
+        if(s[i] == s[n/2])
+            ans += 2;
         else
             break;
         i--;
