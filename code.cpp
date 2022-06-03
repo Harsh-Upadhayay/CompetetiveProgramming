@@ -24,6 +24,7 @@ void solve(void){
             even++;
         ans = max(ans, x);
     }
+    cout << even;
     if(!even)
         cout << "0";
     else if(odd && even)
