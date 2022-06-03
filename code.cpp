@@ -21,7 +21,7 @@ ll fun(vector<ll> v, ll x){
                 if(v[mid+1] > x)
                 return mid;
             else 
-                return 1;
+                return -1;
             l = mid + 1;
         }
         else
