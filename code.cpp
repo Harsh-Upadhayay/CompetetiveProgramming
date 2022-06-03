@@ -16,7 +16,7 @@ void solve(void){
     ll ans_max = 0, ans_min = 0;
     ans_max = n/4;
     ans_min = n/6;
-    if(!ans_max)
+    if(!ans_max || !((n%4) && (n%6)) )
         cout << "-1";
     else if(!ans_min)
         cout << ans_max << " " << ans_max;
