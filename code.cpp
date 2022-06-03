@@ -36,6 +36,7 @@ int main() {
         freopen("output.txt","w",stdout);
     #endif
 
+
     ios_base::sync_with_stdio(0);
     cin.tie(NULL);
 
