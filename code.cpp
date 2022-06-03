@@ -20,7 +20,7 @@ void solve(void){
         if(x%2)
             odd++;
     }
-    cout << ((odd > (n-odd))?odd:(n-odd));
+    cout << ((odd < (n-odd))?odd:(n-odd));
     cout<<endl;
 
 }
