@@ -12,20 +12,15 @@ ll t,T;
 
 void solve(void){
     ll n, k, ans;
-    cin >> n >> k;
-    if(n == k+1){
-        cout << "-1";
-        return;
+    cin >> n;
+    vector<ll> v(n);
+    ll x, odd = 0;
+    rpt(n){
+        cin >> x;
+        if(x%2)
+            odd++;
     }
-    cout << "0 " << (n-k-1) << "\n";
-    if(k)
-        cout << (n-1) << " " << k << "\n";
-
-    rpt(n/2){
-        if(i == 0 || i == (n-k-1) || i == k)
-            continue;
-        cout << i << " " << (n-i-1) << "\n";
-    }
+    cout << ((odd > (n-odd))?odd:(n-odd));
     cout<<endl;
 
 }
