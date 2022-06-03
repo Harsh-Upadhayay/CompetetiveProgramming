@@ -11,37 +11,21 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n;
-    cin >> n;
-    vector<ll> v(n);
-    rpt(n)
-        cin >> v[i];
-    vector<ll> req(n);
-    rpt(n)
-        cin >> req[i];
-    map<ll, vector<ll>> tree;
-
-    rpt(n-1){
-        ll u, v; 
-        cin >> u >> v;
-        if(tree.count(u)){
-            auto x = tree.find(u);
-            x->second.pb(v);
-        }
-        else{
-            vector<ll> x;
-            x.pb(v);
-            tree[u] = x;
-        }
+    ll n, k, ans;
+    cin >> n >> k;
+    if(n == k-1){
+        cout << "-1";
+        return;
     }
-    for(auto x : tree){
-        cout << x.first << " : ";
-        for(auto y : x.second)
-            cout << y << " ";
-        cout << endl;
-    }
+    cout << "0 " << (n-k-1) << "\n";
+    cout << (n-1) << k << "\n";
 
-    cout << "\n";
+    rpt(n/2){
+        if(i == 0 || i == (n-k-1) || i == k)
+            continue;
+        cout << i << " " << (n-i-1) << "\n";
+    }
+    cout<<endl;
 
 }
 
