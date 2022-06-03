@@ -21,7 +21,7 @@ void solve(void){
             odd++;
         else
             even++;
-        ans = max(ans, x);
+        ans = min(ans, x);
     }
     if(!even)
         cout << "0";
