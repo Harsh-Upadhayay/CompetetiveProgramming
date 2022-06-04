@@ -54,7 +54,8 @@ void solve(void){
         ll i = INT_MAX;
         for(auto x : v)
             i = min(i, positionOfRightmostSetBit(x));
-        cout << (even  +i);
+        cout << i << " ";
+        cout << (even -1 +i);
     }
     cout<<endl;
 
