@@ -19,6 +19,7 @@ void solve(void){
             break;
         p--; q++;
     }
+    cout << __gcd(60, 2);
     cout << p << " " << q << " 1";
     cout<<endl;
 
