@@ -7,17 +7,38 @@ using namespace std;
 
 #define inf INT_MAX
 
-#define TESTCASE
+#define TESTCAS
 ll t,T;
 
+
+
 void solve(void){
-    ll n, m, ans;
+    ll n;
     cin >> n;
-    ll p = n - 3, q = 2;
-    while(__gcd(p, q) != 1){
-        p--; q++;
+    unordered_map<ll, vector<ll>> tree;
+    vector<ll> roots;
+    rpt(n){
+        ll x;
+        cin >> x;
+        if(-1 == x){
+            roots.pb(i+1);
+            continue;
+        }
+        if(tree.count(x))
+            tree[x].pb(i+1);
+        else{
+            vector<ll> v;
+            v.pb(i+1);
+            tree[x] = v;
+        }
+
     }
-    cout << p << " " << q << " 1";
+    for(auto x : tree){
+        cout << x.first << " : ";
+        for(auto y : x.second)
+            cout << y << " ";
+        cout << "\n";
+    }
     cout<<endl;
 
 }
