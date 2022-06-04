@@ -10,12 +10,25 @@ using namespace std;
 #define TESTCAS
 ll t,T;
 
+ll  ans = INT_MIN, height = 0;
 
+    void fun(map<ll, vector<ll>> tree, ll x){
+        if(!tree.count(x)){
+            height -= 1;
+            return;
+        }
+        height++;
+        ans = max(ans, height);
+        for(auto y : tree[x])
+            fun(tree, y);
+        height--;
+        return;
+    }
 
 void solve(void){
     ll n;
     cin >> n;
-    unordered_map<ll, vector<ll>> tree;
+    map<ll, vector<ll>> tree;
     vector<ll> roots;
     rpt(n){
         ll x;
@@ -33,12 +46,18 @@ void solve(void){
         }
 
     }
-    for(auto x : tree){
-        cout << x.first << " : ";
-        for(auto y : x.second)
-            cout << y << " ";
-        cout << "\n";
-    }
+
+
+    for(auto x : roots)
+        fun(tree, x);
+    cout << ans;
+
+    // for(auto x : tree){
+    //     cout << x.first << " : ";
+    //     for(auto y : x.second)
+    //         cout << y << " ";
+    //     cout << "\n";
+    // }
     cout<<endl;
 
 }
