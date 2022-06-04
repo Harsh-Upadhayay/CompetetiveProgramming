@@ -43,8 +43,8 @@ void solve(void){
             i = min(i, positionOfRightmostSetBit(x));
             // cout << i;
         }
-        
-        cout << (even -1 +i);
+
+        cout << (even -2 +i);
     }
     cout<<endl;
 
