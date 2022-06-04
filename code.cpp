@@ -10,48 +10,14 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-ll positionOfRightmostSetBit(ll x)
-{
-    ll pos = 0;
-    while(x){
-        if(x&1)
-            break;
-        x = x >> 1;
-        pos++;
-    }
-
-    return pos;
-}
-
 void solve(void){
-    ll n, m, ans = inf, odd = 0, even = 0;
+    ll n, m, ans;
     cin >> n;
-    vector<ll> v(n);
-    rpt(n){
-        ll x;
-        cin >> v[i];
-        x = v[i];
-        if(x%2)
-            odd++;
-        else
-            even++;
-        ans = min(ans, x);
-    }
-    if(!even)
-        cout << "0";
-    else if(odd && even)
-        cout << even;
-    
-    else{
-        
-        ll i = INT_MAX;
-        for(auto x : v){
-            i = min(i, positionOfRightmostSetBit(x));
-            // cout << i;
-        }
-
-        cout << (even -1 +i);
-    }
+    ll p = n - 3, q = 2;
+    while(p-- < q++)
+        if(__gcd(p, q) == 1)
+            break;
+    cout << p << " " << q << " 1";
     cout<<endl;
 
 }
