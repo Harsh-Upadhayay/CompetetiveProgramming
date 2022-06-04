@@ -14,12 +14,9 @@ void solve(void){
     ll n, m, ans;
     cin >> n;
     ll p = n - 3, q = 2;
-    while(p < q){
-        if(__gcd(p, q) == 1)
-            break;
+    while(__gcd(p, q) != 1){
         p--; q++;
     }
-    cout << __gcd(60, 2);
     cout << p << " " << q << " 1";
     cout<<endl;
 
