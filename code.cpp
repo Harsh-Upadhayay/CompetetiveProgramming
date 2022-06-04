@@ -12,9 +12,15 @@ ll t,T;
 
 ll positionOfRightmostSetBit(ll x)
 {
-    
+    ll pos = 0;
+    while(x){
+        if(x&1)
+            break;
+        x = x >> 1;
+        pos++;
+    }
 
-    return x & (~x + 1);
+    return pos;
 }
 
 void solve(void){
@@ -43,7 +49,7 @@ void solve(void){
             i = min(i, positionOfRightmostSetBit(x));
             // cout << i;
         }
-        cout << i;
+
         cout << (even -2 +i);
     }
     cout<<endl;
