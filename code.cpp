@@ -12,15 +12,9 @@ ll t,T;
 
 ll positionOfRightmostSetBit(ll x)
 {
-    ll pos = 0;
-    while(x){
-        if((x & 1))
-            break;
-        pos++;
-        x = x >> 1;
-    }
+    
 
-    return pos;
+    return x & (~x + 1);
 }
 
 void solve(void){
