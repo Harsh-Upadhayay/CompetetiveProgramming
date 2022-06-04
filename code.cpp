@@ -13,8 +13,8 @@ ll t,T;
 ll positionOfRightmostSetBit(ll x)
 {
     ll pos = 0;
+    cout << x;
     while(x){
-        cout << "HI";
         if((x & 1))
             break;
         pos++;
