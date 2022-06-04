@@ -13,7 +13,6 @@ ll t,T;
 ll positionOfRightmostSetBit(ll x)
 {
     ll pos = 0;
-    cout << x;
     while(x){
         if((x & 1))
             break;
@@ -30,7 +29,8 @@ void solve(void){
     vector<ll> v(n);
     rpt(n){
         ll x;
-        cin >> x;
+        cin >> v[i];
+        x = v[i];
         if(x%2)
             odd++;
         else
