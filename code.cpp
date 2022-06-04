@@ -12,7 +12,13 @@ ll t,T;
 
 ll positionOfRightmostSetBit(ll x)
 {
-    ll pos = x & (~x + 1);
+    ll pos = 0;
+    while(x){
+        if((x & 1))
+            break;
+        pos++;
+        x = x >> 1;
+    }
 
     return pos;
 }
