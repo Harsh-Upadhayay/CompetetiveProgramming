@@ -37,8 +37,10 @@ void solve(void){
     else{
         
         ll i = INT_MAX;
-        for(auto x : v)
+        for(auto x : v){
             i = min(i, positionOfRightmostSetBit(x));
+            cout << i;
+        }
         cout << i << " ";
         cout << (even -1 +i);
     }
