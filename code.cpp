@@ -10,6 +10,27 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
+ll positionOfRightmostSetBit(ll n)
+{
+    // if the number is odd, return 1
+    if (n & 1) {
+        return 1;
+    }
+ 
+    // unset rightmost bit and xor with the number itself
+    n = n ^ (n & (n - 1));
+ 
+    // find the position of the only set bit in the result;
+    // we can directly return `log2(n) + 1` from the function
+    ll pos = 0;
+    while (n)
+    {
+        n = n >> 1;
+        pos++;
+    }
+    return pos;
+}
+
 void solve(void){
     ll n, m, ans = inf, odd = 0, even = 0;
     cin >> n;
@@ -30,13 +51,9 @@ void solve(void){
     
     else{
         
-        ll i = 0;
-        while(ans) {
-            ans /= 2;
-            i++;
-            if(ans%2)
-                break;
-         }
+        ll i = INT_MAX;
+        for(auto x : v)
+            i = min(i, positionOfRightmostSetBit(x));
         cout << (even -1 +i);
     }
     cout<<endl;
