@@ -50,7 +50,7 @@ void solve(void){
             // cout << i;
         }
 
-        cout << (even -2 +i);
+        cout << (even -1 +i);
     }
     cout<<endl;
 
