@@ -12,17 +12,13 @@ ll t,T;
 
 ll  ans = 1, height = 1;
 
-void fun(map<ll, vector<ll>> &tree, ll x){
-    if(!tree.count(x)){
-        height--;
+void fun(map<ll, vector<ll>> &tree, ll x, ll height){
+    if(!tree.count(x))
         return;
-    }
-    height++;
+    
     ans = max(ans, height);
     for(auto y : tree[x])
-        fun(tree, y);
-    height--;
-    return;
+        fun(tree, y, height+1);
 }
 
 void solve(void){
@@ -49,8 +45,7 @@ void solve(void){
 
 
     for(auto x : roots){
-        fun(tree, x);
-        height = 1;
+        fun(tree, x, 1);
     }
     cout << ans;
 
