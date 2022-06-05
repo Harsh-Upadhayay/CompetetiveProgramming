@@ -19,11 +19,11 @@ void solve(void){
     vector<vector<int>> matrix(n);
     vector<int> fr(n, 1);
     matrix.push_back(fr);
-    // for(int i = 1; i < n; i++){
-    //     vector<int> r(n, 0);
-    //     r[0] = 1;
-    //     matrix.push_back(r);
-    // }
+    for(int i = 1; i < n; i++){
+        vector<int> r(n, 0);
+        r[0] = 1;
+        matrix.push_back(r);
+    }
 
     // cout << n;
     // for(int i = 0; i < n; i++){
