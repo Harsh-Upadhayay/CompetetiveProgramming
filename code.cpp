@@ -11,14 +11,18 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m = INT_MIN, ans;
+    ll n, o = 0, m = INT_MIN, ans;
     cin >> n;
     vector<ll> v(n);
     rpt(n){
         cin >> v[i];
+        if(v[i]%2)
+            o++;
         m = max(v[i], m);
     }
-    m = log2(m);
+    // if(o >= 2){
+        
+    // }
     cout << m;
     cout<<endl;
 
