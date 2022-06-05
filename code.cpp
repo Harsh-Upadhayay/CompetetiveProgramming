@@ -21,6 +21,7 @@ void solve(void){
         b--;
     }
     cout << ans;
+    cout << "\n";
 
 }
 
