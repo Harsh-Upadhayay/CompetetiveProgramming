@@ -27,11 +27,10 @@ void solve(void){
 
         if(!(prev&v[i])){
             r++;
-            prev += i;
+            prev += v[i];
         }
         else{
             prev = prev&v[i];
-            cout << prev<<"*";
 
             ans.pb(make_pair(l, r));
             l = r = i;
