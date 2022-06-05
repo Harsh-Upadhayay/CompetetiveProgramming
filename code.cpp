@@ -14,17 +14,29 @@ void solve(void){
     ll n, m, ans = INT_MIN, _a, _b;
     cin>>n;
     ll f, a = 1, b = n-1;
-    rpt(n/2){
-        f = ( ((a*b)/__gcd(a, b)) - __gcd(a, b));
-        if(ans < f){
-            _a = a;
-            _b = b;
-            ans = f;
-        }
-        a++;
-        b--;
-    }
-    cout << _a << " " << _b << " : " << ans;
+  
+    if(n == 2)
+        cout << "1 1";
+    else
+        if(n%2)
+            cout << (n/2) << " " << ((n/2) + 1);
+        else
+            if(!(n%4))
+                cout << ((n/2) -1) << " " << ((n/2) + 1);
+            else
+                cout << ((n/2) - 2) << " " << ((n/2) + 2);
+        
+    // rpt(n/2){
+    //     f = ( ((a*b)/__gcd(a, b)) - __gcd(a, b));
+    //     if(ans < f){
+    //         _a = a;
+    //         _b = b;
+    //         ans = f;
+    //     }
+    //     a++;
+    //     b--;
+    // }
+    // cout << _a << " " << _b << " : " << ans;
     cout << "\n";
 
 }
