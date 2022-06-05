@@ -11,28 +11,18 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, s;
-    cin >> n >> s;
-    vector<ll> go(n), come(n);
-    rpt(n)
-        cin >> go[i];
-    rpt(n)
-        cin >> come[i];
-    s--;
-    if(!(go[s] || come[s]) || !go[0]){
-        cout << "NO";
+    ll n, x;
+    cin >> n >> x;
+    bool flag = false;
+    vector<ll> v(n+1);
+    for(int i = 1; i <= n; i++)
+        cin >> v[i];
+    for(int i = 1; i <= n; i++){
+        if(i == x)
+            flag = true;
+        i = i + v[i];
     }
-    else if(go[s]){
-        cout << "YES";
-    }
-    else if(come[s]){
-        bool flag = false;
-        for(int i = s+1; i < n; i++){
-            if(go[i] && come[i])
-                flag = true;
-        }
-        cout << (flag?"YES":"NO");
-    }
+    cout << (flag?"YES":"NO");
     cout<<endl;
 
 }
