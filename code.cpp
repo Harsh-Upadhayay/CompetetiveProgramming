@@ -17,7 +17,7 @@ void solve(void){
 
     cout << "G";
     vector<vector<int>> matrix(n);
-    // vector<int> fr(n, 1);
+    vector<int> fr(n, 1);
     // matrix.push_back(fr);
     // for(int i = 1; i < n; i++){
     //     vector<int> r(n, 0);
