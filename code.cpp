@@ -34,7 +34,7 @@ void solve(void){
             l = r = i;
         }
     }
-    cout << ans.size();
+    cout << ans.size() << "\n";
     for(auto x : ans)
         cout << x.first << " " << x.second << "\n";
     // cout << m;
