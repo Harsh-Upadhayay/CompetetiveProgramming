@@ -16,7 +16,7 @@ void solve(void){
     cin>> l >> r;
     if(l%2){
         rpt(4)
-            cout << (l+i) << " ";
+            cout << (l+i) << "8 ";
     }
     else
         if(r == l+3)
