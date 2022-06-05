@@ -15,7 +15,7 @@ void solve(void){
     cin>>n;
     ll f, a = 1, b = n-1;
     rpt(n/2){
-        f = __gcd(a, b) + ((a*b)/__gcd(a, b));
+        f = ( ((a*b)/__gcd(a, b)) - __gcd(a, b));
         ans = max(ans, f);
         a++;
         b--;
