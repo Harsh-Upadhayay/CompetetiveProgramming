@@ -12,15 +12,9 @@ ll t,T;
 
 void solve(void){
     ll n, m, ans;
-    cin>>n >> m;
-    if(!(n%2))
-        cout << "YES";
-    else
-        if(m%2)
-            cout << "YES";
-        else
-            cout << "NO";
-
+    cin>>n;
+    for(int i = 2; i < n;  i+=2)
+        cout << bitset<8>(i);
     cout<<endl;
 
 }
