@@ -11,12 +11,12 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans;
+    ll n, m;
     cin >> n;
     n += 1;
 
     // cout << "G";
-    vector<vector<int>> matrix;
+    vector<vector<int>> matrix, ans;
     vector<int> fr(n, 1);
     matrix.push_back(fr);
     for(int i = 1; i < n; i++){
@@ -24,12 +24,18 @@ void solve(void){
         r[0] = 1;
         matrix.push_back(r);
     }
+    ans.push_back({1});
+    ans.push_back({1, 1});
 
-    for(int l = 1; l < n; l++)
+    for(int l = 1; l < n; l++){
+        vector<int> t(l+2, 1);
+        int x = 1;
         for(int i = l; i >= 1; i--){
             int j = l - i + 1;
-            matrix[i][j] = matrix[i][j-1] + matrix[i-1][j];
+            t[x++] = matrix[i][j] = matrix[i][j-1] + matrix[i-1][j];
         }
+        ans.push_back(t);
+    }
 
     
 
