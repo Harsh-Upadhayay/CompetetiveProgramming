@@ -14,10 +14,10 @@ void solve(void){
     ll n, x;
     cin >> n >> x;
     bool flag = false;
-    vector<ll> v(n+1);
-    for(int i = 1; i <= n; i++)
+    vector<ll> v(n);
+    for(int i = 1; i < n; i++)
         cin >> v[i];
-    for(int i = 1; i < n; ){
+    for(int i = 1; i < n-1; ){
         if(i == x)
             flag = true;
         i = i + v[i];
