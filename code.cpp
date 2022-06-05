@@ -10,10 +10,11 @@ using namespace std;
 #define TESTCAS
 ll t,T;
 
-ll  ans = 1, height = 1;
+ll  ans = 1, height = 0;
 
 void fun(map<ll, vector<ll>> &tree, ll x){
     if(!tree.count(x)){
+        ans = max(ans, height+1);
         height -= 1;
         return;
     }
