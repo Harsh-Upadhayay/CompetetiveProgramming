@@ -24,7 +24,7 @@ void solve(void){
     }
     ll l = 0, r = 0, prev = v[0];
     for(int i = 1; i < n; i++){
-        if(!(prev&i)){
+        if(!(prev&v[i])){
             r++;
             prev += i;
         }
