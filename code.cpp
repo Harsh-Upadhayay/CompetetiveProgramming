@@ -10,7 +10,7 @@ using namespace std;
 #define TESTCAS
 ll t,T;
 
-ll  ans = INT_MIN, height = 1;
+ll  ans = 1, height = 1;
 
 void fun(map<ll, vector<ll>> &tree, ll x){
     if(!tree.count(x)){
