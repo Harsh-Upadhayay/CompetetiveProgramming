@@ -16,14 +16,14 @@ void solve(void){
     cin>> l >> r;
     if(l%2){
         rpt(4)
-            cout << (l+i);
+            cout << (l+i) << " ";
     }
     else
         if(r == l+3)
             cout << "-1";
         else
             rpt(4)
-                cout << (l + 1 + i);
+                cout << (l + 1 + i) << " " ;
     // for(int i = 1; i < n; i++)
     //     cout << i << " " << i+1 << "  " << (i^(i+1)) << "\n";
     cout<<endl;
