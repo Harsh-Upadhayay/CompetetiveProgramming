@@ -18,7 +18,6 @@ void fun(map<ll, vector<ll>> &tree, ll x, ll height){
         return;
     }
     
-    ans = max(ans, height);
     for(auto y : tree[x])
         fun(tree, y, height+1);
 }
