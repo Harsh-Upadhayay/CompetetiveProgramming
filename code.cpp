@@ -11,22 +11,16 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans;
-    ll l, r;
-    cin>> l >> r;
-    if(!(l%2)){
-        rpt(4)
-            cout << (l+i) << " ";
+    ll n, m, ans = INT_MIN;
+    cin>>n;
+    ll f, a = 1, b = n-1;
+    rpt(n/2){
+        f = __gcd(a, b) + ((a*b)/__gcd(a, b));
+        ans = max(ans, f);
+        a++;
+        b--;
     }
-    else
-        if(r == l+3)
-            cout << "-1";
-        else
-            rpt(4)
-                cout << (l + 1 + i) << " " ;
-    // for(int i = 1; i < n; i++)
-    //     cout << i << " " << i+1 << "  " << (i^(i+1)) << "\n";
-    cout<<endl;
+    cout << ans;
 
 }
 
