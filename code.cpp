@@ -11,16 +11,20 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans = INT_MIN;
+    ll n, m, ans = INT_MIN, _a, _b;
     cin>>n;
     ll f, a = 1, b = n-1;
     rpt(n/2){
         f = ( ((a*b)/__gcd(a, b)) - __gcd(a, b));
-        ans = max(ans, f);
+        if(ans < f){
+            _a = a;
+            _b = b;
+            ans = f;
+        }
         a++;
         b--;
     }
-    cout << ans;
+    cout << _a << " " << _b << " : " << ans;
     cout << "\n";
 
 }
