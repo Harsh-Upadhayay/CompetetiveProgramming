@@ -15,7 +15,7 @@ void solve(void){
     cin >> n;
 
 
-    cout << "G";
+    // cout << "G";
     vector<vector<int>> matrix;
     vector<int> fr(n, 1);
     matrix.push_back(fr);
@@ -31,7 +31,7 @@ void solve(void){
             cout << matrix[i][j] << " ";
         cout << "\n";
     }
-    // cout<<endl;
+    cout<<endl;
 
 }
 
