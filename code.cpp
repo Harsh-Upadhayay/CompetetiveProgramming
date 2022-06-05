@@ -36,6 +36,7 @@ void solve(void){
             l = r = i;
         }
     }
+    ans.pb(make_pair(l,r));
     cout << ans.size() << "\n";
     for(auto x : ans)
         cout << x.first << " " << x.second << "\n";
