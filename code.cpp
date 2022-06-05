@@ -11,19 +11,31 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, o = 0, m = INT_MIN, ans;
-    cin >> n;
-    vector<ll> v(n);
-    rpt(n){
-        cin >> v[i];
-        if(v[i]%2)
-            o++;
-        m = max(v[i], m);
-    }
-    // if(o >= 2){
-        
+    ll n;
+    cin >>n ;
+    for(int i = 2; i < n; i += 2)
+        cout << setw(2) << i << " " << bitset<8>(i) << "\n";
+    // ll n, o = 0, m = INT_MIN, ans;
+    // cin >> n;
+    // vector<ll> v(n);
+    // rpt(n){
+    //     cin >> v[i];
+    //     if(v[i]%2)
+    //         o++;
+    //     m = max(v[i], m);
     // }
-    cout << m;
+    // if(o >= 2){
+    //     cout << "1";
+    //     int i;
+    //     for(i = 0; i < n; i++)
+    //         if(v[i]%2)
+    //             break;   
+    //     cout << (i+1) << "\n" << (i+2) << " " << n;
+    // }
+    // else{
+
+    // }
+    // cout << m;
     cout<<endl;
 
 }
