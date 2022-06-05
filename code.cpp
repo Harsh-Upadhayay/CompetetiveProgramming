@@ -14,9 +14,9 @@ void solve(void){
     ll n, m, ans;
     ll l, r;
     cin>> l >> r;
-    if(l%2){
+    if(!(l%2)){
         rpt(4)
-            cout << (l+i) << "8 ";
+            cout << (l+i) << " ";
     }
     else
         if(r == l+3)
