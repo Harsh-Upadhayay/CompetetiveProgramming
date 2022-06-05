@@ -31,6 +31,7 @@ void solve(void){
         }
         else{
             prev = prev&v[i];
+            cout << prev;
 
             ans.pb(make_pair(l, r));
             l = r = i;
