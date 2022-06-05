@@ -13,7 +13,6 @@ ll t,T;
 void solve(void){
     ll n, m;
     cin >> n;
-    n += 1;
 
     // cout << "G";
     vector<vector<int>> matrix, ans;
