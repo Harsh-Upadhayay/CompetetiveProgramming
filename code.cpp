@@ -25,6 +25,14 @@ void solve(void){
         matrix.push_back(r);
     }
 
+    for(int l = 1; l < n; l++)
+        for(int i = l; i >= 1; i--){
+            int j = n - i - 1;
+            matrix[i][j] = matrix[i][j-1] + matrix[i-1][j];
+        }
+
+    
+
     // cout << n;
     for(int i = 0; i < n; i++){
         for(int j = 0; j < n;  j++)
