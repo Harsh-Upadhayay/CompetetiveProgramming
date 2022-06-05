@@ -14,7 +14,7 @@ void solve(void){
     ll n, m, ans;
     cin>>n;
     for(int i = 2; i < n;  i+=2)
-        cout << setw(10) << i << " " << bitset<8>(i) << " \n";
+        cout << setw(5) << i << " " << bitset<8>(i) << " \n";
     cout<<endl;
 
 }
