@@ -11,10 +11,15 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans;
-    cin>>n;
-    for(int i = 2; i < n;  i+=2)
-        cout << setw(2) << i << " " << bitset<8>(i) << " \n";
+    ll n, m = INT_MIN, ans;
+    cin >> n;
+    vector<ll> v(n);
+    rpt(n){
+        cin >> v[i];
+        m = max(v[i], m);
+    }
+    m = log2(m);
+    cout << m;
     cout<<endl;
 
 }
