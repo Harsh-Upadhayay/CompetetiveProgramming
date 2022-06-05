@@ -14,7 +14,7 @@ void solve(void){
     ll n, m, ans;
     cin>>n;
     for(int i = 1; i < n; i++)
-        cout << i << " " << i+1 << "  " << (i^(i+1));
+        cout << i << " " << i+1 << "  " << (i^(i+1)) << "\n";
     cout<<endl;
 
 }
