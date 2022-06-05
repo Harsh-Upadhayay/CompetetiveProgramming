@@ -10,23 +10,28 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-ll mod = (10e9 + 7);
-
 void solve(void){
-    ll n, m, ans = 1;
-    cin>>n;
-    ll v;
-    rpt(n)
-        cin >> v;
-    rpt(n)
-        cin >> v;
-    rpt(n){
-        cin >> v;
-        if(!v)
-            ans = (ans%mod * 2)%mod;
-    }
-    cout << ans;
-    cout<<endl;
+    ll n, m, ans;
+    cin >> n;
+
+
+    cout << "G";
+    // vector<vector<int>> matrix(n);
+    // vector<int> fr(n, 1);
+    // matrix.push_back(fr);
+    // for(int i = 1; i < n; i++){
+    //     vector<int> r(n, 0);
+    //     r[0] = 1;
+    //     matrix.push_back(r);
+    // }
+
+    // cout << n;
+    // for(int i = 0; i < n; i++){
+    //     for(int j = 0; j < n;  j++)
+    //         cout << matrix[i][j] << " ";
+    //     cout << "\n";
+    // }
+    // cout<<endl;
 
 }
 

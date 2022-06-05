@@ -11,26 +11,36 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n;
-    rpt(16){
-    	for(int j = 0; j < 8; j++){
-    		ll t =i;
-    		cout << "4 " << j << "\n";
-    		vector<ll> v;
-    		while(t){
-    			v.pb(t%2);
-    			t /= 2;
-    		}
-    		reverse(v.begin(), v.end());
-    		for(auto x : v)
-    			cout << x;
-    		cout << "\n";
-    	}
-    	cout << "\n";
-
+    ll n, m, ans;
+    cin >> n;
+    vector<ll> v(n);
+    rpt(n)
+        cin >> v[i];
+    vector<ll> t(v.begin(), v.end());
+    sort(t.begin(), t.end());
+    vector<pair<ll, ll>> idx;
+    ll start = 0, end = -1;
+    rpt(n){
+        if(t[i] != v[i])
+            end++;
+        else{
+            if(start <= end)
+                idx.pb(make_pair(start, end));
+            start = i + 1;
+            end = i;
+        }
     }
-    cout<<endl;
-    	
+    if(start <= end)
+        idx.pb(make_pair(start, end));
+
+    cout << idx.size() << "\n";
+
+    for(auto x : idx){
+        
+        cout << x.first << " " << x.second << endl;
+    }
+
+    cout << "\n";
 
 }
 
