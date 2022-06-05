@@ -13,7 +13,7 @@ ll t,T;
 ll mod = (10e9 + 7);
 
 void solve(void){
-    ll n, m, ans;
+    ll n, m, ans = 1;
     cin>>n;
     ll v;
     rpt(n)
