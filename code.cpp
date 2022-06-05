@@ -15,17 +15,26 @@ void solve(void){
     cin>>n;
     ll f, a = 1, b = n-1;
   
-    if(n == 2)
-        cout << "1 1";
+    if(n == 2){
+        a = 1;
+        b = 1;
+    }
     else
-        if(n%2)
-            cout << (n/2) << " " << ((n/2) + 1);
+        if(n%2){
+            a = (n/2);
+            b = ((n/2) + 1);
+        }
         else
-            if(!(n%4))
-                cout << ((n/2) -1) << " " << ((n/2) + 1);
-            else
-                cout << ((n/2) - 2) << " " << ((n/2) + 2);
-        
+            if(!(n%4)){
+                a = ((n/2) -1);
+                b = ((n/2) + 1);
+            }
+            else{
+                a = ((n/2) - 2);
+                b = ((n/2) + 2);
+            }
+    f = ( ((a*b)/__gcd(a, b)) - __gcd(a, b));
+    cout << f;    
     // rpt(n/2){
     //     f = ( ((a*b)/__gcd(a, b)) - __gcd(a, b));
     //     if(ans < f){
