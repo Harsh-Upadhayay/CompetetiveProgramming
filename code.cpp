@@ -13,8 +13,10 @@ ll t,T;
 ll  ans = 1, height = 1;
 
 void fun(map<ll, vector<ll>> &tree, ll x, ll height){
-    if(!tree.count(x))
+    if(!tree.count(x)){
+        ans = max(ans, height);
         return;
+    }
     
     ans = max(ans, height);
     for(auto y : tree[x])
