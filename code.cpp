@@ -38,13 +38,17 @@ void solve(void){
     }
 
     
-
-    // cout << n;
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n;  j++)
-            cout << matrix[i][j] << " ";
+    for(auto x : ans){
+        for(auto y : x)
+            cout << y << " ";
         cout << "\n";
     }
+    // cout << n;
+    // for(int i = 0; i < n; i++){
+    //     for(int j = 0; j < n;  j++)
+    //         cout << matrix[i][j] << " ";
+    //     cout << "\n";
+    // }
     cout<<endl;
 
 }
