@@ -11,42 +11,17 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans = INT_MIN, _a, _b;
-    cin>>n;
-    ll f, a = 1, b = n-1;
-  
-    if(n == 2){
-        a = 1;
-        b = 1;
-    }
+    ll n, m, ans;
+    cin>>n >> m;
+    if(!(n%2))
+        cout << "YES";
     else
-        if(n%2){
-            a = (n/2);
-            b = ((n/2) + 1);
-        }
+        if(m%2)
+            cout << "YES";
         else
-            if(!(n%4)){
-                a = ((n/2) -1);
-                b = ((n/2) + 1);
-            }
-            else{
-                a = ((n/2) - 2);
-                b = ((n/2) + 2);
-            }
-    f = ( ((a*b)/__gcd(a, b)) - __gcd(a, b));
-    cout << f;    
-    // rpt(n/2){
-    //     f = ( ((a*b)/__gcd(a, b)) - __gcd(a, b));
-    //     if(ans < f){
-    //         _a = a;
-    //         _b = b;
-    //         ans = f;
-    //     }
-    //     a++;
-    //     b--;
-    // }
-    // cout << _a << " " << _b << " : " << ans;
-    cout << "\n";
+            cout << "NO";
+
+    cout<<endl;
 
 }
 
@@ -57,7 +32,6 @@ int main() {
         freopen("input.txt","r",stdin);
         freopen("output.txt","w",stdout);
     #endif
-        // cout << "\n";
 
     ios_base::sync_with_stdio(0);
     cin.tie(NULL);
