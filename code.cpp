@@ -13,10 +13,13 @@ ll t,T;
 void solve(void){
     ll n, s;
     cin >> n >> s;
-    string go, come;
-    cin >> go >> come;
+    vector<ll> go(n), come(n);
+    rpt(n)
+        cin >> go[i];
+    rpt(n)
+        cin >> come[i];
     s--;
-    if(!(go[s] || come[s])){
+    if(!(go[s] || come[s]) || !go[0]){
         cout << "NO";
     }
     else if(go[s]){
