@@ -7,22 +7,25 @@ using namespace std;
 
 #define inf INT_MAX
 
-#define TESTCAS
+#define TESTCASE
 ll t,T;
 
+ll mod = (10e9 + 7);
+
 void solve(void){
-    ll n, x;
-    cin >> n >> x;
-    bool flag = false;
-    vector<ll> v(n);
-    for(int i = 1; i < n; i++)
-        cin >> v[i];
-    for(int i = 1; i < n-1; ){
-        if(i == x)
-            flag = true;
-        i = i + v[i];
+    ll n, m, ans;
+    cin>>n;
+    ll v;
+    rpt(n)
+        cin >> v;
+    rpt(n)
+        cin >> v;
+    rpt(n){
+        cin >> v;
+        if(!v)
+            ans = (ans%mod * 2)%mod;
     }
-    cout << (flag?"YES":"NO");
+    cout << ans;
     cout<<endl;
 
 }
