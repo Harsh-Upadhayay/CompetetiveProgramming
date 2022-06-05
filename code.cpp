@@ -12,9 +12,20 @@ ll t,T;
 
 void solve(void){
     ll n, m, ans;
-    cin>>n;
-    for(int i = 1; i < n; i++)
-        cout << i << " " << i+1 << "  " << (i^(i+1)) << "\n";
+    ll l, r;
+    cin>> l >> r;
+    if(l%2){
+        rpt(4)
+            cout << (l+i);
+    }
+    else
+        if(r == l+3)
+            cout << "-1";
+        else
+            rpt(4)
+                cout << (l + 1 + i);
+    // for(int i = 1; i < n; i++)
+    //     cout << i << " " << i+1 << "  " << (i^(i+1)) << "\n";
     cout<<endl;
 
 }
