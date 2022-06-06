@@ -36,14 +36,12 @@ void solve(void){
         return;
 
     }
+
     cout << "YES\n" ;
-    vector<ll> r;
-    r.pb(0);
-    rpt(l.size()-1)
-        r.pb(l[i]+1);
-    l[l.size()-1] = n-1;
-    for(int i = 0; i < l.size(); i++)
-        cout << r[i]+1 << " " << l[i]+1 << " \n";
+    cout << l.size() << endl;
+    cout << "1 " << l[0]+1 << "\n";
+    for(int i = 1; i < l.size(); i++)
+        cout << l[i-1]+2 << l[i]+1 << "\n";
 
     cout<<endl;
 
