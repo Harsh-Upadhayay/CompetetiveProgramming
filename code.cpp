@@ -11,36 +11,35 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    // ll n;
-    // cin >>n ;
-    // for(int i = 2; i < n; i += 2)
-    //     cout << setw(2) << i << " " << bitset<8>(i) << "\n";
-    ll n, o = 0, m = INT_MIN;
-    vector<pair<ll, ll>> ans;
+    ll n, m, ans;
     cin >> n;
     vector<ll> v(n);
-    rpt(n){
+    rpt(n)
         cin >> v[i];
-    }
-    ll l = 0, r = 0, prev = v[0];
-    for(int i = 1; i < n; i++){
+    vector<ll> l, r;
+    bool flag = false;
+    ll lsb = 1;
+    rpt(29){
+        for(int j = 0; j < n; j++){
+            if(v[i]&lsb){
+                l.push_back(i);
+                flag = true;
+            }
+            else if(flag){
+                r.push_back(i);
+                flag = false;
+            }
 
-        if(!(prev&v[i])){
-            r++;
-            prev += v[i];
         }
-        else{
-            prev = prev&v[i];
-
-            ans.pb(make_pair(l, r));
-            l = r = i;
-        }
+        if(l.size() > 1)
+            break;
+        else
+            l.clear();
+        lsb = lsb * 2;
     }
-    ans.pb(make_pair(l,r));
-    cout << ans.size() << "\n";
-    for(auto x : ans)
-        cout << x.first << " " << x.second << "\n";
-    // cout << m;
+    for(int i = 0; i < r.size(); i += 2)
+        cout << r[i]+1 << r[i+1]+1 << "\n";
+
     cout<<endl;
 
 }
