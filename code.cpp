@@ -37,7 +37,7 @@ void solve(void){
     rpt(l.size()-1)
         r.pb(l[i]+1);
     for(int i = 0; i < l.size(); i++)
-        cout << r[i] << " " << l[i] << " \n";
+        cout << r[i]+1 << " " << l[i]+1 << " \n";
 
     cout<<endl;
 
