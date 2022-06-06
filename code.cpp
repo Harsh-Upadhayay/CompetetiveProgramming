@@ -16,29 +16,29 @@ void solve(void){
     vector<ll> v(n);
     rpt(n)
         cin >> v[i];
-    vector<ll> l, r;
-    bool flag = false;
+    vector<ll> l;
     ll lsb = 1;
+    \
     rpt(29){
-        for(int j = 0; j < n; j++){
-            if(v[j]&lsb){
+        
+        for(int j = 0; j < n; j++)
+            if(v[j]&lsb)
                 l.push_back(j);
-                flag = true;
-            }
-            else if(flag){
-                r.push_back(j);
-                flag = false;
-            }
 
-        }
         if(l.size() > 1)
             break;
         else
             l.clear();
+        
         lsb = lsb * 2;
     }
-    for(int i = 0; i < r.size(); i++)
-        cout << r[i]+1 << "\n";
+    cout << "1 ";
+    vector<ll> r;
+    r.pb(1);
+    rpt(l.size()-1)
+        r.pb(l[i]+1);
+    for(int i = 0; i < l.size(); i++)
+        cout << r[i] << " " << l[i] << " \n";
 
     cout<<endl;
 
