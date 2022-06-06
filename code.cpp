@@ -21,12 +21,12 @@ void solve(void){
     ll lsb = 1;
     rpt(29){
         for(int j = 0; j < n; j++){
-            if(v[i]&lsb){
-                l.push_back(i);
+            if(v[j]&lsb){
+                l.push_back(j);
                 flag = true;
             }
             else if(flag){
-                r.push_back(i);
+                r.push_back(j);
                 flag = false;
             }
 
