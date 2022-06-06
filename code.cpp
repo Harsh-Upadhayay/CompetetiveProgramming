@@ -38,7 +38,7 @@ void solve(void){
     }
     cout << "YES\n" ;
     vector<ll> r;
-    r.pb(1);
+    r.pb(0);
     rpt(l.size()-1)
         r.pb(l[i]+1);
     for(int i = 0; i < l.size(); i++)
