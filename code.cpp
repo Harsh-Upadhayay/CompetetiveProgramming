@@ -38,6 +38,7 @@ void solve(void){
     }
 
     cout << "YES\n" ;
+    l[l.size()-1] = n-1;
     cout << l.size() << endl;
     cout << "1 " << l[0]+1 << "\n";
     for(int i = 1; i < l.size(); i++)
