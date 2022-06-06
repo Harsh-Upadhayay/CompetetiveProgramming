@@ -37,8 +37,8 @@ void solve(void){
             l.clear();
         lsb = lsb * 2;
     }
-    for(int i = 0; i < l.size(); i++)
-        cout << l[i]+1 << "\n";
+    for(int i = 0; i < r.size(); i++)
+        cout << r[i]+1 << "\n";
 
     cout<<endl;
 
