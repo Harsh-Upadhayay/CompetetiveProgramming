@@ -41,6 +41,7 @@ void solve(void){
     r.pb(0);
     rpt(l.size()-1)
         r.pb(l[i]+1);
+    l[l.size()-1] = n-1;
     for(int i = 0; i < l.size(); i++)
         cout << r[i]+1 << " " << l[i]+1 << " \n";
 
