@@ -41,7 +41,7 @@ void solve(void){
     cout << l.size() << endl;
     cout << "1 " << l[0]+1 << "\n";
     for(int i = 1; i < l.size(); i++)
-        cout << l[i-1]+2 << l[i]+1 << "\n";
+        cout << l[i-1]+2 << " " << l[i]+1 << "\n";
 
     cout<<endl;
 
