@@ -18,7 +18,6 @@ void solve(void){
         cin >> v[i];
     vector<ll> l;
     ll lsb = 1;
-    \
     rpt(29){
         
         for(int j = 0; j < n; j++)
