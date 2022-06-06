@@ -31,6 +31,10 @@ void solve(void){
         
         lsb = lsb * 2;
     }
+    if(l.size() <= 1){
+        cout << "NO\n";
+        
+    }
     vector<ll> r;
     r.pb(1);
     rpt(l.size()-1)
