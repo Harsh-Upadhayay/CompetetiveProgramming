@@ -33,8 +33,10 @@ void solve(void){
     }
     if(l.size() <= 1){
         cout << "NO\n";
-        
+        return;
+
     }
+    cout << "YES\n" ;
     vector<ll> r;
     r.pb(1);
     rpt(l.size()-1)
