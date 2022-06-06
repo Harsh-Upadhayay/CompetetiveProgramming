@@ -32,7 +32,6 @@ void solve(void){
         
         lsb = lsb * 2;
     }
-    cout << "1 ";
     vector<ll> r;
     r.pb(1);
     rpt(l.size()-1)
