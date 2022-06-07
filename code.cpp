@@ -11,33 +11,21 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans;
-    cin >> n;
-
-    ll d[n] = {0}, s[n], f[n];
-
-    rpt(n)
-        cin >> s[i];
+    ll n, m, ans = 0, k;
+    cin >> n >> k;
+    ll ar[n];
 
     rpt(n)
-        cin >> f[i];
+        cin >> ar[i];
 
-    d[0] = f[0] - s[0];
+    sort(ar, ar+n);
 
-    for(int i = 1; i < n; i++){
-
-        if(s[i] > f[i-1])
-            d[i] = f[i] - s[i];
-        else{
-            // cout << f[i] << " " << f[i-1];
-            // return;
-            d[i] = f[i]- f[i-1];
-        }
+    for(int i = 0; i < n; i += 2){
+        ll t = ar[i]+ar[i+1];
+        t /= 2;
+        ans += t;
     }
-
-    rpt(n)
-        cout << d[i] << " ";
-
+    cout << t;
     cout<<endl;
 
 }
