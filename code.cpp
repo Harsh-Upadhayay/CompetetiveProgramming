@@ -13,13 +13,15 @@ ll t,T;
 void solve(void){
     ll n, maxDiff = INT_MIN;
     vector<ll> a(n), b(n);
+    cin >> n;
     rpt(n)
         cin >> a[i];
+
     rpt(n){
         cin >> b[i];
         maxDiff = max(maxDiff, (a[i] - b[i]));
     }
-    cout << maxDiff;
+    // cout << maxDiff;
     bool flag = true;
 
 
@@ -28,9 +30,9 @@ void solve(void){
         if(a[i] != b[i])
             flag = false;
     }
-    // rpt(n)
-    //     cout << a[i] << " ";
-    // cout << ((flag)?"YES":"NO");
+    rpt(n)
+        cout << a[i] << " ";
+    cout << ((flag)?"YES":"NO");
     cout<<endl;
 
 }
