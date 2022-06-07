@@ -11,57 +11,30 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, maxDiff = INT_MIN;
+    ll n, m, ans;
     cin >> n;
-    ll a[n], b[n];
-    
-    rpt(n)
-        cin >> a[i];
+
+    ll d[n] = {0}, s[n], f[n];
 
     rpt(n)
-        cin >> b[i];
-        
-    rpt(n){
-        ll t = (a[i] - b[i]);
-        maxDiff = max(maxDiff, t);
-    }
+        cin >> s[i];
 
-    if(maxDiff < 0){
-        cout << "NO\n";
-        return;
-    }
+    rpt(n)
+        cin >> f[i];
 
-    if(maxDiff == 0){
-        bool inflag = true;
-        
-        rpt(n)
-            if(a[i] != b[i])
-                inflag = false;
+    d[0] = f[0] - s[0];
 
-        if(inflag)
-            cout << "YES\n";
+    for(int i = 1; i < n; i++){
+
+        if(s[i] > f[i-1])
+            d[i] = s[i] - f[i];
         else
-            cout << "NO\n";
-        return;
+            d[i] = f[i] - s[i]-1;
+
     }
 
     rpt(n)
-        if(a[i] > maxDiff)
-            a[i] = a[i] - maxDiff;
-        else
-            a[i] = 0;
-
-    bool flag = true;
-
-    rpt(n)
-        if(a[i] != b[i])
-            flag = false;
-
-    if(flag)
-        cout << "YES";
-    else
-        cout << "NO";
-
+        cout << d[i] << " ";
     cout<<endl;
 
 }
@@ -89,6 +62,5 @@ int main() {
 
     return 0;
 }
-
 
 
