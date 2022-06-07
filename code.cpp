@@ -27,8 +27,8 @@ void solve(void){
     sort(v.begin(), v.end());
     // sort(t.begin(), t.end());
 
-    for(auto x : m)
-        cout << (x.first) << " ";
+    // for(auto x : m)
+    //     cout << (x.first) << " ";
 
     rpt(n){
         auto itr = m.find(v[i]);
@@ -41,7 +41,8 @@ void solve(void){
         m.erase(itr);
 
         ll x = v[i];
-        auto y = m.begin();
+        auto y = m.end();
+        y--;
         ll t = y->first;
         t = (x + t);
         t /= k;
