@@ -29,14 +29,18 @@ void solve(void){
         cout << "NO\n";
         return;
     }
+    if(maxDiff == 0){
+        cout << "YES\n";
+        return;
+    }
 
     rpt(n){
         a[i] = ((a[i] > maxDiff)?(a[i]-maxDiff):0);
         if(a[i] != b[i])
             flag = false;
     }
-    rpt(n)
-        cout << a[i] << " ";
+    // rpt(n)
+    //     cout << a[i] << " ";
     cout << ((flag)?"YES":"NO");
     cout<<endl;
 
@@ -61,7 +65,7 @@ int main() {
     #endif
 
     while(t--) {
-        cout <<"*"<<t<<"*";
+        // cout <<"*"<<t<<"*";
         solve();
     }
 
