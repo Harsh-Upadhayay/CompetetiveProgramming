@@ -30,7 +30,12 @@ void solve(void){
         return;
     }
     if(maxDiff == 0){
-        cout << "YES\n";
+        bool inflag = true;
+        rpt(n)
+            if(a[i] != b[i])
+                inflag = false;
+        cout << ((inflag)?"YES\n":"NO\n");
+
         return;
     }
 
