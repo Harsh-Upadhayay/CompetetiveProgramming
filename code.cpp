@@ -29,11 +29,17 @@ void solve(void){
     for(int i = k; i < n; i++){
         if(s[i] == 'W'){
             w++;
-            b--;
+            if(s[i-k+1] == 'W')
+                w--;
+            else
+                b--;
         }
         else{
             b++;
-            w--;
+            if(s[i-k+1] == 'W')
+                w--;
+            else
+                b--;
         }
         cout << ans;
         ans = min(ans, w);
