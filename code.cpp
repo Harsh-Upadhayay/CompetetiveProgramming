@@ -14,6 +14,7 @@ void solve(void){
     ll n, maxDiff = INT_MIN;
     vector<ll> a(n), b(n);
     cin >> n;
+
     rpt(n)
         cin >> a[i];
 
@@ -24,7 +25,11 @@ void solve(void){
     // cout << maxDiff;
     bool flag = true;
 
-    
+    if(maxDiff < 0){
+        cout << "NO\n";
+        return;
+    }
+
     rpt(n){
         a[i] = ((a[i] > maxDiff)?(a[i]-maxDiff):0);
         if(a[i] != b[i])
@@ -55,8 +60,10 @@ int main() {
         t = 1;
     #endif
 
-    while(t--) 
+    while(t--) {
+        cout <<"*"<<t<<"*";
         solve();
+    }
 
     return 0;
 }
