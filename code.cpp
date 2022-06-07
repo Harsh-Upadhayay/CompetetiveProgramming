@@ -11,39 +11,12 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans;
+    ll n, h1, h2, h3;
     cin >> n;
-    vector<ll> v(n);
-    rpt(n)
-        cin >> v[i];
-    vector<ll> l;
-    ll lsb = 1;
-    rpt(29){
-        
-        for(int j = 0; j < n; j++)
-            if(v[j]&lsb)
-                l.push_back(j);
-
-        if(l.size() > 1)
-            break;
-        else
-            l.clear();
-        
-        lsb = lsb * 2;
-    }
-    if(l.size() <= 1){
-        cout << "NO\n";
-        return;
-
-    }
-
-    cout << "YES\n" ;
-    l[l.size()-1] = n-1;
-    cout << l.size() << endl;
-    cout << "1 " << l[0]+1 << "\n";
-    for(int i = 1; i < l.size(); i++)
-        cout << l[i-1]+2 << " " << l[i]+1 << "\n";
-
+    h1 = (n-3)/3;
+    h2 = (n-h1-1)/2;
+    h3 = n - (h1+h2);
+    cout << h2 << " " << h3 << " " << h1;
     cout<<endl;
 
 }
