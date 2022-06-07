@@ -11,42 +11,57 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, maxDiff = INT_MIN;
-    vector<ll> a(n), b(n);
+    ll n, m, maxDiff = INT_MIN;
     cin >> n;
-
+    ll a[n], b[n];
+    
     rpt(n)
         cin >> a[i];
 
-    rpt(n){
+    rpt(n)
         cin >> b[i];
-        maxDiff = max(maxDiff, (a[i] - b[i]));
+        
+    rpt(n){
+        ll t = (a[i] - b[i]);
+        maxDiff = max(maxDiff, t);
     }
-    // cout << maxDiff;
-    bool flag = true;
 
     if(maxDiff < 0){
         cout << "NO\n";
         return;
     }
+
     if(maxDiff == 0){
         bool inflag = true;
+        
         rpt(n)
             if(a[i] != b[i])
                 inflag = false;
-        cout << ((inflag)?"YES\n":"NO\n");
 
+        if(inflag)
+            cout << "YES\n";
+        else
+            cout << "NO\n";
         return;
     }
 
-    rpt(n){
-        a[i] = ((a[i] > maxDiff)?(a[i]-maxDiff):0);
+    rpt(n)
+        if(a[i] > maxDiff)
+            a[i] = a[i] - maxDiff;
+        else
+            a[i] = 0;
+
+    bool flag = true;
+
+    rpt(n)
         if(a[i] != b[i])
             flag = false;
-    }
-    // rpt(n)
-    //     cout << a[i] << " ";
-    cout << ((flag)?"YES":"NO");
+
+    if(flag)
+        cout << "YES";
+    else
+        cout << "NO";
+
     cout<<endl;
 
 }
@@ -69,12 +84,11 @@ int main() {
         t = 1;
     #endif
 
-    while(t--) {
-        // cout <<"*"<<t<<"*";
+    while(t--) 
         solve();
-    }
 
     return 0;
 }
+
 
 
