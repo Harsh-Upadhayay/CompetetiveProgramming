@@ -28,8 +28,11 @@ void solve(void){
 
         if(s[i] > f[i-1])
             d[i] = f[i] - s[i];
-        else
+        else{
+            cout << f[i] << " " << s[i-1];
+            return;
             d[i] = f[i]- s[i-1];
+        }
     }
 
     rpt(n)
