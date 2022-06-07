@@ -41,7 +41,7 @@ void solve(void){
             else
                 b--;
         }
-        cout << ans;
+        cout << w;
         ans = min(ans, w);
     }
     // cout << ((ans<0)?0:ans);
