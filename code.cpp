@@ -35,7 +35,7 @@ void solve(void){
         
         if(itr == m.end())
             continue;
-        if(itr->second != i)
+        else if(itr->second != i)
             continue;
 
         m.erase(itr);
