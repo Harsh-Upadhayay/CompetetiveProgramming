@@ -19,13 +19,18 @@ void solve(void){
         cin >> b[i];
         maxDiff = max(maxDiff, (a[i] - b[i]));
     }
+    cout << maxDiff;
     bool flag = true;
+
+
     rpt(n){
         a[i] = ((a[i] > maxDiff)?(a[i]-maxDiff):0);
         if(a[i] != b[i])
             flag = false;
     }
-    cout << ((flag)?"YES":"NO");
+    // rpt(n)
+    //     cout << a[i] << " ";
+    // cout << ((flag)?"YES":"NO");
     cout<<endl;
 
 }
