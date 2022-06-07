@@ -22,7 +22,7 @@ void solve(void){
 
     for(int i = 0; i < n; i += 2){
         ll t = ar[i]+ar[i+1];
-        t /= 2;
+        t /= k;
         ans += t;
     }
     cout << ans;
