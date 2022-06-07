@@ -29,14 +29,14 @@ void solve(void){
     for(int i = k; i < n; i++){
         if(s[i] == 'W'){
             w++;
-            if(s[i-k+1] == 'W')
+            if(s[i-k] == 'W')
                 w--;
             else
                 b--;
         }
         else{
             b++;
-            if(s[i-k+1] == 'W')
+            if(s[i-k] == 'W')
                 w--;
             else
                 b--;
