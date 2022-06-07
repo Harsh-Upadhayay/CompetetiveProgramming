@@ -25,7 +25,7 @@ void solve(void){
         t /= 2;
         ans += t;
     }
-    cout << t;
+    cout << ans;
     cout<<endl;
 
 }
