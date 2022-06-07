@@ -56,7 +56,7 @@ void solve(void){
         temp += x;
         temp /= k;
         ans += temp;
-        cout << temp << " ";
+        // cout << temp << " ";
         m.erase(itr);
 
 
