@@ -29,8 +29,7 @@ void solve(void){
         if(s[i] > f[i-1])
             d[i] = f[i] - s[i];
         else
-            d[i] = f[i-1] - s[i];
-
+            d[i] = f[i]- s[i-1];
     }
 
     rpt(n)
