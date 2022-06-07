@@ -24,7 +24,7 @@ void solve(void){
     // cout << maxDiff;
     bool flag = true;
 
-
+    cout << maxDiff;
     rpt(n){
         a[i] = ((a[i] > maxDiff)?(a[i]-maxDiff):0);
         if(a[i] != b[i])
