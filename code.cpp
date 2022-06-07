@@ -11,58 +11,32 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, ans = 0, k;
-    cin >> n >> k;
-    vector<ll> v;
-    multimap<ll, ll> m;
-
+    ll n, m, k, w = 0, b = 0, ans = INT_MAX;
+    cin>>n>>k;
+    string s;
+    cin >> s;
     rpt(n){
-        ll x;
-        cin >> x;
-        v.pb(x);
-        // t.pb(x);
-        m.insert(make_pair(x,i));
-    }
+        if(s[i] == 'W')
+            w++;
+        else
+            b++;
 
-    sort(v.begin(), v.end());
-    // sort(t.begin(), t.end());
-
-    // for(auto x : m)
-    //     cout << (x.first) << " ";
-
-    rpt(n){
-        auto itr = m.find(v[i]);
-        
-        if(itr == m.end())
-            continue;
-        else if(itr->second != i)
-            continue;
-
-        m.erase(itr);
-
-        ll x = v[i];
-        auto y = m.end();
-        y--;
-        ll t = y->first;
-        t = (x + t);
-        t /= k;
-        t *= k;
-        ll d = t-x;
-
-        itr = m.find(d);
-        if(itr == m.end())
-            itr = m.upper_bound(d);
-
-        ll temp = itr->first;
-        temp += x;
-        temp /= k;
-        ans += temp;
-        // cout << temp << " ";
-        m.erase(itr);
-
+        if((i+1) == k)
+            break;
 
     }
-
+    ans = min(ans, w);
+    for(int i = k; i < n; i++){
+        if(s[i] == 'W'){
+            w++;
+            b--;
+        }
+        else{
+            b--;
+            w++;
+        }
+        ans = min(ans, w);
+    }
     cout << ans;
     cout<<endl;
 
