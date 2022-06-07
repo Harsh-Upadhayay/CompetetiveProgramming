@@ -11,20 +11,53 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans = 0, k;
+    ll n, ans = 0, k;
     cin >> n >> k;
-    ll ar[n];
+    vector<ll> v;
+    multimap<ll, ll> m;
 
-    rpt(n)
-        cin >> ar[i];
-
-    sort(ar, ar+n);
-
-    for(int i = 0; i < n; i += 2){
-        ll t = ar[i]+ar[i+1];
-        t /= k;
-        ans += t;
+    rpt(n){
+        ll x;
+        cin >> x;
+        v.pb(x);
+        // t.pb(x);
+        m.insert(make_pair(x,i));
     }
+
+    sort(v.begin(), v.end());
+    // sort(t.begin(), t.end());
+
+    rpt(n){
+        auto itr = m.find(v[i]);
+        
+        if(itr == m.end())
+            continue;
+        if(itr->second != i)
+            continue;
+
+        m.erase(itr);
+
+        ll x = v[i];
+        auto y = m.begin();
+        ll t = y->first;
+        t = (x + t);
+        t /= k;
+        t *= k;
+        ll d = t-x;
+
+        itr = m.find(d);
+        if(itr == m.end())
+            itr = m.upper_bound(d);
+
+        ll temp = itr->first;
+        temp += x;
+        temp /= k;
+        ans += temp;
+        m.erase(itr);
+
+
+    }
+
     cout << ans;
     cout<<endl;
 
