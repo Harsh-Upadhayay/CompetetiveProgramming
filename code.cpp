@@ -27,7 +27,7 @@ void solve(void){
     for(int i = 1; i < n; i++){
 
         if(s[i] > f[i-1])
-            d[i] = s[i] - f[i];
+            d[i] = f[i] - s[i];
         else
             d[i] = f[i] - s[i]-1;
 
@@ -35,6 +35,7 @@ void solve(void){
 
     rpt(n)
         cout << d[i] << " ";
+
     cout<<endl;
 
 }
