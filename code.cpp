@@ -31,7 +31,7 @@ void solve(void){
         else{
             cout << f[i] << " " << s[i-1];
             return;
-            d[i] = f[i]- s[i-1];
+            d[i] = f[i]- f[i-1];
         }
     }
 
