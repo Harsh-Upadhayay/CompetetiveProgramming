@@ -29,8 +29,8 @@ void solve(void){
         if(s[i] > f[i-1])
             d[i] = f[i] - s[i];
         else{
-            cout << f[i] << " " << f[i-1];
-            return;
+            // cout << f[i] << " " << f[i-1];
+            // return;
             d[i] = f[i]- f[i-1];
         }
     }
