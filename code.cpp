@@ -41,10 +41,10 @@ void solve(void){
             else
                 b--;
         }
-        cout << w;
+        // cout << w;
         ans = min(ans, w);
     }
-    // cout << ((ans<0)?0:ans);
+    cout << ((ans<0)?0:ans);
     cout<<endl;
 
 }
