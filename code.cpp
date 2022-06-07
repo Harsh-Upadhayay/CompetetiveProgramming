@@ -11,12 +11,21 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, h1, h2, h3;
-    cin >> n;
-    h1 = (n-3)/3;
-    h2 = (n-h1-1)/2;
-    h3 = n - (h1+h2);
-    cout << h2 << " " << h3 << " " << h1;
+    ll n, maxDiff = INT_MIN;
+    vector<ll> a(n), b(n);
+    rpt(n)
+        cin >> a[i];
+    rpt(n){
+        cin >> b[i];
+        maxDiff = max(maxDiff, (a[i] - b[i]));
+    }
+    bool flag = true;
+    rpt(n){
+        a[i] = ((a[i] > maxDiff)?(a[i]-maxDiff):0);
+        if(a[i] != b[i])
+            flag = false;
+    }
+    cout << ((flag)?"YES":"NO");
     cout<<endl;
 
 }
