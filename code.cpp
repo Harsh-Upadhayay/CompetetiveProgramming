@@ -27,6 +27,9 @@ void solve(void){
     sort(v.begin(), v.end());
     // sort(t.begin(), t.end());
 
+    for(auto x : m)
+        cout << (x.first) << " ";
+
     rpt(n){
         auto itr = m.find(v[i]);
         
