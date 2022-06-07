@@ -32,8 +32,8 @@ void solve(void){
             b--;
         }
         else{
-            b--;
-            w++;
+            b++;
+            w--;
         }
         ans = min(ans, w);
     }
