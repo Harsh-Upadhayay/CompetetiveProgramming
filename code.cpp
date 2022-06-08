@@ -21,10 +21,9 @@ void solve(void){
         if(s[i] == 'W')
             w++;
 
-    for(int i = k; i < n; i++, w += (s[i] == 'W') - (s[i-k] == 'W')){
-        
+    for(int i = k; i < n; i++, w += (s[i] == 'W') - (s[i-k] == 'W'))
         ans = min(ans, w);
-    }
+    
 
     ans = min(ans, w);
     cout << ((ans < 0) ? 0 : ans);
