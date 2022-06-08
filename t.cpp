@@ -10,26 +10,68 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-void solve(void){
-    ll n, m, ans;
-    cin >> n;
-    ll ar[n];
-    rpt(n)
-        cin >> ar[i];
-    bool flag = true;
-    ll big = ar[0], small = ar[0];
-    for(int i = 1; i < n; i++){
-        if(ar[i] < big && ar[i] > small){
-            flag = false;
-            break;
-        }
-        if(ar[i] > big){
-            big = ar[i];
-        }
-        else if(ar[i] < small)
-            small = ar[i];
+ll BitsSetTable256[100001];
+set<ll> nums;
+
+void initialize()
+{
+ 
+    ll x = 2;
+    BitsSetTable256[0] = 0;
+    for (ll i = 0; i < 100001; i++)
+    {
+        BitsSetTable256[i] = (i & 1) +
+        BitsSetTable256[i / 2];
+        if(x < 100001)
+            nums.insert(x - 1);
+        x *= 2;
     }
-    cout << ((flag)?"YES":"NO");
+}
+
+ll setBits(ll n)
+{
+    return (BitsSetTable256[n & 0xff] +
+            BitsSetTable256[(n >> 8) & 0xff] +
+            BitsSetTable256[(n >> 16) & 0xff] +
+            BitsSetTable256[n >> 24]);
+}
+
+ll fun(ll sum, ll n){
+
+    if(1 == n)
+        return sum;
+    ll x = sum/n, a, b;
+
+    auto itr_a = nums.lower_bound(x), itr_b = nums.upper_bound(x);
+    
+    if(itr_a != nums.end())
+        a = *itr_a;
+    else
+        a = 1;
+
+    if(itr_b != nums.end())
+        b = *itr_b;
+    else
+        b = 65535;
+
+    ll _a = x-a;
+    ll _b = b-x;
+
+    if( _a == _b)
+        x = b;
+    else if(_a > _b)
+        x = b;
+    else
+        x = a;
+
+    return fun(sum - x, n-1);
+    
+}
+
+void solve(void){
+    ll n, x;
+    cin >> n >> x;
+    cout << fun(n, x);
     cout<<endl;
 
 }
@@ -44,7 +86,7 @@ int main() {
 
     ios_base::sync_with_stdio(0);
     cin.tie(NULL);
-
+    initialize();
     #ifdef TESTCASE
         cin>>t;
         T=t;
