@@ -83,8 +83,10 @@ void solve(void){
     ll n, x;
     cin >> n >> x;
     fun(x, n);
+    ll a = 0;
     for(auto x : ans)
-        cout << x << " ";
+        a += setBits(x);
+    cout << a;
     cout<<endl;
 
 }
