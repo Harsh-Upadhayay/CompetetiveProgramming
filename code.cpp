@@ -11,25 +11,21 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, k, w = 0, b = 0;
+    ll n, k, w = 0;
     cin >> n >> k;
 
     string s;
     cin >> s;
 
     rpt(k)
-        if(s[i] == 'W')
-            w++;
+        w += (s[i] == 'W');
 
     ll ans = w;
 
     for(int i = k; i < n; i++, w += (s[i] == 'W') - (s[i-k] == 'W'))
         ans = min(ans, w);
     
-
-    cout << ((ans < 0) ? 0 : ans);
-
-    cout<<endl;
+    cout << ((ans < 0) ? 0 : ans) << "\n";
 
 }
 
