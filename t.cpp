@@ -97,7 +97,7 @@ void _solve(ll n, ll x){
 void solve(void){
     ll x, n; cin >> n >> x;
     rpt(x)
-        _solve(n, i+x);
+        _solve(n, i+n);
 }
 int main() {
     srand(time(0));
