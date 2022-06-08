@@ -39,7 +39,8 @@ ll setBits(ll n)
 vector<ll> ans;
 ll fun(ll sum, ll n){
     if(1 == n){
-        ans.pb(sum);
+        if(sum)
+            ans.pb(sum);
         return sum;
     }
     ll x = sum/n, a, b;
