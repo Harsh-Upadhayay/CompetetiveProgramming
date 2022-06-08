@@ -86,7 +86,7 @@ void solve(void){
     n += 3;
     fun(x, n);
     ll a = 0;
-    sort(ans.begin(), ans.end());
+    sort(ans.begin(), ans.end(),  greater<int>());
     for(auto x : ans)
         cout << x << " ";
     cout << a;
