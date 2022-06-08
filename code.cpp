@@ -29,7 +29,7 @@ void solve(void){
         multiset<ll>::iterator itr = s.find(v[i]);
         if(itr == s.end())
             continue;
-        cout << *itr << "\n";
+        s.erase(itr);
         
     }
 
