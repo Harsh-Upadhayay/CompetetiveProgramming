@@ -36,9 +36,13 @@ void solve(void){
         multiset<ll>::iterator itr = s.find(v[i]);
         if(itr == s.end())
             continue;
-        s.erase(itr);
         yes;
-        auto tmp = s.rbegin();
+
+        for (; itr != s.end(); ++itr) {
+            cout << *itr << " ";
+        }
+        // auto tmp = s.rbegin();
+        // auto y = ;
         // cout << (*tmp);
         
     }
