@@ -23,7 +23,7 @@ void solve(void){
 
     for(int i = k; i < n; i++){
         
-        w = (s[i] == 'W') - (s[i-k] == 'W');
+        w = w + (s[i] == 'W') - (s[i-k] == 'W');
         ans = min(ans, w);
     }
 
