@@ -85,7 +85,7 @@ void solve(void){
     fun(x, n);
     ll a = 0;
     for(auto x : ans)
-        a += setBits(x);
+        cout << x << " ";
     cout << a;
     cout<<endl;
 
