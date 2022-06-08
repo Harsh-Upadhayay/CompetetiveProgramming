@@ -30,6 +30,7 @@ void solve(void){
         if(itr == s.end())
             continue;
         s.erase(itr);
+        auto tmp = s.rbegin();
         
     }
 
