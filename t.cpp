@@ -14,6 +14,7 @@ void solve(void){
     ll n, k, ans = INT_MIN, len = 0;
     map<ll, ll> m;
     cin >> n >> k;
+    ll r = n-1;
     vector<ll> v(n);
     rpt(n)
         cin >> v[i];
@@ -24,14 +25,19 @@ void solve(void){
         if(m[x] < k)
             m.erase(x);
 
-    for(auto x : v)
-        if(m[x])
+    rpt(n)
+        if(m[v[i]])
             len++;
         else{
             ans = max(ans, len);
+            r = i;
             len = 0;
         }
-    cout << (ans == INT_MIN ? n : ans);
+    ans = (ans == INT_MIN ? n : ans);
+    if(!ans)
+        cout << "-1";
+    else
+        cout << (r-len) << " " << r+1;
     cout<<endl;
 
 }
