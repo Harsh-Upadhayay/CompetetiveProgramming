@@ -83,7 +83,7 @@ void solve(void){
     ans.clear();
     ll n, x;
     cin >> n >> x;
-    n += 3;
+    n += 0;
     fun(x, n);
     ll a = 0;
     sort(ans.begin(), ans.end(),  greater<int>());
