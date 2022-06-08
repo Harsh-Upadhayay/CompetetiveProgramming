@@ -38,8 +38,10 @@ ll setBits(ll n)
 
 vector<ll> ans;
 ll fun(ll sum, ll n){
-    if(1 == n)
+    if(1 == n){
+        ans.pb(sum);
         return sum;
+    }
     ll x = sum/n, a, b;
 
     auto itr_a = nums.lower_bound(x), itr_b = nums.upper_bound(x);
