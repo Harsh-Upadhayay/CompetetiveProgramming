@@ -1,55 +1,24 @@
-        #include<bits/stdc++.h>
+    #include<bits/stdc++.h>
 using namespace std;
 
 #define ll long long int
 #define pb push_back
 #define rpt(n) for(ll i = 0; i < n; i++)
-#define f(i,a,b) for(ll i = (a); i <= (b); i++)
-#define all(x) x.begin(),x.end()
-#define sz(x) (ll)x.size()
-#define nl cout << "\n"
-#define ff first
-#define ss second
-#define inf 1e18+5
-#define yes cout<<"YES"
-#define no cout<<"NO"
+
+#define inf INT_MAX
 
 #define TESTCASE
 ll t,T;
 
 void solve(void){
-    ll n, k, ans;
-
-    cin >> n >> k;
-    ll v[(n)];
-    multiset<ll> s;
-
-    rpt(n){
-        cin >> v[i];
-        s.insert(v[i]);
-    }
-    ll idx = 0;
-    for(auto x : s)
-        v[n - idx++ -1] = x;
-
-    rpt(n){
-        multiset<ll>::iterator itr = s.find(v[i]);
-        if(itr == s.end())
-            continue;
-        // s.erase(itr);
-        auto tmp = s.rbegin();
-       
-        cout << *tmp;
-
-        // auto tmp = s.rbegin();
-        // auto y = ;
-        // cout << (*tmp);
-        nl;
-        
-    }
-
-    for(auto x : v)
-        cout << x << " ";
+    ll n, m, ans;
+    cin >> n >> m;
+    if(n%3 == 0 || m %3 == 0)
+        cout << "0";
+    else if(abs(n-m) % 3 == 0)
+        cout << "1";
+    else
+        cout << "2";
     cout<<endl;
 
 }
@@ -77,3 +46,5 @@ int main() {
 
     return 0;
 }
+
+
