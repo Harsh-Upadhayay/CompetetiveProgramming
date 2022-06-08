@@ -11,7 +11,7 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, k, w = 0, b = 0, ans = INT_MAX;
+    ll n, m, k, w = 0, b = 0;
     cin >> n >> k;
 
     string s;
@@ -21,11 +21,12 @@ void solve(void){
         if(s[i] == 'W')
             w++;
 
+    ll ans = w;
+
     for(int i = k; i < n; i++, w += (s[i] == 'W') - (s[i-k] == 'W'))
         ans = min(ans, w);
     
 
-    ans = min(ans, w);
     cout << ((ans < 0) ? 0 : ans);
 
     cout<<endl;
