@@ -22,12 +22,10 @@ void solve(void){
             w++;
 
     for(int i = k; i < n; i++){
-        // cout << w << " ";
-        w = w + (s[i] == 'W') - (s[i-k] == 'W');
+        w += (s[i] == 'W') - (s[i-k] == 'W');
         ans = min(ans, w);
     }
     ans = min(ans, w);
-    // cout << w;
     cout << ((ans<0)?0:ans);
 
     cout<<endl;
