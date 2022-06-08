@@ -10,95 +10,32 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-ll BitsSetTable256[100001];
-set<ll> nums;
-
-void initialize()
-{
- 
-    ll x = 2;
-    BitsSetTable256[0] = 0;
-    for (ll i = 0; i < 100001; i++)
-    {
-        BitsSetTable256[i] = (i & 1) +
-        BitsSetTable256[i / 2];
-        if(x < 100001)
-            nums.insert(x - 1);
-        x *= 2;
-    }
-}
-
-ll setBits(ll n)
-{
-    return (BitsSetTable256[n & 0xff] +
-            BitsSetTable256[(n >> 8) & 0xff] +
-            BitsSetTable256[(n >> 16) & 0xff] +
-            BitsSetTable256[n >> 24]);
-}
-
-vector<ll> ans;
-ll fun(ll sum, ll n){
-    if(1 == n){
-        if(sum)
-            ans.pb(sum);
-        return sum;
-    }
-    ll x = sum/n, a, b;
-
-    auto itr_a = nums.lower_bound(x), itr_b = nums.upper_bound(x);
+void solve(void){
+    ll n, k, ans = INT_MAX, len = 1;
+    map<ll, ll> m;
+    cin >> n >> k;
+    vector<ll> v(n);
+    rpt(n)
+        cin >> v[i];
+    for(auto x : v)
+        m[x]++;
     
-    if(itr_a != nums.end())
-        a = *itr_a;
-    else
-        a = 1;
+    for(auto x : v)
+        if(m[x] < k)
+            m.erase(x);
 
-    if(itr_b != nums.end())
-        b = *itr_b;
-    else
-        b = 65535;
-
-    ll _a = x-a;
-    ll _b = b-x;
-
-    if( _a == _b)
-        x = b;
-    else if(_a > _b)
-        x = b;
-    else
-        x = a;
-
-
-    if(sum - x > 0){
-        ans.pb(x);
-        return fun(sum - x, n-1);
-    }
-    else{
-        ans.pb(sum);
-        return sum;
-    }
-    
-}
-
-void _solve(ll n, ll x){
-    ans.clear();
-    n += 0;
-    fun(x, n);
-    ll a = 0;
-    sort(ans.begin(), ans.end(),  greater<int>());
-    cout << n << " " << x << " " << (x/n) << " : ";
-    for(auto x : ans)
-        if(x)
-            cout << x << " ";
-    cout << a;
+    for(auto x : v)
+        if(m[x])
+            len++;
+        else{
+            ans = max(ans, len);
+            len = 1;
+        }
+    cout << ans;
     cout<<endl;
 
 }
 
-void solve(void){
-    ll x, n; cin >> n >> x;
-    rpt(x)
-        _solve(n, i+n);
-}
 int main() {
     srand(time(0));
 
@@ -109,7 +46,7 @@ int main() {
 
     ios_base::sync_with_stdio(0);
     cin.tie(NULL);
-    initialize();
+
     #ifdef TESTCASE
         cin>>t;
         T=t;
