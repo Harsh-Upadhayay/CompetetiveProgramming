@@ -38,9 +38,9 @@ void solve(void){
             continue;
         yes;
 
-        // for (; itr != .end(); ++itr) {
-        //     cout << *itr << " ";
-        // }
+        for (; itr != s.end(); ++itr) {
+            cout << *itr << " ";
+        }
 
         // auto tmp = s.rbegin();
         // auto y = ;
