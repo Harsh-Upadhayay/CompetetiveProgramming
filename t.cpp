@@ -79,10 +79,8 @@ ll fun(ll sum, ll n){
     
 }
 
-void solve(void){
+void _solve(ll n, ll x){
     ans.clear();
-    ll n, x;
-    cin >> n >> x;
     n += 0;
     fun(x, n);
     ll a = 0;
@@ -96,6 +94,11 @@ void solve(void){
 
 }
 
+void solve(void){
+    ll x, n; cin >> n >> x;
+    rpt(x)
+        _solve(n, i+1);
+}
 int main() {
     srand(time(0));
 
