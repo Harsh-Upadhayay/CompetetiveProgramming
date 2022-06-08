@@ -36,8 +36,8 @@ ll setBits(ll n)
             BitsSetTable256[n >> 24]);
 }
 
+vector<ll> ans;
 ll fun(ll sum, ll n){
-
     if(1 == n)
         return sum;
     ll x = sum/n, a, b;
@@ -64,14 +64,25 @@ ll fun(ll sum, ll n){
     else
         x = a;
 
-    return fun(sum - x, n-1);
+
+    if(sum - x > 0){
+        ans.pb(x);
+        return fun(sum - x, n-1);
+    }
+    else{
+        ans.pb(sum);
+        return sum;
+    }
     
 }
 
 void solve(void){
+    ans.clear();
     ll n, x;
     cin >> n >> x;
-    cout << fun(n, x);
+    fun(n, x);
+    for(auto x : ans)
+        cout << x << " ";
     cout<<endl;
 
 }
