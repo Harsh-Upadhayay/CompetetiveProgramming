@@ -80,7 +80,7 @@ void solve(void){
     ans.clear();
     ll n, x;
     cin >> n >> x;
-    fun(n, x);
+    fun(x, n);
     for(auto x : ans)
         cout << x << " ";
     cout<<endl;
