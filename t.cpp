@@ -83,7 +83,7 @@ void solve(void){
     ans.clear();
     ll n, x;
     cin >> n >> x;
-    n += 1;
+    n += 2;
     fun(x, n);
     ll a = 0;
     for(auto x : ans)
