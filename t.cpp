@@ -11,7 +11,7 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, k, ans = INT_MAX, len = 1;
+    ll n, k, ans = INT_MIN, len = 1;
     map<ll, ll> m;
     cin >> n >> k;
     vector<ll> v(n);
