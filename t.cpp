@@ -33,13 +33,13 @@ void solve(void){
         v[n - idx++ -1] = x;
 
     rpt(n){
-        multiset<ll>::iterator itr = s.find(v[i]);
-        if(itr == s.end())
-            continue;
-
-        for (; itr != s.end(); ++itr) {
-            cout << *itr << " ";
-        }
+        // multiset<ll>::iterator itr = s.find(v[i]);
+        // if(itr == s.end())
+        //     continue;
+        // s.erase(itr);
+        auto tmp = s.rbegin();
+       
+       cout << *tmp;
 
         // auto tmp = s.rbegin();
         // auto y = ;
