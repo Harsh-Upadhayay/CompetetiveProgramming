@@ -11,21 +11,31 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, k, w = 0;
+    ll n, k, ans;
+
     cin >> n >> k;
+    ll v[(n)];
+    multiset<ll> s;
 
-    string s;
-    cin >> s;
+    rpt(n){
+        cin >> v[i];
+        s.insert(v[i]);
+    }
+    ll idx = 0;
+    for(auto x : s)
+        v[idx++] = x;
 
-    rpt(k)
-        w += (s[i] == 'W');
+    rpt(n){
+        multiset<ll>::iterator itr = s.find(v[i]);
+        if(itr == s.end())
+            continue;
+        cout << *itr << "\n";
+        
+    }
 
-    ll ans = w;
-
-    for(int i = k; i < n; i++, w += (s[i] == 'W') - (s[i-k] == 'W'))
-        ans = min(ans, w);
-    
-    cout << ((ans < 0) ? 0 : ans) << "\n";
+    for(auto x : v)
+        cout << x << " ";
+    cout<<endl;
 
 }
 
