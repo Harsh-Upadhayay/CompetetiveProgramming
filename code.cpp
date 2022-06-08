@@ -23,7 +23,7 @@ void solve(void){
     }
     ll idx = 0;
     for(auto x : s)
-        v[idx++] = x;
+        v[n - idx++ -1] = x;
 
     rpt(n){
         multiset<ll>::iterator itr = s.find(v[i]);
