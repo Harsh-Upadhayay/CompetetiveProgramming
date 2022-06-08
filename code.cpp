@@ -26,7 +26,7 @@ void solve(void){
         w = w + (s[i] == 'W') - (s[i-k] == 'W');
         ans = min(ans, w);
     }
-
+    cout << w;
     cout << ((ans<0)?0:ans);
 
     cout<<endl;
