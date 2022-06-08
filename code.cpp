@@ -11,21 +11,24 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, k, ans;
-
+    ll n, m, k, w = 0, b = 0, ans = INT_MAX;
     cin >> n >> k;
-    vector<ll> v(n);
-    multimap<ll, ll> m;
 
-    rpt(n){
-        cin >> v[i];
-        m.insert(make_pair(v[i], i));
+    string s;
+    cin >> s;
+
+    rpt(k)
+        if(s[i] == 'W')
+            w++;
+
+    for(int i = k; i < n; i++){
+        
+        w = (s[i] == 'W') - (s[i-k] == 'W');
+        ans = min(ans, w);
     }
-    int i = 0;
-    for(auto x : m)
-        v[i++] = x.first;
-    for(auto x : v)
-        cout << x << " ";
+
+    cout << ((ans<0)?0:ans);
+
     cout<<endl;
 
 }
@@ -53,5 +56,3 @@ int main() {
 
     return 0;
 }
-
-
