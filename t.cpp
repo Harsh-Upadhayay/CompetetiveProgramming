@@ -31,7 +31,7 @@ void solve(void){
             ans = max(ans, len);
             len = 0;
         }
-    cout << ans;
+    cout << (ans == INT_MIN ? n : ans);
     cout<<endl;
 
 }
