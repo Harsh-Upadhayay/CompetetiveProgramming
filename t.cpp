@@ -1,4 +1,4 @@
-    #include<bits/stdc++.h>
+        #include<bits/stdc++.h>
 using namespace std;
 
 #define ll long long int
@@ -12,13 +12,24 @@ ll t,T;
 
 void solve(void){
     ll n, m, ans;
-    cin >> n >> m;
-    if(n%3 == 0 || m %3 == 0)
-        cout << "0";
-    else if(abs(n-m) % 3 == 0)
-        cout << "1";
-    else
-        cout << "2";
+    cin >> n;
+    ll ar[n];
+    rpt(n)
+        cin >> ar[i];
+    bool flag = true;
+    ll big = ar[0], small = ar[0];
+    for(int i = 1; i < n; i++){
+        if(ar[i] < big && ar[i] > small){
+            flag = false;
+            break;
+        }
+        if(ar[i] > big){
+            big = ar[i];
+        }
+        else if(ar[i] < small)
+            small = ar[i];
+    }
+    cout << ((flag)?"YES":"NO");
     cout<<endl;
 
 }
