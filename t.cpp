@@ -87,7 +87,7 @@ void solve(void){
     fun(x, n);
     ll a = 0;
     sort(ans.begin(), ans.end(),  greater<int>());
-    cout << n << " " << x << " : ";
+    cout << n << " " << x << " " << (x/n) << " : ";
     for(auto x : ans)
         if(x)
             cout << x << " ";
