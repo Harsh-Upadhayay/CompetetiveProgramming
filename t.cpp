@@ -7,7 +7,7 @@ using namespace std;
 #define f(i,a,b) for(ll i = (a); i <= (b); i++)
 #define all(x) x.begin(),x.end()
 #define sz(x) (ll)x.size()
-
+#define nl cout << "\n"
 #define ff first
 #define ss second
 #define inf 1e18+5
@@ -38,12 +38,14 @@ void solve(void){
             continue;
         yes;
 
-        for (; itr != s.end(); ++itr) {
-            cout << *itr << " ";
-        }
+        // for (; itr != .end(); ++itr) {
+        //     cout << *itr << " ";
+        // }
+
         // auto tmp = s.rbegin();
         // auto y = ;
         // cout << (*tmp);
+        nl;
         
     }
 
