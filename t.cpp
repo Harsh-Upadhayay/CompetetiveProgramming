@@ -49,7 +49,7 @@ void solve(void){
         r = prev = a[i];
     }
     
-    cout << (_r-_len )<< " " << _r;
+    cout << _len;
     cout<<endl;
 
 }
