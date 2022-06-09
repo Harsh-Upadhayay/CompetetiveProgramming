@@ -55,7 +55,7 @@ void solve(void){
         _r = r;
     }
     
-    cout << _len;
+    cout << _r;
     cout<<endl;
 
 }
