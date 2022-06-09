@@ -43,7 +43,11 @@ void solve(void){
             _r = INT_MIN;
             len = 0;
         }
-    ans = (ans == INT_MIN ? n : ans);
+    if(_r - _l > ans){
+            ans = _r - _l;
+            l = _l;
+            r = _r;
+        }
     if(!ans)
         cout << "-1";
     else
