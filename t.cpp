@@ -28,6 +28,7 @@ void solve(void){
         cout << "-1\n";
         return;
     }
+
     ll l = INT_MAX, r = INT_MIN, _l = INT_MAX, _r = INT_MIN;
     rpt(n)
         if(m[v[i]]){
@@ -51,10 +52,8 @@ void solve(void){
             l = _l;
             r = _r;
         }
-    if(!ans)
-        cout << "-1";
-    else
-        cout << (l) << " " << r;
+    
+    cout << (l) << " " << r;
     cout<<endl;
 
 }
