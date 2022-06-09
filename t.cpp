@@ -32,6 +32,8 @@ void solve(void){
     vector<ll> a;
     for(auto x : m)
         a.pb(x.first);
+    for(auto x : a)
+        cout << x << " ";
 
     ll prev, len = 0, _len = INT_MIN, r = a[a.size()-1], _r = INT_MIN;
 
