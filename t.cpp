@@ -47,6 +47,7 @@ void solve(void){
             _r = INT_MIN;
             len = 0;
         }
+        
     if(_r - _l > ans){
             ans = _r - _l;
             l = _l;
