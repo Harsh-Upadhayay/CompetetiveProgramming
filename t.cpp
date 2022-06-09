@@ -11,7 +11,7 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, k, ans = INT_MIN, len = 0;
+    ll n, k, ans = INT_MIN;
     map<ll, ll> m;
     cin >> n >> k;
     vector<ll> v(n);
@@ -29,37 +29,27 @@ void solve(void){
         return;
     }
 
-    
-    auto _l = *m.begin();
-    auto _r = *m.rbegin();
-    auto l = _l.first;
-    auto r = _r.first;
-    // ll l = INT_MAX, r = INT_MIN, _l = INT_MAX, _r = INT_MIN;
-    // rpt(n)
-    //     if(m[v[i]]){
-    //         _l = min(_l, v[i]);
-    //         _r = max(_r, v[i]);
-    //         len++;
-    //     }
-    //     else{
-    //         // cout << (_r)<<( _l) << " ";
-    //         if(_r - _l > ans){
-    //             ans = _r - _l;
-    //             l = _l;
-    //             r = _r;
-    //         }
-    //         _l = INT_MAX;
-    //         _r = INT_MIN;
-    //         len = 0;
-    //     }
+    vector<ll> a;
+    for(auto x : m)
+        a.pb(x.first);
 
-    // if(_r - _l > ans){
-    //         ans = _r - _l;
-    //         l = _l;
-    //         r = _r;
-    //     }
+    ll prev, len = 0, _len = INT_MIN, r = a[a.size()-1], _r = INT_MIN;
+
+    prev = a[0];
+    for(ll i = 1; i < a.size(); i++){
+        if(a[i] - prev == 1)
+            len++;
+        else{
+            if(len > _len){
+                _len = len;
+                _r = r;
+            }
+            len = 0; 
+        }
+        r = prev = a[i];
+    }
     
-    cout << (l) << " " << r;
+    cout << (_r-_len )<< " " << _r;
     cout<<endl;
 
 }
