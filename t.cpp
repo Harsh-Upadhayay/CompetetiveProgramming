@@ -48,6 +48,10 @@ void solve(void){
         }
         r = prev = a[i];
     }
+    if(len > _len){
+        _len = len;
+        _r = r;
+    }
     
     cout << _len;
     cout<<endl;
