@@ -29,30 +29,35 @@ void solve(void){
         return;
     }
 
-    ll l = INT_MAX, r = INT_MIN, _l = INT_MAX, _r = INT_MIN;
-    rpt(n)
-        if(m[v[i]]){
-            _l = min(_l, v[i]);
-            _r = max(_r, v[i]);
-            len++;
-        }
-        else{
-            // cout << (_r)<<( _l) << " ";
-            if(_r - _l > ans){
-                ans = _r - _l;
-                l = _l;
-                r = _r;
-            }
-            _l = INT_MAX;
-            _r = INT_MIN;
-            len = 0;
-        }
-        
-    if(_r - _l > ans){
-            ans = _r - _l;
-            l = _l;
-            r = _r;
-        }
+    
+    auto _l = *m.begin();
+    auto _r = *m.rbegin();
+    auto l = _l.first;
+    auto r = _r.first;
+    // ll l = INT_MAX, r = INT_MIN, _l = INT_MAX, _r = INT_MIN;
+    // rpt(n)
+    //     if(m[v[i]]){
+    //         _l = min(_l, v[i]);
+    //         _r = max(_r, v[i]);
+    //         len++;
+    //     }
+    //     else{
+    //         // cout << (_r)<<( _l) << " ";
+    //         if(_r - _l > ans){
+    //             ans = _r - _l;
+    //             l = _l;
+    //             r = _r;
+    //         }
+    //         _l = INT_MAX;
+    //         _r = INT_MIN;
+    //         len = 0;
+    //     }
+
+    // if(_r - _l > ans){
+    //         ans = _r - _l;
+    //         l = _l;
+    //         r = _r;
+    //     }
     
     cout << (l) << " " << r;
     cout<<endl;
