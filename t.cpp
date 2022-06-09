@@ -37,7 +37,7 @@ void solve(void){
     if(!ans)
         cout << "-1";
     else
-        cout << (r-ans+1) << " " << r+1;
+        cout << (r-ans) << " " << r;
     cout<<endl;
 
 }
