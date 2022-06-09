@@ -24,7 +24,10 @@ void solve(void){
         if(m[x] < k)
             m.erase(x);
 
-
+    if(m.size() == 0){
+        cout << "-1\n";
+        return;
+    }
     ll l = INT_MAX, r = INT_MIN, _l = INT_MAX, _r = INT_MIN;
     rpt(n)
         if(m[v[i]]){
