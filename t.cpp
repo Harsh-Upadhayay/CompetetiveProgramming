@@ -33,6 +33,7 @@ void solve(void){
             len++;
         }
         else{
+            cout << (_r - _l);
             if(_r - _l > ans){
                 ans = _r - _l;
                 l = _l;
