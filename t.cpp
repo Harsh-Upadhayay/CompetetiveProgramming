@@ -24,7 +24,7 @@ void solve(void){
         ll xtra = k - n;
         ll sum = 0;
         for(int i = 0; i < n; i++) sum += v[i];
-            cout << sum;
+            // cout << sum;
         cout << sum;
     }
     else{
