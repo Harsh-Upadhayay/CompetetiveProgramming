@@ -18,6 +18,7 @@ void solve(void){
 
     rpt(n-1){
         ll u, v;
+        cin >> u >> v;
         if(tree.count(u))
             tree[u].pb(v);
         else{
