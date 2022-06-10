@@ -22,7 +22,9 @@ void solve(void){
     vin(v, 0, n);
     if(n <= k){
         ll xtra = k - n;
-        ll sum = accumulate(v.begin(), v.end(), 0) ;
+        ll sum = 0;
+        for(int i = 0; i < n; i++) sum += v[i];
+            cout << sum;
         cout << sum;
     }
     else{
