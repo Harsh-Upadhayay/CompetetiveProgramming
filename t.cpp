@@ -37,8 +37,8 @@ void solve(void){
             sum += v[j] - v[j-k];
             ans = max(ans, sum);
         }
-        cout << ans;
-        ans += (n*(n-1))/2;
+
+        ans += (k*(k-1))/2;
         cout << ans;
     }
     cout<<endl;
