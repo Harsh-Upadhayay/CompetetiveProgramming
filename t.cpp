@@ -5,9 +5,9 @@ using namespace std;
 #define pb push_back
 // #define rpt(n) for(ll i = 0; i < n; i++)
 #define rpt(i, s, e) for(ll (i) = (s); i < (e); i++)
-#define vsum(v, s, e, x) for(ll i = s; i < (n); i++) x += v[i];
-#define vin(v, s, n) for(ll i = s; i < (n); i++) cin >> (v[i]);
-#define vout(v, s, n) for(ll i = s; i < (n); i++) cout << (v[i]) << " ";
+#define vsum(v, s, e, x) for(ll i = s; i < (e); i++) x += v[i];
+#define vin(v, s, e) for(ll i = s; i < (e); i++) cin >> (v[i]);
+#define vout(v, s, e) for(ll i = s; i < (e); i++) cout << (v[i]) << " ";
 #define vec vector<ll>
 #define nl cout << "\n";
 
@@ -30,8 +30,7 @@ void solve(void){
     }
     else{
         ll sum = 0;
-        for(ll i = 0; i < k; i++)
-            sum += v[i];
+        vsum(v, 0, k, sum);
         ll ans = sum;
         cout << ans;
         rpt(j, k, n){
