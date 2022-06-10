@@ -23,7 +23,7 @@ void solve(void){
 
     string c = "";
     ll itr = 0;
-    bool prev;
+    bool prev = 0;
     rpt(m+n){
         auto x = *ma.begin(), y = *mb.begin();
         if(x.first > y.first){
