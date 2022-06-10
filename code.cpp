@@ -11,31 +11,22 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, k, ans;
-
-    cin >> n >> k;
-    ll v[(n)];
-    multiset<ll> s;
+    ll n, m;
+    cin >> n;
+    vector<ll> v(n), ans;
+    rpt(n)
+        cin >> v[i];
+    set<ll> s(v.begin(), v.end());
 
     rpt(n){
-        cin >> v[i];
+        s.erase(v[i]);
+        auto x = *s.begin();
+        ans.pb(x);
+        s.erase(x);
         s.insert(v[i]);
     }
-    ll idx = 0;
-    for(auto x : s)
-        v[n - idx++ -1] = x;
-
-    rpt(n){
-        multiset<ll>::iterator itr = s.find(v[i]);
-        if(itr == s.end())
-            continue;
-        s.erase(itr);
-        auto tmp = s.rbegin();
-        
-    }
-
-    for(auto x : v)
-        cout << x << " ";
+    rpt(n)
+        cout << ans[i] << " ";
     cout<<endl;
 
 }
@@ -63,3 +54,5 @@ int main() {
 
     return 0;
 }
+
+
