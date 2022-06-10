@@ -68,12 +68,7 @@ void solve(void){
         }
 
     }
-    for(auto x : ma)
-            cout << x.first;
-        cout << endl;
-    for(auto x : mb)
-            cout << x.first;
-    // cout << c;
+    cout << c;
     cout<<endl;
 
 }
