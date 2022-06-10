@@ -28,13 +28,13 @@ void solve(void){
         bool prev;
         if(x.first > y.first){
             c += x.first;
-            x.second--;
+            ma[x.first]--;
             if(x.second == 0)
                 ma.erase(x.first);
         }
         else{
             c += y.first;
-            y.second--;
+            mb[y.first]--;
             if(y.second == 0)
                 mb.erase(y.first);
         }
