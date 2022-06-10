@@ -14,7 +14,7 @@ void solve(void){
     ll n, m, ans;
     cin >> n >> m;
     ans = m - n + 1;
-    cout << (!(ans%3)?"YES":"NO");
+    cout << ((ans%3)?"YES":"NO");
     cout<<endl;
 
 }
