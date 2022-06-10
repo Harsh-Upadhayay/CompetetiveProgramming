@@ -22,8 +22,8 @@ void solve(void){
         s.erase(v[i]);
         auto x = *s.begin();
         ans.pb(x);
-        s.erase(x);
         s.insert(v[i]);
+        s.erase(x);
     }
     rpt(n)
         cout << ans[i] << " ";
