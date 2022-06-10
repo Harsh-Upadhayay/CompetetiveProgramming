@@ -67,6 +67,9 @@ void solve(void){
             }
         }
 
+        if(ma.empty() || mb.empty())
+            break;
+
     }
     cout << c;
     cout<<endl;
