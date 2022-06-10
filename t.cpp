@@ -1,9 +1,13 @@
-        #include<bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 #define ll long long int
 #define pb push_back
 #define rpt(n) for(ll i = 0; i < n; i++)
+#define vin(v, s, n) for(ll i = s; i < (n); i++) cin >> (v[i])
+#define vout(v, s, n) for(ll i = s; i < (n); i++) cout << (v[i]) << " ";
+#define vec vector<ll>
+#define nl cout << "\n";
 
 #define inf INT_MAX
 
@@ -11,51 +15,12 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, k, ans = INT_MIN;
-    map<ll, ll> m;
+    ll n, k;
     cin >> n >> k;
-    vector<ll> v(n);
-    rpt(n)
-        cin >> v[i];
-    for(auto x : v)
-        m[x]++;
-    
-    for(auto x : v)
-        if(m[x] < k)
-            m.erase(x);
-
-    if(m.size() == 0){
-        cout << "-1\n";
-        return;
-    }
-
-    vector<ll> a;
-    for(auto x : m)
-        a.pb(x.first);
-    // for(auto x : a)
-    //     cout << x << " ";
-
-    ll prev, len = 0, _len = INT_MIN, r = a[a.size()-1], _r = INT_MIN;
-
-    prev = a[0];
-    for(ll i = 1; i < a.size(); i++){
-        if(a[i] - prev == 1)
-            len++;
-        else{
-            if(len > _len){
-                _len = len;
-                _r = r;
-            }
-            len = 0; 
-        }
-        r = prev = a[i];
-    }
-    if(len > _len){
-        _len = len;
-        _r = r;
-    }
-    
-    cout << _r - _len << " " << _r;
+    vec v(n);
+    vin(v, 0, n);
+    nl;
+    vout(v, 0, n);
     cout<<endl;
 
 }
