@@ -95,7 +95,7 @@ void solve(void){
             ans += children[list[0]];
             break;
         }
-
+        cout << root << "\n";
     } while(tree.count(root));
 
     // rpt(n)
