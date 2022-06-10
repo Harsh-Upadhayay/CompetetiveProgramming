@@ -19,6 +19,8 @@ void solve(void){
     set<ll> s(v.begin(), v.end());
 
     rpt(n){
+        if(s.empty())
+            break;
         // s.erase(v[i]);
         auto x = *s.begin();
         if(x == v[i])
