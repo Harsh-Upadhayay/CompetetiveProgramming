@@ -13,7 +13,8 @@ ll t,T;
 void solve(void){
     ll n, m, ans;
     cin >> n >> m;
-    cout << (!(m%2)?"YES":"NO");
+    ans = m - n + 1;
+    cout << (!(ans%3)?"YES":"NO");
     cout<<endl;
 
 }
