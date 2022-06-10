@@ -23,7 +23,7 @@ void solve(void){
     if(n <= k){
         ll xtra = k - n;
         ll sum = accumulate(v.begin(), v.end(), 0) + xtra*n + (n*(n-1))/2;
-        cout << sum;
+        cout << 0;
     }
     else{
         ll sum = accumulate(v.begin(), v.begin() + k, 0), ans = sum;
