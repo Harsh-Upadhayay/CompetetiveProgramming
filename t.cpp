@@ -30,7 +30,8 @@ void solve(void){
     }
     else{
         ll sum = 0;
-        vsum(v, 0, k, sum);
+        for(ll i = 0; i < k; i++)
+            sum += v[i];vsum(v, 0, n, sum)
         ll ans = sum;
         cout << ans;
         rpt(j, k, n){
