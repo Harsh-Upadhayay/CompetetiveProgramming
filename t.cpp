@@ -24,6 +24,22 @@ ll compHeight(ll node, ll* height, map<ll, vector<ll>> &tree){
     return h+1;
 }
 
+ll compChildren(ll node, ll* children, map<ll, vector<ll>> &tree){
+    if(!tree.count(node)){
+        children[node] = 0;
+        return children[node]+1;
+    }
+
+    ll c = 0;
+    for(auto x : tree[node])
+        c += compChildren(x, children, tree);
+
+    children[node] = c;
+    return children[node]+1;
+}
+
+
+
 void solve(void){
     ll n, m, ans;
     cin >> n;
@@ -41,9 +57,9 @@ void solve(void){
             tree[u] = ve;
         }
     }
-    compHeight(1, height, tree);
+    compChildren(1, children, tree);
     rpt(n)
-        cout << i+1 << " " << height[i+1] << "\n";
+        cout << i+1 << " " << children[i+1] << "\n";
     // for(auto x : tree){
     //     cout << x.first << " : ";
     //     for(auto y : x.second)
