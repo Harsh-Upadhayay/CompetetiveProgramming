@@ -21,7 +21,8 @@ void solve(void){
     for(auto x : b)
         mb[x]++;
 
-    // string c = "", itr = 0;
+    string c = "";
+    ll itr = 0;
     // rpt(m+n){
     //     auto x = *ma.begin(), y = *mb.begin();
     //     bool prev;
