@@ -5,6 +5,7 @@ using namespace std;
 #define pb push_back
 // #define rpt(n) for(ll i = 0; i < n; i++)
 #define rpt(i, s, e) for(ll (i) = (s); i < (e); i++)
+#define vsum(v, s, e, x) for(ll i = s; i < (n); i++) x += v[i];
 #define vin(v, s, n) for(ll i = s; i < (n); i++) cin >> (v[i]);
 #define vout(v, s, n) for(ll i = s; i < (n); i++) cout << (v[i]) << " ";
 #define vec vector<ll>
@@ -23,7 +24,7 @@ void solve(void){
     if(n <= k){
         ll xtra = k - n;
         ll sum = 0;
-        for(int i = 0; i < n; i++) sum += v[i];
+        vsum(v, 0, n, sum);
             // cout << sum;
         cout << sum;
     }
