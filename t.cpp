@@ -63,6 +63,7 @@ void solve(void){
 
     ans = 0;
     ll root = 1;
+    
     do{
         
         auto list = tree[root];
