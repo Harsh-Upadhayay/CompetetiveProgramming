@@ -31,7 +31,7 @@ void solve(void){
     else{
         ll sum = 0;
         for(ll i = 0; i < k; i++)
-            sum += v[i];vsum(v, 0, n, sum)
+            sum += v[i];
         ll ans = sum;
         cout << ans;
         rpt(j, k, n){
