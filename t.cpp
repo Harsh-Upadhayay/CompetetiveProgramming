@@ -3,7 +3,7 @@ using namespace std;
 
 #define ll long long int
 #define pb push_back
-#define rpt(n) for(ll i = 0; i < n; i++)
+// #define rpt(n) for(ll i = 0; i < n; i++)
 #define rpt(i, s, e) for(ll (i) = (s); i < (e); i++)
 #define vin(v, s, n) for(ll i = s; i < (n); i++) cin >> (v[i]);
 #define vout(v, s, n) for(ll i = s; i < (n); i++) cout << (v[i]) << " ";
