@@ -29,7 +29,9 @@ void solve(void){
         cout << sum;
     }
     else{
-        ll sum = accumulate(v.begin(), v.begin() + k, 0), ans = sum;
+        ll sum = 0;
+        vsum(v, 0, n, sum);
+        ll ans = sum;
         rpt(j, k, n){
             sum += v[j] - v[j-k];
             ans = max(ans, sum);
