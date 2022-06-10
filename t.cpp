@@ -11,10 +11,15 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans;
-    cin >> n >> m;
-    ans = m - n + 1;
-    cout << ((ans%3)?"YES":"NO");
+    ll n, m;
+    set<char> ans;
+    cin >> n;
+    string s1, s2;
+    cin >> s1 >> s2;
+    rpt(n)
+        if(s1[i] != s2[i])
+            ans.insert(s2[i]);
+    cout << ans.size();
     cout<<endl;
 
 }
