@@ -17,16 +17,21 @@ void solve(void){
     rpt(n)
         cin >> v[i];
     set<ll> s(v.begin(), v.end());
-
+    if(n == 1){
+        cout << "-1\n";
+        return;
+    }
     rpt(n){
-        if(s.empty()){
-            cout << "*";
-            break;
-        }
         // s.erase(v[i]);
         auto x = *s.begin();
         if(x == v[i])
-            x = *(++s.begin());
+            if(s.size() == 1){
+                ans.pb(x);
+                swap(ans[n-2], ans[n-1]);    
+            }
+            
+            else
+                x = *(++s.begin());
         ans.pb(x);
         // s.insert(v[i]);
         s.erase(x);
