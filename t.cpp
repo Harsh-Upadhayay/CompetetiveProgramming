@@ -23,20 +23,47 @@ void solve(void){
 
     string c = "";
     ll itr = 0;
+    bool prev;
     rpt(m+n){
         auto x = *ma.begin(), y = *mb.begin();
-        bool prev;
         if(x.first > y.first){
-            c += x.first;
-            ma[x.first]--;
-            if(x.second == 0)
-                ma.erase(x.first);
+
+            if(prev == 0 && itr == k){
+                itr = 0;
+                c += y.first;
+                mb[y.first]--;
+                if(y.second == 0)
+                    mb.erase(y.first);
+                prev = 1;
+                itr++;
+                continue;
+            }
+            else{
+                c += x.first;
+                ma[x.first]--;
+                if(x.second == 0)
+                    ma.erase(x.first);
+                prev = 0;
+                itr++;
+            }
         }
         else{
-            c += y.first;
-            mb[y.first]--;
-            if(y.second == 0)
-                mb.erase(y.first);
+            if(prev == 1 && itr == k){
+                c += x.first;
+                ma[x.first]--;
+                if(x.second == 0)
+                    ma.erase(x.first);
+                prev = 0;
+                itr++;
+            }
+            else{
+                c += y.first;
+                mb[y.first]--;
+                if(y.second == 0)
+                    mb.erase(y.first);
+                prev = 1;
+                itr++;
+            }
         }
 
     }
