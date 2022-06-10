@@ -10,62 +10,28 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-useA(char p, string &c, map<char, ll> &m){
-    c += p;
-    m[p]--;
-    if(m[p] == 0)
-        m.erase(p);
-
-}
-
-
 void solve(void){
-    ll n, m, k;     cin >> n >> m >> k;
-    string a, b;    cin >> a >> b;
+    ll n, m, ans;
+    cin >> n;
 
-    map<char, ll> ma, mb;
+    map<ll, vector<ll>> tree;
 
-    for(auto x : a)
-        ma[x]++;
-    for(auto x : b)
-        mb[x]++;
-
-    string c = "";
-    ll itra = 0, itrb = 0;
-    bool prev = 0;
-    
-    rpt(m+n){
-        auto x = *ma.begin(), y = *mb.begin();
-        
-        if(x.first < y.first){
-            if(itra == k){
-                useA(y.first, c, mb);
-                itrb++;
-                itra = 0;
-            }
-            else{
-                useA(x.first, c, ma);
-                itra++;
-                itrb = 0;
-            }
-        }
+    rpt(n-1){
+        ll u, v;
+        if(tree.count(u))
+            tree[u].pb(v);
         else{
-            if(itrb == k){
-                useA(x.first, c, ma);
-                itra++;
-                itrb = 0;
-            }
-            else{
-                useA(y.first, c, mb);
-                itrb++;
-                itra = 0;
-            }
+            vector<ll> v;
+            v.pb(u);
+            tree[u] = v;
         }
-
-        if(ma.empty() || mb.empty())
-            break;
     }
-    cout << c;
+    for(auto x : tree){
+        cout << x.first << " : ";
+        for(auto y : x.second)
+            cout << y << " ";
+        cout << endl;
+    }
     cout<<endl;
 
 }
