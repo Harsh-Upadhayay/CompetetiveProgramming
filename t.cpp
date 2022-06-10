@@ -17,9 +17,9 @@ ll t,T;
 void solve(void){
     ll n, k;
     cin >> n >> k;
-    vec v(n);
-    vin(v, 0, n);
-    vout(v, 0, n);
+    vec x(n);
+    vin(x, 0, n);
+
     cout<<endl;
 
 }
