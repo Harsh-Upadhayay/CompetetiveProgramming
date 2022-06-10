@@ -60,7 +60,7 @@ void solve(void){
             else{
                 c += y.first;
                 mb[y.first]--;
-                if(y.second == 0)
+                if(mb[y.first] == 0)
                     mb.erase(y.first);
                 prev = 1;
                 itr++;
