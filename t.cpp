@@ -32,11 +32,12 @@ void solve(void){
         ll sum = 0;
         vsum(v, 0, k, sum);
         ll ans = sum;
-        cout << ans;
+
         rpt(j, k, n){
             sum += v[j] - v[j-k];
             ans = max(ans, sum);
         }
+        cout << ans;
         ans += (n*(n-1))/2;
         cout << ans;
     }
