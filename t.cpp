@@ -4,7 +4,7 @@ using namespace std;
 #define ll long long int
 #define pb push_back
 #define rpt(n) for(ll i = 0; i < n; i++)
-#define vin(v, s, n) for(ll i = s; i < (n); i++) cin >> (v[i])
+#define vin(v, s, n) for(ll i = s; i < (n); i++) cin >> (v[i]);
 #define vout(v, s, n) for(ll i = s; i < (n); i++) cout << (v[i]) << " ";
 #define vec vector<ll>
 #define nl cout << "\n";
@@ -18,8 +18,10 @@ void solve(void){
     ll n, k;
     cin >> n >> k;
     vec x(n);
-    vin(x, 0, n);
+    vin(x, 0, n)
+    if(n <= k){
 
+    }
     cout<<endl;
 
 }
