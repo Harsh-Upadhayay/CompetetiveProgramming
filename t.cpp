@@ -32,7 +32,7 @@ void solve(void){
                 itr = 0;
                 c += y.first;
                 mb[y.first]--;
-                if(y.second == 0)
+                if(mb[y.first] == 0)
                     mb.erase(y.first);
                 prev = 1;
                 itr++;
@@ -41,7 +41,7 @@ void solve(void){
             else{
                 c += x.first;
                 ma[x.first]--;
-                if(x.second == 0)
+                if(ma[x.first] == 0)
                     ma.erase(x.first);
                 prev = 0;
                 itr++;
@@ -52,7 +52,7 @@ void solve(void){
                 itr = 0;
                 c += x.first;
                 ma[x.first]--;
-                if(x.second == 0)
+                if(ma[x.first] == 0)
                     ma.erase(x.first);
                 prev = 0;
                 itr++;
