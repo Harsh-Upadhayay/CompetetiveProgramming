@@ -10,6 +10,15 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
+useA(char p, string &c, map<char, ll> &m){
+    c += p;
+    m[p]--;
+    if(m[p] == 0)
+        m.erase(p);
+
+}
+
+
 void solve(void){
     ll n, m, k;     cin >> n >> m >> k;
     string a, b;    cin >> a >> b;
@@ -22,54 +31,39 @@ void solve(void){
         mb[x]++;
 
     string c = "";
-    ll itr = 0;
+    ll itra = 0, itrb = 0;
     bool prev = 0;
+    
     rpt(m+n){
         auto x = *ma.begin(), y = *mb.begin();
+        
         if(x.first < y.first){
-
-            if(prev == 0 && itr == k){
-                itr = 0;
-                c += y.first;
-                mb[y.first]--;
-                if(mb[y.first] == 0)
-                    mb.erase(y.first);
-                prev = 1;
-                itr++;
-                continue;
+            if(itra == k){
+                useA(y.first, c, mb);
+                itrb++;
+                itra = 0;
             }
             else{
-                c += x.first;
-                ma[x.first]--;
-                if(ma[x.first] == 0)
-                    ma.erase(x.first);
-                prev = 0;
-                itr++;
+                useA(x.first, c, ma);
+                itra++;
+                itrb = 0;
             }
         }
         else{
-            if(prev == 1 && itr == k){
-                itr = 0;
-                c += x.first;
-                ma[x.first]--;
-                if(ma[x.first] == 0)
-                    ma.erase(x.first);
-                prev = 0;
-                itr++;
+            if(itrb == k){
+                useA(x.first, c, ma);
+                itra++;
+                itrb = 0;
             }
             else{
-                c += y.first;
-                mb[y.first]--;
-                if(mb[y.first] == 0)
-                    mb.erase(y.first);
-                prev = 1;
-                itr++;
+                useA(y.first, c, mb);
+                itrb++;
+                itra = 0;
             }
         }
 
         if(ma.empty() || mb.empty())
             break;
-
     }
     cout << c;
     cout<<endl;
