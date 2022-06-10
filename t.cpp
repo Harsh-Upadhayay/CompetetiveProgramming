@@ -10,10 +10,24 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
+ll compHeight(ll node, ll* height, map<ll, vector<ll>> &tree){
+    if(!tree.count(node)){
+        height[node] = 1;
+        return height[node];
+    }
+
+    ll h = INT_MAX;
+    for(auto x : tree[node])
+        h = min(compHeight(x, height, tree), h);
+
+    height[node] = h+1;
+    return h+1;
+}
+
 void solve(void){
     ll n, m, ans;
     cin >> n;
-
+    ll height[n+1], children[n+1];
     map<ll, vector<ll>> tree;
 
     rpt(n-1){
@@ -27,12 +41,15 @@ void solve(void){
             tree[u] = ve;
         }
     }
-    for(auto x : tree){
-        cout << x.first << " : ";
-        for(auto y : x.second)
-            cout << y << " ";
-        cout << endl;
-    }
+    compHeight(1, height, tree);
+    rpt(n)
+        cout << i+1 << " " << height[i+1] << "\n";
+    // for(auto x : tree){
+    //     cout << x.first << " : ";
+    //     for(auto y : x.second)
+    //         cout << y << " ";
+    //     cout << endl;
+    // }
     cout<<endl;
 
 }
