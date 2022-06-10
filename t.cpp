@@ -49,6 +49,7 @@ void solve(void){
         }
         else{
             if(prev == 1 && itr == k){
+                itr = 0;
                 c += x.first;
                 ma[x.first]--;
                 if(x.second == 0)
