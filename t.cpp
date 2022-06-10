@@ -26,7 +26,7 @@ void solve(void){
     bool prev = 0;
     rpt(m+n){
         auto x = *ma.begin(), y = *mb.begin();
-        if(x.first < y.first){
+        if(x.first > y.first){
 
             if(prev == 0 && itr == k){
                 itr = 0;
