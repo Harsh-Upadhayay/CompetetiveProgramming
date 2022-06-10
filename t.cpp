@@ -80,7 +80,7 @@ void solve(void){
             }
 
             else{
-                if(height[list[0]] < height[list[1]]){
+                if(height[list[0]] > height[list[1]]){
                     ans += children[list[0]];
                     root = list[1];
                 }
