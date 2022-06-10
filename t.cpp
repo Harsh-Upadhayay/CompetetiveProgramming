@@ -4,6 +4,7 @@ using namespace std;
 #define ll long long int
 #define pb push_back
 #define rpt(n) for(ll i = 0; i < n; i++)
+#define rpt(i, s, e) for(ll (i) = (s); i < (e); i++)
 #define vin(v, s, n) for(ll i = s; i < (n); i++) cin >> (v[i]);
 #define vout(v, s, n) for(ll i = s; i < (n); i++) cout << (v[i]) << " ";
 #define vec vector<ll>
@@ -17,10 +18,21 @@ ll t,T;
 void solve(void){
     ll n, k;
     cin >> n >> k;
-    vec x(n);
-    vin(x, 0, n)
+    vec v(n);
+    vin(v, 0, n);
     if(n <= k){
-
+        ll xtra = k - n;
+        ll sum = accumulate(v.begin(), v.end(), 0) + xtra*n + (n*(n-1))/2;
+        cout << sum;
+    }
+    else{
+        ll sum = accumulate(v.begin(), v.begin() + k, 0), ans = sum;
+        rpt(j, k, n){
+            sum += v[j] - v[j-k];
+            ans = max(ans, sum);
+        }
+        ans += (n*(n-1))/2;
+        cout << ans;
     }
     cout<<endl;
 
