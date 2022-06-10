@@ -19,10 +19,12 @@ void solve(void){
     set<ll> s(v.begin(), v.end());
 
     rpt(n){
-        s.erase(v[i]);
+        // s.erase(v[i]);
         auto x = *s.begin();
+        if(x == v[i])
+            x = *(++s.begin());
         ans.pb(x);
-        s.insert(v[i]);
+        // s.insert(v[i]);
         s.erase(x);
     }
     rpt(n)
