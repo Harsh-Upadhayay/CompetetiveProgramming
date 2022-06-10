@@ -19,7 +19,6 @@ void solve(void){
     cin >> n >> k;
     vec v(n);
     vin(v, 0, n);
-    nl;
     vout(v, 0, n);
     cout<<endl;
 
