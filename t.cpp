@@ -39,9 +39,9 @@ void solve(void){
                 mb.erase(y.first);
         }
 
-        cout << c;
     }
 
+    cout << c;
     cout<<endl;
 
 }
