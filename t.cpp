@@ -23,24 +23,24 @@ void solve(void){
 
     string c = "";
     ll itr = 0;
-    // rpt(m+n){
-    //     auto x = *ma.begin(), y = *mb.begin();
-    //     bool prev;
-    //     if(x.first > y.first){
-    //         c += x.first;
-    //         x.second--;
-    //         if(x.second == 0)
-    //             ma.erase(x.first);
-    //     }
-    //     else{
-    //         c += y.first;
-    //         y.second--;
-    //         if(y.second == 0)
-    //             mb.erase(y.first);
-    //     }
+    rpt(m+n){
+        auto x = *ma.begin(), y = *mb.begin();
+        bool prev;
+        if(x.first > y.first){
+            c += x.first;
+            x.second--;
+            if(x.second == 0)
+                ma.erase(x.first);
+        }
+        else{
+            c += y.first;
+            y.second--;
+            if(y.second == 0)
+                mb.erase(y.first);
+        }
 
-    //     cout << c;
-    // }
+        cout << c;
+    }
 
     cout<<endl;
 
