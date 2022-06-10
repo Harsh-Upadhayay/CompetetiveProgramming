@@ -22,9 +22,9 @@ void solve(void){
         if(tree.count(u))
             tree[u].pb(v);
         else{
-            vector<ll> v;
-            v.pb(u);
-            tree[u] = v;
+            vector<ll> ve;
+            ve.pb(v);
+            tree[u] = ve;
         }
     }
     for(auto x : tree){
