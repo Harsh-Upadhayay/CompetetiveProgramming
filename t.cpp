@@ -11,15 +11,19 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m;
-    set<char> ans;
-    cin >> n;
-    string s1, s2;
-    cin >> s1 >> s2;
-    rpt(n)
-        if(s1[i] != s2[i])
-            ans.insert(s2[i]);
-    cout << ans.size();
+    ll n, m, k;     cin >> n >> m >> k;
+    string a, b;    cin >> a >> b;
+
+    map<char, ll> ma, mb;
+
+    for(auto x : a)
+        ma[x]++;
+    for(auto x : b)
+        mb[x]++;
+
+    for(auto x : ma)
+        cout << x.first << " ";
+
     cout<<endl;
 
 }
