@@ -30,7 +30,7 @@ void solve(void){
     }
     else{
         ll sum = 0;
-        vsum(v, 0, n, sum);
+        vsum(v, 0, k, sum);
         ll ans = sum;
         rpt(j, k, n){
             sum += v[j] - v[j-k];
