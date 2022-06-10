@@ -92,7 +92,7 @@ void solve(void){
         }
 
         else{
-            ans += children[root];
+            ans += children[list[0]];
             break;
         }
 
