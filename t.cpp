@@ -10,7 +10,10 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-ll compHeight(ll node, ll* height, map<ll, vector<ll>> &tree){
+ll compHeight(ll node, ll* height, map<ll, vector<ll>> &tree, bool* visited){
+    
+    visited[node] = true;
+
     if(!tree.count(node)){
         height[node] = 1;
         return height[node];
@@ -18,13 +21,17 @@ ll compHeight(ll node, ll* height, map<ll, vector<ll>> &tree){
 
     ll h = INT_MAX;
     for(auto x : tree[node])
-        h = min(compHeight(x, height, tree), h);
+        if(!visited[x])
+            h = min(compHeight(x, height, tree, visited), h);
 
     height[node] = h+1;
     return h+1;
 }
 
-ll compChildren(ll node, ll* children, map<ll, vector<ll>> &tree){
+ll compChildren(ll node, ll* children, map<ll, vector<ll>> &tree, bool* visited){
+    
+    visited[node] = true;
+
     if(!tree.count(node)){
         children[node] = 0;
         return children[node]+1;
@@ -32,7 +39,8 @@ ll compChildren(ll node, ll* children, map<ll, vector<ll>> &tree){
 
     ll c = 0;
     for(auto x : tree[node])
-        c += compChildren(x, children, tree);
+        if(!visited[x])
+            c += compChildren(x, children, tree, visited);
 
     children[node] = c;
     return children[node]+1;
@@ -61,8 +69,8 @@ void solve(void){
         insertEdge(v, u, tree);
         
     }
-
-    // compHeight(1, height, tree);
+    bool visited[n+1] = {false};
+    compHeight(1, height, tree, visited);
     // compChildren(1, children, tree);
 
     ans = 0;
