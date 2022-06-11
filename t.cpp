@@ -19,7 +19,7 @@ ll compHeight(ll node, ll* height, map<ll, vector<ll>> &tree, bool* visited){
         return height[node];
     }
 
-    ll h = 5;
+    ll h = INT_MAX;
     for(auto x : tree[node])
         if(!visited[x])
             h = min(compHeight(x, height, tree, visited), h);
@@ -113,12 +113,12 @@ void solve(void){
 
     rpt(n)
         cout << i+1 << " " << height[i+1] << "\n";
-    // for(auto x : tree){
-    //     cout << x.first << " : ";
-    //     for(auto y : x.second)
-    //         cout << y << " ";
-    //     cout << endl;
-    // }
+    for(auto x : tree){
+        cout << x.first << " : ";
+        for(auto y : x.second)
+            cout << y << " ";
+        cout << endl;
+    }
 
     // cout << ans;
     cout<<endl;
