@@ -112,7 +112,7 @@ void solve(void){
         cout << endl;
     }
 
-    cout << ans;
+    // cout << ans;
     cout<<endl;
 
 }
