@@ -43,7 +43,7 @@ ll compChildren(ll node, ll* children, map<ll, vector<ll>> &tree){
 void solve(void){
     ll n, m, ans;
     cin >> n;
-    ll height[n+1], children[n+1];
+    ll height[n+1] = {0}, children[n+1] = {0};
     map<ll, vector<ll>> tree;
 
     rpt(n-1){
