@@ -111,14 +111,14 @@ void solve(void){
     //     // cout << root << " ";
     // } while(tree.count(root));
 
-    // rpt(n)
-    //     cout << i+1 << " " << children[i+1] << "\n";
-    for(auto x : tree){
-        cout << x.first << " : ";
-        for(auto y : x.second)
-            cout << y << " ";
-        cout << endl;
-    }
+    rpt(n)
+        cout << i+1 << " " << height[i+1] << "\n";
+    // for(auto x : tree){
+    //     cout << x.first << " : ";
+    //     for(auto y : x.second)
+    //         cout << y << " ";
+    //     cout << endl;
+    // }
 
     // cout << ans;
     cout<<endl;
