@@ -64,43 +64,43 @@ void solve(void){
     ans = 0;
     ll root = 1;
     
-    do{
+    // do{
         
-        auto list = tree[root];
+    //     auto list = tree[root];
         
-        if(list.size() == 2){
+    //     if(list.size() == 2){
 
-            if(children[list[0]] > children[list[1]]){
-                ans += children[list[0]];
-                root = list[1];
-            }
+    //         if(children[list[0]] > children[list[1]]){
+    //             ans += children[list[0]];
+    //             root = list[1];
+    //         }
 
-            else if(children[list[0]] < children[list[1]]){
-                ans += children[list[1]];
-                root = list[0];
-            }
+    //         else if(children[list[0]] < children[list[1]]){
+    //             ans += children[list[1]];
+    //             root = list[0];
+    //         }
 
-            else{
-                if(height[list[0]] > height[list[1]]){
-                    ans += children[list[0]];
-                    root = list[1];
-                }
-                else{
-                    ans += children[list[1]];
-                    root = list[0];
-                }
-            }
-        }
+    //         else{
+    //             if(height[list[0]] > height[list[1]]){
+    //                 ans += children[list[0]];
+    //                 root = list[1];
+    //             }
+    //             else{
+    //                 ans += children[list[1]];
+    //                 root = list[0];
+    //             }
+    //         }
+    //     }
 
-        else{
-            ans += children[list[0]];
-            break;
-        }
-        // cout << root << " ";
-    } while(tree.count(root));
+    //     else{
+    //         ans += children[list[0]];
+    //         break;
+    //     }
+    //     // cout << root << " ";
+    // } while(tree.count(root));
 
-    // rpt(n)
-    //     cout << i+1 << " " << children[i+1] << "\n";
+    rpt(n)
+        cout << i+1 << " " << children[i+1] << "\n";
     // for(auto x : tree){
     //     cout << x.first << " : ";
     //     for(auto y : x.second)
