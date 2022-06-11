@@ -38,7 +38,15 @@ ll compChildren(ll node, ll* children, map<ll, vector<ll>> &tree){
     return children[node]+1;
 }
 
-
+void insertEdge(ll u, ll v, map<ll, vector<ll>> &tree){
+    if(tree.count(u))
+        tree[u].pb(v);
+    else{
+        vector<ll> ve;
+        ve.pb(v);
+        tree[u] = ve;
+    }
+}
 
 void solve(void){
     ll n, m, ans;
@@ -49,19 +57,13 @@ void solve(void){
     rpt(n-1){
         ll u, v;
         cin >> u >> v;
-        if(u > v)
-            swap(u, v);
-        if(tree.count(u))
-            tree[u].pb(v);
-        else{
-            vector<ll> ve;
-            ve.pb(v);
-            tree[u] = ve;
-        }
+        insertEdge(u, v, tree);
+        insertEdge(v, u, tree);
+        
     }
 
-    compHeight(1, height, tree);
-    compChildren(1, children, tree);
+    // compHeight(1, height, tree);
+    // compChildren(1, children, tree);
 
     ans = 0;
     ll root = 1;
