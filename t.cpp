@@ -19,7 +19,7 @@ ll compHeight(ll node, ll* height, map<ll, vector<ll>> &tree, bool* visited){
         return height[node];
     }
 
-    ll h = INT_MAX;
+    ll h = 5;
     for(auto x : tree[node])
         if(!visited[x])
             h = min(compHeight(x, height, tree, visited), h);
