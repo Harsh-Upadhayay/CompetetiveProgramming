@@ -28,9 +28,8 @@ void solve(void){
         }
     }
     rpt(n)
-        if(avilable[i+1]){
+        if(avilable[i]){
             ar[0] = i+1;
-            cout << "F";
             break;
         }
     rpt(n)
