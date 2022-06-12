@@ -64,7 +64,7 @@ int main() {
         t = 1;
     #endif
 
-    while(t-- >= 2) 
+    while(t-- > 2) 
         solve(t);
 
     return 0;
