@@ -10,6 +10,13 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
+bool chk(ll *ar, ll n){
+    rpt(n-1)
+        if(abs(ar[i] - ar[i+1]) % (i+1))
+            return false;
+    return true;
+}
+
 void solve(void){
     ll n;
     cin >> n;
@@ -32,8 +39,9 @@ void solve(void){
             ar[0] = i;
             break;
         }
-    rpt(n)
-        cout << ar[i] << " ";
+    if(!chk(ar, n))
+        rpt(n)
+            cout << ar[i] << " ";
     cout<<endl;
 
 }
