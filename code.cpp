@@ -27,7 +27,7 @@ void solve(void){
             avilable[ar[i+1] +i + 1] = false;
         }
     }
-    rpt(n)
+    for(int i = 1; i <= n; i++)
         if(avilable[i]){
             ar[0] = i;
             break;
