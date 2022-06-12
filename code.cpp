@@ -19,14 +19,15 @@ void solve(void){
     for(int i = n-2; i >= 0; i--){
         if(ar[i+1] - i-1 > 0){
             ar[i] = ar[i+1] - i-1;
-            avilable[ar[i+1] - i-1] = false;
 
         }
         else{
             ar[i] = ar[i+1] + i + 1;
-            avilable[ar[i+1] +i + 1] = false;
         }
     }
+    rpt(n)
+        avilable[ar[i]] = false;
+        
     for(int i = 1; i <= n; i++)
         if(avilable[i]){
             ar[0] = i;
