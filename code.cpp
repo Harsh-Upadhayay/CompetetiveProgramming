@@ -17,7 +17,7 @@ void solve(void){
     ll  ar[n+1];
     ar[n] = n;
     for(int i = n-1; i >= 0; i--){
-        if(ar[i] - i+1 > 0){
+        if(ar[i] - i > 0){
             ar[i] = ar[i] - i;
         }
         else
