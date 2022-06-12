@@ -11,33 +11,20 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m;
+    ll n;
     cin >> n;
-    vector<ll> v(n), ans;
-    rpt(n)
-        cin >> v[i];
-    set<ll> s(v.begin(), v.end());
-    if(n == 1){
-        cout << "-1\n";
-        return;
-    }
-    rpt(n){
-        // s.erase(v[i]);
-        auto x = *s.begin();
-        if(x == v[i])
-            if(s.size() == 1){
-                ans.pb(x);
-                swap(ans[n-2], ans[n-1]);    
-            }
-            
-            else
-                x = *(++s.begin());
-        ans.pb(x);
-        // s.insert(v[i]);
-        s.erase(x);
+    bool avilable[n+1] = {true};
+    ll  ar[n];
+    ar[n-1] = n;
+    for(int i = n-2; i >= 0; i--){
+        if(ar[i+1] - i+1 > 0){
+            ar[i] = ar[i+1] - i+1;
+        }
+        else
+            ar[i] = ar[i+1] + i + 1;
     }
     rpt(n)
-        cout << ans[i] << " ";
+        cout << ar[i] << " ";
     cout<<endl;
 
 }
