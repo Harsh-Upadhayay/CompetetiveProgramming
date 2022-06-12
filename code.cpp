@@ -29,7 +29,7 @@ void solve(void){
     }
     rpt(n)
         if(avilable[i]){
-            ar[0] = i+1;
+            ar[0] = i;
             break;
         }
     rpt(n)
