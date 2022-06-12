@@ -19,10 +19,19 @@ void solve(void){
     for(int i = n-2; i >= 0; i--){
         if(ar[i+1] - i-1 > 0){
             ar[i] = ar[i+1] - i-1;
+            avilable[ar[i+1] - i-1] = false;
+
         }
-        else
+        else{
             ar[i] = ar[i+1] + i + 1;
+            avilable[ar[i+1] +i + 1] = false;
+        }
     }
+    rpt(n)
+        if(avilable[i+1]){
+            ar[0] = i+1;
+            break;
+        }
     rpt(n)
         cout << ar[i] << " ";
     cout<<endl;
