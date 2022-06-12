@@ -13,7 +13,7 @@ ll t,T;
 void solve(void){
     ll n;
     cin >> n;
-    bool avilable[n+1] = {true};
+   vector<bool> avilable(n, true);
     rpt(n)
         cout << avilable[i];
     ll  ar[n];
