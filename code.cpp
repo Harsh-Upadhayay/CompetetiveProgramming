@@ -26,9 +26,9 @@ void solve(void){
         }
     }
     rpt(n)
-        avilable[ar[i]] = false;
-    rpt(n)
         cout << avilable[i];
+    rpt(n)
+        avilable[ar[i]] = false;
     for(int i = 1; i <= n; i++)
         if(avilable[i]){
             ar[0] = i;
