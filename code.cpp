@@ -14,6 +14,8 @@ void solve(void){
     ll n;
     cin >> n;
     bool avilable[n+1] = {true};
+    rpt(n)
+        cout << avilable[i];
     ll  ar[n];
     ar[n-1] = n;
     for(int i = n-2; i >= 0; i--){
@@ -25,8 +27,6 @@ void solve(void){
             ar[i] = ar[i+1] + i + 1;
         }
     }
-    rpt(n)
-        cout << avilable[i];
     rpt(n)
         avilable[ar[i]] = false;
     for(int i = 1; i <= n; i++)
