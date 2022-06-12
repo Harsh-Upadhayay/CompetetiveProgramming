@@ -14,8 +14,6 @@ void solve(void){
     ll n;
     cin >> n;
    vector<bool> avilable(n, true);
-    rpt(n)
-        cout << avilable[i];
     ll  ar[n];
     ar[n-1] = n;
     for(int i = n-2; i >= 0; i--){
