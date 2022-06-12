@@ -14,17 +14,17 @@ void solve(void){
     ll n;
     cin >> n;
     bool avilable[n+1] = {true};
-    ll  ar[n];
-    ar[n-1] = n;
-    for(int i = n-2; i >= 0; i--){
-        if(ar[i+1] - i+1 > 0){
-            ar[i] = ar[i+1] - i+1;
+    ll  ar[n+1];
+    ar[n] = n;
+    for(int i = n-1; i >= 0; i--){
+        if(ar[i] - i+1 > 0){
+            ar[i] = ar[i] - i;
         }
         else
-            ar[i] = ar[i+1] + i + 1;
+            ar[i] = ar[i] + i;
     }
     rpt(n)
-        cout << ar[i] << " ";
+        cout << ar[i+1] << " ";
     cout<<endl;
 
 }
