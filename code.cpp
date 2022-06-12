@@ -42,7 +42,7 @@ void solve(ll n){
         if(!chk(ar, n))
         rpt(n)
             cout << ar[i] << " ";
-    cout << n ;
+    cout << n << "\n";
 
 }
 
