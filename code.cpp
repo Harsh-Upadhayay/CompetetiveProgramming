@@ -17,9 +17,9 @@ bool chk(ll *ar, ll n){
     return true;
 }
 
-void solve(void){
-    ll n;
-    cin >> n;
+void solve(ll n){
+    // ll n;
+    // cin >> n;
    vector<bool> avilable(n, true);
     ll  ar[n];
     ar[n-1] = n;
@@ -39,9 +39,10 @@ void solve(void){
             ar[0] = i;
             break;
         }
+        if(!chk(ar, n))
         rpt(n)
             cout << ar[i] << " ";
-    cout<<endl;
+    cout << n ;
 
 }
 
@@ -63,8 +64,8 @@ int main() {
         t = 1;
     #endif
 
-    while(t--) 
-        solve();
+    while(t-- >= 2) 
+        solve(t);
 
     return 0;
 }
