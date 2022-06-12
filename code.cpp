@@ -39,7 +39,7 @@ void solve(ll x){
             ar[0] = i;
             break;
         }
-        if(!chk(ar, n))
+        // if(!chk(ar, n))
         rpt(n)
             cout << ar[i] << " ";
     cout << n << "\n";
