@@ -16,7 +16,7 @@ void solve(void){
     bool avilable[n+1] = {true};
     ll  ar[n+1];
     ar[n] = n;
-    for(int i = n-1; i >= 0; i--){
+    for(int i = n; i >= 0; i--){
         if(ar[i] - i > 0){
             ar[i] = ar[i] - i;
         }
