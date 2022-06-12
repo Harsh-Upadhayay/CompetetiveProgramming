@@ -39,7 +39,6 @@ void solve(void){
             ar[0] = i;
             break;
         }
-    if(!chk(ar, n))
         rpt(n)
             cout << ar[i] << " ";
     cout<<endl;
