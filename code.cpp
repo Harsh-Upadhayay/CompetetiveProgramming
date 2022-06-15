@@ -7,42 +7,17 @@ using namespace std;
 
 #define inf INT_MAX
 
-#define TESTCASE
+#define TESTCAS
 ll t,T;
 
-bool chk(ll *ar, ll n){
-    rpt(n-1)
-        if(abs(ar[i] - ar[i+1]) % (i+1))
-            return false;
-    return true;
-}
-
-void solve(ll x){
-    ll n;
-    cin >> n;
-   vector<bool> avilable(n, true);
-    ll  ar[n];
-    ar[n-1] = n;
-    for(int i = n-2; i >= 0; i--){
-        if(ar[i+1] - i-1 > 0){
-            ar[i] = ar[i+1] - i-1;
-
-        }
-        else{
-            ar[i] = ar[i+1] + i + 1;
-        }
-    }
-    rpt(n)
-        avilable[ar[i]] = false;
-    for(int i = 1; i <= n; i++)
-        if(avilable[i]){
-            ar[0] = i;
-            break;
-        }
-        // if(!chk(ar, n))
-        rpt(n)
-            cout << ar[i] << " ";
-    cout << n << "\n";
+void solve(void){
+    ll n, m, ans;
+    cin>>n;
+    if(n == 2 || n % 2)
+        cout << "NO";
+    else
+        cout << "YES";
+    cout<<endl;
 
 }
 
@@ -64,8 +39,8 @@ int main() {
         t = 1;
     #endif
 
-    while(t-- ) 
-        solve(t);
+    while(t--) 
+        solve();
 
     return 0;
 }
