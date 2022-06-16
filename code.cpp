@@ -11,11 +11,20 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll a, b, c, d;
-    cin >> a >> b >> c >> d;
-    ll ans = 0;
-    ans += (a < b) + (a < c) + (a < d);
-    cout << ans;
+    ll n;
+    cin >> n;
+    map<ll, ll> freq;
+    rpt(n){
+        ll x;
+        cin >> x;
+        freq[x]++;
+    }
+    ll val = 0;
+    for(auto x : freq)
+        if(x.second > 1)
+            val += x.second - 1;
+    val += val%2;
+    cout << (n-val);
     cout<<endl;
 
 }
