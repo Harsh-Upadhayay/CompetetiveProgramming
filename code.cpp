@@ -37,7 +37,7 @@ string add(string &s, ll x){
     s += h;
     s += ":";
     s += m;
-    cout << s;
+    cout << s << " " ;
     return s;
 }
 
