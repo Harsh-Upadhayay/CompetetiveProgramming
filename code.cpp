@@ -7,16 +7,15 @@ using namespace std;
 
 #define inf INT_MAX
 
-#define TESTCAS
+#define TESTCASE
 ll t,T;
 
 void solve(void){
-    ll n, m, ans;
-    cin>>n;
-    if(n == 2 || n % 2)
-        cout << "NO";
-    else
-        cout << "YES";
+    ll a, b, c, d;
+    cin >> a >> b >> c >> d;
+    ll ans = 0;
+    ans += (a > b) + (a > c) + (a > d);
+    cout << ans;
     cout<<endl;
 
 }
