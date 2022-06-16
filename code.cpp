@@ -35,6 +35,7 @@ void solve(void){
     string curr = s;
     do{
         curr = add(curr, intv);
+        curr = add(curr, intv);
         ans += isPalindrom(curr);
     } while(curr != s);
     cout<<endl;
