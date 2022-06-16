@@ -22,7 +22,7 @@ string add(string &s, ll x){
     ll hr = min/60;
     min %= 60;
     hr += stoi(s.substr(0, 2)) % 24;
-    // string h = to_string(hr), m = to_string(min);
+    string h = to_string(hr), m = to_string(min);
     // s = "";
     // s += h;
     // s += ":";
