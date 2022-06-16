@@ -24,11 +24,20 @@ string add(string &s, ll x){
     hr += stoi(s.substr(0, 2));
     hr %= 24;
     string h = to_string(hr), m = to_string(min);
-    cout << m << " ";
-    // s = "";
-    // s += h;
-    // s += ":";
-    // s += m;
+    if(h.size() == 1){
+        h += '0';
+        reverse(h.begin(), h.end());
+    }
+    if(m.size() == 1){
+        m += '0';
+        reverse(m.begin(), m.end());
+    }
+    // cout << m << " ";
+    s = "";
+    s += h;
+    s += ":";
+    s += m;
+    cout << s;
     return s;
 }
 
@@ -43,6 +52,7 @@ void solve(void){
         curr = add(curr, intv);
         curr = add(curr, intv);
         ans += isPalindrom(curr);
+        break;
     } while(curr != s);
     // cout << ans;
     cout<<endl;
