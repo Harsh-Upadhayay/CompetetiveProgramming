@@ -23,6 +23,7 @@ string add(string &s, ll x){
     min %= 60;
     hr += stoi(s.substr(0, 2)) % 24;
     string h = to_string(hr), m = to_string(min);
+    cout << h;
     // s = "";
     // s += h;
     // s += ":";
