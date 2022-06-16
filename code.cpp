@@ -41,6 +41,7 @@ void solve(void){
         
         else if(psum[i] > k){
             _l = find(psum, psum[i]-k);
+            cout << _l;
             len = i - _l;
         }
 
