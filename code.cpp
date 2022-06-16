@@ -53,7 +53,7 @@ void solve(void){
         ans += isPalindrom(curr);
         // break;
     } while(curr != s);
-    // cout << ans;
+    cout << ans;
     cout<<endl;
 
 }
