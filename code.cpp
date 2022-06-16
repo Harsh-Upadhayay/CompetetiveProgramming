@@ -14,7 +14,7 @@ void solve(void){
     ll a, b, c, d;
     cin >> a >> b >> c >> d;
     ll ans = 0;
-    ans += (a > b) + (a > c) + (a > d);
+    ans += (a < b) + (a < c) + (a < d);
     cout << ans;
     cout<<endl;
 
