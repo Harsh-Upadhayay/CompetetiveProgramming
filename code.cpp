@@ -18,7 +18,7 @@ bool isPalindrom(string &s){
 }
 
 string add(string &s, ll x){
-    ll min = stoi(s.substr(3, 2));
+    ll min = stoi(s.substr(3, 2)) + x;
     cout <<  min;
     return s;
 }
