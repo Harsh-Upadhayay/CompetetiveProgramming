@@ -37,7 +37,7 @@ string add(string &s, ll x){
     s += h;
     s += ":";
     s += m;
-    cout << s << " " ;
+    // cout << s << " " ;
     return s;
 }
 
@@ -50,9 +50,8 @@ void solve(void){
     string curr = s;
     do{
         curr = add(curr, intv);
-        curr = add(curr, intv);
         ans += isPalindrom(curr);
-        break;
+        // break;
     } while(curr != s);
     // cout << ans;
     cout<<endl;
