@@ -24,7 +24,7 @@ string add(string &s, ll x){
     hr += stoi(s.substr(0, 2));
     hr %= 24;
     string h = to_string(hr), m = to_string(min);
-    cout << h << " ";
+    cout << m << " ";
     // s = "";
     // s += h;
     // s += ":";
