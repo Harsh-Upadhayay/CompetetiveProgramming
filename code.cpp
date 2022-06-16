@@ -13,7 +13,7 @@ ll t,T;
 ll find(vector<ll> v, ll x){
     ll r = v.size()-1, l = 0;
     while(l <= r){
-        ll mid = r - (r+l)/2;
+        ll mid = r - (r-l)/2;
         if(v[mid] < x)
             l = mid + 1;
         else if(v[mid] > x)
@@ -34,22 +34,22 @@ void solve(void){
     rpt(n-1)
         psum[i+1] += psum[i] + v[i+1];
     ll l = -1, r = -1, _l = 0, mxLen = INT_MIN;
-    // rpt(n){
-    //     ll len;
-    //     if(psum[i] == k)
-    //         len = i+1;
+    rpt(n){
+        ll len;
+        if(psum[i] == k)
+            len = i+1;
         
-    //     else if(psum[i] > k){
-    //         _l = find(psum, psum[i]-k);
-    //         len = i - _l;
-    //     }
+        else if(psum[i] > k){
+            _l = find(psum, psum[i]-k);
+            len = i - _l;
+        }
 
-    //     if(len > mxLen){
-    //         mxLen = len;
-    //         r = i;
-    //         l = _l;
-    //     }
-    // }
+        if(len > mxLen){
+            mxLen = len;
+            r = i;
+            l = _l;
+        }
+    }
     cout << l << r;
     cout<<endl;
 
