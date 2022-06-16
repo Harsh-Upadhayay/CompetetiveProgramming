@@ -35,6 +35,10 @@ void solve(void){
     psum[0] = v[0];
     rpt(n-1)
         psum[i+1] += psum[i] + v[i+1];
+    if(psum[n-1] < k){
+        cout << "-1\n";
+        return;
+    }
     ll l = -1, r = -1, _l = 0, mxLen = INT_MIN;
     rpt(n){
         ll len;
