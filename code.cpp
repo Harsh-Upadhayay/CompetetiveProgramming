@@ -13,26 +13,22 @@ ll t,T;
 void solve(void){
     ll n, m, ans, x = 0, y = 0;
     string s;
+    vector<string> board;
     rpt(8){
         cin >> s;
-        int j = 1, idx = -1;
-        bool flag = true;
-        for(auto x : s){
-            ++j;
-            if(x == '#')
-                if(idx == -1)
-                    idx = j;
-                else{
-                    flag = false;
-                    break;
-                }
-        }
-        if(flag){
-            x = i+1;
-            y = idx;
-        }
-
+        board.pb(s);
     }
+    for(int i = 1; i <= 6; i++)
+        for(int j = 1; j <= 6; j++)
+            if(board[i-1][j-1] == '#' &&
+                board[i-1][j+1] == '#' &&
+                board[i+1][j-1] == '#' &&
+                board[i+1][j+1] == '#'
+                ) {
+                x = i+1;
+                y = j+1;
+            }
+            
     cout << x << " " << y;
     cout<<endl;
 
