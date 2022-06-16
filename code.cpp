@@ -11,7 +11,7 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans, x, y;
+    ll n, m, ans, x = 0, y = 0;
     string s;
     rpt(8){
         cin >> s;
