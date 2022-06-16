@@ -31,7 +31,7 @@ string add(string &s, ll x){
 }
 
 void solve(void){
-    ll n, m, ans;
+    ll n, m, ans = 0;
     string s;
     cin >> s;
     ll intv;
