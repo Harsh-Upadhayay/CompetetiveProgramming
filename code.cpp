@@ -10,26 +10,30 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
+bool isPalindrom(string &s){
+    for(int i = 0; i < s.size()/2; i++)
+        if(s[i] != s[s.size()-i-1])
+            return false;
+    return true;
+}
+
+string add(string &s, ll x){
+    string min = s.substr(3, 1);
+    cout << min;
+    return min;
+}
+
 void solve(void){
-    ll n, m, ans, x = 0, y = 0;
+    ll n, m, ans;
     string s;
-    vector<string> board;
-    rpt(8){
-        cin >> s;
-        board.pb(s);
-    }
-    for(int i = 1; i <= 6; i++)
-        for(int j = 1; j <= 6; j++)
-            if(board[i-1][j-1] == '#' &&
-                board[i-1][j+1] == '#' &&
-                board[i+1][j-1] == '#' &&
-                board[i+1][j+1] == '#'
-                ) {
-                x = i+1;
-                y = j+1;
-            }
-            
-    cout << x << " " << y;
+    cin >> s;
+    ll intv;
+    cin >> intv;
+    string curr = s;
+    do{
+        add(curr, intv);
+        ans += isPalindrom(curr);
+    } while(curr != s);
     cout<<endl;
 
 }
