@@ -39,6 +39,10 @@ void solve(void){
         cout << "-1\n";
         return;
     }
+    if(psum[n-1] == k){
+        cout << "0\n";
+        return;
+    }
     ll l = -1, r = -1, _l = 0, mxLen = INT_MIN;
     rpt(n){
         ll len;
