@@ -19,12 +19,13 @@ void solve(void){
         bool flag = true;
         for(auto x : s){
             ++j;
-            if(x == '#' && idx == -1)
-                idx = j;
-            else{
-                flag = false;
-                continue;
-            }
+            if(x == '#')
+                if(idx == -1)
+                    idx = j;
+                else{
+                    flag = false;
+                    break;
+                }
         }
         if(flag){
             x = i+1;
