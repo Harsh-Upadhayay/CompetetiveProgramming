@@ -62,7 +62,7 @@ void solve(void){
         }
     }
     cout << l << " "<< r;
-    cout << l + (n-r);
+    // cout << l + (n-r);
     cout<<endl;
 
 }
