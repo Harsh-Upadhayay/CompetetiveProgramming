@@ -10,50 +10,47 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-bool isPalindrom(string &s){
-    for(int i = 0; i < s.size()/2; i++)
-        if(s[i] != s[s.size()-i-1])
-            return false;
-    return true;
-}
-
-string add(string &s, ll x){
-    ll min = stoi(s.substr(3, 2)) + x;
-    ll hr = min/60;
-    min %= 60;
-    hr += stoi(s.substr(0, 2));
-    hr %= 24;
-    string h = to_string(hr), m = to_string(min);
-    if(h.size() == 1){
-        h += '0';
-        reverse(h.begin(), h.end());
+ll find(vector<ll> v, ll x){
+    ll r = v.size()-1, l = 0;
+    while(l <= r){
+        ll mid = r - (r+l)/2;
+        if(v[mid] < x)
+            l = mid + 1;
+        else if(v[mid] > x)
+            r = mid-1;
+        else
+            return mid;
     }
-    if(m.size() == 1){
-        m += '0';
-        reverse(m.begin(), m.end());
-    }
-    // cout << m << " ";
-    s = "";
-    s += h;
-    s += ":";
-    s += m;
-    // cout << s << " " ;
-    return s;
+    return -1;
 }
 
 void solve(void){
-    ll n, m, ans = 0;
-    string s;
-    cin >> s;
-    ll intv;
-    cin >> intv;
-    string curr = s;
-    do{
-        curr = add(curr, intv);
-        ans += isPalindrom(curr);
-        // break;
-    } while(curr != s);
-    cout << ans;
+    ll n, k, ans;
+    cin >> n >> k;
+    vector<ll> v(n), psum(n, 0);
+    rpt(n)
+        cin >> v[i];
+    psum[0] = v[0];
+    rpt(n-1)
+        psum[i+1] += psum[i] + v[i+1];
+    ll l = -1, r = -1, _l = 0, mxLen = INT_MIN;
+    rpt(n){
+        ll len;
+        if(psum[i] == k)
+            len = i+1;
+        
+        else if(psum[i] > k){
+            _l = find(psum, psum[i]-k);
+            len = i - _l;
+        }
+
+        if(len > mxLen){
+            mxLen = len;
+            r = i;
+            l = _l;
+        }
+    }
+    cout << l << r;
     cout<<endl;
 
 }
