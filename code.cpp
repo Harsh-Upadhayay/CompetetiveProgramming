@@ -21,7 +21,8 @@ string add(string &s, ll x){
     ll min = stoi(s.substr(3, 2)) + x;
     ll hr = min/60;
     min %= 60;
-    cout <<  min;
+    hr += stoi(s.substr(0, 2)) % 24;
+    cout << hr;
     return s;
 }
 
@@ -33,7 +34,7 @@ void solve(void){
     cin >> intv;
     string curr = s;
     do{
-        add(curr, intv);
+        curr = add(curr, intv);
         ans += isPalindrom(curr);
     } while(curr != s);
     cout<<endl;
