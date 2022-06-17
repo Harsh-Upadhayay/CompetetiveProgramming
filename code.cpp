@@ -16,7 +16,7 @@ void solve(void){
     vector<ll> v(n);
     rpt(n)
         cin >> v[i];
-    ll l = 0, r = 0,  itr = 0;
+    ll l = 0, r = 1,  itr = 0;
     while(r < n){        
         if(v[r-1] < 2*v[r]){
             if(r-l == k){
