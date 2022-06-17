@@ -28,6 +28,8 @@ void solve(void){
             l = r;   
         r++;
     }
+    if(r-l == k)
+        ans++;
     cout << ans;
     cout<<endl;
 
