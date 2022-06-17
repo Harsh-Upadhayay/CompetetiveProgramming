@@ -18,7 +18,7 @@ void solve(void){
         cin >> v[i];
     ll l = 0, r = 0,  itr = 0;
     while(r < n){        
-        if(v[r] < 2*v[r+1]){
+        if(v[r-1] < 2*v[r]){
             if(r-l == k){
                 ans++;
                 l++;
