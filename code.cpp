@@ -30,7 +30,7 @@ void solve(void){
     // rpt(v.size())
     //     cout << v[i] << " ";
     bool flag = false;
-    for(int i = 0; i < n; i++){
+    for(int i = 0; i < v.size(); i++){
         for(int j = i+1; j < n; j++)
             for(int k = j+1; k < n; k++)
                 if((v[i]+v[j]+v[k]) % 10 == 3)
