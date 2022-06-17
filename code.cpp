@@ -46,9 +46,10 @@ void solve(void){
             _r = i;
         }
     }   
-    for(auto x : score){
-        // cout << x.first << " : " << x.second << endl;
-    }
+    cout <<curMax;
+    // for(auto x : score){
+    //     cout << x.first << " : " << x.second << endl;
+    // }
 
     ll r = _r+1;
     double x = 1;
