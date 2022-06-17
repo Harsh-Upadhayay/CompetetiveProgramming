@@ -20,7 +20,7 @@ void solve(void){
         lastIdx[v[i]] = -1;
     }
     map<ll, double> score;
-    ll curMax = INT_MIN, a = v[0], _r = 0;
+    ll curMax = 2, a = v[0], _r = 0;
     lastIdx[v[0]] = 0;
     score[v[0]] = 2;
 
