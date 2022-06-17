@@ -37,8 +37,17 @@ void solve(void){
             lastIdx[v[i]] = i;
         }
     }   
+    ll curMax = INT_MIN, a;
     for(auto x : score){
-        cout << x.first << " : " << x.second << endl;
+        if(x.second > curMax){
+            curMax = x.second;
+            a = x.first;
+        }
+        // cout << x.first << " : " << x.second << endl;
+    }
+    ll r = lastIdx[a];
+    while(r--){
+        cout << r;
     }
     cout<<endl;
 
