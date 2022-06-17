@@ -46,7 +46,7 @@ void solve(void){
             _r = i;
         }
     }   
-    cout <<curMax;
+
     // for(auto x : score){
     //     cout << x.first << " : " << x.second << endl;
     // }
@@ -54,6 +54,7 @@ void solve(void){
     ll r = _r+1;
     double x = 1;
     while(r--){
+        cout << v[r];
         if(v[r] == a)
             x *= 2;
         else
