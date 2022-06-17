@@ -41,6 +41,8 @@ void solve(void){
 
             score[v[i]] *= 2;
             score[v[i]] /= pow(2, i-lastIdx[v[i]]-1);
+            if(score[v[i]] < 2)
+                score[v[i]] = 2;
             lastIdx[v[i]] = i;
         }
 
