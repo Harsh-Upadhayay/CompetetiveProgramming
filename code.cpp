@@ -45,10 +45,16 @@ void solve(void){
         }
         // cout << x.first << " : " << x.second << endl;
     }
-    ll r = lastIdx[a];
+    ll r = lastIdx[a], x = 1;
     while(r--){
-        cout << r;
+        if(v[r] == a)
+            x *= 2;
+        else
+            x /= 2;
+        if(x == curMax)
+            break;
     }
+    cout << a << r << lastIdx[a];
     cout<<endl;
 
 }
