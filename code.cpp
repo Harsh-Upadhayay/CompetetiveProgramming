@@ -22,10 +22,10 @@ void solve(void){
     rpt(10)
         cout << freq[i] << " ";
     vector<int> v;
-    rpt(10){
-        ll itrs = min(freq[i], 3ll);
+    for(int j = 0; j < 10; j++){
+        ll itrs = min(freq[j], 3ll);
         rpt(itrs)
-            v.pb(i);
+            v.pb(j);
     }
     // rpt(v.size())
     //     cout << v[i] << " ";
