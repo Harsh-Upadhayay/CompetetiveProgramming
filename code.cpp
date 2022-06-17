@@ -10,59 +10,29 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-ll find(vector<ll> v, ll x){
-    ll r = v.size()-1, l = 0, res = -1;
-    while(l <= r){
-        ll mid = r - (r-l)/2;
-        if(v[mid] < x)
-            l = mid + 1;
-        else if(v[mid] > x)
-            r = mid-1;
-        else{
-            res = mid;
-            r = mid-1;
-        }
-    }
-    return res;
-}
-
 void solve(void){
-    ll n, k, ans;
-    cin >> n >> k;
-    vector<ll> v(n), psum(n, 0);
-    rpt(n)
-        cin >> v[i];
-    psum[0] = v[0];
-    rpt(n-1)
-        psum[i+1] += psum[i] + v[i+1];
-    if(psum[n-1] < k){
-        cout << "-1\n";
-        return;
-    }
-    if(psum[n-1] == k){
-        cout << "0\n";
-        return;
-    }
-    ll l = -1, r = -1, _l = 0, mxLen = INT_MIN;
+    ll n, m, ans;
+    cin >> n;
+    ll freq[10] = {0};
     rpt(n){
-        ll len;
-        if(psum[i] == k)
-            len = i+1;
-        
-        else if(psum[i] > k){
-            _l = find(psum, psum[i]-k);
-            // cout << _l << " ";
-            len = i - _l;
-        }
-
-        if(len > mxLen){
-            mxLen = len;
-            r = i;
-            l = _l;
-        }
+        ll x;
+        cin >> x;
+        freq[x%10]++;
     }
-    cout << l << " "<< r;
-    // cout << l + (n-r);
+    vector<int> v;
+    rpt(10){
+        ll itrs = min(freq[i], 3ll);
+        rpt(itrs)
+            v.pb(i);
+    }
+    bool flag = false;
+    for(int i = 0; i < n; i++){
+        for(int j = i+1; j < n; j++)
+            for(int k = j+1; k < n; k++)
+                if(v[i]+v[j]+v[k] % 3 == 0)
+                    flag = true;
+    }
+    cout << (flag ? "YES":"NO");
     cout<<endl;
 
 }
