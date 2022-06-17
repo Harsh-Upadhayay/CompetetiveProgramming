@@ -54,7 +54,7 @@ void solve(void){
         if(x == curMax)
             break;
     }
-    cout << a+1 << " " << r+1 << " " << lastIdx[a];
+    cout << a << " " << r+1 << " " << lastIdx[a]+1;
     cout<<endl; 
 
 }
