@@ -11,24 +11,35 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans = 0, k;
-    cin >> n >> k;
+    ll n, m, ans;
+    cin >> n;
     vector<ll> v(n);
-    rpt(n)
+    map<ll, ll> lastIdx;
+    rpt(n){
         cin >> v[i];
-    ll l = 0, r = 1,  itr = 0;
-    while(r < n){        
-        if(v[r-1] < 2*v[r]){
-            if(r-l == k){
-                ans++;
-                l++;
-            }
-        }
-        else 
-            l = r;   
-        r++;
+        lastIdx[v[i]] = -1;
     }
-    cout << ans;
+    map<ll, double> score;
+    lastIdx[v[0]] = 0;
+    score[v[0]] = 2;
+    for(int i = 1; i < n; i++){
+        if(lastIdx[v[i]] == i-1){
+            lastIdx[v[i]] = i;
+            score[v[i]] = (score.count(v[i]) == 0 ? 2 : (score[v[i]]*2));
+        }
+        else if(score.count(v[i]) == 0){
+            score[v[i]] = 2;
+            lastIdx[v[i]] = i;
+        }
+        else{
+            score[v[i]] *= 2;
+            score[v[i]] /= pow(2, i-lastIdx[v[i]]-1);
+            lastIdx[v[i]] = i;
+        }
+    }   
+    for(auto x : score){
+        cout << x.first << " : " << x.second << endl;
+    }
     cout<<endl;
 
 }
