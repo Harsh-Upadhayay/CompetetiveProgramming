@@ -46,7 +46,8 @@ void solve(void){
         // cout << x.first << " : " << x.second << endl;
     }
 
-    ll r = lastIdx[a]+1, x = 1;
+    ll r = lastIdx[a]+1;
+    double x = 1;
     while(r--){
         if(v[r] == a)
             x *= 2;
