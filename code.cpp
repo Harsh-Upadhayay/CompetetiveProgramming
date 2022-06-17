@@ -26,23 +26,23 @@ void solve(void){
     }
     ll curMax = 0, a = v[0], _r = 0;
     lastIdx[v[0]] = 0;
-    score[v[0]] = 2;
+    score[v[0]] = 1;
 
     for(int i = 1; i < n; i++){
         if(lastIdx[v[i]] == i-1){
             lastIdx[v[i]] = i;
-            score[v[i]] = (score.count(v[i]) == 0 ? 2 : (score[v[i]]*2));
+            score[v[i]] = (score.count(v[i]) == 0 ? 1 : (score[v[i]]+1));
         }
         else if(score.count(v[i]) == 0){
-            score[v[i]] = 2;
+            score[v[i]] = 1;
             lastIdx[v[i]] = i;
         }
         else{
 
-            score[v[i]] *= 2;
-            score[v[i]] /= pow(2, i-lastIdx[v[i]]-1);
-            if(score[v[i]] < 2)
-                score[v[i]] = 2;
+            score[v[i]] += 1;
+            score[v[i]] -= (i-lastIdx[v[i]]-1);
+            if(score[v[i]] < 1)
+                score[v[i]] = 1;
             lastIdx[v[i]] = i;
         }
 
@@ -58,12 +58,12 @@ void solve(void){
     // }
 
     ll r = _r+1;
-    double x = 1;
+    double x = 0;
     while(r--){
         if(v[r] == a)
-            x *= 2;
+            x += 1;
         else
-            x /= 2;
+            x -= 1;
         if(x == curMax)
             break;
     }
