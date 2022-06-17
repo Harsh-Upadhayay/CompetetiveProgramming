@@ -19,6 +19,8 @@ void solve(void){
         cin >> x;
         freq[x%10]++;
     }
+    rpt(10)
+        cout << freq[i] << " ";
     vector<int> v;
     rpt(10){
         ll itrs = min(freq[i], 3ll);
