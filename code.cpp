@@ -11,32 +11,24 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans;
-    cin >> n;
-    ll freq[10] = {0};
-    rpt(n){
-        ll x;
-        cin >> x;
-        freq[x%10]++;
+    ll n, m, ans = 0, k;
+    cin >> n >> k;
+    vector<ll> v(n);
+    rpt(n)
+        cin >> v[i];
+    ll l = 0, r = 0,  itr = 0;
+    while(r < n){        
+        if(v[r] < 2*v[r+1]){
+            if(r-l == k){
+                ans++;
+                l++;
+            }
+        }
+        else 
+            l = r;   
+        r++;
     }
-    // rpt(10)
-    //     cout << freq[i] << " ";
-    vector<int> v;
-    for(int j = 0; j < 10; j++){
-        ll itrs = min(freq[j], 3ll);
-        rpt(itrs)
-            v.pb(j);
-    }
-    // rpt(v.size())
-    //     cout << v[i] << " ";
-    bool flag = false;
-    for(int i = 0; i < v.size(); i++){
-        for(int j = i+1; j < n; j++)
-            for(int k = j+1; k < n; k++)
-                if((v[i]+v[j]+v[k]) % 10 == 3)
-                    flag = true;
-    }
-    cout << (flag ? "YES":"NO");
+    cout << ans;
     cout<<endl;
 
 }
