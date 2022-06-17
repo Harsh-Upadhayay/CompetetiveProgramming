@@ -54,7 +54,6 @@ void solve(void){
     ll r = _r+1;
     double x = 1;
     while(r--){
-        cout << v[r];
         if(v[r] == a)
             x *= 2;
         else
@@ -62,7 +61,7 @@ void solve(void){
         if(x == curMax)
             break;
     }
-    cout << a << " " << r+1 << " " << lastIdx[a]+1;
+    cout << a << " " << r+1 << " " << _r+1;
     cout<<endl; 
 
 }
