@@ -20,8 +20,10 @@ void solve(void){
         lastIdx[v[i]] = -1;
     }
     map<ll, double> score;
+    ll curMax = INT_MIN, a, _r;
     lastIdx[v[0]] = 0;
     score[v[0]] = 2;
+
     for(int i = 1; i < n; i++){
         if(lastIdx[v[i]] == i-1){
             lastIdx[v[i]] = i;
@@ -32,21 +34,23 @@ void solve(void){
             lastIdx[v[i]] = i;
         }
         else{
+
             score[v[i]] *= 2;
             score[v[i]] /= pow(2, i-lastIdx[v[i]]-1);
             lastIdx[v[i]] = i;
         }
-    }   
-    ll curMax = INT_MIN, a;
-    for(auto x : score){
-        if(x.second > curMax){
-            curMax = x.second;
-            a = x.first;
+
+        if(score[v[i]] > curMax){
+            curMax = score[v[i]];
+            a = v[i];
+            _r = i;
         }
+    }   
+    for(auto x : score){
         // cout << x.first << " : " << x.second << endl;
     }
 
-    ll r = lastIdx[a]+1;
+    ll r = _r+1;
     double x = 1;
     while(r--){
         if(v[r] == a)
