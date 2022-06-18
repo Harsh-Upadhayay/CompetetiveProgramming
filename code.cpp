@@ -21,14 +21,14 @@ void solve(void){
         else
             o_min = min(o_min, v[i]);
     }
-    cout << o_min << " " << e_min;
+    // cout << o_min << " " << e_min;
     if(n%2)
         cout << "Mike";
     else
         if(o_min == e_min)
             cout << "Joe";
         else
-        cout << ((o_min > e_min) ? "Joe" : "Mike");
+            cout << ((o_min > e_min) ? "Joe" : "Mike");
     cout<<endl;
 
 }
