@@ -21,6 +21,7 @@ void solve(void){
         else
             o_max = min(o_max, v[i]);
     }
+    cout << o_max << " " << e_max;
     if(n%2)
         cout << "Mike";
     else
