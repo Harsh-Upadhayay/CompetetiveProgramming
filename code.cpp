@@ -11,30 +11,20 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans, mx = INT_MIN, m_i, m_j;
-    cin >> n >> m;
-    vector<vector<ll>> grid;
-    for(int i = 0; i < n; i++){
-        vector<ll> v;
-        for(int j = 0; j < m; j++){
-            ll x;
-            cin >> x;
-            if(mx < x){
-                m_i = i;
-                m_j = j;
-                mx = x;
-            } 
-            v.pb(x);
-        }
-        grid.pb(v);
+    ll n, m, ans, o_max = INT_MIN, e_max = INT_MIN;
+    cin >> n;
+    ll v[n];
+    rpt(n){
+        cin >> v[i];
+        if(i%2)
+            e_max = max(e_max , v[i]);
+        else
+            o_max = max(o_max, v[i]);
     }
-    ll a_i = INT_MIN, a_j = INT_MIN;
-
-    a_i = max(n - m_i, m_i + 1);
-    a_j = max(m - m_j, m_j + 1);
-    // cout << a_i << " " << a_j;
-    cout << a_i*a_j;
-
+    if(n%2)
+        cout << "Mike";
+    else
+        cout << ((o_max > e_max) ? "Mike" : "Joe");
     cout<<endl;
 
 }
