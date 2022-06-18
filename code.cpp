@@ -11,21 +11,21 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans, o_max = INT_MAX, e_max = INT_MAX;
+    ll n, m, ans, o_min = INT_MAX, e_min = INT_MAX;
     cin >> n;
     ll v[n];
     rpt(n){
         cin >> v[i];
         if(!(i%2))
-            e_max = min(e_max , v[i]);
+            e_min = min(e_min , v[i]);
         else
-            o_max = min(o_max, v[i]);
+            o_min = min(o_min, v[i]);
     }
-    cout << o_max << " " << e_max;
+    cout << o_min << " " << e_min;
     if(n%2)
         cout << "Mike";
     else
-        cout << ((o_max > e_max) ? "Mike" : "Joe");
+        cout << ((o_min > e_min) ? "Mike" : "Joe");
     cout<<endl;
 
 }
