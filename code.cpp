@@ -11,22 +11,34 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans, o_min = INT_MAX, e_min = INT_MAX;
+    ll n, m, ans, o_min = INT_MAX, e_min = INT_MAX, e_i, o_i;
     cin >> n;
     ll v[n];
     rpt(n){
         cin >> v[i];
-        if((i%2 == 0))
-            e_min = min(e_min , v[i]);
-        else
-            o_min = min(o_min, v[i]);
+        if((i%2 == 0)){
+            if(e_min > v[i]){
+                e_min = v[i];
+                e_i = i;
+            }
+        }
+        else{
+            if(o_min > v[i]){
+                o_min = v[i];
+                o_i = i;
+            }
+        }
     }
     // cout << o_min << " " << e_min;
     if(n%2)
         cout << "Mike";
     else
-        if(o_min == e_min)
-            cout << "Joe";
+        if(o_min == e_min){
+            if(o_i > e_i)
+                cout << "Joe";
+            else 
+                cout << "Mike";
+        }
         else
             cout << ((o_min > e_min) ? "Joe" : "Mike");
     cout<<endl;
