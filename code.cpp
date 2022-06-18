@@ -25,7 +25,7 @@ void solve(void){
     if(n%2)
         cout << "Mike";
     else
-        cout << ((o_min > e_min) ? "Mike" : "Joe");
+        cout << ((o_min > e_min) ? "Joe" : "Mike");
     cout<<endl;
 
 }
