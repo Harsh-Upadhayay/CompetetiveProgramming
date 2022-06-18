@@ -10,22 +10,42 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
+map<ll, ll> visited, Distance;
+
+void dfs(map<ll, list<ll>> tree, ll node, ll dist = 0){
+    if(visited[node])
+        return;
+    visited[node] = 1;
+    Distance[node] = 1;
+
+    for(auto child : tree[node]){
+        dfs(tree, child, dist+1);
+    } 
+}
+
 void solve(void){
+    visited.clear();
+    Distance.clear();
     ll n, m, ans;
     cin >> n;
     map<ll, list<ll>> tree;
+
     rpt(n-1){
         ll u, v;
         cin >> u >> v;
         tree[u].push_back(v);
         tree[v].push_back(u);
     }
-    for(auto x : tree){
-        cout << x.first << " : ";
-        for(auto y : x.second)
-            cout << y << " ";
-        cout << "\n";
-    }
+
+    dfs(tree, 1);
+
+    // for(auto x : tree){
+    //     cout << x.first << " : ";
+    //     for(auto y : x.second)
+    //         cout << y << " ";
+    //     cout << "\n";
+    // }
+    
     cout<<endl;
 
 }
