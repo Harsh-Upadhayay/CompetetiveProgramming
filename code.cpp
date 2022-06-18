@@ -11,64 +11,29 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans;
-    cin >> n;
-    vector<ll> v(n);
-    map<ll, ll> lastIdx;
-    rpt(n){
-        cin >> v[i];
-        lastIdx[v[i]] = -1;
+    ll n, m, ans, mx = INT_MIN, m_i, m_j;
+    cin >> n >> m;
+    vector<vector<ll>> grid;
+    for(int i = 0; i < n; i++){
+        vector<ll> v;
+        for(int j = 0; j < m; j++){
+            ll x;
+            cin >> x;
+            if(mx < x){
+                m_i = i;
+                m_j = j;
+                mx = x;
+            } 
+            v.pb(x);
+        }
+        grid.pb(v);
     }
-    map<ll, double> score;
-    if(n == 1){
-        cout << v[0] << " 1 1\n";
-        return;
-    }
-    ll curMax = 0, a = v[0], _r = 0;
-    lastIdx[v[0]] = 0;
-    score[v[0]] = 1;
+    ll a_i = INT_MIN, a_j = INT_MIN;
 
-    for(int i = 1; i < n; i++){
-        if(lastIdx[v[i]] == i-1){
-            lastIdx[v[i]] = i;
-            score[v[i]] = (score.count(v[i]) == 0 ? 1 : (score[v[i]]+1));
-        }
-        else if(score.count(v[i]) == 0){
-            score[v[i]] = 1;
-            lastIdx[v[i]] = i;
-        }
-        else{
-
-            score[v[i]] += 1;
-            score[v[i]] -= (i-lastIdx[v[i]]-1);
-            if(score[v[i]] < 1)
-                score[v[i]] = 1;
-            lastIdx[v[i]] = i;
-        }
-
-        if(score[v[i]] > curMax){
-            curMax = score[v[i]];
-            a = v[i];
-            _r = i;
-        }
-    }   
-
-    // for(auto x : score){
-    //     cout << x.first << " : " << x.second << endl;
-    // }
-
-    ll r = _r+1;
-    double x = 0;
-    while(r--){
-        if(v[r] == a)
-            x += 1;
-        else
-            x -= 1;
-        if(x == curMax)
-            break;
-    }
-    cout << a << " " << r+1 << " " << _r+1;
-    cout<<endl; 
+    a_i = min(n - m_i, m_i + 1);
+    a_j = min(m - m_j, m_j + 1);
+    cout << a_i << " " << a_j;
+    cout<<endl;
 
 }
 
