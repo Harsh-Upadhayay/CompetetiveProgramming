@@ -11,36 +11,21 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans, o_min = INT_MAX, e_min = INT_MAX, e_i, o_i;
+    ll n, m, ans;
     cin >> n;
-    ll v[n];
-    rpt(n){
-        cin >> v[i];
-        if((i%2 == 0)){
-            if(e_min > v[i]){
-                e_min = v[i];
-                e_i = i;
-            }
-        }
-        else{
-            if(o_min > v[i]){
-                o_min = v[i];
-                o_i = i;
-            }
-        }
+    map<ll, list<ll>> tree;
+    rpt(n-1){
+        ll u, v;
+        cin >> u >> v;
+        tree[u].push_back(v);
+        tree[v].push_back(u);
     }
-    // cout << o_min << " " << e_min;
-    if(n%2)
-        cout << "Mike";
-    else
-        if(o_min == e_min){
-            if(o_i > e_i)
-                cout << "Joe";
-            else 
-                cout << "Mike";
-        }
-        else
-            cout << ((o_min > e_min) ? "Joe" : "Mike");
+    for(auto x : tree){
+        cout << x.first << " : ";
+        for(auto y : x.second)
+            cout << y << " ";
+        cout << "\n";
+    }
     cout<<endl;
 
 }
