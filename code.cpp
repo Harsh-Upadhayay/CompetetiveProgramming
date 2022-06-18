@@ -11,15 +11,15 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans, o_max = INT_MIN, e_max = INT_MIN;
+    ll n, m, ans, o_max = INT_MAX, e_max = INT_MAX;
     cin >> n;
     ll v[n];
     rpt(n){
         cin >> v[i];
         if(i%2)
-            e_max = max(e_max , v[i]);
+            e_max = min(e_max , v[i]);
         else
-            o_max = max(o_max, v[i]);
+            o_max = min(o_max, v[i]);
     }
     if(n%2)
         cout << "Mike";
