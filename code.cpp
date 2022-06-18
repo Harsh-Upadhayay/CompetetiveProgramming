@@ -39,6 +39,9 @@ void solve(void){
 
     dfs(tree, 1);
 
+    for(auto x : Distance)
+        cout << x.first << " : " << x.second << endl;
+
     // for(auto x : tree){
     //     cout << x.first << " : ";
     //     for(auto y : x.second)
