@@ -33,6 +33,7 @@ void solve(void){
     a_i = min(n - m_i, m_i + 1);
     a_j = min(m - m_j, m_j + 1);
     cout << a_i << " " << a_j;
+    cout << mx;
     cout<<endl;
 
 }
