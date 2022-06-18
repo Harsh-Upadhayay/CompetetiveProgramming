@@ -41,7 +41,8 @@ void solve(void){
 
     for(auto x : Distance)
         cout << x.first << " : " << x.second << endl;
-
+    cout << endl;
+    
     for(auto x : tree){
         cout << x.first << " : ";
         for(auto y : x.second)
