@@ -16,7 +16,7 @@ void solve(void){
     ll v[n];
     rpt(n){
         cin >> v[i];
-        if(!(i%2))
+        if((i%2 == 0))
             e_min = min(e_min , v[i]);
         else
             o_min = min(o_min, v[i]);
