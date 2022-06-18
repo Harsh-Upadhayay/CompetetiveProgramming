@@ -30,9 +30,9 @@ void solve(void){
     }
     ll a_i = INT_MIN, a_j = INT_MIN;
 
-    a_i = min(n - m_i, m_i + 1);
-    a_j = min(m - m_j, m_j + 1);
-    cout << m_i << " " << m_j;
+    a_i = max(n - m_i, m_i + 1);
+    a_j = max(m - m_j, m_j + 1);
+    cout << a_i << " " << a_j;
 
     cout<<endl;
 
