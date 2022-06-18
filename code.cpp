@@ -10,13 +10,14 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-map<ll, ll> visited, Distance;
+map<ll, ll> visited, Distance, freq;
 
 void dfs(map<ll, list<ll>> tree, ll node, ll dist = 0){
     if(visited[node])
         return;
     visited[node] = 1;
     Distance[node] = dist;
+    freq[dist]++;
 
     for(auto child : tree[node]){
         dfs(tree, child, dist+1);
@@ -26,6 +27,7 @@ void dfs(map<ll, list<ll>> tree, ll node, ll dist = 0){
 void solve(void){
     visited.clear();
     Distance.clear();
+    freq.clear();
     ll n, m, ans;
     cin >> n;
     map<ll, list<ll>> tree;
