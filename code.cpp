@@ -32,7 +32,8 @@ void solve(void){
 
     a_i = max(n - m_i, m_i + 1);
     a_j = max(m - m_j, m_j + 1);
-    cout << a_i << " " << a_j;
+    // cout << a_i << " " << a_j;
+    cout << a_i*a_j;
 
     cout<<endl;
 
