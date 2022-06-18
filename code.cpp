@@ -16,7 +16,7 @@ void dfs(map<ll, list<ll>> tree, ll node, ll dist = 0){
     if(visited[node])
         return;
     visited[node] = 1;
-    Distance[node] = 1;
+    Distance[node] = dist;
 
     for(auto child : tree[node]){
         dfs(tree, child, dist+1);
@@ -42,7 +42,7 @@ void solve(void){
     for(auto x : Distance)
         cout << x.first << " : " << x.second << endl;
     cout << endl;
-    
+
     for(auto x : tree){
         cout << x.first << " : ";
         for(auto y : x.second)
