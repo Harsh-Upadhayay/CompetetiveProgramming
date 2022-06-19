@@ -26,9 +26,7 @@ void solve(void){
         else
             ans[i] = sa[i] != 0; 
 
-    cout << sa << " " << sb << ": ";
-    for(auto x : ans)
-        cout << x;
+    cout << sa << " " << sb << ": " << ans;;
 
     cout<<endl;
 
