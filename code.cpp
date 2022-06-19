@@ -13,10 +13,11 @@ ll t,T;
 void solve(void){
     ll n, m, ans;
     cin >> n;
-    cout << "1";
-    rpt(n-2)
-        cout << "0";
-    cout << "1";
+    rpt(n){
+        for(int j = 0; j < n; j++)
+            cout << (i+1) << " " << (j+1) << " : " << ((i+1)^(j+1));
+        cout << "\n";
+    }
     cout<<endl;
 
 }
