@@ -136,7 +136,7 @@ void solve(){
                 // cout << i << " " << j << " " << k << " : " << _solve(i, j, k)  << "   " << __solve(i, j, k) << endl;
 
     
-    cout << "\n";
+    // cout << "\n";
 }
 
 int main() {
