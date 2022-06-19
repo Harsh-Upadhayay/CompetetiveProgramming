@@ -22,10 +22,11 @@ void solve(void){
     }
 
     for(auto x : v){
-        cout << ((a-x+m)%m) << " ";
+        ans = max((a + x + ((a-x+m)%m)), ans);
+        ans = max((a + x + ((x-a+m)%m)), ans);
     }
         // cout << (a + x + ((a-x+m)%m)) << " ";
-        // ans = max(, ans);
+        
     cout << ans;
     cout<<endl;
 }
