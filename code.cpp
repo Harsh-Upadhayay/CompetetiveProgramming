@@ -33,7 +33,23 @@ void solve(void){
                 ans[i] = '0'; 
 
     // cout << sa << " " << sb << ": " << ans;
-    cout << (ans < sn);
+    ll count = a != b;
+    bool flag = true;
+    while(ans > sn && flag){
+        string temp = "0000000000000000000000000000000";
+        count++;
+        for(int i = 0; i < 31; i++)
+            if(ans[i] == '1'){
+                temp[i] = '1';
+                if(temp > sn){
+                    flag = false;
+                    break;
+                }
+            ans[i] = '0';                
+            }
+    }
+
+    cout << (flag? count : -1);
 
     cout<<endl;
 
