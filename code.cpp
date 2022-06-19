@@ -65,7 +65,9 @@ ll _solve(ll a, ll b, ll n){
 void solve(){
     ll n, m, a, b;
     cin >> a >> b >> n;
-    cout << _solve(a, b, n);
+    n++;
+    while(n--)
+        cout << _solve(a, b, n);
     cout << "\n";
 }
 
