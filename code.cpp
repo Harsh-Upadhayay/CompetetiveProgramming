@@ -63,6 +63,7 @@ void solve(){
     ll n, m, a, b;
     cin >> a >> b >> n;
     cout << _solve(a, b, n);
+    cout << "\n";
 }
 
 int main() {
