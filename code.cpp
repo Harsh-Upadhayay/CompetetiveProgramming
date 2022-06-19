@@ -11,13 +11,23 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, a, b, ans;
+    ll n, m, a, b;
     cin >> a >> b >> n;
 
     string sa = bitset<31>(a).to_string();
     string sb = bitset<31>(b).to_string();
+    vector<int> ans(31);
     // cout << sa[30];
-    cout << sa << " " << sb;
+
+    for(int i = 0; i < 31; i++)
+        if(sa[i] == sb[i])
+            ans[i] = sa[i] != 0;
+        else
+            ans[i] = sa[i] == 0; 
+
+    cout << sa << " " << sb << ": ";
+    for(auto x : ans)
+        cout << x;
 
     cout<<endl;
 
