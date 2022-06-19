@@ -15,7 +15,7 @@ void solve(void){
     cin >> n;
     rpt(n){
         for(int j = 0; j < n; j++)
-            cout << (i+1) << " " << (j+1) << " : " << ((i+1)^(j+1));
+            cout << (i+1) << " " << (j+1) << " : " << ((i+1)^(j+1)) << "\n";
         cout << "\n";
     }
     cout<<endl;
