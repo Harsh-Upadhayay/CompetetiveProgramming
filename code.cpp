@@ -38,7 +38,7 @@ void solve(void){
     while(ans > sn && flag){
         string temp = "0000000000000000000000000000000";
         count++;
-        for(int i = 0; i < 31; i++)
+        for(int i = 0; i < 31; i++){
             if(ans[i] == '1'){
                 temp[i] = '1';
                 cout << temp << " " << sn << endl;
@@ -47,8 +47,9 @@ void solve(void){
                     break;
                 }
             ans[i] = '0';         
-            continue;       
+            break;       
             }
+        }
             // cout << ans;
     }
 
