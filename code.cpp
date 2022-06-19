@@ -105,13 +105,24 @@ ll __solve(ll a, ll b, ll n){
 }
 void solve(){
     ll n, m, a, b;
-    cin >> a >> b >> n;   
-    ll i = a, j = b, k = n;
+    // cin >> a >> b >> n;   
+    // ll i = a, j = b, k = n;
+    cin >> n;
+    rpt(n){
+        a = rand();
+        b = rand();
+        n = rand();
+
+        ll _ = a, j = b, k = n;
+          if(__solve(_, j, k) != _solve(_, j , k))
+            cout << _ << " " << j << " " << k << " : " << _solve(_, j, k)  << "   " << __solve(_, j, k) << endl;
+
+    }
     // for(int i = 1; i <= a; i++)
     //     for(int j = 1; j <= b; j++)
     //         for(int k = 1; k <= n; k++)
     //             if(__solve(i, j, k) != _solve(i, j , k))
-                cout << i << " " << j << " " << k << " : " << _solve(i, j, k)  << "   " << __solve(i, j, k) << endl;
+                // cout << i << " " << j << " " << k << " : " << _solve(i, j, k)  << "   " << __solve(i, j, k) << endl;
 
     
     cout << "\n";
