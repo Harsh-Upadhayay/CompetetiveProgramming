@@ -64,10 +64,46 @@ ll _solve(ll a, ll b, ll n){
 }
 void solve(){
     ll n, m, a, b;
-    cin >> a >> b >> n;
-    n++;
-    while(n--)
-        cout << _solve(a, b, n);
+    cin >> a >> b >> n;   
+
+    string sa = bitset<31>(a).to_string();
+    string sb = bitset<31>(b).to_string();
+    string sn = bitset<31>(n).to_string();
+    string ans = "0000000000000000000000000000000";
+    // cout << sa[30];
+
+    for(int i = 0; i < 31; i++)
+        if(sa[i] == sb[i])
+            if(sa[i] == 0)
+                ans[i] = '1';
+            else
+                ans[i] = '0';
+        else
+            if(sa[i] != 0)
+                ans[i] = '1';
+            else
+                ans[i] = '0'; 
+
+    // cout << sa << " " << sb << ": " << ans;
+    ll _x = stoi(ans, nullptr, 2); 
+    bool flag = true;
+    ll count = 0;
+    if(a == b){
+        // return 0;
+        count = 0;
+    }
+    else if(_x <= n){
+        // return 1;
+        count = 1;
+    }
+    else{
+        ll tx = log2(_x), tn = log2(n);
+        if(tn < tx)
+            count = -1;
+        else
+            count = 2;
+    }
+    cout << count;
     cout << "\n";
 }
 
