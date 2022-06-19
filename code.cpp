@@ -22,6 +22,8 @@ void solve(void){
         if(a != x)
             b = max(b, x);
     cout << a << " " << b;
+    ll x = a + b + a%m - b%m;
+    cout << max(x, a + a);
     cout<<endl;
 
 }
