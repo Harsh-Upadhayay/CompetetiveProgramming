@@ -126,7 +126,7 @@ void solve(){
 
         ll _ = a, j = b, k = n;
           if(__solve(_, j, k) != _solve(_, j , k))
-            cout << _ << " " << j << " " << k << " : " << _solve(_, j, k)  << "   " << ___solve(_, j, k) << endl;
+            cout << _ << " " << j << " " << k << " : " << __solve(_, j, k)  << "   " << ___solve(_, j, k) << endl;
 
     }
     // for(int i = 1; i <= a; i++)
