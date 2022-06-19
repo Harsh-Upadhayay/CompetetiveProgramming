@@ -22,7 +22,7 @@ void solve(void){
     }
 
     for(auto x : v)
-        cout << (a + x + ((a-x+m)%m + m)%m) << " ";
+        cout << (a + x + ((a-x+m)%m)) << " ";
         // ans = max(, ans);
     cout << ans;
     cout<<endl;
