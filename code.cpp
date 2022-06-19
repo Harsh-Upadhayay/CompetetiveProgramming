@@ -27,7 +27,10 @@ void solve(void){
             else
                 ans[i] = '0';
         else
-            ans[i] = static_cast<char>(sa[i] != 0); 
+            if(sa[i] != 0)
+                ans[i] = '1';
+            else
+                ans[i] = '0'; 
 
     cout << sa << " " << sb << ": " << ans;
 
