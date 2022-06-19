@@ -54,7 +54,7 @@ ll _solve(ll a, ll b, ll n){
     }
     
 
-    cout << (flag? count : -1);
+    // cout << (flag? count : -1);
 
     cout<<endl;
 
