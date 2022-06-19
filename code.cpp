@@ -1,9 +1,10 @@
-        #include<bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 #define ll long long int
 #define pb push_back
 #define rpt(n) for(ll i = 0; i < n; i++)
+
 
 #define inf INT_MAX
 
@@ -11,21 +12,19 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans, a = INT_MIN, b = INT_MIN;
+    ll n, m, ans = INT_MIN, a = INT_MIN, b = INT_MIN;
     cin >> n >> m;
     vector<ll> v(n);
+
     rpt(n){
         cin >> v[i];
         a = max(a, v[i]);
     }
-    for(auto x : v)
-        if(a != x)
-            b = max(b, x);
-    // cout << a << " " << b;
-    ll x = a + b + abs(a%m - b%m);
-    cout << max(x, a + a);
-    cout<<endl;
 
+    for(auto x : v)
+        ans = max(a + x + abs(a%m - b%m), ans);
+    cout << ans;
+    cout<<endl;
 }
 
 int main() {
