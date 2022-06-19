@@ -33,6 +33,8 @@ void solve(void){
                 ans[i] = '0'; 
 
     // cout << sa << " " << sb << ": " << ans;
+    ll _x = stoi(ans, nullptr, 2); 
+    cout << _x;
     ll count = a != b;
     bool flag = true;
     while(ans > sn && flag){
