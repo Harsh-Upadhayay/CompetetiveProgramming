@@ -16,7 +16,8 @@ void solve(void){
 
     string sa = bitset<31>(a).to_string();
     string sb = bitset<31>(b).to_string();
-    vector<int> ans(31);
+    string sn = bitset<31>(n).to_string();
+    string ans = "0000000000000000000000000000000";
     // cout << sa[30];
 
     for(int i = 0; i < 31; i++)
