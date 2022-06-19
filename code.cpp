@@ -17,7 +17,7 @@ void solve(void){
     string sa = bitset<31>(a).to_string();
     string sb = bitset<31>(b).to_string();
     cout << sa[0];
-    // cout << sa << " " << sb;
+    cout << sa << " " << sb;
 
     cout<<endl;
 
