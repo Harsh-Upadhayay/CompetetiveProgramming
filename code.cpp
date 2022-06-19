@@ -10,48 +10,17 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-map<ll, ll> visited, Distance, freq;
-
-void dfs(map<ll, list<ll>> tree, ll node, ll dist = 0){
-    if(visited[node])
-        return;
-    visited[node] = 1;
-    Distance[node] = dist;
-    freq[dist]++;
-
-    for(auto child : tree[node]){
-        dfs(tree, child, dist+1);
-    } 
-}
-
 void solve(void){
-    visited.clear();
-    Distance.clear();
-    freq.clear();
     ll n, m, ans;
-    cin >> n;
-    map<ll, list<ll>> tree;
-
-    rpt(n-1){
-        ll u, v;
-        cin >> u >> v;
-        tree[u].push_back(v);
-        tree[v].push_back(u);
-    }
-
-    dfs(tree, 1);
-
-    for(auto x : Distance)
-        cout << x.first << " : " << x.second << endl;
-    cout << endl;
-
-    for(auto x : tree){
-        cout << x.first << " : ";
-        for(auto y : x.second)
-            cout << y << " ";
-        cout << "\n";
-    }
-    
+    ll w, x, y, z;
+    cin >> w >> x >> y >> z;
+    ans = y*z + w;
+    if(ans == x)
+        cout << "filled";
+    else if(ans < x)
+        cout << "Unfilled";
+    else 
+        cout << "overflow";
     cout<<endl;
 
 }
