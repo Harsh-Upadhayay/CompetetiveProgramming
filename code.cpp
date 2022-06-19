@@ -32,7 +32,8 @@ void solve(void){
             else
                 ans[i] = '0'; 
 
-    cout << sa << " " << sb << ": " << ans;
+    // cout << sa << " " << sb << ": " << ans;
+    cout << (ans < sn);
 
     cout<<endl;
 
