@@ -21,8 +21,10 @@ void solve(void){
         a = max(a, v[i]);
     }
 
-    for(auto x : v)
-        cout << (a + x + ((a-x+m)%m)) << " ";
+    for(auto x : v){
+        cout << a+x << " ";
+    }
+        // cout << (a + x + ((a-x+m)%m)) << " ";
         // ans = max(, ans);
     cout << ans;
     cout<<endl;
