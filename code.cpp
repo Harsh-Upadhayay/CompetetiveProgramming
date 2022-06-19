@@ -114,7 +114,7 @@ void solve(){
         n = rand();
 
         ll _ = a, j = b, k = n;
-          if(__solve(_, j, k) != _solve(_, j , k))
+          // if(__solve(_, j, k) != _solve(_, j , k))
             cout << _ << " " << j << " " << k << " : " << _solve(_, j, k)  << "   " << __solve(_, j, k) << endl;
 
     }
