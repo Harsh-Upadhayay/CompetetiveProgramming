@@ -11,13 +11,13 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans;
-    cin >> n;
-    rpt(n){
-        for(int j = 0; j < 2*n; j++)
-            cout << (i+1) << " " << (j+1) << " : " << ((i+1)^(j+1)) << "\n";
-        cout << "\n";
-    }
+    ll n, m, a, b, ans;
+    cin >> a >> b >> n;
+
+    string sa = bitset<31>(a).to_string();
+    string sb = bitset<31>(b).to_string();
+    cout << sa << " " << sb;
+
     cout<<endl;
 
 }
