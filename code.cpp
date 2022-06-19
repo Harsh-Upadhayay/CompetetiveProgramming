@@ -49,8 +49,11 @@ ll _solve(ll a, ll b, ll n){
         while(tn--){
             maxE = max(maxE, _x & tn);
         }
+        if(!maxE)
+            return -1;
         a = a^maxE;
-        return (1 + _solve(a, b, n));
+        ll tpm = _solve(a, b, n); 
+        return (tpm == -1 ? -1 : 1 + tpm);
     }
     
 
