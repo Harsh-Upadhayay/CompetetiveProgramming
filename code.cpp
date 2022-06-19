@@ -22,9 +22,9 @@ void solve(void){
 
     for(int i = 0; i < 31; i++)
         if(sa[i] == sb[i])
-            ans[i] = sa[i] == 0;
+            ans[i] = static_cast<char>(sa[i] == 0);
         else
-            ans[i] = sa[i] != 0; 
+            ans[i] = static_cast<char>(sa[i] != 0); 
 
     cout << sa << " " << sb << ": " << ans;
 
