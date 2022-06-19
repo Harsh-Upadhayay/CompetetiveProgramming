@@ -11,15 +11,20 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans, x = 0;
+    ll n, m, ans;
     cin >> n;
     vector<ll> v(n);
-    rpt(n){
+    rpt(n+1){
         cin >> v[i];
-        x  = x ^ v[i];
+        // x  = x ^ v[i];
     }
-    for(auto y : v)
-        cout << (x ^ (x^y) )<< " ";
+    vector<ll> l;
+    // for(auto y : v)
+    //     for(auto x : v)
+    //         l.pb(x^y);
+    // sort(l.begin(), l.end());
+    // for(auto x : l)
+    //     cout << x << " ";
     cout<<endl;
 
 }
