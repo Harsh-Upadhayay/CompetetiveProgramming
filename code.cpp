@@ -41,13 +41,14 @@ void solve(void){
         for(int i = 0; i < 31; i++)
             if(ans[i] == '1'){
                 temp[i] = '1';
-                cout << temp << " " << sn << endl;
+                // cout << temp << " " << sn << endl;
                 if(temp > sn){
                     flag = false;
                     break;
                 }
             ans[i] = '0';                
             }
+            cout << ans;
     }
 
     cout << (flag? count : -1);
