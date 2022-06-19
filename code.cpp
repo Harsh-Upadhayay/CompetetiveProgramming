@@ -11,16 +11,17 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans;
-    ll w, x, y, z;
-    cin >> w >> x >> y >> z;
-    ans = y*z + w;
-    if(ans == x)
-        cout << "filled";
-    else if(ans < x)
-        cout << "Unfilled";
-    else 
-        cout << "overflow";
+    ll n, m, ans, a = INT_MIN, b = INT_MIN;
+    cin >> n >> m;
+    vector<ll> v(n);
+    rpt(n){
+        cin >> v[i];
+        a = max(a, v[i]);
+    }
+    for(auto x : v)
+        if(a != x)
+            b = max(b, x);
+    cout << a << " " << b;
     cout<<endl;
 
 }
