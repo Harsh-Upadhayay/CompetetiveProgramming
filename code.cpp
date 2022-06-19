@@ -10,10 +10,9 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-void solve(void){
-    ll n, m, a, b;
-    cin >> a >> b >> n;
 
+ll _solve(ll a, ll b, ll n){
+    
     string sa = bitset<31>(a).to_string();
     string sb = bitset<31>(b).to_string();
     string sn = bitset<31>(n).to_string();
@@ -36,13 +35,22 @@ void solve(void){
     ll _x = stoi(ans, nullptr, 2); 
 
     bool flag = true;
-    ll count;
-    if(a == b)
-        count = 0;
-    else if(_x < n)
-        count = 1;
+    ll count = 0;
+    if(a == b){
+        return 0;
+        // count = 0;
+    }
+    else if(_x <= n){
+        return 1;
+        // count = 1;
+    }
     else{
-
+        ll maxE = 0, tn = n+1;
+        while(tn--){
+            maxE = max(maxE, _x & tn);
+        }
+        a = a^maxE;
+        return (1 + _solve(a, b, n));
     }
     
 
@@ -50,6 +58,11 @@ void solve(void){
 
     cout<<endl;
 
+}
+void solve(){
+    ll n, m, a, b;
+    cin >> a >> b >> n;
+    cout << _solve(a, b, n);
 }
 
 int main() {
