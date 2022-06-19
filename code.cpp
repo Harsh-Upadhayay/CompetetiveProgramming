@@ -34,26 +34,17 @@ void solve(void){
 
     // cout << sa << " " << sb << ": " << ans;
     ll _x = stoi(ans, nullptr, 2); 
-    cout << _x;
-    ll count = a != b;
+
     bool flag = true;
-    while(ans > sn && flag){
-        string temp = "0000000000000000000000000000000";
-        count++;
-        for(int i = 0; i < 31; i++){
-            if(ans[i] == '1'){
-                temp[i] = '1';
-                // cout << temp << " " << sn << endl;
-                if(temp > sn){
-                    flag = false;
-                    break;
-                }
-            ans[i] = '0';         
-            break;       
-            }
-        }
-            // cout << ans;
+    ll count;
+    if(a == b)
+        count = 0;
+    else if(_x < n)
+        count = 1;
+    else{
+
     }
+    
 
     cout << (flag? count : -1);
 
