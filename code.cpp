@@ -46,9 +46,10 @@ void solve(void){
                     flag = false;
                     break;
                 }
-            ans[i] = '0';                
+            ans[i] = '0';         
+            continue;       
             }
-            cout << ans;
+            // cout << ans;
     }
 
     cout << (flag? count : -1);
