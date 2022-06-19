@@ -20,7 +20,7 @@ void solve(void){
         cin >> v[i];
         a = max(a, v[i]);
     }
-
+    cout << a;
     for(auto x : v)
         ans = max(a + x + ((a-x+m)%m + m)%m, ans);
     cout << ans;
