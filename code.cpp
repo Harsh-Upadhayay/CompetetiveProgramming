@@ -16,6 +16,7 @@ bool isPallindrom(ll n){
         rev += _n%10;
         _n /= 10;
     }
+    cout << rev;
     return rev == n;
 }
 
@@ -25,7 +26,7 @@ void solve(void){
     ll  n = log10(num), start = ceil(pow(10, n)), end = (10*start)-1;
     start--;
     while(start++ != end)
-        if(isPallindrom(11)){
+        if(isPallindrom(num+start)){
             cout << start;
             break;
         }
