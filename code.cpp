@@ -28,7 +28,7 @@ void solve(void){
     //         cout << i;
     //         break;
     //     }
-    cout << start << end;
+    cout << start << " " << end;
     cout<<endl;
 
 }
