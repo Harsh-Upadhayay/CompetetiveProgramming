@@ -12,8 +12,9 @@ ll t,T;
 
 bool isPallindrom(ll n){
     ll rev = 0, _n = n;
+    cout << n;
     while(_n){
-        rev += _n%10;
+        rev += _n % 10;
         _n /= 10;
     }
     cout << rev << " ";
