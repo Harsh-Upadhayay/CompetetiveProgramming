@@ -29,7 +29,7 @@ void solve(void){
             cout << start;
             break;
         }
-    cout << start << " " << end;
+    // cout << start << " " << end;
     cout<<endl;
 
 }
