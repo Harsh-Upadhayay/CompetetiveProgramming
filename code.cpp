@@ -21,8 +21,7 @@ void solve(void){
         if(s[0] <= 'z' && s[0] >= 'a')
             cout << s;
         else
-
-            cout << tolower(s[0]);
+            cout << (char)tolower(s[0]);
         cout << "\n";
         return;
     }
