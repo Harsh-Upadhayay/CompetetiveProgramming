@@ -17,7 +17,6 @@ bool isPallindrom(ll n){
         rev = rev*10 + (_n % 10);
         _n /= 10;
     }
-    cout << rev << " ";
     return rev == n;
 }
 
