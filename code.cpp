@@ -17,6 +17,15 @@ void solve(void){
     string s;
     cin >> s;
     bool flag = true;
+    if(s.size() == 1){
+        if(s[0] <= 'z' && s[0] >= 'a')
+            cout << s;
+        else
+
+            cout << tolower(s[0]);
+        cout << "\n";
+        return;
+    }
     for(int i = 1; i < s.size(); i++){
         if(s[i] <= 'z' && s[i] >= 'a')
             flag = false;
