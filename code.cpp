@@ -22,7 +22,7 @@ bool isPallindrom(ll n){
 void solve(void){
     ll len, num, m, ans;
     cin >> len >> num;
-    ll  start = pow(10, len), end = 9.99999*start;
+    ll  n = log10(num), start = pow(10, n), end = 9.99999*start;
     // for(int i = pow(10, len); i < 9.99999*pow(10, len); i++)
     //     if(isPallindrom(num+i)){
     //         cout << i;
