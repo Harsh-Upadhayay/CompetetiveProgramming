@@ -14,8 +14,7 @@ bool isPallindrom(ll n){
     ll rev = 0, _n = n;
 
     while(_n){
-        rev += (_n % 10);
-        rev *= 10;
+        rev = rev*10 + (_n % 10);
         _n /= 10;
     }
     cout << rev << " ";
