@@ -25,11 +25,10 @@ void solve(void){
     ll  n = log10(num), start = ceil(pow(10, n)), end = (10*start)-1;
     start--;
     while(start++ != end)
-        cout << start << " ";
-        // if(isPallindrom(num+start)){
-        //     cout << start;
-        //     break;
-        // }
+        if(isPallindrom(11)){
+            cout << start;
+            break;
+        }
     // cout << start << " " << end;
     cout<<endl;
 
