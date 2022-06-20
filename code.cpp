@@ -31,7 +31,7 @@ void solve(void){
         if(start)
             s[0] = toupper(s[0]);
         for(int i = start; i < s.size(); i++)
-            s[i] = toupper(s[i]);
+            s[i] = tolower(s[i]);
 
     }
     cout << s;
