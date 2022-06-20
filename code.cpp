@@ -26,7 +26,7 @@ void solve(void){
     ll  n = log10(num), start = ceil(pow(10, n)), end = (10*start)-1;
     start--;
     while(start++ != end)
-        if(isPallindrom(121)){
+        if(isPallindrom(start + num)){
             cout << start;
             break;
         }
