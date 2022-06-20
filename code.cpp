@@ -22,13 +22,13 @@ bool isPallindrom(ll n){
 void solve(void){
     ll len, num, m, ans;
     cin >> len >> num;
-    ll  n = log10(num), start = pow(10, n), end = (10*start)-1;
+    ll  n = log10(num), start = ceil(pow(10, n)), end = (10*start)-1;
     // for(int i = pow(10, len); i < 9.99999*pow(10, len); i++)
     //     if(isPallindrom(num+i)){
     //         cout << i;
     //         break;
     //     }
-    cout << n << " " << end;
+    cout << start << " " << end;
     cout<<endl;
 
 }
