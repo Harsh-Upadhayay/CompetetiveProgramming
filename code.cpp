@@ -7,29 +7,34 @@ using namespace std;
 
 #define inf INT_MAX
 
-#define TESTCASE
+#define TESTCAS
 ll t,T;
 
-bool isPallindrom(ll n){
-    ll rev = 0, _n = n;
 
-    while(_n){
-        rev = rev*10 + (_n % 10);
-        _n /= 10;
-    }
-    return rev == n;
-}
 
 void solve(void){
     ll len, num, m, ans;
-    cin >> len >> num;
-    ll  n = log10(num), start = ceil(pow(10, n)), end = (10*start)-1;
-    start--;
-    while(start++ != end)
-        if(isPallindrom(start + num)){
-            cout << start;
-            break;
-        }
+    string s;
+    cin >> s;
+    bool flag = true;
+    for(int i = 1; i < s.size(); i++){
+        if(s[i] <= 'z' && s[i] >= 'a')
+            flag = false;
+    }
+    int start;
+    if(flag){
+        if(s[0] <= 'z' && s[0] >= 'a')
+            start = 1;
+        else
+            start = 0;
+
+        if(start)
+            s[0] = toupper(s[0]);
+        for(int i = start; i < s.size(); i++)
+            s[i] = toupper(s[i]);
+
+    }
+    cout << s;
     // cout << start << " " << end;
     cout<<endl;
 
