@@ -20,11 +20,11 @@ bool isPallindrom(ll n){
 }
 
 void solve(void){
-    ll n, m, ans;
-    cin >> n;
-    ll len = log10(n), start = pow(10, len), end = 9.99999*start;
+    ll len, num, m, ans;
+    cin >> len >> num;
+    ll  start = pow(10, len), end = 9.99999*start;
     // for(int i = pow(10, len); i < 9.99999*pow(10, len); i++)
-    //     if(isPallindrom(n+i)){
+    //     if(isPallindrom(num+i)){
     //         cout << i;
     //         break;
     //     }
