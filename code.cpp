@@ -10,6 +10,14 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
+void pb(vector<vector<ll>> v){
+    for(auto x : v){
+        for(auto y : x)
+            cout << y << " ";
+        cout << "\n";
+    }
+}
+
 void solve(void){
     ll n, m;
     cin >> n >> m;
@@ -17,9 +25,7 @@ void solve(void){
     for(int i = 0; i < n; i++)
         for(int j = 0; j < m; j++)
             cin >> board[i][j];
-    for(int i = 0; i < n; i++)
-        for(int j = 0; j < m; j++)
-            cout << board[i][j] << " ";
+    pb(board);
     cout<<endl;
 
 }
