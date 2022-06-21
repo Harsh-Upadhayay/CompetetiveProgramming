@@ -11,9 +11,10 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans;
+    ll n, m;
     cin >> n;
     ll x, y;
+    vector<ll> ans(n);
     bool flag = true;
     cin >> x;
     rpt(n-1){
@@ -21,9 +22,14 @@ void solve(void){
         if(flag)
             flag = y == x;
     }
-    if(flag)
+    if(flag){
         rpt(n)
-            cout << (n-i) << " ";
+            ans.pb(n-i);
+        if(n%2)
+            swap(ans[0], ans[n/2]);
+        rpt(n)
+            cout << ans[i] << " ";
+    }
     else 
         cout << "-1";
     cout<<endl;
