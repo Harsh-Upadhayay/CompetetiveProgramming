@@ -37,7 +37,7 @@ void solve(void){
 
     for(int j = 0; j < m; j++){
         
-        for(int i = 0; i+j < n; i++)
+        for(int i = 0; i+j < m; i++)
             rsum[0][j] += board[i][i+j];
 
         for(int i = 0; i <= j; i++)
@@ -46,7 +46,7 @@ void solve(void){
 
     for(int i = 1; i < n; i++){
 
-        for(int j = 0; j+i < n; j++)
+        for(int j = 0; j+i < m; j++)
             rsum[i][0] += board[j+i][j];
 
         for(int j = m-1; j-i >= 0; j--)
