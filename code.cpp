@@ -56,6 +56,7 @@ void solve(void){
         
 
     pb(lsum);
+    cout << "\n";
     pb(rsum);
     cout<<endl;
 
