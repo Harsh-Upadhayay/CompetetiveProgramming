@@ -26,6 +26,15 @@ void solve(void){
         for(int j = 0; j < m; j++)
             cin >> board[i][j];
 
+    if(n == 1 || m == 1){
+        ll ans = INT_MIN;
+    for(int i = 0; i < n; i++)
+        for(int j = 0; j < m; j++)
+            ans = max(ans, board[i][j]);
+        cout << ans;
+        return;
+    }
+
     for(int j = 0; j < m; j++){
         
         for(int i = 0; i+j < n; i++)
