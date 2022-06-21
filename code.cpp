@@ -23,7 +23,7 @@ void solve(void){
     }
     if(flag)
         rpt(n)
-            cout << (n-i);
+            cout << (n-i) << " ";
     else 
         cout << "-1";
     cout<<endl;
