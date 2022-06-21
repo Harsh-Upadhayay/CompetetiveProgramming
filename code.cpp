@@ -7,43 +7,25 @@ using namespace std;
 
 #define inf INT_MAX
 
-#define TESTCAS
+#define TESTCASE
 ll t,T;
 
-
-
 void solve(void){
-    ll len, num, m, ans;
-    string s;
-    cin >> s;
+    ll n, m, ans;
+    cin >> n;
+    ll x, y;
     bool flag = true;
-    if(s.size() == 1){
-        if(s[0] <= 'z' && s[0] >= 'a')
-            cout << s;
-        else
-            cout << (char)tolower(s[0]);
-        cout << "\n";
-        return;
+    cin >> x;
+    rpt(n-1){
+        cin >> y;
+        if(flag)
+            flag = y == x;
     }
-    for(int i = 1; i < s.size(); i++){
-        if(s[i] <= 'z' && s[i] >= 'a')
-            flag = false;
-    }
-    int start;
-    if(flag){
-        if(s[0] <= 'z' && s[0] >= 'a')
-            start = 1;
-        else
-            start = 0;
-
-        if(start)
-            s[0] = toupper(s[0]);
-        for(int i = start; i < s.size(); i++)
-            s[i] = tolower(s[i]);
-
-    }
-    cout << s;
-    // cout << start << " " << end;
+    if(flag)
+        rpt(n)
+            cout << (n-i);
+    else 
+        cout << "-1";
     cout<<endl;
 
 }
