@@ -57,12 +57,13 @@ void solve(void){
     ll ans = INT_MIN;
     for(int i = 0; i < n; i++)
         for(int j = 0; j < m; j++)
-            ans = max(ans, lsum[i][j] + rsum[i][j]);
+            ans = max(ans, lsum[i][j] + rsum[i][j] - board[i][j]);
     cout << ans;
-    
+
     // pb(lsum);
     // cout << "\n";
     // pb(rsum);
+
     cout<<endl;
 
 }
