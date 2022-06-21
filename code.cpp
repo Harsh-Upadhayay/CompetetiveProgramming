@@ -14,7 +14,7 @@ void solve(void){
     ll n, m;
     cin >> n;
     ll x, y;
-    vector<ll> ans(n);
+    vector<ll> ans;
     bool flag = true;
     cin >> x;
     rpt(n-1){
