@@ -12,26 +12,14 @@ ll t,T;
 
 void solve(void){
     ll n, m;
-    cin >> n;
-    ll x, y;
-    vector<ll> ans;
-    bool flag = true;
-    cin >> x;
-    rpt(n-1){
-        cin >> y;
-        if(flag)
-            flag = y == x;
-    }
-    if(flag){
-        rpt(n)
-            ans.pb(n-i);
-        if(n%2)
-            swap(ans[0], ans[n/2]);
-        rpt(n)
-            cout << ans[i] << " ";
-    }
-    else 
-        cout << "-1";
+    cin >> n >> m;
+    vector<vector<ll>> board(n, vector<ll> (m));
+    for(int i = 0; i < n; i++)
+        for(int j = 0; j < m; j++)
+            cin >> board[i][j];
+    for(int i = 0; i < n; i++)
+        for(int j = 0; j < m; j++)
+            cout << board[i][j] << " ";
     cout<<endl;
 
 }
