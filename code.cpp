@@ -31,7 +31,7 @@ void solve(void){
         for(int i = 0; i < n; i++)
             for(int j = 0; j < m; j++)
                 ans = max(ans, board[i][j]);
-        cout << ans;
+        // cout << ans;
         return;
     }
 
