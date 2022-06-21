@@ -35,7 +35,14 @@ void solve(void){
             lsum[0][j] += board[i][j-i]; 
     }
 
+    for(int i = 1; i < n; i++){
 
+        for(int j = 0; j+i < n; j++)
+            rsum[i][0] += board[j+i][j];
+
+        for(int j = m-1; j-i >= 0; j--)
+            lsum[i][m-1] += board[i+m-1-j][j];
+    }
     pb(lsum);
     pb(rsum);
     cout<<endl;
