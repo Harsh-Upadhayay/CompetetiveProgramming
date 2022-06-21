@@ -54,10 +54,15 @@ void solve(void){
     //     for(int j = 1; j < m; j++)
     //         rsum[i][j] = rsum[i-1][j-1];
         
-
-    pb(lsum);
-    cout << "\n";
-    pb(rsum);
+    ll ans = INT_MIN;
+    for(int i = 0; i < n; i++)
+        for(int j = 0; j < m; j++)
+            ans = max(ans, lsum[i][j] + rsum[i][j]);
+    cout << ans;
+    
+    // pb(lsum);
+    // cout << "\n";
+    // pb(rsum);
     cout<<endl;
 
 }
