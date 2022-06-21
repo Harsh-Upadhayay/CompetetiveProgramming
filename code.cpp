@@ -21,11 +21,23 @@ void pb(vector<vector<ll>> v){
 void solve(void){
     ll n, m;
     cin >> n >> m;
-    vector<vector<ll>> board(n, vector<ll> (m));
+    vector<vector<ll>> board(n, vector<ll> (m)), lsum(n, vector<ll> (m, 0)), rsum(n, vector<ll> (m, 0));
     for(int i = 0; i < n; i++)
         for(int j = 0; j < m; j++)
             cin >> board[i][j];
-    pb(board);
+
+    for(int j = 0; j < m; j++){
+        
+        for(int i = 0; i+j < n; i++)
+            rsum[0][j] += board[i][i+j];
+
+        for(int i = 0; i <= j; i++)
+            lsum[0][j] += board[i][j-i]; 
+    }
+
+
+    pb(lsum);
+    pb(rsum);
     cout<<endl;
 
 }
