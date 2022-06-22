@@ -11,26 +11,14 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    int n, x;
-    cin >> n >> x;
-    int y = (n + (n%2))/2;
-    if(n == 1 && x == 1)
-        cout << "a";
-    else if(y >= x){
-        int i = 0;
-        vector<char> s(n, '-');
-        while(i < x-1)
-            s[i] = s[n-i-1] = (char)(i++ + 'a');
-        rpt(n)
-            if(s[i] == '-')
-                cout << "z";
-            else
-                cout << s[i];
+    ll n, m, ans;
+    cin >> n;
+    rpt(n-1){
+        ans = __gcd(i+1, n-i-1) + ((i+1, n-i-1)/__gcd(i+1, n-i-1));
+        cout << i+1 << " " << n-i-1 << " : " << ans;
     }
-    else
-        cout << "-1";
-    
-    cout << "\n";
+    cout<<endl;
+
 }
 
 int main() {
