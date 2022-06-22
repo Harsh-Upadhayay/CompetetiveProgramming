@@ -16,6 +16,7 @@ void solve(void){
     ans = !(n%2);
     rpt((n-1)/2){
         ans += (2 * !((n-i+1) % (i+1)));
+        cout << ans;
         // ll x = __gcd(i+1, n-i-1);
         // ans = x + (((i+1) * (n-i-1))/x);
         // cout << i+1 << " " << n-i-1 << " : " << ans << "\n";
