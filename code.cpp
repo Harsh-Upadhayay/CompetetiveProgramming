@@ -13,7 +13,8 @@ ll t,T;
 void solve(void){
     ll n, m, ans;
     cin >> n;
-    rpt((n+1)/2){
+    rpt(n-1){
+        // ans += !(())
         ll x = __gcd(i+1, n-i-1);
         ans = x + (((i+1) * (n-i-1))/x);
         cout << i+1 << " " << n-i-1 << " : " << ans << "\n";
