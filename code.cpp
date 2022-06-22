@@ -21,7 +21,7 @@ void solve(void){
         cout << i+1 << " " << n-i-1 << " : " << ans << "\n";
     }
 
-    cout << ans;
+    // cout << ans;
     cout<<endl;
 
 }
