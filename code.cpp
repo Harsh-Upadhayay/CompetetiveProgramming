@@ -15,7 +15,7 @@ void solve(void){
     cin >> n;
     rpt(n-1){
         ans = __gcd(i+1, n-i-1) + ((i+1, n-i-1)/__gcd(i+1, n-i-1));
-        cout << i+1 << " " << n-i-1 << " : " << ans;
+        cout << i+1 << " " << n-i-1 << " : " << ans << "\n";
     }
     cout<<endl;
 
