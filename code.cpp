@@ -13,7 +13,7 @@ ll t,T;
 void solve(void){
     int n, x;
     cin >> n >> x;
-    int y = (n - (n%2))/2;
+    int y = (n )/2;
     cout << y ;
     if(n == 1 && x == 1)
         cout << "a";
