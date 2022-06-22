@@ -15,12 +15,12 @@ void solve(void){
     cin >> n;
     ans = !(n%2);
     rpt((n-1)/2){
-        // ans += (2 * !((n-i-1) % (i+1)) );
-        if(!((n-i-1) % (i+1)))
-            cout << n-i-1 << " : " << i+1 << "\n";
-        // ll x = __gcd(i+1, n-i-1);
-        // ans = x + (((i+1) * (n-i-1))/x);
-        // cout << i+1 << " " << n-i-1 << " : " << ans << "\n";
+        // ans += (2 i* !((n-i-1) % (i+1)) );
+        // if(!((n--1) % (i+1)))
+        //     cout << n-i-1 << " : " << i+1 << "\n";
+        ll x = __gcd(i+1, n-i-1);
+        ans = x + (((i+1) * (n-i-1))/x);
+        cout << i+1 << " " << n-i-1 << " : " << ans << "\n";
     }
 
     // cout << ans;
