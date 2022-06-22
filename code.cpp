@@ -13,17 +13,19 @@ ll t,T;
 void solve(void){
     int n, x;
     cin >> n >> x;
-    int y = (n - (n%2))/2;
+    int y = (n + (n%2))/2;
     if(n == 1 && x == 1)
         cout << "a";
-    else if(y == x){
+    else if(y <= x){
         int i = 0;
-        while(i < x)
-            cout << (char)(i++ + 'a');
-        if(n % 2)
-            cout << (char)(i + 'a');
-        while(i-- > 0)
-            cout << (char)(i + 'a');
+        vector<char> s(n, '-');
+        while(i < x-1)
+            s[i] = s[n-i-1] = (char)(i++ + 'a');
+        rpt(n)
+            if(s[i] == '-')
+                cout << "z";
+            else
+                cout << s[i];
     }
     else
         cout << "-1";
