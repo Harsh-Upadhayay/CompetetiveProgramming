@@ -14,7 +14,7 @@ void solve(void){
     int n, x;
     cin >> n >> x;
     int y = (n )/2;
-    cout << y ;
+    cout << n << x ;
     if(n == 1 && x == 1)
         cout << "a";
     else if(y == x){
