@@ -10,71 +10,25 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-void pb(vector<vector<ll>> v){
-    for(auto x : v){
-        for(auto y : x)
-            cout << y << " ";
-        cout << "\n";
-    }
-}
-
 void solve(void){
-    ll n, m;
-    cin >> n >> m;
-    vector<vector<ll>> board(n, vector<ll> (m)), lsum(n, vector<ll> (m, 0)), rsum(n, vector<ll> (m, 0));
-    for(int i = 0; i < n; i++)
-        for(int j = 0; j < m; j++)
-            cin >> board[i][j];
-
-    if(n == 1 || m == 1){
-        ll ans = INT_MIN;
-        for(int i = 0; i < n; i++)
-            for(int j = 0; j < m; j++)
-                ans = max(ans, board[i][j]);
-        cout << ans <<"\n";
-        return;
+    int n, x;
+    cin >> n >> x;
+    int y = (n - (n%2))/2;
+    if(n == 1 && x == 1)
+        cout << "a";
+    else if(y == x){
+        int i = 0;
+        while(i < x)
+            cout << (char)(i++ + 'a');
+        if(n % 2)
+            cout << (char)(i + 'a');
+        while(i-- > 0)
+            cout << (char)(i + 'a');
     }
-
-    for(int j = 0; j < m; j++){
-        
-        for(int i = 0; i+j < m; i++)
-            rsum[0][j] += board[i][i+j];
-
-        for(int i = 0; i <= j; i++)
-            lsum[0][j] += board[i][j-i]; 
-    }
-
-    for(int i = 1; i < n; i++){
-
-        for(int j = 0; j+i < m; j++)
-            rsum[i][0] += board[j+i][j];
-
-        for(int j = m-1; j-i >= 0; j--)
-            lsum[i][m-1] += board[i+m-1-j][j];
-    }
-
-    for(int i = 1; i < n; i++)
-        for(int j = 1; j < m; j++){
-            rsum[i][j] = rsum[i-1][j-1];
-            lsum[i][j-1] = lsum[i-1][j];
-        }
+    else
+        cout << "-1";
     
-    // for(int i = 1; i < n; i++)
-    //     for(int j = 1; j < m; j++)
-    //         rsum[i][j] = rsum[i-1][j-1];
-        
-    ll ans = INT_MIN;
-    for(int i = 0; i < n; i++)
-        for(int j = 0; j < m; j++)
-            ans = max(ans, lsum[i][j] + rsum[i][j] - board[i][j]);
-    cout << ans;
-
-    // pb(lsum);
-    // cout << "\n";
-    // pb(rsum);
-
-    cout<<endl;
-
+    cout << "\n";
 }
 
 int main() {
