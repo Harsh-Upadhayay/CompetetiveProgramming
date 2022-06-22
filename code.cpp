@@ -16,7 +16,7 @@ void solve(void){
     int y = (n + (n%2))/2;
     if(n == 1 && x == 1)
         cout << "a";
-    else if(y <= x){
+    else if(y >= x){
         int i = 0;
         vector<char> s(n, '-');
         while(i < x-1)
