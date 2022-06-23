@@ -12,29 +12,19 @@ ll t,T;
 
 void solve(void){
     ll n, m, ans;
-    cin >> n;
-    ll s, f, ax, in;
-    s = n % 6; 
-    f = n % 4;
-    if(s == 0){
-        in = n / 6;
-    }
-    else if(s == 2  || s == 4){
-        in = n / 6 + 1;
-    }
+    cin >> n >> m;
+    vector<ll> v(n);
+    rpt(n)
+        cin >> v[i];
+    sort(v.begin(), v.end());
+    ans = v[0];
+    rpt(n-1)
+        ans += v[i] + 1;
+    if(ans <= m)
+        cout << "Yes";
     else
-        in = -1;
+        cout << "No";
 
-    if(f == 0 || f == 2){
-        ax = n / 4;
-    }
-    else
-        ax = -1;
-
-    if(in == -1 || ax == -1)
-        cout << "-1";
-    else
-        cout << in << " " << ax;
     cout<<endl;
 
 }
