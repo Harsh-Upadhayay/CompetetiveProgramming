@@ -33,7 +33,8 @@ void solve(void){
 
     if(in == -1 || ax == -1)
         cout << "-1";
-    cout << in << ax;
+    else
+        cout << in << " " << ax;
     cout<<endl;
 
 }
