@@ -10,23 +10,17 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-bool allA(string s){
-    for(auto x : s)
-        if(x == 'B')
-            return false;
-    return true;
-}
 
 void solve(void){
     ll n, m, ans = 0;
     string s;
     cin >> s;
-    bool flag = true;
-    
-    if(s.size() == 1)
-        flag = false;
+    ll bc = 0;
+    for(auto x : s)
+        if(x == 'B')
+            bc++;
 
-    cout << (flag && !(allA(s))? "YES":"NO");
+    cout << ((bc <= s.size()-bc)? "YES":"NO");
     
     cout<<endl;
 
