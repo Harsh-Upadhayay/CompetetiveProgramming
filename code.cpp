@@ -13,19 +13,8 @@ ll t,T;
 void solve(void){
     ll n, m, ans;
     cin >> n >> m;
-    vector<ll> v(n);
-    rpt(n)
-        cin >> v[i];
-    sort(v.begin(), v.end(), greater<ll>());
-    ans = v[0] + n;
-    rpt(n-1)
-        ans += v[i];
-    // cout << ans;
-    if(ans <= m)
-        cout << "Yes";
-    else
-        cout << "No";
-
+    ans = (m*(m+1))/2 + m*(n*(n-1))/2;
+    cout << ans;
     cout<<endl;
 
 }
