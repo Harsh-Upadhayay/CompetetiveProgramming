@@ -13,17 +13,27 @@ ll t,T;
 void solve(void){
     ll n, m, ans;
     cin >> n;
-    ans = !(n%2);
-    rpt((n-1)/2){
-        // ans += (2 i* !((n-i-1) % (i+1)) );
-        // if(!((n--1) % (i+1)))
-        //     cout << n-i-1 << " : " << i+1 << "\n";
-        ll x = __gcd(i+1, n-i-1);
-        ans = x + (((i+1) * (n-i-1))/x);
-        cout << i+1 << " " << n-i-1 << " : " << ans << "\n";
+    ll s, f, ax, in;
+    s = n % 6; 
+    f = n % 4;
+    if(s == 0){
+        in = n / 6;
     }
+    else if(s == 2  || s == 4){
+        in = n / 6 + 1;
+    }
+    else
+        in = -1;
 
-    // cout << ans;
+    if(f == 0){
+        ax = n / 4;
+    }
+    else
+        ax = -1;
+
+    if(in == -1 || ax == -1)
+        cout << "-1";
+    cout << in << ax;
     cout<<endl;
 
 }
