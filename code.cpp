@@ -19,6 +19,7 @@ void solve(void){
         if(1 != x)
             ans += x;
     }
+    cout << ans;
     cout << (ans % 2 ? "errorgorn" : "maomao90");
     cout<<endl;
 
