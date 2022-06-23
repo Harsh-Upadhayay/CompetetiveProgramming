@@ -16,7 +16,7 @@ void solve(void){
     vector<ll> v(n);
     rpt(n)
         cin >> v[i];
-    sort(v.begin(), v.end());
+    sort(v.begin(), v.end(), greater<ll>());
     ans = v[0] + n;
     rpt(n-1)
         ans += v[i];
