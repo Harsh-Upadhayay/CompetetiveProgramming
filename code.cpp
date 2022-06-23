@@ -17,7 +17,7 @@ void solve(void){
         ll x;
         cin >> x;
         if(1 != x)
-            ans += x;
+            ans += x - 1;
     }
     cout << ans;
     cout << (ans % 2 ? "errorgorn" : "maomao90");
