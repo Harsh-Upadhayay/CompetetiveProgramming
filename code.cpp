@@ -24,7 +24,7 @@ void solve(void){
             flag = false;
     }
 
-    cout << ((bc && flag)? "YES":"NO");
+    cout << ((bc && flag && s[s.size()-1] == 'B')? "YES":"NO");
     
     cout<<endl;
 
