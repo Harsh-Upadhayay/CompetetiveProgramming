@@ -10,19 +10,28 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
+bool allA(string s){
+    for(auto x : s)
+        if(x == 'B')
+            return false;
+    return true;
+}
+
 void solve(void){
     ll n, m, ans = 0;
     string s;
     cin >> s;
     bool flag = true;
+    
     if(s.size() == 1)
         flag = false;
-    
+
     for(int i = 0; i < s.size() - 1; i++)
         if(s[i] == 'B' && s[i+1] == 'B')
             flag = false;
 
-    cout << (flag ? "YES":"NO");
+
+    cout << (flag && !(allA(s))? "YES":"NO");
     
     cout<<endl;
 
