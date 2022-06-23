@@ -13,7 +13,7 @@ ll t,T;
 void solve(void){
     ll n, m, ans;
     cin >> n >> m;
-    ans = (m*(m+1))/2 + m*(n*(n+1))/2;
+    ans = (m*(m+1))/2 + m*(n*(n+1))/2 - m;
     cout << ans;
     cout<<endl;
 
