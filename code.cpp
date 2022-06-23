@@ -20,7 +20,7 @@ void solve(void){
         if(x == 'B')
             bc++;
 
-    cout << ((bc <= s.size()-bc)? "YES":"NO");
+    cout << (bc && (bc <= s.size()-bc)? "YES":"NO");
     
     cout<<endl;
 
