@@ -17,14 +17,14 @@ void solve(void){
     rpt(n)
         cin >> v[i];
     sort(v.begin(), v.end());
-    ans = v[0];
+    ans = v[0] + n;
     rpt(n-1)
-        ans += v[i] + 1;
-    cout << ans;
-    // if(ans <= m)
-    //     cout << "Yes";
-    // else
-    //     cout << "No";
+        ans += v[i];
+    // cout << ans;
+    if(ans <= m)
+        cout << "Yes";
+    else
+        cout << "No";
 
     cout<<endl;
 
