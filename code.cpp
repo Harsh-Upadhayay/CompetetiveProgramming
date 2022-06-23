@@ -25,7 +25,7 @@ void solve(void){
     else
         in = -1;
 
-    if(f == 0){
+    if(f == 0 || f == 2){
         ax = n / 4;
     }
     else
