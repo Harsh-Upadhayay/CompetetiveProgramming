@@ -11,10 +11,15 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans;
-    cin >> n >> m;
-    ans = (m*(m+1))/2 + m*(n*(n+1))/2 - m;
-    cout << ans;
+    ll n, m, ans = 0;
+    cin >> n;
+    rpt(n){
+        ll x;
+        cin >> x;
+        if(1 != x)
+            ans += x;
+    }
+    cout << (ans % 2 ? "errorgorn" : "maomao90");
     cout<<endl;
 
 }
