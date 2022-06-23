@@ -24,7 +24,7 @@ void solve(void){
             flag = false;
     }
 
-    cout << (bc && (flag)? "YES":"NO");
+    cout << ((bc && flag)? "YES":"NO");
     
     cout<<endl;
 
