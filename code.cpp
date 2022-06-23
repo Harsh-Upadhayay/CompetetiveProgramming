@@ -21,10 +21,10 @@ void solve(void){
     rpt(n-1)
         ans += v[i] + 1;
     cout << ans;
-    if(ans <= m)
-        cout << "Yes";
-    else
-        cout << "No";
+    // if(ans <= m)
+    //     cout << "Yes";
+    // else
+    //     cout << "No";
 
     cout<<endl;
 
