@@ -20,7 +20,7 @@ void solve(void){
     ans = v[0] + n;
     rpt(n-1)
         ans += v[i];
-    // cout << ans;
+    cout << ans;
     if(ans <= m)
         cout << "Yes";
     else
