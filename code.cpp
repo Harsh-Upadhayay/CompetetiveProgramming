@@ -12,15 +12,18 @@ ll t,T;
 
 void solve(void){
     ll n, m, ans = 0;
-    cin >> n;
-    rpt(n){
-        ll x;
-        cin >> x;
-        if(1 != x)
-            ans += x - 1;
-    }
-    cout << ans;
-    cout << (ans % 2 ? "errorgorn" : "maomao90");
+    string s;
+    cin >> s;
+    bool flag = true;
+    if(s.size() == 1)
+        flag = false;
+    
+    for(int i = 0; i < s.size() - 1; i++)
+        if(s[i] == 'B' && s[i+1] == 'B')
+            flag = false;
+
+    cout << (flag ? "YES":"NO");
+    
     cout<<endl;
 
 }
