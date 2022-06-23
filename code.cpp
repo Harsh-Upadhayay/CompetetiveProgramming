@@ -26,11 +26,6 @@ void solve(void){
     if(s.size() == 1)
         flag = false;
 
-    for(int i = 0; i < s.size() - 1; i++)
-        if(s[i] == 'B' && s[i+1] == 'B')
-            flag = false;
-
-
     cout << (flag && !(allA(s))? "YES":"NO");
     
     cout<<endl;
