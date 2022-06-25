@@ -56,7 +56,7 @@ void solve(void){
         ans = xs-xf+1;
     if(yf != -1)
         ans = ys-xf+1;
-    cout << ans;
+    // cout << ans;
     if(ans)
         if(ans == 2)
             ans = 0;
