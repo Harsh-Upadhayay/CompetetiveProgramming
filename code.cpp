@@ -31,29 +31,46 @@ void solve(void){
     ll i = 0;
     while(i < n-1){
         ll j = i+1;
-        while(j < n && ar[j] > ar[j-1]){
-            ll k = j;
-            while(k != i){
-                addEdge(graph, --k, j);                
+        ll mx = INT_MIN;
+        while(j < n){
+            if(ar[j] < ar[i])
+                break;
+            if(mx < ar[j]){
+                mx = ar[j];
+                addEdge(graph, i, j);
             }
             j++;
         }
-        i = j;
+        i++;
     }
     reverse(ar, ar+n);
 
     i = 0;
-    while(i < n-1){
+     while(i < n-1){
         ll j = i+1;
-        while(j < n && ar[j] > ar[j-1]){
-            ll k = j;
-            while(k != i){
-                addEdge(graph, n-1- --k, n-1-j);                
+        ll mx = INT_MIN;
+        while(j < n){
+            if(ar[j] < ar[i])
+                break;
+            if(mx < ar[j]){
+                mx = ar[j];
+                addEdge(graph, n-1-i, n-1-j);
             }
             j++;
         }
-        i = j;
+        i++;
     }
+    // while(i < n-1){
+    //     ll j = i+1;
+    //     while(j < n && ar[j] > ar[j-1]){
+    //         ll k = j;
+    //         while(k != i){
+    //             addEdge(graph, n-1- --k, n-1-j);                
+    //         }
+    //         j++;
+    //     }
+    //     i = j;
+    // }
     
     for(auto x : graph){
         cout << x.first+1 << " : " ;
