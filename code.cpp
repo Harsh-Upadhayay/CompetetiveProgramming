@@ -20,15 +20,21 @@ void solve(){
         cin >> ar[i];
         ans = ans | ar[i];
     }
+    bool ff = false, sf = false, zf = false;
     bool flag = false;
-    rpt(n-2)
-        if(ar[i] && !ar[i+1] && ar[i+2])
-            flag = true;
+    rpt(n)
+        if(ar[i])
+            if(!ff)
+                ff = true;
+            else if(zf)
+                sf = true;
+        else
+            zf = true;
 
     if(!ans)
         cout << "0";
     else
-        cout << (flag ? "2" : "1");
+        cout << (sf ? "2" : "1");
 
     cout << "\n";
 }
