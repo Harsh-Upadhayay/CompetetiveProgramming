@@ -12,6 +12,7 @@ ll t,T;
 
 map<ll, list<ll>> graph; 
 int dist[1000000];
+bool visited[1000000];
 
 void addEdge(
     ll a, ll b){
@@ -23,10 +24,12 @@ void addEdge(
 
 int dfs(ll x, ll d){
     dist[x] = d;
+    visited[x] = true;
     auto list = graph[x];
     
     for(auto node : list)
-        dfs(node, d+1);
+        if(!visited[x])
+            dfs(node, d+1);
 }
 
 void solve(void){
