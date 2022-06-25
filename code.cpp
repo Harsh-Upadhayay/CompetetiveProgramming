@@ -51,8 +51,12 @@ void solve(void){
         }
         else if(flag)
             break;
-        
-    cout << xf << " " << xs << " " << yf << " " << ys;
+    ll ans = 0;
+    if(xf)
+        ans = xs-xf+1;
+    if(yf)
+        ans = ys-xf+1;
+    cout << ans;
 
 }
 
