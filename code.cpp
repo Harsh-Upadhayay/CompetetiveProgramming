@@ -21,34 +21,20 @@ void addEdge(
     return;
 }
 
-bool BFS( ll src, ll dest, ll v)
+ll BFS( ll src, ll dest, ll v)
 {
-    // a queue to maintain queue of vertices whose
-    // adjacency list is to be scanned as per normal
-    // DFS algorithm
-    list<int> queue;
- 
-    // boolean array visited[] which stores the
-    // information whether ith vertex is reached
-    // at least once in the Breadth first search
+    list<ll> queue;
     bool visited[v];
     ll dist[v];
-    // initially all vertices are unvisited
-    // so v[i] for all i is false
-    // and as no path is yet constructed
-    // dist[i] for all i set to infinity
     for (int i = 0; i < v; i++) {
         visited[i] = false;
         dist[i] = INT_MAX;
     }
  
-    // now source is first to be visited and
-    // distance from source to itself should be 0
     visited[src] = true;
     dist[src] = 0;
     queue.push_back(src);
  
-    // standard BFS algorithm
     while (!queue.empty()) {
         int u = queue.front();
         queue.pop_front();
@@ -65,7 +51,7 @@ bool BFS( ll src, ll dest, ll v)
             }
         }
     }
-    return false;
+    return 0;
 }
 // int dfs(ll x, ll d){
 //     dist[x] = d;
