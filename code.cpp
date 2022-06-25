@@ -138,7 +138,7 @@ void solve(void){
         cout << "\n";
     }
 
-    cout << BFS(0, 0, n);
+    cout << BFS(0, n-1, n);
 
     // cout << dist[n-1];
     cout<<endl;
