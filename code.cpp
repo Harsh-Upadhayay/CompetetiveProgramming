@@ -26,7 +26,7 @@ void solve(void){
     for(int i = 0; i < s.size()-1; i++)
         if(cons(s[i]) && s[i] != 'n'){
             if(!vowel(s[i+1])){
-                cout << i;
+                // cout << i;
                 flag = false;
             }
         }
