@@ -27,7 +27,6 @@ void solve(){
     for(i = 0 ; i < n; i++)
         if(ar[i])
             break;
-    cout << i;
     for( ; i < n; i++)
         if(ar[i]){
             if(!ff)
