@@ -10,20 +10,7 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-// void solve(void){
-//     unsigned ll n, m, ans;
-//     cin >> n >> m;
-//     unsigned ll mx = 0;
-//     rpt(n){
-//         unsigned ll x;
-//         cin >> x;
-//         x = x | m;
-//         mx = max(mx, x);
-//     }
-//     cout << mx;
-//     cout<<endl;
 
-// }
 
 void solve(){
     ll n, ans = 0;
