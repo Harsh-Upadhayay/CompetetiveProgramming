@@ -23,14 +23,15 @@ void solve(){
     bool ff = false, sf = false, zf = false;
     bool flag = false;
     rpt(n)
-        if(ar[i])
+        if(ar[i]){
+            cout << i;
             if(!ff)
                 ff = true;
             else if(zf)
                 sf = true;
+        }
         else
             zf = true;
-    cout << ff << sf << zf;
     if(!ans)
         cout << "0";
     else
