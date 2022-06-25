@@ -11,8 +11,8 @@ using namespace std;
 ll t,T;
 
 map<ll, list<ll>> graph; 
-int dist[1000000];
-bool visited[1000000] = {false};
+map<ll, ll> dist;
+map<ll, bool> visited;
 
 void addEdge(
     ll a, ll b){
@@ -37,6 +37,8 @@ void solve(void){
     cin >> n;
     ll ar[n];
     graph.clear();
+    dist.clear();
+    visited.clear();
     rpt(n)
         cin >> ar[i];
 
