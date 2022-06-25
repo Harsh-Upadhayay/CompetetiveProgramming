@@ -22,7 +22,13 @@ void solve(){
     }
     bool ff = false, sf = false, zf = false;
     bool flag = false;
-    rpt(n)
+    ll i = 0;
+
+    for(i = 0 ; i < n; i++)
+        if(ar[i])
+            break;
+
+    for( ; i < n; i++)
         if(ar[i]){
             if(!ff)
                 ff = true;
