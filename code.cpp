@@ -52,11 +52,11 @@ void solve(void){
         else if(flag)
             break;
     ll ans = 0;
-    cout << ans;
     if(xf)
         ans = xs-xf+1;
     if(yf)
         ans = ys-xf+1;
+    cout << ans;
     if(ans == 2)
         ans = 0;
     else if (ans == 3 || ans == 4)
