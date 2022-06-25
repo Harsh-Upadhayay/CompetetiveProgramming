@@ -13,9 +13,8 @@ ll t,T;
 void solve(void){
     ll n, m, ans;
     cin >> n >> m;
-    ll mx = INT_MIN;
+    ll mx = 0;
     rpt(n){
-        
         ll x ;
         cin >> x;
         mx = max(mx, x);
