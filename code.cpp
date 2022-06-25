@@ -11,11 +11,11 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans;
+    unsigned ll n, m, ans;
     cin >> n >> m;
     unsigned ll mx = 0;
     rpt(n){
-        unsigned ll x ;
+        unsigned ll x;
         cin >> x;
         mx = max(mx, x);
     }
