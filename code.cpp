@@ -14,8 +14,8 @@ void solve(void){
     ll n, m, ans;
     cin>>n;
     ans = n % 100 + n /  100;
-    cout << ans;
-    cout << (n > 10 ? -1 : ans);
+    // cout << ans;
+    cout << (ans > 10 ? -1 : ans);
     cout<<endl;
 
 }
