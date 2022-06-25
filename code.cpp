@@ -64,7 +64,7 @@ void solve(void){
     else if(ans == 5)
         ans = 2;
     else
-        ans = 3 + 6-ans;
+        ans = 3 + ans - 6;
     cout << ans;
 
 }
