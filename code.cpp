@@ -131,12 +131,12 @@ void solve(void){
     //     i = j;
     // }
     
-    for(auto x : graph){
-        cout << x.first << " : " ;
-        for(auto y : x.second)
-            cout << y << " ";
-        cout << "\n";
-    }
+    // for(auto x : graph){
+    //     cout << x.first << " : " ;
+    //     for(auto y : x.second)
+    //         cout << y << " ";
+    //     cout << "\n";
+    // }
 
     cout << BFS(0, n-1, n);
 
