@@ -31,7 +31,7 @@ void solve(void){
             }
         }
 
-    cout << (flag && ('n' == (s[s.size()-1]) || vowel(s[s.size()-1])) ? "YES":"NO");
+    cout << (flag  ? "YES":"NO");
     cout<<endl;
 
 }
