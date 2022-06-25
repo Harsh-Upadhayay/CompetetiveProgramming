@@ -11,7 +11,7 @@ using namespace std;
 ll t,T;
 
 bool vowel(char ch){
-    return ch == 'a' or ch == 'o' or ch == 'u' or ch == 'i' or ch == 'e';
+    return (ch == 'a' or ch == 'o' or ch == 'u' or ch == 'i' or ch == 'e');
 }
 
 bool cons(char ch){
