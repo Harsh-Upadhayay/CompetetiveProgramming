@@ -30,7 +30,7 @@ void solve(){
                 sf = true;
         else
             zf = true;
-
+    cout << ff << sf << zf;
     if(!ans)
         cout << "0";
     else
