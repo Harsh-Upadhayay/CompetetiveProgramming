@@ -52,9 +52,9 @@ void solve(void){
         else if(flag)
             break;
     ll ans = 0;
-    if(xf)
+    if(xf != -1)
         ans = xs-xf+1;
-    if(yf)
+    if(yf != -1)
         ans = ys-xf+1;
     cout << ans;
     if(ans == 2)
