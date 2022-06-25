@@ -11,12 +11,18 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, s, ans;
-    cin >> n >> s;
 
-    ll diff = s - ((n+1)*(n+2))/2;
-    diff = (ceil((float)diff/(n*n)));
-    cout << (diff < 0 ? 0 : diff);
+    ll n, m, ans;
+    cin >> n;
+    ll mx;
+    map<ll, ll> freq;
+    rpt(n){
+        ll x;
+        cin >> x;
+        freq[x]++;
+        mx = max(mx, freq[x]);
+    }
+    cout << mx;
     cout<<endl;
 
 }
