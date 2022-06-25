@@ -14,7 +14,7 @@ void solve(void){
 
     ll n, m, ans;
     cin >> n;
-    ll mx;
+    ll mx = INT_MIN;
     map<ll, ll> freq;
     rpt(n){
         ll x;
