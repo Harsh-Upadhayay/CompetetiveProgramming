@@ -10,41 +10,41 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-// void solve(void){
-//     unsigned ll n, m, ans;
-//     cin >> n >> m;
-//     unsigned ll mx = 0;
-//     rpt(n){
-//         unsigned ll x;
-//         cin >> x;
-//         mx = max(mx, x);
-//     }
-//     mx = mx | m;
-//     cout << mx;
-//     cout<<endl;
-
-// }
-
-void solve(){
-    ll n, ans = 0;
-    cin >> n;
-    ll ar[n];
+void solve(void){
+    unsigned ll n, m, ans;
+    cin >> n >> m;
+    unsigned ll mx = 0;
     rpt(n){
-        cin >> ar[i];
-        ans = ans | ar[i];
+        unsigned ll x;
+        cin >> x;
+        x = x | m;
+        mx = max(mx, x);
     }
-    bool flag = false;
-    rpt(n-2)
-        if(ar[i] && !ar[i+1] && ar[i+2])
-            flag = true;
+    cout << mx;
+    cout<<endl;
 
-    if(!ans)
-        cout << "0";
-    else
-        cout << (flag ? "2" : "1");
-    
-    cout << "\n";
 }
+
+// void solve(){
+//     ll n, ans = 0;
+//     cin >> n;
+//     ll ar[n];
+//     rpt(n){
+//         cin >> ar[i];
+//         ans = ans | ar[i];
+//     }
+//     bool flag = false;
+//     rpt(n-2)
+//         if(ar[i] && !ar[i+1] && ar[i+2])
+//             flag = true;
+
+//     if(!ans)
+//         cout << "0";
+//     else
+//         cout << (flag ? "2" : "1");
+
+//     cout << "\n";
+// }
 
 int main() {
     srand(time(0));
