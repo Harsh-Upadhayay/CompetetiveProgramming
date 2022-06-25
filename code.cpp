@@ -42,6 +42,7 @@ void solve(){
         cout << "0";
     else
         cout << (flag ? "2" : "1");
+    
     cout << "\n";
 }
 
