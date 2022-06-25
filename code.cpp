@@ -13,7 +13,7 @@ ll t,T;
 void solve(void){
 
     ll n, m, ans;
-    cin >> n;
+    cin >> n ;
     ll mx = INT_MIN;
     map<ll, ll> freq;
     rpt(n){
