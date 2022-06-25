@@ -43,11 +43,11 @@ void solve(void){
         if(v[j] == v[j-1]){
             if(!flag){
                 flag = true;
-                yf = i;
-                ys = i+1;
+                yf = j;
+                ys = j+1;
             }
             else
-                ys = i+1;
+                ys = j+1;
         }
         else if(flag)
             break;
