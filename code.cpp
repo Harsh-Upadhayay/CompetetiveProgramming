@@ -15,7 +15,7 @@ void solve(void){
     cin >> n >> s;
 
     ll diff = s - ((n+1)*(n+2))/2;
-    diff = (ceil(diff/(n*n)));
+    diff = (ceil((float)diff/(n*n)));
     cout << (diff < 0 ? 0 : diff);
     cout<<endl;
 
