@@ -39,7 +39,7 @@ void solve(void){
 
     flag = false;
 
-    for(int j = n-1; j > i-1; j--)
+    for(int j = n-1; j > xs-1; j--)
         if(v[j] == v[j-1]){
             if(!flag){
                 flag = true;
