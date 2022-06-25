@@ -10,28 +10,18 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-bool vowel(char ch){
-    return (ch == 'a' or ch == 'o' or ch == 'u' or ch == 'i' or ch == 'e');
-}
-
-bool cons(char ch){
-    return !vowel(ch);
-}
-
 void solve(void){
     ll n, m, ans;
-    string s;
-    cin >> s;
-    bool flag = true;
-    for(int i = 0; i < s.size()-1; i++)
-        if(cons(s[i]) && s[i] != 'n'){
-            if(!vowel(s[i+1])){
-                // cout << i;
-                flag = false;
-            }
-        }
-
-    cout << (flag && ('n' == (s[s.size()-1]) || vowel(s[s.size()-1])) ? "YES":"NO");
+    cin >> n >> m;
+    ll mx = INT_MIN;
+    rpt(n){
+        
+        ll x ;
+        cin >> x;
+        mx = max(mx, x);
+    }
+    mx = mx | m;
+    cout << mx;
     cout<<endl;
 
 }
