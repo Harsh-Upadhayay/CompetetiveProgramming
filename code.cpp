@@ -10,21 +10,30 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
+map<ll, list<ll>> graph; 
+int dist[1000000];
+
 void addEdge(
-    map<ll, list<ll>> &graph,
     ll a, ll b){
     graph[a].pb(b);
     graph[b].pb(a);
     return;
 }
 
+
+int dfs(ll x, ll d){
+    dist[x] = d;
+    auto list = graph[x];
+    
+    for(auto node : list)
+        dfs(node, d+1);
+}
+
 void solve(void){
     ll n, m, ans;
     cin >> n;
     ll ar[n];
-
-    map<ll, list<ll>> graph;
-
+    graph.clear();
     rpt(n)
         cin >> ar[i];
 
@@ -37,7 +46,7 @@ void solve(void){
                 break;
             if(mx < ar[j]){
                 mx = ar[j];
-                addEdge(graph, i, j);
+                addEdge(i, j);
             }
             j++;
         }
@@ -54,7 +63,7 @@ void solve(void){
                 break;
             if(mx < ar[j]){
                 mx = ar[j];
-                addEdge(graph, n-1-i, n-1-j);
+                addEdge(n-1-i, n-1-j);
             }
             j++;
         }
@@ -78,6 +87,10 @@ void solve(void){
             cout << y+1 << " ";
         cout << "\n";
     }
+
+    // dfs(0, 0);
+
+    cout << dist[n-1];
     cout<<endl;
 
 }
