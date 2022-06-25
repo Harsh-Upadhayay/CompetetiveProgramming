@@ -82,9 +82,9 @@ void solve(void){
     // }
     
     for(auto x : graph){
-        cout << x.first+1 << " : " ;
+        cout << x.first << " : " ;
         for(auto y : x.second)
-            cout << y+1 << " ";
+            cout << y << " ";
         cout << "\n";
     }
 
