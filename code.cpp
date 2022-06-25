@@ -93,7 +93,7 @@ void solve(void){
 
     dfs(0, 0);
 
-    cout << dist[n-1];
+    cout << dist[n-2];
     cout<<endl;
 
 }
