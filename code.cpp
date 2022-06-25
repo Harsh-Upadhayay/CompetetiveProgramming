@@ -28,7 +28,7 @@ void solve(void){
             if(!vowel(s[i]))
                 flag = false;
 
-    cout << (flag && vowel(s[s.size()-1]) ? "YES":"NO");
+    cout << (flag && ('n' == (s[s.size()-1]) || vowel(s[s.size()-1])) ? "YES":"NO");
     cout<<endl;
 
 }
