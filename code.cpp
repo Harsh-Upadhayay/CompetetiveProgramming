@@ -28,7 +28,7 @@ int dfs(ll x, ll d){
     auto list = graph[x];
     
     for(auto node : list)
-        if(!visited[x])
+        if(!visited[node])
             dfs(node, d+1);
 }
 
