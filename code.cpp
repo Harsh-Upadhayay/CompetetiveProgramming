@@ -41,9 +41,9 @@ void solve(void){
         i = j;
     }
     for(auto x : graph){
-        cout << x.first << " : " ;
+        cout << x.first+1 << " : " ;
         for(auto y : x.second)
-            cout << y << " ";
+            cout << y+1 << " ";
         cout << "\n";
     }
     cout<<endl;
