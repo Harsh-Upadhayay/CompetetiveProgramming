@@ -11,22 +11,46 @@ using namespace std;
 ll t,T;
 
 
-void solve(void){
-    ll n, m, ans = 0;
-    string s;
-    cin >> s;
-    ll bc = 0;
-    bool flag = true;
-    for(int i = 0; i < s.size(); i++){
-        if(s[i] == 'B')
-            bc++;
-        if(bc > i-bc+1)
-            flag = false;
-    }
 
-    cout << ((bc && flag && s[s.size()-1] == 'B')? "YES":"NO");
-    
-    cout<<endl;
+void solve(void){
+    ll n, xf, xs, yf, ys;
+    xf = xs = yf = ys = -1;
+    cin >> n;
+    vector<ll> v(n);
+    rpt(n)
+        cin >> v[i];
+
+    bool flag = false;
+
+    int i;
+    for(i = 0; i < n-1; i++)
+        if(v[i] == v[i+1]){
+            
+            if(!flag){
+                flag = true;
+                xf = i;
+            }
+            else
+                xs = i;
+        }
+        else if(flag)
+            break;
+
+    flag = false;
+
+    for(int j = n-1; j > i-1; j--)
+        if(v[j] == v[j-1]){
+            if(!flag){
+                flag = true;
+                yf = i;
+            }
+            else
+                ys = i;
+        }
+        else if(flag)
+            break;
+        
+    cout << xf << " " << xs << " " << yf << " " << ys;
 
 }
 
