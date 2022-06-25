@@ -65,6 +65,7 @@ void solve(void){
     else
         ans = 3 + ans - 6;
     cout << ans;
+    cout << "\n";
 
 }
 
