@@ -10,39 +10,44 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
+void addEdge(
+    map<ll, list<ll>> &graph,
+    ll a, ll b){
+    graph[a].pb(b);
+    graph[b].pb(a);
+    return;
+}
 
-
-void solve(){
-    ll n, ans = 0;
+void solve(void){
+    ll n, m, ans;
     cin >> n;
     ll ar[n];
-    rpt(n){
+
+    map<ll, list<ll>> graph;
+
+    rpt(n)
         cin >> ar[i];
-        ans = ans | ar[i];
-    }
-    bool ff = false, sf = false, zf = false;
-    bool flag = false;
+
     ll i = 0;
-
-    for(i = 0 ; i < n; i++)
-        if(ar[i])
-            break;
-    for( ; i < n; i++)
-        if(ar[i]){
-            if(!ff)
-                ff = true;
-            else if(zf)
-                sf = true;
+    while(i < n-1){
+        ll j = i+1;
+        while(ar[j] > ar[j-1]){
+            ll k = j;
+            while(k != i){
+                addEdge(graph, --k, j);                
+            }
+            j++;
         }
-        else
-            zf = true;
+        i = j;
+    }
+    for(auto x : graph){
+        cout << x.first << " : " ;
+        for(auto y : x.second)
+            cout << y << " ";
+        cout << "\n";
+    }
+    cout<<endl;
 
-    if(!ans)
-        cout << "0";
-    else
-        cout << (sf ? "2" : "1");
-
-    cout << "\n";
 }
 
 int main() {
