@@ -19,7 +19,7 @@ void solve(void){
         cin >> x;
         mx = max(mx, x);
     }
-    mx = mx | m;
+    mx = mx or m;
     cout << mx;
     cout<<endl;
 
