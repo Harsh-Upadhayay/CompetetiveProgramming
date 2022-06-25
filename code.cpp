@@ -10,21 +10,25 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
+bool vowel(char ch){
+    return ch == 'a' or ch == 'o' or ch == 'u' or ch == 'i' or ch == 'e';
+}
+
+bool cons(char ch){
+    return !vowel(ch);
+}
+
 void solve(void){
-    ll n,q, d, m, ans;
-    cin >> q >> d;
-    vector<ll> table;
-    rpt(10)
-        table.push_back((i+1)*d);
-    rpt(q){
-        ll qry;
-        cin >> qry;
-        bool flag = false;
-        rpt(10)
-            if(table[i] % 10 == qry % 10 && table[i] <= qry)
-                flag = true;
-        cout << (flag ? "YES":"NO") << "\n";
-    }
+    ll n, m, ans;
+    string s;
+    cin >> s;
+    bool flag = true;
+    for(int i = 0; i < s.size()-1; i++)
+        if(cons(s[i]) && s[i] != 'n')
+            if(!vowel(s[i]))
+                flag = false;
+
+    cout << (flag && vowel(s[s.size()-1]) ? "YES":"NO");
     cout<<endl;
 
 }
