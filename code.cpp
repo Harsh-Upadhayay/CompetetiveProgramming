@@ -12,7 +12,7 @@ ll t,T;
 
 map<ll, list<ll>> graph; 
 int dist[1000000];
-bool visited[1000000];
+bool visited[1000000] = {false};
 
 void addEdge(
     ll a, ll b){
@@ -93,7 +93,7 @@ void solve(void){
 
     dfs(0, 0);
 
-    cout << dist[n-2];
+    cout << dist[n-1];
     cout<<endl;
 
 }
