@@ -44,10 +44,10 @@ void solve(void){
             if(!flag){
                 flag = true;
                 yf = j;
-                ys = j+1;
+                ys = j-1;
             }
             else
-                ys = j+1;
+                ys = j-1;
         }
         else if(flag)
             break;
