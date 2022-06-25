@@ -13,9 +13,9 @@ ll t,T;
 void solve(void){
     ll n, m, ans;
     cin >> n >> m;
-    ll mx = 0;
+    unsigned ll mx = 0;
     rpt(n){
-        ll x ;
+        unsigned ll x ;
         cin >> x;
         mx = max(mx, x);
     }
