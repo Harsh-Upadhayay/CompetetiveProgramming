@@ -29,9 +29,10 @@ void solve(void){
             if(!flag){
                 flag = true;
                 xf = i;
+                xs = i+1;
             }
             else
-                xs = i;
+                xs = i+1;
         }
         else if(flag)
             break;
@@ -43,9 +44,10 @@ void solve(void){
             if(!flag){
                 flag = true;
                 yf = i;
+                ys = i+1;
             }
             else
-                ys = i;
+                ys = i+1;
         }
         else if(flag)
             break;
