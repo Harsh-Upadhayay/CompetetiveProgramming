@@ -33,7 +33,7 @@ void solve(void){
         ll j = i+1;
         while(ar[j] > ar[j-1]){
             ll k = j;
-            while(k > i){
+            while(k != i){
                 addEdge(graph, --k, j);                
             }
             j++;
