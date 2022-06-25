@@ -11,18 +11,20 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-
-    ll n, m, ans;
-    cin >> n ;
-    ll mx = INT_MIN;
-    map<ll, ll> freq;
-    rpt(n){
-        ll x;
-        cin >> x;
-        freq[x]++;
-        mx = max(mx, freq[x]);
+    ll n,q, d, m, ans;
+    cin >> q >> d;
+    vector<ll> table;
+    rpt(10)
+        table.push_back((i+1)*d);
+    rpt(q){
+        ll qry;
+        cin >> qry;
+        bool flag = false;
+        rpt(10)
+            if(table[i] % 10 == qry % 10 && table[i] <= qry)
+                flag = true;
+        cout << (flag ? "YES":"NO") << "\n";
     }
-    cout << mx;
     cout<<endl;
 
 }
