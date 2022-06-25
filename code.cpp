@@ -31,6 +31,7 @@ void solve(){
         }
         else
             zf = true;
+
     if(!ans)
         cout << "0";
     else
