@@ -24,7 +24,6 @@ void solve(){
     bool flag = false;
     rpt(n)
         if(ar[i]){
-            cout << i;
             if(!ff)
                 ff = true;
             else if(zf)
