@@ -57,14 +57,15 @@ void solve(void){
     if(yf != -1)
         ans = ys-xf+1;
     cout << ans;
-    if(ans == 2)
-        ans = 0;
-    else if (ans == 3 || ans == 4)
-        ans = 1;
-    else if(ans == 5)
-        ans = 2;
-    else
-        ans = 3 + ans - 6;
+    if(ans)
+        if(ans == 2)
+            ans = 0;
+        else if (ans == 3 || ans == 4)
+            ans = 1;
+        else if(ans == 5)
+            ans = 2;
+        else
+            ans = 3 + ans - 6;
     cout << ans;
     cout << "\n";
 
