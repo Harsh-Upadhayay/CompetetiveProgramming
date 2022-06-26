@@ -35,7 +35,7 @@ void solve(void){
         }
     }
     for(auto x : a)
-        cout << x.first << " " << x.second << "\n";
+        cout << " (" << x.first << ", " << x.second << ") ";
     cout<<endl;
 
 }
