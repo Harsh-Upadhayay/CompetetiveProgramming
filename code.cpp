@@ -17,6 +17,7 @@ struct ele{
 void solve(void){
     ll n, m, ans, k;
     cin >> n >> m;
+    cout << n << m;
     vector<ll> v(n);
     rpt(n)
         cin >> v[i];
@@ -27,7 +28,6 @@ void solve(void){
     int i = 0, j;
     vector<pair<ll, ll>> a, b;
     while(i++ < n){
-        cout << v[i];
         if(v[i] % m){
             a.pb({v[i], 1});
         }
