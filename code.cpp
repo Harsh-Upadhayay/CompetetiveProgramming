@@ -26,13 +26,14 @@ void solve(void){
         cin >> p[i];
     int i = 0, j;
     vector<pair<ll, ll>> a, b;
-    while(i++ < n){
+    while(i < n){
         if(v[i] % m){
             a.pb({v[i], 1});
         }
         else{
             a.pb({v[i]/m, m});
         }
+        i++;
     }
     for(auto x : a)
         cout << " (" << x.first << ", " << x.second << ") ";
