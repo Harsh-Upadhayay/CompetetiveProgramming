@@ -17,7 +17,7 @@ struct ele{
 void solve(void){
     ll n, m, ans, k;
     cin >> n >> m;
-    cout << n << m;
+    cout << n << m << "*";
     vector<ll> v(n);
     rpt(n)
         cin >> v[i];
