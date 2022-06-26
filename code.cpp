@@ -36,6 +36,8 @@ vector<pair<ll, ll>> breakit(vector<ll> v, ll m){
         flist.pb({a[i].first, f});  
         i++;      
     }
+    for(auto x : flist)
+        cout << " (" << x.first << ", " << x.second << ") ";
     return flist;
 }
 
