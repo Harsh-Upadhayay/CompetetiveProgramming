@@ -10,23 +10,26 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-struct ele{
-    ll n, f;
-};
-
 void solve(void){
-    ll n, m, ans, k;
-    cin >> n >> m;
-    vector<ll> v(n);
-    rpt(n)
-        cin >> v[i];
-    cin >> k;
-    vector<ll> p(k);
-    rpt(k)
-        cin >> p[i];
-    int i = 0;
-    vector<ele> a, b;
-
+    ll n, m, ans = 0;
+    cin>>n;
+    string en, gr;
+    cin >> en >> gr;
+    bool flag = true;
+    for(int i = 0; i < n; i++){
+        if(gr[i] == '1'){
+            ans++;
+            if(en[i] == '0')
+                en[i] = '-';
+            else if(i != 0 && en[i-1] == '1')
+                en[i-1] = '-';
+            else if(i != n-1 && en[i+1] == '1')
+                en[i+1] = '-';
+            else
+                ans--;                
+        }
+    }
+    cout << ans;
     cout<<endl;
 
 }
