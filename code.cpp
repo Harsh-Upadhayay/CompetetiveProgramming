@@ -27,12 +27,18 @@ void solve(void){
     int i = 0, j;
     vector<pair<ll, ll>> a, b;
     while(i < n){
-        if(v[i] % m){
-            a.pb({v[i], 1});
+        ll x = 1, t = v[i];
+        while(!(t%m)){
+            x *= m;
+            t /= m;
         }
-        else{
-            a.pb({v[i]/m, m});
-        }
+        a.pb({v[i], x});
+        // if(v[i] % m){
+        //     a.pb({v[i], 1});
+        // }
+        // else{
+        //     a.pb({v[i]/m, m});
+        // }
         i++;
     }
     for(auto x : a)
