@@ -10,11 +10,11 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-vector<pair<ll, ll>> breakit(vector<ll> v, ll m){
+vector<pair<ll, ll>> breakit(vector<ll> &v, ll m){
     
     vector<pair<ll, ll>> a;
     ll i = 0, j;
-    ll n = a.size();
+    ll n = v.size();
     while(i < n){
         ll x = 1, t = v[i];
         while(!(t%m)){
