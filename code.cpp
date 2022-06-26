@@ -143,6 +143,7 @@ void solve(){
         cout << n << " " << m << "\n";
         rpt(n)
             cout << v[i] << " ";
+        cout << "\n";
         cout << k;
         // vector<ll> p(k);
         rpt(k)
