@@ -55,8 +55,8 @@ void solve(void){
     vector<pair<ll, ll>> a, b;
 
     a = breakit(v, m);
-
-    for(auto x : a)
+    b = breakit(p, m);
+    for(auto x : b)
         cout << " (" << x.first << ", " << x.second << ") ";
     cout<<endl;
 
