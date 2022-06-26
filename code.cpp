@@ -26,6 +26,7 @@ void solve(void){
         cin >> p[i];
     int i = 0, j;
     vector<pair<ll, ll>> a, b;
+
     while(i < n){
         ll x = 1, t = v[i];
         while(!(t%m)){
@@ -33,15 +34,21 @@ void solve(void){
             t /= m;
         }
         a.pb({t, x});
-        // if(v[i] % m){
-        //     a.pb({v[i], 1});
-        // }
-        // else{
-        //     a.pb({v[i]/m, m});
-        // }
         i++;
     }
-    for(auto x : a)
+
+    i = 0;
+    vector<pair<ll, ll>> flist; 
+    while(i < n-1){
+        ll f = a[i].second;
+        while(i < n-1 && a[i].first == a[i+1].first){
+            i++;
+            f += a[i].second;
+        }
+        flist.pb({a[i].first, f});        
+    }
+
+    for(auto x : flist)
         cout << " (" << x.first << ", " << x.second << ") ";
     cout<<endl;
 
