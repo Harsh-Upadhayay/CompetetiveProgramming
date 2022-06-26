@@ -140,6 +140,14 @@ void solve(){
         vector<ll> p(k);
         rpt(k)
             p[i] = rand()% (ll)10e1;
+        cout << n << " " << m << "\n";
+        rpt(n)
+            cout << v[i] << " ";
+        cout << k;
+        // vector<ll> p(k);
+        rpt(k)
+            cout << p[i] << " ";
+        
         // cout << solve(n, m, v, k, p);
         // if(Hsolve(n, m, v, k, p) != Asolve(n, m, v, k, p)){
         //     cout << n << " " << m << "\n";
@@ -156,7 +164,7 @@ void solve(){
 }
 
 int main() {
-    srand(time(0));
+    // srand(time(0));
 
     #ifndef ONLINE_JUDGE
         freopen("input.txt","r",stdin);
