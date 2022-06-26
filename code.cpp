@@ -130,27 +130,28 @@ void solve(){
     ll n, m, ans, k;
     // cin >> n >> m;
     ll _ = 0;
-    while(_++ < 1){
-        n = rand()% (ll)10e4;
-        m = rand()% (ll)10e9 + 2;
+    while(_++ < 2){
+        n = rand()% (ll)10e1;
+        m = rand()% (ll)10e1 + 2;
         vector<ll> v(n);
         rpt(n)
-            v[i] = rand()% (ll)10e9;
-        k = rand()% (ll)10e4;
+            v[i] = rand()% (ll)10e1;
+        k = rand()% (ll)10e1;
         vector<ll> p(k);
         rpt(k)
-            p[i] = rand()% (ll)10e9;
-        if(Hsolve(n, m, v, k, p) != Asolve(n, m, v, k, p)){
-            cout << n << " " << m << "\n";
-            rpt(n)
-                cout << v[i] << " ";
-            cout << k;
-            // vector<ll> p(k);
-            rpt(k)
-                cout << p[i] << " ";
-            cout <<Hsolve(n, m, v, k, p) << " " << Asolve(n, m, v, k, p);
-            break;
-        }
+            p[i] = rand()% (ll)10e1;
+        // cout << solve(n, m, v, k, p);
+        // if(Hsolve(n, m, v, k, p) != Asolve(n, m, v, k, p)){
+        //     cout << n << " " << m << "\n";
+        //     rpt(n)
+        //         cout << v[i] << " ";
+        //     cout << k;
+        //     // vector<ll> p(k);
+        //     rpt(k)
+        //         cout << p[i] << " ";
+        //     cout <<Hsolve(n, m, v, k, p) << " " << Asolve(n, m, v, k, p);
+        //     break;
+        // }
     }
 }
 
