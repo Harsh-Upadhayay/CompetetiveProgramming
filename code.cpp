@@ -45,7 +45,8 @@ void solve(void){
             i++;
             f += a[i].second;
         }
-        flist.pb({a[i].first, f});        
+        flist.pb({a[i].first, f});  
+        i++;      
     }
 
     for(auto x : flist)
