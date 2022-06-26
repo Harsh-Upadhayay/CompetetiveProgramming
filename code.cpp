@@ -10,12 +10,23 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
+struct ele{
+    ll n, f;
+};
+
 void solve(void){
-    ll n, m, ans;
-    cin>>n;
-    ans = n % 100 + n /  100;
-    // cout << ans;
-    cout << (ans > 10 ? -1 : ans);
+    ll n, m, ans, k;
+    cin >> n >> m;
+    vector<ll> v(n);
+    rpt(n)
+        cin >> v[i];
+    cin >> k;
+    vector<ll> p(k);
+    rpt(k)
+        cin >> p[i];
+    int i = 0;
+    vector<ele> a, b;
+
     cout<<endl;
 
 }
