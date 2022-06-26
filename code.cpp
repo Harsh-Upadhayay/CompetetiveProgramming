@@ -32,7 +32,7 @@ void solve(void){
             x *= m;
             t /= m;
         }
-        a.pb({v[i], x});
+        a.pb({t, x});
         // if(v[i] % m){
         //     a.pb({v[i], 1});
         // }
