@@ -10,23 +10,11 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-struct ele{
-    ll n, f;
-};
-
-void solve(void){
-    ll n, m, ans, k;
-    cin >> n >> m;
-    vector<ll> v(n);
-    rpt(n)
-        cin >> v[i];
-    cin >> k;
-    vector<ll> p(k);
-    rpt(k)
-        cin >> p[i];
-    int i = 0, j;
-    vector<pair<ll, ll>> a, b;
-
+vector<pair<ll, ll>> breakit(vector<ll> v, ll m){
+    
+    vector<pair<ll, ll>> a;
+    ll i = 0, j;
+    ll n = a.size();
     while(i < n){
         ll x = 1, t = v[i];
         while(!(t%m)){
@@ -48,8 +36,25 @@ void solve(void){
         flist.pb({a[i].first, f});  
         i++;      
     }
+    return flist;
+}
 
-    for(auto x : flist)
+void solve(void){
+    ll n, m, ans, k;
+    cin >> n >> m;
+    vector<ll> v(n);
+    rpt(n)
+        cin >> v[i];
+    cin >> k;
+    vector<ll> p(k);
+    rpt(k)
+        cin >> p[i];
+    
+    vector<pair<ll, ll>> a, b;
+
+    a = breakit(v, m);
+
+    for(auto x : a)
         cout << " (" << x.first << ", " << x.second << ") ";
     cout<<endl;
 
