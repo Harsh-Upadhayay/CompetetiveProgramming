@@ -38,7 +38,7 @@ vector<pair<ll, ll>> breakit(vector<ll> &v, ll m){
     }
     // for(auto x : a)
     //     cout << " (" << x.first << ", " << x.second << ") ";
-    return a;
+    return flist;
 }
 
 bool isEqual(vector<pair<ll, ll>> a, vector<pair<ll, ll>> b){
