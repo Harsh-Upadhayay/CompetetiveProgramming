@@ -19,14 +19,14 @@ void solve(void){
     bool f = false, bf = true;
     for(int i = 0; i < n; i++){
         for(int j = 0; j < m; j++){
-            cout << grid[i][j];
+            // cout << grid[i][j];
             if(grid[i][j] == 'B'){
                 bf = false;
                 if(i+1 == r || j+1 == c)
                     f = true;
             }
         }
-        cout << "\n";
+        // cout << "\n";
     }
      
     if(bf)
