@@ -29,7 +29,7 @@ void setSieve(){
 
     primes.pb(2);
     for(int i = 2; i <= PRIMES; i++)
-        if(isPrime[i + 2])
+        if(isPrime[i] && isPrime[i + 2])
             primes.pb(i);
     
 }
