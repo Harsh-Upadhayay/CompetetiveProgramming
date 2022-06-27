@@ -41,7 +41,7 @@ vector<pair<ll, ll>> breakit(vector<ll> &v, ll m){
         return a;
     }
     if(x > 1 && a[x-1].first != a[x-2].first){
-        flist.pb({a[x-1].first, 1});
+        flist.pb({a[x-1].first, a[x-1].second});
     }
     // for(auto x : a)
     //     cout << " (" << x.first << ", " << x.second << ") ";
