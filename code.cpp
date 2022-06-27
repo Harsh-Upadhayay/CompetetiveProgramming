@@ -18,7 +18,7 @@ void solve(void){
         cin >> grid[i];
     bool f = false, bf = true;
     for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
+        for(int j = 0; j < m; j++){
             cout << grid[i][j];
             if(grid[i][j] == 'B'){
                 bf = false;
