@@ -10,10 +10,11 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-#define PRIMES 1000001
+#define PRIMES 200001
 
 bitset<PRIMES+1> isPrime;
 vector<ll> primes;
+map<ll, ll> freq;
 
 void setSieve(){
 
@@ -32,11 +33,21 @@ void setSieve(){
     
 }
 
+void setFreq(){
+    
+    for(auto x : primes)
+        for(auto y : primes)
+            if(isPrime[x+y]){
+                cout << x << y;
+                freq[x]++;
+            }
+
+}
+
 void solve(void){
     ll n, m, ans;
     setSieve();
-    for(auto x : primes)
-        cout << x << " ";
+
     cout<<endl;
 
 }
