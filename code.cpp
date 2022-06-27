@@ -50,7 +50,7 @@ void solve(void){
     rpt(q){
         ll x, k, n = store.size();
         cin >> x >> k;
-        cout << store[(k > n ? n-1 : k)][x-1] << "\n";
+        cout << store[(k < n ? k : n-1)][x-1] << "\n";
     }
 
     // for(auto x : store){
