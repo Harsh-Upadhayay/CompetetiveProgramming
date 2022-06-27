@@ -21,8 +21,11 @@ void solve(void){
     cin >> n >> m;
     vector<ll> dist;
     for(int i = 0; i < n; i++)
-        for(int j = 0; j < m; j++)
+        for(int j = 0; j < m; j++){
+            if(maxDist(i, j, n-1, m-1) == 6)
+                cout << i << j;
             dist.pb(maxDist(i, j, n-1, m-1));
+        }
     sort(dist.begin(), dist.end());
     for(auto x : dist)
         cout << x << " ";
