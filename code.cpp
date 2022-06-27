@@ -31,7 +31,7 @@ void precompute(vector<ll> v){
         for(auto &x : v)
             x = m[x];
         vector<ll> t(v.begin(), v.end());
-        store.pb(t);
+        store.pb(v);
     }
 }
 
