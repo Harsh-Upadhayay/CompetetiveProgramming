@@ -30,6 +30,7 @@ void setSieve(){
 void solve(void){
     ll n, m, ans;
     setSieve();
+    cout << isPrime[100000];
     cout<<endl;
 
 }
