@@ -68,7 +68,7 @@ void solve(void){
 
     a = breakit(v, m);
     b = breakit(p, m);
-    for(auto x : b)
+    for(auto x : a)
         cout << " (" << x.first << ", " << x.second << ") ";
     
     cout << (isEqual(a, b)?"YES":"NO");
