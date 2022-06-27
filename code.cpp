@@ -45,6 +45,12 @@ void solve(void){
         tree[u].pb(v);
         tree[v].pb(u);
     }
+    for(int i = 1; i <= n; i++){
+        cout << i << " : ";
+        for(auto x : tree[i])
+            cout << x << " ";
+        cout << "\n";
+    }
     cout<<endl;
 
 }
