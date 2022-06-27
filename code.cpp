@@ -7,14 +7,25 @@ using namespace std;
 
 #define inf INT_MAX
 
-#define TESTCAS
+#define TESTCASE
 ll t,T;
 
+ll maxDist(ll i, ll j, ll n, ll m){
+    ll x = max(i+j, abs(i-n) + j);
+    ll y = max(i + abs(j-m), abs(i-n)+ abs(j-n));
+    return max(x, y);
+}
+
 void solve(void){
-    ll n, m, ans, k;
-    cin >> n >> k;
-    ans = 2*n +1 + 2*min(k-1, n-k) + max(k-1, n-k);
-    cout << ans;
+    ll n, m, ans;
+    cin >> n >> m;
+    vector<ll> dist;
+    for(int i = 0; i < n; i++)
+        for(int j = 0; j < m; j++)
+            dist.pb(maxDist(i, j, n-1, m-1));
+    sort(dist.begin(), dist.end());
+    for(auto x : dist)
+        cout << x << " ";
     cout<<endl;
 
 }
