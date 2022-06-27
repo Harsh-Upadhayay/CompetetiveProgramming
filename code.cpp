@@ -15,13 +15,15 @@ void solve(void){
     string s;
     cin >> s;
     mn = s[0];
-    cout << ('c' < 'b');
-    for(int i = 1; i < s.size(); i++)
+
+    for(int i = 1; i < s.size(); i++){
+        cout << s[i];
         if(mn < s[i]){
             mn = s[i];
             mi = i;
         }
-    cout << s[mi] << " ";
+    }
+        cout << s[mi] << " ";
     for(int i = 0; i < s.size(); i++)
         if(i != mi)
             cout << s[i];
