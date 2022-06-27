@@ -7,27 +7,48 @@ using namespace std;
 
 #define inf INT_MAX
 
-#define TESTCASE
+#define TESTCAS
 ll t,T;
 
-void solve(void){
-    ll n, m, ans, mi = 0;
-    char mn;
-    string s;
-    cin >> s;
-    mn = s[0];
+bool stop(unordered_map<ll, ll> m){
+    for(auto x : m)
+        if(x.first != x.second)
+            return false;
+    return true;
+}
 
-    for(int i = 1; i < s.size(); i++){
-        // cout << (mn > /s[i]);
-        if(mn > s[i]){
-            mn = s[i];
-            mi = i;
-        }
+vector<vector<ll>> store;
+
+void precompute(vector<ll> v){
+    ll n = v.size();
+    unordered_map<ll, ll> m;
+    for(auto x : v)
+        m[x]++;
+    int i = 0;
+    while(i++ < 10){
+        for(auto &x : v)
+            x = m[x];
+        store.pb(v);
     }
-        cout << s[mi] << " ";
-    for(int i = 0; i < s.size(); i++)
-        if(i != mi)
-            cout << s[i];
+}
+
+void solve(void){
+    ll n, q;
+    cin >> n;
+    vector<ll> v(n);
+    rpt(n)
+        cin >> v[i];
+
+    precompute(v);    
+
+    cin >> q;
+    rpt(q){
+        ll x, k;
+        cin >> x >> k;
+    }
+    for(auto x : store)
+        for(auto y : x)
+            cout << y << " ";
     cout<<endl;
 
 }
