@@ -13,8 +13,8 @@ ll t,T;
 ll maxDist(ll i, ll j, ll n, ll m){
     ll x = max(i + j    , n - i + j);
     ll y = max(i + m - j, n - i + n - j);
-    if(x == 6)
-        cout << x;
+    if(y == 6)
+        cout << y;
     return max(x, y);
 }
 
