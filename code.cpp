@@ -28,7 +28,8 @@ void precompute(vector<ll> v){
     while(i++ < 10){
         for(auto &x : v)
             x = m[x];
-        store.pb(v);
+        vector<ll> t(v.begin(), v.end());
+        store.pb(t);
     }
 }
 
