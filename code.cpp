@@ -49,9 +49,11 @@ void solve(void){
         ll x, k;
         cin >> x >> k;
     }
-    for(auto x : store)
+    for(auto x : store){
         for(auto y : x)
             cout << y << " ";
+        cout << "\n";
+    }
     cout<<endl;
 
 }
