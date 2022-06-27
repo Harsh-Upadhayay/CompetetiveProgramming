@@ -36,9 +36,15 @@ void setSieve(){
 
 
 void solve(void){
-
-    for(auto x : primes)
-        cout << x << " ";
+    ll n;
+    cin >> n;
+    vector<list<ll>> tree(n+1);
+    rpt(n-1){
+        ll u, v;
+        cin >> u >> v;
+        tree[u].pb(v);
+        tree[v].pb(u);
+    }
     cout<<endl;
 
 }
