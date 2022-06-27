@@ -37,12 +37,15 @@ vector<pair<ll, ll>> breakit(vector<ll> &v, ll m){
         i++;      
     }
     ll x = a.size();
-    if(a[x-1].first != a[x-2].first){
+    if(x == 1){
+        return a;
+    }
+    if(x > 1 && a[x-1].first != a[x-2].first){
         flist.pb({a[x-1].first, 1});
     }
     // for(auto x : a)
     //     cout << " (" << x.first << ", " << x.second << ") ";
-    return a;
+    return flist;
 }
 
 bool isEqual(vector<pair<ll, ll>> a, vector<pair<ll, ll>> b){
@@ -68,8 +71,8 @@ void solve(void){
 
     a = breakit(v, m);
     b = breakit(p, m);
-    for(auto x : b)
-        cout << " (" << x.first << ", " << x.second << ") ";
+    // for(auto x : b)
+    //     cout << " (" << x.first << ", " << x.second << ") ";
     
     cout << (isEqual(a, b)?"YES":"NO");
     cout<<endl;
