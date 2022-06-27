@@ -10,7 +10,7 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-#define PRIMES 200001
+#define PRIMES 100001
 
 bitset<PRIMES+1> isPrime;
 vector<ll> primes;
@@ -27,27 +27,18 @@ void setSieve(){
             for(int j = i * i; j <= PRIMES; j += i)
                 isPrime[j] = false;
 
+    primes.pb(2);
     for(int i = 2; i <= PRIMES; i++)
-        if(isPrime[i])
+        if(isPrime[i + 2])
             primes.pb(i);
     
 }
 
-void setFreq(){
-    // cout << primes.size();
-    for(int i = 0; i < primes.size(); i++)
-        if(primes[i] < 100001)
-            for(int j = 0; j < primes.size(); j++)
-                if(isPrime[primes[j]+primes[i]]){
-                    // cout << x << primes[i];
-                    // freq[primes[j]]++;
-                    freq[primes[i]]++;
-                }
-    for(auto x : freq)
-        cout << x.first << " " << x.second << "\n";
-}
 
 void solve(void){
+
+    for(auto x : primes)
+        cout << x << " ";
     cout<<endl;
 
 }
@@ -65,7 +56,6 @@ int main() {
 
     ll n, m, ans;
     setSieve();
-    setFreq();
 
     #ifdef TESTCASE
         cin>>t;
