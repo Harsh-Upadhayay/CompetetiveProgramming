@@ -53,119 +53,31 @@ bool isEqual(vector<pair<ll, ll>> a, vector<pair<ll, ll>> b){
     return a.size() == b.size();
 }
 
-string Asolve(ll n, ll m, vector<ll> &a, ll k, vector<ll> &b) {
- 
-    // ll n, m;
-    // cin >> n >> m;
-    // vector<ll> a(n);
-    vector<pair<ll, ll>> M, L;
-    ll N = 0, y = 0;
-    for (ll i = 0; i < n; i++) {
-        // cin >> a[i];
-        ll j = 1;
-        while (a[i] % m == 0) {
-            j *= m;
-            a[i] /= m;
-        }
-        if (a[i] != N) {
-            if (N != 0) {
-                M.push_back({N, y});
-            }
-            N = a[i];
-            y = j;
-        } else {
-            y += j;
-        }
-    }
-    M.push_back({N, y});
-    // ll k; cin >> k;
-    // vector<ll> b(k);
-    N = 0, y = 0;
-    for (ll i = 0; i < k; i++) {
-        // cin >> b[i];
-        ll j = 1;
-        while (b[i] % m == 0) {
-            j *= m;
-            b[i] /= m;
-        }
-        if (b[i] != N) {
-            if (N != 0) {
-                L.push_back({N, y});
-            }
-            N = b[i];
-            y = j;
-        } else {
-            y += j;
-        }
-    }
-    L.push_back({N, y});
-    if (M != L) {return "NO";}
-    return "YES";
- 
-}
-
-string Hsolve(ll n, ll m, vector<ll> &v, ll k, vector<ll> &p){
-    // ll n, m, ans, k;
-    // cin >> n >> m;
-    // vector<ll> v(n);
-    // rpt(n)
-    //     cin >> v[i];
-    // cin >> k;
-    // vector<ll> p(k);
-    // rpt(k)
-    //     cin >> p[i];
+void solve(void){
+    ll n, m, ans, k;
+    cin >> n >> m;
+    vector<ll> v(n);
+    rpt(n)
+        cin >> v[i];
+    cin >> k;
+    vector<ll> p(k);
+    rpt(k)
+        cin >> p[i];
     
     vector<pair<ll, ll>> a, b;
 
     a = breakit(v, m);
     b = breakit(p, m);
-
     // for(auto x : b)
     //     cout << " (" << x.first << ", " << x.second << ") ";
     
-    return (isEqual(a, b)?"YES":"NO");
-}
+    cout << (isEqual(a, b)?"YES":"NO");
+    cout<<endl;
 
-void solve(){
-    ll n, m, ans, k;
-    // cin >> n >> m;
-    ll _ = 0;
-    while(_++ < 2){
-        n = rand()% (ll)10e1;
-        m = rand()% (ll)10e1 + 2;
-        vector<ll> v(n);
-        rpt(n)
-            v[i] = rand()% (ll)10e1;
-        k = rand()% (ll)10e1;
-        vector<ll> p(k);
-        rpt(k)
-            p[i] = rand()% (ll)10e1;
-        cout << n << " " << m << "\n";
-        rpt(n)
-            cout << v[i] << " ";
-        cout << "\n";
-        cout << k;
-        // vector<ll> p(k);
-        rpt(k)
-            cout << p[i] << " ";
-        
-        // cout << solve(n, m, v, k, p);
-        // if(Hsolve(n, m, v, k, p) != Asolve(n, m, v, k, p)){
-        //     cout << n << " " << m << "\n";
-        //     rpt(n)
-        //         cout << v[i] << " ";
-        //     cout << k;
-        //     // vector<ll> p(k);
-        //     rpt(k)
-        //         cout << p[i] << " ";
-        //     cout <<Hsolve(n, m, v, k, p) << " " << Asolve(n, m, v, k, p);
-        //     break;
-        // }
-    }
 }
 
 int main() {
-    // srand(time(0));
+    srand(time(0));
 
     #ifndef ONLINE_JUDGE
         freopen("input.txt","r",stdin);
@@ -187,5 +99,3 @@ int main() {
 
     return 0;
 }
-
-
