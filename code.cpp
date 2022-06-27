@@ -13,6 +13,7 @@ ll t,T;
 #define PRIMES 1000001
 
 bitset<PRIMES+1> isPrime;
+vector<ll> primes;
 
 void setSieve(){
 
@@ -21,16 +22,19 @@ void setSieve(){
 
     isPrime[0] = isPrime[1] = false;
     for(int i = 2; i*i <= PRIMES; i++)
-        if(isPrime[i])
+        if(isPrime[i]){
             for(int j = i * i; j <= PRIMES; j += i)
                 isPrime[j] = false;
+            primes.pb(i);
+        }
     
 }
 
 void solve(void){
     ll n, m, ans;
     setSieve();
-    cout << isPrime[43];
+    for(auto x : primes)
+        cout << x << " ";
     cout<<endl;
 
 }
