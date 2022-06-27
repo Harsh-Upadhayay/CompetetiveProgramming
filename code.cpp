@@ -11,8 +11,8 @@ using namespace std;
 ll t,T;
 
 ll maxDist(ll i, ll j, ll n, ll m){
-    ll x = max(i+j, abs(i-n) + j);
-    ll y = max(i + abs(j-m), abs(i-n)+ abs(j-n));
+    ll x = max(i+j, n - i + j);
+    ll y = max(i + m - j, n - i + n - j);
     return max(x, y);
 }
 
@@ -23,7 +23,7 @@ void solve(void){
     for(int i = 0; i < n; i++)
         for(int j = 0; j < m; j++){
             if(maxDist(i, j, n-1, m-1) == 6)
-                cout << i << j;
+                cout << (n-1) << (m-1);
             dist.pb(maxDist(i, j, n-1, m-1));
         }
     sort(dist.begin(), dist.end());
