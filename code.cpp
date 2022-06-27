@@ -16,13 +16,14 @@ void solve(void){
     vector<string> grid(n);
     rpt(n)
         cin >> grid[i];
-    bool f = false
-    ;
+    bool f = false, bf = true;
     for(int i = 0; i < n; i++)
         for(int j = 0; j < n; j++)
-            if(grid[i][j] == 'B')
+            if(grid[i][j] == 'B'){
+                bf = false;
                 if(i+1 == r || j+1 == c)
                     f = true;
+            }
                 
     if(grid[r-1][c-1] == 'B')
         ans = 0;
@@ -30,6 +31,8 @@ void solve(void){
         ans = 1;
     else
         ans = 2;
+    if(bf)
+        ans = -1;
     cout << ans;
     cout<<endl;
 
