@@ -37,13 +37,14 @@ void setFreq(){
     // cout << primes.size();
     for(int i = 0; i < primes.size(); i++)
         if(primes[i] < 100001)
-            for(int j = i+1; j < primes.size(); j++)
+            for(int j = 0; j < primes.size(); j++)
                 if(isPrime[primes[j]+primes[i]]){
                     // cout << x << primes[i];
-                    freq[primes[j]]++;
+                    // freq[primes[j]]++;
                     freq[primes[i]]++;
                 }
-
+    for(auto x : freq)
+        cout << x.first << " " << x.second << "\n";
 }
 
 void solve(void){
