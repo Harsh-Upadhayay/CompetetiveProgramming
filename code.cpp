@@ -10,71 +10,20 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-vector<pair<ll, ll>> breakit(vector<ll> &v, ll m){
-    
-    vector<pair<ll, ll>> a;
-    ll i = 0, j;
-    ll n = v.size();
-    while(i < n){
-        ll x = 1, t = v[i];
-        while(!(t%m)){
-            x *= m;
-            t /= m;
-        }
-        a.pb({t, x});
-        i++;
-    }
-
-    i = 0;
-    vector<pair<ll, ll>> flist; 
-    while(i < n-1){
-        ll f = a[i].second;
-        while(i < n-1 && a[i].first == a[i+1].first){
-            i++;
-            f += a[i].second;
-        }
-        flist.pb({a[i].first, f});  
-        i++;      
-    }
-    ll x = a.size();
-    if(x == 1){
-        return a;
-    }
-    if(x > 1 && a[x-1].first != a[x-2].first){
-        flist.pb({a[x-1].first, a[x-1].second});
-    }
-    // for(auto x : a)
-    //     cout << " (" << x.first << ", " << x.second << ") ";
-    return flist;
-}
-
-bool isEqual(vector<pair<ll, ll>> a, vector<pair<ll, ll>> b){
-    for(ll i = 0; i < a.size(); i++)
-        if( a[i].first != b[i].first ||
-            a[i].second != b[i].second)
-            return false;
-    return a.size() == b.size();
-}
-
 void solve(void){
-    ll n, m, ans, k;
-    cin >> n >> m;
-    vector<ll> v(n);
-    rpt(n)
-        cin >> v[i];
-    cin >> k;
-    vector<ll> p(k);
-    rpt(k)
-        cin >> p[i];
-    
-    vector<pair<ll, ll>> a, b;
-
-    a = breakit(v, m);
-    b = breakit(p, m);
-    for(auto x : b)
-        cout << " (" << x.first << ", " << x.second << ") ";
-    
-    cout << (isEqual(a, b)?"YES":"NO");
+    ll n, m, ans, mn, mi = 0;
+    string s;
+    cin >> s;
+    mn = s[0];
+    for(int i = 1; i < s.size(); i++)
+        if(mn < s[i]){
+            mn = s[i];
+            mi = i;
+        }
+    cout << s[mi] << " ";
+    for(int i = 0; i < s.size(); i++)
+        if(i != mi)
+            cout << s[i];
     cout<<endl;
 
 }
@@ -102,3 +51,5 @@ int main() {
 
     return 0;
 }
+
+
