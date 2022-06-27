@@ -34,14 +34,14 @@ void setSieve(){
 }
 
 void setFreq(){
-    cout << primes.size();
-    // for(auto x : primes)
-    //     if(x < 100001)
-    //         for(int i = 0; i < primes.size(); i++)
-    //             if(isPrime[x+primes[i]]){
-    //                 cout << x << primes[i];
-    //                 freq[x]++;
-    //             }
+    // cout << primes.size();
+    for(auto x : primes)
+        if(x < 100001)
+            for(int i = 0; i < primes.size(); i++)
+                if(isPrime[x+primes[i]]){
+                    // cout << x << primes[i];
+                    freq[x]++;
+                }
 
 }
 
