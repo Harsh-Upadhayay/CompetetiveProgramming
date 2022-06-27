@@ -28,6 +28,7 @@ void precompute(vector<ll> v){
     //     cout << x.second << x.first << " ";
     int i = 0;
     while(i++ < 10){
+        m.clear();
         for(auto &x : v)
             x = m[x];
         for(auto x : v)
