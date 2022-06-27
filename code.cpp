@@ -22,7 +22,10 @@ vector<vector<ll>> store;
 void precompute(vector<ll> v){
     ll n = v.size();
     unordered_map<ll, ll> m;
-
+    for(auto x : v)
+        m[x]++;
+    // for(auto x : m)
+    //     cout << x.second << x.first << " ";
     int i = 0;
     while(i++ < 10){
         for(auto &x : v)
