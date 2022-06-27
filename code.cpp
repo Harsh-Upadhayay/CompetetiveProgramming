@@ -34,20 +34,21 @@ void setSieve(){
 }
 
 void setFreq(){
-    
-    for(auto x : primes)
-        for(auto y : primes)
-            if(isPrime[x+y]){
-                cout << x << y;
-                freq[x]++;
-            }
+    cout << primes.size();
+    // for(auto x : primes)
+    //     if(x < 100001)
+    //         for(int i = 0; i < primes.size(); i++)
+    //             if(isPrime[x+primes[i]]){
+    //                 cout << x << primes[i];
+    //                 freq[x]++;
+    //             }
 
 }
 
 void solve(void){
     ll n, m, ans;
     setSieve();
-
+    setFreq();
     cout<<endl;
 
 }
