@@ -10,7 +10,7 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-#define PRIMES 200001
+#define PRIMES 100001
 
 bitset<PRIMES+1> isPrime;
 vector<ll> primes;
