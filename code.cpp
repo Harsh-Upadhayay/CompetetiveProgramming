@@ -16,7 +16,8 @@ void solve(void){
     cin >> s;
     mn = s[0];
     for(int i = 1; i < s.size(); i++)
-        if(mn-'a' < s[i]-'a'){
+        if(mn < s[i]){
+            cout << i;
             mn = s[i];
             mi = i;
         }
