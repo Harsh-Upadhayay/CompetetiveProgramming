@@ -37,6 +37,7 @@ void precompute(vector<ll> v){
 }
 
 void solve(void){
+    store.clear();
     ll n, q;
     cin >> n;
     vector<ll> v(n);
