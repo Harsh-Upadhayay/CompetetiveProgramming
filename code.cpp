@@ -22,11 +22,13 @@ void setSieve(){
 
     isPrime[0] = isPrime[1] = false;
     for(int i = 2; i*i <= PRIMES; i++)
-        if(isPrime[i]){
+        if(isPrime[i])
             for(int j = i * i; j <= PRIMES; j += i)
                 isPrime[j] = false;
+
+    for(int i = 2; i <= PRIMES; i++)
+        if(isPrime[i])
             primes.pb(i);
-        }
     
 }
 
