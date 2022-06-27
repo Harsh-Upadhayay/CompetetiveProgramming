@@ -15,7 +15,7 @@ void solve(void){
     string s;
     cin >> s;
     mn = s[0];
-    cout << ('a' < 'b');
+    cout << ('c' < 'b');
     for(int i = 1; i < s.size(); i++)
         if(mn < s[i]){
             mn = s[i];
