@@ -10,54 +10,27 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-bool stop(unordered_map<ll, ll> m){
-    for(auto x : m)
-        if(x.first != x.second)
-            return false;
-    return true;
-}
-
-vector<vector<ll>> store;
-
-void precompute(vector<ll> v){
-    ll n = v.size();
-    unordered_map<ll, ll> m;
-    for(auto x : v)
-        m[x]++;
-    store.pb(v);
-    int i = 0;
-    while(!stop(m)){
-        for(auto &x : v)
-            x = m[x];
-        m.clear();
-        for(auto x : v)
-            m[x]++;
-        store.pb(v);
-    }
-}
-
 void solve(void){
-    store.clear();
-    ll n, q;
-    cin >> n;
-    vector<ll> v(n);
+    ll n, m, r, c, ans;
+    cin >> n >> m >> r >> c;
+    vector<string> grid(n);
     rpt(n)
-        cin >> v[i];
-
-    precompute(v);    
-
-    cin >> q;
-    rpt(q){
-        ll x, k, n = store.size();
-        cin >> x >> k;
-        cout << store[(k < n ? k : n-1)][x-1] << "\n";
-    }
-
-    // for(auto x : store){
-    //     for(auto y : x)
-    //         cout << y << " ";
-    //     cout << "\n";
-    // }
+        cin >> grid[i];
+    bool f = false
+    ;
+    for(int i = 0; i < n; i++)
+        for(int j = 0; j < n; j++)
+            if(grid[i][j] == 'B')
+                if(i+1 == r || j+1 == c)
+                    f = true;
+                
+    if(grid[r-1][c-1] == 'B')
+        ans = 0;
+    if(f)
+        ans = 1;
+    else
+        ans = 2;
+    cout << ans;
     cout<<endl;
 
 }
