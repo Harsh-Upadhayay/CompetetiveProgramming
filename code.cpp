@@ -7,7 +7,7 @@ using namespace std;
 
 #define inf INT_MAX
 
-#define TESTCAS
+#define TESTCASE
 ll t,T;
 
 bool stop(unordered_map<ll, ll> m){
@@ -22,10 +22,7 @@ vector<vector<ll>> store;
 void precompute(vector<ll> v){
     ll n = v.size();
     unordered_map<ll, ll> m;
-    for(auto x : v)
-        cout << x;
-    for(auto x : m)
-        cout << x.second << x.first << " ";
+
     int i = 0;
     while(i++ < 10){
         for(auto &x : v)
