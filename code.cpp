@@ -46,9 +46,6 @@ void setFreq(){
 }
 
 void solve(void){
-    ll n, m, ans;
-    setSieve();
-    setFreq();
     cout<<endl;
 
 }
@@ -64,6 +61,10 @@ int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(NULL);
 
+    ll n, m, ans;
+    setSieve();
+    setFreq();
+    
     #ifdef TESTCASE
         cin>>t;
         T=t;
