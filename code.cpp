@@ -24,10 +24,9 @@ void precompute(vector<ll> v){
     unordered_map<ll, ll> m;
     for(auto x : v)
         m[x]++;
-    // for(auto x : m)
-    //     cout << x.second << x.first << " ";
+
     int i = 0;
-    while(i++ < 10){
+    while(!stop(m)){
         for(auto &x : v)
             x = m[x];
         m.clear();
