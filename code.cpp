@@ -30,7 +30,8 @@ void precompute(vector<ll> v){
     while(i++ < 10){
         for(auto &x : v)
             x = m[x];
-        vector<ll> t(v.begin(), v.end());
+        for(auto x : v)
+            m[x]++;
         store.pb(v);
     }
 }
