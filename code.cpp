@@ -18,8 +18,8 @@ void solve(void){
     mn = s[0];
 
     for(int i = 1; i < s.size(); i++){
-        cout << (mn > s[i]);
-        if(mn < s[i]){
+        // cout << (mn > /s[i]);
+        if(mn > s[i]){
             mn = s[i];
             mi = i;
         }
