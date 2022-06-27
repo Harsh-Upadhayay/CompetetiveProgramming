@@ -24,7 +24,7 @@ void precompute(vector<ll> v){
     unordered_map<ll, ll> m;
     for(auto x : v)
         m[x]++;
-
+    store.pb(v);
     int i = 0;
     while(!stop(m)){
         for(auto &x : v)
@@ -48,14 +48,16 @@ void solve(void){
 
     cin >> q;
     rpt(q){
-        ll x, k;
+        ll x, k, n = store.size();
         cin >> x >> k;
+        cout << store[(k > n ? n : k)][x-1];
     }
-    for(auto x : store){
-        for(auto y : x)
-            cout << y << " ";
-        cout << "\n";
-    }
+
+    // for(auto x : store){
+    //     for(auto y : x)
+    //         cout << y << " ";
+    //     cout << "\n";
+    // }
     cout<<endl;
 
 }
