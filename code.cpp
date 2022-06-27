@@ -7,36 +7,13 @@ using namespace std;
 
 #define inf INT_MAX
 
-#define TESTCASE
+#define TESTCAS
 ll t,T;
 
 void solve(void){
-    ll n, m, r, c, ans;
-    cin >> n >> m >> r >> c;
-    vector<string> grid(n);
-    rpt(n)
-        cin >> grid[i];
-    bool f = false, bf = true;
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < m; j++){
-            // cout << grid[i][j];
-            if(grid[i][j] == 'B'){
-                bf = false;
-                if(i+1 == r || j+1 == c)
-                    f = true;
-            }
-        }
-        // cout << "\n";
-    }
-     
-    if(bf)
-        ans = -1;           
-    else if(grid[r-1][c-1] == 'B')
-        ans = 0;
-    else if(f)
-        ans = 1;
-    else
-        ans = 2;
+    ll n, m, ans, k;
+    cin >> n >> k;
+    ans = 2*n -1 + 2*min(k-1, n-k) + max(k-1, n-k);
     cout << ans;
     cout<<endl;
 
