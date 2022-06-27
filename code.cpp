@@ -24,15 +24,15 @@ void solve(void){
                 if(i+1 == r || j+1 == c)
                     f = true;
             }
-                
-    if(grid[r-1][c-1] == 'B')
+     
+    if(bf)
+        ans = -1;           
+    else if(grid[r-1][c-1] == 'B')
         ans = 0;
-    if(f)
+    else if(f)
         ans = 1;
     else
         ans = 2;
-    if(bf)
-        ans = -1;
     cout << ans;
     cout<<endl;
 
