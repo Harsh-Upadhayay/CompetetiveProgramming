@@ -10,25 +10,26 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-ll maxDist(ll i, ll j, ll n, ll m){
-    ll x = max(i + j    , n - i + j);
-    ll y = max(i + m - j, n - i + m - j);
-    return max(x, y);
+#define PRIMES 1000001
+
+bitset<PRIMES+1> isPrime;
+
+void setSieve(){
+
+    for(int i = 2; i <= PRIMES; i++)
+        isPrime[i] = true;
+
+    isPrime[0] = isPrime[1] = false;
+    for(int i = 2; i*i <= PRIMES; i++)
+        if(isPrime[i])
+            for(int j = i * i; j <= PRIMES; j += i)
+                isPrime[j] = false;
+    
 }
 
 void solve(void){
     ll n, m, ans;
-    cin >> n >> m;
-    vector<ll> dist;
-    for(int i = 0; i < n; i++)
-        for(int j = 0; j < m; j++){
-            // if(maxDist(i, j, n-1, m-1) == 6)
-            //     cout << (n-1) << (m-1);
-            dist.pb(maxDist(i, j, n-1, m-1));
-        }
-    sort(dist.begin(), dist.end());
-    for(auto x : dist)
-        cout << x << " ";
+    setSieve();
     cout<<endl;
 
 }
