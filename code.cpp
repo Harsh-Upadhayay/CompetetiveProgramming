@@ -11,7 +11,8 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans, mn, mi = 0;
+    ll n, m, ans, mi = 0;
+    char mn;
     string s;
     cin >> s;
     mn = s[0];
