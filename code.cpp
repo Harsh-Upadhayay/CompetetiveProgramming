@@ -13,7 +13,7 @@ ll t,T;
 void solve(void){
     ll n, m, ans, k;
     cin >> n >> k;
-    ans = 2*n -1 + 2*min(k-1, n-k) + max(k-1, n-k);
+    ans = 2*n +1 + 2*min(k-1, n-k) + max(k-1, n-k);
     cout << ans;
     cout<<endl;
 
