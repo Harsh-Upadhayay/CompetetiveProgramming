@@ -27,7 +27,7 @@ void solve(void){
         }
         if(tx == v[i]){
             cout << v[i] << "\n";
-            break;
+            return;
         }
     }
     cout<<endl;
