@@ -43,10 +43,8 @@ void solve(void){
     flag = true;
     if(n == 4 && v.size() == 4 && sum == 0) {
         sort(v.begin(), v.end());
-        for(auto x : v )    
-            cout << x; 
         for(int i = 0; i < 2; i++)
-            if(v[i] != ((-1)*v[2+i]))
+            if(v[i] != ((-1)*v[3-i]))
                  flag = false;
         if(flag)
             ans = "YES";
