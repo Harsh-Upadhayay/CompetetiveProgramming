@@ -11,7 +11,7 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, q,ans;
+    ll n, m, q, ans;
     set<ll> candies;
     cin >> n >> q;
     ll prev = 0;
@@ -26,7 +26,7 @@ void solve(void){
     rpt(n-1)
         preSum.pb(preSum[i]+v[i+1]);
     rpt(n)
-        cout << preSum[i];
+        cout << preSum[i] << " ";
     rpt(q){
         ll qry;
         cin >> qry;
