@@ -10,6 +10,13 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
+bool isEqual(vector<ll> &v, ll start, ll end, ll x){
+    while(start > 0)
+        if(v[--start] != x)
+            return false;
+    return true;
+}
+
 void solve(void){
     ll n, m, ans = 0;
     cin >> n;
@@ -23,12 +30,9 @@ void solve(void){
     while(i > 0){
         ll t = len;
         bool flag = true;
-
-        while(t-- && i > 0) {
-            if(v[--i] != x)
-                flag = false;
-        }
-        ans += !flag;
+        if(isEqual(v, i, n-len, x))
+            ans++;
+        i = n-len;
         len *= 2;
     }   
     // if(ans && n%2)
