@@ -10,35 +10,27 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-bool isEqual(vector<ll> &v, ll start, ll end, ll x){
-    while(start > 0 && start <= end)
-        if(v[--start] != x)
-            return false;
-    return true;
-}
-
 void solve(void){
-    ll n, m, ans = 0;
-    cin >> n;
-    vector<ll> v(n);
+    ll n, m, q,ans;
+    set<ll> candies;
+    cin >> n >> q;
+    ll prev = 0;
+    vector<ll> v;
+    rpt(n){
+        ll x;
+        cin >> x;
+        v.pb(x);
+    }
+    vector<ll> preSum;
+    preSum.pb(v[0]);
+    rpt(n-1)
+        preSum.pb(preSum[i]+v[i+1]);
     rpt(n)
-        cin >> v[i];
-   reverse(v.begin(), v.end());
-
-   ll len = 1, x = v[n-1];
-   for(int i = 0; i < n; i += len){
-        bool flag = true;
-        for(int j = i; j < i+ len/2 && j < n; j++)
-            if(v[j] != x){
-                flag = false;
-                break;
-            }
-        ans += !flag;
-        len *= 2;
-   }
-    // if(ans && n%2)
-    //     ans -= (v[n/2] == x);
-    cout << ans;
+        cout << preSum[i];
+    rpt(q){
+        ll qry;
+        cin >> qry;
+    }
     cout<<endl;
 
 }
