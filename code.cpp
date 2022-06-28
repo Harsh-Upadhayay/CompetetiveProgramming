@@ -41,11 +41,10 @@ void solve(void){
     if(n == 3 && flag)
         ans = "YES";
     flag = true;
-    if(n == 4 && v.size() == 4 && sum == 0) {
-        sort(v.begin(), v.end());
-        for(int i = 0; i < 2; i++)
-            if(v[i] != ((-1)*v[3-i]))
-                 flag = false;
+    if(n == 4 && v.size() == 4) {
+        for(auto x : a)
+            if(sum - x == x)
+                flag = true;
         if(flag)
             ans = "YES";
     }
@@ -77,5 +76,3 @@ int main() {
 
     return 0;
 }
-
-
