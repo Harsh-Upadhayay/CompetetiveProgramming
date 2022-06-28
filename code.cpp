@@ -11,16 +11,22 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, k;
+    ll n, m, k, sum = 0;
     string ans;
     cin >> n;
+    bool flag = false;
     vector<ll> a(n);
-    rpt(n)
+    rpt(n){
+        sum += a[i];
         cin >> a[i];
+    }
     vector<ll> v;
-    for(auto x : a)
+    for(auto x : a){
+        if(x == sum)
+            flag = true;
         if(x)
             v.pb(x);
+    }
 
     if(v.size() > 2)
         ans = "NO";
@@ -32,7 +38,8 @@ void solve(void){
         else 
             ans = "NO";
     }
-    
+    if(n == 3 && flag)
+        ans = "YES";
     cout << ans;
     cout<<endl;
 
