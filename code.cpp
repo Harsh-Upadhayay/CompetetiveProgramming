@@ -35,22 +35,51 @@ void setSieve(){
 }
 
 
+void dfs(vector<list<ll>> &tree, vector<bool> &visited, vector<ll> &weight, ll node, ll w){
+    visited[node] = true;
+    weight[node] = w;
+
+    for(auto x : tree[node])
+        if(!visited[node])
+            dfs(tree, visited, weight, x, (w == 2 ? 5 : 2));
+
+}
+
 void solve(void){
-    ll n;
+
+    ll n, root = -1;
     cin >> n;
     vector<list<ll>> tree(n+1);
+
+    vector<bool> visited(n+1, false);
+    vector<ll> weight(n+1, 0);
+
     rpt(n-1){
         ll u, v;
         cin >> u >> v;
         tree[u].pb(v);
         tree[v].pb(u);
+        if(tree[u].size() == 1)
+            root = u;
+        else if(tree[v].size() == 1)
+            root = v;
     }
-    for(int i = 1; i <= n; i++){
-        cout << i << " : ";
-        for(auto x : tree[i])
-            cout << x << " ";
-        cout << "\n";
-    }
+    
+    for(auto x : tree)
+        if(x.size() > 2){
+            cout << "-1";
+            return;
+        }
+
+    dfs(tree, visited, weight, root, 2);
+    cout << root;    
+
+    // for(int i = 1; i <= n; i++){
+    //     cout << i << " : ";
+    //     for(auto x : tree[i])
+    //         cout << x << " ";
+    //     cout << "\n";
+    // }
     cout<<endl;
 
 }
