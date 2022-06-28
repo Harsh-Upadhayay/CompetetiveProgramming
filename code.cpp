@@ -45,7 +45,6 @@ void solve(void){
         for(int i = 0; i < n; i++ ){
             flag = false;
             for(int j = 0; j < n; j++)
-                if(i != j)
                     if(sum - v[i] == v[j])
                         flag = true;
             cout << flag;
