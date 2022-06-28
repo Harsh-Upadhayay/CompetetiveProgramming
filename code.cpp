@@ -28,7 +28,7 @@ void solve(void){
    ll len = 1, x = v[n-1];
    for(int i = 0; i < n; i += len){
         bool flag = true;
-        for(int j = i; j < len && j < n; j++)
+        for(int j = i; j < len/2 && j < n; j++)
             if(v[j] != x){
                 flag = false;
                 break;
