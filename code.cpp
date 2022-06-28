@@ -47,6 +47,7 @@ void dfs(vector<list<ll>> &tree,
     for(auto x : tree[node])
         if(!visited[x]){
             weight[{node, x}] = w;
+            weight[{x, node}] = w;
             flag = false;
             dfs(tree, visited, weight, x, (w == 2 ? 5 : 2));
         }
