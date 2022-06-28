@@ -20,6 +20,8 @@ void solve(void){
         sum += a[i];
         cin >> a[i];
     }
+    cout << sum;
+    
     vector<ll> v;
     for(auto x : a){
         if(x == sum)
