@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+        #include<bits/stdc++.h>
 using namespace std;
 
 #define ll long long int
@@ -11,27 +11,17 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans;
-    cin >> n;
-    vector<ll> v(n);
-    rpt(n) 
-        cin >> v[i];
-    ll x = v[0];
-    rpt(n-1)
-        x  = x ^ v[i+1];
-    for(int i = 0; i < n; i++){
-        ll tx = 0;
-        for(int j = 0; j < n; j++){
-            if(i != j)
-                tx = tx ^ v[j];
-        }
-        if(tx == v[i]){
-            cout << v[i] << "\n";
-            return;
-        }
-    }
+    ll n, m, k, ans;
+    cin >> n >> k;
+    vector<ll> a(n);
+    rpt(n)
+        cin >> a[i];
+    for(int i = 1; i < n-1; i++)
+        ans += (a[i] > a[i-1] + a[i+1]);
+    if(k == 1)
+        ans = n/3;
+    cout << ans;
     cout<<endl;
-
 
 }
 
