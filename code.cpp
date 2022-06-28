@@ -23,18 +23,19 @@ void solve(void){
     vector<ll> v(n);
     rpt(n)
         cin >> v[i];
-    ll len = 1;
-    ll i = n-1;
-    ll x = v[n-1];
-    ll j = 10;
-    while(i > 0){
-        ll t = len;
+   reverse(v.begin(), v.end());
+
+   ll len = 1, x = v[n-1];
+   for(int i = 0; i < n; i += len){
         bool flag = true;
-        if(!isEqual(v, i, n-len, x))
-            ans++;
-        i = n-len;
+        for(int j = i; j < len && j < n; j++)
+            if(v[j] != x){
+                flag = false;
+                break;
+            }
+        ans += !flag;
         len *= 2;
-    }   
+   }
     // if(ans && n%2)
     //     ans -= (v[n/2] == x);
     cout << ans;
