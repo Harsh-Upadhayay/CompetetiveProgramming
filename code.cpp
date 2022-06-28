@@ -29,7 +29,7 @@ void solve(void){
     rpt(q){
         ll qry;
         cin >> qry;
-        auto l = lower_bound(v.begin(), v.end(), qry), u = upper_bound(v.begin(), v.end(), qry);
+        auto l = lower_bound(preSum.begin(), preSum.end(), qry), u = upper_bound(preSum.begin(), preSum.end(), qry);
         cout << (l == v.end()) << " ";
         // if(*l == qry)
         //     cout << (l-v.begin()+1);
