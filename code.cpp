@@ -32,7 +32,7 @@ void solve(void){
         len *= 2;
     }   
     if(n%2)
-        ans -= v[n/2] == x;
+        ans -= (v[n/2] == x);
     cout << ans;
     cout<<endl;
 
