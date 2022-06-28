@@ -11,15 +11,28 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, k, ans = 0;
-    cin >> n >> k;
+    ll n, m, k;
+    string ans;
+    cin >> n;
     vector<ll> a(n);
     rpt(n)
         cin >> a[i];
-    for(int i = 1; i < n-1; i++)
-        ans += (a[i] > a[i-1] + a[i+1]);
-    if(k == 1)
-        ans = (n -1)/ 2;
+    vector<ll> v;
+    for(auto x : a)
+        if(x)
+            v.pb(x);
+
+    if(v.size() > 2)
+        ans = "NO";
+    else if(v.size() < 2)
+        ans = "YES";
+    else{
+        if(v[0] == ((-1)*v[1]))
+            ans = "YES";
+        else 
+            ans = "NO";
+    }
+    
     cout << ans;
     cout<<endl;
 
