@@ -50,6 +50,7 @@ void solve(void){
                         flag = true;
             sf = sf & flag;
         }
+        cout << sf;
         if(sf)
             ans = "YES";
     }
