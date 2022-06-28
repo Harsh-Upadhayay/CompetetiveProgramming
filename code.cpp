@@ -1,4 +1,4 @@
-        #include<bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 #define ll long long int
@@ -11,37 +11,27 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, q, ans;
-    set<ll> candies;
-    cin >> n >> q;
-    ll prev = 0;
-    vector<ll> v;
-    rpt(n){
-        ll x;
-        cin >> x;
-        v.pb(x);
-    }
-    vector<ll> preSum;
-    preSum.pb(v[0]);
+    ll n, m, ans;
+    cin >> n;
+    vector<ll> v(n);
+    rpt(n) 
+        cin >> v[i];
+    ll x = v[0];
     rpt(n-1)
-        preSum.pb(preSum[i]+v[i+1]);
-    reverse(preSum.begin(), preSum.end());
-    rpt(q){
-        ll qry;
-        cin >> qry;
-        auto l = lower_bound(preSum.begin(), preSum.end(), qry, std::greater<int>()), u = upper_bound(preSum.begin(), preSum.end(), qry,std::greater<int>());
-        // cout << *l << " " << *u;
-        // cout << (l == v.end()) << " ";
-        if(l != preSum.end() && (*l) == qry)
-            cout << (l-preSum.begin()+1) << "*";
-        else if(u != preSum.end())
-            cout << (u-preSum.begin()+1) << "**";
-        else
-            cout << "-1";
-        cout << "\n";
+        x  = x ^ v[i+1];
+    for(int i = 0; i < n; i++){
+        ll tx = 0;
+        for(int j = 0; j < n; j++){
+            if(i != j)
+                tx = tx ^ v[i];
+        }
+        if(tx == v[i]){
+            cout << v[i] << "\n";
+            break;
+        }
     }
-    
     cout<<endl;
+
 
 }
 
