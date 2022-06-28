@@ -79,15 +79,11 @@ void solve(void){
 
     dfs(tree, visited, weight, root, 2);
     for(auto x : weight)
-        cout << x << " ";
+        if(x)
+            cout << x << " ";
 
 
-    // for(int i = 1; i <= n; i++){
-    //     cout << i << " : ";
-    //     for(auto x : tree[i])
-    //         cout << x << " ";
-    //     cout << "\n";
-    // }
+    
     cout<<endl;
 
 }
