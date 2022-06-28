@@ -40,6 +40,15 @@ void solve(void){
     }
     if(n == 3 && flag)
         ans = "YES";
+    flag = true;
+    if(n == 4 && v.size() == 4 && sum == 0) {
+        sort(v.begin(), v.end());
+        for(int i = 0; i < 2; i++)
+            if(v[i] != ((-1)*v[2+i]))
+                 flag = false;
+        if(flag)
+            ans = "YES";
+    }
     cout << ans;
     cout<<endl;
 
