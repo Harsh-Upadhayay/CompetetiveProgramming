@@ -11,7 +11,7 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, k, ans;
+    ll n, m, k, ans = 0;
     cin >> n >> k;
     vector<ll> a(n);
     rpt(n)
