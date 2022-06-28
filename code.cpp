@@ -25,11 +25,11 @@ void solve(void){
     preSum.pb(v[0]);
     rpt(n-1)
         preSum.pb(preSum[i]+v[i+1]);
-
+    reverse(preSum.begin(), preSum.end());
     rpt(q){
         ll qry;
         cin >> qry;
-        auto l = lower_bound(preSum.begin(), preSum.end(), qry), u = upper_bound(preSum.begin(), preSum.end(), qry);
+        auto l = lower_bound(preSum.begin(), preSum.end(), qry, std::greater<int>()), u = upper_bound(preSum.begin(), preSum.end(), qry,std::greater<int>());
         // cout << *l << " " << *u;
         // cout << (l == v.end()) << " ";
         if(l != preSum.end() && (*l) == qry)
