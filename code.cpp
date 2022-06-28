@@ -10,80 +10,24 @@ using namespace std;
 #define TESTCASE
 ll t,T;
 
-#define PRIMES 100001
-
-bitset<PRIMES+1> isPrime;
-vector<ll> primes;
-map<ll, ll> freq;
-
-void setSieve(){
-
-    for(int i = 2; i <= PRIMES; i++)
-        isPrime[i] = true;
-
-    isPrime[0] = isPrime[1] = false;
-    for(int i = 2; i*i <= PRIMES; i++)
-        if(isPrime[i])
-            for(int j = i * i; j <= PRIMES; j += i)
-                isPrime[j] = false;
-
-    primes.pb(2);
-    for(int i = 2; i <= PRIMES; i++)
-        if(isPrime[i] && isPrime[i + 2])
-            primes.pb(i);
-    
-}
-
-
-void dfs(vector<list<ll>> &tree, 
-    vector<bool> &visited, 
-    map<pair<ll, ll>, ll> &weight, 
-    ll node, 
-    ll w) {
-
-    visited[node] = true;
-
-    bool flag = true;
-    for(auto x : tree[node])
-        if(!visited[x]){
-            weight[{node, x}] = w;
-            weight[{x, node}] = w;
-            flag = false;
-            dfs(tree, visited, weight, x, (w == 2 ? 5 : 2));
-        }
-}
-
 void solve(void){
-
-    ll n, root = -1;
+    ll n, m, ans;
     cin >> n;
-    vector<list<ll>> tree(n+1);
-
-    vector<bool> visited(n+1, false);
-    map<pair<ll, ll>, ll> weight;
-    vector<pair<ll, ll>> edge;
-    rpt(n-1){
-        ll u, v;
-        cin >> u >> v;
-        tree[u].pb(v);
-        tree[v].pb(u);
-        edge.pb({u, v});
+    vector<ll> a(n), b(n);
+    ll m1 = INT_MIN, m2 = INT_MIN;
+    rpt(n){
+        cin >> a[i];
     }
-    for(int i = 0; i <= n; i++)
-        if(tree[i].size() == 1)
-            root = i;
-    for(auto x : tree)
-        if(x.size() > 2){
-            cout << "-1\n";
-            return;
-        }
-
-    dfs(tree, visited, weight, root, 2);
-    for(auto x : edge)
-        cout << weight[x] << " ";
-
-
-    
+    rpt(n){
+        cin >> b[i];
+        if(b[i] > a[i])
+            swap(a[i], b[i]);
+    }
+    rpt(n){
+        m1 = max(a[i], m1);
+        m2 = max(b[i], m2);
+    }
+    cout << (m1*m2);
     cout<<endl;
 
 }
@@ -98,9 +42,6 @@ int main() {
 
     ios_base::sync_with_stdio(0);
     cin.tie(NULL);
-
-    ll n, m, ans;
-    setSieve();
 
     #ifdef TESTCASE
         cin>>t;
