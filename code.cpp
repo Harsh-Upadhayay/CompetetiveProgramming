@@ -43,8 +43,8 @@ void solve(void){
     flag = true;
     if(n == 4 && v.size() == 4) {
         for(auto x : a)
-            if(sum - x == x)
-                flag = true;
+            if(sum - x != x)
+                flag = false;
         if(flag)
             ans = "YES";
     }
