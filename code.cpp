@@ -32,9 +32,9 @@ void solve(void){
         auto l = lower_bound(preSum.begin(), preSum.end(), qry), u = upper_bound(preSum.begin(), preSum.end(), qry);
         // cout << (l == v.end()) << " ";
         if(*l == qry)
-            cout << (l-v.begin()+1) << "**";
-        else if(u != v.end())
-            cout << (u-v.begin()+1) << "*";
+            cout << (l-preSum.begin()+1) << "**";
+        else if(u != preSum.end())
+            cout << (u-preSum.begin()+1) << "*";
         else
             cout << "-1";
         cout << "\n";
