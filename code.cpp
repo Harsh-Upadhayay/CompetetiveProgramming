@@ -37,7 +37,9 @@ void solve(void){
             cout << (v.begin()-u+1);
         else
             cout << "-1";
+        cout << "\n";
     }
+    
     cout<<endl;
 
 }
