@@ -72,7 +72,7 @@ void solve(void){
         else if(tree[v].size() == 1)
             root = v;
     }
-    
+    cout << root;
     for(auto x : tree)
         if(x.size() > 2){
             cout << "-1\n";
