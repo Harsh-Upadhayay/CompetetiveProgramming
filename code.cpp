@@ -30,7 +30,7 @@ void solve(void){
     while(i > 0){
         ll t = len;
         bool flag = true;
-        if(isEqual(v, i, n-len, x))
+        if(!isEqual(v, i, n-len, x))
             ans++;
         i = n-len;
         len *= 2;
