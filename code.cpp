@@ -67,12 +67,10 @@ void solve(void){
         cin >> u >> v;
         tree[u].pb(v);
         tree[v].pb(u);
-        if(tree[u].size() == 1)
-            root = u;
-        else if(tree[v].size() == 1)
-            root = v;
     }
-    cout << root;
+    for(int i = 0; i <= n; i++)
+        if(tree[i].size() == 1)
+            root = i;
     for(auto x : tree)
         if(x.size() > 2){
             cout << "-1\n";
