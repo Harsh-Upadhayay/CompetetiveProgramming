@@ -33,9 +33,9 @@ void solve(void){
         // cout << *l << " " << *u;
         // cout << (l == v.end()) << " ";
         if(l != preSum.end() && *l == qry)
-            cout << (l-preSum.begin()+1) << "**";
+            cout << (l-preSum.begin()+1) << "*";
         else if(u != preSum.end())
-            cout << (u-preSum.begin()+1) << "*";
+            cout << (u-preSum.begin()+1) << "**";
         else
             cout << "-1";
         cout << "\n";
