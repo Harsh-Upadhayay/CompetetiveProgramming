@@ -52,7 +52,7 @@ void solve(void){
     vector<list<ll>> tree(n+1);
 
     vector<bool> visited(n+1, false);
-    vector<ll> weight(n+1, 0);
+    vector<ll> weight(n+1, -1);
 
     rpt(n-1){
         ll u, v;
@@ -73,7 +73,7 @@ void solve(void){
 
     dfs(tree, visited, weight, root, 2);
     for(auto x : weight)
-        cout << x <<" ";
+        cout << x << " ";
 
 
     // for(int i = 1; i <= n; i++){
