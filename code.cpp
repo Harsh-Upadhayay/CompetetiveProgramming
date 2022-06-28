@@ -11,7 +11,7 @@ using namespace std;
 ll t,T;
 
 bool isEqual(vector<ll> &v, ll start, ll end, ll x){
-    while(start > 0)
+    while(start > 0 && start <= end)
         if(v[--start] != x)
             return false;
     return true;
