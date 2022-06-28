@@ -39,10 +39,10 @@ void dfs(vector<list<ll>> &tree, vector<bool> &visited, vector<ll> &weight, ll n
     visited[node] = true;
     weight[node] = w;
 
-    for(auto x : tree[node]){
+    for(auto x : tree[node])
         if(!visited[x])
             dfs(tree, visited, weight, x, (w == 2 ? 5 : 2));
-    }
+    
 
 }
 
@@ -77,12 +77,12 @@ void solve(void){
         cout << x << " ";
 
 
-    for(int i = 1; i <= n; i++){
-        cout << i << " : ";
-        for(auto x : tree[i])
-            cout << x << " ";
-        cout << "\n";
-    }
+    // for(int i = 1; i <= n; i++){
+    //     cout << i << " : ";
+    //     for(auto x : tree[i])
+    //         cout << x << " ";
+    //     cout << "\n";
+    // }
     cout<<endl;
 
 }
