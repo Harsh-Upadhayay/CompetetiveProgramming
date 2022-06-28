@@ -30,14 +30,14 @@ void solve(void){
         ll qry;
         cin >> qry;
         auto l = lower_bound(preSum.begin(), preSum.end(), qry), u = upper_bound(preSum.begin(), preSum.end(), qry);
-        cout << (l == v.end()) << " ";
-        // if(*l == qry)
-        //     cout << (l-v.begin()+1);
-        // else if(u != v.end())
-        //     cout << (u-v.begin()+1);
-        // else
-        //     cout << "-1";
-        // cout << "\n";
+        // cout << (l == v.end()) << " ";
+        if(*l == qry)
+            cout << (l-v.begin()+1);
+        else if(u != v.end())
+            cout << (u-v.begin()+1);
+        else
+            cout << "-1";
+        cout << "\n";
     }
     
     cout<<endl;
