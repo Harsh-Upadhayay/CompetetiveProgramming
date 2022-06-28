@@ -74,12 +74,12 @@ void solve(void){
     dfs(tree, visited, weight, root, 2);
     cout << root;    
 
-    // for(int i = 1; i <= n; i++){
-    //     cout << i << " : ";
-    //     for(auto x : tree[i])
-    //         cout << x << " ";
-    //     cout << "\n";
-    // }
+    for(int i = 1; i <= n; i++){
+        cout << i << " : ";
+        for(auto x : tree[i])
+            cout << x << " ";
+        cout << "\n";
+    }
     cout<<endl;
 
 }
