@@ -25,11 +25,18 @@ void solve(void){
     preSum.pb(v[0]);
     rpt(n-1)
         preSum.pb(preSum[i]+v[i+1]);
-    rpt(n)
-        cout << preSum[i] << " ";
+
     rpt(q){
         ll qry;
         cin >> qry;
+        auto l = lower_bound(v.begin(), v.end(), qry), u = upper_bound(v.begin(), v.end(), qry);
+        
+        if(*l == qry)
+            cout << (v.begin()-l+1);
+        else if(u != v.end())
+            cout << (v.begin()-u+1);
+        else
+            cout << "-1";
     }
     cout<<endl;
 
