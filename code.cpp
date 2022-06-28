@@ -42,6 +42,7 @@ void solve(void){
         ans = "YES";
     flag = true;
     if(n == 4 && v.size() == 4 && sum == 0) {
+        cout << "F";
         sort(v.begin(), v.end());
         for(int i = 0; i < 2; i++)
             if(v[i] != ((-1)*v[2+i]))
