@@ -40,12 +40,17 @@ void solve(void){
     }
     if(n == 3 && flag)
         ans = "YES";
-    flag = true;
+    flag = false;
+    bool sf = true;
     if(n == 4 && v.size() == 4) {
-        for(auto x : a)
-            if(sum - x != x)
-                flag = false;
-        if(flag)
+        for(int i = 0; i < n; i++ ){
+            for(int j = 0; j < n; j++)
+                if(i != j)
+                    if(sum - v[i] == v[j])
+                        flag = true;
+            sf = sf & flag;
+        }
+        if(sf)
             ans = "YES";
     }
     cout << ans;
