@@ -35,22 +35,21 @@ void setSieve(){
 }
 
 
-void dfs(vector<list<ll>> &tree, vector<bool> &visited, vector<ll> &weight, ll node, ll w){
+void dfs(vector<list<ll>> &tree, 
+    vector<bool> &visited, 
+    map<pair<ll, ll>, ll> &weight, 
+    ll node, 
+    ll w) {
+
     visited[node] = true;
-    weight[node] = w;
 
     bool flag = true;
     for(auto x : tree[node])
         if(!visited[x]){
+            weight[{node, x}] = w;
             flag = false;
             dfs(tree, visited, weight, x, (w == 2 ? 5 : 2));
         }
-    
-    if(flag){
-        // cout << node << " *" ;
-        weight[node] = 0;
-    }
-
 }
 
 void solve(void){
@@ -60,13 +59,14 @@ void solve(void){
     vector<list<ll>> tree(n+1);
 
     vector<bool> visited(n+1, false);
-    vector<ll> weight(n+1, 0);
-
+    map<pair<ll, ll>, ll> weight;
+    vector<pair<ll, ll>> edge;
     rpt(n-1){
         ll u, v;
         cin >> u >> v;
         tree[u].pb(v);
         tree[v].pb(u);
+        edge.pb({u, v});
     }
     for(int i = 0; i <= n; i++)
         if(tree[i].size() == 1)
@@ -78,9 +78,8 @@ void solve(void){
         }
 
     dfs(tree, visited, weight, root, 2);
-    for(auto x : weight)
-        if(x)
-            cout << x << " ";
+    for(auto x : edge)
+        cout << weight[x] << " ";
 
 
     
