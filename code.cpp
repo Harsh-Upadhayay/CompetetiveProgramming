@@ -32,9 +32,9 @@ void solve(void){
         auto l = lower_bound(v.begin(), v.end(), qry), u = upper_bound(v.begin(), v.end(), qry);
         
         if(*l == qry)
-            cout << (v.begin()-l+1);
+            cout << (l-v.begin()+1);
         else if(u != v.end())
-            cout << (v.begin()-u+1);
+            cout << (u-v.begin()+1);
         else
             cout << "-1";
         cout << "\n";
