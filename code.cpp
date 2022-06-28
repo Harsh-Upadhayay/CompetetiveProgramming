@@ -11,23 +11,27 @@ using namespace std;
 ll t,T;
 
 void solve(void){
-    ll n, m, ans;
+    ll n, m, ans = 0;
     cin >> n;
-    vector<ll> a(n), b(n);
-    ll m1 = INT_MIN, m2 = INT_MIN;
-    rpt(n){
-        cin >> a[i];
-    }
-    rpt(n){
-        cin >> b[i];
-        if(b[i] > a[i])
-            swap(a[i], b[i]);
-    }
-    rpt(n){
-        m1 = max(a[i], m1);
-        m2 = max(b[i], m2);
-    }
-    cout << (m1*m2);
+    vector<ll> v(n);
+    rpt(n)
+        cin >> v[i];
+    ll len = 1;
+    ll i = n-1;
+    ll x = v[n-1];
+    ll j = 10;
+    while(i >= 0 && j-- > 0){
+        ll t = len;
+        bool flag = true;
+        while(t-- && i > 0) {
+            cout << t << " " << i <<"\n";
+            if(v[--i] != x)
+                flag = false;
+        }
+        ans += !flag;
+        len *= 2;
+    }   
+    cout << ans;
     cout<<endl;
 
 }
