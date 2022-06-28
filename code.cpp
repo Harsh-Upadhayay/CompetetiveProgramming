@@ -17,11 +17,9 @@ void solve(void){
     bool flag = false;
     vector<ll> a(n);
     rpt(n){
-        sum += a[i];
         cin >> a[i];
-    }
-    cout << sum;
-    
+        sum += a[i];
+     }
     vector<ll> v;
     for(auto x : a){
         if(x == sum)
