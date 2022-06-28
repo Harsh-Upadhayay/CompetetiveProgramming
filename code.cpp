@@ -46,8 +46,10 @@ void dfs(vector<list<ll>> &tree, vector<bool> &visited, vector<ll> &weight, ll n
             dfs(tree, visited, weight, x, (w == 2 ? 5 : 2));
         }
     
-    if(flag)
+    if(flag){
+        cout << node << " *" ;
         weight[node] = 0;
+    }
 
 }
 
