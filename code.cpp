@@ -73,7 +73,7 @@ void solve(void){
     
     for(auto x : tree)
         if(x.size() > 2){
-            cout << "-1";
+            cout << "-1\n";
             return;
         }
 
