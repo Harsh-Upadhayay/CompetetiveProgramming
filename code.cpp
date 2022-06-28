@@ -20,11 +20,11 @@ void solve(void){
     ll i = n-1;
     ll x = v[n-1];
     ll j = 10;
-    while(i >= 0 && j-- > 0){
+    while(i > 0){
         ll t = len;
         bool flag = true;
         while(t-- && i > 0) {
-            cout << t << " " << i <<"\n";
+            // cout << t << " " << i <<"\n";
             if(v[--i] != x)
                 flag = false;
         }
