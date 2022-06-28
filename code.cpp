@@ -52,7 +52,7 @@ void solve(void){
     vector<list<ll>> tree(n+1);
 
     vector<bool> visited(n+1, false);
-    vector<ll> weight(n+1, -1);
+    vector<ll> weight(n+1, 0);
 
     rpt(n-1){
         ll u, v;
