@@ -76,12 +76,12 @@ void solve(void){
         cout << x << " ";
 
 
-    // for(int i = 1; i <= n; i++){
-    //     cout << i << " : ";
-    //     for(auto x : tree[i])
-    //         cout << x << " ";
-    //     cout << "\n";
-    // }
+    for(int i = 1; i <= n; i++){
+        cout << i << " : ";
+        for(auto x : tree[i])
+            cout << x << " ";
+        cout << "\n";
+    }
     cout<<endl;
 
 }
