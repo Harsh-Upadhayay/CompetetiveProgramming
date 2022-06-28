@@ -42,7 +42,7 @@ void dfs(vector<list<ll>> &tree, vector<bool> &visited, vector<ll> &weight, ll n
     for(auto x : tree[node])
         if(!visited[node])
             dfs(tree, visited, weight, x, (w == 2 ? 5 : 2));
-
+        cout << "F";
 }
 
 void solve(void){
