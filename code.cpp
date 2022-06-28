@@ -23,8 +23,8 @@ void solve(void){
     while(i > 0){
         ll t = len;
         bool flag = true;
+
         while(t-- && i > 0) {
-            // cout << t << " " << i <<"\n";
             if(v[--i] != x)
                 flag = false;
         }
