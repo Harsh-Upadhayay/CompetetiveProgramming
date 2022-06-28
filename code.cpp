@@ -39,10 +39,11 @@ void dfs(vector<list<ll>> &tree, vector<bool> &visited, vector<ll> &weight, ll n
     visited[node] = true;
     weight[node] = w;
 
-    for(auto x : tree[node])
-        if(!visited[node])
+    for(auto x : tree[node]){
+        if(!visited[x])
             dfs(tree, visited, weight, x, (w == 2 ? 5 : 2));
-    cout << visited[node];
+    }
+
 }
 
 void solve(void){
