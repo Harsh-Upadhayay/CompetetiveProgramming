@@ -19,7 +19,7 @@ void solve(void){
     for(int i = 1; i < n-1; i++)
         ans += (a[i] > a[i-1] + a[i+1]);
     if(k == 1)
-        ans = n/3;
+        ans = n - 2;
     cout << ans;
     cout<<endl;
 
