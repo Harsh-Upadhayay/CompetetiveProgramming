@@ -30,7 +30,7 @@ void solve(void){
         ll qry;
         cin >> qry;
         auto l = lower_bound(v.begin(), v.end(), qry), u = upper_bound(v.begin(), v.end(), qry);
-        
+        cout << qry << " ";
         if(*l == qry)
             cout << (l-v.begin()+1);
         else if(u != v.end())
