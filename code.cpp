@@ -23,7 +23,7 @@ void solve(void){
         ll tx = 0;
         for(int j = 0; j < n; j++){
             if(i != j)
-                tx = tx ^ v[i];
+                tx = tx ^ v[j];
         }
         if(tx == v[i]){
             cout << v[i] << "\n";
