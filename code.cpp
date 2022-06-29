@@ -51,7 +51,8 @@ void solve(void){
 
     rpt(i, 1, n){
         if(s[i] != s[i-1])
-            ans += i, debug(s[i], s[i-1]);
+            ans += i;
+        debug(s[i], s[i-1]);
     }
     cout << ans;
     nl;
