@@ -62,7 +62,7 @@ void solve(void){
             cur += v[j][(i+j)%n], ones += v[i][j];
         maxDiag = max(maxDiag, cur);
     }
-    cout << ones-maxDiag;
+    cout << (ones-maxDiag);
     nl;
 }
 
