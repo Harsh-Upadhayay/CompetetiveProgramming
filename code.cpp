@@ -49,9 +49,10 @@ void solve(void){
     string s;
     cin >> n >> s, ans = n;
 
-    rpt(i, 1, n)
+    rpt(i, 1, n){
         if(s[i] != s[i-1])
-            ans += i;
+            ans += i, debug(s[i], s[i-1]);
+    }
     cout << ans;
     nl;
 }
