@@ -47,7 +47,7 @@ void inline print(vector<vector<T>> v);
 void solve(void){
     ll n;
 
-    cout << "F";
+    cout << max(21, 12);
 
     nl;
 }
