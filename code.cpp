@@ -28,7 +28,6 @@ using namespace std;
 #define yes                     cout << "YES";
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
-#define TESTCASE
 
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 
@@ -44,18 +43,25 @@ void inline print(vector<vector<T>> v);
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 
-void solve(void){
-    ll n, ans = 0;
-    string s;
-    cin >> n >> s, ans = n;
 
-    rpt(i, 1, n){
-        if(s[i] != s[i-1]){
-            ans += i;
-            debug(s[i], s[i-1]);
-        }
+void solve(void){
+    ll n, ans;
+
+    cin >> n;
+    bool flag = true;
+
+    rpt(i, 0, n){
+        ll x;
+        cin >> x;
+        if(x != i)
+            if(flag)
+                ans = x, flag = false;
+            else
+                ans = ans & x;
     }
+
     cout << ans;
+
     nl;
 }
 
@@ -74,12 +80,8 @@ int main() {
 
     ios_base::sync_with_stdio(0);
     cin.tie(NULL);
-    ll t = 1;
-
-    #ifdef TESTCASE
-        cin >> t;
-    #endif
-
+    
+    int t = 1;
     while(t--) 
         solve();
 
