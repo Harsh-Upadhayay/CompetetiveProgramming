@@ -48,8 +48,11 @@ void solve(void){
     ll n;
     ll a, b, c, d;
     a = 5, b = 1, c = 2, d = 12;
-    cout << max(a, b, d);
+    vector<ll> v = {1,2, 3};
 
+    rpt(i, v.begin(), v.end())
+        cout << *i;
+    cout << max(a, b, d);
     nl;
 }
 
