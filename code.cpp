@@ -57,7 +57,7 @@ void solve(void){
             idx.pb(i); 
     }
     idx.pb(n);    
-    ll msum = ninf, l =-1, r = -1;
+    ll msum = ninf, _l =-1, _r = -1;
     rpt(i, 0, idx.size()-1){
         ll curr = 1, l = idx[i]+1, r = idx[i+1]-1;
         while(l <= r){
@@ -66,15 +66,15 @@ void solve(void){
             debug(curr);
             if(curr > msum){
                 msum = curr;
-                l = v[i]+1;
-                r = n-v[i+1];
+                _l = v[i]+1;
+                _r = n-v[i+1];
             }
         }
         
 
     }
 
-    cout << l << " " << r;
+    cout << _l << " " << _r;
     nl;
 }
 
