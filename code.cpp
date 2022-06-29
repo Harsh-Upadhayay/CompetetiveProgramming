@@ -45,28 +45,19 @@ void inline print(vector<vector<T>> v);
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 
 
-
-
 void solve(void){
     ll n, ans;
     cin >> n;
-    vector<string> v(n);
+    vector<ll> v(n), lsum(n), rsum(n);
     rpt(i, 0, n)
         cin >> v[i];
+    lsum[0] = v[0];
+    rsum[0] = v[n-1];
+    rpt(i, 1, n)
+        lsum[i] = v[i] * lsum[i-1], rsum[n-i-1] = v[n-i-1] * v[n-i];
+    debug(lsum, rsum);
     
-    ll maxDiag = ninf, ones = 0;
-    
-    rpt(i, 0, n){
-        ll cur = 0;
-        rpt(j, 0, n){
-            debug(ones);
-            cur += v[j][(i+j)%n] - '0';
-            ones += v[i][j] - '0';
-        }
-        maxDiag = max(maxDiag, cur);
-    }
-    debug(ones);
-    cout << ones-maxDiag+n-maxDiag;
+
     nl;
 }
 
