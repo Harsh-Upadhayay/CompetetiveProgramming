@@ -58,7 +58,7 @@ void solve(void){
     }
     debug(idx);
     idx.pb(n);
-    ll msum = ninf, l , r;
+    ll msum = ninf, l =-1, r = -1;
 
     rpt(i, 0, idx.size()-1){
         ll curr = 1, l = idx[i]+1, r = idx[i+1]-1;
