@@ -61,11 +61,11 @@ void solve(void){
     rpt(i, 0, idx.size()-1){
         ll curr = 1, l = idx[i]+1, r = idx[i+1]-1;
         while(l <= r){
-            // debug(l, r);
             curr *= v[l++];
             debug(curr);
             if(curr > msum){
                 msum = curr;
+                debug(curr);
                 _l = v[i]+1;
                 _r = n-v[i+1];
             }
