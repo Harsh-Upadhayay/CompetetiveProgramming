@@ -84,10 +84,10 @@ int main() {
     
     ll t = 1;
 
-    #ifndef TESTCASE
+    #ifdef TESTCASE
         cin >> t;
     #endif
-        
+
     while(t--) 
         solve();
 
