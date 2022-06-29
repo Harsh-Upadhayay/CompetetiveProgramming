@@ -56,11 +56,13 @@ void solve(void){
         if(!v[i])
             idx.pb(i); 
     }
-    idx.pb(n);    debug(idx);
+    idx.pb(n);    
+    debug(idx);
     ll msum = ninf, l =-1, r = -1;
 
     rpt(i, 0, idx.size()-1){
         ll curr = 1, l = idx[i]+1, r = idx[i+1]-1;
+        debug(l, r);
         while(l <= r){
             curr *= v[l++];
             if(curr > msum){
