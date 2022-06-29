@@ -65,8 +65,8 @@ void solve(void){
             debug(curr);
             if(curr > msum){
                 msum = curr;
-                _l = l+1;
-                _r = n-r;
+                _l = v[i]+1;
+                _r = n-l;
             }
         }
         
