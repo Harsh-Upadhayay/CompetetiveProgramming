@@ -54,7 +54,7 @@ void solve(void){
         if(!v[i])
             idx.pb(i); 
     }
-    debug(idx);
+    debug(v);
     
 
     nl;
