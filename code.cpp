@@ -54,7 +54,7 @@ void solve(void){
     lsum[0] = v[0];
     rsum[0] = v[n-1];
     rpt(i, 1, n)
-        lsum[i] = v[i] * lsum[i-1], rsum[n-i-1] = v[n-i-1] * v[n-i];
+        lsum[i] = v[i] * lsum[i-1], rsum[n-i-1] = v[n-i-1] * rsum[n-i];
     debug(lsum, rsum);
     
 
