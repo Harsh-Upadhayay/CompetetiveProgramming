@@ -66,7 +66,7 @@ void solve(void){
         maxDiag = max(maxDiag, cur);
     }
     debug(ones);
-    cout << ones+n-maxDiag;
+    cout << ones-maxDiag+n-maxDiag;
     nl;
 }
 
