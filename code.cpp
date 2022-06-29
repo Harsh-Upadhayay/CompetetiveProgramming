@@ -45,18 +45,14 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n;
-    ll a, b, c, d;
-    a = 5, b = 1, c = 2, d = 12;
-    vector<ll> v = {1,23, 3};
-    unordered_map<ll, list<ll>> tree;
-    rpt(i, 0, 5){
-        list<ll> k;
-        rpt(j, 0, 5)
-            k.pb(j);
-        tree[0] = k;
-    }
-    cout << nmin(v);
+    ll n, ans = 0;
+    string s;
+    cin >> n >> s, ans = n;
+
+    rpt(i, 1, n)
+        if(s[i] != s[i-1])
+            ans += n;
+    cout << ans;
     nl;
 }
 
