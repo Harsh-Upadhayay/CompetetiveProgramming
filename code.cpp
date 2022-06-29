@@ -59,6 +59,7 @@ void solve(void){
     rpt(i, 0, n){
         ll cur = 0;
         rpt(j, 0, n){
+            debug(ones);
             cur += v[j][(i+j)%n];
             ones += v[i][j];
         }
