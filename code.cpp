@@ -48,14 +48,10 @@ void inline print(vector<vector<T>> v);
 void solve(void){
     ll n, ans;
     cin >> n;
-    vector<ll> v(n), lsum(n), rsum(n);
+    vector<ll> v(n), idx, lsum(n), rsum(n);
     rpt(i, 0, n)
-        cin >> v[i];
-    lsum[0] = v[0];
-    rsum[n-1] = v[n-1];
-    rpt(i, 1, n)
-        lsum[i] = v[i] * lsum[i-1], rsum[n-i-1] = v[n-i-1] * rsum[n-i];
-    debug(lsum, rsum);
+        cin >> v[i] , v[i] ? idx.pb(i): idx.pb(i); 
+    debug(idx);
     
 
     nl;
