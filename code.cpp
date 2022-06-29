@@ -49,8 +49,11 @@ void solve(void){
     ll n, ans;
     cin >> n;
     vector<ll> v(n), idx, lsum(n), rsum(n);
-    rpt(i, 0, n)
-        cin >> v[i] , v[i] ? (void)5: idx.pb(i); 
+    rpt(i, 0, n){
+        cin >> v[i];
+        if(!v[i])
+            idx.pb(i); 
+    }
     debug(idx);
     
 
