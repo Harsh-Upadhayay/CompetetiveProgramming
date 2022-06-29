@@ -60,7 +60,7 @@ void solve(void){
         ll cur = 0;
         rpt(j, 0, n){
             debug(ones);
-            cur += v[j][(i+j)%n];
+            cur += v[j][(i+j)%n] - '0';
             ones += v[i][j] - '0';
         }
         maxDiag = max(maxDiag, cur);
