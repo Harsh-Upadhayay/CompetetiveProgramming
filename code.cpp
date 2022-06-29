@@ -28,6 +28,7 @@ using namespace std;
 #define yes                     cout << "YES";
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
+#define TESTCASE
 
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 
@@ -81,7 +82,12 @@ int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(NULL);
     
-    int t = 1;
+    ll t = 1;
+
+    #ifndef TESTCASE
+        cin >> t;
+    #endif
+        
     while(t--) 
         solve();
 
