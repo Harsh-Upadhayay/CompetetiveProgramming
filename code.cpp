@@ -48,7 +48,7 @@ void solve(void){
     ll n;
     ll a, b, c, d;
     a = 5, b = 1, c = 2, d = 12;
-    vector<ll> v = {1,2, 3};
+    vector<ll> v = {1,23, 3};
 
     cout << nmax(v);
     nl;
