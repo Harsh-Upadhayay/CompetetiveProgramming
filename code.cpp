@@ -45,24 +45,24 @@ void inline print(vector<vector<T>> v);
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 
 
+
+
 void solve(void){
     ll n, ans;
-
     cin >> n;
-    bool flag = true;
-
+    vector<string> v(n);
+    rpt(i, 0, n)
+        cin >> v[i];
+    
+    ll maxDiag = ninf, ones = 0;
+    
     rpt(i, 0, n){
-        ll x;
-        cin >> x;
-        if(x != i)
-            if(flag)
-                ans = x, flag = false;
-            else
-                ans = ans & x;
+        ll cur = 0;
+        rpt(j, 0, n)
+            cur += v[j][(i+j)%n], ones += v[i][j];
+        maxDiag = max(maxDiag, cur);
     }
-
-    cout << ans;
-
+    cout << ones-maxDiag;
     nl;
 }
 
