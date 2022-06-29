@@ -52,7 +52,7 @@ void solve(void){
     rpt(i, 0, n)
         cin >> v[i];
     lsum[0] = v[0];
-    rsum[0] = v[n-1];
+    rsum[n-1] = v[n-1];
     rpt(i, 1, n)
         lsum[i] = v[i] * lsum[i-1], rsum[n-i-1] = v[n-i-1] * rsum[n-i];
     debug(lsum, rsum);
