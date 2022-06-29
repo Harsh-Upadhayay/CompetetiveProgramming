@@ -50,7 +50,7 @@ void solve(void){
     cin >> n;
     vector<ll> v(n), idx, lsum(n), rsum(n);
     rpt(i, 0, n)
-        cin >> v[i] , v[i] ? idx.pb(i): idx.pb(i); 
+        cin >> v[i] , v[i] ? (void)5: idx.pb(i); 
     debug(idx);
     
 
