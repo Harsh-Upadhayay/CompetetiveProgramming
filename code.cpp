@@ -49,14 +49,30 @@ void solve(void){
     ll n, ans;
     cin >> n;
     vector<ll> v(n), idx, lsum(n), rsum(n);
+    
+    idx.pb(-1);
     rpt(i, 0, n){
         cin >> v[i];
         if(!v[i])
             idx.pb(i); 
     }
     debug(idx);
-    
+    idx.pb(n);
+    ll msum = ninf, l , r;
 
+    rpt(i, 0, idx.size()-1){
+        ll curr = 1, l = idx[i]+1, r = idx[i+1]-1;
+        while(l <= r)
+            curr *= v[l++];
+        if(curr > msum){
+            msum = curr;
+            l = v[i]+1;
+            r = n-v[i+1];
+        }
+
+    }
+
+    cout << l << " " << r;
     nl;
 }
 
