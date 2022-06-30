@@ -51,7 +51,7 @@ void solve(void){
     sort(all(v));
 
     ll sum = 0, mouse = -2;
-
+debug(k);
     rpt(i, k-1, 0){
         sum += n - v[i];
         if(sum > v[i]){
