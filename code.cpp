@@ -60,6 +60,7 @@ void solve(void){
         case 3: 
             x = 0;
     }
+    debug(x);
     ll ans = a + (x != b) + ((x ^ a) == b);
 
     cout << ans;
