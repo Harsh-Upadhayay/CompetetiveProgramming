@@ -56,12 +56,13 @@ void solve(void){
     ll n;    cin >> n;
     string s;    cin >> s;
     vector<vector<ll>> ans;
-    ll itr = 200;
+    ll itr = 1;
     while(!isascending(s) && itr--){
 
         vector<ll> v;
+        ll itx = 2;
         ll l = 0, r = n-1;
-        while(r-l > 1){
+        while(itx--){
             while(l < n && s[l] == '0'){
                 l++; 
             }
