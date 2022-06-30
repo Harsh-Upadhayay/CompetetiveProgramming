@@ -77,7 +77,14 @@ void solve(void){
         ans.pb(v);
         debug(ans);
     }
-
+    cout << ans.size(); nl;
+    for(auto x : ans){
+        sort(all(x));
+        cout << x.size() << " ";
+        for(auto y : x)
+            cout << y << " ";
+        nl;
+    }
     nl;
 }
 
