@@ -58,12 +58,12 @@ void solve(void){
     vector<vector<ll>> ans;
     ll itr = 2;
     while(!isascending(s) && itr--){
-        debug(s[0]);
+
         vector<ll> v;
         ll l = 0, r = n-1;
         while(l < r){
             while(s[l] == '0'){
-                l++; 
+                l++; debug(l);
             }
         while(s[r] == '1'){
                 r--; 
