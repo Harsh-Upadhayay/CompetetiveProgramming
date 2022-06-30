@@ -57,26 +57,22 @@ void solve(void){
     string s;    cin >> s;
     vector<vector<ll>> ans;
     ll itr = 2;
-    debug(s);
     while(!isascending(s) && itr--){
 
         vector<ll> v;
         ll l = 0, r = n-1;
         while(l < r){
-            while(s[l] == '0'){
-                debug(s[l]);
-                debug(l);
-                l++; debug(l);
+            while(s[l] == '1'){
+                l++; 
             }
-        while(s[r] == '1'){
-                r--; debug(r);
+        while(s[r] == '0'){
+                r--; 
             }    
             swap(s[l], s[r]);
             v.pb(l);
             v.pb(r);
         }
         ans.pb(v);
-        debug(s);
     }
 
     nl;
