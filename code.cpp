@@ -82,7 +82,7 @@ void solve(void){
         sort(all(x));
         cout << x.size() << " ";
         for(auto y : x)
-            cout << y << " ";
+            cout << y+1 << " ";
         nl;
     }
     nl;
