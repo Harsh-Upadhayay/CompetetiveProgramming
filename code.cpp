@@ -50,7 +50,6 @@ void solve(void){
     vector<ll> v(n);    rpt(i, 0, n) cin >> v[i];
     
     deque<ll> ans;
-    ans.pb(v[0]);
     
     for(auto x : v)
         if(x < ans.front())
