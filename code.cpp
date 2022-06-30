@@ -47,7 +47,7 @@ void inline print(vector<vector<T>> v);
 
 void solve(void){
     ll a, b; cin >> a >> b;
-
+    debug(a, b);
     ll x = 0; rpt(i, 0, a) x ^ i;
     
     ll ans = a + 1 + (x ^ a) == b;
