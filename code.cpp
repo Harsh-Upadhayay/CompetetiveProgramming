@@ -64,6 +64,7 @@ void solve(void){
         ll l = 0, r = n-1;
         while(l < r){
             while(s[l] == '0'){
+                debug(s[l]);
                 l++; debug(l);
             }
         while(s[r] == '1'){
