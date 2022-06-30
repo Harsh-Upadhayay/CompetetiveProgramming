@@ -61,7 +61,8 @@ void solve(void){
         } 
         debug(sum, mouse);
     }
-    
+            
+    mouse = (-2 == mouse ? k : mouse);
     mouse += (v[k-mouse-1] > sum);
 
     cout << mouse;
