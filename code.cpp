@@ -44,36 +44,22 @@ void inline print(vector<vector<T>> v);
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 
+bool isascending(string s){
+    ll f = s[0];
+    for(auto x : s)
+        if(f > x)
+            return false;
+    return true;
+}
 
 void solve(void){
-    ll n, ans;
-    cin >> n;
-    vector<ll> v(n), idx, lsum(n), rsum(n);
-    
-    idx.pb(-1);
-    rpt(i, 0, n){
-        cin >> v[i];
-        if(!v[i])
-            idx.pb(i); 
-    }
-    idx.pb(n);    
-    ll msum = ninf, _l =-1, _r = -1;
-    rpt(i, 0, idx.size()-1){
-        ll curr = 1, l = idx[i]+1, r = idx[i+1]-1;
-        while(l <= r){
-            curr *= v[l++];
-            debug(curr);
-            if(curr > msum){
-                msum = curr;
-                _l = idx[i]+1;
-                _r = n-l;
-            }
-        }
-        
+    ll n;    cin >> n;
+    string s;    cin >> s;
 
-    }
+    ll i = 0, j = n-1;
 
-    cout << _l << " " << _r;
+    cout << isascending(s);
+
     nl;
 }
 
