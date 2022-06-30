@@ -50,7 +50,7 @@ void solve(void){
 
     ll x = 0;
 
-    switch(a % 4){
+    switch((a-1) % 4){
         case 0: 
             x = a-1;
         case 1: 
