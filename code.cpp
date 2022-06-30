@@ -66,8 +66,8 @@ void solve(void){
             while(s[l] == '0'){
                 l++; debug(l);
             }
-            while(s[r] == '1')
-                r--, debug(r);
+        while(s[r] == '1')
+                r--; debug(r);
             swap(s[l], s[r]);
             v.pb(l);
             v.pb(r);
