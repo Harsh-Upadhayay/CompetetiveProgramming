@@ -46,19 +46,20 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, k;    cin >> n >> k;
-    vector<ll> v(k);    rpt(i, 0, k) cin >> v[i];
-    sort(all(v));
+    ll n, k;    cin >> n;
+    vector<ll> v(n);    rpt(i, 0, n) cin >> v[i];
+    
+    deque<ll> ans;
+    ans.pb(v[0]);
+    
+    for(auto x : v)
+        if(x < ans.front())
+            ans.push_front(x);
+        else
+            ans.push_back(x);
 
-    ll sum = n-1, ans = 0;
-    rpt(i, k, 0){
-        sum -= (n-v[i]);
-        if(sum < 0)
-            break;
-        ans++;
-    }
-            
-    cout << ans;
+    for(auto x : ans)
+        cout << x << " ";
 
     nl;
 }
