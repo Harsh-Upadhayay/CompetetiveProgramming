@@ -76,7 +76,7 @@ void solve(void){
         }
         ans.pb(v);
     }
-
+    
     nl;
 }
 
