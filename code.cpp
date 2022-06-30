@@ -62,10 +62,10 @@ void solve(void){
         vector<ll> v;
         ll l = 0, r = n-1;
         while(r-l > 1){
-            while(s[l] == '0'){
+            while(l < n && s[l] == '0'){
                 l++; 
             }
-        while(s[r] == '1'){
+        while(r >= 0 && s[r] == '1'){
                 r--; 
             }    
             debug(l, r);
