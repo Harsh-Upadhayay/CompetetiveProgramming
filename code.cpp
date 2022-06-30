@@ -58,14 +58,14 @@ void solve(void){
     vector<vector<ll>> ans;
     ll itr = 2;
     while(!isascending(s) && itr--){
-        debug(s[0]);
+
         vector<ll> v;
         ll l = 0, r = n-1;
         while(l < r){
-            while(s[l] == '1'){
+            while(s[l] == '0'){
                 l++; 
             }
-        while(s[r] == '0'){
+        while(s[r] == '1'){
                 r--; 
             }    
             swap(s[l], s[r]);
