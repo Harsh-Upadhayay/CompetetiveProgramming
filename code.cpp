@@ -64,9 +64,9 @@ void solve(void){
         ll l = 0, r = n-1;
         while(l < r){
             while(s[l] == '0')
-                l++;
+                l++, debug(l);
             while(s[r] == '1')
-                r--;
+                r--, debug(r);
             swap(s[l], s[r]);
             v.pb(l);
             v.pb(r);
