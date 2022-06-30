@@ -65,9 +65,11 @@ void solve(void){
             while(l < n && s[l] == '0'){
                 l++; 
             }
-        while(r >= 0 && s[r] == '1'){
+            while(r >= 0 && s[r] == '1'){
                 r--; 
             }    
+            if(l > r)
+                break;
             debug(l, r);
             swap(s[l], s[r]);
             debug(s);
