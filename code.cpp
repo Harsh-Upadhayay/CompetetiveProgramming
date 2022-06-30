@@ -48,8 +48,18 @@ void inline print(vector<vector<T>> v);
 void solve(void){
     ll a, b; cin >> a >> b;
 
-    ll x = 0; rpt(i, 0, a) x ^= i;
+    ll x = 0;
 
+    switch(a % 4){
+        case 0: 
+            x = a-1;
+        case 1: 
+            x = 1;
+        case 2: 
+            x = a;
+        case 3: 
+            x = 0;
+    }
     ll ans = a + (x != b) + ((x ^ a) == b);
 
     cout << ans;
