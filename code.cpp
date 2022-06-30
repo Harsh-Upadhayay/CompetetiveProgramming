@@ -50,16 +50,15 @@ void solve(void){
 
     ll x = 0;
 
-    switch((a-1) % 4){
-        case 0: 
+    if((a-1) % 4 == 0)
             x = a-1;
-        case 1: 
+    if((a-1) % 4 == 1) 
             x = 1;
-        case 2: 
+    if((a-1) % 4 == 2)
             x = a;
-        case 3: 
+    if((a-1) % 4 == 3) 
             x = 0;
-    }
+    
     debug(x);
     ll ans = a + (x != b) + ((x ^ a) == b);
 
