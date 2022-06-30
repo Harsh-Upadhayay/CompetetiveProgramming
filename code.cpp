@@ -69,8 +69,8 @@ void solve(void){
                 r--; 
             }    
             debug(l, r);
-            debug(s);
             swap(s[l], s[r]);
+            debug(s);
             v.pb(l);
             v.pb(r);
         }
