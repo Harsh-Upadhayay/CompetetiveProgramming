@@ -45,9 +45,9 @@ void inline print(vector<vector<T>> v);
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 
 bool isascending(string s){
-    ll f = s[0];
-    for(auto x : s)
-        if(f > x)
+    
+    rpt(i, 0, s.size()-1)
+        if(s[i] > s[i+1])
             return false;
     return true;
 }
