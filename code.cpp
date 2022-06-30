@@ -65,10 +65,10 @@ void solve(void){
             while(s[l] == '0'){
                 l++; 
             }
-            debug(l);
         while(s[r] == '1'){
                 r--; 
             }    
+            debug(l, r);
             debug(s);
             swap(s[l], s[r]);
             v.pb(l);
