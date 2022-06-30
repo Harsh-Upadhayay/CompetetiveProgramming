@@ -58,7 +58,7 @@ void solve(void){
     vector<vector<ll>> ans;
     ll itr = 2;
     while(!isascending(s) && itr--){
-        debug(s);
+        debug(s[4]);
         vector<ll> v;
         ll l = 0, r = n-1;
         while(l < r){
