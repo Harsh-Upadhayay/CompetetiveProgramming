@@ -48,6 +48,7 @@ void inline print(vector<vector<T>> v);
 void solve(void){
     ll n, k;    cin >> n >> k;
     vector<ll> v(k);    rpt(i, 0, k) cin >> v[i];
+    sort(all(v));
 
     ll sum = 0, mouse = -2;
 
@@ -56,7 +57,7 @@ void solve(void){
         if(sum > v[i]){
             mouse = k-i-1;
             sum -= v[i];
-        debug(sum, mouse);
+            debug(sum, mouse);
             break;
         } 
         debug(sum, mouse);
