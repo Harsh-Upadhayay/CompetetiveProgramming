@@ -50,7 +50,8 @@ void solve(void){
     vector<ll> v(n);    rpt(i, 0, n) cin >> v[i];
     
     deque<ll> ans;
-    
+    bool firstItr = true;
+    debug(ans.front());
     for(auto x : v)
         if(x < ans.front())
             ans.push_front(x);
