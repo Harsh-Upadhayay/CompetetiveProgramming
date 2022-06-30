@@ -47,7 +47,7 @@ void inline print(vector<vector<T>> v);
 
 void solve(void){
     ll n, k;    cin >> n >> k;
-    vector<ll> v(k);    rpt(i, 0, n) cin >> v[i];
+    vector<ll> v(k);    rpt(i, 0, k) cin >> v[i];
 
     ll sum = 0, mouse = -2;
 
