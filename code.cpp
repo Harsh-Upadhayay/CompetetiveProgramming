@@ -57,7 +57,7 @@ void solve(void){
     string s;    cin >> s;
     vector<vector<ll>> ans;
     ll itr = 2;
-
+    debug(s);
     while(!isascending(s) && itr--){
 
         vector<ll> v;
