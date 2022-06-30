@@ -52,7 +52,6 @@ void solve(void){
 
     ll sum = 0, mouse = -2;
     rpt(i, k, 0){
-        debug(i);
         sum += n - v[i];
         if(sum > v[i]){
             mouse = k-i-1;
