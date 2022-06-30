@@ -56,6 +56,7 @@ void solve(void){
         if(sum > v[i]){
             mouse = k-i-1;
             sum -= v[i];
+            break;
         } 
         debug(sum, mouse);
     }
