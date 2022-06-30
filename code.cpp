@@ -56,8 +56,9 @@ void solve(void){
     ll n;    cin >> n;
     string s;    cin >> s;
     vector<vector<ll>> ans;
+    ll itr = 2;
 
-    while(!isascending(s)){
+    while(!isascending(s) && itr--){
 
         vector<ll> v;
         ll l = 0, r = n-1;
@@ -71,6 +72,7 @@ void solve(void){
             v.pb(r);
         }
         ans.pb(v);
+        debug(s);
     }
 
     nl;
