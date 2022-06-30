@@ -50,7 +50,7 @@ void solve(void){
 
     ll x = 0; rpt(i, 0, a) x ^= i;
 
-    ll ans = a + (x == b) + ((x ^ a) == b);
+    ll ans = a + (x != b) + ((x ^ a) == b);
 
     cout << ans;
 
