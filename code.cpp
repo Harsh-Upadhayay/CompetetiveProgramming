@@ -46,21 +46,11 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, k;    cin >> n;
-    vector<ll> v(n);    rpt(i, 0, n) cin >> v[i];
+    ll a, b; cin >> a >> b;
+
+    ll x = 0; rpt(i, 0, a) x ^ i;
     
-    deque<ll> ans;
-    bool firstItr = true;
-    debug(ans.front());
-    for(auto x : v)
-        if(x < ans.front())
-            ans.push_front(x);
-        else
-            ans.push_back(x);
-
-    for(auto x : ans)
-        cout << x << " ";
-
+    ll ans = a + 1 + (x ^ a) == b;
     nl;
 }
 
