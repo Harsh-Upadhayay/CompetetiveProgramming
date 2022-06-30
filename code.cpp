@@ -62,7 +62,7 @@ void solve(void){
         vector<ll> v;
         ll itx = 2;
         ll l = 0, r = n-1;
-        while(itx--){
+        while(1){
             while(l < n && s[l] == '0'){
                 l++; 
             }
