@@ -44,50 +44,25 @@ void inline print(vector<vector<T>> v);
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 
-bool isascending(string s){
-    
-    rpt(i, 0, s.size()-1)
-        if(s[i] > s[i+1])
-            return false;
-    return true;
-}
 
 void solve(void){
-    ll n;    cin >> n;
-    string s;    cin >> s;
-    vector<vector<ll>> ans;
-    ll itr = 1;
-    while(!isascending(s)){
+    ll n, k;    cin >> n >> k;
+    vector<ll> v(k);    rpt(i, 0, n) cin >> v[i];
 
-        vector<ll> v;
-        ll itx = 2;
-        ll l = 0, r = n-1;
-        while(1){
-            while(l < n && s[l] == '0'){
-                l++; 
-            }
-            while(r >= 0 && s[r] == '1'){
-                r--; 
-            }    
-            if(l > r)
-                break;
-            debug(l, r);
-            swap(s[l], s[r]);
-            debug(s);
-            v.pb(l);
-            v.pb(r);
-        }
-        ans.pb(v);
-        debug(ans);
+    ll sum = 0, mouse = -2;
+
+    rpt(i, k-1, 0){
+        sum += n - v[i];
+        if(sum > v[i]){
+            mouse = k-i-1;
+            sum -= v[i];
+        } 
     }
-    cout << ans.size(); nl;
-    for(auto x : ans){
-        sort(all(x));
-        cout << x.size() << " ";
-        for(auto y : x)
-            cout << y+1 << " ";
-        nl;
-    }
+    
+    mouse += (v[k-mouse] > sum);
+
+    cout << mouse;
+
     nl;
 }
 
