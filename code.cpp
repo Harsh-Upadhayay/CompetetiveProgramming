@@ -63,8 +63,9 @@ void solve(void){
         vector<ll> v;
         ll l = 0, r = n-1;
         while(l < r){
-            while(s[l] == '0')
-                l++, debug(l);
+            while(s[l] == '0'){
+                l++; debug(l);
+            }
             while(s[r] == '1')
                 r--, debug(r);
             swap(s[l], s[r]);
