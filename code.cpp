@@ -55,10 +55,23 @@ bool isascending(string s){
 void solve(void){
     ll n;    cin >> n;
     string s;    cin >> s;
+    vector<vector<ll>> ans;
 
-    ll i = 0, j = n-1;
+    while(!isascending(s)){
 
-    cout << isascending(s);
+        vector<ll> v;
+        ll l = 0, r = n-1;
+        while(l < r){
+            while(s[l] == '0')
+                l++;
+            while(s[r] == '1')
+                r--;
+            swap(s[l], s[r]);
+            v.pb(l);
+            v.pb(r);
+        }
+        ans.pb(v);
+    }
 
     nl;
 }
