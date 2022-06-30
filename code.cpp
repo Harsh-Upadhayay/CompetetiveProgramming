@@ -50,22 +50,15 @@ void solve(void){
     vector<ll> v(k);    rpt(i, 0, k) cin >> v[i];
     sort(all(v));
 
-    ll sum = 0, mouse = -2;
+    ll sum = n-1, ans = 0;
     rpt(i, k, 0){
-        sum += n - v[i];
-        if(sum > v[i]){
-            mouse = k-i-1;
-            sum -= v[i];
-            debug(sum, mouse);
+        sum -= (n-v[i]);
+        if(sum < 0)
             break;
-        } 
-        debug(sum, mouse);
+        ans++;
     }
             
-    mouse = (-2 == mouse ? k : mouse);
-    mouse += (k == mouse ? 0 : (v[k-mouse-1] > sum));
-
-    cout << mouse;
+    cout << ans;
 
     nl;
 }
