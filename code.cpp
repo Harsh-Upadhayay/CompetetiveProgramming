@@ -52,13 +52,20 @@ void solve(void){
     sort(all(v), greater<ll>());
     vector<p(ll, ll)> ans;
     unordered_set<ll> s(all(v));
-
-    rpt(i, 0, n)
-        rpt(j, i+1, n)
-            if(ans.size() >= n/2)
+    bool flag = false;
+    
+    rpt(i, 0, n){
+        rpt(j, i+1, n){
+            if(ans.size() >= n/2){
+                flag = true;
                 break;
+            }
             else if(!s.count(v[i] % v[j]))
                 ans.pb({v[i], v[j]});
+        }
+        if(flag)
+            break;
+    }
 
     for(auto x : ans)
         cout << x.first << " " << x.second << "\n";
