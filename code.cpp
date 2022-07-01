@@ -58,7 +58,7 @@ void solve(void){
         else
             x--, i--;
     
-    rpt(i, n, n/2)
+    rpt(i, n-1, n/2)
         if(x != a && x != b)  
             ans[i] = x--;
         else
