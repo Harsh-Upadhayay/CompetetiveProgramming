@@ -46,16 +46,23 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, x, t; cin >> n >> x >> t;
+    ll n; cin >> n;
+    vector<ll> v(n); rpt(i, 0, n) cin >> v[i];
 
-    ll y = t/x, ans;
-    if(y <= 1)
-        ans = n * (x == t);
-    else
-        ans = (y*(y+1))/2 + (n-y)*(y-1), debug(y);
+    sort(all(v), greater<ll>());
+    vector<p(ll, ll)> ans;
+    unordered_set<ll> s(all(v));
 
-    cout << ans;
- 
+    rpt(i, 0, n)
+        rpt(j, i+1, n)
+            if(ans.size() >= n/2)
+                break;
+            else if(!s.count(v[i] % v[j]))
+                ans.pb({v[i], v[j]});
+
+    for(auto x : ans)
+        cout << x.first << " " << x.second << "\n";
+
     nl;
 }
 
