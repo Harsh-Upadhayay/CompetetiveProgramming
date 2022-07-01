@@ -46,21 +46,23 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll a, b; cin >> a >> b;
+    ll n; cin >> n;
+    vector<string> t(2); rpt(i, 0, 2) cin >> t[i];
+    string s = "";
+    debug(t);
 
-    ll x = 0;
+    rpt(i, 0, n)
+        if(t[0][i] == t[1][i])
+            s += t[0][i];
 
-    if((a-1) % 4 == 0)
-            x = a-1;
-    if((a-1) % 4 == 1) 
-            x = 1;
-    if((a-1) % 4 == 2)
-            x = a;
-    if((a-1) % 4 == 3) 
-            x = 0;
-    
-    debug(x);
-    ll ans = a + (x != b) + ((x ^ a) == b);
+    ll ans = 2 * (n-s.size());
+    debug(s);
+    rpt(i, 0, s.size()-1){
+        if(s[i] != s[i+1])
+            ans += 1, i += 1, s[i] = '-', s[i+1] = '-';
+        if(i > s.size()-1)
+            break;
+    }
 
     cout << ans;
 
