@@ -49,7 +49,8 @@ void solve(void){
     ll n; cin >> n;
     string s; cin >> s;
 
-    ll i = 1;
+    ll i = 0;
+    // if(s[i+1] == s[i])
     while(i+1 < n && s[i] >= s[i+1]) i++; 
     rpt(j, 0, i+1) cout << s[j]; 
     rpt(j, i+1, 0) cout << s[j];      
