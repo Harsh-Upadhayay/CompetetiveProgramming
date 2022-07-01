@@ -57,12 +57,14 @@ void solve(void){
 
     ll ans = 2 * (n-s.size());
     debug(s);
+    
     rpt(i, 0, s.size()-1){
         if(s[i] != s[i+1])
             ans += 1, i += 1, s[i] = '-', s[i+1] = '-';
         if(i > s.size()-1)
             break;
     }
+
     for(auto x : s)
         if('0' == x)
             ans++;
