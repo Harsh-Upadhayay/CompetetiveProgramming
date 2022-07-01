@@ -53,7 +53,7 @@ void solve(void){
     vector<ll> freq(10, 0);
     ll ans = 0;
     rpt(i, 1, 10)
-        if(isComposit[(i)] && freq[i] > 1)
+        if(isComposit[(i)] && freq[i] > 0)
             ans = i;
     if(ans){
         cout << "1\n" << ans << "\n"; return;
