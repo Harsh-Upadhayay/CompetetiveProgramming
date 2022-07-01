@@ -47,17 +47,12 @@ void inline print(vector<vector<T>> v);
 
 void solve(void){
     ll n; cin >> n;
-    vector<ll> v(n); rpt(i, 0, n) cin >> v[i];
+    string s; cin >> s;
 
-    sort(all(v), greater<ll>());
-    vector<p(ll, ll)> ans;
-    unordered_set<ll> s(all(v));
-    bool flag = false;
-
-    ll x = nmin(v);
-
-    rpt(i, 0, n/2)
-        cout << v[i] << " " << x << "\n";
+    ll i = 0;
+    while(i+1 < n && s[i] > s[i+1]) i++; 
+    rpt(j, 0, i+1) cout << s[j]; 
+    rpt(j, i, 0) cout << s[j];      
 
     nl;
 }
