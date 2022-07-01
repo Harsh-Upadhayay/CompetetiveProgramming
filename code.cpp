@@ -63,7 +63,19 @@ void solve(void){
             ans[i] = x--;
         else
             x--, i++;
-    
+
+    bool flag = false;
+    rpt(i, n/2 - 1, n)
+        if(ans[i] > b)
+            flag = true;
+    rpt(i, 0, n/2)
+        if(ans[i] < a)
+            flag = true;
+    if(flag)
+        cout << "-1";
+    else
+        for(auto x : ans)
+            cout << x << " ";
     debug(ans);
     nl;
 }
