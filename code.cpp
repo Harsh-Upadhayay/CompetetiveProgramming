@@ -76,7 +76,7 @@ void solve(void){
                 seg += prevP == i % 2, prevP = i % 2;
         }
 
-
+    cout << " " << seg;
     debug(v);
     nl;
 }
