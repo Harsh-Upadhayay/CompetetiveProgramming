@@ -79,8 +79,9 @@ void solve(void){
 
     cout << "2\n";
     rpt(i, 1, n)
-        if(!isPrime(num+s[i]))
-            cout << (num + s[i]);
+        if(!isPrime(num+s[i])){
+            cout << (num + s[i]); break;
+        }
         else
             num = "", num += s[0];
 
