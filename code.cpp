@@ -44,6 +44,13 @@ void inline print(vector<vector<T>> v);
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 
+bool inline potentialP(ll i, vector<string> &t){
+    return (t[0][i] == t[1][i] && t[0][i+1] == t[1][i+1]) && t[0][i] != t[0][i+1];
+}
+
+void mark(ll i, vector<string> &t){
+    t[0][i] = t[1][i] = t[0][i+1] = t[1][i+1] = '-';
+}
 
 void solve(void){
     ll n; cin >> n;
@@ -51,24 +58,18 @@ void solve(void){
     string s = "";
     // debug(t);
 
+    ll ans = 0;
+    rpt(i, 0, n-1)
+        if(potentialP(i, t)){
+            mark(i, t), ans += 2;
+        }
+
     rpt(i, 0, n)
-        if(t[0][i] == t[1][i])
-            s += t[0][i];
+        if(t[0][i] != t[1][i])
+            ans += 2;
+        else if(t[0][i] == '0')
+            ans += 1;
 
-    ll sz = s.size();
-    ll ans = 2 * (n-sz);
-    debug(s);
-
-    for(int i = 0; i < sz-1; i++){
-        if(s[i] != s[i+1])
-            ans += 1, s[i] = '-', s[i+1] = '-', i += 1;
-        if(i > s.size()-1)
-            break;
-    }
-    debug(s);
-    for(auto x : s)
-        if('0' == x)
-            ans++;
     cout << ans;
     debug(s);
     nl;
