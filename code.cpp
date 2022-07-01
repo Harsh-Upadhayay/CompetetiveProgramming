@@ -50,7 +50,7 @@ void solve(void){
     ll n; cin >> n;
     string s; cin >> s;
     vector<ll> v;
-    ll x = 1;
+    ll x = 1, ans = 0;
 
     rpt(i, 0, n-1)
         if(s[i] == s[i+1])
@@ -58,7 +58,11 @@ void solve(void){
         else
             v.pb(x), x = 1;
     v.pb(x);
+
+    rpt(i, 0, v.size()-1)
+        if(v[i]%2) ans++, v[i+1]--;
     debug(v);
+    cout << ans;
     nl;
 }
 
