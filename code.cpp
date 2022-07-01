@@ -67,10 +67,10 @@ void solve(void){
 
     ll seg = 1;
 
-    // while(ans)
 
 
-    debug(t);
+
+    debug(v);
     nl;
 }
 
