@@ -46,41 +46,13 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, a, b; cin >> n >> a >> b;
+    ll a, b, c; cin >> a >> b >> c;
 
-    vector<ll> ans(n);
+    string gcd = "1";
+    while(--c)
+        gcd += '0';
+    debug(gcd);
 
-    ans[0] = a, ans[n-1] = b;
-    ll x = n;
-    rpt(i, 1, n/2)
-        if(x != a && x != b)  
-            ans[i] = x--;
-        else
-            x--, i--;
-    
-    rpt(i, n-1, n/2)
-        if(x != a && x != b)  
-            ans[i] = x--;
-        else
-            x--, i++;
-
-    bool flag = false;
-    rpt(i, n/2 , n){
-        debug(ans[i]);
-        if(ans[i] > b)
-            flag = true;
-    }
-    rpt(i, 0, n/2)
-        if(ans[i] < a)
-            flag = true;
-
-    if(flag)
-        cout << "-1";
-    else
-        for(auto x : ans)
-            cout << x << " ";
-    debug(ans);
-    nl;
 }
 
 
