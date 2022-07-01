@@ -65,7 +65,7 @@ void solve(void){
             x--, i++;
 
     bool flag = false;
-    rpt(i, n/2 - 1, n){
+    rpt(i, n/2 , n){
         debug(ans[i]);
         if(ans[i] > b)
             flag = true;
