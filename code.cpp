@@ -48,16 +48,15 @@ void inline print(vector<vector<T>> v);
 
 void solve(void){
     ll n; cin >> n;
-    map<ll, ll> freq;
-    bool flag = false;
-    rpt(i, 0, n) {ll x; cin >> x; freq[x]++; if(freq[x] > 1) flag = true;}
+    string s; cin >> s;
+    vector<ll> v;
+    ll x = 0;
 
-    if(freq[0])
-        cout << n - freq[0];
-    else if(flag)
-        cout << n;
-    else 
-        cout << n + 1;
+    rpt(i, 0, n-1)
+        if(s[i] == s[i-1])
+            x++;
+        else
+            x = 0, v.pb(x);
 
     nl;
 }
