@@ -56,7 +56,7 @@ void solve(void){
         if(s[i] == s[i+1])
             x++;
         else
-            x = 0, v.pb(x);
+            v.pb(x), x = 0;
     debug(v);
     nl;
 }
