@@ -52,7 +52,7 @@ void solve(void){
     ll i = 0;
     while(i+1 < n && s[i] > s[i+1]) i++; 
     rpt(j, 0, i+1) cout << s[j]; 
-    rpt(j, i, 0) cout << s[j];      
+    rpt(j, i+1, 0) cout << s[j];      
 
     nl;
 }
