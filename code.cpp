@@ -60,7 +60,7 @@ void solve(void){
     v.pb(x);
 
     vector<ll> t(all(v));
-
+    debug(v);
     rpt(i, 0, v.size()-1)
         if(v[i]%2) ans++, v[i] += (v[i] == 1 ? -1: 1), v[i+1] -= (v[i] == 1 ? -1: 1);
     cout << ans;
