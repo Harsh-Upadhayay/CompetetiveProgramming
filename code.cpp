@@ -49,7 +49,15 @@ void inline print(vector<vector<T>> v);
 void solve(void){
     ll n; cin >> n;
     map<ll, ll> freq;
-    rpt(i, 0, n) {ll x; cin >> x; freq[x]++;}
+    bool flag = false;
+    rpt(i, 0, n) {ll x; cin >> x; freq[x]++; if(freq[x] > 1) flag = true;}
+
+    if(freq[0])
+        cout << n - 1;
+    else if(flag)
+        cout << n;
+    else 
+        cout << n + 1;
 
     nl;
 }
