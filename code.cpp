@@ -45,26 +45,19 @@ void inline print(vector<vector<T>> v);
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 
 
-
 void solve(void){
-    ll n; cin >> n;
-    string s; cin >> s;
-    vector<ll> v;
-    ll x = 1, ans = 0;
+    ll n, a, b; cin >> n >> a >> b;
 
-    rpt(i, 0, n-1)
-        if(s[i] == s[i+1])
-            x++;
+    vector<ll> ans(n);
+
+    ans[0] = a;
+    ll x = n;
+    rpt(i, 1, n/2)
+        if(x != a && x != b)  
+            ans[i] = x--;
         else
-            v.pb(x), x = 1;
-    v.pb(x);
-
-    vector<ll> t(all(v));
-
-    rpt(i, 0, v.size()-1)
-        if(v[i]%2) ans++, v[i+1]--;
-    debug(t);
-    cout << ans;
+            x--, i--;
+    debug(ans);
     nl;
 }
 
