@@ -69,7 +69,7 @@ void solve(void){
             ans += 2;
         else if(t[0][i] == '0')
             ans += 1;
-
+    debug(t);
     cout << ans;
     debug(s);
     nl;
