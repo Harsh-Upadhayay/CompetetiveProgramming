@@ -57,7 +57,7 @@ void solve(void){
     ll x = nmin(v);
 
     rpt(i, 0, n/2)
-        cout << x << " " << v[i] << "\n";
+        cout << v[i] << " " << x << "\n";
 
     nl;
 }
