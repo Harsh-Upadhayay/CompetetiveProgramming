@@ -65,7 +65,7 @@ void solve(void){
         if(i > s.size()-1)
             break;
     }
-
+    debug(s);
     for(auto x : s)
         if('0' == x)
             ans++;
