@@ -52,7 +52,7 @@ void solve(void){
     if(y <= 1)
         ans = n * (x == t);
     else
-        ans = (y*(y-1))/2 + (n-y)*(y-1), debug(y);
+        ans = (y*(y+1))/2 + (n-y)*(y-1), debug(y);
 
     cout << ans;
  
