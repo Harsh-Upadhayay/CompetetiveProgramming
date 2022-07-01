@@ -53,7 +53,7 @@ void solve(void){
     ll x = 0;
 
     rpt(i, 0, n-1)
-        if(s[i] == s[i-1])
+        if(s[i] == s[i+1])
             x++;
         else
             x = 0, v.pb(x);
