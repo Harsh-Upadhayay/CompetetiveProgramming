@@ -62,8 +62,13 @@ void solve(void){
     vector<ll> t(all(v));
 
     rpt(i, 0, v.size()-1)
-        if(v[i]%2) ans++, v[i+1]--;
+        if(v[i]%2) ans++, v[i]++, v[i+1]--;
     cout << ans;
+
+    ll seg = 1;
+
+    // while(ans)
+
 
     debug(t);
     nl;
