@@ -50,7 +50,7 @@ void solve(void){
 
     ll gcd = pow(10, c-1);
     ll x = pow(10, a-1);
-    ll y = pow(10, b-1) + gcd;
+    ll y = (ll)pow(10, b-1) + gcd;
     cout << x << " " << y << "\n";
     debug(gcd);
 
