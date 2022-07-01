@@ -51,6 +51,10 @@ void solve(void){
     string s; cin >> s;
 
     vector<ll> freq(10, 0);
+
+    for(auto x : s)
+        freq[x-'0']++;
+
     ll ans = 0;
     rpt(i, 1, 10)
         if(isComposit[(i)] && freq[i] > 0)
