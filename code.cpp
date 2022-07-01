@@ -57,8 +57,13 @@ void solve(void){
             ans[i] = x--;
         else
             x--, i--;
+    
     rpt(i, n, n/2)
-        cout << i;
+        if(x != a && x != b)  
+            ans[i] = x--;
+        else
+            x--, i++;
+    
     debug(ans);
     nl;
 }
