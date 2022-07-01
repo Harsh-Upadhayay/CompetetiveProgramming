@@ -53,7 +53,7 @@ void solve(void){
     rpt(i, 0, n) {ll x; cin >> x; freq[x]++; if(freq[x] > 1) flag = true;}
 
     if(freq[0])
-        cout << n - 1;
+        cout << n - freq[0];
     else if(flag)
         cout << n;
     else 
