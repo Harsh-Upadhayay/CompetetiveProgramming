@@ -59,9 +59,9 @@ void solve(void){
     // debug(t);
 
     ll ans = 0;
-    rpt(i, 0, n-1)
+    for(int i = 0; i < n-1; i++)
         if(potentialP(i, t)){
-            mark(i, t), ans += 2;
+            mark(i, t), ans += 2, i++;
         }
 
     rpt(i, 0, n)
