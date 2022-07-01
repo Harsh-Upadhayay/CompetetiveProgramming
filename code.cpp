@@ -59,25 +59,11 @@ void solve(void){
             v.pb(x), x = 1;
     v.pb(x);
 
-    vector<ll> t;
-    debug(v);
+    vector<ll> t(all(v));
+
     rpt(i, 0, v.size()-1)
-        if(v[i]%2) ans++, v[i] += (v[i] < v[i+1] ? -1: 1), v[i+1] -= (v[i] < v[i+1] ? -1: 1);
+        if(v[i]%2) ans++, v[i+1]--;
     cout << ans;
-
-    ll seg = v[0] != 0;
-    bool flag = true;
-    ll prevP = 0;
-    rpt(i, 1, v.size())
-        if(v[i]){
-            if(v[i-1])
-                seg++, prevP = i % 2;
-            else
-                seg += prevP == i % 2, prevP = i % 2;
-        }
-
-    cout << " " << seg;
-    debug(v);
     nl;
 }
 
