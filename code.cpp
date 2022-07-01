@@ -44,48 +44,18 @@ void inline print(vector<vector<T>> v);
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 
-vector<bool> isComposit = {0, 1, 0, 0, 1, 0, 1, 0, 1, 1};
-
-bool isPrime(string s){
-    return (s == "23" || s == "53" || s == "37" || s == "73");
-}
 
 void solve(void){
-    ll n; cin >> n;
-    string s; cin >> s;
+    ll n, x, t; cin >> n >> x >> t;
 
-    vector<ll> freq(10, 0);
+    ll y = t/x, ans;
+    if(y <= 1)
+        ans = n * (x == t);
+    else
+        ans = (y*(y-1))/2 + (n-y)*(y-1);
 
-    for(auto x : s)
-        freq[x-'0']++;
-
-    ll ans = 0;
-    rpt(i, 1, 10)
-        if(isComposit[(i)] && freq[i] > 0)
-            ans = i;
-    if(ans){
-        cout << "1\n" << ans << "\n"; return;
-    }
-
-    rpt(i, 1, 10)
-        if(freq[i] > 1)
-            ans = i;
-    if(ans){
-        cout << "2\n" << ans << ans, nl; return;
-    }
-    
-    string num = "";
-    num += s[0];
-
-    cout << "2\n";
-    rpt(i, 1, n)
-        if(!isPrime(num+s[i])){
-            cout << (num + s[i]); break;
-        }
-        else
-            num = "", num += s[0];
-
-    
+    cout << ans;
+ 
     nl;
 }
 
