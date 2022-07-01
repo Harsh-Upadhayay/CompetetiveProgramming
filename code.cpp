@@ -50,13 +50,15 @@ void solve(void){
 
     vector<ll> ans(n);
 
-    ans[0] = a;
+    ans[0] = a, ans[n-1] = b;
     ll x = n;
     rpt(i, 1, n/2)
         if(x != a && x != b)  
             ans[i] = x--;
         else
             x--, i--;
+    rpt(i, n, n/2)
+        cout << i;
     debug(ans);
     nl;
 }
