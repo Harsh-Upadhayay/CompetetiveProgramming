@@ -55,17 +55,16 @@ void solve(void){
         if(t[0][i] == t[1][i])
             s += t[0][i];
 
-    ll ans = 2 * (n-s.size());
+    ll sz = s.size();
+    ll ans = 2 * (n-sz);
     debug(s);
 
-    int i = 0;
-    cout << s.size()-1;
-    // while(i < s.size()-1){
-    //     if(s[i] != s[i+1])
-    //         ans += 1, s[i] = '-', s[i+1] = '-', i += 1;
-    //     if(i > s.size()-1)
-    //         break;
-    // }
+    for(int i = 0; i < sz-1; i++){
+        if(s[i] != s[i+1])
+            ans += 1, s[i] = '-', s[i+1] = '-', i += 1;
+        if(i > s.size()-1)
+            break;
+    }
 
     for(auto x : s)
         if('0' == x)
