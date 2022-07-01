@@ -80,11 +80,11 @@ void solve(void){
     cout << "2\n";
     rpt(i, 1, n)
         if(!isPrime(num+s[i]))
-            cout << num;
+            cout << (num + s[i]);
         else
             num = "", num += s[0];
 
-    cout << ans;
+    
     nl;
 }
 
