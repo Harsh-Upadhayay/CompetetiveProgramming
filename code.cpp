@@ -48,9 +48,8 @@ void inline print(vector<vector<T>> v);
 void solve(void){
     ll a, b, c; cin >> a >> b >> c;
 
-    string gcd = "1";
-    while(--c)
-        gcd += '0';
+    ll gcd = pow(10, c-1);
+    
     debug(gcd);
 
 }
