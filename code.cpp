@@ -57,7 +57,7 @@ void solve(void){
             x++;
         else
             x = 0, v.pb(x);
-
+    debug(v);
     nl;
 }
 
