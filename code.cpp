@@ -46,6 +46,10 @@ void inline print(vector<vector<T>> v);
 
 vector<bool> isComposit = {0, 1, 0, 0, 1, 0, 1, 0, 1, 1};
 
+bool isPrime(string s){
+    return (s == "23" || s == "53" || s == "37" || s == "73");
+}
+
 void solve(void){
     ll n; cin >> n;
     string s; cin >> s;
@@ -70,10 +74,16 @@ void solve(void){
         cout << "2\n" << ans << ans, nl; return;
     }
     
+    string num = "";
+    num += s[0];
 
+    cout << "2\n";
+    rpt(i, 1, n)
+        if(!isPrime(num+s[i]))
+            cout << num;
+        else
+            num = "", num += s[0];
 
-    // if(x == '1' || x == '4' || x == '6' || x == '9' || x == '8')
-    //     ans = 1;
     cout << ans;
     nl;
 }
