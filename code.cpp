@@ -49,8 +49,8 @@ void solve(void){
     ll a, b, c; cin >> a >> b >> c;
 
     ll gcd = pow(10, c-1);
-    ll x = pow(10, a-1);
-    ll y = ceil(pow(10, b-1));
+    ll x = ceil(pow(10, a-1));
+    ll y = ceil(pow(10, b-1)) +  gcd;
     cout << x << " " << y << "\n";
     debug(gcd);
 
