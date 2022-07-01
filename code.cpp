@@ -69,7 +69,7 @@ void solve(void){
         if('0' == x)
             ans++;
     cout << ans;
-    debug(ans);
+    debug(s);
     nl;
 }
 
