@@ -49,7 +49,7 @@ void solve(void){
     ll n; cin >> n;
     vector<string> t(2); rpt(i, 0, 2) cin >> t[i];
     string s = "";
-    debug(t);
+    // debug(t);
 
     rpt(i, 0, n)
         if(t[0][i] == t[1][i])
