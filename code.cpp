@@ -50,13 +50,13 @@ void solve(void){
     ll n; cin >> n;
     string s; cin >> s;
     vector<ll> v;
-    ll x = 0;
+    ll x = 1;
 
     rpt(i, 0, n-1)
         if(s[i] == s[i+1])
             x++;
         else
-            v.pb(x), x = 0;
+            v.pb(x), x = 1;
     debug(v);
     nl;
 }
