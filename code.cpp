@@ -63,6 +63,7 @@ void solve(void){
 
     rpt(i, 0, v.size()-1)
         if(v[i]%2) ans++, v[i+1]--;
+    debug(t);
     cout << ans;
     nl;
 }
