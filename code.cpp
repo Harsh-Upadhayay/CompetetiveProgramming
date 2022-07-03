@@ -52,11 +52,11 @@ void solve(void){
     set<ll> s(all(v));
 
     ll i = 0, x = 0;
-    while(i < n-1){
+    while(i < n){
         auto itr = s.find(v[i]);
         while(i < n && *itr == v[i]) 
             i++, itr++;
-        
+
         x++; 
     }
     debug(x);
