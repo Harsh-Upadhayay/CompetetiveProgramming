@@ -49,12 +49,13 @@ void inline print(vector<vector<T>> v);
 void solve(void){
     ll n, k; cin >> n >> k;
     vector<ll> v(n); rpt(i, 0, n) cin >> v[i];
-    
+    set<ll> s(all(v));
+
     ll i = 0, x = 0;
     while(i < n-1){
-        if(v[i] > v[i+1])
-            x++;
-        i++;
+        auto itr = s.find(v[i]);
+        while(i++ < n && *(itr++) == x);
+        x++; 
     }
     debug(x);
     cout << (x+1 == k ? "YES": "NO");
