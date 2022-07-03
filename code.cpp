@@ -82,6 +82,7 @@ void solve(void){
             i++, itr++;
         x++; 
     }
+    debug(n, k);
 
     if(shit(n, k, v) != (x <= k ? "YES": "NO")){ 
         debug(n, k, v, shit(n, k, v));
