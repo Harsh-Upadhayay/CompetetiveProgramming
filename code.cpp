@@ -70,6 +70,7 @@ void solve(void){
         while(added.count(20))
             x = rand() % 20;
         v[i] = x;
+        added.insert(x);
     } 
     set<ll> s(all(v));
 
