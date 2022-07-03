@@ -45,30 +45,16 @@ void inline print(vector<vector<T>> v);
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
 
-bool islcm(string a, string b){
-    rpt(i, 0, (a.size() < b.size() ? a.size() : b.size())){
-        if(a[i] != b[i])
-            return false;
-    }
-    return true;
-}
 
 void solve(void){
-    string a, b; cin >> a >> b;
-
-    string &big = (a.size() > b.size() ? a : b);
-    string &small = (a.size() < b.size() ? a : b);
-
-    if(islcm(a, b)){
-        small += small;
-        debug(small);
-        if(islcm(big, small))
-            cout << big;
-        else
-            cout << (big + big);
+    ll n, ans; cin >> n;
+    
+    ll pow = 1;
+    while(n){
+        cout << (pow*(n%10));
+        pow *= 10, n /= 10;
     }
-    else
-        cout << "-1";
+
     
 
     nl;
