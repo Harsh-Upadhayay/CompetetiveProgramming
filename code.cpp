@@ -47,10 +47,18 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, k; cin >> n;
-
-
+    ll n, k; cin >> n >> k;
+    vector<ll> v(n); rpt(i, 0, n) cin >> v[i];
     
+    ll i = 0, x = 0;
+    while(i < n-1){
+        if(v[i] > v[i+1])
+            x++;
+        i++;
+    }
+    if(v[n-2] > v[n-1])
+        x++;
+    cout << (x == k ? "YES": "NO");
 
     nl;
 }
