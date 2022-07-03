@@ -55,7 +55,7 @@ void solve(void){
     while(i < n-1){
         auto itr = s.find(v[i]);
             debug(*itr);
-        while(i++ < n && *(itr++) == x) {
+        while(i++ < n && *(itr++) == v[i]) {
         }
         x++; 
     }
