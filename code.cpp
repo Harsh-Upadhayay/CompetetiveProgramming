@@ -52,7 +52,7 @@ void solve(void){
     ll idx1 = -1, idx2 = -1, n = s.size();
 
     rpt(i, 0, s.size()-1){
-        if(toint(s[i]) + toint(s[i+1]) > 9 && idx2 == -1)
+        if(toint(s[i]) + toint(s[i+1]) > 9)
             idx2 = i;
         else if(toint(s[i]) && toint(s[i+1]) && toint(s[i]) + toint(s[i+1]) <= 9 && idx1 == -1)
             idx1 = i;
