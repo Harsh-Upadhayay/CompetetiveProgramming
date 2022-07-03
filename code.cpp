@@ -61,14 +61,16 @@ void solve(void){
     rpt(i, 0, n-1)
         if(v[i+1] - v[i] <= mdif)
             mdif = v[i+1] - v[i], idx = i;
-    
-    cout << v[idx] << " ";
+        
 
-    rpt(i, 0, n) 
-        if(i != idx && i != idx+1)
-            cout << v[i] << " ";
-    cout << v[idx+1];
+    {
+        cout << v[idx] << " ";
 
+        rpt(i, 0, n) 
+            if(i != idx && i != idx+1)
+                cout << v[i] << " ";
+        cout << v[idx+1];
+    }
     nl;
 }
 
