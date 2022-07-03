@@ -57,7 +57,7 @@ void solve(void){
         return;
     }
 
-    ll mdif = 0, idx = -1;
+    ll mdif = INT_MAX, idx = -1;
     rpt(i, 0, n-1)
         if(v[i+1] - v[i] <= mdif)
             mdif = v[i+1] - v[i], idx = i;
