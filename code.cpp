@@ -54,6 +54,7 @@ void solve(void){
 
     if(v[0] == v[n-1]){
         rpt(i, 0, n) cout << v[i] << " ";
+        nl;
         return;
     }
 
