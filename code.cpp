@@ -47,7 +47,7 @@ void inline print(vector<vector<T>> v);
 
 bool islcm(string a, string b){
     rpt(i, 0, (a.size() < b.size() ? a.size() : b.size())){
-        debug(a[i]);
+        cout << i;
         if(a[i] != b[i])
             return false;
     }
