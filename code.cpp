@@ -50,14 +50,16 @@ void solve(void){
     ll n, ans; cin >> n;
     
     ll pow = 1;
-    cout << (int)log10(n) << "\n";
+    vector<ll> v;
     while(n){
         if((pow*(n%10)))
-            cout << (pow*(n%10)) << " ";
+            v.pb(pow*(n%10));
         pow *= 10, n /= 10;
     }
 
-    
+    cout << v.size() << "\n";
+    for(auto x : v)
+        cout << x << " ";
 
     nl;
 }
