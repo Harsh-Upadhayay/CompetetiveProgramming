@@ -57,7 +57,7 @@ void solve(void){
         i++;
     }
     debug(x);
-    cout << (x+1 <= k ? "YES": "NO");
+    cout << (x+1 == k ? "YES": "NO");
 
     nl;
 }
