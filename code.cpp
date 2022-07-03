@@ -47,28 +47,11 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n; cin >> n;
-    vector<ll> v(n); rpt(i, 0, n) cin >> v[i];
-
-    sort(all(v));
-
-    ll mdif = INT_MAX, idx = -1;
-
-    if(n == 2){
-        rpt(i, 0, 2) cout << v[i] << " "; cout << "\n"; return;
-    }
-
-    rpt(i, 0, n-1)
-        if(v[i+1] - v[i] <= mdif)
-            mdif = v[i+1] - v[i], idx = i;
-        
-    rpt(i, idx+1, n)
-        cout << v[i] << " ";
-    rpt(i, 0, idx+1)
-        cout << v[i] << " ";
+    ll n, k; cin >> n;
 
 
     
+
     nl;
 }
 
