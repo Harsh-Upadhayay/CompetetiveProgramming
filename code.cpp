@@ -53,6 +53,11 @@ void solve(void){
     sort(all(v));
 
     ll mdif = INT_MAX, idx = -1;
+
+    if(n == 2){
+        rpt(i, 0, 2) cout << v[i] << " "; cout << "\n"; return;
+    }
+
     rpt(i, 0, n-1)
         if(v[i+1] - v[i] <= mdif)
             mdif = v[i+1] - v[i], idx = i;
