@@ -68,7 +68,7 @@ void solve(void){
     rpt(i, 0, n){
         ll x = rand() % 20;
         while(added.count(x))
-            x++;
+            x = rand() % 20;
         v[i] = x;
         added.insert(x);
     } 
