@@ -83,11 +83,11 @@ void solve(void){
         x++; 
     }
 
-    if(shit(n, k, v) != (x <= k ? "YES": "NO")){ 
+    // if(shit(n, k, v) != (x <= k ? "YES": "NO")){ 
         debug(n, k, v, shit(n, k, v));
 
-        exit(0);
-    }
+        // exit(0);
+    // }
 
     nl;
 }
