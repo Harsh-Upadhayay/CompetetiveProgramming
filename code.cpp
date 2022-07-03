@@ -45,44 +45,30 @@ void inline print(vector<vector<T>> v);
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
 
-#define toint(x) ((x) - '0')
+bool islcm(string a, string b){
+    rpt(i, 0, (a.size() < b.size() ? a.size() : b.size()))
+        if(a[i] != b[i])
+            return false;
+    return true;
+}
 
 void solve(void){
-    string s; cin >> s;
-    ll idx1 = -1, idx2 = -1, n = s.size();
+    string a, b; cin >> a >> b;
 
-    rpt(i, 0, s.size()-1){
-        if(toint(s[i]) + toint(s[i+1]) > 9)
-            idx2 = i;
-        else if(toint(s[i]) + toint(s[i+1]) <= 9 && idx1 == -1)
-            idx1 = i;
-    }    
-    ll i = 0;
-    if(idx2 != -1){
-        while(i < n){
-            if(i == idx2){
-                cout << toint(s[idx2]) + toint(s[idx2+1]);
-                i++;
-            }
-            else
-                cout << s[i];
-            i++;
-        }
-    }
-    else if(idx1 != -1){
-        while(i < n){
-            if(i == idx1){
-                cout << toint(s[idx1]) + toint(s[idx1+1]);
-                i++;
-            }
-            else
-                cout << s[i];
-            i++;
-        }
+    string &big = (a.size() > b.size() ? a : b);
+    string &small = (a.size() < b.size() ? a : b);
 
+    if(islcm(a, b)){
+        small += big;
+        if(islcm(big, small))
+            cout << big;
+        else
+            cout << (big + big);
     }
+    else
+        cout << "-1";
     
-    debug(idx1, idx2);
+
     nl;
 }
 
