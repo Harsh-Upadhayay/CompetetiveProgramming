@@ -58,7 +58,7 @@ void solve(void){
             idx1 = i;
     }    
     ll i = 0;
-    if(idx2){
+    if(idx2 != -1){
         while(i < n){
             if(i == idx2){
                 cout << toint(s[idx2]) + toint(s[idx2+1]);
@@ -69,7 +69,7 @@ void solve(void){
             i++;
         }
     }
-    else if(idx1){
+    else if(idx1 != -1){
         while(i < n){
             if(i == idx1){
                 cout << toint(s[idx1]) + toint(s[idx1+1]);
