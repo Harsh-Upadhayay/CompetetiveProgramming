@@ -61,6 +61,7 @@ void solve(void){
 
     if(islcm(a, b)){
         small += small;
+        debug(small);
         if(islcm(big, small))
             cout << big;
         else
