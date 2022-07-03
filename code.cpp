@@ -62,13 +62,13 @@ string shit(ll n, ll k, vll vec){
 
 
 void solve(void){
-    ll n, k; n = rand()%10 + 2, k = rand()%n + 1;
+    ll n, k; n = rand()%100000 + 2, k = rand()%n + 1;
     vector<ll> v(n);
     set<ll> added;
     rpt(i, 0, n){
-        ll x = rand() % 20;
+        ll x = rand() % 20000;
         while(added.count(x))
-            x = rand() % 20;
+            x = rand() % 20000;
         v[i] = x;
         added.insert(x);
     } 
@@ -82,7 +82,6 @@ void solve(void){
             i++, itr++;
         x++; 
     }
-    debug(n, k);
 
     if(shit(n, k, v) != (x <= k ? "YES": "NO")){ 
         debug(n, k, v, shit(n, k, v));
