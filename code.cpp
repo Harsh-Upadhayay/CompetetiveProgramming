@@ -51,7 +51,7 @@ void solve(void){
     
     ll pow = 1;
     while(n){
-        cout << (pow*(n%10));
+        cout << (pow*(n%10)) << " ";
         pow *= 10, n /= 10;
     }
 
