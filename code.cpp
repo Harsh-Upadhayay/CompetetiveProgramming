@@ -53,7 +53,7 @@ void solve(void){
     sort(all(v));
 
     if(v[0] == v[n-1]){
-        rpt(i, 0, n) cout << v[i];
+        rpt(i, 0, n) cout << v[i] << " ";
         return;
     }
 
