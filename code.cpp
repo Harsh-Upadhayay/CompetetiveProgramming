@@ -54,7 +54,7 @@ void solve(void){
     rpt(i, 0, s.size()-1){
         if(toint(s[i]) + toint(s[i+1]) > 9)
             idx2 = i;
-        else if(toint(s[i]) && toint(s[i+1]) && toint(s[i]) + toint(s[i+1]) <= 9 && idx1 == -1)
+        else if(toint(s[i]) + toint(s[i+1]) <= 9 && idx1 == -1)
             idx1 = i;
     }    
     ll i = 0;
@@ -81,13 +81,7 @@ void solve(void){
         }
 
     }
-    else{
-        for(auto x : s)
-            if(x == '0' && !i)
-                i = 1;
-            else
-                cout << x;
-    }
+    
     debug(idx1, idx2);
     nl;
 }
