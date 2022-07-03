@@ -52,33 +52,17 @@ void solve(void){
 
     sort(all(v));
 
-    if(v[0] == v[n-1]){
-        rpt(i, 0, n) cout << v[i] << " ";
-        nl;
-        return;
-    }
-
     ll mdif = INT_MAX, idx = -1;
     rpt(i, 0, n-1)
         if(v[i+1] - v[i] <= mdif)
             mdif = v[i+1] - v[i], idx = i;
         
-    
-    cout << v[idx] << " ";
+    rpt(i, idx+1, n)
+        cout << v[i] << " ";
+    rpt(i, 0, idx+1)
+        cout << v[i] << " ";
 
-    if(n == 4){
-        rpt(i, n, 0)
-            if(i != idx && i != idx+1)
-                cout << v[i] << " ";
-    }
 
-    else {
-        rpt(i, 0, n) 
-            if(i != idx && i != idx+1)
-                cout << v[i] << " ";
-    }
-    
-    cout << v[idx+1];
     
     nl;
 }
