@@ -63,7 +63,14 @@ string shit(ll n, ll k, vll vec){
 
 void solve(void){
     ll n, k; n = rand()%10 + 2, k = rand()%n + 1;
-    vector<ll> v(n); rpt(i, 0, n) v[i] = rand() % 20;
+    vector<ll> v(n);
+    set<ll> added;
+    rpt(i, 0, n){
+        ll x = rand() % 20;
+        while(added.count(20))
+            x = rand() % 20;
+        v[i] = x;
+    } 
     set<ll> s(all(v));
 
     ll i = 0, x = 0;
