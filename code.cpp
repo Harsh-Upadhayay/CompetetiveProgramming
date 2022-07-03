@@ -88,7 +88,7 @@ void solve(void){
             else
                 cout << x;
     }
-
+    debug(idx1, idx2);
     nl;
 }
 
