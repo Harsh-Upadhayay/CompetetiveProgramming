@@ -45,52 +45,53 @@ void inline print(vector<vector<T>> v);
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
 
-string shit(ll n, ll k, vll vec){
-
-    vector<pair<int, int>> v(n);
-    for (int i = 0; i < n; i++) {
-        v[i].first = vec[i];
-        v[i].second = i;
-    }
-    sort(v.begin(), v.end());
-    int ans = 1;
-    for (int i = 1; i < n; i++)
-        if (v[i - 1].second + 1 != v[i].second)
-            ans++;
-    return (ans <= k ? "YES" : "NO") ;
-}   
-
+#define toint(x) ((x) - '0')
 
 void solve(void){
-    ll n, k; n = rand()%100000 + 2, k = rand()%n + 1;
-    vector<ll> v(n);
-    set<ll> added;
-    rpt(i, 0, n){
-        ll x = rand() % 20000;
-        while(added.count(x))
-            x = rand() % 20000;
-        v[i] = x;
-        added.insert(x);
-    } 
-    set<ll> s(all(v));
+    string s; cin >> s;
+    ll idx1 = -1, idx2 = -1, n = s.size();
 
-    ll i = 0, x = 0;
-    while(i < n){
-        auto itr = s.find(v[i]);
-
-        while(i < n && *itr == v[i]) 
-            i++, itr++;
-        x++; 
+    rpt(i, 0, s.size()-1){
+        if(toint(s[i]) + toint(s[i+1]) > 9 && idx2 == -1)
+            idx2 = i;
+        else if(toint(s[i]) && toint(s[i+1]) && toint(s[i]) + toint(s[i+1]) <= 9 && idx1 == -1)
+            idx1 = i;
+    }    
+    ll i = 0;
+    if(idx2){
+        while(i < n){
+            if(i == idx2){
+                cout << toint(s[idx2]) + toint(s[idx2+1]);
+                i++;
+            }
+            else
+                cout << s[i];
+            i++;
+        }
     }
+    else if(idx1){
+        while(i < n){
+            if(i == idx1){
+                cout << toint(s[idx1]) + toint(s[idx1+1]);
+                i++;
+            }
+            else
+                cout << s[i];
+            i++;
+        }
 
-    if(shit(n, k, v) != (x <= k ? "YES": "NO")){ 
-        debug(n, k, v, shit(n, k, v));
-
-        exit(0);
+    }
+    else{
+        for(auto x : s)
+            if(x == '0' && !i)
+                i = 1;
+            else
+                cout << x;
     }
 
     nl;
 }
+
 
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
