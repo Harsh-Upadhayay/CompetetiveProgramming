@@ -59,7 +59,7 @@ void solve(void){
     if(v[n-2] > v[n-1])
         x++;
     debug(x);
-    cout << (x == k ? "YES": "NO");
+    cout << (x <= k ? "YES": "NO");
 
     nl;
 }
