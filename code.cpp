@@ -47,17 +47,27 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, k, ans;
+    ll n; cin >> n;
+    vector<ll> v(n); rpt(i, 0, n) cin >> v[i];
 
-    cin >> n >> k;
+    sort(all(v));
 
-    if(n % 2)
-        cout << n/2 << " " << n/2 << " " << 1;
-    else
-        if(n/2 % 2)
-            cout << n/2 -1 <<  " " <<n/2 -1 << " " << 2;
-        else 
-            cout << n/2 << " " << n/4 << " " << n/4;
+    if(v[0] == v[n-1]){
+        rpt(i, 0, n) cout << v[i];
+        return;
+    }
+
+    ll mdif = 0, idx = -1;
+    rpt(i, 0, n-1)
+        if(v[i+1] - v[i] <= mdif)
+            mdif = v[i+1] - v[i], idx = i;
+    
+    cout << v[idx] << " ";
+
+    rpt(i, 0, n) 
+        if(i != idx && i != idx+1)
+            cout << v[i] << " ";
+    cout << v[idx+1];
 
     nl;
 }
