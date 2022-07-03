@@ -50,7 +50,7 @@ void solve(void){
     ll n, ans; cin >> n;
     
     ll pow = 1;
-    cout << (int)log10(n);
+    cout << (int)log10(n) << "\n";
     while(n){
         if((pow*(n%10)))
             cout << (pow*(n%10)) << " ";
