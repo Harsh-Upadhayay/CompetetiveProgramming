@@ -47,7 +47,6 @@ void inline print(vector<vector<T>> v);
 
 bool islcm(string a, string b){
     rpt(i, 0, (a.size() < b.size() ? a.size() : b.size())){
-        cout << i;
         if(a[i] != b[i])
             return false;
     }
@@ -61,7 +60,7 @@ void solve(void){
     string &small = (a.size() < b.size() ? a : b);
 
     if(islcm(a, b)){
-        small += big;
+        small += small;
         if(islcm(big, small))
             cout << big;
         else
