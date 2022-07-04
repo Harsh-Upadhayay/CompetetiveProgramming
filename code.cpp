@@ -85,7 +85,6 @@ void solve(void){
     tester obj(5);
     
     print(obj.perms);
-    cout << MOD;
 
     nl;
 }
