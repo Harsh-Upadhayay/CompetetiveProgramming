@@ -57,7 +57,7 @@ void solve(void){
             count += grid[i][j] == '.';
         }
 
-    if(y > 2*x) {
+    if(y < 2*x) {
         for(auto row : grid)
             for(int i = 0; i < m-1; i++)
                 if(row[i] == '.' && row[i+1] == '.')
