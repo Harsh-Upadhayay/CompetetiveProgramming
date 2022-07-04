@@ -48,18 +48,12 @@ void inline print(vector<vector<T>> v);
 
 void solve(void){
     ll n, ans; cin >> n;
-    
-    ll pow = 1;
-    vector<ll> v;
-    while(n){
-        if((pow*(n%10)))
-            v.pb(pow*(n%10));
-        pow *= 10, n /= 10;
-    }
+    vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    cout << v.size() << "\n";
-    for(auto x : v)
-        cout << x << " ";
+    ans = nmin(v);
+    ans = log2(ans);
+    debug(ans);
+    
 
     nl;
 }
