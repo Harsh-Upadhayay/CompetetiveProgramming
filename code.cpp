@@ -51,26 +51,22 @@ void solve(void){
 
     vector<vector<ll>> a = {{1, 0}, {0, 1}}, b = {{0, 1}, {1, 0}};
     vector<ll> x = {1, 0}, y = {0, 1};
-   
-    bool oflag = true;
+    
+    vector<vector<ll>> v(n, vector<ll>(m));
+    v[0][0] = 1;
+    v[0][1] = 0;
+    v[1][0] = 0;
+    v[1][1] = 1;
 
-    rpt(i, 0, n){
-        bool iflag = oflag;
-        rpt(j, 0, m/2){
-            if(iflag){
-                print(x);
-                iflag = !iflag;
-            }
-            else{
-                print(y);
-                iflag = !iflag;
-            }
+
+    for(int i = 0; i < 2; i += 2){
+        ll k = 1;
+        for(int j = 2; j < m; j += 2){
+            v[i][j] = v[i][j-k], k++;
         }
-        cout << "\n";
-        oflag = !oflag;
+
     }
-
-
+    print(v);
     nl;
 }
 
