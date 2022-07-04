@@ -46,13 +46,9 @@ void inline print(vector<vector<T>> v);
 /*_________________________________________________________________________________________________________________________________________*/
 
 
-void solve(void){
-    ll n, m; cin >> n >> m;
+vector<vector<ll>> v(50, vector<ll>(50));
+void init(ll n = 50, ll m = 50){
 
-    vector<vector<ll>> a = {{1, 0}, {0, 1}}, b = {{0, 1}, {1, 0}};
-    vector<ll> x = {1, 0}, y = {0, 1};
-    
-    vector<vector<ll>> v(n, vector<ll>(m));
     v[0][0] = 1;
     v[0][1] = 0;
     v[1][0] = 0;
@@ -91,7 +87,17 @@ void solve(void){
         }
 
     }
-    print(v);
+
+}
+
+void solve(void){
+    ll n, m; cin >> n >> m;
+    rpt(i, 0, n){
+        rpt(j, 0, m)
+            cout << v[i][j];
+        cout << "\n";
+    }
+   
     nl;
         
 }
@@ -113,7 +119,7 @@ int main() {
     cin.tie(NULL);
     
     ll t = 1;
-
+    init();
     #ifdef TESTCASE
         cin >> t;
     #endif
