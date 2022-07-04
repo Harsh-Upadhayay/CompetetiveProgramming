@@ -50,7 +50,21 @@ void solve(void){
     ll n, m; cin >> n >> m;
 
     vector<vector<ll>> a = {{1, 0}, {0, 1}}, b = {{0, 1}, {1, 0}};
-    print(b);
+    vector<ll> x = {1, 0}, y = {0, 1};
+    bool flag = true;
+
+    rpt(i, 0, n/2){
+        rpt(j, 0, m/2){
+            if(flag){
+                print(x);
+                flag = !flag;
+            }
+            else
+                print(y);
+        }
+        cout << "\n";
+    }
+
 
     nl;
 }
@@ -99,7 +113,6 @@ template<class T>
 void inline print(vector<T> v){
     for(auto x : v)
         cout << x << " ";
-    nl;
 }
 
 template<class T>
