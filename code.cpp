@@ -53,7 +53,7 @@ void solve(void){
     rpt(i, 0, n)
         rpt(j, 0, m)
             cin >> grid[i][j];
-        debug(n, m);
+        
     print(grid);
 
     
