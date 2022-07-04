@@ -51,9 +51,10 @@ void solve(void){
 
     vector<vector<ll>> a = {{1, 0}, {0, 1}}, b = {{0, 1}, {1, 0}};
     vector<ll> x = {1, 0}, y = {0, 1};
+   
     bool flag = true;
 
-    rpt(i, 0, n/2){
+    rpt(i, 0, n){
         rpt(j, 0, m/2){
             if(flag){
                 print(x);
