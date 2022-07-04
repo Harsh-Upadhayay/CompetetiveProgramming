@@ -49,8 +49,9 @@ void inline print(vector<vector<T>> v);
 void solve(void){
     ll a, b; cin >> a >> b;
     // debug(a, b);
-    ll x = (a > b ? a/b : b/a);
-    debug(x);
+    ll x = max(a, b), y = min(a, b);
+    ll z = x/y;
+    debug(z);
     cout << ((x & (x-1)) ? -1 : (ll)log2(x));
     nl;
 }
