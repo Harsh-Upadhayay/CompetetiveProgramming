@@ -52,18 +52,20 @@ void solve(void){
     vector<vector<ll>> a = {{1, 0}, {0, 1}}, b = {{0, 1}, {1, 0}};
     vector<ll> x = {1, 0}, y = {0, 1};
    
-    bool flag = true;
+    bool oflag = true;
 
     rpt(i, 0, n){
+        bool iflag = oflag;
         rpt(j, 0, m/2){
-            if(flag){
+            if(iflag){
                 print(x);
-                flag = !flag;
+                iflag = !iflag;
             }
             else
                 print(y);
         }
         cout << "\n";
+        oflag = !oflag;
     }
 
 
