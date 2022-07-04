@@ -51,9 +51,11 @@ void solve(void){
     vector<vector<char>> grid(n, vector<char> (n));
 
     rpt(i, 0, n)
-        rpt(j, 0, m)
+        rpt(j, 0, m){
             cin >> grid[i][j];
-        
+            debug(i, j);
+        }
+
     print(grid);
 
     
