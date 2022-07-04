@@ -50,7 +50,7 @@ void solve(void){
     ll n, m; cin >> n >> m;
 
     vector<vector<ll>> a = {{1, 0}, {0, 1}}, b = {{0, 1}, {1, 0}};
-    print(a);
+    print(b);
 
     nl;
 }
