@@ -63,6 +63,7 @@ void solve(void){
         ll k = 1;
         for(int j = 2; j < m; j += 2){
             v[i][j] = v[i][j-k], k++;
+            cout << "G";
         }
 
     }
