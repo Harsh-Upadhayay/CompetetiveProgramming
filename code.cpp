@@ -52,7 +52,7 @@ void solve(void){
     ll x = max(a, b), y = min(a, b);
     ll z = x/y;
     debug(x, y, z);
-    if(!(x % y))
+    if((x % y))
         cout << -1;
     else
         cout << ((z & (z-1)) ? -1 : (ll)log2(z));
