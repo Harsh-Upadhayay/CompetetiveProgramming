@@ -51,7 +51,7 @@ void solve(void){
     // debug(a, b);
     ll x = max(a, b), y = min(a, b);
     ll z = x/y;
-    debug(z);
+    debug(x, y, z);
     if(!(x % y))
         cout << -1;
     else
