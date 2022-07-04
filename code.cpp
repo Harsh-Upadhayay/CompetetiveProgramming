@@ -57,7 +57,7 @@ void solve(void){
     }
     ans = log2(ans) + 1;
     debug(ans);
-    
+    cout << ((ll)pow(2, ans) - 1);
 
     nl;
 }
