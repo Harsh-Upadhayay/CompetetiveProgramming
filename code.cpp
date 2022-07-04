@@ -61,8 +61,10 @@ void solve(void){
                 print(x);
                 iflag = !iflag;
             }
-            else
+            else{
                 print(y);
+                iflag = !iflag;
+            }
         }
         cout << "\n";
         oflag = !oflag;
