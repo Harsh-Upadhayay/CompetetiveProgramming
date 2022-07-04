@@ -59,7 +59,7 @@ void solve(void){
     v[1][1] = 1;
 
 
-    for(int i = 0; i < 2; i += 2){
+    for(int i = 0; i < 2; i += 1){
         ll k = 1;
         for(int j = 2; j < m; j += 2){
             debug(i, j);
