@@ -44,11 +44,47 @@ void inline print(vector<vector<T>> v);
 
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
+class tester{
+    public : 
+    vector<vector<int>> perms;
+    int __size;
+    int __a[100];
+    tester(int siz){
+        __size = siz;
+        for(int i = 0; i < __size; i++)
+            __a[i] = i;
 
+        heapPermutation(__a, __size, __size);
+    }
+    void heapPermutation(int a[], int size, int n)
+    {
+        if (size == 1) {
+            vector<int> perm;
+            rpt(i, 0, n)
+                perm.pb(a[i]);
+            perms.pb(perm);
+            return;
+        }
+     
+        for (int i = 0; i < size; i++) {
+            heapPermutation(a, size - 1, n);
+     
+            if (size % 2 == 1)
+                swap(a[0], a[size - 1]);
+     
+            else
+                swap(a[i], a[size - 1]);
+        }
+    }
+
+
+};
 
 void solve(void){
     ll n, ans;
-
+    tester obj(5);
+    
+    print(obj.perms);
     cout << MOD;
 
     nl;
