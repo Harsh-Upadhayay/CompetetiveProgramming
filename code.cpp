@@ -47,13 +47,10 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, ans; cin >> n;
-    if(n % 2)
-        cout << "-1";
-    else
-        cout << "2 2 " << (2^(n/2));
+    ll n, m; cin >> n >> m;
 
-    debug((2^(2^(n/2))));
+    vector<vector<ll>> a = {{1, 0}, {0, 1}}, b = {{0, 1}, {1, 0}};
+    print(a);
 
     nl;
 }
