@@ -63,7 +63,7 @@ void solve(void){
         ll k = 1;
         for(int j = 2; j < m; j += 2){
             debug(i, j);
-            v[i][j] = v[i][j-k], k += 2;
+            v[i][j] = v[i][j-k], k += 3;
         }
 
     }
