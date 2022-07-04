@@ -47,26 +47,13 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, m, x, y; cin >> n >> m >> x >> y;
-    vector<vector<char>> grid(n, vector<char> (m));
-    ll count = 0, ans = 0;
+    ll n, ans; cin >> n;
+    if(n == 1)
+        cout << "-1";
+    else
+        cout << "1 1 " << n;
 
-    rpt(i, 0, n)
-        rpt(j, 0, m){
-            cin >> grid[i][j];
-            count += grid[i][j] == '.';
-        }
-
-    if(y < 2*x) {
-        for(auto row : grid)
-            for(int i = 0; i < m-1; i++)
-                if(row[i] == '.' && row[i+1] == '.')
-                    ans +=  y, count -= 2, i++;
-    }
-
-    ans += count * x;
     
-    cout << ans;
 
     nl;
 }
