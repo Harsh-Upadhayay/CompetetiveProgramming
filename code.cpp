@@ -51,7 +51,7 @@ void solve(void){
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
     ans = nmax(v);
-    ans = (ceil(log2(ans)) == floor(log2(ans) ? log2(ans) : ceil(log2(ans))));
+    ans = ((ceil(log2(ans)) == floor(log2(ans)) ? log2(ans) : ceil(log2(ans))));
     debug(ans);
     
 
