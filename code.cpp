@@ -55,7 +55,7 @@ void solve(void){
     if((x % y))
         cout << -1;
     else
-        cout << ((z & (z-1)) ? -1 : ceil(((ll) log2(z))/3));
+        cout << ((z & (z-1)) ? -1 : ceil(((ll)log2(z))/3) );
     nl;
 }
 
