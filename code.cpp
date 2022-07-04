@@ -94,7 +94,7 @@ void solve(void){
     ll n, m; cin >> n >> m;
     rpt(i, 0, n){
         rpt(j, 0, m)
-            cout << v[i][j];
+            cout << v[i][j] << " ";
         cout << "\n";
     }
    
