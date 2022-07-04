@@ -48,12 +48,12 @@ void inline print(vector<vector<T>> v);
 
 void solve(void){
     ll n, ans; cin >> n;
-    if(n == 1)
+    if(n % 2)
         cout << "-1";
     else
-        cout << "1 1 " << n;
+        cout << "2 2 " << (2^n);
 
-    
+    debug((2^(2^n)));
 
     nl;
 }
