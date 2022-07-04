@@ -50,13 +50,7 @@ void solve(void){
     ll a, b; cin >> a >> b;
     // debug(a, b);
     ll x = max(a, b), y = min(a, b);
-    ll z = x/y;
-    debug(x, y, z);
-    cout << log2(1099511627776);
-    if((x % y))
-        cout << -1;
-    else
-        cout << ((z & (z-1)) ? -1 : (ll)log2(z));
+    cout << log2(10e18);
     nl;
 }
 
