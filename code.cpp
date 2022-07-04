@@ -45,26 +45,12 @@ void inline print(vector<vector<T>> v);
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
 
-bool is_even(ll x){
-    return !(x % 2);
-}
 
 void solve(void){
-    ll n; cin >> n;
-    vector<ll> v(n); rpt(i, 0, n) cin >> v[i];    
+    ll n, m, x, y; cin >> n >> m >> x >> y;
+    vector<vector<ll>> grid(n, vector<ll> (n));
 
-    bool flag = !(count_if(all(v), is_even) % 2);
-
-    if(!flag){
-        sort(all(v));
-        rpt(i, 0, n-1)
-            if(v[i+1]-v[i] == 1){
-                flag = true;
-                break;
-            }
-    }
-
-    cout << (flag ? "YES":"NO");
+    
 
     nl;
 }
