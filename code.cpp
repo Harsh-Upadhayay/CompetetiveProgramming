@@ -53,8 +53,18 @@ void solve(void){
     ll n; cin >> n;
     vector<ll> v(n); rpt(i, 0, n) cin >> v[i];    
 
-    ll x = count_if(all(v), is_even);
-    debug(x);
+    bool flag = !(count_if(all(v), is_even) % 2);
+
+    if(!flag){
+        sort(all(v));
+        rpt(i, 0, n-1)
+            if(v[i+1]-v[i] == 1){
+                flag = true;
+                break;
+            }
+    }
+
+    cout << (flag ? "YES":"NO");
 
     nl;
 }
