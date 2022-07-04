@@ -53,7 +53,7 @@ void solve(void){
     else
         cout << "2 2 " << (2^(n/2));
 
-    debug((2^(2^n)));
+    debug((2^(2^(n/2))));
 
     nl;
 }
