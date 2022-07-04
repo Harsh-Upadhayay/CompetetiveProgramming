@@ -51,7 +51,7 @@ void solve(void){
     if(n % 2)
         cout << "-1";
     else
-        cout << "2 2 " << (2^n);
+        cout << "2 2 " << (2^(n/2));
 
     debug((2^(2^n)));
 
