@@ -46,60 +46,12 @@ void inline print(vector<vector<T>> v);
 /*_________________________________________________________________________________________________________________________________________*/
 
 
-vector<vector<ll>> v(50, vector<ll>(50));
-void init(ll n = 50, ll m = 50){
-
-    v[0][0] = 1;
-    v[0][1] = 0;
-    v[1][0] = 0;
-    v[1][1] = 1;
-
-
-    for(int i = 0; i < 2; i += 1){
-        bool flag = true;
-        for(int j = 2; j < m; j += 1){
-            if(flag){
-                v[i][j] = v[i][j-1];
-                flag = !flag;
-            }
-            else{
-                v[i][j] = v[i][j-3];
-                flag = !flag;
-            }
-            
-        }
-
-    }
-
-    bool flag = true;
-    for(int i = 2; i < n; i++){
-        if(flag){
-            for(int j = 0; j < n; j++){
-                v[i][j] = v[i-1][j];
-            }
-            flag = !flag;
-        }
-        else{
-            for(int j = 0; j < n; j++){
-                v[i][j] = v[i-3][j];
-            }
-            flag = !flag;
-        }
-
-    }
-
-}
-
 void solve(void){
-    ll n, m; cin >> n >> m;
-    rpt(i, 0, n){
-        rpt(j, 0, m)
-            cout << v[i][j] << " ";
-        cout << "\n";
-    }
-   
+    ll n, ans;
+
+    cout << MOD;
+
     nl;
-        
 }
 
 
@@ -119,7 +71,7 @@ int main() {
     cin.tie(NULL);
     
     ll t = 1;
-    init();
+
     #ifdef TESTCASE
         cin >> t;
     #endif
@@ -146,6 +98,7 @@ template<class T>
 void inline print(vector<T> v){
     for(auto x : v)
         cout << x << " ";
+    nl;
 }
 
 template<class T>
