@@ -48,7 +48,7 @@ void inline print(vector<vector<T>> v);
 
 void solve(void){
     ll n, m, x, y; cin >> n >> m >> x >> y;
-    vector<vector<char>> grid(n, vector<char> (n));
+    vector<vector<char>> grid(n, vector<char> (m));
 
     rpt(i, 0, n)
         rpt(j, 0, m){
