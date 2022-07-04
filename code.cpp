@@ -48,7 +48,7 @@ void inline print(vector<vector<T>> v);
 
 void solve(void){
     ll a, b; cin >> a >> b;
-    debug(a, b);
+    // debug(a, b);
     ll x = (a > b ? a/b : b/a);
     debug(x);
     cout << ((x & (x-1)) ? -1 : (ll)log2(x));
