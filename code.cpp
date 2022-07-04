@@ -47,18 +47,10 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, ans; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
-
-    ans = nmax(v);
-    if(nmin(v) == ans){
-        cout << ans << "\n";
-        return;
-    }
-    ans = log2(ans) + 1;
-    debug(ans);
-    cout << ((ll)pow(2, ans) - 1);
-
+    ll a, b; cin >> a >> b;
+    ll x = (a > b ? a/b : b/a);
+    debug(x);
+    cout << ((x & (x-1)) ? -1 : (ll)log2(x));
     nl;
 }
 
