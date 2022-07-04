@@ -54,6 +54,7 @@ void solve(void){
     vector<ll> v(n); rpt(i, 0, n) cin >> v[i];    
 
     ll x = count_if(all(v), is_even);
+    debug(x);
 
     nl;
 }
