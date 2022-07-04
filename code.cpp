@@ -51,6 +51,10 @@ void solve(void){
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
     ans = nmax(v);
+    if(nmin(v) == ans){
+        cout << ans << "\n";
+        return;
+    }
     ans = log2(ans) + 1;
     debug(ans);
     
