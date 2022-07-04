@@ -60,10 +60,18 @@ void solve(void){
 
 
     for(int i = 0; i < 2; i += 1){
-        ll k = 1;
+        bool flag = true;
         for(int j = 2; j < m; j += 1){
             debug(i, j);
-            v[i][j] = v[i][j-k], k += 2;
+            if(flag){
+                v[i][j] = v[i][j-1];
+                flag = !flag;
+            }
+            else{
+                v[i][j] = v[i][j-3];
+                flag = !flag;
+            }
+            
         }
 
     }
