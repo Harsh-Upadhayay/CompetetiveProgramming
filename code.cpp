@@ -50,7 +50,7 @@ void solve(void){
     ll n, ans; cin >> n;
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    ans = nmin(v);
+    ans = nmax(v);
     ans = log2(ans);
     debug(ans);
     
