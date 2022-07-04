@@ -62,8 +62,8 @@ void solve(void){
     for(int i = 0; i < 2; i += 2){
         ll k = 1;
         for(int j = 2; j < m; j += 2){
+            debug(i, j);
             v[i][j] = v[i][j-k], k++;
-            cout << "G";
         }
 
     }
