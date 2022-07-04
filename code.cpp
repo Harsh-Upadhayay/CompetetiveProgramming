@@ -62,7 +62,6 @@ void solve(void){
     for(int i = 0; i < 2; i += 1){
         bool flag = true;
         for(int j = 2; j < m; j += 1){
-            debug(i, j);
             if(flag){
                 v[i][j] = v[i][j-1];
                 flag = !flag;
@@ -75,8 +74,26 @@ void solve(void){
         }
 
     }
+
+    bool flag = true;
+    for(int i = 2; i < n; i++){
+        if(flag){
+            for(int j = 0; j < n; j++){
+                v[i][j] = v[i-1][j];
+            }
+            flag = !flag;
+        }
+        else{
+            for(int j = 0; j < n; j++){
+                v[i][j] = v[i-3][j];
+            }
+            flag = !flag;
+        }
+
+    }
     print(v);
     nl;
+        
 }
 
 
