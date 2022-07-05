@@ -47,21 +47,18 @@ void inline print(vector<vector<T>> v);
 
 unordered_set<ll> cubes;
 
-
 void init(){
-    rpt(i, 1, 1e5)
+    for(int i = 1; i * i * i < 1000000000; i++)
         cubes.insert(i*i*i);
 }
 
 void solve(void){
-    ll n; cin >> n;
-    for(auto x : cubes)
-        if(x > n)
-            break;
-        else if(cubes.count(n-x)){
-            yes; nl; return;
-        }
-    no;
+    ll n, ans; cin >>n ;
+    bool flag = true;
+    
+    
+    cout << (!flag ? "YES":"NO");
+
     nl;
 }
 
@@ -71,13 +68,13 @@ void solve(void){
 
 int main() {
     srand(time(0));
-
+    init();
     #ifndef ONLINE_JUDGE
         freopen("input.txt","r",stdin);
         freopen("output.txt","w",stdout);
         freopen("err.txt","w",stderr);
     #endif
-    init();
+
     ios_base::sync_with_stdio(0);
     cin.tie(NULL);
     
