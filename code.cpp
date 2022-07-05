@@ -56,6 +56,11 @@ void solve(void){
     ll n, ans; cin >>n ;
     bool flag = true;
     
+    for(auto x : cubes)
+        if(x > n)
+            break;
+        else if(cubes.count(n-x))
+            flag = false;
     
     cout << (!flag ? "YES":"NO");
 
