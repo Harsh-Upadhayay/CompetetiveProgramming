@@ -59,7 +59,7 @@
         while(f > 2){
             ans++;
             mn *= 2;
-            f = mx/mn;
+            f = (float)mx/mn;
             // debug(f);
         }
      }
