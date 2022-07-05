@@ -45,48 +45,30 @@ void inline print(vector<vector<T>> v);
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
 
-class tester{
-    public : 
-    vector<vector<int>> perms;
-    int __size;
-    int __a[100];
-
-    tester(int siz, vector<ll> v){
-        __size = siz;
-        for(int i = 0; i < __size; i++)
-            __a[i] = i;
-
-        heapPermutation(__a, __size, __size);
-    }
-
-    void heapPermutation(int a[], int size, int n)
-    {
-        if (size == 1) {
-            vector<int> perm;
-            rpt(i, 0, n)
-                perm.pb(a[i]);
-            perms.pb(perm);
-            return;
-        }
-     
-        for (int i = 0; i < size; i++) {
-            heapPermutation(a, size - 1, n);
-     
-            if (size % 2 == 1)
-                swap(a[0], a[size - 1]);
-     
-            else
-                swap(a[i], a[size - 1]);
-        }
-    }
-
-    
-
-};
 
 void solve(void){
-    // ll n, ans; cin >> n;
-    // vector<ll> v(n); rpt(i, 0, n) cin >> v[i];
+    ll k, n, m; cin >> k >> n >> m;
+    vector<ll> ans, a(n), b(m); rpt(i, 0, n) cin >> a[i]; rpt(i, 0, m) cin >> b[i];
+    ll i = 0, j = 0;
+    while(i < n || j < m) {
+
+        ll _i = i, _j = j;
+
+        while(i < n && a[i] <= k){
+            k += !a[i], ans.pb(a[i++]);
+        }
+
+        while(j < m && b[j] <= k){
+            k += !b[j], ans.pb(b[j++]);
+        }
+
+        if(_i == i && _j == j){
+            cout << "-1\n"; return;
+        }
+
+    }               
+    print(ans);
+    debug(ans);
 
     nl;
 }
