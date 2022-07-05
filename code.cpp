@@ -54,10 +54,8 @@
         ll mx = max(ar[i], ar[i+1]);
         ll mn = min(ar[i], ar[i+1]);
 
-        ll f = mx/mn;
-        f = ceil(log2(f));
+        float f = (float)mx/mn;
         debug(f);
-        ans += (f <= 1 ? 0 : f-1);
      }
 
     cout << ans;
