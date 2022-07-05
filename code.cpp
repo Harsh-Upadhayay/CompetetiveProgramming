@@ -55,7 +55,7 @@
         ll mn = min(ar[i], ar[i+1]);
 
         ll f = mx/mn;
-        f = log2(f);
+        f = ceil(log2(f));
         debug(f);
         ans += (f == 1 ? 0 : f);
      }
