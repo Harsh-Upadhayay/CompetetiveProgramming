@@ -57,7 +57,7 @@
         ll f = mx/mn;
         f = log2(f);
         debug(f);
-        ans += (f == 1 ? f : 0);
+        ans += (f == 1 ? 0 : f);
      }
 
     cout << ans;
