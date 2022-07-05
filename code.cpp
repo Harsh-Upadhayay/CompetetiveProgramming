@@ -45,23 +45,23 @@ void inline print(vector<vector<T>> v);
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
 
+unordered_set<ll> cubes;
+
+
+void init(){
+    rpt(i, 1, 1e5)
+        cubes.insert(i*i*i);
+}
 
 void solve(void){
-    ll n;  cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
-
-    sort(all(v), greater<ll>());
-    debug(v);
-    bool flag = true;
-    vll used(n+1, 0);
-
-    for(auto x : v){
-        while(x > n || used[x]) x /= 2;
-        if(x) used[x] = 1;
-        else flag = false;
-    }
-    cout << (flag ? "YES":"NO");
-
+    ll n; cin >> n;
+    for(auto x : cubes)
+        if(x > n)
+            break;
+        else if(cubes.count(n-x)){
+            yes; nl; return;
+        }
+    no;
     nl;
 }
 
@@ -77,7 +77,7 @@ int main() {
         freopen("output.txt","w",stdout);
         freopen("err.txt","w",stderr);
     #endif
-
+    init();
     ios_base::sync_with_stdio(0);
     cin.tie(NULL);
     
