@@ -55,12 +55,12 @@
         ll mn = min(ar[i], ar[i+1]);
 
         float f = (float)mx/mn;
-        // debug(f);
+        debug(f);
         while(f > 2){
             ans++;
             mn *= 2;
             f = mx/mn;
-            debug(f);
+            // debug(f);
         }
      }
 
