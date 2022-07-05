@@ -56,6 +56,11 @@
 
         float f = (float)mx/mn;
         debug(f);
+        while(f > 2){
+            ans++;
+            mn *= 2;
+            f = mx/mn;
+        }
      }
 
     cout << ans;
