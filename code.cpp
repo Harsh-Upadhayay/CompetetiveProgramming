@@ -53,7 +53,7 @@ void solve(void){
     
     vll rem(3); rpt(i, 0, n) rem[v[i]%3]++;
 
-    ll avg = (float)(rem[0] + rem[1] + rem[2]) / 3;
+    float avg = (float)(rem[0] + rem[1] + rem[2]) / 3;
 
     debug(rem,avg);
 
