@@ -47,7 +47,7 @@
  
  
  void solve(void){
-     ll n, ans; cin >> n;
+     ll n, ans = 0; cin >> n;
      vll ar(n); rpt(i, 0, n) cin >> ar[i];
 
      rpt(i, 0, n-1) {
@@ -57,10 +57,10 @@
         ll f = mx/mn;
         f = log2(f);
         debug(f);
-
+        ans += (f == 1 ? f : 0);
      }
 
-     
+    cout << ans;
  
      nl;
  }
