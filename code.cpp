@@ -55,7 +55,7 @@ void solve(void){
 
     ll avg = (float)(rem[0] + rem[1] + rem[2]) / 3;
 
-    debug(rem);
+    debug(rem,avg);
 
     nl;
 }
