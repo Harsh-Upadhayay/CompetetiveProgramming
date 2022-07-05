@@ -57,7 +57,7 @@
         ll f = mx/mn;
         f = ceil(log2(f));
         debug(f);
-        ans += (f == 1 ? 0 : f-1);
+        ans += (f <= 1 ? 0 : f-1);
      }
 
     cout << ans;
