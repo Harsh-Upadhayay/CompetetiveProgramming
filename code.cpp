@@ -47,28 +47,20 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll k, n, m; cin >> k >> n >> m;
-    vector<ll> ans, a(n), b(m); rpt(i, 0, n) cin >> a[i]; rpt(i, 0, m) cin >> b[i];
-    ll i = 0, j = 0;
-    while(i < n || j < m) {
+    ll n;  cin >> n;
+    vll v(n); rpt(i, 0, n) cin >> v[i];
 
-        ll _i = i, _j = j;
+    sort(all(v), greater<ll>());
+    debug(v);
+    bool flag = true;
+    vll used(n+1, 0);
 
-        while(i < n && a[i] <= k){
-            k += !a[i], ans.pb(a[i++]);
-        }
-
-        while(j < m && b[j] <= k){
-            k += !b[j], ans.pb(b[j++]);
-        }
-
-        if(_i == i && _j == j){
-            cout << "-1\n"; return;
-        }
-
-    }               
-    print(ans);
-    debug(ans);
+    for(auto x : v){
+        while(x > n || used[x]) x /= 2;
+        if(x) used[x] = 1;
+        else flag = false;
+    }
+    cout << (flag ? "YES":"NO");
 
     nl;
 }
@@ -117,6 +109,7 @@ template<class T>
 void inline print(vector<T> v){
     for(auto x : v)
         cout << x << " ";
+    nl;
 }
 
 template<class T>
