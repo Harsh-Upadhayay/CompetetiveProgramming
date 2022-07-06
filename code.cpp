@@ -47,7 +47,7 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    float n, ans; cin >> n;
+    double n, ans; cin >> n;
 
     ll cost = ceil(n/6)*15;
 
