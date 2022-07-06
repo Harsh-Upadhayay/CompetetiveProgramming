@@ -50,7 +50,7 @@ void solve(void){
     ll n, ans; cin >> n;
 
     ll cost = (n + n % 2);
-    
+
     if(!(cost % 10))
         cost = cost / 10 * 25;
     else if(!(cost % 8))
@@ -58,7 +58,7 @@ void solve(void){
     else if(!(cost % 6))
         cost = cost / 6 * 15;;
 
-    cout << cost;    
+    cout << (cost < 15 ? 15 : cost);    
 
     nl;
 }
