@@ -47,14 +47,11 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, ans; cin >> n;
+    float n, ans; cin >> n;
 
-    bool firstItr = true;
-    ll x; rpt(i, 0, n) cin >> x, ans = (firstItr ? x : ans & x), firstItr = false;
+    float cost = ceil(n/6)*15;
 
-    cout << ans;
-
-    
+    cout << cost;    
 
     nl;
 }
