@@ -59,7 +59,7 @@ void solve(void){
     debug(mxgcd, steps);
 
     ll a = steps, b = mxgcd-steps;
-    if(a < b && (n - a || !n))
+    if(a < b && (n - a) >= 0)
         cout << a;
     else
         cout << b;
