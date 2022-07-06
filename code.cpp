@@ -60,7 +60,7 @@ void solve(void){
     else if(!(cost % 6))
         cost = n / 6 * 15;;
 
-    cout << cost;    
+    // cout << cost;    
 
     nl;
 }
