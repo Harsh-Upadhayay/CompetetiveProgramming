@@ -47,15 +47,12 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, ans; cin >> n;
+    ll n, m, i, j;   cin >> n >> m >> i >> j;
 
-    vll v(n); rpt(i, 0, n) cin >> v[i];
-    
-    vll rem(3); rpt(i, 0, n) rem[v[i]%3]++;
-
-    float avg = ((float)(rem[0] + rem[1] + rem[2])) / 3;
-
-    debug(rem,avg);
+    if(i+j+n-i+m-j < n-i+j+i+m-j)
+        cout << n << " 1 1 " << m;
+    else
+        cout << "1 1 " << n << " " << m; 
 
     nl;
 }
