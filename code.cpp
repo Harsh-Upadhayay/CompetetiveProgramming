@@ -50,13 +50,13 @@ void solve(void){
     ll n, ans; cin >> n;
 
     ll cost = (n + n % 2);
-    debug(cost);
+    
     if(!(cost % 10))
-        (cost /= 10) * 25;
+        cost = cost / 10 * 25;
     else if(!(cost % 8))
-        cost /= 8 * 20;
+        cost = cost / 8 * 20;
     else if(!(cost % 6))
-        cost /= 6 * 15;;
+        cost = cost / 6 * 15;;
 
     cout << cost;    
 
