@@ -50,7 +50,7 @@ void solve(void){
     ll n, ans; cin >> n;
 
     ll cost = (n + n % 2);
-
+    debug(cost);
     if(!(cost % 10))
         cost = n / 10 * 25;
     else if(!(cost % 8))
