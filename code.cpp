@@ -47,9 +47,10 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, ans = 0xFFFFFFF; cin >> n;
+    ll n, ans; cin >> n;
 
-    ll x; rpt(i, 0, n) cin >> x, ans = ans & x;
+    bool firstItr = true;
+    ll x; rpt(i, 0, n) cin >> x, ans = (firstItr ? x : ans & x), firstItr = false;
 
     cout << ans;
 
