@@ -52,8 +52,8 @@ void solve(void){
     ll cost = (n + n % 2);
     debug(cost);
     if(!(cost % 10)){
-        cout << "F";
-        cost = n / 10 * 25;
+        cost = n / 10;
+        cout << cost;
     }
     else if(!(cost % 8))
         cost = n / 8 * 20;
