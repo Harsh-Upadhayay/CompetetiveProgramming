@@ -52,7 +52,7 @@ void solve(void){
     ll cost = (n + n % 2);
     debug(cost);
     if(!(cost % 10))
-        cost /= 10 * 25;
+        (cost /= 10) * 25;
     else if(!(cost % 8))
         cost /= 8 * 20;
     else if(!(cost % 6))
