@@ -48,7 +48,7 @@ void inline print(vector<vector<T>> v);
 
 void solve(void){
     ll n, ans; cin >> n;
-    cout << (!(n & (n-1)) ? "YES":"NO");
+    cout << ((n & (n-1)) ? "YES":"NO");
 
     
 
