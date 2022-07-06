@@ -51,12 +51,7 @@ void solve(void){
 
     ll cost = (n + n % 2);
 
-    if(!(cost % 10))
-        cost = cost / 10 * 25;
-    else if(!(cost % 8))
-        cost = cost / 8 * 20;
-    else if(!(cost % 6))
-        cost = cost / 6 * 15;;
+    cost = cost / 2 * 5;
 
     cout << (cost < 15 ? 15 : cost);    
 
