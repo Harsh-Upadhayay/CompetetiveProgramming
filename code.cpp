@@ -50,13 +50,28 @@ void solve(void){
     ll n; cin >> n;
     string s; cin >> s;
 
-    ll idx = 0;
+    ll idx = -1;
     rpt(i, 0, n)
         if(s[i] != '?'){
             idx = i; break;
         }
-    
+    char prev = s[idx];
+    rpt(i, idx+1, n){
 
+        if(s[i] == '?')
+            s[i] = (prev == 'R' ? 'B' : 'R');
+
+        prev = s[i];
+    }
+
+    rpt(i, idx, 0){
+
+        if(s[i] == '?')
+            s[i] = (prev == 'R' ? 'B' : 'R');
+
+        prev = s[i];
+    }
+    cout << s;
     nl;
 }
 
