@@ -47,7 +47,7 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, m, steps;   cin >> n >> m;
+    ll n, m, steps = 0;   cin >> n >> m;
 
     if(n > m) swap(n, m);
     ll mxgcd = m-n;
@@ -55,7 +55,14 @@ void solve(void){
     if(mxgcd)
         steps = n % mxgcd;
 
+    cout << mxgcd << " ";
     debug(mxgcd, steps);
+
+    ll a = steps, b = mxgcd-steps;
+    if(a < b && n - a)
+        cout << a;
+    else
+        cout << b;
 
     nl;
 }
