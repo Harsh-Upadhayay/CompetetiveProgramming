@@ -47,12 +47,15 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, m, i, j;   cin >> n >> m >> i >> j;
+    ll n, m, steps;   cin >> n >> m;
 
-    if(i+j+n-i+m-j < n-i+j+i+m-j)
-        cout << n << " 1 1 " << m;
-    else
-        cout << "1 1 " << n << " " << m; 
+    if(n > m) swap(n, m);
+    ll mxgcd = m-n;
+
+    if(mxgcd)
+        steps = n % mxgcd;
+
+    debug(mxgcd, steps);
 
     nl;
 }
