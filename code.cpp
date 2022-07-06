@@ -47,11 +47,14 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, ans; cin >> n;
+    ll n; cin >> n;
+    string s; cin >> s;
 
-    ll x = n / 2020, y = n % 2020;
-
-    cout << (y > x ? "NO" : "YES");
+    ll idx = 0;
+    rpt(i, 0, n)
+        if(s[i] != '?'){
+            idx = i; break;
+        }
     
 
     nl;
