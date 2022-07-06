@@ -49,9 +49,14 @@ void inline print(vector<vector<T>> v);
 void solve(void){
     ll n, ans; cin >> n;
 
-    ll cost = (n + n % 2) / 6 * 15;
+    ll cost = (n + n % 2);
 
-
+    if(cost % 6)
+        cost = n / 6 * 15;
+    else if(cost % 8)
+        cost = n / 8 * 20;
+    else if(cost % 10)
+        cost = n / 10 * 25;
 
     cout << cost;    
 
