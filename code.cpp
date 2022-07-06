@@ -64,6 +64,7 @@ void solve(void){
         prev = s[i];
     }
 
+    prev = s[idx];
     rpt(i, idx, 0){
 
         if(s[i] == '?')
