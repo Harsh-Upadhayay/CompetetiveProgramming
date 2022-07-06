@@ -49,11 +49,10 @@ void inline print(vector<vector<T>> v);
 void solve(void){
     ll n, ans; cin >> n;
 
-    ll cost = (n + n % 2);
+    ll x = n / 2020, y = n % 2020;
 
-    cost = cost / 2 * 5;
-
-    cout << (cost < 15 ? 15 : cost);    
+    cout << (y > x ? "NO" : "YES");
+    
 
     nl;
 }
