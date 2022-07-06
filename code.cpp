@@ -49,7 +49,7 @@ void inline print(vector<vector<T>> v);
 void solve(void){
     ll n, ans; cin >> n;
 
-    ll cost = (n + n % 2) * 0.4;
+    ll cost = (n + n % 2) / 6;
 
 
 
