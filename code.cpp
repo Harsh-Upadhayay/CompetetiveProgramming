@@ -47,25 +47,9 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    double a, b, c, d; cin >> a >> b >> c >> d;
+    ll n, ans;
+    string s; cin >> s;
 
-    while(a > 1)
-        a /= 10, b++;
-    while(c > 1)
-        c /= 10, d++;
-
-    if(b > d)
-        cout << ">";
-    else if( b < d)
-        cout << "<";
-    else{
-        if(a > c)
-            cout << ">";
-        else if(a < c)
-            cout << "<";
-        else 
-            cout << "=";
-    }
     
 
     nl;
