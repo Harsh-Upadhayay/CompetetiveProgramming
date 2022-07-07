@@ -49,7 +49,7 @@ void inline print(vector<vector<T>> v);
 void solve(void){
     ll n, ans;
     string s; cin >> s;
-
+    reverse(all(s));
     ll i = 0;
     debug(s[0]);
     // while(s[i] != )
