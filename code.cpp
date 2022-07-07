@@ -47,32 +47,23 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n; cin >> n;
-    string s; cin >> s;
+    ll n, ans; cin >> n;
+    vector<ll> v(n); rpt(i, 0, n) cin >> v[i];
 
-    ll idx = -1;
+    vector<ll> t(all(v));
+    sort(all(t));
+
+    bool flag = true;
     rpt(i, 0, n)
-        if(s[i] != '?'){
-            idx = i; break;
-        }
-    char prev = s[idx];
-    rpt(i, idx+1, n){
+        if(v[i] != t[i])
+            flag = false;
 
-        if(s[i] == '?')
-            s[i] = (prev == 'R' ? 'B' : 'R');
+    if(flag)
+        ans = 0;
+    else 
+        ans = 1 + v[0] == (t[0] || v[n-1] == t[n-1]);
+    cout << ans;
 
-        prev = s[i];
-    }
-
-    prev = s[idx];
-    rpt(i, idx, 0){
-
-        if(s[i] == '?')
-            s[i] = (prev == 'R' ? 'B' : 'R');
-
-        prev = s[i];
-    }
-    cout << s;
     nl;
 }
 
