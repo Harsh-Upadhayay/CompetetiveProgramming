@@ -56,6 +56,9 @@ void solve(void){
         n--;
     }
     debug(n);
+    i = 1;
+    while(n--)
+        cout << (i++ % 10);
     nl;
 }
 
