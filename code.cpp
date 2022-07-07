@@ -49,12 +49,10 @@ void inline print(vector<vector<T>> v);
 void solve(void){
     ll n, ans; cin >> n;
 
-    ll i = 9;
+    cout << "f";   ll i = 9;
 
-    rpt(i, 10, 0)
-        cout << i << " ";
-
-
+    // while(i || n--)
+    //     cout << i--;
     nl;
 }
 
