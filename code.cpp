@@ -50,7 +50,9 @@ void solve(void){
     ll n, ans;
     string s; cin >> s;
 
-    
+    ll i = 0;
+    debug(s[0]);
+    // while(s[i] != )
 
     nl;
 }
