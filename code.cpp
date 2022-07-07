@@ -51,7 +51,7 @@ void solve(void){
 
     ll i = 9;
 
-    rpt(i, 9, 0)
+    rpt(i, 10, 0)
         cout << i << " ";
 
 
