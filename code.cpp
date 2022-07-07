@@ -52,10 +52,10 @@ void solve(void){
     ll i = 9;
     ll itr = 5;
     while(i > 0 && n > 0){
-        debug(n, i);
         cout << i--;
         n--;
     }
+    debug(n);
     nl;
 }
 
