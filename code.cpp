@@ -47,18 +47,26 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll a, b, c, d; cin >> a >> b >> c >> d;
+    double a, b, c, d; cin >> a >> b >> c >> d;
 
-    double x = log10(a) + b;
-    double y = log10(c) + d;
+    while(a > 1)
+        a /= 10, b++;
+    while(c > 1)
+        c /= 10, d++;
 
-    debug(x, y);
-    if(x > y)
+    if(b > d)
         cout << ">";
-    else if(x < y)
+    else if( b < d)
         cout << "<";
-    else 
-        cout << "=";
+    else{
+        if(a > c)
+            cout << ">";
+        else if(a < c)
+            cout << "<";
+        else 
+            cout << "=";
+    }
+    
 
     nl;
 }
