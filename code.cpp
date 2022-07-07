@@ -51,7 +51,7 @@ void solve(void){
 
     ll i = 9;
     ll itr = 5;
-    while(itr--){
+    while(i > 0 || n > 0){
         debug(n, i);
         cout << i--;
         n--;
