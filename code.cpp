@@ -47,24 +47,17 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, ans; cin >> n;
-    vector<ll> v(n); rpt(i, 0, n) cin >> v[i];
+    ll a, b, c, d; cin >> a >> b >> c >> d;
 
-    vector<ll> t(all(v));
-    sort(all(t));
+    a = a * ceil(pow(10, b));
+    c = c * ceil(pow(10, d));
 
-    bool flag = true;
-    rpt(i, 0, n)
-        if(v[i] != t[i])
-            flag = false;
-
-    if(flag)
-        ans = 0;
-    else {
-        ans = 1 + !(v[0] == t[0] || v[n-1] == t[n-1]) + (v[0] == t[n-1] && v[n-1] == t[0]);
-    }
-    debug(v[0], t[0], v[n-1], t[n-1]);
-    cout << ans;
+    if(a > c)
+        cout << ">";
+    else if(a < c)
+        cout << "<";
+    else 
+        cout << "=";
 
     nl;
 }
