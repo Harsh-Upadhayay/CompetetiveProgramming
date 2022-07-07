@@ -52,6 +52,7 @@ void solve(void){
     double x = log10(a) + b;
     double y = log10(c) + d;
 
+    debug(x, y);
     if(x > y)
         cout << ">";
     else if(x < y)
