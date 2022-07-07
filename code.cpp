@@ -49,12 +49,12 @@ void inline print(vector<vector<T>> v);
 void solve(void){
     ll a, b, c, d; cin >> a >> b >> c >> d;
 
-    a = a * ceil(pow(10, b));
-    c = c * ceil(pow(10, d));
+    double x = log10(a) + b;
+    double y = log10(c) + d;
 
-    if(a > c)
+    if(x > y)
         cout << ">";
-    else if(a < c)
+    else if(x < y)
         cout << "<";
     else 
         cout << "=";
