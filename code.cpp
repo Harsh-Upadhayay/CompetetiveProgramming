@@ -47,18 +47,12 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, ans; cin >> n;
+    ll n; cin >> n;
+    vll v(n); rpt(i, 0, n) cin >> v[i];
+    string s; cin >> s;
 
-    ll i = 9;
-    ll itr = 5;
-    while(i >= 0 && n > 0){
-        cout << i--;
-        n--;
-    }
-    debug(n);
-    i = 1;
-    while(n--)
-        cout << (i++ % 10);
+    
+
     nl;
 }
 
