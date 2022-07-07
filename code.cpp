@@ -60,9 +60,10 @@ void solve(void){
 
     if(flag)
         ans = 0;
-    else {
-        ans = 1 + (v[0] == t[0] || v[n-1] == t[n-1]);
+    else if(v[0] == t[0] || v[n-1] == t[n-1]){
+        ans = 2;
     }
+    else ans = 1;
     cout << ans;
 
     nl;
