@@ -52,7 +52,7 @@ void solve(void){
 
     vector<ll> t(all(v));
     sort(all(t));
-
+    debug(v);
     bool flag = true;
     rpt(i, 0, n)
         if(v[i] != t[i])
