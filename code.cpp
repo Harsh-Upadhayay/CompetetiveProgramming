@@ -56,8 +56,14 @@ void solve(void){
         if(freq[x])  flag = false;
         else freq[x]++;
 
+    vll working(n+1, 0);
+
+    for(auto x : v)
+        working[x] = 1;
+    
+
     if(n >= m){
-        cout << "F";
+
         if(flag)
             cout << "1";
         else
