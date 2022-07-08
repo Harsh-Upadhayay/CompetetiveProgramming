@@ -56,7 +56,6 @@ void solve(void){
         if(freq[x])  flag = false;
         else freq[x]++;
 
-    debug(v);
     if(n >= m){
         cout << "F";
         if(flag)
@@ -66,8 +65,9 @@ void solve(void){
         nl;
         return;
     }    
-    ll rd_task = m - freq.size();
 
+    ll rd_task = m - freq.size();
+    debug(rd_task);
     ll ans = 1 + 2 * ceil(rd_task/m);
     cout << ans;
 
