@@ -14,6 +14,7 @@ using namespace std;
 #define ld                      long double
 #define p(x, y)                 pair<x, y> 
 #define pb                      push_back
+#define vpl                     vector<pair<ll, ll>>
 #define fi                      first
 #define se                      second
 #define lb                      lower_bound
@@ -47,11 +48,22 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
-    string s; cin >> s;
+    ll x[4];
+    bool of = false, zf = false;
+    rpt(i, 0, 4){
+        cin >> x[i];
+        if(x[i] == 1)
+            of = true;
+        if(x[i] == 0)
+            zf = true;
+    }
 
-    
+    if(of && !zf)
+        cout << "2";
+    else if(!of)
+        cout << "0";
+    else if(of && zf)
+        cout<< "1";
 
     nl;
 }
