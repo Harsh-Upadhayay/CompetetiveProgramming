@@ -64,7 +64,7 @@ void solve(void){
         }
         else  break;
     for(auto x : ans)
-        cout << x ;
+        cout << x << " ";
     // rpt(i, 0, n)
     //     if(i % 2)
     //         cout << v[i] << " ";
