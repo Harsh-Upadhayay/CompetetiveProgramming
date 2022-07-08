@@ -64,7 +64,7 @@ void solve(void){
                 v[j] = 0;
             }
     }
-
+    cout << "2 \n";
     for(auto x : ans)
         cout << x << " ";
     // cout << 2 << "\n";
