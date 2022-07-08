@@ -53,7 +53,7 @@ void solve(void){
     rpt(i, 1, n)
         v[i] = 1;
 
-    cout << 2 << "\n";
+    // cout << 2 << "\n";
 
     ans.pb(1);
     ll i = 1;
