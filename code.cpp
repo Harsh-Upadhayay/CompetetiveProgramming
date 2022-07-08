@@ -77,7 +77,7 @@ void solve(void){
     }    
 
     ll rd_task = m - sum;
-    debug(v, rd_task, sum);
+    debug(v, rd_task, sum, time);
     ll ans = 1 + 2 * ceil(rd_task/m);
     cout << ans;
 
