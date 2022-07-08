@@ -53,7 +53,7 @@ void solve(void){
     map<ll, ll> freq; 
     bool flag = true;
     for(auto x : v)
-        if(freq[x])  flag = false;
+        if(freq[x])  freq[x]++, flag = false;
         else freq[x]++;
 
     vll working(n+1, 0);
@@ -65,9 +65,9 @@ void solve(void){
     if(n >= m){
 
         if(flag)
-            cout << "s1";
+            cout << "1";
         else
-            cout << "s2";
+            cout << "2";
         nl;
         return;
     }    
