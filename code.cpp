@@ -56,9 +56,9 @@ void solve(void){
         if(freq[x])  freq[x]++, flag = false;
         else freq[x]++;
 
-    ll sum = ninf;
+    ll time = ninf, sum = 0;
     for(auto x : freq)
-        sum = max(sum, x.second);
+        time = max(time, x.second), sum += x.second;
 
     vll working(n+1, 0);
 
