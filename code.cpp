@@ -67,7 +67,7 @@ void solve(void){
     }    
 
     ll rd_task = m - freq.size();
-    debug(rd_task);
+    debug(v, rd_task);
     ll ans = 1 + 2 * ceil(rd_task/m);
     cout << ans;
 
