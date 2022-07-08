@@ -47,20 +47,30 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, ans; cin >> n;
+    ll n; cin >> n;
 
-    vll v(n);
-    rpt(i, 0, n)
-        v[i] = i+1;
+    vll v(n+1), ans;
+    rpt(i, 1, n)
+        v[i] = 1;
 
-    cout << 2 << "\n" << "1 ";
+    cout << 2 << "\n";
 
-    rpt(i, 0, n)
-        if(i % 2)
-            cout << v[i] << " ";
-    rpt(i, 0, n)
-        if(i && !(i%2))
-            cout << v[i] << " ";
+    ans.pb(1);
+    ll i = 1;
+    while(1)
+        if(v[ans[i-1]*2]){
+            ans.pb(ans[i-1]*2);
+            v[ans[i-1]*2] = 0;
+        }
+        else  break;
+    for(auto x : ans)
+        cout << x ;
+    // rpt(i, 0, n)
+    //     if(i % 2)
+    //         cout << v[i] << " ";
+    // rpt(i, 0, n)
+    //     if(i && !(i%2))
+    //         cout << v[i] << " ";
 
     nl;
 }
