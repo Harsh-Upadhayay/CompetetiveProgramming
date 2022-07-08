@@ -64,7 +64,7 @@ void solve(void){
         nl;
         return;
     }    
-
+    debug(v);
     ll rd_task = m - freq.size();
 
     ll ans = 1 + 2 * ceil(rd_task/m);
