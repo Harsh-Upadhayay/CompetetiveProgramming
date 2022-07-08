@@ -56,6 +56,10 @@ void solve(void){
         if(freq[x])  freq[x]++, flag = false;
         else freq[x]++;
 
+    ll sum = 0;
+    for(auto x : freq)
+        sum += x.second;
+
     vll working(n+1, 0);
 
     for(auto x : v)
@@ -72,7 +76,7 @@ void solve(void){
         return;
     }    
 
-    ll rd_task = m - freq.size();
+    ll rd_task = m - sum;
     debug(v, rd_task);
     ll ans = 1 + 2 * ceil(rd_task/m);
     cout << ans;
