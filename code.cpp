@@ -58,7 +58,7 @@ void solve(void){
 
     debug(v);
     if(n >= m){
-        debug(1);
+        cout << "F";
         if(flag)
             cout << "1";
         else
