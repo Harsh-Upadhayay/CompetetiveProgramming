@@ -47,35 +47,28 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n; cin >> n;
-    n++;
-    vll v(n+1), ans;
-    rpt(i, 1, n)
-        v[i] = 1;
+    ll n, m; cin >> n >> m;
+    vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    rpt(i, 1, n+1){
-        if(!v[i])
-            continue;
-        ans.pb(i);
-        v[i] = 0;
-        for(ll j = i; j <= n; j *= 2)
-            if(v[j]){
-                ans.pb(j);
-                v[j] = 0;
-            }
-    }
-    cout << "2 \n";
-    for(auto x : ans)
-        cout << x << " ";
-    // cout << 2 << "\n";
+    map<ll, ll> freq; 
+    bool flag = true;
+    for(auto x : v)
+        if(freq[x])  flag = false;
+        else freq[x]++;
 
+    if(n >= m){
+        if(flag)
+            cout << "1";
+        else
+            cout << "2";
+        nl;
+        return;
+    }    
 
-    // rpt(i, 0, n)
-    //     if(i % 2)
-    //         cout << v[i] << " ";
-    // rpt(i, 0, n)
-    //     if(i && !(i%2))
-    //         cout << v[i] << " ";
+    ll rd_task = m - freq.size();
+
+    ll ans = ceil(rd_task/m);
+    cout << ans;
 
     nl;
 }
