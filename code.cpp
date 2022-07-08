@@ -53,18 +53,23 @@ void solve(void){
     rpt(i, 1, n)
         v[i] = 1;
 
-    // cout << 2 << "\n";
+    rpt(i, 1, n+1){
+        if(!v[i])
+            continue;
+        ans.pb(i);
+        v[i] = 0;
+        for(ll j = i; j <= n; j *= 2)
+            if(v[j]){
+                ans.pb(j);
+                v[j] = 0;
+            }
+    }
 
-    ans.pb(1);
-    ll i = 1;
-    while(1)
-        if(v[ans[i-1]*2]){
-            ans.pb(ans[i-1]*2);
-            v[ans[i-1]*2] = 0;
-        }
-        else  break;
     for(auto x : ans)
         cout << x << " ";
+    // cout << 2 << "\n";
+
+
     // rpt(i, 0, n)
     //     if(i % 2)
     //         cout << v[i] << " ";
