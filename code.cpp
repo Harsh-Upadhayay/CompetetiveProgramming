@@ -76,10 +76,9 @@ void solve(void){
         return;
     }    
 
-    ll rd_task = m - sum;
-    debug(v, rd_task, sum, time);
-    ll ans = time + 2 * ceil(rd_task/m);
-    cout << ans;
+    vector<vll> grid(n, vll(m));
+
+    // cout << ans;
 
     nl;
 }
