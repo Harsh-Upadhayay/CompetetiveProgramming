@@ -55,7 +55,8 @@ void solve(void){
     for(auto x : v)
         if(freq[x])  flag = false;
         else freq[x]++;
-
+        
+    debug(v);
     if(n >= m){
         if(flag)
             cout << "1";
@@ -64,7 +65,6 @@ void solve(void){
         nl;
         return;
     }    
-    debug(v);
     ll rd_task = m - freq.size();
 
     ll ans = 1 + 2 * ceil(rd_task/m);
