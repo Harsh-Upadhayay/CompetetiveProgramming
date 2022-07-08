@@ -67,7 +67,7 @@ void solve(void){
         if(flag)
             cout << "s1";
         else
-            cout << "2";
+            cout << "s2";
         nl;
         return;
     }    
