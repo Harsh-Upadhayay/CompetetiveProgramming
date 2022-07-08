@@ -67,7 +67,7 @@ void solve(void){
 
     ll rd_task = m - freq.size();
 
-    ll ans = ceil(rd_task/m);
+    ll ans = 1 + 2 * ceil(rd_task/m);
     cout << ans;
 
     nl;
