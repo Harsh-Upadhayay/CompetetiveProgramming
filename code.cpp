@@ -53,13 +53,13 @@ void solve(void){
     rpt(i, 0, n)
         v[i] = i+1;
 
-    cout << 2 << "\n" << "1";
+    cout << 2 << "\n" << "1 ";
 
     rpt(i, 0, n)
         if(i % 2)
             cout << v[i] << " ";
     rpt(i, 0, n)
-        if(!(i%2))
+        if(i && !(i%2))
             cout << v[i] << " ";
 
     nl;
