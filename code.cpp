@@ -48,14 +48,14 @@ void inline print(vector<vector<T>> v);
 
 void solve(void){
     ll n, m; cin >> n >> m;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
+    vll v(m); rpt(i, 0, m) cin >> v[i];
 
     map<ll, ll> freq; 
     bool flag = true;
     for(auto x : v)
         if(freq[x])  flag = false;
         else freq[x]++;
-        
+
     debug(v);
     if(n >= m){
         if(flag)
