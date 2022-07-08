@@ -48,7 +48,7 @@ void inline print(vector<vector<T>> v);
 
 void solve(void){
     ll n; cin >> n;
-
+    n++;
     vll v(n+1), ans;
     rpt(i, 1, n)
         v[i] = 1;
