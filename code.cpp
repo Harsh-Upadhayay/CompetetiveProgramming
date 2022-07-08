@@ -60,12 +60,12 @@ void solve(void){
 
     for(auto x : v)
         working[x] = 1;
-    
+
 
     if(n >= m){
 
         if(flag)
-            cout << "1";
+            cout << "s1";
         else
             cout << "2";
         nl;
