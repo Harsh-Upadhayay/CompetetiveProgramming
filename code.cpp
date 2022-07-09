@@ -53,7 +53,7 @@ void solve(void){
     set<char> freq(s.begin(), s.end());
     char mx = nmax(freq), mn = nmin(freq);
     debug(mx, mn);
-    if(s.size() != freq.size() && s.size() != mx - mn + 1){
+    if(s.size() != freq.size() && s.size() == mx - mn + 1){
         cout << "NO\n";
         return;
     }
