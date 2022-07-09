@@ -58,15 +58,10 @@ bool fun(string &a, string &b){
 }
 
 void solve(void){
-    ll n, ans;
-
-    vector<string> v = {
-"AA",
-"AB",
-"BB",
-"BA",
-"AZ"
-};
+    ll n, ans; cin >> n >> ans;
+    vector<string> v(n);
+    rpt(i, 0, n)
+        cin >> v[i];
     sort(all(v), fun);
     for(auto x : v)
         cout << x << " ";
