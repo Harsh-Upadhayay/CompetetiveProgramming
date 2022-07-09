@@ -50,7 +50,7 @@ void solve(void){
     ll a, b; cin >> a >> b;
 
     ll itr = 0;
-    while(a !=0  && b != 0){
+    while(a > 0  && b > 0){
         if(a > b)
             a -= 2, b++;
         else
