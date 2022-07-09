@@ -47,38 +47,16 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, m; cin >> n >> m;
-    vll v(m); rpt(i, 0, m) cin >> v[i];
+    ll n, ans; cin >> n;
 
-    map<ll, ll> freq; 
-    bool flag = true;
-    for(auto x : v)
-        if(freq[x])  freq[x]++, flag = false;
-        else freq[x]++;
+    ll x = 3, y = 1, itr = 5;
 
-    ll time = ninf, sum = 0;
-    for(auto x : freq)
-        time = max(time, x.second), sum += x.second;
-
-    vll working(n+1, 0);
-
-    for(auto x : v)
-        working[x] = 1;
-
-
-    if(n >= m){
-
-        if(flag)
-            cout << "1";
-        else
-            cout << "2";
-        nl;
-        return;
+    while(n % x && itr--){
+        y = y < 1, x = x | y;
+        debug(n, y, x);
     }    
 
-    vector<vll> grid(n, vll(m));
-
-    // cout << ans;
+    cout << (n / x);
 
     nl;
 }
