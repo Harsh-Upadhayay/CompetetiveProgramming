@@ -109,7 +109,6 @@ template<class T>
 void inline print(vector<T> v){
     for(auto x : v)
         cout << x << " ";
-    nl;
 }
 
 template<class T>
