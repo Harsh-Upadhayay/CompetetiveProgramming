@@ -51,7 +51,7 @@ void solve(void){
 
     ans = 2 * (pow(2, n) - 1);
     debug(ans);
-    cout << ans;   
+    cout << 1;   
 
     nl;
 }
