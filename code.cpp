@@ -56,6 +56,7 @@ void solve(void){
         else
             b -= 2, a++;
         itr++;
+        debug(a, b);
     }
 
     cout << itr;
