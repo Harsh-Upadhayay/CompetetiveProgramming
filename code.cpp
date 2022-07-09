@@ -45,27 +45,20 @@ void inline print(vector<vector<T>> v);
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
 
-bool fun(string &a, string &b){
-    ll n = a.size();
-    rpt(i, 0, n){
-        if(a[i] != b[i])
-            if(i % 2)
-                return a[i] > b[i];
-            else
-                return a[i] < b[i];
-    }
-    return a > b;
-}
 
 void solve(void){
-    ll n, ans; cin >> n >> ans;
-    vector<string> v(n);
-    rpt(i, 0, n)
-        cin >> v[i];
-    debug(n, ans,v);
-    sort(all(v), fun);
-    for(auto x : v)
-        cout << x << " ";
+    ll n, m; cin >> n >> m;
+    vll v(m); rpt(i, 0, m) cin >> v[i];
+    sort(all(v));
+    
+    bool flag = true;
+    rpt(i, 0, m-2)
+        if(v[i+2] - v[i] == 2)
+            flag = false;
+    
+    flag = flag & (v[0] != 1 && v[m-1] != m);
+
+    cout << (flag ? "YES" : "NO");
 
     nl;
 }
