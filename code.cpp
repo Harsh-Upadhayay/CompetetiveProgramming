@@ -51,7 +51,7 @@ void solve(void){
     string s; cin >> s;
 
     ll i = 0;
-    while(i++ < n && s[i] != 'a');
+    while(i < n && s[i] != 'a') i++;
     debug(i);
     nl;
 }
