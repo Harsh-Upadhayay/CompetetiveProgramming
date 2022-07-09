@@ -64,7 +64,7 @@ void solve(void){
         maxsum.pb(lmax);
     }
 
-    debug(ans);
+    debug(maxsum);
 
     nl;
 }
