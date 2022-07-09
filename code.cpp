@@ -60,7 +60,13 @@ bool fun(string &a, string &b){
 void solve(void){
     ll n, ans;
 
-    vector<string> v = {"hello", "boy", "he", "she"};
+    vector<string> v = {
+"AA",
+"AB",
+"BB",
+"BA",
+"AZ"
+};
     sort(all(v), fun);
     for(auto x : v)
         cout << x << " ";
