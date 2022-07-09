@@ -47,7 +47,7 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, ans; cin >> n;
+    ll n, ans = 0; cin >> n;
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
     vll maxsum;
@@ -61,12 +61,12 @@ void solve(void){
             pmax = max(pmax, v[i]), i++;
         }
         if(nMax != ninf)
-            maxsum.pb(nMax);
+            ans += nMax;
         if(pmax != ninf)
-            maxsum.pb(pmax);
+            ans += pmax;
     }
 
-    debug(maxsum);
+    cout << ans;
 
     nl;
 }
