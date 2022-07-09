@@ -51,6 +51,7 @@ void solve(void){
     string s; cin >> s;
     n = s.size();
     set<char> freq(s.begin(), s.end());
+    char mx = nmax(freq), mn = nmin(freq);
     if(s.size() != freq.size()){
         cout << "NO\n";
         return;
