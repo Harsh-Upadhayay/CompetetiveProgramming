@@ -53,7 +53,7 @@ void solve(void){
 
     while(n % x && itr--){
         y = y < 1, x = x | y;
-        debug(n, y, x);
+        debug(y, x);
     }    
 
     cout << (n / x);
