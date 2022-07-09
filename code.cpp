@@ -71,7 +71,7 @@ void solve(void){
     while(i >= 0){
         if(s[i] > prev)
             flag = false;
-    debug(flag);
+    debug(prev, s[i], flag);
         prev = s[i], i--;
     }
     cout << (flag ? "YES": "NO");
