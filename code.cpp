@@ -50,7 +50,8 @@ void solve(void){
     ll n, m; cin >> n >> m;
     vll v(m); rpt(i, 0, m) cin >> v[i];
     sort(all(v));
-    
+    if(0 == m){        cout << "YES\n"; return;    }
+    else if(1 == m || 2 == m) { cout << ((v[0] != 1 && v[m-1] != n) ? "YES" : "NO"); return ;}
     bool flag = true;
     rpt(i, 0, m-2)
         if(v[i+2] - v[i] == 2)
