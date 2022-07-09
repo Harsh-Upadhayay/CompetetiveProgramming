@@ -51,7 +51,7 @@ void solve(void){
 
     ll x = 3, y = 2, itr = 5;
 
-    while(n % x && itr--){
+    while(n % x){
         y = y * 2, x = x | y;
         debug(y, x);
     }    
