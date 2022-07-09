@@ -62,7 +62,7 @@ void solve(void){
         }
         if(nMax != inf)
             maxsum.pb(nMax);
-        if(pmax != ninf)
+        if(pmax != inf)
             maxsum.pb(pmax);
     }
 
