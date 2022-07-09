@@ -67,9 +67,9 @@ void solve(void){
         prev = s[i], i++;
     }
     i = j;
-    prev = 'z';
+    prev = 'a';
     while(i >= 0){
-        if(s[i] > prev)
+        if(s[i] < prev)
             flag = false;
     debug(prev, s[i], flag);
         prev = s[i], i--;
