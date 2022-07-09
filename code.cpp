@@ -60,9 +60,9 @@ void solve(void){
         while(i < n && v[i] > 0){
             pmax = max(pmax, v[i]), i++;
         }
-        if(nMax != inf)
+        if(nMax != ninf)
             maxsum.pb(nMax);
-        if(pmax != inf)
+        if(pmax != ninf)
             maxsum.pb(pmax);
     }
 
