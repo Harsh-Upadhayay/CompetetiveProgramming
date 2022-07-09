@@ -29,7 +29,7 @@ using namespace std;
 #define yes                     cout << "YES";
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
-#define TESTCAS
+#define TESTCASE
 
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -47,19 +47,18 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, m; cin >> n >> m;
-    vll v(m); rpt(i, 0, m) cin >> v[i];
-    sort(all(v));
-    if(0 == m){        cout << "YES\n"; return;    }
-    else if(1 == m || 2 == m) { cout << ((v[0] != 1 && v[m-1] != n) ? "YES" : "NO"); return ;}
-    bool flag = true;
-    rpt(i, 0, m-2)
-        if(v[i+2] - v[i] == 2)
-            flag = false;
-    
-    flag = flag & (v[0] != 1 && v[m-1] != n);
+    ll a, b; cin >> a >> b;
 
-    cout << (flag ? "YES" : "NO");
+    ll itr = 0;
+    while(a && b){
+        if(a > b)
+            a -= 2, b++;
+        else
+            b -= 2, a++;
+        itr++;
+    }
+
+    cout << itr;
 
     nl;
 }
