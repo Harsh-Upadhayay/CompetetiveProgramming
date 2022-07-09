@@ -52,7 +52,7 @@ void solve(void){
     bool flag = false;
     rpt(i, 0, 3)
         rpt(j, 0, 3)
-            if(grid[i][j] + grid[i+1][j] + grid[i][j+1] + grid[i+1][j+1] > 2)
+            if(grid[i][j] + grid[i+1][j] + grid[i][j+1] + grid[i+1][j+1] != 2)
                 flag = true;
     cout << (flag ? "YES":"NO");
 
