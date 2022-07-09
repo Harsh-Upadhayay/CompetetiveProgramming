@@ -49,10 +49,10 @@ void inline print(vector<vector<T>> v);
 void solve(void){
     ll n, ans; cin >> n;
 
-    ll x = 3, y = 1, itr = 5;
+    ll x = 3, y = 2, itr = 5;
 
     while(n % x && itr--){
-        y = y < 1, x = x | y;
+        y = y * 2, x = x | y;
         debug(y, x);
     }    
 
