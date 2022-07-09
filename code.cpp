@@ -66,7 +66,7 @@ void solve(void){
             flag = false;
         prev = s[i], i++;
     }
-    debug(i);
+    debug(flag);
     i = j;
     prev = 'z';
     while(i >= 0){
