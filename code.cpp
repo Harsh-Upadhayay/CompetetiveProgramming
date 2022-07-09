@@ -46,12 +46,15 @@ void inline print(vector<vector<T>> v);
 /*_________________________________________________________________________________________________________________________________________*/
 
 bool fun(string &a, string &b){
-    // ll n = a.size();
-    // rpt(i, 0, n){
-    //     if(a[i] != b[i])
-    //         if(i % 2)
-    // }
-    return (a < b);
+    ll n = a.size();
+    rpt(i, 0, n){
+        if(a[i] != b[i])
+            if(i % 2)
+                return a[i] < b[i];
+            else
+                return a[i] > b[i];
+    }
+    return a > b;
 }
 
 void solve(void){
