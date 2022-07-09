@@ -59,6 +59,7 @@ void solve(void){
     ll val = 1;
     rpt(i, 0, n/2)
         v[i] = val++, v[n/2 + i] = val++;
+    v[n/2 - 1] += (n * (n+2)) / 4 - (n*n) / 4;
     debug(v);
     nl;
 }
