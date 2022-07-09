@@ -62,6 +62,7 @@ void solve(void){
     vector<string> v(n);
     rpt(i, 0, n)
         cin >> v[i];
+    debug(v);
     sort(all(v), fun);
     for(auto x : v)
         cout << x << " ";
