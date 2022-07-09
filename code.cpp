@@ -47,23 +47,14 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll a, b; cin >> a >> b;
-
-    ll itr = 0;
-    while(a > 0  && b > 0){
-
-        if(a == 1 && b == 1)
-            break;
-
-        if(a > b)
-            a -= 2, b++;
-        else
-            b -= 2, a++;
-        itr++;
-        debug(a, b);
-    }
-
-    cout << itr;
+    char x; vector<vll> grid(4, vll(4)); rpt(i, 0, 4) rpt(j, 0, 4) cin >> x, grid[i][j] = (x == '.' ? 1 : 0);
+    
+    bool flag = false;
+    rpt(i, 0, 3)
+        rpt(j, 0, 3)
+            if(grid[i][j] + grid[i+1][j] + grid[i][j+1] + grid[i+1][j+1] > 2)
+                flag = true;
+    cout << (flag ? "YES":"NO");
 
     nl;
 }
