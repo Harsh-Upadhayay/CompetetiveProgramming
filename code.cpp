@@ -49,9 +49,10 @@ void inline print(vector<vector<T>> v);
 void solve(void){
     ll n, ans;
     string s; cin >> s;
-
+    set<char> freq(s.begin(), s.end());
     ll i = 0;
     while(i < n && s[i] != 'a') i++;
+
     debug(i);
     nl;
 }
