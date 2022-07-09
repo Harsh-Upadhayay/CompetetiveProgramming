@@ -49,15 +49,15 @@ void inline print(vector<vector<T>> v);
 void solve(void){
     ll n, ans; cin >> n;
 
-    ll x = 3, y = 2, itr = 5;
+    if(n % 4){
+        cout << "NO\n";
+        return;
+    }
 
-    while(n % x){
-        y = y * 2, x = x | y;
-        debug(y, x);
-    }    
+    vll v(n);
 
-    cout << (n / x);
-
+    rpt(i, 0, n/2) v[i] = i+1, v[n/2 + i] = 2*(i + 1);
+    debug(v);
     nl;
 }
 
