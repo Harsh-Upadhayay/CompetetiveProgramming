@@ -66,12 +66,12 @@ void solve(void){
             flag = false;
         prev = s[i], i++;
     }
-    debug(flag);
     i = j;
     prev = 'z';
     while(i >= 0){
         if(s[i] > prev)
             flag = false;
+    debug(flag);
         prev = s[i], i--;
     }
     cout << (flag ? "YES": "NO");
