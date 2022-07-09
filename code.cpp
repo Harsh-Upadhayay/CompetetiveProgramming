@@ -56,7 +56,9 @@ void solve(void){
 
     vll v(n, -1);
 
-    rpt(i, 0, n/2) v[(i % 2 ? i : n/2 + i)] = (i % 2 ? i+1 : i+2);
+    ll val = 1;
+    rpt(i, 0, n/2)
+        v[i] = val++, v[n/2 + i] = val++;
     debug(v);
     nl;
 }
