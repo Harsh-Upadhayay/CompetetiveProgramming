@@ -53,16 +53,16 @@ void solve(void){
     vll maxsum;
     ll i = 0;
     while(i < n){
-        ll lmin = inf, lmax = ninf;
+        ll lmin = inf, lmax = inf;
         while(i < n && v[i] < 0){
-            lmin = min(lmin, v[i]), i++;
+            lmin = max(lmin, v[i]), i++;
         }
         while(i < n && v[i] > 0){
             lmax = max(lmax, v[i]), i++;
         }
         if(lmin != inf)
             maxsum.pb(lmin);
-        if(lmax != ninf)
+        if(lmax != inf)
             maxsum.pb(lmax);
     }
 
