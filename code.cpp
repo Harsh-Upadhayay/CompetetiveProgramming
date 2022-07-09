@@ -56,7 +56,7 @@ void solve(void){
         if(v[i+2] - v[i] == 2)
             flag = false;
     
-    flag = flag & (v[0] != 1 && v[m-1] != m);
+    flag = flag & (v[0] != 1 && v[m-1] != n);
 
     cout << (flag ? "YES" : "NO");
 
