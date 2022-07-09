@@ -51,7 +51,7 @@ bool fun(string &a, string &b){
     //     if(a[i] != b[i])
     //         if(i % 2)
     // }
-    return (a > b);
+    return (a < b);
 }
 
 void solve(void){
