@@ -49,6 +49,7 @@ void inline print(vector<vector<T>> v);
 void solve(void){
     ll n, ans;
     string s; cin >> s;
+    n = s.size();
     set<char> freq(s.begin(), s.end());
     if(s.size() != freq.size()){
         cout << "NO\n";
@@ -57,7 +58,23 @@ void solve(void){
     ll i = 0;
     while(i < n && s[i] != 'a') i++;
 
+    ll j = i;
+    bool flag = true;
+    char prev = 'a';
+    while(i < n){
+        if(s[i] < prev)
+            flag = false;
+        prev = s[i], i++;
+    }
     debug(i);
+    i = j;
+    prev = 'z';
+    while(i >= 0){
+        if(s[i] > prev)
+            flag = false;
+        prev = s[i], i--;
+    }
+    cout << (flag ? "YES": "NO");
     nl;
 }
 
