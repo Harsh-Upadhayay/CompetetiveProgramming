@@ -29,7 +29,7 @@ using namespace std;
 #define yes                     cout << "YES";
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
-#define TESTCASE
+#define TESTCAS
 
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -47,36 +47,11 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, ans;
-    string s; cin >> s;
-    n = s.size();
-    set<char> freq(s.begin(), s.end());
-    char mx = nmax(freq), mn = nmin(freq);
-    debug(mx, mn);
-    if(s.size() != freq.size() || s.size() != mx - mn + 1){
-        cout << "NO\n";
-        return;
-    }
-    ll i = 0;
-    while(i < n && s[i] != 'a') i++;
+    ll n, ans; cin >> n;
 
-    ll j = i;
-    bool flag = true;
-    char prev = 'a';
-    while(i < n){
-        if(s[i] < prev)
-            flag = false;
-        prev = s[i], i++;
-    }
-    i = j;
-    prev = 'a';
-    while(i >= 0){
-        if(s[i] < prev)
-            flag = false;
-    debug(prev, s[i], flag);
-        prev = s[i], i--;
-    }
-    cout << (flag ? "YES": "NO");
+    ans = 2 * (pow(2, n) - 1);
+    cout << ans;   
+
     nl;
 }
 
