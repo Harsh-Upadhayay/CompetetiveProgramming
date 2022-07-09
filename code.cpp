@@ -46,7 +46,7 @@ void inline print(vector<vector<T>> v);
 /*_________________________________________________________________________________________________________________________________________*/
 
 bool fun(string &a, string &b){
-    return !( a > b);
+    return (a > b);
 }
 
 void solve(void){
