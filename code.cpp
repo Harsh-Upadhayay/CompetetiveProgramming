@@ -48,7 +48,7 @@ void inline print(vector<vector<T>> v);
 
 void solve(void){
     char x; vector<vll> grid(4, vll(4)); rpt(i, 0, 4) rpt(j, 0, 4) cin >> x, grid[i][j] = (x == '.' ? 1 : 0);
-    
+    print(grid);
     bool flag = false;
     rpt(i, 0, 3)
         rpt(j, 0, 3)
