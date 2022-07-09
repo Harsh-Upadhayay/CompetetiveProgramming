@@ -50,6 +50,7 @@ void solve(void){
     ll n, ans; cin >> n;
 
     ans = 2 * (pow(2, n) - 1);
+    debug(ans);
     cout << ans;   
 
     nl;
