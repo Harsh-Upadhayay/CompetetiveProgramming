@@ -47,27 +47,12 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, ans = 0; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
+    ll n, ans;
+    string s; cin >> s;
 
-    vll maxsum;
     ll i = 0;
-    while(i < n){
-        ll nMax = ninf, pmax = ninf;
-        while(i < n && v[i] < 0){
-            nMax = max(nMax, v[i]), i++;
-        }
-        while(i < n && v[i] > 0){
-            pmax = max(pmax, v[i]), i++;
-        }
-        if(nMax != ninf)
-            ans += nMax;
-        if(pmax != ninf)
-            ans += pmax;
-    }
-
-    cout << ans;
-
+    while(i++ < n && s[i] != 'a');
+    debug(i);
     nl;
 }
 
