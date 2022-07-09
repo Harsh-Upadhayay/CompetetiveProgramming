@@ -29,7 +29,7 @@ using namespace std;
 #define yes                     cout << "YES";
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
-#define TESTCAS
+#define TESTCASE
 
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -47,11 +47,12 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, ans; cin >> n;
+    ll n, ans;
 
-    ans = 2 * (pow(2, n) - 1);
-    debug(ans);
-    cout << ans;   
+    vector<string> v = {"hello", "boy", "he", "she"};
+    sort(all(v));
+    for(auto x : v)
+        cout << x << " ";
 
     nl;
 }
