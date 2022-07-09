@@ -50,9 +50,9 @@ bool fun(string &a, string &b){
     rpt(i, 0, n){
         if(a[i] != b[i])
             if(i % 2)
-                return a[i] < b[i];
-            else
                 return a[i] > b[i];
+            else
+                return a[i] < b[i];
     }
     return a > b;
 }
