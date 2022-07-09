@@ -50,6 +50,10 @@ void solve(void){
     ll n, ans;
     string s; cin >> s;
     set<char> freq(s.begin(), s.end());
+    if(s.size() != freq.size()){
+        cout << "NO\n";
+        return;
+    }
     ll i = 0;
     while(i < n && s[i] != 'a') i++;
 
