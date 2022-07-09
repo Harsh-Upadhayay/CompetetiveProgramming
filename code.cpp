@@ -48,20 +48,23 @@ void inline print(vector<vector<T>> v);
 
 void solve(void){
     ll n, ans; cin >> n;
+    vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    if(n % 4){
-        cout << "NO\n";
-        return;
+    vll maxsum;
+    ll i = 0;
+    while(i < n){
+        ll lmin = inf, lmax = ninf;
+        while(i < n && v[i] < 0){
+            lmin = min(lmin, v[i]), i++;
+        }
+        while(i < n && v[i] > 0){
+            lmax = max(lmax, v[i]), i++;
+        }
+        maxsum.pb(lmin);
+        maxsum.pb(lmax);
     }
 
-    vll v(n, -1);
-    ll val = 1;
-
-    rpt(i, 0, n/2)  v[n/2 + i] = val++, v[i] = val++;
-
-    v[n - 1] += (n * (n+2)) / 4 - (n*n) / 4;
-
-    cout << "YES\n"; print(v);
+    debug(ans);
 
     nl;
 }
@@ -110,6 +113,7 @@ template<class T>
 void inline print(vector<T> v){
     for(auto x : v)
         cout << x << " ";
+    nl;
 }
 
 template<class T>
