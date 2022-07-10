@@ -50,13 +50,15 @@ void solve(void){
     string s; cin >> s;
     set<char> f;
     ll ans = 0;
-    for(auto x : s)
+    for(auto x : s){
         if(f.size() <= 3)
             f.insert(x);
         else{
             f.clear();
             ans++;
         }
+        debug(s);
+    }
     ans += f.size();
     
     cout << ans;
