@@ -57,7 +57,7 @@ void solve(void){
     rpt(i, 0, s.size()){
         mp[c[i]].pb(i);
     }
-    // debug(mp);
+    // debug(mp);?
     // while(cost > p){
     //     // ll itr = mp.end()
     // }
