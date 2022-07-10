@@ -57,7 +57,7 @@ void solve(void){
     ll x = log10(n);
     x = ceil(pow(10, x));
     debug(x);
-
+    cout << n - x;
     ll i = 0;
     while(s[i] < n) i++;
     // debug(s[i]);
