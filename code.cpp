@@ -96,7 +96,7 @@ void solve(void){
         if(rem % 2)
             cout << "YES";
         else
-            cout << "NO";
+            cout << "NOP";
     }
     else{
         cout << "NO";
