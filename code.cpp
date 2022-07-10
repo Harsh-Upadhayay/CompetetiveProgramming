@@ -91,7 +91,9 @@ void solve(void){
         }
     }
     if(!flag){
-        if(lset.size() == rset.size())
+        ll x = lset.size(), y = rset.size(), diff = abs(x-y), rem = remaining.size();
+        rem -= diff;
+        if(rem % 2)
             cout << "YES";
         else
             cout << "NO";
