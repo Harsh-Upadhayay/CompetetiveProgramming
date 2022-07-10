@@ -60,7 +60,7 @@ void solve(void){
 
     ll i = 0;
     while(s[i] < n) i++;
-    debug(s[i]);
+    // debug(s[i]);
 
     
 
