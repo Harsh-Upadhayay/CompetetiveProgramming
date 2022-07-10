@@ -47,39 +47,28 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    string s; ll p; cin >> s >> p;
+    ll n, ans; cin >> n;
 
-    ll cost = 0; vll c; for(auto x : s) c.pb(x-'a'+1), cost += x-'a'+1;
+    set<pair<ll, ll>> dom;
+    map<ll, ll> freq;
 
-    vll idx(s.size(), 1);
-    map<ll, list<ll>, greater<int>> mp;
-    
-    rpt(i, 0, s.size()){
-        mp[c[i]].pb(i);
+    bool flag = false;
+    rpt(i, 0, n){
+        ll a, b; cin >> a >> b;
+        if(a == b) flag = true;
+        freq[a]++; freq[b]++;
+        dom.insert({a, b});
     }
 
-    while(cost > p){
-        bool flag = false;
-        for(auto x : mp){
-            for(auto y : x.second){
-                cost -= x.first;
-                idx[y] = 0;
-                if(cost <= p){
-                    flag = true;
-                    break;
-                }
-            }
-            if(flag)
-                break;
+    for(auto x : freq)
+        if(x.second != 2)
+            flag = true;
 
-        }
-        if(flag)
-            break;
+    if(flag){
+        cout << "NO\n"; return;
     }
 
-    rpt(i, 0, s.size())
-        if(idx[i])
-            cout << s[i];
+    cout << "YES";
 
     nl;
 }
