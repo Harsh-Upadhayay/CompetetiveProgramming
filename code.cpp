@@ -72,12 +72,14 @@ void solve(void){
     }
 
     set<ll> lset, rset;
-    
+
     for(auto x : dom){
-        if(!lset.count(x.first) && !lset.count(x.second))
-            lset.insert(x.first), lset.insert(x.second);
-        else if(!rset.count(x.first) && !rset.count(x.second))
-            rset.insert(x.first), rset.insert(x.second);
+        if(!lset.count(x.first) && !lset.count(x.second)){
+            lset.insert(x.first); lset.insert(x.second);
+        }
+        else if(!rset.count(x.first) && !rset.count(x.second)){
+            rset.insert(x.first); rset.insert(x.second);
+        }
         else{
             flag = true;
             break;
