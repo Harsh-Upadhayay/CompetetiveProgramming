@@ -72,7 +72,7 @@ void solve(void){
     }
 
     set<ll> lset, rset;
-
+    debug(dom);
     for(auto x : dom){
         if(!lset.count(x.first) && !lset.count(x.second))
             lset.insert(x.first), lset.insert(x.second);
