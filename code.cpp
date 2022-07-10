@@ -54,7 +54,7 @@ void solve(void){
         s.pb(i);
     
 
-    ll x = log10(x);
+    ll x = log10(n);
     x = pow(10, x);
     debug(x);
 
