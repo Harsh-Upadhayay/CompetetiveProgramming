@@ -47,23 +47,19 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, ans; cin >> n;
-
-    vll s;
-    for(ll i = 1; i <= 1000000000; i *= 10)
-        s.pb(i);
+    string s; cin >> s;
+    set<char> f;
+    ll ans = 0;
+    for(auto x : s)
+        if(f.size() <= 3)
+            f.insert(x);
+        else{
+            f.clear();
+            ans++;
+        }
+    ans += f.size();
     
-
-    ll x = log10(n);
-    x = ceil(pow(10, x));
-    debug(x);
-    cout << n - x;
-    ll i = 0;
-    while(s[i] < n) i++;
-    // debug(s[i]);
-
-    
-
+    cout << ans;
     nl;
 }
 
