@@ -63,9 +63,9 @@ void solve(void){
         idxofpair[b].pb(i);
     }
 
-    for(auto x : freq)
-        if(x.second > 2)
-            flag = true;
+    // for(auto x : freq)
+    //     if(x.second > 2)
+    //         flag = true;
 
     if(flag){
         cout << "NO\n"; return;
