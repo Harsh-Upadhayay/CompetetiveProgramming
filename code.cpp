@@ -55,6 +55,7 @@ void solve(void){
             f.insert(x);
         else{
             f.clear();
+            f.insert(x);
             ans++;
         }
         debug(f, ans);
