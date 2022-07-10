@@ -121,11 +121,30 @@ void solve(void){
         // debug(mp);
         mp[v[i]].pb(i);
     }
-    debug(mp);
+    // debug(mp);
     rpt(i, 0, q){
         ll a, b;
         cin >> a >> b;
 
+        auto _x = mp.find(a), _y = mp.find(b);
+        if(_x == mp.end() || _y == mp.end()){
+            cout << "NO";nl; continue;
+        }
+        auto x = _x->second, y = _y->second;
+        
+        bool flag = false;
+        for(auto i1 : x){
+            for(auto i2 : y){
+                if(i1 < i2){
+                    flag = true;
+                    break;
+                }
+            }
+            if(!flag)  break;
+        }
+
+        cout << (flag ? "YES" : "NO" ); 
+        nl;
     }
     
 
