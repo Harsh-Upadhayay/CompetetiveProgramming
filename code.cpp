@@ -52,7 +52,8 @@ void solve(void){
     set<ll> s;
     for(ll i = 1; i <= 1000000000; i *= 10)
         s.insert(i);
-    debug(s);
+    ll x = *s.lb(n);
+    debug(x);
 
     
 
