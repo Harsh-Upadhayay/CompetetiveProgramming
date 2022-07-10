@@ -51,7 +51,16 @@ void solve(void){
 
     ll cost = 0; vll c; for(auto x : s) c.pb(x-'a'+1), cost += x-'a'+1;
 
-    debug(c, cost);
+    vll idx(s.size(), 1);
+    map<ll, list<ll>, greater<int>> mp;
+    
+    rpt(i, 0, s.size()){
+        mp[c[i]].pb(i);
+    }
+    // debug(mp);
+    // while(cost > p){
+    //     // ll itr = mp.end()
+    // }
 
     
 
