@@ -55,7 +55,7 @@ void solve(void){
     
 
     ll x = log10(n);
-    x = pow(10, x);
+    x = ceil(pow(10, x));
     debug(x);
 
     ll i = 0;
