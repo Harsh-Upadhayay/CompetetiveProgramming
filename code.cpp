@@ -50,7 +50,7 @@ void solve(void){
     ll n, ans; cin >> n;
 
     set<ll> s;
-    for(ll i = 1; i <= 100000000; i *= 10)
+    for(ll i = 1; i <= 1000000000; i *= 10)
         s.insert(i);
     debug(s);
 
