@@ -96,7 +96,7 @@ void solve(void){
             cout << "NO";
         else{
             rem -= diff;
-            if(!(rem % 2))
+            if(!(rem % 4))
                 cout << "YES";
             else
                 cout << "NO";
