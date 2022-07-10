@@ -44,108 +44,15 @@ void inline print(vector<vector<T>> v);
 
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
-ll block;
- 
-struct Query
-{
-    ll L, R, X;
-};
- 
-bool compare(Query x, Query y)
-{
-    if (x.L / block != y.L / block)
-        return x.L / block < y.L / block;
- 
-    return x.R < y.R;
-}
- 
-void queryResults(ll a[], ll n, Query q[], ll m)
-{
-    block = (ll)sqrt(n);
- 
-    sort(q, q + m, compare);
- 
-    ll currL = 0, currR = 0;
- 
-    map<ll, ll> mp;
- 
-    for (ll i = 0; i < m; i++) {
-         
-        ll L = q[i].L, R = q[i].R, X = q[i].X;
- 
-        while (currL < L)
-        {
-            mp[a[currL]]--;
-            currL++;
-        }
- 
-        while (currL > L)
-        {
-            mp[a[currL - 1]]++;
-            currL--;
-        }
-        while (currR <= R)
-        {
-            mp[a[currR]]++;
-            currR++;
-        }
- 
-        while (currR > R + 1)
-        {
-            mp[a[currR - 1]]--;
-            currR--;
-        }
- 
-        if (mp[X] != 0)
-            cout << X << " exists between [" << L
-                 << ", " << R << "] " << endl;
-        else
-            cout << X << " does not exist between ["
-                 << L << ", " << R << "] " << endl;
-    }
-}
- 
-/**
- * int a[] = { 1, 1, 5, 4, 5 };
-    int n = sizeof(a) / sizeof(a[0]);
-    Query q[] = { { 0, 2, 2 }, { 1, 4, 1 }, { 2, 4, 5 } };
-    int m = sizeof(q) / sizeof(q[0]);
-    queryResults(a, n, q, m);
- */
+
+
 void solve(void){
-    ll n, q; cin >> n >> q;
-    map<ll, list<ll>> mp;
-    vll v(n);
-    rpt(i, 0, n) {
-        cin >> v[i];
-        // debug(mp);
-        mp[v[i]].pb(i);
-    }
-    // debug(mp);
-    rpt(i, 0, q){
-        ll a, b;
-        cin >> a >> b;
+    string s; ll p; cin >> s >> p;
 
-        auto _x = mp.find(a), _y = mp.find(b);
-        if(_x == mp.end() || _y == mp.end()){
-            cout << "NO";nl; continue;
-        }
-        auto x = _x->second, y = _y->second;
-        
-        bool flag = false;
-        for(auto i1 : x){
-            for(auto i2 : y){
-                if(i1 < i2){
-                    flag = true;
-                    break;
-                }
-            }
-            if(!flag)  break;
-        }
+    ll cost = 0; vll c; for(auto x : s) c.pb(x-'a'+1), cost += x-'a'+1;
 
-        cout << (flag ? "YES" : "NO" ); 
-        nl;
-    }
+    debug(c, cost);
+
     
 
     nl;
