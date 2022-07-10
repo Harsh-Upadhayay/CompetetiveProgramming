@@ -51,7 +51,7 @@ void solve(void){
     set<char> f;
     ll ans = 0;
     for(auto x : s){
-        if(f.size() <= 3){
+        if(f.size() < 3 || f.count(x)){
             f.insert(x);
             debug(f, ans, x);
         }
