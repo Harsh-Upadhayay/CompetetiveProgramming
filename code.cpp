@@ -57,7 +57,7 @@ void solve(void){
             f.clear();
             ans++;
         }
-        debug(f);
+        debug(f, ans);
     }
     ans += f.size();
     
