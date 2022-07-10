@@ -93,7 +93,7 @@ void solve(void){
     if(!flag){
         ll x = lset.size(), y = rset.size(), diff = abs(x-y), rem = remaining.size();
         rem -= diff;
-        if(rem % 2)
+        if(!(rem % 2))
             cout << "YES";
         else
             cout << "NOP";
