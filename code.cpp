@@ -60,8 +60,8 @@ void solve(void){
         }
         debug(f, ans);
     }
-    ans += f.size();
-    
+    ans += f.size() > 0;
+     
     cout << ans;
     nl;
 }
