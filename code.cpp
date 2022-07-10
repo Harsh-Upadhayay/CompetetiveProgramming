@@ -72,8 +72,13 @@ void solve(void){
     }
 
     set<ll> lset, rset;
+    set<pair<ll, ll>> remaining;
 
     for(auto x : dom){
+        if(freq[x.first] == 1 && freq[x.second] == 1){
+            remaining.insert(x);
+            continue;
+        }
         if(!lset.count(x.first) && !lset.count(x.second)){
             lset.insert(x.first); lset.insert(x.second);
         }
