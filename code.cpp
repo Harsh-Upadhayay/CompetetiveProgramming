@@ -49,11 +49,13 @@ void inline print(vector<vector<T>> v);
 void solve(void){
     ll n, ans; cin >> n;
 
-    set<ll> s;
+    vll s;
     for(ll i = 1; i <= 1000000000; i *= 10)
-        s.insert(i);
-    ll x = *s.lb(n);
-    debug(n, x);
+        s.pb(i);
+    
+    ll i = 0;
+    while(s[i] < n) i++;
+    debug(s[i]);
 
     
 
