@@ -91,7 +91,9 @@ void solve(void){
         else
             cout << "NO";
     }
-    
+    else
+        cout << "NO";
+
 
 
     nl;
