@@ -57,13 +57,29 @@ void solve(void){
     rpt(i, 0, s.size()){
         mp[c[i]].pb(i);
     }
-    for(auto x : mp)
-        cout << x.first;
-    // while(cost > p){
-    //     // ll itr = mp.end()
-    // }
 
-    
+    while(cost > p){
+        bool flag = false;
+        for(auto x : mp){
+            for(auto y : x.second){
+                cost -= x.first;
+                idx[y] = 0;
+                if(cost <= p){
+                    flag = true;
+                    break;
+                }
+            }
+            if(flag)
+                break;
+
+        }
+        if(flag)
+            break;
+    }
+
+    rpt(i, 0, s.size())
+        if(idx[i])
+            cout << s[i];
 
     nl;
 }
