@@ -53,7 +53,7 @@ void solve(void){
     for(auto x : s){
         if(f.size() < 3){
             f.insert(x);
-        debug(f, ans);
+            debug(f, ans, x);
         }
         else{
             f.clear();
