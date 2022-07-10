@@ -57,7 +57,8 @@ void solve(void){
     rpt(i, 0, s.size()){
         mp[c[i]].pb(i);
     }
-    // debug(mp);?
+    for(auto x : mp)
+        cout << x.first;
     // while(cost > p){
     //     // ll itr = mp.end()
     // }
