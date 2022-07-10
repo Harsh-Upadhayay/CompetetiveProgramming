@@ -51,15 +51,17 @@ void solve(void){
     set<char> f;
     ll ans = 0;
     for(auto x : s){
-        if(f.size() < 3)
+        if(f.size() < 3){
             f.insert(x);
+        debug(f, ans);
+        }
         else{
             f.clear();
             f.insert(x);
             ans++;
         }
-        debug(f, ans);
     }
+
     ans += f.size() > 0;
      
     cout << ans;
