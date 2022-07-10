@@ -53,6 +53,11 @@ void solve(void){
     for(ll i = 1; i <= 1000000000; i *= 10)
         s.pb(i);
     
+
+    ll x = log10(x);
+    x = pow(10, x);
+    debug(x);
+
     ll i = 0;
     while(s[i] < n) i++;
     debug(s[i]);
