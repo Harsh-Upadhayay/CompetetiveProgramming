@@ -86,7 +86,7 @@ void solve(void){
         }
     }
     if(!flag)
-        debug(lset);
+        debug(n, lset);
     cout << (!flag ? "YES" : "NO");
 
 
