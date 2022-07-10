@@ -49,26 +49,43 @@ void inline print(vector<vector<T>> v);
 void solve(void){
     ll n, ans; cin >> n;
 
-    set<pair<ll, ll>> dom;
+    vector<pair<ll, ll>> dom;
     map<ll, ll> freq;
+    map<ll, list<ll>> idxofpair;
 
     bool flag = false;
     rpt(i, 0, n){
         ll a, b; cin >> a >> b;
         if(a == b) flag = true;
         freq[a]++; freq[b]++;
-        dom.insert({a, b});
+        dom.pb({a, b});
+        idxofpair[a].pb(i);
+        idxofpair[b].pb(i);
     }
 
     for(auto x : freq)
-        if(x.second != 2)
+        if(x.second > 2)
             flag = true;
 
     if(flag){
         cout << "NO\n"; return;
     }
 
-    cout << "YES";
+    set<ll> lset, rset;
+
+    for(auto x : dom){
+        if(!lset.count(x.first) && !lset.count(x.second))
+            lset.insert(x.first), lset.insert(x.second);
+        else if(!rset.count(x.first) && !rset.count(x.second))
+            rset.insert(x.first), rset.insert(x.second);
+        else{
+            flag = true;
+            break;
+        }
+    }
+
+    cout << (!flag ? "YES" : "NO");
+
 
     nl;
 }
