@@ -86,9 +86,12 @@ void solve(void){
         }
     }
     if(!flag){
-        debug(n, lset);
+        if(lset.size() == rset.size())
+            cout << "YES";
+        else
+            cout << "NO";
     }
-    cout << (!flag ? "YES" : "NO");
+    
 
 
     nl;
