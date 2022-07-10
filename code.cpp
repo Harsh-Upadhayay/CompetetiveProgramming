@@ -52,7 +52,7 @@ void solve(void){
     set<ll> s;
     for(ll i = 1; i <= 1000000000; i *= 10)
         s.insert(i);
-    ll x = *s.ub(n);
+    ll x = *s.lb(n);
     debug(x);
 
     
