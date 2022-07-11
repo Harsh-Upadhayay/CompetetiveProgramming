@@ -49,6 +49,7 @@ void inline print(vector<vector<T>> v);
 
 void solve(void){
     ll x;
+    cout << "5";
 }
 
 
