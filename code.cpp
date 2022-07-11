@@ -1,3 +1,4 @@
+/*https://codeforces.com/problemset/problem/1607/C*/
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -47,15 +48,7 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[n-i-1];
-
-    ll cur = 0;
-    for(auto x : v){
-        
-    }
-
-    nl;
+    
 }
 
 
