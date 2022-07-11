@@ -47,19 +47,12 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, ans; cin >> n;
-    
-    vll v(n); 
-    bool flag = false;
-    ll sum = 0;
-    rpt(i, 0, n){
-        cin >> v[i];
-        flag = flag | v[i] == 1;
-        sum += (v[i] > 2 ? v[i]-2 : 0);   
-    } 
-    debug(flag, sum);
+    ll x1, x2, y1, y2; cin >> x1 >> y1 >> x2 >> y2;
 
-    cout << (sum % 2 | flag ? "CHEF" : "CHEFINA");
+    ll x = abs(x2 - x1) + abs(y2 - y1);
+
+    cout << (x % 2 ? "NO" : "YES");
+
     
 
     nl;
