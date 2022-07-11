@@ -58,7 +58,7 @@ void solve(void){
     if(maxT)
         xtra = sumN - sum;
 
-    debug(sum, i, xtra);
+    debug(sum, i, xtra, maxT);
 
     ll ans = xtra*xtra + (maxN*maxN)*i;
 
