@@ -50,7 +50,7 @@ void solve(void){
     ll maxT, maxN, sumN; cin >> maxT >> maxN >> sumN;
 
     ll sum = 0, i = 0;
-    while(maxT-- && sum < sumN)
+    while(maxT-- && sum+maxN < sumN)
         sum += maxN, i++;
     
     ll xtra = 0;
