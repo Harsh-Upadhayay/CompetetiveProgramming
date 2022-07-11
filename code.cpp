@@ -56,7 +56,7 @@ void solve(void){
         ll page = 0;
         if(cur >= m){
             page = cur / m;
-            cur = cur % 10;
+            cur = cur % m;
         }
             debug(cur);
         cout << page << " ";
