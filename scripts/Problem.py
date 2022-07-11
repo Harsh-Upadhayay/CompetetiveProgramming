@@ -7,7 +7,6 @@ class Problem:
 
   def __init__(self, URL):
     
-    URL = URL
     r = requests.get(URL)
     soup = BeautifulSoup(r.content, 'html5lib') 
     
