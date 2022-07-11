@@ -47,23 +47,19 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll maxT, maxN, sumN; cin >> maxT >> maxN >> sumN;
-
-    ll sum = 0, i = 0;
-    while(maxT-- && sum+maxN < sumN)
-        sum += maxN, i++;
+    ll n, ans; cin >> n;
     
-    ll xtra = 0;
+    vll v(n); 
+    bool flag = false;
+    ll sum = 0;
+    rpt(i, 0, n){
+        cin >> v[i];
+        flag = flag | v[i] == 1;
+        sum += (v[i] > 2 ? v[i] : 0);   
+    } 
+    debug(flag, sum);
 
-    if(maxT >= 0)
-        xtra = sumN - sum;
-
-    debug(sum, i, xtra, maxT);
-
-    ll ans = xtra*xtra + (maxN*maxN)*i;
-
-    cout << ans;
-        
+    
 
     nl;
 }
