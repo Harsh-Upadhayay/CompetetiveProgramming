@@ -47,12 +47,19 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll x1, x2, y1, y2; cin >> x1 >> y1 >> x2 >> y2;
+    ll n, m; cin >> n >> m;
+    vll v(n); rpt(i, 0, n) cin>> v[i];
 
-    ll x = abs(x2 - x1) + abs(y2 - y1);
-
-    cout << (x % 2 ? "NO" : "YES");
-
+    ll cur = 0;
+    for(auto x : v){
+        cur += x;
+        ll page = 0;
+        if(cur >= m){
+            page = cur / m;
+            cur = cur % 10;
+        }
+        cout << page << " ";
+    }
     
 
     nl;
