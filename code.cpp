@@ -48,7 +48,7 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    
+    ll x;
 }
 
 
