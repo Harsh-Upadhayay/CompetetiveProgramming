@@ -55,7 +55,7 @@ void solve(void){
     
     ll xtra = 0;
 
-    if(maxT)
+    if(maxT > 0)
         xtra = sumN - sum;
 
     debug(sum, i, xtra, maxT);
