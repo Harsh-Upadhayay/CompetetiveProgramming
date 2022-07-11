@@ -58,7 +58,6 @@ void solve(void){
             page = cur / m;
             cur = cur % m;
         }
-            debug(cur);
         cout << page << " ";
     }
     
