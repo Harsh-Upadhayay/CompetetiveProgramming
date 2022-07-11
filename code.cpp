@@ -58,6 +58,8 @@ void solve(void){
     if(maxT)
         xtra = sumN - sum;
 
+    debug(sum, i, xtra);
+
     ll ans = xtra*xtra + (maxN*maxN)*i;
 
     cout << ans;
