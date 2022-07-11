@@ -55,7 +55,7 @@ void solve(void){
     rpt(i, 0, n){
         cin >> v[i];
         flag = flag | v[i] == 1;
-        sum += (v[i] > 2 ? v[i] : 0);   
+        sum += (v[i] > 2 ? v[i]-2 : 0);   
     } 
     debug(flag, sum);
 
