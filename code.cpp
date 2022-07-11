@@ -59,6 +59,7 @@ void solve(void){
     } 
     debug(flag, sum);
 
+    cout << (sum % 2 | flag ? "CHEF" : "CHEFINA");
     
 
     nl;
