@@ -47,20 +47,13 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, m; cin >> n >> m;
-    vll v(n); rpt(i, 0, n) cin>> v[i];
+    ll n; cin >> n;
+    vll v(n); rpt(i, 0, n) cin >> v[n-i-1];
 
     ll cur = 0;
     for(auto x : v){
-        cur += x;
-        ll page = 0;
-        if(cur >= m){
-            page = cur / m;
-            cur = cur % m;
-        }
-        cout << page << " ";
+        
     }
-    
 
     nl;
 }
