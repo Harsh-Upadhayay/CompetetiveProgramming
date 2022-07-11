@@ -47,67 +47,20 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll n, ans; cin >> n;
+    ll maxT, maxN, sumN; cin >> maxT >> maxN >> sumN;
 
-    vector<pair<ll, ll>> dom;
-    map<ll, ll> freq;
-    map<ll, list<ll>> idxofpair;
+    ll sum = 0, i = 0;
+    while(maxT-- && sum < sumN)
+        sum += maxN, i++;
+    
+    ll xtra;
+    if(maxT)
+        xtra = sumN - sum;
 
-    bool flag = false;
-    rpt(i, 0, n){
-        ll a, b; cin >> a >> b;
-        if(a == b) flag = true;
-        freq[a]++; freq[b]++;
-        dom.pb({a, b});
-        idxofpair[a].pb(i);
-        idxofpair[b].pb(i);
-    }
+    ll ans = xtra*xtra + (maxN*maxN)*i;
 
-    // for(auto x : freq)
-    //     if(x.second > 2)
-    //         flag = true;
-
-    if(flag){
-        cout << "NO\n"; return;
-    }
-
-    set<ll> lset, rset;
-    set<pair<ll, ll>> remaining;
-
-    for(auto x : dom){
-        if(freq[x.first] == 1 && freq[x.second] == 1){
-            remaining.insert(x);
-            continue;
-        }
-        if(!lset.count(x.first) && !lset.count(x.second)){
-            lset.insert(x.first); lset.insert(x.second);
-        }
-        else if(!rset.count(x.first) && !rset.count(x.second)){
-            rset.insert(x.first); rset.insert(x.second);
-        }
-        else{
-            flag = true;
-            break;
-        }
-    }
-    if(!flag){
-        ll x = lset.size(), y = rset.size(), diff = abs(x-y), rem = 2*remaining.size();
-        if(rem < diff)
-            cout << "NO";
-        else{
-            rem -= diff;
-            if(!(rem % 4))
-                cout << "YES";
-            else
-                cout << "NO";
-        }
+    cout << ans;
         
-    }
-    else{
-        cout << "NO";
-    }
-
-
 
     nl;
 }
