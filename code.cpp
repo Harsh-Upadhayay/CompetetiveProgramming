@@ -53,7 +53,8 @@ void solve(void){
     while(maxT-- && sum < sumN)
         sum += maxN, i++;
     
-    ll xtra;
+    ll xtra = 0;
+
     if(maxT)
         xtra = sumN - sum;
 
