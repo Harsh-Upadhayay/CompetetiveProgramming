@@ -1,4 +1,4 @@
-/*https://codeforces.com/problemset/problem/1608/A*/
+/* https://codeforces.com/problemset/problem/466/A */
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -48,8 +48,16 @@ void inline print(vector<vector<T>> v);
 
 
 void solve(void){
-    ll x;
-    cout << "5";
+    ll n, m, a, b; cin >> n >> m >> a >> b;
+
+    ll nt = n / m;
+    ll ans = (b*nt > a*n ? a*n : b*nt);
+    ans += b > (n%m)*a ? (n%m)*a : b;
+
+    cout << ans;
+    
+
+    nl;
 }
 
 
