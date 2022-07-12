@@ -53,7 +53,7 @@ void solve(void){
     ll i = 0;
 
     for(auto x : s)
-        if(x == h[i]) i++;
+        if(i < 5 && x == h[i]) i++;
     cout << i;
 
     nl;
