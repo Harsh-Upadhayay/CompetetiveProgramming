@@ -30,7 +30,7 @@ using namespace std;
 #define yes                     cout << "YES";
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
-#define TESTCASE
+#define TESTCAS
 
 /*_________________________________________________________________________________________________________________________________________*/
 
