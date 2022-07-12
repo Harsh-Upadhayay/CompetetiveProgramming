@@ -54,7 +54,8 @@ void solve(void){
 
     for(auto x : s)
         if(i < 5 && x == h[i]) i++;
-    cout << i;
+    
+    cout << (i == 5 ? "YES":"NO");
 
     nl;
 }
