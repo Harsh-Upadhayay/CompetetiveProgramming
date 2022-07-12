@@ -48,7 +48,7 @@ void inline print(vector<vector<T>> v);
 
 bool isVowel(char x){
     x = tolower(x);
-    return x == 'a' || x == 'e' || x == 'i' || x == 'o' || x == 'u';
+    return (x == 'a' || x == 'e' || x == 'i' || x == 'o' || x == 'u');
 }
 
 void solve(void){
