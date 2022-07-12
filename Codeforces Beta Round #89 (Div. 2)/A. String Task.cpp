@@ -55,7 +55,7 @@ void solve(void){
     string s; cin >> s;
     for(auto x : s)
         if(!isVowel(x))
-            cout << "." << tolower(x);
+            cout << "." << (char)tolower(x);
 
 }
 
