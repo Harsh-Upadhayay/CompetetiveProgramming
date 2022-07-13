@@ -73,10 +73,8 @@ void solve(void){
     sort(all(pairs));
     debug(pairs);
 
-    for(auto x : pairs){
+    for(auto x : pairs)
         ans += pairs.size() - find(pairs, x.se);
-        // cout << ans;
-    }
     
     cout << ans;
 
