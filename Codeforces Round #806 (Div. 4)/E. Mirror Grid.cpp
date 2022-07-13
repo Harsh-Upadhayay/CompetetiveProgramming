@@ -57,7 +57,7 @@ void solve(void){
             v[i][j] = s[j] - '0';
     };
 
-    debug(v);
+    print(v);
 
     
 
