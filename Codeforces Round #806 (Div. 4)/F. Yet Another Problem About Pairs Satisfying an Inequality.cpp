@@ -74,7 +74,7 @@ void solve(void){
     debug(pairs);
 
     for(auto x : pairs)
-        ans += pairs.size() - find(pairs, x.se);
+        ans += (long long)(lower_bound(pairs.begin(), pairs.end(), x) - pairs.begin());
     
     cout << ans;
 
