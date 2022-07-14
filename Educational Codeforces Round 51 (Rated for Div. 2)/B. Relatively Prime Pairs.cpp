@@ -50,6 +50,7 @@ void inline print(vector<vector<T>> v);
 void solve(void){
     ll n, m; cin >> n >> m;
 
+    yes;
     while(n <= m){
         cout << n++ << " " << n++ << "\n";
     }
