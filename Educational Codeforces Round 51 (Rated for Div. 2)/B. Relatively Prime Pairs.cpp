@@ -51,7 +51,7 @@ void solve(void){
     ll n, m; cin >> n >> m;
 
     while(n <= m){
-        cout << n++ << n++;
+        cout << n++ << " " << n++ << "\n";
     }
     
 
