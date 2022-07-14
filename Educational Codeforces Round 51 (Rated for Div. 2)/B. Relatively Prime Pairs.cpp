@@ -52,7 +52,7 @@ void solve(void){
 
     yes;
     while(n <= m){
-        cout << n++ << " " << n++ << "\n";
+        cout << "\n" << n++ << " " << n++ << "\n";
     }
     
 
