@@ -55,7 +55,8 @@ void solve(void){
         rpt(j, 0, m){
             cout << x; x = (x == 'B' ? 'W':'B');
         }
-        x = (!(m % 2) ? 'W':'B');
+        if(!(m % 2))
+            x = (x == 'B' ? 'W':'B');
         cout << "\n";
     }
 
