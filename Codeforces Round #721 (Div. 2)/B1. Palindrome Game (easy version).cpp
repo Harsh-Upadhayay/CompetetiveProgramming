@@ -54,6 +54,10 @@ void solve(void){
     ll z = count_if(all(s), [](char ch){return ch == '0';});
     cout << z;
     
+    if(z == 1 || !(z % 2))
+        cout << "BOB";
+    else if(z % 2)
+        cout << "ALICE";
 
     nl;
 }
