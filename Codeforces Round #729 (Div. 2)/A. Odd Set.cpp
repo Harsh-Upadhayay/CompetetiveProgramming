@@ -49,7 +49,7 @@ void inline print(vector<vector<T>> v);
 
 void solve(void){
     ll n, x; cin >> n;
-    vll v(2*n); rpt(i, 0, n) cin >> v[i];
+    vll v(2*n); rpt(i, 0, 2*n) cin >> v[i];
 
     ll odd = 0;
     for(auto x : v)
