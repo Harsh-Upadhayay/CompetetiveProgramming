@@ -52,7 +52,6 @@ void solve(void){
     string s; cin >> s;
 
     ll z = count_if(all(s), [](char ch){return ch == '0';});
-    cout << z;
     
     if(z == 1 || !(z % 2))
         cout << "BOB";
