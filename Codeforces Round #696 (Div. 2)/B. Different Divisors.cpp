@@ -2,13 +2,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-#ifdef ONLINE_JUDG
-    #define debug(x...) 
-
-#else
-    #include "debug.h"
-#endif
-
+// #ifdef ONLINE_JUDGE
+//     #define debug(x...) 
+//     class Timer{};
+// #else
+//     #include "debug.h"
+// #endif
+class Timer{};
 /*_________________________________________________________________________________________________________________________________________*/
 
 #define ll                      long long int
