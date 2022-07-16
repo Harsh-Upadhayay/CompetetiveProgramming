@@ -59,14 +59,13 @@ void init(){
 
 
 void solve(void){
-    ll n, d; cin >> n >> d;
-    vll v(2*n); rpt(i, 0, 2*n) cin >> v[i];
-    sort(all(v));
+    ll n, sum = 0; cin >> n;
+    vll v(n); rpt(i, 0, n) { cin >> v[i]; sum += v[i]; }
+    sum -= v.back();
+    cout << sum;
 
-    bool flag = false;
-    rpt(i, 0, n)
-        flag = flag | v[n+i] - v[i] < d;
-    cout << (flag ? "NO":"YES");
+    ll z = count_if(v.begin(), v.end()-1, [](ll x){return x == 0;});
+
 
     nl;
 }
