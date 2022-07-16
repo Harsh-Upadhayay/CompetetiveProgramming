@@ -67,7 +67,7 @@ void solve(void){
         cin >> v[i];
         freq[x]++;
     }
-
+    debug(freq);
     for(auto y : v){
 
          if(freq[y]) {
@@ -85,6 +85,8 @@ void solve(void){
                 return;
             }
         }
+
+        debug(freq);
     }
     yes;
     nl;
