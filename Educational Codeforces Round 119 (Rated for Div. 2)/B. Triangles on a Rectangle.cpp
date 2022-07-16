@@ -65,7 +65,8 @@ void solve(void){
 
     debug(v);
     tmp = {0, w};
-    // v.clear();
+    v[0].clear();
+    v[1].clear();
 
     rpt(i, 0, 2){
         ll k, y; cin >> k;
