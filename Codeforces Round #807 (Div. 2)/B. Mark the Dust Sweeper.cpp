@@ -100,7 +100,6 @@ int main() {
     while(t--) 
         solve();
 
-    Timer _;
     return 0;
 }
 
