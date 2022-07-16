@@ -52,7 +52,7 @@ void solve(void){
     ll x = d + 1, y = x + d;
     debug(x, y);
 
-    if(y % x)
+    if(!(y % x))
         cout << y * 2;
     else 
         cout << x * y;
