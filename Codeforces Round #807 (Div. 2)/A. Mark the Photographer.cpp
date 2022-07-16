@@ -62,7 +62,7 @@ void solve(void){
     ll n, d; cin >> n >> d;
     vll v(2*n); rpt(i, 0, 2*n) cin >> v[i];
     sort(all(v));
-    if(v[n] - v[n-1] >= d)
+    if(v[2*n-1] - v[n-1] >= d)
         cout << "YES";
     else
         cout << "NO";
