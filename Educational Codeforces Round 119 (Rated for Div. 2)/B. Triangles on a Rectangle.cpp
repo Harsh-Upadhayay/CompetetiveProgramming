@@ -57,9 +57,9 @@ void solve(void){
         ll b; cin >> b;
 
         if(i < 2)
-            mxArea = max(mxArea, ((b - a)*h)/2);
-        else
             mxArea = max(mxArea, ((b - a)*w)/2);
+        else
+            mxArea = max(mxArea, ((b - a)*h)/2);
 
     }
     
