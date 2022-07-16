@@ -4,6 +4,7 @@ using namespace std;
 
 #ifdef ONLINE_JUDGE
     #define debug(x...) 
+    class Timer{};
 #else
     #include "debug.h"
 #endif
@@ -46,15 +47,6 @@ bitset<SIEVE_SIZE> isComposit;
 void setSieve();
 set<ll> allPrimes;
 void storePrimes();
-struct Timer {
-    chrono::time_point <chrono::steady_clock> Begin, End;
-     Timer () : Begin(), End () { Begin = chrono::steady_clock::now(); }
-    ~Timer () {
-        End = chrono::steady_clock::now();
-        cerr << "\nDuration: " << ((chrono::duration <double>)(End - Begin)).count() << "s\n"; 
-    } 
-};
-
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
 
