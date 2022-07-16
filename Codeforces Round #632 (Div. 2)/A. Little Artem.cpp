@@ -60,7 +60,7 @@ void solve(void){
         cout << "\n";
     }
 
-
+    debug(x);
     
 
     nl;
