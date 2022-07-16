@@ -46,80 +46,23 @@ void inline print(vector<vector<T>> v);
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
 
-double inline dist(pair<ll, ll> p1, pair<ll, ll> p2){
-    double x1 = p1.first, y1 = p1.second;
-    double x2 = p2.first, y2 = p2.second;
-    return sqrt((x2 - x1) * (x2-x1) + (y2-y1) * (y2-y1));
-}
-
-double inline area(double a, double b, double c){
-    double s = (a + b + c) / 2;
-    return sqrt(s * (s - a) + s * (s - b) + s * (s - c));
-}
-
-// double calc(vector<ll> top){
-
-// }
 
 void solve(void){
     ll w, h; cin >> w >> h;
+    ll mxArea = ninf;
 
-    vll tmp = {0, h};
-    vector<vector<p(ll, ll)>> v(2);
-    double mxArea = 0;
+    rpt(i, 0, 4){
+        ll k, a; cin >> k >> a; 
+        for(int j = 0; j < k - 2; j++){ll x; cin >> x;}
+        ll b; cin >> b;
 
-    rpt(i, 0, 2){
-        ll k, x; cin >> k;
-        
-        while(k--){
-            cin >> x;
-            v[i].pb({x, tmp[i]});
-        }
-
-    }
-
-    rpt(i, 0, 2){
-        auto p = v[i].front(), q = v[i].back();
-        auto &top = v[(i+1)%2];
-
-        for(auto x : top){
-            double a = dist(p, q),
-                   b = dist(p, x),
-                   c = dist(q, x);
-            double ar = area(a, b, c);
-            mxArea = max(mxArea, ar);
-        }
-        debug(p, q);
-    }
-
-    tmp = {0, w};
-    v[0].clear();
-    v[1].clear();
-
-    rpt(i, 0, 2){
-        ll k, y; cin >> k;
-
-        while(k--){
-            cin >> y;
-            v[i].pb({tmp[i], y});
-        }
+        if(i < 2)
+            mxArea = max(mxArea, ((b - a)*h)/2);
+        else
+            mxArea = max(mxArea, ((b - a)*w)/2);
 
     }
-
-    rpt(i, 0, 2){
-        auto p = v[i].front(), q = v[i].back();
-        auto &top = v[(i+1)%2];
-
-        for(auto x : top){
-            double a = dist(p, q),
-                   b = dist(p, x),
-                   c = dist(q, x);
-            double ar = area(a, b, c);
-            mxArea = max(mxArea, ar);
-        }
-        debug(p, q);
-    }
-
+    
     cout << mxArea;
 
     nl;
