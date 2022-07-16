@@ -31,7 +31,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define TESTCASE
-#define SIEVE_SIZE                ((ll)(1e2))
+#define SIEVE_SIZE                ((ll)(1e4))
 /*_________________________________________________________________________________________________________________________________________*/
 
 template<class T>
