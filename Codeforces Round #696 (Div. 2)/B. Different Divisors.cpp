@@ -61,7 +61,8 @@ void solve(void){
     ll d; cin >> d;
     ll x = (allPrimes.count(1 + d) ? 1 + d : *allPrimes.upper_bound(1 + d));
     debug(x);
-
+    ll y = (allPrimes.count(x + d) ? x + d : *allPrimes.upper_bound(x + d));
+    debug(y);
 
     nl;
 }
