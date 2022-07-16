@@ -51,19 +51,14 @@ void storePrimes();
 /*_________________________________________________________________________________________________________________________________________*/
 
 void init(){
-    setSieve();
-    storePrimes();
+    
     return;
 }
 
 
 void solve(void){
-    ll d; cin >> d;
-    ll x = (allPrimes.count(1 + d) ? 1 + d : *allPrimes.upper_bound(1 + d));
-    debug(x);
-    ll y = (allPrimes.count(x + d) ? x + d : *allPrimes.upper_bound(x + d));
-    debug(y);
-    cout << min(x*x*x, x*y);
+    ll n; 
+
     nl;
 }
 
