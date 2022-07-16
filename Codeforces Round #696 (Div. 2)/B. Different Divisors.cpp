@@ -147,7 +147,7 @@ void storePrimes(){
     for(ll i = 2; i < SIEVE_SIZE; i++)
         if(!isComposit[i])
             allPrimes.insert(i);
-    debug(allPrimes);
+    // debug(allPrimes);
 }
 
 /*_________________________________________________________________________________________________________________________________________*/
