@@ -2,13 +2,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-// #ifdef ONLINE_JUDGE
-//     #define debug(x...) 
-//     class Timer{};
-// #else
-//     #include "debug.h"
-// #endif
-class Timer{};
+#ifdef ONLINE_JUDGE
+    #define debug(x...) 
+    class Timer{};
+#else
+    #include "debug.h"
+#endif
+
 /*_________________________________________________________________________________________________________________________________________*/
 
 #define ll                      long long int
@@ -73,6 +73,7 @@ void solve(void){
 /*_________________________________________________________________________________________________________________________________________*/
 
 int main() {
+    Timer _;
     srand(time(0));
     #ifndef ONLINE_JUDGE
         freopen("input.txt","r",stdin);
