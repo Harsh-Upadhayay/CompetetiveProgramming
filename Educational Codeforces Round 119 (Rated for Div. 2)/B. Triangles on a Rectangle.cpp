@@ -101,7 +101,6 @@ void solve(void){
         while(k--){
             cin >> y;
             v[i].pb({tmp[i], y});
-            cout << y << " ";
         }
 
     }
