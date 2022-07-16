@@ -66,10 +66,10 @@ void solve(void){
     debug(v);
     tmp = {0, w};
     v.clear();
-    
+
     rpt(i, 0, 2){
         ll k, y; cin >> k;
-
+        cout <<"F";
         while(k--){
             cin >> y;
             v[i].pb({tmp[i], y});
