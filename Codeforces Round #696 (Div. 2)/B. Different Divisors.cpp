@@ -53,7 +53,7 @@ void init(){
 }
 
 void solve(void){
-    cout << isPrime[103];
+    cout << isPrime[7];
     nl;
 }
 
