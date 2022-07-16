@@ -59,12 +59,17 @@ void init(){
 
 
 void solve(void){
-    ll n, sum = 0; cin >> n;
-    vll v(n); rpt(i, 0, n) { cin >> v[i]; sum += v[i]; }
-    sum -= v.back();
-
-    ll z = count_if(v.begin(), v.end()-1, [](ll x){return x == 0;});
-    cout << sum + z;
+    ll n, sum = 0, z = 0; cin >> n;
+    bool f = false;
+    vll v(n); rpt(i, 0, n) {
+        cin >> v[i];
+        sum += v[i];
+        f = f || v[i];
+        z += (v[i] == 0 && f);
+    }
+    
+    sum -= v.back();    
+    cout << sum + z;    
 
     nl;
 }
