@@ -2,6 +2,20 @@
 
 using namespace std;
 /*************************************************************************************************************************************/
+
+class Timer {
+    private : 
+    chrono::time_point <chrono::steady_clock> Begin, End;
+
+    public : 
+     Timer () : Begin(), End () { Begin = chrono::steady_clock::now(); }
+    ~Timer () {
+        End = chrono::steady_clock::now();
+        cerr << "\nDuration: " << ((chrono::duration <double>)(End - Begin)).count() << "s\n"; 
+    } 
+};
+
+
 template<class T, class V>
 void __print (const unordered_map<T, list<V>> &x){
     cerr << "\n{\n";
