@@ -67,6 +67,7 @@ void solve(void){
     ll z = 0; while(i < n-1) z += v[i++] == 0;
 
     debug(sum, z);
+    cout << sum + z;
 
     nl;
 }
