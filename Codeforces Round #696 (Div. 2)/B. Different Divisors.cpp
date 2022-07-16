@@ -51,6 +51,7 @@ void storePrimes();
 /*_________________________________________________________________________________________________________________________________________*/
 
 void init(){
+    Timer _;
     setSieve();
     storePrimes();
     return;
@@ -61,7 +62,6 @@ void init(){
 // }
 
 void solve(void){
-    Timer _;
     ll d; cin >> d;
     ll x = 1 + d;
 
