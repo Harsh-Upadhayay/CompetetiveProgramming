@@ -56,10 +56,12 @@ void solve(void){
         for(int j = 0; j < k - 2; j++){ll x; cin >> x;}
         ll b; cin >> b;
 
+        debug(a, b);
+
         if(i < 2)
-            mxArea = max(mxArea, ((b - a)*w)/2);
-        else
             mxArea = max(mxArea, ((b - a)*h)/2);
+        else
+            mxArea = max(mxArea, ((b - a)*w)/2);
 
     }
     
