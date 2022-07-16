@@ -65,7 +65,7 @@ void solve(void){
 
     bool flag = false;
     rpt(i, 0, n)
-        flag = flag | v[n+i] - v[i] < n;
+        flag = flag | v[n+i] - v[i] < d;
     cout << (flag ? "NO":"YES");
 
     nl;
