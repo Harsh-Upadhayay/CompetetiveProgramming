@@ -17,6 +17,6 @@
         "type_traits": "cpp",
         
     },
-    "git.enabled": false
+    // "git.enabled": false
 
 }
