@@ -62,10 +62,9 @@ void solve(void){
     ll n, sum = 0; cin >> n;
     vll v(n); rpt(i, 0, n) { cin >> v[i]; sum += v[i]; }
     sum -= v.back();
-    cout << sum;
 
     ll z = count_if(v.begin(), v.end()-1, [](ll x){return x == 0;});
-
+    cout << sum + z;
 
     nl;
 }
