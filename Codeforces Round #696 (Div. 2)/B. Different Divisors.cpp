@@ -51,7 +51,7 @@ void solve(void){
     ll d; cin >> d;
     ll x = d + 1, y = x + d;
     debug(x, y);
-
+    
     
 
     nl;
