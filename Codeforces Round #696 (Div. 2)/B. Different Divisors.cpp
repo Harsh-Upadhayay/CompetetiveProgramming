@@ -59,6 +59,7 @@ struct Timer {
 /*_________________________________________________________________________________________________________________________________________*/
 
 void init(){
+    Timer x;
     setSieve();
     storePrimes();
     return;
@@ -81,7 +82,6 @@ void solve(void){
 
 int main() {
     srand(time(0));
-    Timer x;
     #ifndef ONLINE_JUDGE
         freopen("input.txt","r",stdin);
         freopen("output.txt","w",stdout);
