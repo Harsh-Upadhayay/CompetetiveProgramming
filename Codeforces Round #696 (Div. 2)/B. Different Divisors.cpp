@@ -2,7 +2,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-#ifdef ONLINE_JUDGE
+#ifdef ONLINE_JUDG
     #define debug(x...) 
     class Timer{};
 #else
