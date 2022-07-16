@@ -65,10 +65,10 @@ void solve(void){
 
     debug(v);
     tmp = {0, w};
-
+    v.clear();
+    
     rpt(i, 0, 2){
         ll k, y; cin >> k;
-        v.clear();
 
         while(k--){
             cin >> y;
