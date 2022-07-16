@@ -69,7 +69,7 @@ void solve(void){
 
     rpt(i, 0, 2){
         ll k, y; cin >> k;
-        cout <<"F";
+        cout << k;
         while(k--){
             cin >> y;
             v[i].pb({tmp[i], y});
