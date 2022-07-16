@@ -59,17 +59,13 @@ void init(){
 
 
 void solve(void){
-    ll n, sum = 0, z = 0; cin >> n;
-    bool f = false;
-    vll v(n); rpt(i, 0, n) {
-        cin >> v[i];
-        sum += v[i];
-        f = f || v[i];
-        z += (v[i] == 0 && f);
-    }
-    z -= !v.back();
-    sum -= v.back();    
-    cout << sum + z;    
+    ll n; cin >> n;
+    vll v(n); rpt(i, 0, n) cin >> v[i];
+
+    ll sum = 0; rpt(i, 0, n-1) sum += v[i];
+    ll i = 0; while(i < n && !v[i]) i++;
+
+    debug(i);
 
     nl;
 }
@@ -79,6 +75,7 @@ void solve(void){
 /*_________________________________________________________________________________________________________________________________________*/
 
 int main() {
+    Timer _;
     srand(time(0));
     #ifndef ONLINE_JUDGE
         freopen("input.txt","r",stdin);
