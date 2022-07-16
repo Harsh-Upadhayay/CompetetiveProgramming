@@ -59,9 +59,9 @@ void solve(void){
         debug(a, b);
 
         if(i < 2)
-            mxArea = max(mxArea, ((b - a)*h)/2);
+            mxArea = max(mxArea, ((b - a)*h));
         else
-            mxArea = max(mxArea, ((b - a)*w)/2);
+            mxArea = max(mxArea, ((b - a)*w));
 
     }
     
