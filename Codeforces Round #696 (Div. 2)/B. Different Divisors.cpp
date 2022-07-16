@@ -42,7 +42,7 @@ template<class T>
 void inline print(vector<T> v);
 template<class T>
 void inline print(vector<vector<T>> v);
-bitset<SIEVE_SIZE> isPrime;
+bitset<SIEVE_SIZE> isComposit;
 void setSieve();
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
@@ -53,7 +53,7 @@ void init(){
 }
 
 void solve(void){
-    cout << isPrime[6];
+    cout << isComposit[6];
     nl;
 }
 
@@ -115,11 +115,11 @@ void inline print(vector<vector<T>> v){
 }
 
 void setSieve(){
-    isPrime[0] = isPrime[1] = 1;
+    isComposit[0] = isComposit[1] = 1;
     for(long long i = 2; i*i <= SIEVE_SIZE; i++)
-        if(isPrime[i] == 0)
+        if(isComposit[i] == 0)
             for(long long j = i*i; j <= SIEVE_SIZE; j += i)
-                isPrime[j] = 1;
+                isComposit[j] = 1;
 
 }
 
