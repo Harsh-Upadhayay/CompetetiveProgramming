@@ -62,7 +62,7 @@ void solve(void){
     string s; cin >> s;
     ll count = count_if(all(s), [](char ch) {return ch == '?';});
     debug(count);
-    cout << (*s.begin() != ')' && *s.end() != '(' && (count+1) % 2 ? "YES" : "NO");
+    cout << (*s.begin() != ')' && *s.rend() != '(' && (count+1) % 2 ? "YES" : "NO");
 
     nl;
 }
