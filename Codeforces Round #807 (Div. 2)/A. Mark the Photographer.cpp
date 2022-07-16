@@ -59,36 +59,14 @@ void init(){
 
 
 void solve(void){
-    ll n, x; cin >> n >> x;
-    
-    map<ll, ll> freq;
-    vll v(2*n);
-    rpt(i, 0, 2*n){
-        cin >> v[i];
-        freq[v[i]]++;
-    }
-    debug(freq);
-    for(auto y : v){
+    ll n, d; cin >> n >> d;
+    vll v(2*n); rpt(i, 0, 2*n) cin >> v[i];
+    sort(all(v));
+    if(v[n] - v[n-1] >= d)
+        cout << "YES";
+    else
+        cout << "NO";
 
-         if(freq[y]) {
-            freq[y]--;
-            if(freq[y+x] > 0){
-                freq[y+x]--;
-            }
-            else if(freq.upper_bound(y+x) != freq.end()){
-                auto it = *freq.upper_bound(y+x);
-                if(it.second > 0)
-                    it.second--;
-            }
-            else{
-                cout << "NO\n";
-                return;
-            }
-        }
-
-        debug(freq);
-    }
-    yes;
     nl;
 }
 
@@ -167,4 +145,3 @@ void storePrimes(){
 }
 
 /*_________________________________________________________________________________________________________________________________________*/
-
