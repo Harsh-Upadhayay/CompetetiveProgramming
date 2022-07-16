@@ -56,13 +56,12 @@ void init(){
     return;
 }
 
-// ll find(ll x){
-//     ll l = 2, r = 
-// }
 
 void solve(void){
     ll d; cin >> d;
-    ll x = 1 + d;
+    ll x = (allPrimes.count(1 + d) ? 1 + d : *allPrimes.upper_bound(1 + d));
+    debug(x);
+
 
     nl;
 }
