@@ -51,8 +51,11 @@ void solve(void){
     ll d; cin >> d;
     ll x = d + 1, y = x + d;
     debug(x, y);
-    
-    
+
+    if(y % x)
+        cout << y * 2;
+    else 
+        cout << x * y;
 
     nl;
 }
