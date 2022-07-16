@@ -68,7 +68,7 @@ void solve(void){
 
     debug(sum, z);
     cout << sum + z;
-    nl;
+
     nl;
 }
 
