@@ -89,6 +89,7 @@ void solve(void){
             double ar = area(a, b, c);
             mxArea = max(mxArea, ar);
         }
+        debug(p, q);
     }
 
     tmp = {0, w};
