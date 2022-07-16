@@ -81,7 +81,7 @@ void solve(void){
 
 int main() {
     srand(time(0));
-    Timer();
+    Timer x;
     #ifndef ONLINE_JUDGE
         freopen("input.txt","r",stdin);
         freopen("output.txt","w",stdout);
