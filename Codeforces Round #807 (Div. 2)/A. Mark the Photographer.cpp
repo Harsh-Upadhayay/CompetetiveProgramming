@@ -65,7 +65,7 @@ void solve(void){
     vll v(2*n);
     rpt(i, 0, 2*n){
         cin >> v[i];
-        freq[x]++;
+        freq[v[i]]++;
     }
     debug(freq);
     for(auto y : v){
