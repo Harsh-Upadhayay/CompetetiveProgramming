@@ -64,8 +64,9 @@ void solve(void){
 
     ll sum = 0; rpt(i, 0, n-1) sum += v[i];
     ll i = 0; while(i < n && !v[i]) i++;
+    ll z = 0; while(i < n-1) z += v[i++] == 0;
 
-    debug(i);
+    debug(sum, z);
 
     nl;
 }
