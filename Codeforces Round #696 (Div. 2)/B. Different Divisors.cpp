@@ -53,6 +53,7 @@ void solve(void){
     debug(x, y);
 
     cout << x * y;
+    
     nl;
 }
 
