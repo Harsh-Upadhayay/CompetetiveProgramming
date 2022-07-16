@@ -67,7 +67,7 @@ void solve(void){
         f = f || v[i];
         z += (v[i] == 0 && f);
     }
-    
+    z -= !v.back();
     sum -= v.back();    
     cout << sum + z;    
 
