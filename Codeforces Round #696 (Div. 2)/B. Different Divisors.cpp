@@ -63,7 +63,7 @@ void solve(void){
     debug(x);
     ll y = (allPrimes.count(x + d) ? x + d : *allPrimes.upper_bound(x + d));
     debug(y);
-
+    cout << min(x*x*x, x*y);
     nl;
 }
 
