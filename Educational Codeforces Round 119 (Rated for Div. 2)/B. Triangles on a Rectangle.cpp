@@ -117,6 +117,7 @@ void solve(void){
             double ar = area(a, b, c);
             mxArea = max(mxArea, ar);
         }
+        debug(p, q);
     }
 
     cout << mxArea;
