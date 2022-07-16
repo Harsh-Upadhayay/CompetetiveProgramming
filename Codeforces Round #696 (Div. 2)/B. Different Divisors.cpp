@@ -31,7 +31,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define TESTCASE
-
+#define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
 template<class T>
@@ -42,18 +42,18 @@ template<class T>
 void inline print(vector<T> v);
 template<class T>
 void inline print(vector<vector<T>> v);
-
+bitset<SIEVE_SIZE> isPrime;
+void setSieve();
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
 
+void init(){
+    setSieve();
+    return;
+}
 
 void solve(void){
-    ll d; cin >> d;
-    ll x = d + 1, y = x + d;
-    debug(x, y);
-
-    cout << x * y;
-    
+    cout << isPrime[103];
     nl;
 }
 
@@ -73,6 +73,8 @@ int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(NULL);
     
+    init();
+
     ll t = 1;
 
     #ifdef TESTCASE
@@ -101,7 +103,6 @@ template<class T>
 void inline print(vector<T> v){
     for(auto x : v)
         cout << x << " ";
-    nl;
 }
 
 template<class T>
@@ -111,6 +112,15 @@ void inline print(vector<vector<T>> v){
             cout << y << " ";
         nl;
     }
+}
+
+void setSieve(){
+    isPrime[0] = isPrime[1] = 1;
+    for(long long i = 2; i*i <= SIEVE_SIZE; i++)
+        if(isPrime[i] == 0)
+            for(long long j = i*i; j <= SIEVE_SIZE; j += i)
+                isPrime[j] = 1;
+
 }
 
 /*_________________________________________________________________________________________________________________________________________*/
