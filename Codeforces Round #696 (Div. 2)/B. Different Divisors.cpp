@@ -53,7 +53,7 @@ void init(){
 }
 
 void solve(void){
-    cout << isComposit[6];
+    cout << isComposit[107];
     nl;
 }
 
