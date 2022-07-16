@@ -64,7 +64,7 @@ void solve(void){
     sort(all(v));
 
     bool flag = false;
-    rpt(i, 0, 2)
+    rpt(i, 0, 2*n)
         flag = flag | v[n+i] - v[i] < n;
     cout << (flag ? "NO":"YES");
 
