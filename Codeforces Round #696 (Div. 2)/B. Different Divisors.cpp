@@ -31,7 +31,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define TESTCASE
-#define SIEVE_SIZE                ((ll)(1e5))
+#define SIEVE_SIZE                ((ll)(1e2))
 /*_________________________________________________________________________________________________________________________________________*/
 
 template<class T>
@@ -44,16 +44,26 @@ template<class T>
 void inline print(vector<vector<T>> v);
 bitset<SIEVE_SIZE> isComposit;
 void setSieve();
+vll AllPrimes;
+void storePrimes();
+
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
 
 void init(){
     setSieve();
+    storePrimes();
     return;
 }
 
+// ll find(ll x){
+//     ll l = 2, r = 
+// }
+
 void solve(void){
-    cout << isComposit[107];
+    ll d; cin >> d;
+    ll x = 1 + d;
+
     nl;
 }
 
@@ -121,6 +131,15 @@ void setSieve(){
             for(long long j = i*i; j <= SIEVE_SIZE; j += i)
                 isComposit[j] = 1;
 
+}
+
+void storePrimes(){
+    if(isComposit[2])
+        setSieve();
+    for(ll i = 2; i < SIEVE_SIZE; i++)
+        if(!isComposit[i])
+            AllPrimes.pb(i);
+    debug(AllPrimes);
 }
 
 /*_________________________________________________________________________________________________________________________________________*/
