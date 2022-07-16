@@ -4,7 +4,7 @@ using namespace std;
 
 #ifdef ONLINE_JUDG
     #define debug(x...) 
-    class Timer{};
+
 #else
     #include "debug.h"
 #endif
