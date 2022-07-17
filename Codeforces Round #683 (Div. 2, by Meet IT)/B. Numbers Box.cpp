@@ -60,15 +60,15 @@ void init(){
 
 void solve(void){
     ll n, m; cin >> n >> m;
-    ll x = inf, ans = 0, y;
+    ll x = inf, ans = 0, neg = 0, y;
 
     rpt(i, 0, n)
         rpt(i, 0, m){
             cin >> y; 
-            ans += abs(y), x = min(abs(y), x);
+            ans += abs(y), x = min(abs(y), x), neg += y < 0;
         }
 
-    cout << ans - 2*abs(x);
+    cout << (neg % 2 ? ans - 2*abs(x) : ans);
 
     nl;
 }
