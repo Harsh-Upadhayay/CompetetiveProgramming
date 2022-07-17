@@ -75,10 +75,14 @@ void solve(void){
 
     rpt(i, 0, n/2)
         if(s[i] != s[n - i - 1] && (s[i] == '?' || s[n - i - 1] == '?'))
-            if(s[i] == '1' || s[n - i - 1] == '1')
-                one --;
-            else
-                zero --;
+            if(s[i] == '1')
+                one--, s[n - i - 1] = '1';
+            else if(s[n - i - 1] == '1')
+                one --, s[i] = '1';
+            else if(s[i] == '0')
+                zero --, s[n - i - 1] = '0';
+            else if(s[n - i - 1] == '0')
+                zero --, s[i] = '0';
 
     debug(one, zero);
     if(one == 0 && zero == 0 && isPallindrom(s))
