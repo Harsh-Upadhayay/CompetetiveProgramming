@@ -67,7 +67,7 @@ void solve(void){
        zero = count_if(all(s), [](char ch){ return ch == '0';});
 
 
-    one -= b, zero -= a;
+    one = b - one, zero = zero - a;
 
     if(one < 0 || zero < 0)
         kill("-1");
