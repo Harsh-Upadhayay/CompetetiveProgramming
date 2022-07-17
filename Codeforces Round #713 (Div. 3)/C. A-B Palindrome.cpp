@@ -84,6 +84,13 @@ void solve(void){
             else if(s[n - i - 1] == '0')
                 zero --, s[i] = '0';
 
+    rpt(i, 0, n/2)
+        if(s[i] == '?')
+            if(one > 0)
+                one -= 2, s[i] = '1', s[n - i - 1] = '1';
+            else if(zero > 0)
+                zero -= 2, s[i] = '0', s[n - i - 1] = '0';
+
     debug(one, zero, s);
     if(one == 0 && zero == 0 && isPallindrom(s))
         cout << s;
