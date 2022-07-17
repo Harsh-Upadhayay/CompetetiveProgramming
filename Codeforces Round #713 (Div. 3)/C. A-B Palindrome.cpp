@@ -30,6 +30,7 @@ using namespace std;
 #define all(x)                  (x).begin(), (x).end() 
 #define yes                     cout << "YES";
 #define no                      cout << "NO";
+#define kill(x)                 {cout << x; return;}
 #define nl                      cout << "\n";
 #define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
@@ -62,9 +63,14 @@ void solve(void){
     ll a, b; cin >> a >> b;
     string s; cin >> s;
 
-    ll o = count_if(all(s), [](char ch){ return ch == '1';}),
-       z = count_if(all(s), [](char ch){ return ch == '0';});
-    debug(o, z);
+    ll one = count_if(all(s), [](char ch){ return ch == '1';}),
+       zero = count_if(all(s), [](char ch){ return ch == '0';});
+
+
+    one -= b, zero -= a;
+
+    if(one < 0 || zero < 0)
+        kill("NO");
 
     nl;
 }
