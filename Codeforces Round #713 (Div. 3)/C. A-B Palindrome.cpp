@@ -91,7 +91,7 @@ void solve(void){
             else if(zero > 1)
                 zero -= 2, s[i] = '0', s[n - i - 1] = '0';
 
-    if(n % 2) s[n / 2] = (one > 0 || zero > 0 ? '1', one-- : '0', zero--);
+    if(n % 2) s[n / 2] = (one > 0 || zero > 0 ? '1' : '0');
 
     debug(one, zero, s);
     if(one == 0 && zero == 0 && isPallindrom(s))
