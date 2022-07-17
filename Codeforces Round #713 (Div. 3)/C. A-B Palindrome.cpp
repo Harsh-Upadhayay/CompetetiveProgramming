@@ -58,18 +58,33 @@ void init(){
     return;
 }
 
+bool inline isPallindrom(string s){
+    rpt(i, 0, s.size())
+        if(s[i] != s[s.size() - i - 1])
+            return false;
+    return true;
+}
 
 void solve(void){
     ll a, b; cin >> a >> b;
     string s; cin >> s;
+    ll n = a + b;
 
     ll one = b - count_if(all(s), [](char ch){ return ch == '1';}),
        zero = a - count_if(all(s), [](char ch){ return ch == '0';});
 
-    if(one < 0 || zero < 0)
-        kill("-1");
+    rpt(i, 0, n/2)
+        if(s[i] != s[n - i - 1] && (s[i] == '?' || s[n - i - 1] == '?'))
+            if(s[i] == '1' || s[n - i - 1] == '1')
+                one --;
+            else
+                zero --;
 
-
+    
+    if(one == 0 && zero == 0 && isPallindrom(s))
+        cout << s;
+    else 
+        cout << "-1";
 
     nl;
 }
