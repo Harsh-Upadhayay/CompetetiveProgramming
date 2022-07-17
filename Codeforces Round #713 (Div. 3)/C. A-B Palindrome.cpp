@@ -86,9 +86,9 @@ void solve(void){
 
     rpt(i, 0, n/2)
         if(s[i] == '?')
-            if(one > 0)
+            if(one > 1)
                 one -= 2, s[i] = '1', s[n - i - 1] = '1';
-            else if(zero > 0)
+            else if(zero > 1)
                 zero -= 2, s[i] = '0', s[n - i - 1] = '0';
 
     debug(one, zero, s);
