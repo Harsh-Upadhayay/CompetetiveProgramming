@@ -80,7 +80,7 @@ void solve(void){
             else
                 zero --;
 
-    
+    debug(one, zero);
     if(one == 0 && zero == 0 && isPallindrom(s))
         cout << s;
     else 
