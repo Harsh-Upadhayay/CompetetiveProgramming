@@ -30,7 +30,7 @@ using namespace std;
 #define all(x)                  (x).begin(), (x).end() 
 #define yes                     cout << "YES";
 #define no                      cout << "NO";
-#define kill(x)                 {cout << x; return;}
+#define kill(x)                 {cout << x; nl; return;}
 #define nl                      cout << "\n";
 #define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
