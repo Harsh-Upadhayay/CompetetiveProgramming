@@ -70,7 +70,7 @@ void solve(void){
     one -= b, zero -= a;
 
     if(one < 0 || zero < 0)
-        kill("NO");
+        kill("-1");
 
     nl;
 }
