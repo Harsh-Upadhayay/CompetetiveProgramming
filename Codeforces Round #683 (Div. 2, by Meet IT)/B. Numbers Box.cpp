@@ -67,6 +67,7 @@ void solve(void){
             cin >> y; 
             ans += abs(y), x = min(abs(y), x), neg += y < 0;
         }
+    debug(ans);
 
     cout << (neg % 2 ? ans - 2*abs(x) : ans);
 
