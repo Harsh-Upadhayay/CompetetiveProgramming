@@ -63,14 +63,13 @@ void solve(void){
     ll a, b; cin >> a >> b;
     string s; cin >> s;
 
-    ll one = count_if(all(s), [](char ch){ return ch == '1';}),
-       zero = count_if(all(s), [](char ch){ return ch == '0';});
-
-
-    one = b - one, zero = a - zero;
+    ll one = b - count_if(all(s), [](char ch){ return ch == '1';}),
+       zero = a - count_if(all(s), [](char ch){ return ch == '0';});
 
     if(one < 0 || zero < 0)
         kill("-1");
+
+
 
     nl;
 }
