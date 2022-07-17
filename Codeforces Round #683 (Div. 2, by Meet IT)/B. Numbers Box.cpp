@@ -68,7 +68,7 @@ void solve(void){
             ans += abs(y), x = min(abs(y), x);
         }
 
-    cout << ans - abs(x);
+    cout << ans - 2*abs(x);
 
     nl;
 }
