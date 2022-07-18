@@ -68,9 +68,9 @@ void solve(void){
         bool flag = false;
         rpt(j, i, i + 4){
             flag |= vowel.count(s[j]);
-            cout << s[j];
+            // cout << s[j];
         }
-        cout << "\n";
+        // cout << "\n";
 
         if(!flag){
             cout << "NO\n"; return;
