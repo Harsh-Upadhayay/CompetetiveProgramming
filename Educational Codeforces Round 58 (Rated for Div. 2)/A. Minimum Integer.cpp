@@ -62,10 +62,10 @@ void solve(void){
     ll l, r, d; cin >> l >> r >> d;
 
     l --, r++;
-    if((l - (l % d)) < 0)
+    if((l - (l % d)) <= 0)
         cout << r + r % d;
     else
-        cout << l - l % d;
+        cout << l - l % d;          
 
     nl;
 }
