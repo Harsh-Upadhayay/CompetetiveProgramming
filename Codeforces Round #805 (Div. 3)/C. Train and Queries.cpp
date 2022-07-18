@@ -69,6 +69,7 @@ void solve(void){
     vll c(n); rpt(i, 0, n) c[i] = a[i] + b[i];
 
     sort(all(c));
+    debug(a, b, c);
     cout << c[n/2];
 
     nl;
