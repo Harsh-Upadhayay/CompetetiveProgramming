@@ -64,7 +64,7 @@ void solve(void){
     unordered_set<char> vowel({'a', 'e', 'i', 'o', 'u'});
     vll pos;
 
-    rpt(i, 0, n - 4){
+    for(int i = 0; i < n - 4; i++){
         bool flag = false;
         rpt(j, i, i + 4)
             flag |= vowel.count(s[j]);
