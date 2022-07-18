@@ -67,7 +67,7 @@ void solve(void){
     rpt(i, 0, n)
         if(vowel.count(s[i]))
             pos.pb(i);
-    pos.pb(n-1);
+    pos.pb(n);
 
     ll prev = 0, mxDiff = ninf;
 
