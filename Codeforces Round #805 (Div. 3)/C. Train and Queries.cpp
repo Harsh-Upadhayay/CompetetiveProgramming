@@ -64,9 +64,11 @@ void solve(void){
     vll b(n); rpt(i, 0, n) cin >> b[i];
 
     sort(all(a));
-    sort(all(b), greater<int>());
+    sort(all(b));
 
-    vll c(n); rpt(i, 0, n) c[i] = a[i] + b[i];
+    vll c(n); rpt(i, 0, n/2) c[i] = a[i] + b[i];
+    reverse(b.begin()+n/2, b.end());
+    rpt(i, n/2, n) c[i] = a[i] + b[i];
 
     sort(all(c));
     debug(a, b, c);
