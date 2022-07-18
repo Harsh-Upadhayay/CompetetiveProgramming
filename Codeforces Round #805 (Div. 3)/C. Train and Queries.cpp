@@ -66,6 +66,8 @@ void solve(void){
         if(s[i] != s[n-i-1])
             swap(s[i], s[i + 2]); 
 
+    cout << s;
+
     nl;
 }
 
