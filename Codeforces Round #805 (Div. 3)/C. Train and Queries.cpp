@@ -70,7 +70,7 @@ void solve(void){
             flag |= vowel.count(s[j]);
 
         if(!flag){
-            cout << "NO"; return;
+            cout << "NO\n"; return;
         }
     }
 
