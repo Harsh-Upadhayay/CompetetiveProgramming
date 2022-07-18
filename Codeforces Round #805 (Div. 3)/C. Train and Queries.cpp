@@ -60,25 +60,17 @@ void init(){
 
 void solve(void){
     ll n; cin >> n;
-    string s; cin >> s;
-    unordered_set<char> vowel({'a', 'e', 'i', 'o', 'u'});
-    vll pos;
+    vll a(n); rpt(i, 0, n) cin >> a[i];
+    vll b(n); rpt(i, 0, n) cin >> b[i];
 
-    for(int i = 0; i < n - 3; i++){
-        bool flag = false;
-        rpt(j, i, i + 4){
-            flag |= vowel.count(s[j]);
-            // cout << s[j];
-        }
-        // cout << "\n";
+    sort(all(a));
+    sort(all(b), greater<int>());
 
-        if(!flag){
-            cout << "NO\n"; return;
-        }
-    }
+    vll c(n); rpt(i, 0, n) c[i] = a[i] + b[i];
 
-    cout << "YES";
-    
+    sort(all(c));
+    cout << c[n/2];
+
     nl;
 }
 
