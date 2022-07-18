@@ -71,8 +71,10 @@ void solve(void){
 
     ll prev = 0, mxDiff = ninf;
 
-    for(auto x : pos)
-        mxDiff = max(mxDiff, x - prev), prev = x;
+    for(auto x : pos){
+        mxDiff = max(mxDiff, x - prev); prev = x;
+        debug(mxDiff, x);
+    }
 
     cout << mxDiff;
     
