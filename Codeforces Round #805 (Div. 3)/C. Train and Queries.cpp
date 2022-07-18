@@ -60,19 +60,11 @@ void init(){
 
 void solve(void){
     ll n; cin >> n;
-    vll a(n); rpt(i, 0, n) cin >> a[i];
-    vll b(n); rpt(i, 0, n) cin >> b[i];
+    string s; cin >> s;
 
-    sort(all(a));
-    sort(all(b));
-
-    vll c(n); rpt(i, 0, n/2) c[i] = a[i] + b[i];
-    reverse(b.begin()+n/2, b.end());
-    rpt(i, n/2, n) c[i] = a[i] + b[i];
-
-    sort(all(c));
-    debug(a, b, c);
-    cout << c[n/2];
+    rpt(i, 0, n / 2 - 2)
+        if(s[i] != s[n-i-1])
+            swap(s[i], s[i + 2]); 
 
     nl;
 }
