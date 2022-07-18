@@ -57,9 +57,9 @@ void init(){
     return;
 }
 
-bool ispalin(string s){
-    for(int i = 0; i < s.size()/2; i++)
-        if(s[i] != s[s.size()-i-1])
+bool ispalin(vll freqA, vll freqB){
+    rpt(i, 0, 26)
+        if(freqA[i] % 2 || freqB[i] % 2)
             return false;
     return true;
 }
@@ -76,7 +76,7 @@ void solve(void){
 
 
     
-    cout << (ispalin(s) ? "YES" : "NO");
+    cout << (ispalin(freqA, freqB) ? "YES" : "NO");
     nl;
 }
 
