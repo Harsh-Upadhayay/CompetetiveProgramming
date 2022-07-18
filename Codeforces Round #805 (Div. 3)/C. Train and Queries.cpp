@@ -74,10 +74,25 @@ void solve(void){
         freqA[s[i] - 'a']++; if(i + 1 < n) freqB[s[i+1] - 'a']++;
     }
 
-    debug(freqA);
-    debug(freqB);
+    bool flag = true;
+    if(n % 2){
+        ll c = 0;
+        rpt(i, 0, 26){
+            if(freqA[i] % 2)
+                flag = false;
+            c += freqB[i] % 2;
+        }
+
+        flag = flag & c == 1;
+
+    }
+    else{
+        rpt(i, 0, 26)
+            if(freqA[i] != freqB[i])
+                flag = false;
+    }
     
-    cout << (ispalin(freqA, freqB) ? "YES" : "NO");
+    cout << (flag ? "YES" : "NO");
     nl;
 }
 
