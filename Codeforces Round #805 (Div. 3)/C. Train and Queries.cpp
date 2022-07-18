@@ -59,7 +59,21 @@ void init(){
 
 
 void solve(void){
-    ll n; 
+    ll n; cin >> n;
+    string s; cin >> s;
+    unordered_set<char> vowel({'a', 'e', 'i', 'o', 'u'});
+    vll pos;
+
+    rpt(i, 0, n)
+        if(vowel.count(s[i]))
+            pos.pb(i);
+
+    ll prev = 0, mxDiff = ninf;
+
+    for(auto x : pos)
+        mxDiff = max(mxDiff, x - prev), prev = x;
+
+    cout << mxDiff;
     
     nl;
 }
