@@ -72,7 +72,7 @@ void solve(void){
     ll prev = 1, mxDiff = ninf;
 
     for(auto x : pos){
-        cout << x - prev + 1<< " "; prev = x;
+        cout << x - prev - 1<< " "; prev = x;
     }
 
     cout << mxDiff;
