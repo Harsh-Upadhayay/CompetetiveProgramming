@@ -57,42 +57,10 @@ void init(){
     return;
 }
 
-bool ispalin(vll freqA, vll freqB){
-    rpt(i, 0, 26)
-        if(freqA[i] % 2 || freqB[i] % 2)
-            return false;
-    return true;
-}
 
 void solve(void){
+    ll n; 
 
-    ll n; cin >> n;
-    string s; cin >> s;
-    vector<ll> freqA(26, 0), freqB(26, 0);
-
-    for(int i = 0; i < n; i += 2){
-        freqA[s[i] - 'a']++; if(i + 1 < n) freqB[s[i+1] - 'a']++;
-    }
-
-    bool flag = true;
-    if(n % 2){
-        ll c = 0;
-        rpt(i, 0, 26){
-            if(freqA[i] % 2)
-                flag = false;
-            c += freqB[i] % 2;
-        }
-
-        flag = flag & c == 1;
-
-    }
-    else{
-        rpt(i, 0, 26)
-            if(freqA[i] != freqB[i])
-                flag = false;
-    }
-    
-    cout << (flag ? "YES" : "NO");
     nl;
 }
 
