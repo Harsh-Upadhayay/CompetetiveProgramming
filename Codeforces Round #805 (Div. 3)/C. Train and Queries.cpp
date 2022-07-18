@@ -69,7 +69,7 @@ void solve(void){
             pos.pb(i);
     pos.pb(n-1);
     debug(pos);
-    ll prev = 1, mxDiff = ninf;
+    ll prev = -1, mxDiff = ninf;
 
     for(auto x : pos){
         cout << x - prev - 1<< " "; prev = x;
