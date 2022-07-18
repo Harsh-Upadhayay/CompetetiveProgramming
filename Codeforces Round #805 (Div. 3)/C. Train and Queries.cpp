@@ -64,19 +64,17 @@ void solve(void){
     unordered_set<char> vowel({'a', 'e', 'i', 'o', 'u'});
     vll pos;
 
-    rpt(i, 0, n)
-        if(vowel.count(s[i]))
-            pos.pb(i);
-    pos.pb(n-1);
-    debug(pos);
-    ll prev = -1, mxDiff = ninf;
+    rpt(i, 0, n - 4){
+        bool flag = false;
+        rpt(j, i, i + 4)
+            flag |= vowel.count(s[j]);
 
-    for(auto x : pos){
-        debug(x, prev, x - prev);
-        cout << x - prev - 1<< " "; prev = x;
+        if(!flag){
+            cout << "NO"; return;
+        }
     }
 
-    cout << mxDiff;
+    cout << "YES";
     
     nl;
 }
