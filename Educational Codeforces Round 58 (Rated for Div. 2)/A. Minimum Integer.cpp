@@ -65,7 +65,7 @@ void solve(void){
     if((l - (l % d)) <= 0)
         cout << r + r % d;
     else
-        cout << l - (l % d);          
+        cout << l - l % d;          
 
     nl;
 }
