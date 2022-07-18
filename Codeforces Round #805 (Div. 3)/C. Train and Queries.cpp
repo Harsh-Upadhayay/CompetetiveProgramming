@@ -57,6 +57,12 @@ void init(){
     return;
 }
 
+bool ispalin(string s){
+    for(int i = 0; i < s.size()/2; i++)
+        if(s[i] != s[s.size()-i-1])
+            return false;
+    return true;
+}
 
 void solve(void){
     ll n; cin >> n;
@@ -66,7 +72,7 @@ void solve(void){
         if(s[i] != s[n-i-1])
             swap(s[i], s[i + 2]); 
 
-    cout << s;
+    cout << (ispalin(s) ? "YES" : "NO");
 
     nl;
 }
