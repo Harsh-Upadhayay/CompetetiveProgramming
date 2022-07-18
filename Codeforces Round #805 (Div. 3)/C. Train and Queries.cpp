@@ -62,7 +62,7 @@ void solve(void){
     ll n; cin >> n;
     string s; cin >> s;
 
-    rpt(i, 0, n / 2 - 2)
+    rpt(i, 0, n / 2 - 1)
         if(s[i] != s[n-i-1])
             swap(s[i], s[i + 2]); 
 
