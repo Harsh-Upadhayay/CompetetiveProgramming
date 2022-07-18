@@ -65,15 +65,18 @@ bool ispalin(string s){
 }
 
 void solve(void){
+
     ll n; cin >> n;
     string s; cin >> s;
+    vector<ll> freqA(26, 0), freqB(26, 0);
 
-    rpt(i, 0, n / 2 - 1)
-        if(s[i] != s[n-i-1])
-            swap(s[i], s[i + 2]); 
+    for(int i = 0; i < n; i += 2){
+        freqA[s[i] - 'a']++; if(i + 1 < n) freqB[s[i+1] - 'a']++;
+    }
 
+
+    
     cout << (ispalin(s) ? "YES" : "NO");
-
     nl;
 }
 
