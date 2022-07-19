@@ -74,7 +74,7 @@ void solve(void){
     while(a){
         _a += _a * 10 + a % 10;
         a /= 10;
-        debug(_a);
+        debug(a, _a);
     }
     cout << _a<<" ";
 
