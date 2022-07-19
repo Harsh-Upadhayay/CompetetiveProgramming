@@ -60,9 +60,22 @@ void init(){
 
 void solve(void){
     ll a, b, c; cin >> a >> b; c = a + b;
-    string _a = to_string(a), _b = to_string(b), _c = to_string(c);
+    // string _a = to_string(a), _b = to_string(b), _c = to_string(c);
 
-    cout << _a[0] << _b[0] << _c[0];
+    // cout << _a[0] << _b[0] << _c[0];
+
+    // string __a = "", __b = "", __c = "";
+
+    // for(auto x : _a)
+    //     if(x - '0')
+    //         __a += 
+
+    ll _a = 0;
+    while(a){
+        _a += _a * 10 + a % 10;
+        a /= 10;
+    }
+    cout << _a;
 
     nl;
 }
