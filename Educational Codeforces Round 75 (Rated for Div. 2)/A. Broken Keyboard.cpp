@@ -61,7 +61,7 @@ void init(){
 void solve(void){
     string s; cin >> s;
     
-    vll freq(26, 0); for(auto x : s) {freq[x - 'a']++; cout << x - '0';} debug(freq);
+    vll freq(26, 0); for(auto x : s) freq[x - 'a']++;
     rpt(i, 0, 26) if(freq[i] % 2) cout << (char)(i + 'a');
 
     nl;
