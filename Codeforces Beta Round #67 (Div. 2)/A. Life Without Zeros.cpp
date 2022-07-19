@@ -70,14 +70,14 @@ void solve(void){
     //     if(x - '0')
     //         __a += 
 
-    ll _a = 0;
-    debug(a, _a);
-    while(a){
-        _a += _a * 10 + a % 10;
+    ll reverse = 0;
+    // debug(a, _a);
+    while (a != 0) {
+        ll remainder = a % 10;
+        reverse = reverse * 10 + remainder;
         a /= 10;
-        debug(a, _a);
-    }
-    cout << _a<<" ";
+  }
+    cout << reverse<<" ";
 
     nl;
 }
