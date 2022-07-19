@@ -64,10 +64,10 @@ void solve(void){
 
     ll ans = 0;
     for(int i = 1; i < n - 1; i++){
+            debug(v[i], v[i-1]);
         if(v[i] + v[i-1] < k) {
             ans += k - v[i] + v[i-1];
             v[i] += k - v[i] + v[i-1];
-            debug(v[i], v[i-1]);
         }
     }
     cout << ans << "\n";
