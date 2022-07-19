@@ -75,7 +75,7 @@ void solve(void){
         _a += _a * 10 + a % 10;
         a /= 10;
     }
-    cout << _a;
+    // cout << _a;
 
     nl;
 }
