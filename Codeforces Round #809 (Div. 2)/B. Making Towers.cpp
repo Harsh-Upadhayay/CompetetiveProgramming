@@ -136,7 +136,7 @@ ll solve(vll input){
                 break;
             }
  
-        // debug(front, back);
+        debug(front, back);
         front.clear();
         back.clear();
         reverse(all(v));
