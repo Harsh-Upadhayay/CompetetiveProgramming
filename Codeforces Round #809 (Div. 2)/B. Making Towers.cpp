@@ -140,7 +140,7 @@ ll solve(vll input){
         front.clear();
         back.clear();
         reverse(all(v));
-        a1 = 0; a2 = 0;
+        a1 = 0; a1 = 0;
         ll ans2 = 0;
   
         for(ll i = 1; i < n - 2; i += 2){
