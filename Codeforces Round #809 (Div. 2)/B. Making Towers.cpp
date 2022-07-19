@@ -183,7 +183,7 @@ void init(){
     ll a = stress(v);
     ll b = solve(v);
 
-    debug(a, b, v);
+    // debug(a, b, v);
     if(a != b){
         debug(a, b, v);
         exit(0);
