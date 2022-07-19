@@ -65,8 +65,8 @@ void solve(void){
     ll ans = 0;
     for(int i = 1; i < n - 1; i++){
         if(v[i] + v[i-1] < k) {
-            ans += k - v[i] + v[i-1];
-            v[i] += k - v[i] + v[i-1];
+            ans += (k - v[i] + v[i-1]);
+            v[i] += (k - v[i] + v[i-1]);
         }
     }
     cout << ans << "\n";
