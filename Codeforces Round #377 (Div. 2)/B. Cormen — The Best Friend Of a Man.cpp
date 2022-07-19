@@ -67,7 +67,7 @@ void solve(void){
             debug(v[i], v[i-1], ans);
         if(v[i] + v[i-1] < k) {
             ans += k - v[i] + v[i-1];
-            debug(ans);
+            debug(k- v[i] + v[i-1]);
             v[i] += k - v[i] + v[i-1];
         }
     }
