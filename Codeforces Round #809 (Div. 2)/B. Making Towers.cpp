@@ -177,7 +177,7 @@ ll solve(vll input){
 
 
 void init(){
-    ll n = rand() % 5 + 3;
+    ll n = rand() % 6 + 3;
     vll v(n); rpt(i, 0, n) v[i] = rand() % 10;
 
     ll a = stress(v);
