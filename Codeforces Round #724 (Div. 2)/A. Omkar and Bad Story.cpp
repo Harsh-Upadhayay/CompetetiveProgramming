@@ -64,7 +64,7 @@ void solve(void){
     sort(all(v));
 
     if(v[0] < 0){
-        no; return;
+        no; nl return;
     }
 
     bool flag = true;
