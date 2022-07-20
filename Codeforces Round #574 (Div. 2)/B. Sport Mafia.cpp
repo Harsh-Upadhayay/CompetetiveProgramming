@@ -57,13 +57,66 @@ void init(){
     return;
 }
 
+long long  get(long long arr[] , int i)
+{
+    long long a =0;
+    
+    long long b = max(arr[i+1],arr[i-1]);
+    
+    long long p = b - arr[i] +1;
+    
+    a = max(a,p);
+    
+    return a;
+    
+}
 
-void solve(void){
-    ld n, k; cin >> n >> k;
-
-    cout << n - ((sqrt(9 +   8 * (n + k)) - 3) / 2);
-
-    nl;
+void solve(void) {
+    
+    int n;
+    cin>>n;
+    
+    long long arr[n+1];
+    
+    for(int i=1;i<=n;i++)
+    {
+        cin>>arr[i];
+    }
+    
+    
+    if(n&1)
+    {   
+        long long ans =0;
+        for(int i=2;i<n;i+=2)
+        {
+            ans += get(arr,i);
+        }
+        
+        cout<<ans<<endl;
+    }
+    
+    else
+    {
+        long long w =0,an;
+        
+         for(int i=2;i<n;i+=2)
+        {
+            w += get(arr,i);
+        }
+        
+        an = w;
+        
+        for(int i = n-1;i>=2 ;i-=2)
+        {
+            w -= get(arr,i-1);
+            w += get(arr,i);
+            
+            an = min(an,w);
+        }
+        
+        cout<<an<<endl;
+    }
+    
 }
 
 
