@@ -60,12 +60,15 @@ void init(){
 
 void solve(void){
     ll n, k; cin >> n >> k;
-    ll x, y; cin >> x >> y;
+    vll x(n), y(n); rpt(i, 0, n) cin >> x[i] >> y[i];
 
-    ll ans = 0;
-    rpt(i, 0, n - 1){
-        ll _x, _y; cin >> _x >> _y;
-        ans = max(ans, abs(x - _x) + abs(y - _y));
+    ll ans = inf;
+    rpt(i, 0, n){
+            ll dist = 0;
+        rpt(j, 0, n){
+            dist = max(dist, abs(x[i] - x[j]) + abs(y[i] - y[j]));
+        }
+        ans = min(ans, dist);
     }
 
     cout << (ans > k ? "-1" : "1");
