@@ -77,7 +77,7 @@ void solve(void){
     vll ans;
     if(!v[0])
         ans.pb(0);
-    for(ll i = gcd; i <= v.back(); i += gcd, ans.pb(i));
+    for(ll i = gcd; i <= v.back(); ans.pb(i), i += gcd);
 
     cout << ans.size() << "\n";
     for(auto x : ans)
