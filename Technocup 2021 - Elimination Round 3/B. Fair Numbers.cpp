@@ -68,7 +68,7 @@ void solve(void){
         ll x = _n % 10;
         _n /= 10;
         if(!x)  continue;
-        flag = flag | n / x;
+        flag = flag | (n / x);
         debug(x);
     }
 
