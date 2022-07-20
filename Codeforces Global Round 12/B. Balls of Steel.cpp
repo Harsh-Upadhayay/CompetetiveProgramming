@@ -68,7 +68,7 @@ void solve(void){
         ans = max(ans, abs(x - _x) + abs(y - _y));
     }
 
-    cout << (ans > k ? "NO" : "YES");
+    cout << (ans > k ? "-1" : "1");
 
     nl;
 }
