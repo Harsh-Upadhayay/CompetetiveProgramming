@@ -74,11 +74,14 @@ void solve(void){
     
     yes; nl;
 
+    vll ans;
     if(!v[0])
-        cout << "0 ";
-    for(ll i = gcd; i <= v.back(); i += gcd) {
-        cout << i << " ";
-    }
+        ans.pb(0);
+    for(ll i = gcd; i <= v.back(); i += gcd, ans.pb(i));
+
+    cout << ans.size() << "\n";
+    for(auto x : ans)
+        cout << x << " ";
 
 
     nl;
