@@ -73,11 +73,11 @@ void solve(void){
     debug(gcd);
     
     yes; nl;
-    
+
     if(!v[0])
         cout << "0 ";
-    for(ll i = gcd; i < v.back(); i += gcd) {
-        cout << i;
+    for(ll i = gcd; i <= v.back(); i += gcd) {
+        cout << i << " ";
     }
 
 
