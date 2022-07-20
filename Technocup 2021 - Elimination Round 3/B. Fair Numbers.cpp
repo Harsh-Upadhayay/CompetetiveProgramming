@@ -62,7 +62,7 @@ void solve(void){
     ll n; cin >> n;
 
     ll _n = n;    
-    bool flag = true;
+    bool flag = false;
     ll itr = 5;
     while(_n && itr--){
         ll x = _n % 10;
