@@ -67,12 +67,17 @@ void solve(void){
         no; nl return;
     }
 
+    ll gcd = (v[0] == 0 ? v[1] : v[0]);
+    for(auto x : v)
+        gcd = __gcd(x, gcd);
+    debug(gcd);
     bool flag = true;
     ll start = (v[0] == 0 ? 1 : 0);
-    rpt(i, start, n)
-        if(v[i] != v[start] * (i+1))
-            flag = false;
-    cout << (flag ? "YES":"NO");
+
+    for(ll i = start; i < n - 1; i++) {
+        ll x = v[i];
+        // while()
+    }
 
     nl;
 }
