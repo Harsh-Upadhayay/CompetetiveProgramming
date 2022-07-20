@@ -69,7 +69,7 @@ void solve(void){
         _n /= 10;
         if(!x)  continue;
         flag = flag | n / x;
-        debug(_n);
+        debug(x);
     }
 
     cout << (flag ? "NO" : "YES");
