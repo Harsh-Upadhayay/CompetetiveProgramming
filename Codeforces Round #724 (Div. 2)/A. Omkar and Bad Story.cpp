@@ -71,13 +71,15 @@ void solve(void){
     for(auto x : v)
         gcd = __gcd(x, gcd);
     debug(gcd);
-    bool flag = true;
-    ll start = (v[0] == 0 ? 1 : 0);
-
-    for(ll i = start; i < n - 1; i++) {
-        ll x = v[i];
-        // while()
+    
+    yes; nl;
+    
+    if(!v[0])
+        cout << "0 ";
+    for(ll i = gcd; i < v.back(); i += gcd) {
+        cout << i;
     }
+
 
     nl;
 }
