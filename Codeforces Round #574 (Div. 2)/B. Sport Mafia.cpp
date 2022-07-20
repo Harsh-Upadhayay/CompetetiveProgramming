@@ -116,7 +116,7 @@ void solve(void) {
         
         cout<<an<<endl;
     }
-    
+    debug(n);
 }
 
 
