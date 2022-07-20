@@ -61,7 +61,7 @@ void init(){
 void solve(void){
     ll n; cin >> n;
     bitset<64> num(n);
-    cout << num.count() - 1;
+    cout << num.count();
     nl;
 }
 
