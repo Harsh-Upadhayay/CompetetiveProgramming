@@ -85,7 +85,7 @@ void solve(void){
     debug(s, _lcm);
 
     if(i <= n)
-        cout << 1 << "\n" << n;
+        cout << 1 << "\n" << i;
     else
         cout << 2 << "\n" << n << " " << n - 1;
     nl;
