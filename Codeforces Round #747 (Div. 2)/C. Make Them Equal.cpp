@@ -64,9 +64,16 @@ void solve(void){
 
     ll ans = 0; rpt(i, 0, n - 1) ans = ans | s[i] != c;
     ans += s.back() != c;
-    cout << ans;
-    // if(ans == 1 && s.back() != c)
-    //     cout << 
+    cout << ans ; nl;
+
+    if(ans == 2)
+        cout << n << " " << (n % 2 ? 2 : 3);
+    else if(ans == 1){
+        if(s.back() != c)
+            cout << n;
+        else
+            cout << (n % 2 ? 2 : 3);
+    }
 
     nl;
 }
