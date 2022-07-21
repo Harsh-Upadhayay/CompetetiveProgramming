@@ -87,8 +87,8 @@ void solve(void){
     if(i <= n)
         cout << 1 << "\n" << n;
     else
-        cout << 2 << "\n" << n << n - 1;
-
+        cout << 2 << "\n" << n << " " << n - 1;
+    nl;
     nl;
 }
 
