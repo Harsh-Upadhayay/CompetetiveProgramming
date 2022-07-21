@@ -57,7 +57,7 @@ void init(){
     return;
 }
 
-void solve()
+void sdolve()
 {
     ll N,M;
     cin>>N>>M;
@@ -108,6 +108,45 @@ void solve()
 
 }
 
+void solve(void){
+    ll n, m; cin >> n >> m;
+    vll v(n + 1); rpt(i, 1, n + 1) cin >> v[i];
+    vll tmp(n + 1);
+    rpt(i, 0, n + 1)
+        tmp[i] = i;
+    vll ltr(n + 1, 0), rtl(n + 1, 0);
+    // rtl[n] = v[n];
+ 
+    rpt(i, 2, n + 1) {
+        ltr[i] = ltr[i - 1] + (v[i] < v[i - 1] ? v[i - 1] - v[i] : 0);
+        // debug(ltr);
+    }
+    // debug(ltr);
+    // debug(tmp);
+    for(ll i = n - 1; i >= 1; i--){
+        // cout << v[i] << " "
+        // debug(v[i + 1], v[i], v[i + 1] - v[i]);
+        rtl[i] = rtl[i+1] + (v[i] < v[i + 1] ? (v[i + 1] - v[i]) : 0);
+        // debug(rtl);
+    }
+    // debug(rtl);
+    rpt(i, 0, m){
+        ll s, t; cin >> s >> t;
+        if (s < t){
+            cout << ltr[t] - ltr[s];
+            // cout << ltr[t] << " " << ltr[s];
+        }
+        else{
+            cout << rtl[t] - rtl[s];
+            // cout << rtl[t] << " " << rtl[s];
+ 
+        }   
+        nl;
+    }
+    debug(ltr, rtl);
+    nl;
+}
+ 
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
 
