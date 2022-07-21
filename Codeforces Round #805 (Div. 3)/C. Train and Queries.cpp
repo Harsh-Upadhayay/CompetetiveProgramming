@@ -57,7 +57,7 @@ void init(){
     return;
 }
 
-void sdolve()
+void solve()
 {
     ll N,M;
     cin>>N>>M;
@@ -108,7 +108,7 @@ void sdolve()
 
 }
 
-void solve(void){
+void seolve(void){
     ll n, m; cin >> n >> m;
     vll v(n + 1); rpt(i, 1, n + 1) cin >> v[i];
     vll tmp(n + 1);
