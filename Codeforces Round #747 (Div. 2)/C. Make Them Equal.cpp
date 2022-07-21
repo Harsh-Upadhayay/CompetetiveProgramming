@@ -82,9 +82,10 @@ void solve(void){
 
     for(ll i = 2; i <= n; i++){
         bool flag = true;
-        for(auto x : idx)
-            if(!(x % i))
-                flag = false;
+        
+        for(ll j = i; j <= n; j += i)
+            flag &= s[i] == c;
+
         if(flag){
             x = i;
             break;
