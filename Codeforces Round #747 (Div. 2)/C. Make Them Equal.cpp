@@ -62,11 +62,13 @@ void solve(void){
     ll n; char c; cin >> n >> c;
     string s; cin >> s;
 
-    ll ans = 0; rpt(i, 0, n - 1) ans = ans | s[i] != c;
+    bool allOdd = true, allEven = true; ll ans = 0; rpt(i, 0, n - 1) if(s[i] != c) ans = 1, allOdd &= (i+1) % 2, allEven &= !((i+1) % 2); 
     ans += s.back() != c;
     cout << ans ; nl;
 
-    if(ans == 2)
+    if(allOdd || allEven)
+        cout << (allOdd ? 2 : 3);
+    else if(ans == 2)
         cout << n << " " << (n % 2 ? 2 : 3);
     else if(ans == 1){
         if(s.back() != c)
