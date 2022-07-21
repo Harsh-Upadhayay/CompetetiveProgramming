@@ -81,7 +81,7 @@ void solve(void){
 
     for(auto x : idx)
         _lcm = lcm(x, _lcm);
-    debug(_lcm);
+    debug(s, _lcm);
 
     nl;
 }
