@@ -62,10 +62,9 @@ void solve(void){
     ll n; char c; cin >> n >> c;
     string s; cin >> s;
 
-    ll ans = s.front() != c + s.back() != c;
-
+    ll ans = 0; rpt(i, 0, n - 1) ans = ans | s[i] != c;
+    ans += s.back() == c;
     cout << ans;
-    debug(ans);
     // if(ans == 1 && s.back() != c)
     //     cout << 
 
