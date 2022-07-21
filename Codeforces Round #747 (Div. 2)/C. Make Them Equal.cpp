@@ -78,17 +78,24 @@ void solve(void){
         return;
     }
 
-    ll _lcm = idx[0];
-    for(auto x : idx)
-        _lcm = lcm(x, _lcm);
+    ll x = 0;
 
-    ll i; for(i = 1; !(_lcm % i); i++);
-    debug(s, _lcm);
+    for(ll i = 2; i <= n; i++){
+        bool flag = true;
+        for(auto x : idx)
+            if(!(x % i))
+                flag = false;
+        if(flag){
+            x = i;
+            break;
+        }
+    }
 
-    if(i <= n)
-        cout << 1 << "\n" << i;
+    if(x)
+        cout << 1 << "\n" << x;
     else
         cout << 2 << "\n" << n << " " << n - 1;
+
     nl;
     nl;
 }
