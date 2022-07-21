@@ -66,7 +66,7 @@ void solve(void){
     ans += s.back() != c;
     cout << (allOdd || allEven ? 1 : ans) ; nl;
 
-    if(allOdd || allEven)
+    if(ans && (allOdd || allEven))
         cout << (allOdd ? 2 : 3);
     else if(ans == 2)
         cout << n << " " << (n % 2 ? 2 : 3);
