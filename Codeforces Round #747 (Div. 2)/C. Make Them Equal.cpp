@@ -83,7 +83,7 @@ void solve(void){
     for(ll i = 1; i <= n; i++){
         bool flag = true;
         
-        for(ll j = 0; j < n; j += i)
+        for(ll j = i-1; j < n; j += i)
             flag &= s[j] == c;
 
         if(flag){
