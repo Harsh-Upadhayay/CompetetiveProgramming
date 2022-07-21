@@ -77,11 +77,17 @@ void solve(void){
         return;
     }
 
-    ll _lcm = idx[0], gcd = idx[0];
-
+    ll _lcm = idx[0];
     for(auto x : idx)
         _lcm = lcm(x, _lcm);
+
+    ll i; for(i = 1; !(_lcm % i); i++);
     debug(s, _lcm);
+
+    if(i <= n)
+        cout << 1 << "\n" << n;
+    else
+        cout << 2 << "\n" << n << n - 1;
 
     nl;
 }
