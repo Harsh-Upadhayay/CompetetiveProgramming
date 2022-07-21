@@ -62,12 +62,12 @@ void solve()
     ll N,M;
     cin>>N>>M;
     ll Arr[N];
-    vector<int> Front(N + 1), Back(N + 1);
-    for(int i = 0; i < N; i++)
+    vector<ll> Front(N + 1), Back(N + 1);
+    for(ll i = 0; i < N; i++)
         cin>>Arr[i];
     ll Val = Arr[0];
   
-    for(int i = 1; i < N; i++)
+    for(ll i = 1; i < N; i++)
     {
         if(Arr[i] < Val)
         {
@@ -77,11 +77,11 @@ void solve()
             Front[i] = Front[i - 1];
         Val = Arr[i];
     }
-    // for(int i = 0; i <= N; i++)
+    // for(ll i = 0; i <= N; i++)
     //     cout<<Front[i]<<" ";
     // cout<<endl;
     Val = Arr[0];
-    for(int i = 1; i < N ;i++)
+    for(ll i = 1; i < N ;i++)
     {
         if(Arr[i] > Val)
             Back[i] = Back[i - 1] + (Arr[i] - Val);
@@ -89,11 +89,11 @@ void solve()
             Back[i] = Back[i - 1];
         Val = Arr[i];
     }
-    // for(int i = 0; i <= N; i++)
+    // for(ll i = 0; i <= N; i++)
     //     cout<<Back[i]<<" ";
     // cout<<endl;
 
-    debug(Front, Back);
+    // debug(Front, Back);
     while(M--)
     {
         ll S,T;
@@ -108,7 +108,7 @@ void solve()
 
 }
 
-void seolve(void){
+void sol2ve(void){
     ll n, m; cin >> n >> m;
     vll v(n + 1); rpt(i, 1, n + 1) cin >> v[i];
     vll tmp(n + 1);
@@ -143,7 +143,7 @@ void seolve(void){
         }   
         nl;
     }
-    debug(ltr, rtl);
+    // debug(ltr, rtl);
     nl;
 }
  
