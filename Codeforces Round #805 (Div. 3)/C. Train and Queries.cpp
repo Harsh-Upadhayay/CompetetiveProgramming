@@ -59,8 +59,7 @@ void init(){
 
 
 void solve(void){
-    cout << "F";
-    debug('F');
+    
     nl;
 }
 
