@@ -1,5 +1,6 @@
 /* https://codeforces.com/problemset/problem/1594/C */
 #include<bits/stdc++.h>
+#include<numeric>
 using namespace std;
 
 #ifdef ONLINE_JUDGE
@@ -57,26 +58,31 @@ void init(){
     return;
 }
 
+ll lcm(ll a, ll b){
+    return ((a * b) / __gcd(a, b));
+}
 
 void solve(void){
     ll n; char c; cin >> n >> c;
     string s; cin >> s;
 
-    bool allOdd = true, allEven = true; ll ans = 0; rpt(i, 0, n - 1) if(s[i] != c) ans = 1, allOdd &= (i+1) % 2, allEven &= !((i+1) % 2); 
-    allOdd &= n % 2, allEven &= !(n % 2);
-    ans += s.back() != c;
-    cout << (ans && (allOdd || allEven) ? 1 : ans) ; nl;
+    vll idx; rpt(i, 0, n - 1) if(s[i] != c) idx.pb(i + 1); if(s[n - 1] != c) idx.pb(n);
 
-    if(ans && (allOdd || allEven))
-        cout << (allOdd ? 2 : 3);
-    else if(ans == 2)
-        cout << n << " " << (n % 2 ? 2 : 3);
-    else if(ans == 1){
-        if(s.back() != c)
-            cout << n;
+    if(s[n - 1] == c){
+        if(idx.size())
+            cout << 1 << "\n" << n;
         else
-            cout << (n % 2 ? 2 : 3);
+            cout << 0;
+        nl;
+        return;
     }
+
+    ll _lcm = idx[0], gcd = idx[0];
+
+    for(auto x : idx)
+        _lcm = lcm(x, _lcm);
+    debug(_lcm);
+
     nl;
 }
 
