@@ -74,6 +74,7 @@ void solve(void){
         else
             cout << 0;
         nl;
+        nl;
         return;
     }
 
