@@ -76,7 +76,7 @@ void solve(void){
         else
             cout << (n % 2 ? 2 : 3);
     }
-
+    nl;
     nl;
 }
 
