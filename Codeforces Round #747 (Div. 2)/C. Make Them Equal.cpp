@@ -64,7 +64,7 @@ void solve(void){
 
     bool allOdd = true, allEven = true; ll ans = 0; rpt(i, 0, n - 1) if(s[i] != c) ans = 1, allOdd &= (i+1) % 2, allEven &= !((i+1) % 2); 
     ans += s.back() != c;
-    cout << (allOdd || allEven ? 1 : ans) ; nl;
+    cout << (allOdd || allEven ? ans ? 1 : 0 : ans) ; nl;
 
     if(allOdd || allEven)
         cout << (allOdd ? 2 : 3);
