@@ -1,4 +1,4 @@
-/*  */
+/* https://codeforces.com/contest/1709/problem/0 */
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -31,7 +31,7 @@ using namespace std;
 #define yes                     cout << "YES";
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
-#define TESTCAS
+#define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -57,56 +57,17 @@ void init(){
     return;
 }
 
-void solve()
-{
-    ll N,M;
-    cin>>N>>M;
-    ll Arr[N];
-    vector<int> Front(N + 1), Back(N + 1);
-    for(int i = 0; i < N; i++)
-        cin>>Arr[i];
-    ll Val = Arr[0];
-  
-    for(int i = 1; i < N; i++)
-    {
-        if(Arr[i] < Val)
-        {
-            Front[i] = Front[i - 1] + (Val - Arr[i]);
-        }
-        else
-            Front[i] = Front[i - 1];
-        Val = Arr[i];
-    }
-    // for(int i = 0; i <= N; i++)
-    //     cout<<Front[i]<<" ";
-    // cout<<endl;
-    Val = Arr[0];
-    for(int i = 1; i < N ;i++)
-    {
-        if(Arr[i] > Val)
-            Back[i] = Back[i - 1] + (Arr[i] - Val);
-        else
-            Back[i] = Back[i - 1];
-        Val = Arr[i];
-    }
-    // for(int i = 0; i <= N; i++)
-    //     cout<<Back[i]<<" ";
-    // cout<<endl;
 
-    while(M--)
-    {
-        ll S,T;
-        cin>>S>>T;
-        if(T > S)
-        {
-            cout<<Front[T - 1] - Front[S - 1]<<endl;
-        }
-        else
-            cout<<Back[S - 1] - Back[T - 1]<<endl;
-    }
-
-    debug(Front, Back);
+void solve(void){
+    ll n; cin >> n;
+    vll v(4); cin >> v[1] >> v[2] >> v[3];
+    if(v[n] != 0 && v[v[n]] != 0)
+       cout << "YES";
+    else
+        cout << "NO";
+    nl;
 }
+
 
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/

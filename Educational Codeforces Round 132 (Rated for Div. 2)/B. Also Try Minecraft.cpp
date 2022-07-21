@@ -1,4 +1,4 @@
-/*  */
+/* https://codeforces.com/contest/1709/problem/B */
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -57,56 +57,46 @@ void init(){
     return;
 }
 
-void solve()
-{
-    ll N,M;
-    cin>>N>>M;
-    ll Arr[N];
-    vector<int> Front(N + 1), Back(N + 1);
-    for(int i = 0; i < N; i++)
-        cin>>Arr[i];
-    ll Val = Arr[0];
-  
-    for(int i = 1; i < N; i++)
-    {
-        if(Arr[i] < Val)
-        {
-            Front[i] = Front[i - 1] + (Val - Arr[i]);
-        }
-        else
-            Front[i] = Front[i - 1];
-        Val = Arr[i];
-    }
-    // for(int i = 0; i <= N; i++)
-    //     cout<<Front[i]<<" ";
-    // cout<<endl;
-    Val = Arr[0];
-    for(int i = 1; i < N ;i++)
-    {
-        if(Arr[i] > Val)
-            Back[i] = Back[i - 1] + (Arr[i] - Val);
-        else
-            Back[i] = Back[i - 1];
-        Val = Arr[i];
-    }
-    // for(int i = 0; i <= N; i++)
-    //     cout<<Back[i]<<" ";
-    // cout<<endl;
 
-    while(M--)
-    {
-        ll S,T;
-        cin>>S>>T;
-        if(T > S)
-        {
-            cout<<Front[T - 1] - Front[S - 1]<<endl;
+void solve(void){
+    ll n, m; cin >> n >> m;
+    vll v(n + 1); rpt(i, 1, n + 1) cin >> v[i];
+    vll tmp(n + 1);
+    rpt(i, 0, n + 1)
+        tmp[i] = i;
+    vll ltr(n + 1, 0), rtl(n + 1, 0);
+    // rtl[n] = v[n];
+
+    rpt(i, 2, n + 1) {
+        ltr[i] = ltr[i - 1] + (v[i] < v[i - 1] ? v[i - 1] - v[i] : 0);
+        // debug(ltr);
+    }
+    debug(ltr);
+    debug(tmp);
+    for(ll i = n - 1; i >= 1; i--){
+        // cout << v[i] << " "
+        // debug(v[i + 1], v[i], v[i + 1] - v[i]);
+        rtl[i] = rtl[i+1] + (v[i] < v[i + 1] ? (v[i + 1] - v[i]) : 0);
+        // debug(rtl);
+    }
+    debug(rtl);
+    rpt(i, 0, m){
+        ll s, t; cin >> s >> t;
+        if (s < t){
+            cout << ltr[t] - ltr[s];
+            // cout << ltr[t] << " " << ltr[s];
         }
-        else
-            cout<<Back[S - 1] - Back[T - 1]<<endl;
+        else{
+            cout << rtl[t] - rtl[s];
+            // cout << rtl[t] << " " << rtl[s];
+
+        }   
+        nl;
     }
 
-    debug(Front, Back);
+    nl;
 }
+
 
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/

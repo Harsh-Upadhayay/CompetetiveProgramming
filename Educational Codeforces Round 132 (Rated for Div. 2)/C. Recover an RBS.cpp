@@ -1,4 +1,4 @@
-/*  */
+/* https://codeforces.com/contest/1709/problem/C */
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -31,7 +31,7 @@ using namespace std;
 #define yes                     cout << "YES";
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
-#define TESTCAS
+#define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -57,56 +57,66 @@ void init(){
     return;
 }
 
-void solve()
-{
-    ll N,M;
-    cin>>N>>M;
-    ll Arr[N];
-    vector<int> Front(N + 1), Back(N + 1);
-    for(int i = 0; i < N; i++)
-        cin>>Arr[i];
-    ll Val = Arr[0];
-  
-    for(int i = 1; i < N; i++)
-    {
-        if(Arr[i] < Val)
-        {
-            Front[i] = Front[i - 1] + (Val - Arr[i]);
-        }
-        else
-            Front[i] = Front[i - 1];
-        Val = Arr[i];
-    }
-    // for(int i = 0; i <= N; i++)
-    //     cout<<Front[i]<<" ";
-    // cout<<endl;
-    Val = Arr[0];
-    for(int i = 1; i < N ;i++)
-    {
-        if(Arr[i] > Val)
-            Back[i] = Back[i - 1] + (Arr[i] - Val);
-        else
-            Back[i] = Back[i - 1];
-        Val = Arr[i];
-    }
-    // for(int i = 0; i <= N; i++)
-    //     cout<<Back[i]<<" ";
-    // cout<<endl;
 
-    while(M--)
-    {
-        ll S,T;
-        cin>>S>>T;
-        if(T > S)
-        {
-            cout<<Front[T - 1] - Front[S - 1]<<endl;
-        }
-        else
-            cout<<Back[S - 1] - Back[T - 1]<<endl;
+void solve(void){
+    string s; cin >> s;
+    ll n = s.size();
+    vll fo(n, 0), fc(n, 0), ro(n, 0), rc(n, 0);
+    
+    fo[0] = s[0] == '(';
+    fc[0] = s[0] == ')';
+    if(s[0] == '?')
+        s[0] = '(', fo[0] += 1;
+    ro[n - 1] = s[n - 1] == '(';
+    rc[n - 1] = s[n - 1] == ')';
+    if(s[n - 1] == '?')
+        s[n - 1] = ')', rc[n - 1] += 1;
+    
+    rpt(i, 1, n)
+        fo[i] = (fo[i - 1] + (s[i] == '(' ? 1 : 0)),
+        fc[i] = (fc[i - 1] + (s[i] == ')' ? 1 : 0));
+
+    rpt(i, n - 1, 0)
+        ro[i] = (ro[i + 1] + (s[i] == '(' ? 1 : 0)),
+        rc[i] = (rc[i + 1] + (s[i] == ')' ? 1 : 0));
+
+    string to = "";
+    for(auto x : s)
+        to += x, to += ',';
+
+    debug(rc);
+    debug(ro);
+    debug(to);
+    debug(fo);
+    debug(fc);
+    debug('\n');
+
+    ll availO = fo[n - 1], availC = fc[n - 1];
+    bool flag = true;
+    rpt(i, 1, n - 1) {
+        if(s[i] != '?')
+            continue;
+        bool open = false, close = false;
+
+        if(fo[i] > fc[i] && availO >= availC)
+            open = true;
+        if(fo[i] < fc[i] && availC >= availO)
+            close = true;
+             
+        if(ro[i] > rc[i] && availO >= availC)
+            open = true;
+        if(ro[i] < rc[i] && availC >= availO)
+            close = true;
+
+        if(open && close)
+            flag = false;
+
     }
 
-    debug(Front, Back);
+    cout << (flag ? "YES" : "NO");
+    nl;
 }
+
 
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
