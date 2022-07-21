@@ -80,7 +80,7 @@ void solve(void){
 
     ll x = 0;
 
-    for(ll i = 2; i <= n; i++){
+    for(ll i = 1; i <= n; i++){
         bool flag = true;
         
         for(ll j = i; j <= n; j += i)
