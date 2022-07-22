@@ -80,11 +80,12 @@ void solve(void){
         while(d.se--){
             ll tmp = ceil((double)tmp/x);
             k -= tmp;
+            if(k >= 0)
+                ans -= tmp;
             if(k <= 0)
                 break;
-            else ans -= tmp;
         }
-        if(!k )
+        if(k <= 0)
             break;
     }
 
