@@ -81,8 +81,8 @@ void solve(void){
             ll tmp = ceil((double)d.fi/x);
             k -= tmp;
             if(k >= 0){
-                debug(k, tmp);
-                ans -= tmp;
+
+                ans -= 1;
             }
             
             if(k <= 0)
