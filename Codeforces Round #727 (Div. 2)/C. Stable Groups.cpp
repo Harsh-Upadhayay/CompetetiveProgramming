@@ -78,15 +78,11 @@ void solve(void){
 
     for(auto d : m){
         while(d.se--){
-            auto tmp = d.fi;
-            while(k && tmp > x){
-                tmp -= x;
-                k--;
-            }
-
-            ans -= (tmp <= x);
-            if(!k)
+            ll tmp = ceil((double)tmp/x);
+            k -= tmp;
+            if(k <= 0)
                 break;
+            else ans -= tmp;
         }
         if(!k )
             break;
