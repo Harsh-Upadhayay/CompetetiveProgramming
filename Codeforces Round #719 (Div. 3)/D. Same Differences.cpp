@@ -60,10 +60,10 @@ void init(){
 
 void solve(void){
     ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
+    vll v(n + 1); rpt(i, 1, n + 1) cin >> v[i];
 
     ll ans = ninf;
-    map<ll, ll> m;  rpt(i, 0, n) m[v[i] - i]++, ans = max(ans, m[v[i] - i]);
+    map<ll, ll> m;  rpt(i, 1, n + 1) m[v[i] - i]++, ans = max(ans, m[v[i] - i]);
     debug(m);
 
     cout << ans;
