@@ -68,7 +68,7 @@ void init(){
     cout << a;
     rpt(i, 0, 20){
         a = next_permutation(all(a));
-        // cout << a;
+        cout << a;
         if(isRBS(a))
             cout << a << "\n";
     }
