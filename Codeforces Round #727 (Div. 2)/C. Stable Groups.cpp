@@ -60,7 +60,8 @@ void init(){
 
 void solve(void){
     ll n, k, x; cin >> n >> k >> x;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
+    vll v(n); rpt(i, 0, n) cin >> v[i]; 
+    sort(all(v));
 
     vll diff(n, 0); rpt(i, 1, n) diff[i] = v[i] - v[i - 1] - x;
     rpt(i, 1, n) if (diff[i] > 0 && diff[i] <= x && k)  diff[i] = -77;
