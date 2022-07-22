@@ -78,11 +78,11 @@ void solve(void){
 
     for(auto d : m){
         while(d.se--){
-            ll tmp = ceil((double)tmp/x);
+            ll tmp = ceil((double)d.fi/x);
             k -= tmp;
-            if(k >= 0){cout << "F";
+            if(k >= 0)
                 ans -= tmp;
-            }
+            
             if(k <= 0)
                 break;
         }
