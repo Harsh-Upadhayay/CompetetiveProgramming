@@ -80,8 +80,9 @@ void solve(void){
         while(d.se--){
             ll tmp = ceil((double)tmp/x);
             k -= tmp;
-            if(k >= 0)
+            if(k >= 0){cout << "F";
                 ans -= tmp;
+            }
             if(k <= 0)
                 break;
         }
