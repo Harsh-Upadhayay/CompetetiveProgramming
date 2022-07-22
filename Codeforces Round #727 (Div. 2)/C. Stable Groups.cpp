@@ -31,7 +31,7 @@ using namespace std;
 #define yes                     cout << "YES";
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
-#define TESTCASE
+#define TESTCAS
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -72,9 +72,6 @@ void solve(void){
         ans += diff[i] > 0;
 
     cout << ans;
-
-
-
     nl;
 }
 
