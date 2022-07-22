@@ -63,7 +63,14 @@ void solve(void){
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
     vll diff(n, 0); rpt(i, 1, n) diff[i] = v[i] - v[i - 1] - x;
-    debug(diff);
+    rpt(i, 1, n) if (diff[i] > 0 && diff[i] <= x && k)  diff[i] = -77;
+
+    ll ans = 1;
+    rpt(i, 1, n)
+        ans += diff[i] > 0;
+
+    cout << ans;
+
 
 
     nl;
