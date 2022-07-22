@@ -72,6 +72,26 @@ void solve(void){
     rpt(i, 1, n)
         ans += diff[i] > 0;
 
+    map<ll, ll> m;
+    if(k > 1)
+        rpt(i, 1, n) if(diff[i] > 0) m[diff[i]]++;
+    
+    for(auto d : m){
+        while(d.se--){
+            auto tmp = d.fi;
+            while(k && tmp > x){
+                tmp -= x;
+                k--;
+            }
+
+            ans += tmp <= x;
+            if(!k)
+                break;
+        }
+        if(!k )
+            break;
+    }
+
     cout << ans;
     nl;
 }
