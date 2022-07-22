@@ -62,8 +62,11 @@ void solve(void){
     ll n; cin >> n;
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    map<ll, ll> m;  rpt(i, 0, n) m[v[i] - i]++;
+    ll ans = ninf;
+    map<ll, ll> m;  rpt(i, 0, n) m[v[i] - i]++, ans = max(ans, m[v[i] - i]);
     debug(m);
+
+    cout << ans;
 
     nl;
 }
