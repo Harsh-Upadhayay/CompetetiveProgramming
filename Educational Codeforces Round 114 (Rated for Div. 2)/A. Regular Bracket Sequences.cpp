@@ -65,6 +65,7 @@ bool isRBS(string s) {
 
 void init(){
     string a = "((()))";
+    cout << a;
     rpt(i, 0, 20){
         a = next_permutation(all(a));
         cout << a;
