@@ -64,9 +64,9 @@ void solve(void){
     sort(all(v));
 
     vll diff(n, 0); rpt(i, 1, n) diff[i] = v[i] - v[i - 1] - x;
-    debug(diff);
+    // debug(diff);
     rpt(i, 1, n) if (diff[i] > 0 && diff[i] <= x && k)  diff[i] = -77, k--;
-    debug(diff);
+    // debug(diff);
 
     ll ans = 1;
     rpt(i, 1, n)
@@ -75,7 +75,7 @@ void solve(void){
     map<ll, ll> m;
     if(k > 1)
         rpt(i, 1, n) if(diff[i] > x) m[diff[i]]++;
-    debug(m);
+
     for(auto d : m){
         while(d.se--){
             auto tmp = d.fi;
