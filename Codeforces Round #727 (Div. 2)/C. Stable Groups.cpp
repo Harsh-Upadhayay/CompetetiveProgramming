@@ -75,7 +75,7 @@ void solve(void){
     map<ll, ll> m;
     if(k > 1)
         rpt(i, 1, n) if(diff[i] > x) m[diff[i]]++;
-
+    debug(m);
     for(auto d : m){
         while(d.se--){
             auto tmp = d.fi;
