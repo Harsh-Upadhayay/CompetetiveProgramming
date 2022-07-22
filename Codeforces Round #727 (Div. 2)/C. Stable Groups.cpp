@@ -80,8 +80,10 @@ void solve(void){
         while(d.se--){
             ll tmp = ceil((double)d.fi/x);
             k -= tmp;
-            if(k >= 0)
+            if(k >= 0){
+                debug(k, tmp);
                 ans -= tmp;
+            }
             
             if(k <= 0)
                 break;
