@@ -79,13 +79,12 @@ void solve(void){
     for(auto d : m){
         while(d.se--){
             auto tmp = d.fi;
-            cout << "F";
             while(k && tmp > x){
                 tmp -= x;
                 k--;
             }
 
-            ans += tmp <= x;
+            ans -= (tmp <= x);
             if(!k)
                 break;
         }
