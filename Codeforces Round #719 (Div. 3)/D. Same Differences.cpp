@@ -62,8 +62,8 @@ void solve(void){
     ll n; cin >> n;
     vll v(n + 1); rpt(i, 1, n + 1) cin >> v[i];
 
-    ll ans = ninf;
-    map<ll, ll> m;  rpt(i, 1, n + 1) m[v[i] - i]++, ans = max(ans, (m[v[i] - i] * (m[v[i] - i] - 1)) / 2);
+    ll ans = 0;
+    map<ll, ll> m;  rpt(i, 1, n + 1) m[v[i] - i]++, ans += (m[v[i] - i] * (m[v[i] - i] - 1)) / 2;
     debug(m);
 
     cout << ans;
