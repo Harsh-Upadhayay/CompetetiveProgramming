@@ -101,7 +101,7 @@ void solve(void){
 
     cout << (flag ? "YES" : "NO");
     nl;
-    
+
     if(flag) {
         rpt(i, 0, n) {
             rpt(j, 0, m)
@@ -115,7 +115,7 @@ void solve(void){
         }
     }
     // print(grid);
-    nl;
+    // nl;
 }
 
 
