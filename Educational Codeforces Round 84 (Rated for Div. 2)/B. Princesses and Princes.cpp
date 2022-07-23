@@ -69,8 +69,10 @@ void solve(void){
 
         rpt(j, 0, k) {
             ll x; cin >> x;
-            if(!taken.count(x))
-                flag = 0, taken.insert(j);
+            if(!taken.count(x)){
+                flag = 0;
+                taken.insert(j);
+            }
         }
 
         if(flag) daug = flag;
