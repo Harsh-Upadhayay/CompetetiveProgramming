@@ -79,7 +79,7 @@ void solve(void){
     }
 
     if(daug) {
-        cout << "IMPORVE\n" << daug << " ";;
+        cout << "IMPROVE\n" << daug << " ";;
         rpt(i, 1, n + 1)
             if(!taken.count(i)) {
                 cout << i;
