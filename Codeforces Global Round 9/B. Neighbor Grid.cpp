@@ -100,7 +100,20 @@ void solve(void){
     flag &= chkGrid(grid);
 
     cout << (flag ? "YES" : "NO");
-
+    nl;
+    
+    if(flag) {
+        rpt(i, 0, n) {
+            rpt(j, 0, m)
+                if((i == 0 && j == 0) || (i == 0 && j == m - 1) || (i == n - 1 && j == 0) || (i ==  n - 1 && j == m - 1))
+                    cout << "2 ";
+                else if(i == 0 || i == n - 1 || j == 0 || j == m - 1)
+                    cout << "3";
+                else
+                    cout << "4 ";
+            nl;
+        }
+    }
     // print(grid);
     nl;
 }
