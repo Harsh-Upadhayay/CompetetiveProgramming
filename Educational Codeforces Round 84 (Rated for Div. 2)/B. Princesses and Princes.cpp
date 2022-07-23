@@ -69,7 +69,7 @@ void solve(void){
 
         rpt(j, 1, k + 1) {
             ll x; cin >> x;
-            if(!taken.count(x)){
+            if(flag && !taken.count(x)){
                 flag = 0;
                 taken.insert(x);
             }
