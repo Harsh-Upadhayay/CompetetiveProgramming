@@ -108,7 +108,7 @@ void solve(void){
                 if((i == 0 && j == 0) || (i == 0 && j == m - 1) || (i == n - 1 && j == 0) || (i ==  n - 1 && j == m - 1))
                     cout << "2 ";
                 else if(i == 0 || i == n - 1 || j == 0 || j == m - 1)
-                    cout << "3";
+                    cout << "3 ";
                 else
                     cout << "4 ";
             nl;
