@@ -63,15 +63,15 @@ void solve(void){
 
     ll daug = 0;
     set<ll> taken;
-    rpt(i, 0, n) {
+    rpt(i, 1, n + 1) {
         ll k; cin >> k;
-        ll flag = i + 1;
+        ll flag = i;
 
-        rpt(j, 0, k) {
+        rpt(j, 1, k + 1) {
             ll x; cin >> x;
             if(!taken.count(x)){
                 flag = 0;
-                taken.insert(j + 1);
+                taken.insert(x);
             }
         }
 
