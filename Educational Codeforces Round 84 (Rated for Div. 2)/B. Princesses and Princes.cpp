@@ -82,7 +82,7 @@ void solve(void){
         cout << daug << "\nIMPORVE\n";
         rpt(i, 1, n + 1)
             if(!taken.count(i)) {
-                cout << i;
+                cout << i << " R";
                 break;
             }
     }
