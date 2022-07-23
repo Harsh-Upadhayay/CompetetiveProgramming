@@ -57,6 +57,33 @@ void init(){
     return;
 }
 
+bool inline chkCorners(vector<vll> grid) {
+    ll n = grid.size(), m = grid[0].size();
+    return grid[0][0] <= 2 && grid[n-1][0] <= 2 && grid[0][m-1] <= 2 && grid[n-1][m-1] <= 2;
+}
+
+bool inline chkBorders(vector<vll> grid) {
+    ll n = grid.size(), m = grid[0].size();
+    
+    for(ll i = 0; i < m; i++)
+        if(grid[0][i] > 3 || grid[n - 1][i] > 3)
+            return false;
+
+    for(ll i = 0; i < n; i++)
+        if(grid[i][0] > 3 || grid[i][m - 1] > 3)
+            return false;
+
+    return true;
+}
+
+bool inline chkGrid(vector<vll> grid) {
+    ll n = grid.size(), m = grid[0].size();
+    for(auto x : grid)
+        for(auto y : x)
+            if(y > 4) 
+                return false;
+    return true;
+}
 
 void solve(void){
     ll n, m; cin >> n >> m;
@@ -68,7 +95,13 @@ void solve(void){
         }
     }
 
-    print(grid);
+    bool flag = chkCorners(grid);
+    flag &= chkBorders(grid);
+    flag &= chkGrid(grid);
+
+    cout << (flag ? "YES" : "NO");
+
+    // print(grid);
     nl;
 }
 
