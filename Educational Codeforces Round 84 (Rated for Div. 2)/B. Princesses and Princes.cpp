@@ -71,7 +71,7 @@ void solve(void){
             ll x; cin >> x;
             if(!taken.count(x)){
                 flag = 0;
-                taken.insert(j);
+                taken.insert(j + 1);
             }
         }
 
