@@ -67,12 +67,12 @@ void solve(void){
     for(ll i = 2; i < n; i++) 
         options [i] = options[i - 1] + v[i] - v[i - 1] - 1 + v[i + 1] - v[i] - 1;
     options [n] = v[n] - v[n - 1] - 1;
-     
+
     debug(options);
     while(q--) {
         ll l , r; cin >> l >> r;
         ll ans = v[l] - 1 + k - v[r];
-        cout << ans + options [r - 1] - options [l] << "\n";
+        cout << ans + options [r] - options [l] << "\n";
     }
 
     nl;
