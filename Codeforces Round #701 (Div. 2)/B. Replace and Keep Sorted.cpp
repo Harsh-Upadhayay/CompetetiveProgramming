@@ -82,7 +82,7 @@ void solve(void){
     while(q--) {
         ll l , r; cin >> l >> r;
         if(l == r) {
-            cout << k - 1;
+            cout << k - 1; nl;
             continue;
         }
         ll ans = (v[l] - 1) + (v[l + 1] - v[l] - 1) + (k - v[r]) + (v[r] - v[r - 1] - 1);
