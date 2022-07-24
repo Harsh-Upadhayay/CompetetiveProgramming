@@ -66,7 +66,8 @@ void solve(void){
     sort(all(sv)), spSum[0] = sv[0], npSum[0] = v[0];
     rpt(i, 1, n)
         spSum[i] = spSum[i - 1] + sv[i], npSum[i] = npSum[i - 1] + v[i];
-
+    debug(spSum);
+    debug(npSum);
     ll m; cin >> m;
     rpt(i, 0, m) {
         ll t, l, r; cin >> t >> l >> r;
