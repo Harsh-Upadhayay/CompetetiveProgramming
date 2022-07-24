@@ -81,7 +81,7 @@ void solve(void){
     set<ll> s(all(v));
     ll mxLen = 0;
 
-    debug(*s.lower_bound(123));
+    debug(*s.upper_bound(123));
     rpt(i, 0, n) {
         
         ll x = find(v, 0, n - 1, *s.lower_bound(v[i] + 5));
