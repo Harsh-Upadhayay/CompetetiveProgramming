@@ -78,10 +78,10 @@ void solve(void){
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
     sort(all(v));
-    set<ll> s(all(v));
     ll mxLen = 0, i = 0, j = 0; 
     debug(v);
-    while(j < n) {
+   
+    while(j < n && i < n) {
         while(v[j] - v[i] <= 5)
             j++;
         debug(i, j);
