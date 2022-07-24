@@ -31,7 +31,7 @@ using namespace std;
 #define yes                     cout << "YES";
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
-#define TESTCASE
+#define TESTCAS
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -61,9 +61,17 @@ void init(){
 void solve(void){
     ll n; cin >> n;
     vll v(n); rpt(i, 0, n)  cin >> v[i];
+
+    vll spSum(n), npSum(n), sv(all(v));
+    sort(all(sv)), spSum[0] = sv[0], npSum[0] = v[0];
+    rpt(i, 1, n)
+        spSum[i] = spSum[i - 1] + sv[i], npSum[i] = npSum[i - 1] + v[i];
+
     ll m; cin >> m;
     rpt(i, 0, m) {
         ll t, l, r; cin >> t >> l >> r;
+        if(1 == t) cout << npSum[r - 1] - npSum[l - 1];
+        else       cout << spSum[r - 1] - spSum[l - 1];
     }
     nl;
 }
