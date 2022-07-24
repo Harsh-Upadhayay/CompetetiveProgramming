@@ -83,11 +83,9 @@ void solve(void){
 
 
     rpt(i, 0, n) {
-        ll x = find(v, 0, n - 1, v[i] + 5);
-        debug(x);
-        if(x == -1)
-            x = find(v, 0, n - 1, *s.lower_bound(v[i] + 5));
-        debug(x);
+        
+        ll x = find(v, 0, n - 1, *s.lower_bound(v[i] + 5));
+        debug(x);   
         mxLen = max(mxLen, x - i + 1);
     }
        
