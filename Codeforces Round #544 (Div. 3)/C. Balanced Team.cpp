@@ -57,18 +57,17 @@ void init(){
     return;
 }
 
-ll find(vll v, ll x) {
-    ll l = 0, r = v.size() - 1;
+ll find(vll v, ll low, ll high, ll x) {
+    ll n = v.size();
 
-    while(l <= r) {
-        ll mid = ((float)l + (float)(r - l) / 2.0);
-
-        if(v[mid] > x)
-            r = mid - 1;
-        else if(v[mid] <= x)
-            l = mid + 1;
-        else
+    while(low <= high) {
+        ll mid = low + (high - low) / 2;
+        if ((mid == n - 1 || x < v[mid + 1]) && v[mid] == x)
             return mid;
+        else if (x < v[mid])
+            return find(v, low, (mid - 1), x);
+        else
+            return find(v, (mid + 1), high, x);
     }
 
     return -1;
@@ -81,15 +80,17 @@ void solve(void){
     sort(all(v));
     set<ll> s(all(v));
     ll mxLen = 0;
-    debug(v);
-    rpt(i, 0, n) {
-        ll x = find(v, v[i] + 5);
-        debug(x);
-        if(x == -1)
-            x = find(v, *s.lower_bound(v[i] + 5));
-        debug(x);
-        mxLen = max(mxLen, x - i + 1);
-    }
+
+    mxLen = find(v, (ll)0, (ll)n - 1, (ll)17);
+
+    // rpt(i, 0, n) {
+    //     ll x = find(v, v[i] + 5);
+    //     debug(x);
+    //     if(x == -1)
+    //         x = find(v, *s.lower_bound(v[i] + 5));
+    //     debug(x);
+    //     mxLen = max(mxLen, x - i + 1);
+    // }
        
     
     cout << mxLen;
