@@ -85,7 +85,7 @@ void solve(void){
         while(v[j] - v[i] <= 5)
             j++;
         debug(i, j);
-        mxLen = max(j - i + 1, mxLen);
+        mxLen = max(j - i, mxLen);
         while(v[j] - v[i] > 5)
             i++;
     }
