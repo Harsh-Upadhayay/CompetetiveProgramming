@@ -72,6 +72,7 @@ void solve(void){
     while(q--) {
         ll l , r; cin >> l >> r;
         ll ans = v[l] - 1 + k - v[r];
+        debug(ans);
         ans += (l == 1 ? options [r] : options [r] - options [l]);
         cout << ans << "\n";
     }
