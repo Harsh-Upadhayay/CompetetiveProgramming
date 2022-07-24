@@ -63,7 +63,7 @@ void solve(void){
     vll v(n + 1); rpt(i, 1, n + 1) cin >> v[i];
 
     vll options(n + 1, 0);
-    rpt(i, 2, n) 
+    for(ll i = 2; i < n; i++) 
         options [i] = options[i - 1] + v[i] - v[i - 1] - 1 + v[i + 1] - v[i] - 1;
     
     while(q--) {
