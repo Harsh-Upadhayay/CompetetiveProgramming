@@ -81,16 +81,15 @@ void solve(void){
     set<ll> s(all(v));
     ll mxLen = 0;
 
-    mxLen = find(v, (ll)0, (ll)n - 1, (ll)17);
 
-    // rpt(i, 0, n) {
-    //     ll x = find(v, v[i] + 5);
-    //     debug(x);
-    //     if(x == -1)
-    //         x = find(v, *s.lower_bound(v[i] + 5));
-    //     debug(x);
-    //     mxLen = max(mxLen, x - i + 1);
-    // }
+    rpt(i, 0, n) {
+        ll x = find(v, 0, n - 1, v[i] + 5);
+        debug(x);
+        if(x == -1)
+            x = find(v, 0, n - 1, *s.lower_bound(v[i] + 5));
+        debug(x);
+        mxLen = max(mxLen, x - i + 1);
+    }
        
     
     cout << mxLen;
