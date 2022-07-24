@@ -69,7 +69,7 @@ void solve(void){
     while(q--) {
         ll l , r; cin >> l >> r;
         ll ans = v[l] - 1 + k - v[r];
-        cout << ans + options [r - 1] - options [l];
+        cout << ans + options [r - 1] - options [l] << "\n";
     }
 
     nl;
