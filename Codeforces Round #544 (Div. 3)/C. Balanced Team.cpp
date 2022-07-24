@@ -81,13 +81,13 @@ void solve(void){
     set<ll> s(all(v));
     ll mxLen = 0;
 
-    debug(*s.lower_bound(1555));
-    rpt(i, 0, n) {
+    debug(*s.lower_bound(1337));
+    // rpt(i, 0, n) {
         
-        ll x = find(v, 0, n - 1, *s.lower_bound(v[i] + 5));
-        debug(x);   
-        mxLen = max(mxLen, x - i + 1);
-    }
+    //     ll x = find(v, 0, n - 1, *s.lower_bound(v[i] + 5));
+    //     debug(x);   
+    //     mxLen = max(mxLen, x - i + 1);
+    // }
        
     
     cout << mxLen;
