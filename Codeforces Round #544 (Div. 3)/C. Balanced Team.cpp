@@ -79,8 +79,8 @@ void solve(void){
 
     sort(all(v));
     set<ll> s(all(v));
-    ll mxLen = 0, i = 0, j = 0;
-
+    ll mxLen = 0, i = 0, j = 0; 
+    debug(v);
     while(j < n) {
         while(v[j] - v[i] <= 5)
             j++;
