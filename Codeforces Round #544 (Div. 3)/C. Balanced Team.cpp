@@ -84,7 +84,7 @@ void solve(void){
     rpt(i, 0, n) {
         
         auto itr = s.lower_bound(v[i] + 5);
-        while(*itr > v[i] + 5)
+        while(itr == s.end() || *itr > v[i] + 5)
             itr--;
 
         ll x = find(v, 0, n - 1, *itr);
