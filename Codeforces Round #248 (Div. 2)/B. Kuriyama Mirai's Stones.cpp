@@ -72,6 +72,7 @@ void solve(void){
         ll t, l, r; cin >> t >> l >> r;
         if(1 == t) cout << npSum[r - 1] - npSum[l - 1];
         else       cout << spSum[r - 1] - spSum[l - 1];
+        nl;
     }
     nl;
 }
