@@ -79,17 +79,15 @@ void solve(void){
 
     sort(all(v));
     set<ll> s(all(v));
-    ll mxLen = 0;
+    ll mxLen = 0, i = 0, j = 0;
 
-    rpt(i, 0, n) {
-        
-        auto itr = s.lower_bound(v[i] + 5);
-        while(itr == s.end() || *itr > v[i] + 5)
-            itr--;
-
-        ll x = find(v, 0, n - 1, *itr);
-        debug(x);   
-        mxLen = max(mxLen, x - i + 1);
+    while(j < n) {
+        while(v[j] - v[i] <= 5)
+            j++;
+        debug(i, j);
+        mxLen = max(j - i + 1, mxLen);
+        while(v[j] - v[i] > 5)
+            i++;
     }
        
     
