@@ -75,6 +75,7 @@ void solve(void){
         }
         
     }   
+    mxLen = max(curLen, mxLen);
     cout << mxLen;
     nl;
 }
