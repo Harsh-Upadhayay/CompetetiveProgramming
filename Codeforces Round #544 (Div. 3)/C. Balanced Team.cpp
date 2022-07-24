@@ -81,7 +81,7 @@ void solve(void){
     sort(all(v));
     set<ll> s(all(v));
     ll mxLen = 0;
-
+    debug(v);
     rpt(i, 0, n) {
         ll x = find(v, v[i] + 5);
         debug(x);
