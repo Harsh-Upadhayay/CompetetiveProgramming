@@ -62,6 +62,16 @@ void solve(void){
     ll n, q, k; cin >> n >> q >> k;
     vll v(n + 1); rpt(i, 1, n + 1) cin >> v[i];
 
+    if(n == 1) {
+        while(q--) {
+            ll l, r;
+            cin >> l >> r;
+            cout << k - 1;
+            nl;
+        }
+        return;
+    }
+
     vll options(n + 1, 0);
     options [1] = v[2] - v[1] - 1; 
     for(ll i = 2; i < n; i++) 
@@ -74,8 +84,6 @@ void solve(void){
         ll ans = (v[l] - 1) + (v[l + 1] - v[l] - 1) + (k - v[r]) + (v[r] - v[r - 1] - 1);
         debug(ans);
         ans += options[r - 1] - options [l];
-        if(n == 1)
-            ans = k - 1;
         cout << ans << "\n";
     }
 
