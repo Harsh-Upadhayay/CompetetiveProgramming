@@ -66,13 +66,12 @@ void solve(void){
     sort(all(sv)), spSum[0] = sv[0], npSum[0] = v[0];
     rpt(i, 1, n)
         spSum[i] = spSum[i - 1] + sv[i], npSum[i] = npSum[i - 1] + v[i];
-    debug(spSum);
-    debug(npSum);
+
     ll m; cin >> m;
     rpt(i, 0, m) {
         ll t, l, r; cin >> t >> l >> r;
-        if(1 == t) cout << npSum[r - 1] - npSum[l - 1];
-        else       cout << spSum[r - 1] - spSum[l - 1];
+        if(1 == t) cout << (l == 1 ? npSum[r - 1] : npSum[r - 1] - npSum[l - 2]);
+        else       cout << (l == 1 ? spSum[r - 1] : spSum[r - 1] - spSum[l - 2]);
         nl;
     }
     nl;
