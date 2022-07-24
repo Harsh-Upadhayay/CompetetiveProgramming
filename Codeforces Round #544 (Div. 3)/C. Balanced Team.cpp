@@ -63,7 +63,7 @@ void solve(void){
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
     sort(all(v));
-
+debug(v);
     ll curLen = 1, mxLen = 0;
     for(ll i = 0; i < n - 1; i++) {
 
