@@ -75,7 +75,7 @@ void solve(void){
         debug(ans);
         ans += options[r - 1] - options [l];
         if(n == 1)
-            ans = k - v[1];
+            ans = k - 1;
         cout << ans << "\n";
     }
 
