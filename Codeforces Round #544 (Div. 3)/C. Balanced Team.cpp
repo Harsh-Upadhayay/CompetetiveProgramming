@@ -81,12 +81,12 @@ void solve(void){
     sort(all(v));
     set<ll> s(all(v));
     ll mxLen = 0;
-    
+
     rpt(i, 0, n) {
         ll x = find(v, v[i] + 1);
         if(x == -1)
             x = find(v, *s.lower_bound(v[i] + 5));
-
+        debug(x);
         mxLen = max(mxLen, x - i + 1);
     }
        
