@@ -64,7 +64,7 @@ void solve(void){
 
     vll options(n + 1, 0);
     for(ll i = 2; i < n; i++) 
-        options [i] = options[i - 1] + v[i] - v[i - 1] - 1 + v[i + 1] - v[i] - 1;
+        options [i] =  v[i] - v[i - 1] - 1 + v[i + 1] - v[i] - 1;
     debug(options);
     while(q--) {
         ll l , r; cin >> l >> r;
