@@ -57,25 +57,40 @@ void init(){
     return;
 }
 
+ll find(vll v, ll x) {
+    ll l = 0, r = v.size() - 1;
+
+    while(l <= r) {
+        ll mid = ((float)l + (float)(r - l) / 2.0);
+
+        if(v[mid] > x)
+            r = mid - 1;
+        else if(v[mid] <= x)
+            l = mid + 1;
+        else
+            return mid;
+    }
+
+    return -1;
+}
 
 void solve(void){
     ll n; cin >> n;
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
     sort(all(v));
-debug(v);
-    ll curLen = 1, mxLen = 0;
-    for(ll i = 0; i < n - 1; i++) {
+    set<ll> s(all(v));
+    ll mxLen = 0;
+    
+    rpt(i, 0, n) {
+        ll x = find(v, v[i] + 1);
+        if(x == -1)
+            x = find(v, *s.lower_bound(v[i] + 5));
 
-        if(v[i + 1] - v[i] <= 5) 
-            curLen++;
-        else {
-            curLen = 1;
-            mxLen = max(curLen, mxLen);
-        }
-        
-    }   
-    mxLen = max(curLen, mxLen);
+        mxLen = max(mxLen, x - i + 1);
+    }
+       
+    
     cout << mxLen;
     nl;
 }
