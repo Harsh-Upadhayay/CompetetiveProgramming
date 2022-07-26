@@ -65,7 +65,7 @@ void solve(void){
     ll  prev = v.back(), ans = 0;
     rpt(i, n - 1, 0) {
         while(prev && v[i] >= prev) v[i] /= 2, ans++;
-        if(!prev && v[i]) {cout << -1; nl; return;}
+        if(!prev) {cout << -1; nl; return;}
         prev = v[i];
     }
     ll sum = 0; rpt(i, 0, n) sum += v[i];
