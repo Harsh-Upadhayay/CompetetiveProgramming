@@ -63,7 +63,7 @@ void solve(void){
     x -= a, y -= b;
     ll rem = max(x, 0ll) + max(y, 0ll);
     debug(rem, c);
-    cout << (rem >= c ? "YES":"NO");
+    cout << (rem <= c ? "YES":"NO");
 
     nl;
 }
