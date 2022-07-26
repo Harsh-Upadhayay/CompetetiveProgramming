@@ -58,6 +58,7 @@ void init(){
 }
 
 ll mex(vll v) {
+    Timer _;
     ll i = 0;
     sort(all(v));
     for(auto x : v) 
