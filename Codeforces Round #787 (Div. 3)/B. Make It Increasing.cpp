@@ -53,7 +53,7 @@ void storePrimes();
 /*_________________________________________________________________________________________________________________________________________*/
 
 void init(){
-    
+
     return;
 }
 
@@ -61,7 +61,7 @@ void init(){
 void solve(void){
     ll n; cin >> n;
     vll v(n); rpt(i, 0, n) cin >> v[i];
-
+    if(n == 1) {cout << 0; nl; return;}
     ll  prev = v.back(), ans = 0;
     rpt(i, n - 1, 0) {
         while(prev && v[i] >= prev) v[i] /= 2, ans++;
