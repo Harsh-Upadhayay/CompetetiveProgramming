@@ -68,8 +68,9 @@ void solve(void){
         if(!prev && v[i]) {cout << -1; nl; return;}
         prev = v[i];
     }
+    ll sum = 0; rpt(i, 0, n) sum += v[i];
     debug(v);
-    cout << ans;
+    cout << (sum ? ans : -1);
     nl;
 }
 
