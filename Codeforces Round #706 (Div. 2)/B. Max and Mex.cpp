@@ -70,15 +70,11 @@ void solve(void){
     ll n, k; cin >> n >> k;
     vll v(n); rpt(i, 0, n) cin >> v[i];
     set<ll> alPres(all(v));
-
-    while(k--) {
-        ll a = mex(v), b = nmax(v), e = ceil((a + b) / 2.0);
-        if(alPres.count(e))
-            break;
-        alPres.insert(e);
-        v.pb(e);
-    }
-    cout << alPres.size();
+    if(mex(v) == nmax(v) + 1)
+        cout << alPres.size() + k;
+    else
+        cout << alPres.size();
+    
     nl;
 }
 
