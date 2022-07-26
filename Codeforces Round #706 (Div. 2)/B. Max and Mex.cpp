@@ -66,7 +66,7 @@ ll mex(vll v) {
 }
 
 void solve(void){
-    vll v = {1, 2, 3};
+    vll v = {0, 1, 2, 3};
     cout << mex(v);
     nl;
 }
