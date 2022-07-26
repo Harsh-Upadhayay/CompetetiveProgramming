@@ -62,7 +62,7 @@ ll mex(vll v) {
     sort(all(v));
     for(auto x : v) 
         if(x != i++)
-            return i;
+            return --i;
 }
 
 void solve(void){
