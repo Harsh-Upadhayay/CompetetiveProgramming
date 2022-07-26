@@ -68,6 +68,7 @@ void solve(void){
         if(!prev && v[i]) {cout << -1; nl; return;}
         prev = v[i];
     }
+    debug(v);
     cout << ans;
     nl;
 }
