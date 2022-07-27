@@ -72,7 +72,7 @@ void solve(void){
 
     ll zero_all = zero / k;
     ll left_zero = zero % k;
-    debug(one, zero);
+    debug(one_all, zero_all);
     ll ans = 0;
     if(left_zero > left_one) 
         ans = one_all - zero_all;
