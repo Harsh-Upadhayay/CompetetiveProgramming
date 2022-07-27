@@ -62,7 +62,8 @@ void solve(void){
     ll x, y, z; cin >> x >> y >> z;
     if( y == z && x > y ||
         x == z && y > x ||
-        x == y && z > x  )
+        x == y && z > x ||
+        x == y && y == z )
         cout << "YES";
     else cout << "NO";
     nl;
