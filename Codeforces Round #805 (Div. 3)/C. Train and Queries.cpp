@@ -88,7 +88,7 @@ void solve(void){
         curr += v[i];
         sum -= v[i];
     }
-    cout << ans;
+    cout << ans << " F";
 
     // cout << ans;
 
