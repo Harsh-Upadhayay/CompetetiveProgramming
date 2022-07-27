@@ -79,7 +79,16 @@ void solve(void){
         possible[i] = v[i] * (n - i);
     debug(possible);
 
-
+    ll curr = v[0], ans = 0;
+    sum -= v[0];
+    rpt(i, 1, n) {
+        if(curr > possible[i] - sum)
+            break;
+        ans++;
+        curr += v[i];
+        sum -= v[i];
+    }
+    cout << ans;
 
     // cout << ans;
 
