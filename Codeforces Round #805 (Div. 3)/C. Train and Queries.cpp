@@ -58,30 +58,24 @@ void init(){
 }
 
 
+
 void solve(void){
-    ll n, k; cin >> n >> k;
-    string s; cin >> s;
+    ll n; cin >> n;
+    vll v(n); rpt(i, 0, n) cin >> v[i];
+    sort(all(v));
+    if(n == 1) {
+        cout << "0\n"; return;
+    }
+    ll sum = 0; for(auto x : v) sum += x;
 
-    ll one = count_if(all(s), [](char ch) {return ch == '1';});
-    ll zero = n - one;
+    vll possible(n);
 
-    if(one < zero) swap(one, zero);
+    rpt(i, 0, n)
+        possible[i] = v[i] * n - i;
 
-    ll one_all = one / k;
-    ll left_one = one % k;
+    debug(possible);
 
-    ll zero_all = zero / k;
-    ll left_zero = zero % k;
-    debug(one_all, zero_all);
-    ll ans = 0;
-    if(left_zero > left_one) 
-        ans = one_all - zero_all;
-    else if(left_zero < left_one)
-        ans = one_all + 1 - zero_all;
-    else
-        ans = one_all - zero_all;
-    
-    cout << ans;
+    // cout << ans;
 
     nl;
 }
