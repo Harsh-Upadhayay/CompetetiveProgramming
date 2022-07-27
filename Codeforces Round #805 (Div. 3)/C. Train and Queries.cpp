@@ -59,30 +59,12 @@ void init(){
 
 
 void solve(void){
-    ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
-
-    map<ll, ll> freq;
-    // debug(v);
-    for(auto x : v)
-        freq[x]++;
-    
-    ll m1 = ninf, m2 = ninf, key;
-    for(auto x : freq)
-        if(x.second > m1){
-            key = x.first;
-            m1 = x.second;
-        }
-    freq[key] = -1;
-    for(auto x : freq)
-        if(x.second > m2){
-            m2 = x.second;
-        }
-
-    debug(m1, m2, freq);
-    ll ans = ceil(m1 / 2.0);
-    ans = max(ans, m2);
-    cout << ans;
+    ll x, y, z; cin >> x >> y >> z;
+    if( y == z && x > y ||
+        x == z && y > x ||
+        x == y && z > x  )
+        cout << "YES";
+    else cout << "NO";
     nl;
 }
 
