@@ -66,14 +66,20 @@ void solve(void){
     if(n == 1) {
         cout << "0\n"; return;
     }
+    bool flag = true;
+    ll x = v[0];
+    rpt(i, 0, n) flag = flag & v[i] == x;
+    if(flag) {cout << "0\n"; return;}
+
     ll sum = 0; for(auto x : v) sum += x;
 
     vll possible(n);
 
     rpt(i, 0, n)
         possible[i] = v[i] * (n - i);
-
     debug(possible);
+
+
 
     // cout << ans;
 
