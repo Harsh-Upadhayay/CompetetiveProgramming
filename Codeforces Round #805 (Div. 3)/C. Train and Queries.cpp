@@ -78,7 +78,7 @@ void solve(void){
             m2 = x.second;
         }
 
-    debug(m1, m2);
+    debug(m1, m2, freq);
 
     nl;
 }
