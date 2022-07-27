@@ -59,13 +59,12 @@ void init(){
 
 
 void solve(void){
-    ll x, y, z; cin >> x >> y >> z;
-    if( (y == z && x > y) ||
-        (x == z && y > x) ||
-        (x == y && z > x) ||
-        (x == y && y == z) )
-        cout << "YES";
-    else cout << "NO";
+    ll n, k; cin >> n >> k;
+    string s; cin >> s;
+
+    ll one = count_if(all(s), [](char ch) {return ch == '1';});
+    ll zero = n - one;
+    debug(one, zero);
     nl;
 }
 
