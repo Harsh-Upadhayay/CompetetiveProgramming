@@ -79,7 +79,7 @@ void solve(void){
     else if(left_zero < left_one)
         ans = one_all + 1 - zero_all;
     else
-        one_all - zero_all;
+        ans = one_all - zero_all;
     
     cout << ans;
 
