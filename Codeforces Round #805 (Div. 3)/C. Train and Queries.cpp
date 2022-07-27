@@ -62,7 +62,7 @@ void init(){
 void solve(void){
     ll n; cin >> n;
     vll v(n); rpt(i, 0, n) cin >> v[i];
-    sort(all(v));
+    sort(all(v), greater<ll>());
     if(n == 1) {
         cout << "0\n"; return;
     }
