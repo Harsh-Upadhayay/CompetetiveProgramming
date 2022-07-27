@@ -59,7 +59,15 @@ void init(){
 
 
 void solve(void){
-    
+    ll ab, bc, ac; cin >> ab >> bc >> ac;
+    if(bc == ac && bc < ab)
+        cout << "YES";
+    else if(ab == ac && ab > bc)
+        cout << "YES";
+    else if(ab == bc && ac > ab)
+        cout << "YES";
+    else 
+        cout << "NO";
     nl;
 }
 
