@@ -78,9 +78,9 @@ void solve(void){
         ans = one_all - zero_all;
     else if(left_zero < left_one)
         ans = one_all + 1 - zero_all;
-    else{cout << "F";
+    else
         one_all - zero_all;
-    }
+    
     cout << ans;
 
     nl;
