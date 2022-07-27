@@ -64,7 +64,22 @@ void solve(void){
 
     ll one = count_if(all(s), [](char ch) {return ch == '1';});
     ll zero = n - one;
-    debug(one, zero);
+
+    if(one < zero) swap(one, zero);
+
+    ll one_all = one / k;
+    ll left_one = one % k;
+
+    ll zero_all = zero / k;
+    ll left_zero = zero % k;
+
+    ll ans = 0;
+    if(left_zero > left_one) 
+        ans = one_all - zero_all;
+    else
+        ans = one_all + 1 - zero_all;
+    cout << ans;
+
     nl;
 }
 
