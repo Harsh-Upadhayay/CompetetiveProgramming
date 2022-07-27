@@ -80,7 +80,9 @@ void solve(void){
         }
 
     debug(m1, m2, freq);
-
+    ll ans = ceil(m1 / 2.0);
+    ans = max(ans, m2);
+    cout << ans;
     nl;
 }
 
