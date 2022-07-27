@@ -59,17 +59,27 @@ void init(){
 
 
 void solve(void){
-    ll ab, bc, ac; cin >> ab >> bc >> ac;
-    if(bc == ac && bc < ab)
-        cout << "YES";
-    else if(ab == ac)
-        cout << "YES";
-    else if(ab == bc && ac > ab)
-        cout << "YES";
-    else if(ab == ac == bc)
-        cout << "YES";
-    else 
-        cout << "NO";
+    ll n; cin >> n;
+    vll v(n); rpt(i, 0, n) cin >> v[i];
+
+    map<ll, ll> freq;
+    for(auto x : v)
+        freq[x]++;
+    
+    ll m1 = ninf, m2 = ninf, key;
+    for(auto x : freq)
+        if(x.second > m1){
+            key = x.first;
+            m1 = x.second;
+        }
+    freq[key] = -1;
+    for(auto x : freq)
+        if(x.second > m2){
+            m2 = x.second;
+        }
+
+    debug(m1, m2);
+
     nl;
 }
 
