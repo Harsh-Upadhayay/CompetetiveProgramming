@@ -63,6 +63,7 @@ void solve(void){
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
     map<ll, ll> freq;
+    debug(v);
     for(auto x : v)
         freq[x]++;
     
