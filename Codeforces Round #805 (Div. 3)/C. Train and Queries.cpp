@@ -71,7 +71,7 @@ void solve(void){
     vll possible(n);
 
     rpt(i, 0, n)
-        possible[i] = v[i] * n - i;
+        possible[i] = v[i] * (n - i);
 
     debug(possible);
 
