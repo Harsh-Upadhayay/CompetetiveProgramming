@@ -82,7 +82,7 @@ void solve(void){
     ll curr = v[0], ans = 1;
     sum -= v[0];
     rpt(i, 1, n) {
-        if(curr > possible[i] - sum)
+        if(curr >= possible[i] - sum)
             break;
         ans++;
         curr += v[i];
