@@ -86,7 +86,7 @@ void solve(void){
     rpt(i, 0, n) a1 = max(a1, pr[i]);
     rpt(i, 0, m) a2 = max(a2, pb[i]);
 
-    cout << max(0ll, a1 + a2);
+    cout << max(0ll, a1) + max(0ll, a2);
 
     nl;
 }
