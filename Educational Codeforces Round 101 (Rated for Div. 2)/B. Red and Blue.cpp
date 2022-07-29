@@ -82,8 +82,7 @@ void solve(void){
     while(j < m)
         ans.pb(b[j++]);
 
-    debug(ans);
-
+    debug(pr, pb);
     ll sum = 0, mxSum = ninf;
     for(auto x : ans) 
         sum += x, mxSum = max(mxSum, sum);
