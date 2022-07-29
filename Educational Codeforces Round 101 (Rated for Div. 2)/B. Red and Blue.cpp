@@ -82,12 +82,11 @@ void solve(void){
     while(j < m)
         ans.pb(b[j++]);
 
-    debug(pr, pb);
-    ll sum = 0, mxSum = ninf;
-    for(auto x : ans) 
-        sum += x, mxSum = max(mxSum, sum);
+    ll a1 = ninf, a2 = ninf;
+    rpt(i, 0, n) a1 = max(a1, pr[i]);
+    rpt(i, 0, m) a2 = max(a2, pb[i]);
 
-    cout << max(0ll, mxSum);
+    cout << max(0ll, a1 + a2);
 
     nl;
 }
