@@ -71,12 +71,11 @@ void solve(void){
 
     vll ans;
     ll i = 0, j = 0;
-    while(i < n && j < m) {
+    while(i < n && j < m) 
         if(pr[i] > pb[j])
             ans.pb(r[i++]);
         else
             ans.pb(b[j++]);
-    }
 
     while(i < n)
         ans.pb(r[i++]);
@@ -85,6 +84,11 @@ void solve(void){
 
     debug(ans);
 
+    ll sum = 0, mxSum = ninf;
+    for(auto x : ans) 
+        sum += x, mxSum = max(mxSum, sum);
+
+    cout << max(0ll, mxSum);
 
     nl;
 }
