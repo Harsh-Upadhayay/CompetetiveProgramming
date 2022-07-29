@@ -65,9 +65,9 @@ void solve(void){
     vll b(m); rpt(i, 0, m) cin >> b[i];
 
     vll pr(n, 0), pb(m, 0);
-    pr[n - 1] = r[n - 1], pb[m - 1] = b[m - 1];
-    rpt(i, n - 1, 0) pr[i] += pr[i+1] + r[i];
-    rpt(i, m - 1, 0) pb[i] += pb[i+1] + b[i];
+    pr[0] = r[0], pb[0] = b[0];
+    rpt(i, 1, n) pr[i] += pr[i-1] + r[i];
+    rpt(i, 1, m) pb[i] += pb[i-1] + b[i];
 
     vll ans;
     ll i = 0, j = 0;
