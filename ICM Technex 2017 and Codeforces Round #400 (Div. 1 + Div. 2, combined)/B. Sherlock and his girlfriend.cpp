@@ -61,8 +61,9 @@ void init(){
 void solve(void){
     ll n; cin >> n;
     cout << (n + 1) / 2;
-    rpt(i, 1, (n) / 2)
+    rpt(i, 1, (n) / 2 + 1)
         cout << i << " " << i << " ";
+
     if(n % 2) cout << (n + 1) / 2;
     nl;
 }
