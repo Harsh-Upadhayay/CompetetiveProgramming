@@ -120,7 +120,7 @@ void solve(void){
     rpt(i, 0, n) rpt(j, 0, m) cin >> grid[i][j];
     rpt(i, 0, n) rpt(j, 0, m) v[i][j] = (grid[i][j] ? '1' : '0');
     Solution obj;
-    obj.numIslands(v);
+    cout << obj.numIslands(v);
 
     nl;
 }
