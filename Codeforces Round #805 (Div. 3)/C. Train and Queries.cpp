@@ -81,7 +81,7 @@ class Solution {
                     bool isolated = true;
                     if(i != 0     && grid[i - 1][j] == '1') addEdge(i, j, i - 1, j), isolated = false;
                     if(i != n - 1 && grid[i + 1][j] == '1') addEdge(i, j, i + 1, j), isolated = false;
-                    if(j != n - 1 && grid[i][j + 1] == '1') addEdge(i, j, i, j + 1), isolated = false;
+                    if(j != m - 1 && grid[i][j + 1] == '1') addEdge(i, j, i, j + 1), isolated = false;
                     if(j != 0     && grid[i][j - 1] == '1') addEdge(i, j, i, j - 1), isolated = false;
                     if(isolated) addEdge(i, j, -1, -1);
                 }       
