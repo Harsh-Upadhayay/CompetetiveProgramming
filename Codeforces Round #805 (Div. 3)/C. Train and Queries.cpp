@@ -62,14 +62,14 @@ void solve(void){
     ll n, x; cin >> n >> x;
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    ll i = 0, ans = 0;
-    while(i < n) {
+    ll i = 0, ans = 0, itr = 5;
+    while(i < n && itr--) {
         ll maxDiff = ninf, mine = v[i], maxe = v[i];
         while(maxDiff <= 2 * x && i < n - 1 ) {
             i++;
-            maxDiff = max(maxDiff, abs(mine - maxe));
             mine = min(mine, v[i]);
             maxe = max(maxe, v[i]);
+            maxDiff = max(maxDiff, abs(mine - maxe));
             debug(mine, maxe, i, maxDiff);
         }
         debug('\n');
