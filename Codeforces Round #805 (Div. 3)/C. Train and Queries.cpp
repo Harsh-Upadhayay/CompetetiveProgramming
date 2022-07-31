@@ -71,6 +71,7 @@ void solve(void){
             mine = min(mine, v[i]);
             maxe = max(maxe, v[i]);
         }
+        cout << "F";
         debug(mine, maxe);
         if(i >= n-1) break;
         ans++;
