@@ -123,7 +123,7 @@ void solve(void){
                 }
             }
         }
-        cout << a;
+        debug(a);
         ans++, i++;  
 
     }
