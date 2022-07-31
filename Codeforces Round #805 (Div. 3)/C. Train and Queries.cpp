@@ -123,9 +123,8 @@ void solve(void){
                 }
             }
         }
-        else
-            ans++;
-        i++;  
+        
+        ans++, i++;  
 
     }
     cout << ans;
