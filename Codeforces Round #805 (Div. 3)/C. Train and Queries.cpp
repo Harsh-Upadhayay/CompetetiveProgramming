@@ -65,7 +65,7 @@ void solve(void){
     ll i = 0, ans = 0;
     while(i < n) {
         ll maxDiff = ninf, mine = v[i], maxe = v[i], itr = 5;
-        while(maxDiff <= 2 * x && i < n - 1 && itr--) {
+        while(maxDiff <= 2 * x && i < n - 1 ) {
             i++;
             maxDiff = max(maxDiff, abs(mine - maxe));
             mine = min(mine, v[i]);
