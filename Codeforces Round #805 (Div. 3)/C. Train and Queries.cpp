@@ -57,53 +57,23 @@ void init(){
     return;
 }
 
-int sumOddLengthSubarrays(vector<int>& arr) {
-    if(!(arr.size()/ 2))
-        return -1;
-    int sum = 0, n = arr.size();
-    if(n % 2) {
-        for(int _ = 0; _ < arr.size() / 2; _++) {
-            int i = _ + 1;
-            if(i % 2) {
-                sum += (arr[_] * (((i * (i + 1) / 2) - (i / 2)) + ((n + 1) / 2 - i) * i)) +
-                 (arr[n - _ - 1] * (((i * (i + 1) / 2) - (i / 2)) + ((n + 1) / 2 - i) * i));
-                // debug(i, (((i * (i + 1) / 2) - (i / 2)) + ((n + 1) / 2 - i) * i));
-                //  debug(sum);
-            }
-            else {
-                sum += (arr[_] * ( i * i / 2 + ((n + 1) / 2 - i) * i))  +
-                (arr[n - _ - 1] * ( i * i / 2 + ((n + 1) / 2 - i) * i) );
-                // debug(i, ( i * i / 2 + ((n + 1) / 2 - i) * i) );
-                // debug(sum);
-            }
-        }
-        int i = (n+1) /2;
-
-        sum += arr[i - 1] * (i % 2 ? ((i * (i + 1) / 2) - (i / 2)) : (i * i) / 2 );
-    }
-    else {
-        for(int _ = 0; _ < n / 2; _++) {
-            int i = _ + 1;
-            if(i % 2) {
-                debug(i, (i * (i + 1) / 2 + (n / 2 - i) * i));
-                sum += (arr[_] * (i * (i + 1) / 2 + (n / 2 - i) * i)) + 
-                        (arr[n - _ - 1] * (i * (i + 1) / 2 + (n / 2 - i) * i));
-            }
-            else {
-                debug(i, (((i * (i + 2)/ 2) - i/2) + (n / 2 - i) * i));
-                sum += (arr[_] * (((i * (i + 2)/ 2) - i/2) + (n / 2 - i) * i)) + 
-                        (arr[n - _ - 1] * (((i * (i + 2)/ 2) - i/2) + (n / 2 - i) * i));
-            }
-        }
-    }
-    // debug((i % 2 ? ((i * (i + 1) / 2) - (i / 2)) : (i * i) / 2 ));
-    return sum;
-}
 
 void solve(void){
-    int n; cin >> n;
-    vector<int> v(n); rpt(i, 0, n) cin >> v[i];
-    cout << sumOddLengthSubarrays(v);
+    ll n, m; cin >> n >> m;
+    string a, b; cin >> a >> b;
+
+    if(m > n) {   cout << "NO"; nl; return;    }
+
+    rpt(i, m, 1) {
+        if(a[i] != b[i]) {   cout << "NO"; nl; return;    }
+    }
+
+    rpt(i, 0, n - m) {
+        if(a[i] == b[0]) {   cout << "YES"; nl; return;    }
+    }
+    
+    {   cout << "NO"; nl; return;    }
+
     nl;
 }
 
