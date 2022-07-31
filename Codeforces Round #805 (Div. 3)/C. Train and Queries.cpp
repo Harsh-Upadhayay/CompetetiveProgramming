@@ -124,7 +124,6 @@ void solve(void){
             }
         }
         if(i >= n - 1) break;
-        debug(i);
         ans++, i++;  
 
     }
