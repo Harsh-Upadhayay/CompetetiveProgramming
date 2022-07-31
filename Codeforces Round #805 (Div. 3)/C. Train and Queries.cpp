@@ -74,6 +74,7 @@ void solve(void){
         debug(mine, maxe, i);
         if(i >= n-1) break;
         ans++;
+        i--;
     }
     cout << ans;
     nl;
