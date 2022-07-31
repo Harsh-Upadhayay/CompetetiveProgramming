@@ -122,6 +122,7 @@ void solve(void){
                 }
             }
     }
+    cout << ans;
 
     nl;
 }
