@@ -66,7 +66,7 @@ void solve(void){
     for(int i = 0; i < n; i++) {
         mine = min(mine, v[i]);
         maxe = max(maxe, v[i]);
-        cout << mine << maxe;
+        cout << mine << maxe << "\n";
         if(abs(mine - maxe) > 2 * x){
             debug(mine, maxe, i);
             ans++; mine = inf; maxe = ninf;
