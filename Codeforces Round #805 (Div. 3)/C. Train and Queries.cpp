@@ -91,6 +91,7 @@ void solve(void){
                 }
                 else {
                     if(v[i] < a) {
+                        debug("FG");
                         a -= (abs(a - v[i]) - x);
                         if(abs(maxNE - a) <= x && abs(maxPE - a) <= x) {
                             maxN = abs(maxNE - a); maxP = abs(maxPE - a);
