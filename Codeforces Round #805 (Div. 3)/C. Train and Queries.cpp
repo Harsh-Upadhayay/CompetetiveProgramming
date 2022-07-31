@@ -71,10 +71,10 @@ void solve(void){
             mine = min(mine, v[i]);
             maxe = max(maxe, v[i]);
         }
-        debug(mine, maxe, i);
         if(i >= n-1) break;
         ans++;
         i--;
+        debug(mine, maxe, i);
     }
     cout << ans;
     nl;
