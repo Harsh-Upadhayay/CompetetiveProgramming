@@ -71,6 +71,7 @@ void solve(void){
             mine = min(mine, v[i]);
             maxe = max(maxe, v[i]);
         }
+        debug(mine, maxe);
         ans++;
     }
     cout << ans;
