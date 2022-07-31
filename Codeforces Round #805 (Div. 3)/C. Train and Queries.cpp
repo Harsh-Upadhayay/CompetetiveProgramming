@@ -67,7 +67,7 @@ void solve(void){
         ll maxDiff = ninf, mine = v[i], maxe = v[i];
         if(maxDiff <= 2 * x){
             while(maxDiff <= 2 * x && i < n - 1 ) {
-                i++;cout <<"F";
+                i++;
                 mine = min(mine, v[i]);
                 maxe = max(maxe, v[i]);
                 maxDiff = max(maxDiff, abs(mine - maxe));
@@ -76,6 +76,7 @@ void solve(void){
             debug('\n');
             if(i >= n-1) break;
             i--;
+            debug(i);
         }    
         else
             i++;
