@@ -62,76 +62,18 @@ void solve(void){
     ll n, x; cin >> n >> x;
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    ll i = 1, a = v[0], ans = 0, maxP = ninf, maxPE, maxN = ninf, maxNE;
-
+    ll i = 0, ans = 0;
     while(i < n) {
-
-        if(v[i] > v[i - 1]){
-            a = v[i - 1] + x;
-            maxPE = v[i]; maxP = abs(v[i] - a); maxNE = v[i - 1]; maxN = abs(v[i-1] - a);
+        ll maxDiff = ninf, mine = v[i], maxe = v[i];;
+        while(maxDiff <= 2 * x && i < n) {
+            i++;
+            maxDiff = max(maxDiff, abs(mine - maxe));
+            mine = min(mine, v[i]);
+            maxe = max(maxe, v[i]);
         }
-        else{
-            a = v[i - 1] - x;
-            maxNE = v[i]; maxN = abs(v[i] - a); maxPE = v[i - 1]; maxP = abs(v[i-1] - a);
-        }
-        debug(v[i], a, ans);
-        if(abs(a - v[i]) <= x) {
-            while(i < n - 1) {
-                i++;
-                if(abs(a - v[i]) <= x) {
-                    if(v[i] <= x && maxN < abs(v[i] - a)){
-                        maxN = abs(v[i] - a);
-                        maxNE = v[i];
-                    }
-                    if(v[i] >= x && maxP < abs(v[i] - a)) {
-                        maxP = abs(v[i] -a);
-                        maxPE = v[i];
-                    }
-                    continue;
-                }
-                else {
-                    if(v[i] < a) {
-                        a -= (abs(a - v[i]) - x);
-                        if(abs(maxNE - a) <= x && abs(maxPE - a) <= x) {
-                            cout << a;
-                            maxN = abs(maxNE - a); maxP = abs(maxPE - a);
-                            if(v[i] <= x && maxN < abs(v[i] - a)){
-                                maxN = abs(v[i] - a);
-                                maxNE = v[i];
-                            }
-                            if(v[i] >= x && maxP < abs(v[i] - a)) {
-                                maxP = abs(v[i] -a);
-                                maxPE = v[i];
-                            }
-                        }
-                        else { break;};
-                    }
-                    else {
-                        a += (abs(a - v[i]) - x);
-                        if(abs(maxNE - a) <= x && abs(maxPE - a) <= x) {
-                            maxN = abs(maxNE - a); maxP = abs(maxPE - a);
-                            if(v[i] <= x && maxN < abs(v[i] - a)){
-                                maxN = abs(v[i] - a);
-                                maxNE = v[i];
-                            }
-                            if(v[i] >= x && maxP < abs(v[i] - a)) {
-                                maxP = abs(v[i] -a);
-                                maxPE = v[i];
-                            }
-                        }
-                        else { break;};
-                    }
-                }
-            }
-        }
-        else i++;
-        debug(a);
-        if(i >= n - 1) break;
-        ans++, i++;  
-
+        ans++;
     }
     cout << ans;
-
     nl;
 }
 
