@@ -67,11 +67,11 @@ void solve(void){
     while(i < n) {
 
         if(v[i] > v[i - 1]){
-            a += x;
+            a = v[i - 1] + x;
             maxPE = v[i]; maxP = abs(v[i] - a); maxNE = v[i - 1]; maxN = abs(v[i-1] - a);
         }
         else{
-            a -= x;
+            a = v[i - 1] - x;
             maxNE = v[i]; maxN = abs(v[i] - a); maxPE = v[i - 1]; maxP = abs(v[i-1] - a);
         }
 
