@@ -65,17 +65,21 @@ void solve(void){
     ll i = 0, ans = 0, itr = 5;
     while(i < n && itr--) {
         ll maxDiff = ninf, mine = v[i], maxe = v[i];
-        while(maxDiff <= 2 * x && i < n - 1 ) {
+        if(maxDiff <= 2 * x){
+            while(maxDiff <= 2 * x && i < n - 1 ) {
+                i++;
+                mine = min(mine, v[i]);
+                maxe = max(maxe, v[i]);
+                maxDiff = max(maxDiff, abs(mine - maxe));
+                debug(mine, maxe, i, maxDiff);
+            }
+            debug('\n');
+            if(i >= n-1) break;
+            i--;
+        }    
+        else
             i++;
-            mine = min(mine, v[i]);
-            maxe = max(maxe, v[i]);
-            maxDiff = max(maxDiff, abs(mine - maxe));
-            debug(mine, maxe, i, maxDiff);
-        }
-        debug('\n');
-        if(i >= n-1) break;
         ans++;
-        i--;
     }
     cout << ans;
     nl;
