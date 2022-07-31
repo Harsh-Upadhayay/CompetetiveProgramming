@@ -70,7 +70,7 @@ void solve(void){
             maxDiff = max(maxDiff, abs(mine - maxe));
             mine = min(mine, v[i]);
             maxe = max(maxe, v[i]);
-            debug(mine, maxe, i);
+            debug(mine, maxe, i, maxDiff);
         }
         debug('\n');
         if(i >= n-1) break;
