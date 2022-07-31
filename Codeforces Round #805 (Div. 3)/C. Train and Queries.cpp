@@ -77,7 +77,7 @@ void solve(void){
 
         debug(a);
         if(abs(a - v[i]) <= x) {
-            while(i < n ) {
+            while(i < n - 1) {
                 i++;
                 if(abs(a - v[i]) <= x) {
                     if(v[i] <= x && maxN < abs(v[i] - a)){
