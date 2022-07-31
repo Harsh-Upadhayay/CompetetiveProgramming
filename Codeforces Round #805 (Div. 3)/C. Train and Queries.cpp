@@ -123,7 +123,7 @@ void solve(void){
                 }
             }
         }
-        if(i >= n) break;
+        if(i >= n - 1) break;
         debug(i);
         ans++, i++;  
 
