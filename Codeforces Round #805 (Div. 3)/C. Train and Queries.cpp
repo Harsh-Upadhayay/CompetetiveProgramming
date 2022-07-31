@@ -72,9 +72,9 @@ int sumOddLengthSubarrays(vector<int>& arr) {
             debug(i, ( i * i / 2 + ((n + 1) / 2 - i) * i) );
         }
     }
-    int i = n /2;
-    debug(sum);
-    sum += (arr[n / 2] % 2 ? ((i * (i + 1) / 2) - (i / 2)) : (i * i) / 2 );
+    int i = (n+1) /2;
+
+    sum += (i % 2 ? ((i * (i + 1) / 2) - (i / 2)) : (i * i) / 2 );
     return sum;
 }
 
