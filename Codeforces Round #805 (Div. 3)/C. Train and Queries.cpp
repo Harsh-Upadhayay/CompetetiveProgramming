@@ -64,9 +64,9 @@ void solve(void){
 
     if(m > n) {   cout << "NO"; nl; return;    }
 
-    rpt(i, n, m - 1) {
+    rpt(i, 0, m - 1) {
         debug(i, a[i], b[i]);
-        if(a[i] != b[i]) {   cout << "NsO"; nl; return;    }
+        if(a[n - i - 1] != b[m - i - 1]) {   cout << "NsO"; nl; return;    }
     }
 
     rpt(i, 0, n - m) {
