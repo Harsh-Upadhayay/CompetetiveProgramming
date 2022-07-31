@@ -62,25 +62,13 @@ void solve(void){
     ll n, x; cin >> n >> x;
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    ll i = 0, ans = 0, itr = 6;
-    while(i < n && itr--) {
-        ll maxDiff = ninf, mine = v[i], maxe = v[i];
-        if(maxDiff <= 2 * x){
-            while(maxDiff <= 2 * x && i < n - 1 ) {
-                i++;
-                mine = min(mine, v[i]);
-                maxe = max(maxe, v[i]);
-                maxDiff = max(maxDiff, abs(mine - maxe));
-                debug(mine, maxe, i, maxDiff);
-            }
-            debug('\n');
-            if(i >= n-1) break;
-            i--;
-            debug(i);
-        }    
-        else
-            i++;
-        ans++;
+    ll ans = 0, mine = inf, maxe = ninf;
+    for(int i = 0; i < n; i++) {
+        mine = min(mine, v[i]);
+        maxe = max(maxe, v[i]);
+        if(abs(mine - maxe) > 2 * x){
+            ans++; mine = inf; maxe = ninf;
+        }
     }
     cout << ans;
     nl;
