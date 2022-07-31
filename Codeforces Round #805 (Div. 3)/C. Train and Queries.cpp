@@ -64,12 +64,12 @@ void solve(void){
 
     if(m > n) {   cout << "NO"; nl; return;    }
 
-    rpt(i, 0, m - 1) {
-        debug(i, a[i], b[i]);
-        if(a[n - i - 1] != b[m - i - 1]) {   cout << "NO"; nl; return;    }
+    rpt(i, 0, m - 1) {        if(a[n - i - 1] != b[m - i - 1]) {   cout << "NO"; nl; return;    }
     }
 
     rpt(i, 0, n - m) {
+        debug(i, a[i], b[i]);
+
         if(a[i] == b[0]) {   cout << "YES"; nl; return;    }
     }
 
