@@ -75,7 +75,7 @@ void solve(void){
             maxNE = v[i]; maxN = abs(v[i] - a); maxPE = v[i - 1]; maxP = abs(v[i-1] - a);
         }
 
-        debug(i, v[i]);
+        debug(a);
         if(abs(a - v[i]) <= x) {
             while(i < n - 1) {
                 i++;
