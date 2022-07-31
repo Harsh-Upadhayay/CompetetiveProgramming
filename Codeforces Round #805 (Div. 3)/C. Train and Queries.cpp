@@ -57,71 +57,29 @@ void init(){
     return;
 }
 
-class Solution {
-    
-    map<pair<int, int>, list<pair<int, int>>> graph;
-    set<pair<int, int>> visited;
-    
-    void addEdge(int i, int j, int u, int v) {
-        graph[{i, j}].push_back({u, v});
-        if(u != -1 && v != -1)
-            graph[{u, v}].push_back({i, j});
+int sumOddLengthSubarrays(vector<int>& arr) {
+    if(!(arr.size()/ 2))
+        return -1;
+    int sum = 0, n = arr.size();
+    for(int _ = 0; _ < arr.size() / 2; _++) {
+        int i = _ + 1;
+        if(i % 2) {
+            sum +=  arr[_] * (((i * (i + 1) / 2) - (i / 2)) + ((n + 1) / 2 - i - 1) * i) + arr[arr.size() - 1 - i] * (((i * (i + 1) / 2) - (i / 2)) + ((n + 1) / 2 - i - 1) * i);
+        }
+        else {
+            sum += arr[_] *  ( i * i / 2 + ((n + 1) / 2 - i) * i) + arr[arr.size() -1-i] *  ( i * i / 2 + ((n + 1) / 2 - i) * i); 
+        }
+        debug(sum);
     }
-    
-    void build(vector<vector<char>> &grid) {
-        
-        graph.clear();
-        visited.clear();
-        int n = grid.size(), m = grid[0].size();
-        map<pair<int, int>, list<pair<int, int>>> graph;
-        
-        for(int i = 0; i < n; i++)
-            for(int j = 0; j < m; j++) 
-                if(grid[i][j] == '1') {
-                    bool isolated = true;
-                    if(i != 0     && grid[i - 1][j] == '1') addEdge(i, j, i - 1, j), isolated = false;
-                    if(i != n - 1 && grid[i + 1][j] == '1') addEdge(i, j, i + 1, j), isolated = false;
-                    if(j != m - 1 && grid[i][j + 1] == '1') addEdge(i, j, i, j + 1), isolated = false;
-                    if(j != 0     && grid[i][j - 1] == '1') addEdge(i, j, i, j - 1), isolated = false;
-                    if(isolated) addEdge(i, j, -1, -1);
-                }       
-    }
-    
-    void dfs(pair<int, int> source) {
-        if(visited.count(source))
-            return;
-        visited.insert(source);
-        
-        for(auto node : graph[source])
-            dfs(node);
-    }
-    
-public:
-    
-    int numIslands(vector<vector<char>>& grid) {
-        
-        build(grid);
-        
-        int islands = 0;
-        for(auto node : graph) 
-            if(!visited.count(node.first))
-                dfs(node.first), islands++;
-        
-        return islands;
-    }
-};
+    int i = n /2;
+    sum += (arr[n / 2] % 2 ? ((i * (i + 1) / 2) - (i / 2)) : (i * i) / 2 );
+    return sum;
+}
 
 void solve(void){
-    
-    int n, m; cin >> n >> m;
-    vector<vector<int>> grid(n, vector<int> (m));
-    vector<vector<char>> v(n, vector<char> (m));
-
-    rpt(i, 0, n) rpt(j, 0, m) cin >> grid[i][j];
-    rpt(i, 0, n) rpt(j, 0, m) v[i][j] = (grid[i][j] ? '1' : '0');
-    Solution obj;
-    cout << obj.numIslands(v);
-
+    int n; cin >> n;
+    vector<int> v(n); rpt(i, 0, n) cin >> v[i];
+    cout << sumOddLengthSubarrays(v);
     nl;
 }
 
