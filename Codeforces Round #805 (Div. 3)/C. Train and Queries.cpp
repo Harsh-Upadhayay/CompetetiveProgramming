@@ -91,8 +91,8 @@ void solve(void){
                 }
                 else {
                     if(v[i] < a) {
-                        debug("FG");
                         a -= (abs(a - v[i]) - x);
+                        cout << a;
                         if(abs(maxNE - a) <= x && abs(maxPE - a) <= x) {
                             maxN = abs(maxNE - a); maxP = abs(maxPE - a);
                             if(v[i] <= x && maxN < abs(v[i] - a)){
