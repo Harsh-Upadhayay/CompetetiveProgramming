@@ -62,12 +62,12 @@ void solve(void){
     ll n, x; cin >> n >> x;
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    ll i = 0, ans = 0, itr = 5;
+    ll i = 0, ans = 0, itr = 6;
     while(i < n && itr--) {
         ll maxDiff = ninf, mine = v[i], maxe = v[i];
         if(maxDiff <= 2 * x){
             while(maxDiff <= 2 * x && i < n - 1 ) {
-                i++;
+                i++;cout <<"F";
                 mine = min(mine, v[i]);
                 maxe = max(maxe, v[i]);
                 maxDiff = max(maxDiff, abs(mine - maxe));
