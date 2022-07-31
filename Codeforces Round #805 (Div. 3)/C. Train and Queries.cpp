@@ -65,13 +65,13 @@ void solve(void){
     if(m > n) {   cout << "NO"; nl; return;    }
 
     rpt(i, m, 1) {
-        if(a[i] != b[i]) {   cout << "NO"; nl; return;    }
+        if(a[i] != b[i]) {   cout << "NsO"; nl; return;    }
     }
 
     rpt(i, 0, n - m) {
         if(a[i] == b[0]) {   cout << "YES"; nl; return;    }
     }
-    
+
     {   cout << "NO"; nl; return;    }
 
     nl;
