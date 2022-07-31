@@ -68,6 +68,7 @@ void solve(void){
         maxe = max(maxe, v[i]);
         cout << mine << maxe << "\n";
         if(abs(mine - maxe) > 2 * x){
+            i--;
             ans++; mine = inf; maxe = ninf;
         }
     }
