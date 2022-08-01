@@ -61,8 +61,7 @@ void init(){
 void solve(void){
     ll a, b; cin >> a >> b;
     if(a < 4) {
-        if(a == b) yes
-        else if(a == 2 && b == 3 || a == 3 && b == 2) yes
+        if(a >= b) yes
         else no;
     }
     else yes;
