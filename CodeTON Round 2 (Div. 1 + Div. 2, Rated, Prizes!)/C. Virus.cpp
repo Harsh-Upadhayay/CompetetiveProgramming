@@ -67,6 +67,7 @@ void solve(void){
     sort(all(diff), greater<ll> ());
 
     ll op = 0, inft = 0;
+    debug(diff);
     for(auto &x : diff) {
         x -= inft;
         if(x > 0) {
