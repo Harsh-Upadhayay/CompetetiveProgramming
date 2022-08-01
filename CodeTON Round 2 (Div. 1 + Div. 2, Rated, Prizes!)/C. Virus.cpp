@@ -61,9 +61,29 @@ void init(){
 void solve(void){
     ll n, m; cin >> n >> m;
     vll v(m); rpt(i, 0, m) cin >> v[i];
+    
     vll diff(m); rpt(i, 0, m - 1) diff[i] = max(ninf, abs(v[i] - v[i + 1]) - 1);
     diff[m - 1] = abs(v[0] - v[m - 1] % n) - 1;
-    print(diff);
+    sort(all(diff));
+
+    ll op = 0, inft = 0;
+    for(auto &x : diff) {
+        x -= inft;
+        if(x > 0) {
+            if(x <= 2)
+                x = 1, inft += 2, op += 1;
+            else
+                x -= 1, inft += 4, op += 2;
+        }
+        else break;
+    }
+
+    ll ans = 0;
+    for(auto x : diff)
+        if(x > 0) ans += x;
+
+    cout << n - ans;
+
     nl;
 }
 
