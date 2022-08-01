@@ -59,7 +59,7 @@ void init(){
 
 
 void solve(void){
-    ll n, k; cin >> n >> k; cout << n <<  k;
+    ll n, k; cin >> n >> k; 
     deque<ll> d;
     set<ll> onscreen;
     rpt(i, 0, n) {
