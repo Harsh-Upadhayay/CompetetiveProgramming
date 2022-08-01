@@ -68,7 +68,7 @@ void solve(void){
             continue;
         onscreen.insert(x);
         if(d.size() == k)
-            d.pop_back(), onscreen.erase(x);
+            onscreen.erase(d.back()), d.pop_back();
         d.push_front(x);
     }
     for(auto x : d)
