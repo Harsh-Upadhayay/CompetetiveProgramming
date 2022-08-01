@@ -63,7 +63,7 @@ void solve(void){
     vll v(m); rpt(i, 0, m) cin >> v[i];
     
     vll diff(m); rpt(i, 0, m - 1) diff[i] = max(ninf, abs(v[i] - v[i + 1]) - 1);
-    diff[m - 1] = v[0] + n - v[m - 1] ;
+    diff[m - 1] = v[0] + n - v[m - 1] - 1;
     debug(diff);
     sort(all(diff), greater<ll> ());
 
