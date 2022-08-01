@@ -64,7 +64,6 @@ void solve(void){
     set<ll> onscreen;
     rpt(i, 0, n) {
         ll x; cin >> x;
-        cout << x << " ";
         if(onscreen.count(x))
             continue;
         onscreen.insert(x);
