@@ -71,6 +71,7 @@ void solve(void){
             onscreen.erase(d.back()), d.pop_back();
         d.push_front(x);
     }
+    cout << d.size() << "\n";
     for(auto x : d)
         cout << x << " ";
     nl;
