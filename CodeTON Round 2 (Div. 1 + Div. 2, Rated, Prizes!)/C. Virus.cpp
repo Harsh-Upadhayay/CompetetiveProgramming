@@ -64,7 +64,7 @@ void solve(void){
     
     vll diff(m); rpt(i, 0, m - 1) diff[i] = max(ninf, abs(v[i] - v[i + 1]) - 1);
     diff[m - 1] = abs(v[0] - v[m - 1] % n) - 1;
-    sort(all(diff));
+    sort(all(diff), greater<ll> ());
 
     ll op = 0, inft = 0;
     for(auto &x : diff) {
