@@ -80,7 +80,8 @@ void solve(void){
     ll ans = 0;
     for(auto x : diff)
         if(x > 0) ans += x;
-    print(diff);
+        else break;
+
     cout << n - ans;
 
     nl;
