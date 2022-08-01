@@ -61,7 +61,7 @@ void init(){
 void solve(void){
     ll n, m; cin >> n >> m;
     vll v(m); rpt(i, 0, m) cin >> v[i];
-    vll diff(m); rpt(i, 0, m - 1) diff[i] = max(ninf, abs(v[i] - v[(i + 1)] - 1));
+    vll diff(m); rpt(i, 0, m - 1) diff[i] = max(ninf, abs(v[i] - v[(i + 1) % n] - 1));
     print(diff);
     nl;
 }
