@@ -78,6 +78,7 @@ void solve(void){
         else break;
     }
     ll ans = 0;
+    debug(diff);
     for(auto x : diff)
         if(x > 0) ans += x;
         else break;
