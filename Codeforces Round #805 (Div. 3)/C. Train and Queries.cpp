@@ -66,13 +66,13 @@ void solve(void){
     rpt(i, 0, n)
         rpt(j, 0, n)
             if(i != j && i + j != n-1)   
-                    flag &= grid[i][j] == ch;
-    flag &= ch != grid[0][0];
+                    flag &= (grid[i][j] == ch);
+    flag &= (ch != grid[0][0]);
     ch = grid[0][0];
     rpt(i, 0, n)
         rpt(j, 0, n)
             if(i == j || i + j == n - 1)
-                flag &= grid[i][j] == ch;
+                flag &= (grid[i][j] == ch);
 
     cout << (flag ? "YES":"NO");    
     nl;
