@@ -62,7 +62,7 @@ void solve(void){
     ll n, m; cin >> n >> m;
     vll v(m); rpt(i, 0, m) cin >> v[i];
     if(n == m) {
-        cout << "0\n"; return;
+        cout << n << "\n"; return;
     }
     sort(all(v));
     vll diff(m); rpt(i, 0, m - 1) diff[i] = max(ninf, abs(v[i] - v[i + 1]) - 1);
