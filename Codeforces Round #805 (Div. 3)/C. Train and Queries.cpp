@@ -31,7 +31,7 @@ using namespace std;
 #define yes                     cout << "YES";
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
-#define TESTCASE
+#define TESTCAS
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -59,21 +59,22 @@ void init(){
 
 
 void solve(void){
-    ll n, x; cin >> n >> x;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
-
-    ll ans = 0, mine = inf, maxe = ninf;
-    for(int i = 0; i < n; i++) {
-        mine = min(mine, v[i]);
-        maxe = max(maxe, v[i]);
-        // cout << mine << maxe << "\n";
-        if(abs(mine - maxe) > 2 * x){
-            i--;
-            ans++; mine = inf; maxe = ninf;
-        }
-    }
-
-    cout << ans;
+    ll n; cin >> n;
+    vector<string> grid(n); rpt(i, 0, n) cin >> grid[i];
+    char ch = grid[0][1];
+    bool flag = true;
+    rpt(i, 0, n)
+        rpt(j, 0, n)
+            if(i != j && i + j != n-1)
+                if(grid[i][j] != ch)    
+                    flag = false;
+    ch = grid[0][0];
+    rpt(i, 0, n)
+        rpt(j, 0, n)
+            if(i == j || i + j == n - 1)
+                if(grid[i][j] != ch)
+                    flag = false;
+    cout << (flag ? "YES":"NO");    
     nl;
 }
 
