@@ -81,7 +81,7 @@ void solve(void){
     ll ans = 0;
     for(auto x : diff)
         if(x > 0) ans += x;
-
+    debug(ans);
     cout << n - ans;
 
     nl;
