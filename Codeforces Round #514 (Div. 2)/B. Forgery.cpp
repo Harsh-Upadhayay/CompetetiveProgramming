@@ -61,7 +61,7 @@ bool allInked(vector<string> v, ll c_i, ll c_j) {
     for(int i = c_j - 1; i <= c_j + 1; i++)
         if(v[c_i - 1][i] != '#' || v[c_i + 1][i] != '#')
             return false;
-    return v[c_i][c_j] == '.' && v[c_i][c_j - 1] == '#' && v[c_i][c_j + 1] == '#';
+    return  v[c_i][c_j - 1] == '#' && v[c_i][c_j + 1] == '#';
 }
 
 void copy(vector<string> &b, ll c_i, ll c_j) {
