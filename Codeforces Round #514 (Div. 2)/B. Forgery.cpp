@@ -57,11 +57,47 @@ void init(){
     return;
 }
 
+bool allInked(vector<string> v, ll c_i, ll c_j) {
+    for(int i = c_j - 1; i <= c_j + 1; i++)
+        if(v[c_i - 1][i] != '#' || v[c_i + 1][i] != '#')
+            return false;
+    return v[c_i][c_j] == '.' && v[c_i][c_j - 1] == '#' && v[c_i][c_j + 1] == '#';
+}
+
+void copy(vector<string> b, ll c_i, ll c_j) {
+
+    for(int i = c_j - 1; i <= c_j + 1; i++)
+        b[c_i - 1][i] = '#', b[c_i + 1][i] = '#';
+        b[c_i][c_j] = '.', b[c_i][c_j - 1] = '#', b[c_i][c_j + 1] = '#';
+}
+
+bool isSame(vector<string> a,vector<string> b) {
+    rpt(i, 0, a.size())
+        if(a[i] != b[i])
+            return false;
+    return true;
+}
 
 void solve(void){
     ll n, m; cin >> n >> m;
     vector<string> grid(n); rpt(i, 0, n) cin >> grid[i];
-    debug(grid);
+    vector<string> forgery(n);
+    string dot = ".";
+    rpt(i, 0, m)
+        dot += '.';
+    rpt(i, 0, n)
+        forgery[i] = dot;
+    rpt(i, 1, n - 1) {
+        rpt(j, 1, m - 1) {
+            if(allInked(grid, i, j))
+                copy(forgery, i, j);
+        }
+    }
+    
+    if(isSame(grid, forgery))
+        cout << "YES";
+    else 
+        cout << "NO";
     nl;
 }
 
