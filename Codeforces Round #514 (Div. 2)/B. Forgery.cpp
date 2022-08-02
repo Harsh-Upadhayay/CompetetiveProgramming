@@ -68,7 +68,8 @@ void copy(vector<string> &b, ll c_i, ll c_j) {
 
     for(int i = c_j - 1; i <= c_j + 1; i++)
         b[c_i - 1][i] = '#', b[c_i + 1][i] = '#';
-        b[c_i][c_j] = '.', b[c_i][c_j - 1] = '#', b[c_i][c_j + 1] = '#';
+        b[c_i][c_j - 1] = '#', b[c_i][c_j + 1] = '#';
+        
 }
 
 bool isSame(vector<string> a,vector<string> b) {
