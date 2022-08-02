@@ -93,7 +93,7 @@ void solve(void){
                 copy(forgery, i, j);
         }
     }
-    
+    debug(forgery);
     if(isSame(grid, forgery))
         cout << "YES";
     else 
