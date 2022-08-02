@@ -55,6 +55,10 @@ void storePrimes();
 void init(){
     ll n, totTime, brTime; cin >> n >> totTime >> brTime;
     
+    if(!n) {
+        cout << (n / brTime) << endl;return;
+    }
+
     vector<pair<ll, ll>> v;
     rpt(i, 0, n) {
         ll a, b; cin >> a >> b; v.pb({a, b + a});
