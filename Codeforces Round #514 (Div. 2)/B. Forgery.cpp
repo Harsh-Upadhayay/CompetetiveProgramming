@@ -61,7 +61,7 @@ void init(){
 void solve(void){
     ll n, m; cin >> n >> m;
     vector<string> grid(n); rpt(i, 0, n) cin >> grid[i];
-    print(grid);
+    debug(grid);
     nl;
 }
 
