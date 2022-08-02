@@ -64,7 +64,7 @@ bool allInked(vector<string> v, ll c_i, ll c_j) {
     return v[c_i][c_j] == '.' && v[c_i][c_j - 1] == '#' && v[c_i][c_j + 1] == '#';
 }
 
-void copy(vector<string> b, ll c_i, ll c_j) {
+void copy(vector<string> &b, ll c_i, ll c_j) {
 
     for(int i = c_j - 1; i <= c_j + 1; i++)
         b[c_i - 1][i] = '#', b[c_i + 1][i] = '#';
