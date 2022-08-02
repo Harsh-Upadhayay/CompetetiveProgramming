@@ -82,7 +82,7 @@ void solve(void){
     ll n, m; cin >> n >> m;
     vector<string> grid(n); rpt(i, 0, n) cin >> grid[i];
     vector<string> forgery(n);
-    string dot = ".";
+    string dot = "";
     rpt(i, 0, m)
         dot += '.';
     rpt(i, 0, n)
