@@ -106,7 +106,7 @@ void solve(void){
     rpt(i, 1, n - 1) {
         rpt(j, 1, m - 1) {
             if(grid[i][j] == '.' && !allInked(grid, i, j)) {
-                no;nl;
+                no;nl;return;
             }
 
         }
