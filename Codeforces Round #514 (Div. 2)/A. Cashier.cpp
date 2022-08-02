@@ -56,7 +56,7 @@ void init(){
     ll n, totTime, brTime; cin >> n >> totTime >> brTime;
     
     if(!n) {
-        cout << (n / brTime) << endl;return;
+        cout << (totTime / brTime) << endl;return;
     }
 
     vector<pair<ll, ll>> v;
