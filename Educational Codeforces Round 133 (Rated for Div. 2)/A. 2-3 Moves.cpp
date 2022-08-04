@@ -61,7 +61,7 @@ void init(){
 void solve(void){
     ll n; cin >> n;
     if(n % 3)
-        cout << (n / 3 + 1);
+        cout << (n == 1 + n / 3 + 1);
     else 
         cout << (n / 3);
     nl;
