@@ -31,7 +31,7 @@ using namespace std;
 #define yes                     cout << "YES";
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
-#define kill(x)                 {cout << x; return;}
+#define kill(x)                 { return 1;}
 #define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
@@ -58,16 +58,21 @@ void init(){
     return;
 }
 
+int stress(int n, int k) {
+ 
+    int s=((-n)%k+k)%k;
+    return 1+(s+n-1)/n;
+}
 
-void solve(void){
-    ll n, k;  cin >> n >> k;
+int solve(int n, int k){
+    // ll n, k;  cin >> n >> k;
 
     if(1 == k) kill("1\n");
     int i = 1;
     while(k < n)
-        k *= i++;
+        k *= ++i;
     // cout << k << "\n";
-    cout << (k / n + (k % n > 0));
+    return (k / n + (k % n > 0));
 
     nl;
 }
@@ -97,8 +102,11 @@ int main() {
         cin >> t;
     #endif
 
-    while(t--) 
-        solve();
+    while(t--) { 
+        int n = rand() % 200, k = rand() % 200;
+        if(solve(n, k) != stress(n, k))
+            cout << n << " " << k << " " << stress(n, k);
+    }
 
     return 0;
 }
