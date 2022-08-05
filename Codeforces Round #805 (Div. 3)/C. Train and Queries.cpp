@@ -31,6 +31,7 @@ using namespace std;
 #define yes                     cout << "YES";
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
+#define kill(x)                 {cout << x ; return;} 
 #define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
@@ -61,6 +62,8 @@ void init(){
 void solve(void){
     ll a, b; cin >> a >> b;    
     int f = 3 * b - 1, k = 2 * b - 1;
+    if(a % b == 0 || b % a == 0)
+        kill("NO\n")
     yes nl
     cout << a * b << " " << k * a << " " << f * a;                                        
     nl;
