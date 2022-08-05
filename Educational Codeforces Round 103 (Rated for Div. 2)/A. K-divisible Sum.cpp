@@ -63,7 +63,9 @@ void solve(void){
     ll n, k;  cin >> n >> k;
 
     if(1 == k) kill("1\n");
-    cout << max(1, 2, 3) << "\n";
+    int a = 1, b = 2, c = 3;
+
+    cout << min(a, b, c) << "\n";
     int i = 1;
     while(k < n)
         k *= i++;
