@@ -63,12 +63,11 @@ void solve(void){
     ll n, k;  cin >> n >> k;
 
     if(1 == k) kill("1\n");
-
+    cout << max({1, 2, 3});
     int i = 1;
     while(k < n)
         k *= i++;
     // cout << k << "\n";
-    debug(k);
     cout << (k / n + (k % n > 0));
 
     nl;
