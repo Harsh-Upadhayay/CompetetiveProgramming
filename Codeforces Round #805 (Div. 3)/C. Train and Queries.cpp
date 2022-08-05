@@ -59,7 +59,10 @@ void init(){
 
 
 void solve(void){
-    
+    ll a, b; cin >> a >> b;    
+    int f = 3 * b - 1, k = 2 * b - 1;
+    yes nl
+    cout << a * b << " " << k * a << " " << f * a;                                        
     nl;
 }
 
