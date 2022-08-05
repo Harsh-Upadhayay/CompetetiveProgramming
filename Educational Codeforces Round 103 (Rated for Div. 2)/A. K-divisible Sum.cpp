@@ -64,7 +64,7 @@ void solve(void){
     int i = 1;
     while(n > k)
         k *= i++;
-
+    cout << k << " ";
     cout << (n / k + (n % k > 0));
 
     nl;
