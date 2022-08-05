@@ -105,7 +105,7 @@ int main() {
     while(t--) { 
         int n = rand() % 200, k = rand() % 200;
         if(solve(n, k) != stress(n, k)){
-            cout << n << " " << k << " " << stress(n, k);
+            cout << n << " " << k << " " << solve(n, k) << " " << stress(n, k);
             break;
         }
     }
