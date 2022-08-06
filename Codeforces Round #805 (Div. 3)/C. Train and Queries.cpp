@@ -63,6 +63,13 @@ ll toInt(string s) {
     return 0;
 }
 
+string sub(string s, int start, int len) {
+    string substr = "";
+    for(int i = start; i < min((int)s.size(), start + len); i++)
+        substr += s[i];
+    return substr;
+}
+
 void solve(void){
     // ll n; cin >> n;
 
@@ -72,7 +79,7 @@ void solve(void){
     // }
     string s = "2121–01–21";
     string j = "0123456789";
-    cout << s.substr(1, 4);
+    cout << sub(s, 1, 5);
     nl;
 }
 
