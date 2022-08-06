@@ -81,7 +81,7 @@ void solve(void){
         }
     }
     for(int i = 0; i < n; i++) {
-        cout << i + v[i] << " ";
+        cout << v[i] << " ";
     }
     // print(v);
     nl;
