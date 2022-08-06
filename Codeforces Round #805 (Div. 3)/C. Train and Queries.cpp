@@ -57,34 +57,22 @@ void init(){
     return;
 }
 
-void dfs(map<int, list<int>> &adj, vector<int> &visited, int s, int f) {
-    if(visited[s])
-        return;
-    visited[s] = f;
-
-    for(auto x : adj[s])
-        dfs(adj, visited, x, f);
-    
-}
 
 void solve(void){
-    int c, r, q; cin >> c >> r >> q;
-    map<int, list<int>> adj;
-    for(int i = 0; i < r; i++) {
-        int u, v; cin >> u >> v;
-        adj[u].push_back(v);
-        adj[v].push_back(u);
+    ll n; cin >> n;
+    ll l = 0, r = 0, u = 0, d = 0;
+    rpt(i, 0, n) {
+        ll x, y; cin >> x >> y;
+        if(x < 0)
+            l = min(l, x);
+        else if(y < 0)
+            d = min(d, y);
+        else if(x > 0)
+            r = max(r, x);
+        else if(y > 0)
+            u = max(u, y);
     }
-
-    vector<int> visited(c + 1, 0);
-    int f = 1;
-    for(int i = 1; i <= c; i++) {
-        if(!visited[i]) {
-            dfs(adj, visited, i, f);
-            f++;
-        }
-    }
-    print(visited);
+    cout << (2*l + 2*r + 2*u + 2*d);
     nl;
 }
 
