@@ -62,8 +62,9 @@ void dfs(map<int, list<int>> &adj, vector<int> &visited, int s, int f) {
         return;
     visited[s] = f;
 
-    for(auto x : adj[s])
-        dfs(adj, visited, s, f);
+    for(auto x : adj[s]){
+        dfs(adj, visited, x, f);
+    }
 }
 
 void solve(void){
@@ -78,7 +79,7 @@ void solve(void){
     vector<int> visited(c + 1, 0);
     int f = 1;
     for(int i = 1; i <= c; i++) {
-        if(visited[i] == 0) {
+        if(!visited[i]) {
             dfs(adj, visited, i, f);
             f++;
         }
