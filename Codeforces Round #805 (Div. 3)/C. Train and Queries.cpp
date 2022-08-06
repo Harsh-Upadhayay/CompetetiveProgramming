@@ -73,12 +73,12 @@ void solve(void){
             available.erase(req);
             v[i] = req;
             v[req] = i;
+        debug(v);
         }
         else {
             debug(start);
             start--, i--;
         }
-        debug(v);
     }
     debug(v);
     nl;
