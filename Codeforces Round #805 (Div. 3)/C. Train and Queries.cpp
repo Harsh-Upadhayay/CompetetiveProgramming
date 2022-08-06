@@ -60,6 +60,7 @@ void init(){
 ll toInt(string s) {
     int yr, mn, day;
     cout << stoi(s);
+    return 0;
 }
 
 void solve(void){
