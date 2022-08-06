@@ -70,7 +70,7 @@ void solve(void){
     // rpt(i, 0, n) {
     //     string start, end; 
     // }
-    cout << toInt("2120");
+    cout << toInt("2121–01–21");
     nl;
 }
 
