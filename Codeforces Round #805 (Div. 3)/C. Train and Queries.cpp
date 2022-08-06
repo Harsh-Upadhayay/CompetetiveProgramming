@@ -78,7 +78,7 @@ void solve(void){
     vector<int> visited(c + 1, 0);
     int f = 1;
     for(int i = 1; i <= c; i++) {
-        if(!visited[i]) {
+        if(visited[i] == 0) {
             dfs(adj, visited, i, f);
             f++;
         }
