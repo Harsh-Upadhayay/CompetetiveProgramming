@@ -72,7 +72,7 @@ void solve(void){
     // }
     string s = "2121–01–21";
     string j = "0123456789";
-    cout << s.substr(1, 4);
+    cout << s.substr(1, 7);
     nl;
 }
 
