@@ -63,7 +63,7 @@ void solve(void){
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
     int i = 0;
-    for(; i < n - 1 && v[i] < v[i+1]; i++);
+    for(; i < n - 1 && v[i] <= v[i+1]; i++);
     debug(i);
     for(; i < n - 1; i++)
         if(v[i] < v[i+1]) {
