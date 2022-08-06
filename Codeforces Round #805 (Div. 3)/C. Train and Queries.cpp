@@ -72,7 +72,7 @@ void solve(void){
         else if(y > 0)
             u = max(u, y);
     }
-    cout << (2*l + 2*r + 2*u + 2*d);
+    cout << (2*r + 2*u - 2*d - 2*l);
     nl;
 }
 
