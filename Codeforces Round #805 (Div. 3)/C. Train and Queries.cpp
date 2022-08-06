@@ -67,6 +67,7 @@ void solve(void){
     
     for(; i < n - 1; i++)
         if(v[i] < v[i+1]) {
+                print(v);
                 no; nl; return;
         }
     yes;
