@@ -60,18 +60,7 @@ void init(){
 
 void solve(void){
     ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
-
-    int i = 0;
-    for(; i < n - 1 && v[i] <= v[i+1]; i++);
-    debug(i);
-    for(; i < n - 1; i++)
-        if(v[i] < v[i+1]) {
-                no; nl; return;
-        }
-
-    // print(v);
-    yes;
+    ll startsq = (int)ceil(sqrt(n))*ceil(sqrt(n));
     nl;
 }
 
