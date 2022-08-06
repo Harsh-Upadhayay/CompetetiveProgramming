@@ -82,7 +82,6 @@ void solve(void){
     }
     print(v);
     nl;
-    exit(0);
 }
 
 
