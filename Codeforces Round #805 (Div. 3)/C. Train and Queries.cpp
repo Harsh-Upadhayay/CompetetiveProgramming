@@ -60,19 +60,11 @@ void init(){
 
 void solve(void){
     ll n; cin >> n;
-    ll l = 0, r = 0, u = 0, d = 0;
-    rpt(i, 0, n) {
-        ll x, y; cin >> x >> y;
-        if(x < 0)
-            l = min(l, x);
-        else if(y < 0)
-            d = min(d, y);
-        else if(x > 0)
-            r = max(r, x);
-        else if(y > 0)
-            u = max(u, y);
-    }
-    cout << (2*r + 2*u - 2*d - 2*l);
+    vll v(n); rpt(i, 0, n) cin >> v[i];
+
+    int i = 0;
+    for(; i < n - 1 && v[i] < v[i+1]; i++);
+    cout << i;
     nl;
 }
 
