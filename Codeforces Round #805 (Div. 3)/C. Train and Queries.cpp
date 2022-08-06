@@ -67,6 +67,7 @@ void solve(void){
     rpt(i, 0, n) available.insert(i);
     rpt(i, n, 0) {
         if(v[i] != -1) continue;
+        debug(start);
         int req = start*start - i;
         if(available.count(req)) {
             available.erase(i);
@@ -76,7 +77,6 @@ void solve(void){
         debug(v);
         }
         else {
-            debug(start);
             start--, i--;
         }
     }
