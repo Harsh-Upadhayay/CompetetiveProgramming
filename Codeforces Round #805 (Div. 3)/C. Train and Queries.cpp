@@ -60,7 +60,25 @@ void init(){
 
 void solve(void){
     ll n; cin >> n;
-    ll startsq = (int)ceil(sqrt(n-1))*ceil(sqrt(n-1));debug(startsq);
+    ll start = (int)ceil(sqrt(n-1));
+
+    vll v(n, -1);
+    set<int> available;
+    rpt(i, 0, n) available.insert(i);
+    rpt(i, n, 0) {
+        if(v[i] == -1) continue;
+        int req = start*start - i;
+        if(available.count(req)) {
+            available.erase(i);
+            available.erase(req);
+            v[i] = req;
+            v[req] = i;
+        }
+        else {
+            start--, i--;
+        }
+    }
+    print(v);
     nl;
 }
 
