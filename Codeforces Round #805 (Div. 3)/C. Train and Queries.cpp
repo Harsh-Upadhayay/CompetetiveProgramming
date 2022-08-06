@@ -76,7 +76,7 @@ void solve(void){
         debug(v);
         }
         else {
-            start--, i--;
+            start--, i++;
         debug(start);
         }
     }
