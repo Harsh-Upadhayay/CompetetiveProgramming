@@ -80,10 +80,7 @@ void solve(void){
         debug(start);
         }
     }
-    for(int i = 0; i < n; i++) {
-        cout << v[i] << " ";
-    }
-    // print(v);
+    print(v);
     nl;
 }
 
