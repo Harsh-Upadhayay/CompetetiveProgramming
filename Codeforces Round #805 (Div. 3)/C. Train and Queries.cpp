@@ -67,7 +67,7 @@ void solve(void){
     cout << i;
     for(; i < n - 1; i++)
         if(v[i] < v[i+1]) {
-            no; nl;
+            no; nl; return;
         }
     yes;
     nl;
