@@ -60,7 +60,7 @@ void init(){
 
 void solve(void){
     ll n; cin >> n;
-    ll startsq = (int)ceil(sqrt(n))*ceil(sqrt(n));
+    ll startsq = (int)ceil(sqrt(n))*ceil(sqrt(n));debug(startsq);
     nl;
 }
 
