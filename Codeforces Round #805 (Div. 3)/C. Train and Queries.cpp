@@ -80,7 +80,6 @@ void solve(void){
             start--, i--;
         }
     }
-    debug(v);
     nl;
     exit(0);
 }
