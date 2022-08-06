@@ -57,29 +57,33 @@ void init(){
     return;
 }
 
-ll toInt(string s) {
-    int yr, mn, day;
-    cout << stoi(s);
-    return 0;
-}
+void dfs(map<int, list<int>> &adj, vector<int> &visited, int s, int f) {
+    if(visited[s])
+        return;
+    visited[s] = f;
 
-string sub(string s, int start, int len) {
-    string substr = "";
-    for(int i = start; i < min((int)s.size(), start + len); i++)
-        substr += s[i];
-    return substr;
+    for(auto x : adj[s])
+        dfs(adj, visited, s, f);
 }
 
 void solve(void){
-    // ll n; cin >> n;
+    int c, r, q; cin >> c >> r >> q;
+    map<int, list<int>> adj;
+    for(int i = 0; i < r; i++) {
+        int u, v; cin >> u >> v;
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+    }
 
-    // vll v(3652135, 0);
-    // rpt(i, 0, n) {
-    //     string start, end; 
-    // }
-    string s = "2121–01–21";
-    string j = "0123456789";
-    cout << s.substr(0, 7);
+    vector<int> visited(c + 1, 0);
+    int f = 1;
+    for(int i = 1; i <= c; i++) {
+        if(!visited[i]) {
+            dfs(adj, visited, i, f);
+            f++;
+        }
+    }
+    print(visited);
     nl;
 }
 
