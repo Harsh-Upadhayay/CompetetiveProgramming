@@ -71,7 +71,7 @@ void solve(void){
     //     string start, end; 
     // }
     string s = "2121–01–21";
-    cout << s.substr(5, 7);
+    cout << s.substr(5, 2);
     nl;
 }
 
