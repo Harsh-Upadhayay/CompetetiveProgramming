@@ -79,7 +79,7 @@ void solve(void){
     // }
     string s = "2121–01–21";
     string j = "0123456789";
-    cout << sub(s, 1, 5);
+    cout << sub(j, 1, 5);
     nl;
 }
 
