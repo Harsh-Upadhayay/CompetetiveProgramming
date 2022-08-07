@@ -98,7 +98,7 @@ void solve(void){
         if(large.size() % small.size()){
             if(isSubstr(large.substr(large.size() - large.size() % small.size()), small))
                 rpt(i, 0, lcm(small.size(), large.size() / large.size()))
-                    cout << large;
+                    cout << large<< i;
             else 
                 cout << "-1";
         }
