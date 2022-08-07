@@ -66,10 +66,11 @@ char sameChar(string s) {
 }
 
 bool isSubstr(string small, string large) {
-    if(large.size() % small.size())
-        return false;
 
-    for(int i = 0; i < large.size(); i +=  small.size()) 
+    if(small.size() > large.size())
+        swap(small, large);
+
+    for(int i = 0; i < large.size() - large.size() % small.size(); i +=  small.size()) 
         if(small != large.substr(i, small.size()))
             return false;
     
@@ -85,13 +86,23 @@ void solve(void){
     if(small.size() > large.size())
         swap(small, large);
 
+
     char c1 = sameChar(small), c2 = sameChar(large);
 
     if((c1 != '-' && c2 != '-' && c1 == c2)) 
         rpt(i, 0, lcm(small.size(), large.size()))
             cout << c1;    
-    else if(isSubstr(small, large))
-        cout << large;
+    else if(isSubstr(small, large)) {
+        if(large.size() % small.size()){
+            if(isSubstr(large.substr(large.size() - large.size() % small.size()), small))
+                rpt(i, 0, lcm(small.size(), large.size() / large.size()))
+                    cout << large;
+            else 
+                cout << "-1";
+        }
+        else 
+            cout << large;
+    }
     else 
         cout << "-1";
 
