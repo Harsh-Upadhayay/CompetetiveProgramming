@@ -98,13 +98,13 @@ void solve(void){
                 rpt(i, 0, lcm(small.size(), large.size() / large.size()))
                     cout << large;
             else 
-                cout << "-1af";
+                cout << "-1";
         }
         else 
             cout << large;
     }
     else 
-        cout << "-1";
+        cout << "-1af";
 
 
 
