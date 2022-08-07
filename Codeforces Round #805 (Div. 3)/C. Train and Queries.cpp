@@ -72,7 +72,7 @@ bool isSubstr(string small, string large) {
 
     for(int i = 0; i < large.size() - (large.size() % small.size()); i +=  small.size()) 
         if(small != large.substr(i, small.size())){
-            cout << i;
+            // cout << i;
             return false;
         }
     
