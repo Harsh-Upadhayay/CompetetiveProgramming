@@ -104,7 +104,7 @@ void solve(void){
             cout << large;
     }
     else 
-        cout << "-1";
+        cout << "-1af";
 
 
 
