@@ -103,7 +103,7 @@ void solve(void){
                 cout << "-1";
         }
         else 
-            cout << large;
+            cout << large << "F";
     }
     else 
         cout << "-1";
