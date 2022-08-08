@@ -57,59 +57,18 @@ void init(){
     return;
 }
 
-char sameChar(string s) {
-    char ch = s[0];
-    for(auto x : s)
-        if(ch != x)
-            return '-';
-    return ch;
-}
 
-bool isSubstr(string small, string large) {
-
-    if(small.size() > large.size())
-        swap(small, large);
-
-    for(int i = 0; i < large.size() - (large.size() % small.size()); i +=  small.size()) 
-        if(small != large.substr(i, small.size())){
-            // cout << i;
-            return false;
-        }
-    
-    return true;
-}
-
-ll lcm(ll a, ll b) {
-    return (a*b) / __gcd(a, b);
-}
-
-void solve(void){
-    string small, large; cin >> small >> large;
-    if(small.size() > large.size())
-        swap(small, large);
-
-
-    char c1 = sameChar(small), c2 = sameChar(large);
-
-    if((c1 != '-' && c2 != '-' && c1 == c2)) 
-        rpt(i, 0, lcm(small.size(), large.size()))
-            cout << c1;    
-    else if(isSubstr(small, large)) {
-        if(large.size() % small.size()){
-            if(isSubstr(large.substr(large.size() - large.size() % small.size()), small))
-                rpt(i, 0, lcm(small.size(), large.size()) / large.size())
-                    cout << large;
-            else 
-                cout << "-1";
-        }
-        else 
-            cout << large;
+string solve(void){
+    ll a, b, c, d; cin >> a >> b >> c >> d;
+    while(c > 0 && d > 0) {
+        if(c == a && d == b) 
+            return "YES";
+        if(c > d)
+            c -= d;
+        else
+            d -= c;
     }
-    else 
-        cout << "-1";
-
-
-
+    return "NO";
     nl;
 }
 
@@ -138,7 +97,7 @@ int main() {
     #endif
 
     while(t--) 
-        solve();
+        cout << solve();
 
     return 0;
 }
