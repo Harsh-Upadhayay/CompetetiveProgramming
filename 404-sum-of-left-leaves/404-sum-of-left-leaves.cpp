@@ -10,20 +10,8 @@
  * };
  */
 class Solution {
-    int sum;
-    void fun(TreeNode *node, bool isleft = false)
-    {
-        if(!node) return;
-        if(isleft && !node->right && !node->left) { 
-            sum += node->val;
-            return;
-        }
-        fun(node->right, false);
-        fun(node->left, true);
-    }
-public:
     
-    
+public:    
     int sumOfLeftLeaves(TreeNode* node, bool isleft = false) {
         
         if(!node) return 0;
