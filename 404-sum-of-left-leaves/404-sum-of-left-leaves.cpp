@@ -24,10 +24,13 @@ class Solution {
 public:
     
     
-    int sumOfLeftLeaves(TreeNode* root) {
-        sum = 0;
-        fun(root);
-        return sum;
+    int sumOfLeftLeaves(TreeNode* node, bool isleft = false) {
+        
+        if(!node) return 0;
+        if(isleft && !node->right && !node->left) 
+            return node->val;
+        
+        return sumOfLeftLeaves(node->right, false) +  sumOfLeftLeaves(node->left, true);
     }
     
 };
