@@ -72,7 +72,7 @@ void solve(void){
            csum = 0;
         for(int i = 0; i < n; i++) {
             csum += s[i] == '1';
-            if(csum + lsum == rsum + (sum - csum) + (s[i] == '1'))
+            if(csum + lsum == rsum + (sum - csum))
                 ans++;
         }
     }
@@ -82,7 +82,7 @@ void solve(void){
            csum = 0;
         for(int i = 0; i < n; i++) {
             csum += s[i] == '1';
-            if(csum + lsum == rsum + (sum - csum) + (s[i] == '1'))
+            if(csum + lsum == rsum + (sum - csum))
                 ans++;
         }
            lsum = ((m / 2))* sum,
@@ -90,7 +90,7 @@ void solve(void){
            csum = 0;
         for(int i = 0; i < n; i++) {
             csum += (s[i] == '1');
-            if(csum + lsum == rsum + (sum - csum) + (s[i] == '1'))
+            if(csum + lsum == rsum + (sum - csum))
                 ans++;
         }
     }
