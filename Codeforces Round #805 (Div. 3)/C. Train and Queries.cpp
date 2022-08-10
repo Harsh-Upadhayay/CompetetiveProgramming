@@ -58,17 +58,13 @@ void init(){
 }
 
 
-string solve(void){
-    ll a, b, c, d; cin >> a >> b >> c >> d;
-    while(c > 0 && d > 0) {
-        if(c == a && d == b) 
-            return "YES";
-        if(c > d)
-            c -= d;
-        else
-            d -= c;
-    }
-    return "NO";
+void solve(void){
+    ll n, m; cin >> n >> m;
+    string s; cin >> s;
+    vll presum(n, 0);
+    presum[0] = s[0] == 1;
+    for(int i = 1; i < n; i++) presum[i] = presum[i - 1] + (s[i] == 1);
+    debug(presum);
     nl;
 }
 
@@ -97,7 +93,7 @@ int main() {
     #endif
 
     while(t--) 
-        cout << solve();
+        solve();
 
     return 0;
 }
