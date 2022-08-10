@@ -75,8 +75,10 @@ bool isBipertite(map<ll, list<ll>> adj, ll n) {
             for(int node : adj[curr]) {
                 if(color[node] == -1)
                     color[node] = adjColor;
-                else if(color[node] != adjColor)
+                else if(color[node] != adjColor) {
+                    debug(color);
                     return false;
+                }
                 if(!visited[node])
                     q.push(node);
             }
