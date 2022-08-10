@@ -66,7 +66,7 @@ void solve(void){
         adj[u].push_back(v);
         adj[v].push_back(u);
     }
-    // print(adj);
+    debug(adj);
     nl;
 }
 
