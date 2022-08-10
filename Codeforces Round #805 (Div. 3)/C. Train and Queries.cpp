@@ -88,10 +88,9 @@ void solve(void){
            lsum = ((m / 2))* sum,
            rsum = ((m / 2) - 1) * sum,
            csum = 0;
-           debug(lsum, rsum);
         for(int i = 0; i < n; i++) {
             csum += s[i] == '1';
-            if(csum + lsum == rsum + (sum - csum))
+            if(csum + lsum == rsum + (sum - csum) + (s[i] == '1'))
                 ans++;
         }
     }
