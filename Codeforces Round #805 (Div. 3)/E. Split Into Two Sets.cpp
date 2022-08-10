@@ -65,7 +65,7 @@ bool isBipertite(map<ll, list<ll>> adj, ll n) {
     for(int i = 1; i <= n; i++) {
         if(!visited[i]) 
             q.push(i),
-            color[i] = 0;
+            color[i] = (adj[i].size() ? 0 : -1);
 
         while(!q.empty()) {
             ll curr = q.front(); q.pop();
