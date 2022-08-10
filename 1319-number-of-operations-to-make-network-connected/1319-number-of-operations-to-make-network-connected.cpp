@@ -25,17 +25,9 @@ public:
             graph[x[0]].push_back(x[1]),
             graph[x[1]].push_back(x[0]);
         int k = 1, t = -1;
-        // for(int i = 0; i < n; i++) {
-        //     cout << i << " : ";
-        //     for(auto x : graph[i])
-        //         cout << x << " ";
-        //     cout << "\n";
-        // }   
         for(int i = 0; i < n; i++)
             if(!visited[i])
                 dfs(graph, visited, groups, i, t, k++);
-        // for(auto x : groups)
-        //     cout << x.first << " " << x.second << "\n";
         map<int, int> freq;
         for(auto x : visited)
             freq[x]++;
@@ -45,6 +37,6 @@ public:
             edg_avil += (x.second/2);
         cout << edg_avil;
         
-        return (edg_avil >= edg_req) ? edg_avil - (edg_avil - edg_req): -1;
+        return (edg_avil >= edg_req) ? edg_req : -1;
     }
 };
