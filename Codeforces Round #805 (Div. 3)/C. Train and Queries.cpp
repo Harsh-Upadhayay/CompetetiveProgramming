@@ -89,7 +89,7 @@ void solve(void){
            rsum = ((m / 2) - 1) * sum,
            csum = 0;
         for(int i = 0; i < n; i++) {
-            csum += s[i] == '1';
+            csum += (s[i] == '1');
             if(csum + lsum == rsum + (sum - csum) + (s[i] == '1'))
                 ans++;
         }
