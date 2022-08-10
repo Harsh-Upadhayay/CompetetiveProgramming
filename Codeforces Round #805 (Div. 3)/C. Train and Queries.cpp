@@ -85,6 +85,7 @@ void solve(void){
             if(csum + lsum == rsum + (sum - csum))
                 ans++;
         }
+        debug(ans);
            lsum = ((m / 2))* sum,
            rsum = ((m / 2) - 1) * sum,
            csum = 0;
