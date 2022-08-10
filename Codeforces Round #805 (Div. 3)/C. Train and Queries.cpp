@@ -65,10 +65,36 @@ void solve(void){
     vll presum(n, 0);   presum[0] = (s[0] == '1');
     for(int i = 1; i < n; i++) presum[i] = presum[i - 1] + (int)(s[i] == '1');
     ll sum = presum.back();
-    
-    s = '-' + s;
-    cout << s;
-
+    ll ans = 0;
+    if(n % 2) {
+        ll lsum = (m / 2) * sum,
+           rsum = (m / 2) * sum,
+           csum = 0;
+        for(int i = 0; i < n; i++) {
+            csum += s[i] == '1';
+            if(csum + lsum == rsum + (sum - csum))
+                ans++;
+        }
+    }
+    else {
+        ll lsum = ((m / 2) - 1)* sum,
+           rsum = ((m / 2) + 1) * sum,
+           csum = 0;
+        for(int i = 0; i < n; i++) {
+            csum += s[i] == '1';
+            if(csum + lsum == rsum + (sum - csum))
+                ans++;
+        }
+           lsum = ((m / 2) + 1)* sum,
+           rsum = ((m / 2) - 1) * sum,
+           csum = 0;
+        for(int i = 0; i < n; i++) {
+            csum += s[i] == '1';
+            if(csum + lsum == rsum + (sum - csum))
+                ans++;
+        }
+    }
+    cout << ans;
     nl;
 }
 
