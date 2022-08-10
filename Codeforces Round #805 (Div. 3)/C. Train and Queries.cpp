@@ -66,7 +66,7 @@ void solve(void){
     for(int i = 1; i < n; i++) presum[i] = presum[i - 1] + (int)(s[i] == '1');
     ll sum = presum.back();
     ll ans = 0;
-    if(n % 2) {
+    if(m % 2) {
         ll lsum = (m / 2) * sum,
            rsum = (m / 2) * sum,
            csum = 0;
