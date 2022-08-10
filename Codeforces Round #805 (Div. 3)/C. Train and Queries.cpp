@@ -65,8 +65,9 @@ void solve(void){
     vll presum(n, 0);   presum[0] = (s[0] == '1');
     for(int i = 1; i < n; i++) presum[i] = presum[i - 1] + (int)(s[i] == '1');
     ll sum = presum.back();
-    cout << sum;
-
+    
+    s = '-' + s;
+    cout << s;
 
     nl;
 }
