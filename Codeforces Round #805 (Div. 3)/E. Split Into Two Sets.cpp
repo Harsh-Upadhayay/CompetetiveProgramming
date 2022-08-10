@@ -57,6 +57,35 @@ void init(){
     return;
 }
 
+bool isBipertite(map<ll, list<ll>> adj, ll n) {
+    queue<ll> q;
+    
+    vector<ll> visited(n + 1, 0), color(n + 1, -1);
+
+    for(int i = 1; i <= n; i++) {
+        if(!visited[i]) 
+            q.push(i),
+            color[i] = 0;
+
+        while(!q.empty()) {
+            ll curr = q.front(); q.pop();
+            ll adjColor = !color[curr];
+            visited[curr] = true;
+
+            for(int node : adj[curr]) {
+                if(color[node] == -1)
+                    color[node] = adjColor;
+                else if(color[node] != adjColor)
+                    return false;
+                if(!visited[node])
+                    q.push(node);
+            }
+        }
+    }
+    
+    return true;
+
+}
 
 void solve(void){
     ll n; cin >> n;
@@ -65,7 +94,7 @@ void solve(void){
         ll u, v; cin >> u >> v;
         adj[u].push_back(v);
     }
-    debug(adj);
+    cout << (isBipertite(adj, n) ? "YES" : "NO");
     nl;
 }
 
