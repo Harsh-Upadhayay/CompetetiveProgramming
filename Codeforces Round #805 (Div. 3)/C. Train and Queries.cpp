@@ -56,48 +56,24 @@ void init(){
 
     return;
 }
-
+int c = 0;
+void comb(vll v, ll s, ll pos = 0) {
+    if(pos >= v.size()) return;
+    if(s - v[pos] > 0)
+        comb(v, s - v[pos], pos);
+    else if(s - v[pos] < 0)
+        comb(v, s, pos++);
+    else
+        c++, comb(v, s, pos++);
+}
 
 void solve(void){
-    ll n, m; cin >> n >> m;
-    string s; cin >> s;
-
-    vll presum(n, 0);   presum[0] = (s[0] == '1');
-    for(int i = 1; i < n; i++) presum[i] = presum[i - 1] + (int)(s[i] == '1');
-    ll sum = presum.back();
-    ll ans = 0;
-    if(sum == 0) {
-        cout << n * m; nl; return;
-    }
-    if(m % 2) {
-        ll lsum = (m / 2) * sum,
-           rsum = (m / 2) * sum,
-           csum = 0;
-        for(int i = 0; i < n; i++) {
-            csum += s[i] == '1';
-            if(csum + lsum == rsum + (sum - csum))
-                ans++;
-        }
-    }
-    else {
-        ll lsum = ((m / 2) - 1)* sum,
-           rsum = ((m / 2)) * sum,
-           csum = 0;
-        for(int i = 0; i < n; i++) {
-            csum += s[i] == '1';
-            if(csum + lsum == rsum + (sum - csum))
-                ans++;
-        }
-           lsum = ((m / 2))* sum,
-           rsum = ((m / 2) - 1) * sum,
-           csum = 0;
-        for(int i = 0; i < n; i++) {
-            csum += (s[i] == '1');
-            if(csum + lsum == rsum + (sum - csum))
-                ans++;
-        }
-    }
-    cout << ans;
+    cout << 5;
+    // ll n, s; cin >> n >> s;
+    // cout << n << s;
+    // vll v; rpt(i, 0, n) cin >> v[i];
+    // comb(v, s);
+    cout << c;
     nl;
 }
 
