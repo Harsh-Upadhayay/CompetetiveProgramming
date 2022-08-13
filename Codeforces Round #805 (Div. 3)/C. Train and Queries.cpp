@@ -64,7 +64,7 @@ void solve(void){
     ll count = 0;
     rpt(i, 1, k + 1) {
         if(v[i] != i) {
-            cout << v[i];
+            // cout << v[i];
             if(v[v[i]] == i)
                 count += 2;
             else 
