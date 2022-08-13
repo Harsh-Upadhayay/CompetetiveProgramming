@@ -59,15 +59,18 @@ void init(){
 
 
 void solve(void){
-    ll n; cin >> n;
+    ll n, k; cin >> n >> k;
     vll v(n + 1); rpt(i, 1, n + 1) cin >> v[i];
     ll count = 0;
-    rpt(i, 1, n + 1) {
+    rpt(i, 1, k + 1) {
         if(v[i] != i) {
+            cout << v[i];
             if(v[v[i]] == i)
                 count += 2;
             else 
                 count += 1;
+            swap(v[i], v[v[i]]);
+            debug(v);
         }
     }
     cout << count;
