@@ -63,7 +63,8 @@ void solve(void){
     cout << 1 << " ";
     ll i = 3; 
     while(i < n + 1) cout << i++ << " ";
-    cout << 2;
+    if(n > 1)
+        cout << 2;
     nl;
 }
 
