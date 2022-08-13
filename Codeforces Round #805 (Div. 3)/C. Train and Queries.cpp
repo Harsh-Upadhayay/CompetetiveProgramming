@@ -66,7 +66,7 @@ void solve(void){
     bool flag = false;
     rpt(i, 1, k + 1) {
         if(v[i] != i) {
-            flag |= v[i] <= k;
+            swap(v[i], v[v[i]]);
             count++;
         }
     }
