@@ -30,6 +30,7 @@ using namespace std;
 #define all(x)                  (x).begin(), (x).end() 
 #define yes                     cout << "YES";
 #define no                      cout << "NO";
+#define kill(x)                 {cout << x; nl; return;}
 #define nl                      cout << "\n";
 #define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
@@ -60,6 +61,8 @@ void init(){
 
 void solve(void){
     ll n; cin >> n;
+    if(n == 1) kill("1"); 
+    if(n == 2) kill("2 1");
     cout << 1 << " ";
     ll i = 3; 
     while(i < n + 1) cout << i++ << " ";
