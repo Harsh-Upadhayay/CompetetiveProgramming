@@ -60,7 +60,7 @@ void init(){
 
 void solve(void){
     ll n; cin >> n;
-    rpt(i, 1, n + 1)
+    rpt(i, 1, n + 1) 
         cout << (i + 1) % (n + 1) << " ";
     nl;
 }
