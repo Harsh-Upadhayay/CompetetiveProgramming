@@ -60,7 +60,7 @@ void init(){
 
 void solve(void){
     ll n; cin >> n;
-    if(n == 1) {cout << 1; nl;return;}
+    if(n == 1) {cout << 1; nl; return;}
     rpt(i, 1, n + 1) 
         cout << (i + 1 != n ? (i + 1) % n : n) << " ";
     nl;
