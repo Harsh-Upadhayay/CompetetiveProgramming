@@ -44,7 +44,7 @@ void inline print(vector<T> v);
 template<class T>
 void inline print(vector<vector<T>> v);
 
-bitset<SIEVE_SIZE> isComposit;
+bitset<SIEVE_SIZE> isComposit;  
 void setSieve();
 
 set<ll> allPrimes;
