@@ -70,7 +70,7 @@ void solve(void){
             count++;
         }
     }
-    cout << count - flag;
+    cout << count;
     // cout << count;
     nl;
 }
