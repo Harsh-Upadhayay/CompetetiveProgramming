@@ -59,22 +59,9 @@ void init(){
 
 
 void solve(void){
-    ll n, k; cin >> n >> k;
-    map<ll, ll> idx;
-    vll v(n + 1); rpt(i, 1, n + 1) {cin >> v[i]; idx[v[i]] = i;};
-    ll count = 0;
-    bool flag = false;
-    rpt(i, 1, k + 1) {
-        if(v[i] != i) {
-            idx[v[i]] = idx[i];
-            swap(v[i], v[idx[i]]);
-            idx[i] = i;
-            count++;
-            debug(v);
-        }
-    }
-    cout << count;
-    // cout << count;
+    ll n; cin >> n;
+    rpt(i, 1, n + 1)
+        cout << (i + 1) % n;
     nl;
 }
 
