@@ -60,13 +60,14 @@ void init(){
 
 void solve(void){
     ll n, k; cin >> n >> k;
-    vll v(n + 1); rpt(i, 1, n + 1) cin >> v[i];
+    map<ll, ll> idx;
+    vll v(n + 1); rpt(i, 1, n + 1) {cin >> v[i]; idx[v[i]] = i;};
     ll count = 0;
     rpt(i, 1, k + 1) {
         if(v[i] != i) {
             // cout << v[i];
             count += 1;
-            swap(v[i], v[v[i]]);
+            swap(v[idx[i]], v[i]);
             debug(v);
         }
     }
