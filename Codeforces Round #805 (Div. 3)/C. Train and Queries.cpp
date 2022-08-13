@@ -65,10 +65,7 @@ void solve(void){
     rpt(i, 1, k + 1) {
         if(v[i] != i) {
             // cout << v[i];
-            if(v[v[i]] == i)
-                count += 2;
-            else 
-                count += 1;
+            count += 1;
             swap(v[i], v[v[i]]);
             debug(v);
         }
