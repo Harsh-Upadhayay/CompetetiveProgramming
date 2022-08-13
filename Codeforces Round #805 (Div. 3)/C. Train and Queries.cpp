@@ -68,6 +68,7 @@ void solve(void){
             // cout << v[i];
             count += 1;
             swap(v[idx[i]], v[i]);
+            swap(idx[i], idx[v[i]]); 
             debug(v);
         }
     }
