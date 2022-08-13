@@ -63,17 +63,15 @@ void solve(void){
     map<ll, ll> idx;
     vll v(n + 1); rpt(i, 1, n + 1) {cin >> v[i]; idx[v[i]] = i;};
     ll count = 0;
-
+    bool flag = false;
     rpt(i, 1, k + 1) {
         if(v[i] != i) {
-            // cout << v[i];
-            count += 1;
-            swap(v[idx[i]], v[i]);
-            debug(v, idx);
-            swap(idx[i], idx[v[i]]); 
+            flag |= v[i] <= k;
+            count++;
         }
     }
-    cout << count;
+    cout << count - !flag;
+    // cout << count;
     nl;
 }
 
