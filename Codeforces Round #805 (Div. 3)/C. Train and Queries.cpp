@@ -68,6 +68,7 @@ void solve(void){
         if(v[i] != i) {
             swap(v[i], v[v[i]]);
             count++;
+            debug(v);
         }
     }
     cout << count;
