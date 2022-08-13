@@ -70,7 +70,7 @@ void solve(void){
             count += 1;
             swap(v[idx[i]], v[i]);
             swap(idx[i], idx[v[i]]); 
-            debug(v, idx[i], idx[v[i]]);
+            debug(v, idx);
         }
     }
     cout << count;
