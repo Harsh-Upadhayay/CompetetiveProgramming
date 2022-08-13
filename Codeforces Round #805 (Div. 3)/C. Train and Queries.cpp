@@ -56,24 +56,21 @@ void init(){
 
     return;
 }
-int c = 0;
-void comb(vll v, ll s, ll pos = 0) {
-    if(pos >= v.size()) return;
-    if(s - v[pos] > 0)
-        comb(v, s - v[pos], pos);
-    else if(s - v[pos] < 0)
-        comb(v, s, pos++);
-    else
-        c++, comb(v, s, pos++);
-}
+
 
 void solve(void){
-    cout << 5;
-    // ll n, s; cin >> n >> s;
-    // cout << n << s;
-    // vll v; rpt(i, 0, n) cin >> v[i];
-    // comb(v, s);
-    cout << c;
+    ll n; cin >> n;
+    vll v(n + 1); rpt(i, 1, n + 1) cin >> v[i];
+    ll count = 0;
+    rpt(i, 1, n + 1) {
+        if(v[i] != i) {
+            if(v[v[i]] == i)
+                count += 2;
+            else 
+                count += 1;
+        }
+    }
+    cout << count;
     nl;
 }
 
