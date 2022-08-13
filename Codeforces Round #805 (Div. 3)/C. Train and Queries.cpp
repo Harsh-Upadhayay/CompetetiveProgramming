@@ -63,14 +63,14 @@ void solve(void){
     map<ll, ll> idx;
     vll v(n + 1); rpt(i, 1, n + 1) {cin >> v[i]; idx[v[i]] = i;};
     ll count = 0;
-    
+
     rpt(i, 1, k + 1) {
         if(v[i] != i) {
             // cout << v[i];
             count += 1;
             swap(v[idx[i]], v[i]);
             swap(idx[i], idx[v[i]]); 
-            debug(v);
+            debug(v, idx[i], idx[v[i]]);
         }
     }
     cout << count;
