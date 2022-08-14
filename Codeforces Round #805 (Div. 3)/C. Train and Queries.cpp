@@ -57,16 +57,17 @@ void init(){
     return;
 }
 
-void fun(ll i, ll n) {
-    if(i > n)
-        return;
-    fun(i + 1, n);
-    cout << (i);
+void r(vll v, ll f, ll b) {
+    if(f >= b) return;
+    swap(v[f], v[b]);
+    r(v, f + 1, b - 1);
 }
 
 void solve(void){
     ll n; cin >> n;
-    fun(1, n);
+    vll v(n); rpt(i, 0, n) cin >> v[i];
+    r(v, 0, n - 1);
+    print(v);
     nl;
 }
 
