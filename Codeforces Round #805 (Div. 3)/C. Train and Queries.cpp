@@ -57,7 +57,7 @@ void init(){
     return;
 }
 
-void r(vll v, ll f, ll b) {
+void r(vll &v, ll f, ll b) {
     if(f >= b) return;
     swap(v[f], v[b]);
     r(v, f + 1, b - 1);
