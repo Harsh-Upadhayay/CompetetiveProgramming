@@ -30,7 +30,6 @@ using namespace std;
 #define all(x)                  (x).begin(), (x).end() 
 #define yes                     cout << "YES";
 #define no                      cout << "NO";
-#define kill(x)                 {cout << x; nl; return;}
 #define nl                      cout << "\n";
 #define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
@@ -45,7 +44,7 @@ void inline print(vector<T> v);
 template<class T>
 void inline print(vector<vector<T>> v);
 
-bitset<SIEVE_SIZE> isComposit;  
+bitset<SIEVE_SIZE> isComposit;
 void setSieve();
 
 set<ll> allPrimes;
@@ -60,14 +59,11 @@ void init(){
 
 
 void solve(void){
-    ll n; cin >> n;
-    if(n == 1) kill("1"); 
-    if(n == 2) kill("2 1");
-    cout << 1 << " ";
-    ll i = 3; 
-    while(i < n + 1) cout << i++ << " ";
-    if(n > 1)
-        cout << 2;
+    ll n, c = 0, k; cin >> n >> k;
+    vll v(n + 1); rpt(i, 1, n + 1)cin >> v[i];
+    rpt(i, 1, n + 1) cin >> v[i];
+    rpt(i, 1, k + 1) if(v[i] > k) c++;
+    cout << c;
     nl;
 }
 
