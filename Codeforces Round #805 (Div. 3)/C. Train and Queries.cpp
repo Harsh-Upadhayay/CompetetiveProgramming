@@ -60,9 +60,10 @@ void init(){
 
 void solve(void){
     ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) v[i] = i + 1;
-    for(int i = n - 1; i >= 0; i -= 2) if(i) swap(v[i], v[i - 1]);
-    print(v);
+    vll v(n); rpt(i, 0, n) cin >> v[i];
+    map<ll, ll> freq; for(int x : v) freq[x]++;
+    ll i = n - 1; while(i > 0) if(v[i] >= v[i - 1]) i--; else break;
+    debug(i);
     nl;
 }
 
