@@ -59,12 +59,11 @@ void init(){
 
 
 void solve(void){
-    ll n, c = 0, k; cin >> n >> k;
-    vll v(n + 1); rpt(i, 1, n + 1)cin >> v[i];
-    rpt(i, 1, n + 1) cin >> v[i];
+    ll n, k; cin >> n >> k;
+    vll v(n + 1); rpt(i, 1, n + 1) cin >> v[i];
     debug(v);
-    rpt(i, 1, k + 1) if(v[i] > k) c++;
-    cout << c;
+    ll c = 0; rpt(i, 1, k + 1) if(v[i] > k) c++;
+    cout << c; 
     nl;
 }
 
