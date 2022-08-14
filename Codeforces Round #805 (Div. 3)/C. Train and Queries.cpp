@@ -59,11 +59,10 @@ void init(){
 
 
 void solve(void){
-    ll n, k; cin >> n >> k;
-    vll v(n + 1); rpt(i, 1, n + 1) cin >> v[i];
-    debug(v);
-    ll c = 0; rpt(i, 1, k + 1) if(v[i] > k) c++;
-    cout << c; 
+    ll n; cin >> n;
+    vll v(n); rpt(i, 0, n) v[i] = i + 1;
+    for(int i = n - 1; i >= 0; i -= 2) swap(v[i], v[i - 1]);
+    print(v);
     nl;
 }
 
