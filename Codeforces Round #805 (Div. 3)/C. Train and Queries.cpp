@@ -57,17 +57,15 @@ void init(){
     return;
 }
 
-void r(vll &v, ll f, ll b) {
-    if(f >= b) return;
-    swap(v[f], v[b]);
-    r(v, f + 1, b - 1);
+bool isP(vll &v, ll f, ll b) {
+    if(f >= b) return true;
+    return v[f] == v[b] && isP(v, f + 1, b - 1);
 }
 
 void solve(void){
     ll n; cin >> n;
     vll v(n); rpt(i, 0, n) cin >> v[i];
-    r(v, 0, n - 1);
-    print(v);
+    cout << isP(v, 0, n - 1);
     nl;
 }
 
