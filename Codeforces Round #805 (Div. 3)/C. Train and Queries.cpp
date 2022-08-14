@@ -61,7 +61,7 @@ void init(){
 void solve(void){
     ll n; cin >> n;
     vll v(n); rpt(i, 0, n) v[i] = i + 1;
-    for(int i = n - 1; i >= 0; i -= 2) swap(v[i], v[i - 1]);
+    for(int i = n - 1; i >= 0; i -= 2) if(i) swap(v[i], v[i - 1]);
     print(v);
     nl;
 }
