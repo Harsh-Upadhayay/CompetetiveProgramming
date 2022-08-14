@@ -57,13 +57,16 @@ void init(){
     return;
 }
 
+void fun(ll i, ll n) {
+    if(i > n)
+        return;
+    fun(i + 1, n);
+    cout << (i);
+}
 
 void solve(void){
     ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
-    map<ll, ll> freq; for(int x : v) freq[x]++;
-    ll i = n - 1; while(i > 0) if(v[i] >= v[i - 1]) i--; else break;
-    debug(i);
+    fun(1, n);
     nl;
 }
 
