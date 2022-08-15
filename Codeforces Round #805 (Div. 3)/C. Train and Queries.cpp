@@ -63,7 +63,10 @@ void solve(void){
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
     ll i = n - 1; while(i && v[i] > v[i - 1]) i--;
-    debug(i);
+    map<ll, ll> bef, aft;
+    rpt(j, 0, i) bef[v[j]]++;
+    rpt(j, i, n) aft[v[j]]++;
+    debug(bef, aft);
 
     nl;
 }
