@@ -62,7 +62,7 @@ void solve(void){
     ll n; cin >> n;
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    ll i = n - 1; while(i && v[i] > v[i - 1]) i++;
+    ll i = n - 1; while(i && v[i] > v[i - 1]) i--;
     debug(i);
 
     nl;
