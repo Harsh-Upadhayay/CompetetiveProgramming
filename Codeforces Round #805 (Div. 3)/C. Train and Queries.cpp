@@ -63,11 +63,21 @@ void solve(void){
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
     ll i = n - 1; while(i && v[i] > v[i - 1]) i--;
+    
     map<ll, ll> bef, aft;
     rpt(j, 0, i) bef[v[j]]++;
     rpt(j, i, n) aft[v[j]]++;
-    debug(bef, aft);
-
+    
+    ll ans = bef.size();
+    rpt(j, n, i) 
+        if(bef[v[j]]) 
+            break; 
+        else 
+            if(!aft[v[j]])
+                aft.erase(v[j]);
+            else
+                aft[v[j]]--;     
+    cout << ans + aft.size();
     nl;
 }
 
