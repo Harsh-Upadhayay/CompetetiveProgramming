@@ -24,7 +24,7 @@ int main() {
 
 void solve() {
     ll n, k; cin >> n >> k;
-    rpt(n) if(!((i + 1 + k) % 4)) cout << (i + 1) << " ";
+    rpt(n) if(!((i + 1 + k) % 2)) cout << (i + 1) << " ";
     cout << endl;
 }
 
