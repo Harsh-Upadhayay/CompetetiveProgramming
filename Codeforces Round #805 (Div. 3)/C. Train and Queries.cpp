@@ -16,9 +16,9 @@ int main() {
     cin.tie(NULL);
     int t;
     cin>>t;
-    cout << t;
-    // while(t--) 
-    //     solve();
+    // cout << t;
+    while(t--) 
+        solve();
     return 0;
 }
 
