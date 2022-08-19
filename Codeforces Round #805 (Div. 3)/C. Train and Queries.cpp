@@ -69,7 +69,7 @@ void solve(void){
     for(auto x : freq)
         if(x)
             v.push_back(x);
-    sort(all(v));
+    sort(all(v), greater<int>());
     debug(v);
 
     nl;
