@@ -63,26 +63,28 @@ void solve() {
     vector<vll> grid(n, vll(m)); rpt(i, 0, n) rpt(j, 0, m) cin >> grid[i][j];
 
     debug(grid);
-    vll rowsum(n), colsum(m);
+    vll rowsum_1(n), colsum_1(m), rowsum_0(n), colsum_0(m);
 
     rpt(i, 0, n)
         rpt(j, 0, m)
-            rowsum[i] += grid[i][j];
+            rowsum_1[i] += grid[i][j],
+            rowsum_0[i] += !grid[i][j];
+
 
     rpt(i, 0, m)
         rpt(j, 0, n)
-            colsum[i] += grid[j][i];
+            colsum_1[i] += grid[j][i],
+            colsum_0[i] += !grid[j][i];
 
     ll ans = ninf;
     rpt(i, 0, n){
         rpt(j, 0, m){
-            auto white = rowsum[i] + colsum[j];
-            auto black = n + m - white;
+            auto white = rowsum_1[i] + colsum_1[j];
+            auto black = rowsum_0[i] + colsum_0[j];
             ans = max(ans, abs(white - black));
             debug(ans - (n == 1 || m == 1));
         }
     }
-    debug(colsum, rowsum);
 }
 
 /*_________________________________________________________________________________________________________________________________________*/
