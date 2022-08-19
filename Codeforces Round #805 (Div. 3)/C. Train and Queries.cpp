@@ -79,7 +79,7 @@ void solve() {
             auto white = rowsum[i] + colsum[j];
             auto black = n + m - white;
             ans = max(ans, abs(white - black));
-        debug(ans);
+            debug(ans - (n == 1 || m == 1));
         }
     }
     debug(colsum, rowsum);
