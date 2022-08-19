@@ -72,6 +72,16 @@ void solve() {
     rpt(i, 0, m)
         rpt(j, 0, n)
             colsum[i] += grid[j][i];
+
+    ll ans = ninf;
+    rpt(i, 0, n){
+        rpt(j, 0, m){
+            auto white = rowsum[i] + colsum[j];
+            auto black = n + m - white;
+            ans = max(ans, abs(white - black));
+        }
+        debug(ans);
+    }
     debug(colsum, rowsum);
 }
 
