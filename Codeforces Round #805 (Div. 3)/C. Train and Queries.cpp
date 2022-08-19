@@ -76,6 +76,7 @@ void solve() {
             colsum_1[i] += grid[j][i],
             colsum_0[i] += !grid[j][i];
 
+    cout << rowsum_1[1];
     ll ans = ninf;
     rpt(i, 0, n){
         rpt(j, 0, m){
