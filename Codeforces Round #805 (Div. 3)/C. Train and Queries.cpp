@@ -62,7 +62,7 @@ void solve() {
     ll n, m; cin >> n >> m;
     vector<vll> grid(n, vll(m)); rpt(i, 0, n) rpt(j, 0, m) cin >> grid[i][j];
 
-    debug(grid);
+    print(grid);
     vll rowsum_1(n), colsum_1(m), rowsum_0(n), colsum_0(m);
 
     rpt(i, 0, n)
