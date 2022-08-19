@@ -58,37 +58,23 @@ void init(){
 }
 
 
-void solve() {
-    ll n, m; cin >> n >> m;
-    vector<vll> grid(n, vll(m)); rpt(i, 0, n) rpt(j, 0, m) cin >> grid[i][j];
+void solve(void){
+    string s; cin >> s;
 
+    vector<int> freq(26, 0);
+    for(auto x : s)
+        freq[x - 'a']++;
     
+    vector<int> v;
+    for(auto x : freq)
+        if(x)
+            v.push_back(x);
+    sort(all(v));
+    debug(v);
 
-    print(grid);
-    vll rowsum_1(n), colsum_1(m), rowsum_0(n), colsum_0(m);
-
-    rpt(i, 0, n)
-        rpt(j, 0, m)
-            rowsum_1[i] += grid[i][j],
-            rowsum_0[i] += !grid[i][j];
-
-
-    rpt(i, 0, m)
-        rpt(j, 0, n)
-            colsum_1[i] += grid[j][i],
-            colsum_0[i] += !grid[j][i];
-
-    debug(rowsum_0, rowsum_1, colsum_0, colsum_1);
-    ll ans = ninf;
-    rpt(i, 0, n){
-        rpt(j, 0, m){
-            auto white = rowsum_1[i] + colsum_1[j];
-            auto black = rowsum_0[i] + colsum_0[j];
-            ans = max(ans, abs(white - black));
-            debug(ans);
-        }
-    }
+    nl;
 }
+
 
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
