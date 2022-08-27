@@ -67,12 +67,12 @@ void solve(void){
     debug(min_p, max_p);
     if(b < min_p || b > max_p) kill("-1");
 
-    int i = ((b + 1) * k ) - 1;
-    while(s) {
+    ll i = ((b + 1) * k ) - 1;
+    rpt(j, 0, n) {
         
+        cout << min(s, i, 0ll);
         s -= i;
-        cout << i << " ";
-        i = min(k - 1, s);
+        i = k - 1;
     }
     nl;
 }
