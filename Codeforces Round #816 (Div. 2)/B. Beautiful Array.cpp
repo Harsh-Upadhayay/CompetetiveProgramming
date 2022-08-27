@@ -71,7 +71,7 @@ void solve(void){
     while(s) {
         
         s -= i;
-        cout << i;
+        cout << i << " ";
         i = min(k - 1, s);
     }
     nl;
