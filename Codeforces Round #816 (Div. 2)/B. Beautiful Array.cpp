@@ -64,7 +64,7 @@ void solve(void){
     
     ll min_p = ceil(max(0ll, s - n * (k - 1)) / (double)k),
        max_p = s / k;
-
+    debug(min_p, max_p);
     if(b < min_p || b > max_p) kill("-1");
 
     int i = ((b + 1) * k ) - 1;
