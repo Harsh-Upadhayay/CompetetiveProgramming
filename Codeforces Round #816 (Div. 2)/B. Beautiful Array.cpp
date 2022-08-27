@@ -28,7 +28,7 @@ using namespace std;
 #define nmax(v)                 *max_element(all(v))
 #define rpt(i, begin, end)      for (__typeof(end) i = (begin) - ((begin) > (end)); i != (end) - ((begin) > (end)); i += 1 - 2 * ((begin) > (end)))
 #define all(x)                  (x).begin(), (x).end() 
-#define kill(x)                 {cout << x; return; }
+#define kill(x)                 {cout << x << "\n"; return; }
 #define yes                     cout << "YES";
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
