@@ -60,13 +60,18 @@ void init(){
 
 
 void solve(void){
-    string s[2]; cin >> s[0] >> s[1];
-    map<char, int> freq;
-    freq[s[0][0]]++;
-    freq[s[0][1]]++;
-    freq[s[1][0]]++;
-    freq[s[1][1]]++;
-    cout << freq.size() - 1;
+    
+    ll n, m, sx, sy, d; cin >> n >> m >> sx >> sy >> d;
+    ll l = max(1ll, sx - d),
+       r = min(m, sx + d),
+       u = max(1ll, sy - d),
+       dn = min(n, sy + d);
+
+    if((l == 1 && r == m) || (u == 1 && dn == n))
+        cout << "-1";
+    else 
+        cout << n + m - 2;
+
     nl;
 }
 
