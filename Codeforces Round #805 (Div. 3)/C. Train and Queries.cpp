@@ -68,7 +68,7 @@ void solve(void){
        dn = min(x, sx + d);
 
     
-    if((l == 1 && r == y) || (u == 1 && dn == x))
+    if((l == 1 && r == y) || (u == 1 && dn == x) || x == 1 || y == 1)
         cout << "-1";
     else 
         cout << x + y - 2;
