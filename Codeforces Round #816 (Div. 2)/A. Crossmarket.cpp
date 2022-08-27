@@ -60,7 +60,7 @@ void init(){
 
 void solve(void){
     ll n, m; cin >> n >> m;
-    cout << (n + m - 1 + min(n, m));
+    cout << (n + m - 2 + min(n, m));
     nl;
 }
 
