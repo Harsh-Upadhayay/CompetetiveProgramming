@@ -61,16 +61,16 @@ void init(){
 
 void solve(void){
     
-    ll n, m, sx, sy, d; cin >> n >> m >> sx >> sy >> d;
+    ll x, y, sx, sy, d; cin >> x >> y >> sx >> sy >> d;
     ll l = max(1ll, sy - d),
-       r = min(n, sy + d),
+       r = min(y, sy + d),
        u = max(1ll, sx - d),
-       dn = min(m, sx + d);
+       dn = min(x, sx + d);
     debug(l, r, u, d);
-    if((l == 1 && r == m) || (u == 1 && dn == n))
+    if((l == 1 && r == y) || (u == 1 && dn == x))
         cout << "-1";
     else 
-        cout << n + m - 2;
+        cout << x + y - 2;
 
     nl;
 }
