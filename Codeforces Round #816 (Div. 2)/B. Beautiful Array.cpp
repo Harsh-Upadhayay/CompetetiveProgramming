@@ -60,7 +60,7 @@ void init(){
 
 
 void solve(void){
-    ll n, k, b, s; cin >> n, k, b, s;
+    ll n, k, b, s; cin >> n >> k >> b >> s;
     
     ll min_p = ceil(max(0ll, s - n * (k - 1)) / (double)k),
        max_p = s / k;
