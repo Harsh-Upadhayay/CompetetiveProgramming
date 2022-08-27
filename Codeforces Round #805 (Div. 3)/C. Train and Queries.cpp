@@ -62,9 +62,9 @@ void init(){
 void solve(void){
     
     ll x, y, sx, sy, d; cin >> x >> y >> sx >> sy >> d;
-    ll l = max(1ll, sy - d),
-       r = min(y, sy + d),
-       u = max(1ll, sx - d),
+    ll l  = max(1ll, sy - d),
+       r  = min(y, sy + d),
+       u  = max(1ll, sx - d),
        dn = min(x, sx + d);
 
     debug(l, r, u, dn);
@@ -73,7 +73,8 @@ void solve(void){
        (l == 1 && r  == y) ||
        (u == 1 && dn == x) ||
         x == 1 || y == 1   ||
-       (u == 1 && l == 1)  
+       (u == 1 && l == 1)  ||
+       (d == x && r == y)
       )
         cout << "-1";
     else 
