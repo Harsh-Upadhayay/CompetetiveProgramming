@@ -70,7 +70,7 @@ void solve(void){
     ll i = ((b + 1) * k ) - 1;
     rpt(j, 0, n) {
         
-        cout << min(s, i, 0ll) << " ";
+        cout << max(min(s, i), 0ll) << " ";
         s -= i;
         i = k - 1;
     }
