@@ -31,6 +31,7 @@ using namespace std;
 #define yes                     cout << "YES";
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
+#define kill(x)                 {cout << x << "\n"; return; }
 #define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
@@ -59,19 +60,13 @@ void init(){
 
 
 void solve(void){
-    string s; cin >> s;
-
-    vector<int> freq(26, 0);
-    for(auto x : s)
-        freq[x - 'a']++;
-    
-    vector<int> v;
-    for(auto x : freq)
-        if(x)
-            v.push_back(x);
-    sort(all(v), greater<int>());
-    debug(v);
-
+    string s[2]; cin >> s[0] >> s[1];
+    map<char, int> freq;
+    freq[s[0][0]]++;
+    freq[s[0][1]]++;
+    freq[s[1][0]]++;
+    freq[s[1][1]]++;
+    cout << freq.size() - 1;
     nl;
 }
 
