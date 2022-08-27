@@ -69,10 +69,11 @@ void solve(void){
 
     debug(l, r, u, dn);
     
-    if((l == 1 && r  == y) ||
+    if(
+       (l == 1 && r  == y) ||
        (u == 1 && dn == x) ||
         x == 1 || y == 1   ||
-       1
+       0  
       )
         cout << "-1";
     else 
