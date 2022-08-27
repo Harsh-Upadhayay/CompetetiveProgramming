@@ -63,9 +63,9 @@ void solve(void){
     
     ll n, m, sx, sy, d; cin >> n >> m >> sx >> sy >> d;
     ll l = max(1ll, sy - d),
-       r = min(m, sy + d),
+       r = min(n, sy + d),
        u = max(1ll, sx - d),
-       dn = min(n, sx + d);
+       dn = min(m, sx + d);
     debug(l, r, u, d);
     if((l == 1 && r == m) || (u == 1 && dn == n))
         cout << "-1";
