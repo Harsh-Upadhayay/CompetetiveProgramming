@@ -4,10 +4,9 @@ class Solution {
         if(i > n)
             return;
         v.push_back(i);
-        for(int j = 0; j < 10; j++) {
-            int num = i * 10 + j;
-            if(num > n)
-                return;
+        int num = 0;
+        for(int j = 0; j < 10 && num < n; j++) {
+            num = i * 10 + j;
             dfs(num, n, v);
         }
     }
