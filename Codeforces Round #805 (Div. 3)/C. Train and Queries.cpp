@@ -74,7 +74,7 @@ void solve(void){
        (u == 1 && dn == x) ||
         x == 1 || y == 1   ||
        (u == 1 && l == 1)  ||
-       (d == x && r == y)
+       (dn == x && r == y)
       )
         cout << "-1";
     else 
