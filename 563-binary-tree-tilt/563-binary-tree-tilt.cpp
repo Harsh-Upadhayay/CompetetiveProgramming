@@ -10,44 +10,26 @@
  * };
  */
 class Solution {
-    int modifyTree(TreeNode* root, int cur_sum = 0) {
+    int modifyTree(TreeNode* root, int &cur_sum) {
         
         if(!root) return 0;
         
-        int lsum = modifyTree(root->left),
-            rsum = modifyTree(root->right),
+        int lsum = modifyTree(root->left, cur_sum),
+            rsum = modifyTree(root->right, cur_sum),
             tsum = lsum + root -> val + rsum;
         
-        root -> val = abs(rsum - lsum);
+        cur_sum += abs(rsum - lsum);
         
         return tsum;
     }
-    int sumTree(TreeNode* root) {
-        
-        if (!root) return 0;
-        
-        int l = sumTree(root->left),
-            r = sumTree(root->right);
-        
-        return l + r + root -> val;
-    }
-    
-    void inorder(TreeNode* root) {
-        
-        if(!root) return;
-        
-        inorder(root -> left);
-        cout << root -> val << " ";
-        inorder(root -> right);
-        
-    }
+   
     
 public:
     int findTilt(TreeNode* root) {
         
-        modifyTree(root);
-        // inorder(root); cout << endl;
-        return sumTree(root);
+        int tilt = 0;
+        modifyTree(root, tilt);
+        return (tilt);
         
     }
 };
