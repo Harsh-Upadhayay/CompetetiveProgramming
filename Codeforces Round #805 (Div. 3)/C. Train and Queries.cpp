@@ -66,7 +66,7 @@ void solve(void){
        r = min(m, sx + d),
        u = max(1ll, sy - d),
        dn = min(n, sy + d);
-
+    debug(l, r, u, d);
     if((l == 1 && r == m) || (u == 1 && dn == n))
         cout << "-1";
     else 
