@@ -72,8 +72,12 @@ void solve(void){
     if(p.size() > h.size()) kill("NO");
 
     vll p_freq(26, 0), w_freq(26, 0);
-    for(auto x : p)     p_freq[x - 'a']++;
-    rpt(i, 0, p.size()) w_freq[h[i] - 'a']++;
+    
+    for(auto x : p) 
+        p_freq[x - 'a']++;
+    
+    rpt(i, 0, p.size()) 
+        w_freq[h[i] - 'a']++;
     
     debug(p_freq);
 
