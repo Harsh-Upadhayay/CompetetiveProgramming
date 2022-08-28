@@ -79,7 +79,7 @@ void solve(void){
     rpt(i, 0, p.size()) 
         w_freq[h[i] - 'a']++;
 
-    rpt(i, p.size(), h.size() - 1) {
+    rpt(i, p.size(), h.size()) {
         if(iseq(p_freq, w_freq)) 
             kill("YES")
         else 
