@@ -58,7 +58,7 @@ void init(){
     return;
 }
 
-bool iseq(vll a, vll b) {
+bool iseq(vll &a, vll &b) {
     for(int i = 0; i < min(a.size(), b.size()); i++) 
         if(a[i] != b[i])
             return false;
@@ -75,6 +75,8 @@ void solve(void){
     for(auto x : p)     p_freq[x - 'a']++;
     rpt(i, 0, p.size()) w_freq[h[i] - 'a']++;
     
+    debug(w_freq);
+
     rpt(i, p.size(), h.size() - 1) {
         if(iseq(p_freq, w_freq)) 
             {kill("YES");}
