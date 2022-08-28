@@ -78,7 +78,6 @@ void solve(void){
     
     rpt(i, 0, p.size()) 
         w_freq[h[i] - 'a']++;
-    
 
     rpt(i, p.size(), h.size() - 1) {
         if(iseq(p_freq, w_freq)) 
@@ -89,7 +88,7 @@ void solve(void){
         debug(w_freq);
     }
 
-    kill("NO")
+    kill("NOx")
     
     nl;
 }
