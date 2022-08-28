@@ -69,7 +69,7 @@ void solve(void){
     
     string p, h; cin >> p >> h;
 
-    if(p.size() > h.size()) kill("NOs");
+    if(p.size() > h.size()) kill("NO");
 
     vll p_freq(26, 0), w_freq(26, 0);
     for(auto x : p)     p_freq[x - 'a']++;
