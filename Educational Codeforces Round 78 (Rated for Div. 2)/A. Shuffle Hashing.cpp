@@ -83,14 +83,16 @@ void solve(void){
         if(iseq(p_freq, w_freq)) 
             kill("YES")
         else 
-
             w_freq[h[i - p.size()] - 'a']--;
             w_freq[h[i] - 'a']++;
         
         debug(w_freq);
     }
 
-    kill("NOx")
+    if(iseq(p_freq, w_freq))
+        cout << "YES";
+    else
+        cout << "NO";
     
     nl;
 }
