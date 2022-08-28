@@ -75,12 +75,14 @@ void solve(void){
     for(auto x : p)     p_freq[x - 'a']++;
     rpt(i, 0, p.size()) w_freq[h[i] - 'a']++;
     
-    rpt(i, p.size(), h.size() - 1)
+    rpt(i, p.size(), h.size() - 1) {
         if(iseq(p_freq, w_freq)) 
             {kill("YES");}
         else 
             w_freq[h[i - p.size()]]--,
             w_freq[h[i]]++;
+        debug(w_freq);
+    }
 
     kill("NO"); 
     
