@@ -83,7 +83,7 @@ void solve(void){
 
     rpt(i, p.size(), h.size() - 1) {
         if(iseq(p_freq, w_freq)) 
-            {kill("YES");}
+            kill("YES")
         else 
             w_freq[h[i - p.size()]]--,
             w_freq[h[i]]++;
