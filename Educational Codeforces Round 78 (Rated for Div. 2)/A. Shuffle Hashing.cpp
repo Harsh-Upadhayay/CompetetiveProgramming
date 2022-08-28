@@ -90,7 +90,7 @@ void solve(void){
         debug(w_freq);
     }
 
-    kill("NO"); 
+    kill("NO")
     
     nl;
 }
