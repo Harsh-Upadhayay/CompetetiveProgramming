@@ -75,7 +75,7 @@ void solve(void){
     for(auto x : p)     p_freq[x - 'a']++;
     rpt(i, 0, p.size()) w_freq[h[i] - 'a']++;
     
-    debug(p, h,p_freq);
+    debug(p_freq);
 
     rpt(i, p.size(), h.size() - 1) {
         if(iseq(p_freq, w_freq)) 
