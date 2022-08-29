@@ -24,7 +24,7 @@ public:
         if(!root) return 0;
         
         int h = 0;
-        for(auto child : root -> children) 
+        for(Node* child : root -> children) 
             h = max(h, maxDepth(child));
         
         return h + 1;        
