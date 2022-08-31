@@ -64,6 +64,7 @@ void solve(void){
     string s; cin >> s;
     string name = "Timur";
     sort(s.begin(), s.end());
+    cout << name[0];
     cout << s;
     cout << (s == name ? "YES":"NO");
     nl;
