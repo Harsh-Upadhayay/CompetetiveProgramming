@@ -75,9 +75,9 @@ void solve(void){
         
         debug(l, r);
         if(l < (n - r - 1) && init[l] == 'L')
-            init[l] = 'L', score += n - 2 * l - 1;
+            init[l] = 'R', score += n - 2 * l - 1;
         else
-            init[r] = 'R', score += 2 * r - n + 1;
+            init[r] = 'L', score += 2 * r - n + 1;
 
         debug(init);
         cout << score << " ";
