@@ -65,8 +65,16 @@ void solve(void){
 
     ll score = 0; rpt(i, 0, n) score += (init[i] == 'R' ? n - i - 1 : i);
 
-    cout << score;
+    ll l = 0, r = n - 1;
 
+    rpt(i, 0, n) {
+
+        while(init[l] == 'R' && l < n / 2) l++;
+        if(init[l] == 'L') {init[l] = 'R'; score += (n - 2 * l - 1); cout << score << "\n"; continue;}
+
+        while(init[r] == 'l' && r > n / 2) r--;
+        if(init[r] == 'R') {init[r] = 'L'; score += (2* r - n + 1); cout << score << "\n"; continue;}
+    }
 
     nl;
 }
