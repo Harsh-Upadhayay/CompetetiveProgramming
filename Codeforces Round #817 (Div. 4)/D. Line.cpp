@@ -69,7 +69,7 @@ void solve(void){
 
     rpt(i, 0, n) {
 
-        while(init[l] == 'R' && l < n / 2) l++;
+        while(init[l] == 'R' && l < n / 2) l++; debug(l);
         if(init[l] == 'L') {init[l] = 'R'; score += (n - 2 * l - 1); cout << score << " "; continue;}
 
         while(init[r] == 'l' && r > n / 2) r--;
