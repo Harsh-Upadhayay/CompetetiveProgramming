@@ -73,6 +73,7 @@ void solve(void){
         while(init[l] == 'R' && l < n / 2) l++; 
         while(init[r] == 'L' && r > n / 2) r--;
         
+        debug(l, r);
         if(l < (n - r - 1) && init[l] == 'L')
             init[l] = 'L', score += n - 2 * l - 1;
         else
