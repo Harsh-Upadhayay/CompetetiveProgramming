@@ -75,7 +75,7 @@ void solve(void){
     rpt(i, 0, 3)
         rpt(j, 0, n){
             if(freq[a[i][j]] == 1) score[i] += 3;
-            else if(freq[a[i][j]] == 1) score[i] += 1;
+            else if(freq[a[i][j]] == 2) score[i] += 1;
         }
     cout << score[0] << " " << score[1] << " " << score[2];
     nl;
