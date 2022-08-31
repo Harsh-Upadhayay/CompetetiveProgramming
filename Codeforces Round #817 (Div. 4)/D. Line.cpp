@@ -77,6 +77,7 @@ void solve(void){
             while(init[r] == 'l' && r > n / 2) r--;
             if(init[r] == 'R') {init[r] = 'L'; score += (2* r - n + 1);}
         }
+        debug(init);
         cout << score << " ";
     }   
 
