@@ -71,12 +71,12 @@ void solve(void){
 
         if(init[l] == 'L') {
             while(init[l] == 'R' && l < n / 2) l++; 
-            if(init[l] == 'L') {init[l] = 'R'; score += (n - 2 * l - 1);}
+            if(init[l] == 'L') {init[l] = 'R'; score += (n - 2 * l - 1); l++;}
         }
 
         else if(init[r] == 'R') {
             while(init[r] == 'l' && r > n / 2) r--;
-            if(init[r] == 'R') {init[r] = 'L'; score += (2* r - n + 1);}
+            if(init[r] == 'R') {init[r] = 'L'; score += (2* r - n + 1); r--;}
         }
         debug(init);
         cout << score << " ";
