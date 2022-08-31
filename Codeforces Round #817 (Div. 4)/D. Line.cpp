@@ -67,6 +67,8 @@ void solve(void){
 
     ll l = 0, r = n - 1;
 
+    ll maxScore = n * (n - 1) - (n / 2) * ((n - 1) / 2);
+
     rpt(i, 0, n) {
 
 
@@ -74,6 +76,9 @@ void solve(void){
         while(init[r] == 'L' && r > n / 2) r--;
         
         debug(l, r);
+        if(score == maxScore) {
+            cout << score << " " ; continue;
+        }
         if(l < (n - r - 1) && init[l] == 'L')
             init[l] = 'R', score += n - 2 * l - 1;
         else
