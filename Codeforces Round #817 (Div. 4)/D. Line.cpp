@@ -69,11 +69,12 @@ void solve(void){
 
     rpt(i, 0, n) {
 
-        if(init[l] == 'R') {
+        if(init[l] == 'L') {
             while(init[l] == 'R' && l < n / 2) l++; 
             if(init[l] == 'L') {init[l] = 'R'; score += (n - 2 * l - 1);}
         }
-        else if(init[r] == 'L') {
+
+        else if(init[r] == 'R') {
             while(init[r] == 'l' && r > n / 2) r--;
             if(init[r] == 'R') {init[r] = 'L'; score += (2* r - n + 1);}
         }
