@@ -63,15 +63,21 @@ void solve(void){
     ll n; cin >> n;
     string a[3][n];
 
+    map<string, ll> freq;
+
     rpt(i, 0, 3)
-        rpt(j, 0, n)
+        rpt(j, 0, n){
             cin >> a[i][j];
+            freq[a[i][j]] ++;
+        }
+
+    int score[3] = {0};
     rpt(i, 0, 3)
-        rpt(j, 0, n)
-            cout <<  a[i][j] << " ";
-
-
-
+        rpt(j, 0, n){
+            if(freq[a[i][j]] == 1) score[i] += 3;
+            else if(freq[a[i][j]] == 1) score[i] += 1;
+        }
+    cout << score[0] << " " << score[1] << " " << score[2];
     nl;
 }
 
