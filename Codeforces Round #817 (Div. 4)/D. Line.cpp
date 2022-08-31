@@ -63,7 +63,7 @@ void solve(void){
     ll n; cin >> n;
     string init; cin >> init;
 
-    ll score = 0; rpt(i, 0, n) score += (init[i] == 'L' ? n - i - 1 : i);
+    ll score = 0; rpt(i, 0, n) score += (init[i] == 'R' ? n - i - 1 : i);
 
     cout << score;
 
