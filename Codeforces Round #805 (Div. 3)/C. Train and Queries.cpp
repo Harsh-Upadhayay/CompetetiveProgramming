@@ -1,106 +1,148 @@
+/*  */
+#include<bits/stdc++.h>
+using namespace std;
 
+#ifdef DarkLord
+    #include "debug.h"
+#else
+    #define debug(x...) 
+    class Timer{};
+#endif
 
 /*_________________________________________________________________________________________________________________________________________*/
 
-//            _|      _|    _|_|_|_|_|    _|              _|_|         _|    _|
-//            _|_|    _|        _|        _|            _|    _|        _|  _|
-//            _| _|   _|        _|        _|           _|      _|        _|_|
-//            _|  _|  _|        _|        _|           _|_|_|_|_|         _|
-//            _|   _| _|        _|        _|           _|      _|         _|
-//            _|    _|_|        _|        _|           _|      _|         _|
-//            _|      _|    _|_|_|_|_|    _|_|_|_|_|   _|      _|         _|
-   
-                   /* Code by :-  Nilay Patel (nilay__patel) */
+#define ll                      long long int
+#define ull                     unsigned ll
+#define ld                      long double
+#define p(x, y)                 pair<x, y> 
+#define pb                      push_back
+#define fi                      first
+#define se                      second
+#define lb                      lower_bound
+#define ub                      upper_bound
+#define vll                     vector<ll>
+#define ninf                    ((ll)((-1)*1e18+5))
+#define inf                     ((ll)(1e18+5))
+#define MOD                     ((ll)(1e9+7))
+#define nmin(v)                 *min_element(all(v))
+#define nmax(v)                 *max_element(all(v))
+#define rpt(i, begin, end)      for (__typeof(end) i = (begin) - ((begin) > (end)); i != (end) - ((begin) > (end)); i += 1 - 2 * ((begin) > (end)))
+#define all(x)                  (x).begin(), (x).end() 
+#define yes                     cout << "YES";
+#define no                      cout << "NO";
+#define nl                      cout << "\n";
+#define kill(x)                 {cout << x << "\n"; return; }
+#define TESTCASE
+#define SIEVE_SIZE                ((ll)(1e5))
+/*_________________________________________________________________________________________________________________________________________*/
 
-#include <bits/stdc++.h>
-#define ll long long
-#define f(i,a,b) for(ll i = (a); i <= (b); i++)
-#define fr(i,a,b) for(ll i = (a); i >= (b); i--)
-#define all(x) x.begin(),x.end()
-#define sz(x) (ll)x.size()
-#define pb push_back
-#define F first
-#define S second
-#define vi vector<ll>
-#define inf 1e9+5
-#define yes cout<<"YES"
-#define no cout<<"NO"
-#define nn "\n"
-using namespace std;
+template<class T>
+T inline max(T a, T b, T c, T d = ninf, T e = ninf);
+template<class T>
+T inline min(T a, T b, T c, T d = inf, T e = inf);
+template<class T>
+void inline print(vector<T> v);
+template<class T>
+void inline print(vector<vector<T>> v);
 
-int main(){
-     #ifdef DarkLord
+bitset<SIEVE_SIZE> isComposit;
+void setSieve();
+
+set<ll> allPrimes;
+void storePrimes();
+/*_________________________________________________________________________________________________________________________________________*/
+/*_________________________________________________________________________________________________________________________________________*/
+
+void init(){
+
+    return;
+}
+
+
+void solve(void){
+    ll n; cin >> n;
+    ll x = 0;
+
+    rpt(i, 1, n + 1) {
+        x = x ^ i;
+        cout << (x);
+    }
+
+    nl;
+}
+
+
+/*_________________________________________________________________________________________________________________________________________*/
+/*_________________________________________________________________________________________________________________________________________*/
+
+int main() {
+    Timer _;
+    srand(time(0));
+    #ifdef DarkLord
         freopen("input.txt","r",stdin);
         freopen("output.txt","w",stdout);
         freopen("err.txt","w",stderr);
     #endif
-ll test; cin>>test;
-f(ttt,1,test){ 
- cout << "Case #" << ttt << ": ";
+
+    ios_base::sync_with_stdio(0);
+    cin.tie(NULL);
     
-    ll n,m; cin>>n>>m;
-    ll tree=0;
-    vector<string> s;
-    f(i,0,n-1){
-        string t; cin>>t;
-        f(j,0,m-1){
-            if(t[j]=='^') tree++;
-        }
-        s.pb(t);
+    init();
+
+    ll t = 1;
+
+    #ifdef TESTCASE
+        cin >> t;
+    #endif
+
+    while(t--) 
+        solve();
+
+    return 0;
+}
+
+/*_________________________________________________________________________________________________________________________________________*/
+
+template<class T>
+T inline max(T a, T b, T c, T d, T e){
+    return max(max(max(a, b), max(c, d)), e);
+}
+
+template<class T>
+T inline min(T a, T b, T c, T d, T e){
+    return min(min(min(a, b), min(c, d)), e);
+}
+
+template<class T>
+void inline print(vector<T> v){
+    for(auto x : v)
+        cout << x << " ";
+}
+
+template<class T>
+void inline print(vector<vector<T>> v){
+    for(auto x : v){
+        for(auto y : x)
+            cout << y << " ";
+        nl;
     }
-    
-    if((m==1 || n==1) && tree>0) {cout<<"Impossible"<<nn; continue;}
-    if(tree==0){
-        cout<<"Possible"<<nn;
-        f(i,0,n-1){
-            cout<<s[i]<<nn;
-        }
-        continue;
-    }
-    ll ck=0, cnt=0;
-    f(i,0,n-1){
-        f(j,0,m-1){
-            cnt=0;
-            if(i==0 && j==0){
-                if(i+1<n && s[i+1][j]=='#') cnt++;
-                if(j+1<m && s[i][j+1]=='#') cnt++;
-                if(cnt==0 && s[i][j]=='.') s[i][j]='^';
-            }else if(i==0 && j==m-1){
-                if(i+1<n && s[i+1][j]=='#') cnt++;
-                if(j-1>=0 && s[i][j-1]=='#') cnt++;
-                if(cnt==0 && s[i][j]=='.') s[i][j]='^';
-            }else if(i==n-1 && j==0){
-                if(i-1>=0 && s[i-1][j]=='#') cnt++;
-                if(j+1<m && s[i][j+1]=='#') cnt++;
-                if(cnt==0 && s[i][j]=='.') s[i][j]='^';
-            }else if(i==n-1 && j==m-1){
-                if(i-1>=0 && s[i-1][j]=='#') cnt++;
-                if(j-1>=0 && s[i][j-1]=='#') cnt++;
-                if(cnt==0 && s[i][j]=='.') s[i][j]='^';
-            }else if(s[i][j]!='#') s[i][j]='^';
-        }
-    }
-    f(i,0,n-1){
-        f(j,0,m-1){
-            cnt=0;
-            if(s[i][j]=='^'){
-                if(i-1>=0 && s[i-1][j]=='^') cnt++;
-                if(i+1<n && s[i+1][j]=='^') cnt++;
-                if(j-1>=0 && s[i][j-1]=='^') cnt++;
-                if(j+1<m && s[i][j+1]=='^') cnt++;
-                if(cnt<2){ck=1; break;}
-            }
-            // cout<<cnt<<" ";
-        }
-        // cout<<nn;
-    }
-    if(ck) {cout<<"Impossible"<<nn; continue;}
-    cout<<"Possible"<<nn;
-    f(i,0,n-1){
-        cout<<s[i]<<nn;
-    }
+}
+
+void setSieve(){
+    isComposit[0] = isComposit[1] = 1;
+    for(long long i = 2; i*i <= SIEVE_SIZE; i++)
+        if(isComposit[i] == 0)
+            for(long long j = i*i; j <= SIEVE_SIZE; j += i)
+                isComposit[j] = 1;
 
 }
-    
 
+void storePrimes(){
+    if(isComposit[2])
+        setSieve();
+    for(ll i = 2; i < SIEVE_SIZE; i++)
+        if(!isComposit[i])
+            allPrimes.insert(i);
 }
+
+/*_________________________________________________________________________________________________________________________________________*/
