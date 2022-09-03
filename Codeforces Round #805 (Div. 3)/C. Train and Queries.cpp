@@ -63,7 +63,8 @@ void print_sub(vll seq, vll subsq,
 
     if(idx == seq.size()) {
         if(sum == tgt)
-            print(subsq);
+            print(subsq),
+            cout << "\n";
         return;
     }
 
