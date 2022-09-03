@@ -60,13 +60,13 @@ void init(){
 
 deque<int> dq;
 void subsq(string s, int i) {
-    if(i = -1) {
+    if(i == -1) {
         int idx = 0;
         for(auto x : dq){
             if(x) cout << s[idx];
             idx++;
         }
-        debug(dq);
+
         return;
     }
 
