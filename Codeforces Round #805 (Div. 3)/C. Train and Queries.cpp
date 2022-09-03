@@ -58,31 +58,34 @@ void init(){
     return;
 }
 
-deque<int> dq;
-void subsq(string s, int i) {
-    if(i == -1) {
-        int idx = 0;
-        for(auto x : dq){
-            if(x) cout << s[s.size() - idx - 1];
-            idx++;
-        }
-        debug(dq);
-        cout << "\n";
+void print_sub(vll seq, vll subsq,
+               int tgt, int sum = 0, int idx = 0) {
+
+    if(idx == seq.size()) {
+        if(sum == tgt)
+            print(subsq);
         return;
     }
 
-    dq.push_back(false);
-    subsq(s, i - 1);
-    dq.pop_back();
-    dq.push_back(true);
-    subsq(s, i - 1);
-    dq.pop_back();
+    sum += seq[idx];
+    subsq.push_back(seq[idx]);
+
+    print_sub(seq, subsq, tgt, sum, idx + 1);
+
+    sum -= seq[idx];
+    subsq.pop_back();
+
+    print_sub(seq, subsq, tgt, sum, idx + 1);
+
+
 }
 
 void solve(void){
-    string s; cin >> s;
-    dq.clear();
-    subsq(s, s.size() - 1);
+    ll n, k; cin >> n >> k;
+    vll seq(n), subsq; rpt(i, 0, n) cin >> seq[i]; 
+
+    print_sub(seq, subsq, k);
+
     nl;
 }
 
