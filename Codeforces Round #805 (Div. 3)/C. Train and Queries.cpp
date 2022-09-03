@@ -63,7 +63,7 @@ void subsq(string s, int i) {
     if(i == -1) {
         int idx = 0;
         for(auto x : dq){
-            if(x) cout << s[idx];
+            if(x) cout << s[s.size() - idx - 1];
             idx++;
         }
         debug(dq);
