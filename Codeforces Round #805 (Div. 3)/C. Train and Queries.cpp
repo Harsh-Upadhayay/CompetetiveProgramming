@@ -76,6 +76,7 @@ void subsq(string s, int i) {
     dq.pop_back();
     dq.push_back(true);
     subsq(s, i - 1);
+    dq.pop_back();
 }
 
 void solve(void){
