@@ -66,6 +66,7 @@ void subsq(string s, int i) {
             if(x) cout << s[idx];
             idx++;
         }
+        debug(dq);
         return;
     }
 
