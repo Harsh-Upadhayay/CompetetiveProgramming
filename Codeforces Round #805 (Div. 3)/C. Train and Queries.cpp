@@ -58,16 +58,28 @@ void init(){
     return;
 }
 
-
-void solve(void){
-    ll n; cin >> n;
-    ll x = 0;
-
-    rpt(i, 1, n + 1) {
-        x = x ^ i;
-        cout << (x) << endl;
+deque<int> dq;
+void subsq(string s, int i) {
+    if(i = -1) {
+        int idx = 0;
+        for(auto x : dq){
+            if(x) cout << s[idx];
+            idx++;
+        }
+        return;
     }
 
+    dq.push_back(false);
+    subsq(s, i - 1);
+    dq.pop_back();
+    dq.push_back(true);
+    subsq(s, i - 1);
+}
+
+void solve(void){
+    string s; cin >> s;
+    dq.clear();
+    subsq(s, s.size() - 1);
     nl;
 }
 
