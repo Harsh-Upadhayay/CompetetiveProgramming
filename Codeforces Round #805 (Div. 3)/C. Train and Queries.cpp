@@ -58,34 +58,35 @@ void init(){
     return;
 }
 
-void print_sub(vll seq, vll subsq,
-               int tgt, int sum = 0, int idx = 0) {
+void print_subsq(vector<ll> &seq, vector<ll> &subseq, 
+                 int tgt, int idx = 0, int sum = 0) {
 
     if(idx == seq.size()) {
-        if(sum == tgt)
-            print(subsq),
-            cout << "\n";
+        if(sum == tgt) 
+            print(subseq);
+        cout << endl;
         return;
     }
 
     sum += seq[idx];
-    subsq.push_back(seq[idx]);
+    subseq.push_back(seq[idx]);
 
-    print_sub(seq, subsq, tgt, sum, idx + 1);
+    print_subsq(seq, subseq, tgt, idx + 1, sum);
 
     sum -= seq[idx];
-    subsq.pop_back();
+    subseq.push_back(seq[idx]);
 
-    print_sub(seq, subsq, tgt, sum, idx + 1);
+    print_subsq(seq, subseq, tgt, idx + 1, sum);
 
 
 }
 
 void solve(void){
+    
     ll n, k; cin >> n >> k;
-    vll seq(n), subsq; rpt(i, 0, n) cin >> seq[i]; 
+    vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    print_sub(seq, subsq, k);
+    vll subseq; print_subsq(v, subseq, k);
 
     nl;
 }
