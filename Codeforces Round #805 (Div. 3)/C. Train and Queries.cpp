@@ -74,7 +74,7 @@ void print_subsq(vector<ll> &seq, vector<ll> &subseq,
     print_subsq(seq, subseq, tgt, idx + 1, sum);
 
     sum -= seq[idx];
-    subseq.push_back(seq[idx]);
+    subseq.pop_back();
 
     print_subsq(seq, subseq, tgt, idx + 1, sum);
 
