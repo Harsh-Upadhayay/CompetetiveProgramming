@@ -63,8 +63,8 @@ void print_subsq(vector<ll> &seq, vector<ll> &subseq,
 
     if(idx == seq.size()) {
         if(sum == tgt) 
-            print(subseq);
-        cout << endl;
+            print(subseq),
+            cout << endl;
         return;
     }
 
