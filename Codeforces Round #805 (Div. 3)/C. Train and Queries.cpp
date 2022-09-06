@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-#define TESTCASE
+// #define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -75,7 +75,7 @@ void solve(void){
     }
     while(i < n)
         v.push_back(a[i++]);
-    while(j < n)
+    while(j < m)
         v.push_back(b[j++]);
 
     print(v);
