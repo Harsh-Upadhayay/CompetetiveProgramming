@@ -75,7 +75,7 @@ void solve(void){
     }
     while(i < n)
         v.push_back(a[i++]);
-    while(j < m)
+    while(j < n)
         v.push_back(b[j++]);
 
     print(v);
