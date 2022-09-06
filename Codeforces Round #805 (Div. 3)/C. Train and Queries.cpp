@@ -68,7 +68,7 @@ void solve(void){
 
     int i = 0, j = 0;
     while(i < n && j < m) {
-       if(i <= n)
+       if(a[i] <= b[j])
             v.push_back(a[i++]);
         else
             v.push_back(b[j++]);
