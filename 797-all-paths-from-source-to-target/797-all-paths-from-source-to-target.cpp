@@ -1,6 +1,6 @@
 class Solution {
     vector<vector<int>> ans;
-    void dfs(vector<vector<int>> &graph, int source, vector<int> path){
+    void dfs(vector<vector<int>> &graph, int source, vector<int> &path){
         
         path.push_back(source);
         if(source == graph.size() - 1) { 
@@ -11,7 +11,7 @@ class Solution {
             cout << x;
             dfs(graph, x, path);
         }
-        
+        path.pop_back();
     }
 public:
     vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
