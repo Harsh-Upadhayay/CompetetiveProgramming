@@ -1,22 +1,33 @@
 class Solution {
+    
+    void print(vector<int> v){
+        
+        for(auto x : v) cout << x << " ";
+        cout << endl;
+        
+    }
+    
 public:
     vector<int> productExceptSelf(vector<int>& nums) {
         int n = nums.size();
-        vector<int> leftp(n, 0), rightp(n, 0);
-        leftp[0] = 1;
+        vector<int> lp(n), rp(n), pws(n);
+        
+        lp[0] = nums[0];
         for(int i = 1; i < n; i++)
-            leftp[i] = leftp[i - 1] * nums[i - 1];
-        rightp[n - 1] = 1;
+            lp[i] = lp[i - 1] * nums[i];
+    
+        
+        rp[n - 1] = nums[n - 1];
         for(int i = n - 2; i >= 0; i--)
-            rightp[i] = rightp[i + 1] * nums[i + 1];
-        vector<int> ans(n);
-        for(int i = 0; i < n; i++)
-            ans[i] = leftp[i] * rightp[i];
-        for(auto x : leftp)
-            cout << x << " ";
-        cout << "\n";
-        for(auto x : rightp)
-            cout << x << " ";
-        return ans;
+            rp[i] = rp[i + 1] * nums[i];
+        
+        pws[0] = rp[1],
+        pws[n - 1] = lp[n - 2];
+        
+        for(int i = 1; i < n - 1; i++)
+            pws[i] = lp[i - 1] * rp[i + 1];
+        
+        return pws;
+        
     }
 };
