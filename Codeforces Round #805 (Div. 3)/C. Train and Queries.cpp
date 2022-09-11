@@ -64,11 +64,11 @@ void nqueen(vector<string> &board, int r = 0, int c = 0) {
         cout << ++d << "\n"; print(board); nl; return;
     }
 
-    board[r][c] = 'X';
     for(int i = 0; i < board.size(); i++) {
+        board[r][i] = 'X';
         nqueen(board, r + 1, i);
+        board[r][i] = '.';
     }
-    board[r][c] = '.';
 
 
 }
