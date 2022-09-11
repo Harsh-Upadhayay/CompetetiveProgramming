@@ -25,9 +25,7 @@ public:
         
         while(l1 && l2) {
             
-            ptr -> next = new ListNode(l1 -> val + l2 -> val + carry);
-            ptr = ptr -> next;
-            cout << l1 -> val << " " << l2 -> val << " " << ptr -> val << "\n";
+            ptr = ptr = ptr -> next = new ListNode(l1 -> val + l2 -> val + carry);
             carry = (ptr -> val) / 10;
             ptr -> val %= 10;
             l1 = l1 -> next;
@@ -36,8 +34,7 @@ public:
         
         while(l1)  {
     
-            ptr -> next = new ListNode(l1 -> val + carry);
-            ptr = ptr -> next;     
+            ptr = ptr -> next = new ListNode(l1 -> val + carry);  
             carry = (ptr -> val) / 10;
             ptr -> val %= 10;
             l1 = l1 -> next;     
@@ -45,16 +42,15 @@ public:
         
         while(l2) {
     
-            ptr -> next = new ListNode(l2 -> val + carry);    
-            ptr = ptr -> next;      
+            ptr = ptr -> next = new ListNode(l2 -> val + carry);
             carry = (ptr -> val) / 10;
             ptr -> val %= 10;
             l2 = l2 -> next;
         }
         
-        if(carry) {
+        if(carry) 
             ptr -> next = new ListNode(carry);
-        }
+        
         
         return sum_head;
     }
