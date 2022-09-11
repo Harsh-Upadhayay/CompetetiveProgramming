@@ -65,8 +65,8 @@ bool place(vector<string> &board, int r, int c) {
     for(auto pos : queens) 
         if( pos.first  == r ||
             pos.second == c || 
-            pos.first  - r  ==
-            pos.second - r
+            abs(pos.first  - r)  ==
+            abs(pos.second - r)
           )
         return false;
 
