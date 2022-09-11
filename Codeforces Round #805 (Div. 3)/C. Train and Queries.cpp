@@ -57,11 +57,11 @@ void init(){
 
     return;
 }
-
+int c = 0;
 void nqueen(vector<string> &board, int r = 0, int c = 0) {
 
     if(r == board.size()) {
-        print(board); nl; return;
+        cout << ++c << "\n"; print(board); nl; return;
     }
 
     board[r][c] = 'X';
