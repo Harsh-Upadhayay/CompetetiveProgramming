@@ -77,7 +77,7 @@ bool place(vector<string> &board, int r, int c) {
 
 void remove(vector<string> &board, int r, int c) {
 
-    board[r][c] = 'O';
+    board[r][c] = '.';
     queens.erase({r, c});
 
 }
@@ -99,7 +99,7 @@ void nqueen(vector<string> &board, int r = 0) {
 void solve(void){
     ll n; cin >> n;
 
-    vector<string> board(n, string(n, 'O'));
+    vector<string> board(n, string(n, '.'));
 
     nqueen(board);
 
