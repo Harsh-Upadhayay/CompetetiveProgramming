@@ -66,7 +66,7 @@ bool place(vector<string> &board, int r, int c) {
         if( pos.first  == r ||
             pos.second == c || 
             abs(pos.first  - r)  ==
-            abs(pos.second - r)
+            abs(pos.second - c)
           )
         return false;
 
@@ -94,8 +94,6 @@ void nqueen(vector<string> &board, int r = 0) {
 
         remove(board, r, i);
     }
-
-
 }
 
 void solve(void){
