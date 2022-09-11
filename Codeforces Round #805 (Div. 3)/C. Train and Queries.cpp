@@ -91,8 +91,7 @@ void nqueen(vector<string> &board, int r = 0) {
     for(int i = 0; i < board.size(); i++) {
         if(place(board, r, i)) 
             nqueen(board, r + 1);
-        else
-            return;
+
         remove(board, r, i);
     }
 
