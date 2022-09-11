@@ -134,7 +134,6 @@ class Solution {
 
     void nqueen(vector<string> &board, int r = 0) {
 
-        print(board);
         if(r == board.size()) {
             possible_states.push_back(board);
             return;
@@ -152,6 +151,7 @@ public:
         
         possible_states.clear();
         vector<string> board(n, string(n, '.'));
+        nqueen(board);
         return possible_states;
     }
 };
