@@ -61,7 +61,7 @@ void init(){
 void nqueen(vector<string> &board, int r = 0, int c = 0) {
 
     if(r == board.size()) {
-        print(board); return;
+        print(board); nl; return;
     }
 
     board[r][c] = 'X';
