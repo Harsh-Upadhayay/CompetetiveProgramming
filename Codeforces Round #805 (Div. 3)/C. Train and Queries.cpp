@@ -62,13 +62,13 @@ set<pair<int, int>> queens;
 
 bool place(vector<string> &board, int r, int c) {
 
-    // for(auto pos : queens) 
-    //     if( pos.first  == r ||
-    //         pos.second == c || 
-    //         abs(pos.first  - r)  ==
-    //         abs(pos.second - c)
-    //       )
-    //     return false;
+    for(auto pos : queens) 
+        if( pos.first  == r ||
+            pos.second == c || 
+            abs(pos.first  - r)  ==
+            abs(pos.second - c)
+          )
+        return false;
 
     queens.insert({r, c});
     board[r][c] = 'X';
