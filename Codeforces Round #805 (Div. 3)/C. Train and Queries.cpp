@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-// #define TESTCASE
+#define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -60,25 +60,13 @@ void init(){
 
 
 void solve(void){
-    
-    ll n, m; cin >> n >> m;
-    vll a(n), b(m), v; 
-    rpt(i, 0, n) cin >> a[i];
-    rpt(i, 0, m) cin >> b[i];
+    ll n; cin >> n;
 
-    int i = 0, j = 0;
-    while(i < n && j < m) {
-       if(a[i] <= b[j])
-            v.push_back(a[i++]);
-        else
-            v.push_back(b[j++]);
-    }
-    while(i < n)
-        v.push_back(a[i++]);
-    while(j < m)
-        v.push_back(b[j++]);
+    vector<string> board(n, string(n, '.'));
 
-    print(v);
+    print(board);
+
+    // nqueen()
 
     nl;
 }
