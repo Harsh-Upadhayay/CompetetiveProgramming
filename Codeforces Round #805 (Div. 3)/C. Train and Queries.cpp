@@ -151,6 +151,7 @@ public:
         
         possible_states.clear();
         vector<string> board(n, string(n, '.'));
+        print(board);
         return possible_states;
     }
 };
