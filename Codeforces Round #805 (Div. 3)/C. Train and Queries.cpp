@@ -106,6 +106,54 @@ void solve(void){
     nl;
 }
 
+class Solution {
+    set<pair<int, int>> queens;
+    vector<vector<string>> possible_states;
+    
+    bool place(vector<string> &board, int r, int c) {
+
+        for(auto pos : queens) 
+            if( pos.first  == r ||
+                pos.second == c || 
+                abs(pos.first  - r)  ==
+                abs(pos.second - c)
+              )
+            return false;
+
+        queens.insert({r, c});
+        board[r][c] = 'Q';
+        return true;
+    }
+
+    void remove(vector<string> &board, int r, int c) {
+
+        board[r][c] = '.';
+        queens.erase({r, c});
+
+    }
+
+    void nqueen(vector<string> &board, int r = 0) {
+
+        if(r == board.size()) {
+            possible_states.push_back(board);
+            return;
+        }
+
+        for(int i = 0; i < board.size(); i++) {
+            if(place(board, r, i)) 
+                nqueen(board, r + 1);
+
+            remove(board, r, i);
+        }
+    }
+public:
+    vector<vector<string>> solveNQueens(int n) {
+        
+        possible_states.clear();
+        vector<string> board(n, string(n, '.'));
+        return possible_states;
+    }
+};
 
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
@@ -129,9 +177,11 @@ int main() {
     #ifdef TESTCASE
         cin >> t;
     #endif
-
-    while(t--) 
-        solve();
+    Solution s;
+    while(t--) {
+        auto x = s.solveNQueens(4);
+        cout << x.size();
+    }
 
     return 0;
 }
