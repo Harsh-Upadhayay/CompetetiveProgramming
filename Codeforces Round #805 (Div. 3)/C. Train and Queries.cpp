@@ -58,7 +58,7 @@ void init(){
     return;
 }
 int d = 0;
-void nqueen(vector<string> &board, int r = 0, int c = 0) {
+void nqueen(vector<string> &board, int r = 0) {
 
     if(r == board.size()) {
         cout << ++d << "\n"; print(board); nl; return;
@@ -66,7 +66,7 @@ void nqueen(vector<string> &board, int r = 0, int c = 0) {
 
     for(int i = 0; i < board.size(); i++) {
         board[r][i] = 'X';
-        nqueen(board, r + 1, i);
+        nqueen(board, r + 1);
         board[r][i] = '.';
     }
 
