@@ -58,15 +58,27 @@ void init(){
     return;
 }
 
+void nqueen(vector<string> &board, int r = 0, int c = 0) {
+
+    if(r == board.size()) {
+        print(board); return;
+    }
+
+    board[r][c] = 'X';
+    for(int i = 0; i < board.size(); i++) {
+        nqueen(board, r + 1, i);
+    }
+    board[r][c] = '.';
+
+
+}
 
 void solve(void){
     ll n; cin >> n;
 
     vector<string> board(n, string(n, '.'));
 
-    print(board);
-
-    // nqueen()
+    nqueen(board);
 
     nl;
 }
