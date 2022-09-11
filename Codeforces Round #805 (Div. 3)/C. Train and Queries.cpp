@@ -57,17 +57,43 @@ void init(){
 
     return;
 }
-int d = 0;
+
+set<pair<int, int>> queens;
+
+bool place(vector<string> &board, int r, int c) {
+
+    for(auto pos : queens) 
+        if( pos.first  == r ||
+            pos.second == c || 
+            pos.first  - r  ==
+            pos.second - r
+          )
+        return false;
+
+    queens.insert({r, c});
+    board[r][c] = 'X';
+    return true;
+}
+
+void remove(vector<string> &board, int r, int c) {
+
+    board[r][c] = '.';
+    queens.erase({r, c});
+
+}
+
 void nqueen(vector<string> &board, int r = 0) {
 
     if(r == board.size()) {
-        cout << ++d << "\n"; print(board); nl; return;
+        print(board); nl; return;
     }
 
     for(int i = 0; i < board.size(); i++) {
-        board[r][i] = 'X';
-        nqueen(board, r + 1);
-        board[r][i] = '.';
+        if(place(board, r, i)) 
+            nqueen(board, r + 1);
+        else
+            return;
+        remove(board, r, i);
     }
 
 
