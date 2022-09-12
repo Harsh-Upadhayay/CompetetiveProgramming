@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-// #define TESTCASE
+#define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -58,23 +58,15 @@ void init(){
     return;
 }
 
-ll cost(vll &v, vll &dp, ll idx, ll k) {
-
-    dp[0] = 0;
-
-    rpt(i, 1, idx + 1) 
-        for(int j = 1; j < min(i + 1, k + 1); j++) 
-            dp[i] = min(dp[i], dp[i - j] + abs(v[i] - v[i - j]));
-    return dp[idx];
-
-}
 
 void solve(void){
-    
-    ll n, k; cin >> n >> k;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
-    vll dp(n, inf);
-    cout << cost(v, dp, n - 1, k);
+    ll a, b, c; cin >> a >> b >> c;
+
+    if(abs(a - 1) < abs(b - c) + abs(c - 1)) 
+        cout << 1;
+    else if(abs(a - 1) > abs(b - c) + abs(c - 1))
+        cout << 2;
+    else cout << 3;
 
     nl;
 }
