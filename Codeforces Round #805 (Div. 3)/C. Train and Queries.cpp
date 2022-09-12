@@ -58,15 +58,28 @@ void init(){
     return;
 }
 
-#define n 9
+ll cost(vll v, ll i, ll k) {
+
+    if(i == 0) return 0;
+    if(i <= 0) return inf;
+
+    ll minCost = inf,
+           itr = min(i + 1, k + 1);
+
+    rpt(j, 1, itr) {
+        minCost = min(minCost, cost(v, i - j, k) + abs(v[i] - v[i - j]));
+    } 
+
+    return minCost;
+
+}
 
 void solve(void){
     
-    vector<vector<char>> board(n, vector<char>(n));
-    for(int i = 0; i < n; i++)
-        for(int j = 0; j < n; j++)
-            cin >> board[i][j];
-    debug(board);
+    ll n, k; cin >> n >> k;
+    vll v(n); rpt(i, 0, n) cin >> v[i];
+
+    cout << cost(v, n - 1, k);
 
     nl;
 }
