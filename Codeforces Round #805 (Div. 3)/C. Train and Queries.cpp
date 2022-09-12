@@ -66,7 +66,7 @@ void solve(void){
         cout << 1;
     else if(abs(a - 1) > abs(b - c) + abs(c - 1))
         cout << 2;
-    else cout << 3;
+    else cout << 3; 
 
     nl;
 }
