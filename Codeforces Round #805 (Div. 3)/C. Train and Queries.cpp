@@ -62,7 +62,7 @@ ll cost(vll &v, vll &dp, ll idx, ll k) {
 
     dp[0] = 0;
 
-    rpt(i, 0, idx + 1) {
+    rpt(i, 1, idx + 1) {
 
         ll minCost = inf,
                itr = min(i + 1, k + 1);
