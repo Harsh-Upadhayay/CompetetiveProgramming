@@ -58,19 +58,21 @@ void init(){
     return;
 }
 
-ll cost(vll v, ll i, ll k) {
+ll cost(vll &v, vll &dp, ll i, ll k) {
 
     if(i == 0) return 0;
     if(i <= 0) return inf;
 
+    if(dp[i] != -1) return dp[i];
+
     ll minCost = inf,
            itr = min(i + 1, k + 1);
 
-    rpt(j, 1, itr) {
-        minCost = min(minCost, cost(v, i - j, k) + abs(v[i] - v[i - j]));
-    } 
+    rpt(j, 1, itr) 
+        minCost = min(minCost, cost(v, dp, i - j, k) + abs(v[i] - v[i - j]));
+    
 
-    return minCost;
+    return dp[i] = minCost;
 
 }
 
@@ -78,8 +80,8 @@ void solve(void){
     
     ll n, k; cin >> n >> k;
     vll v(n); rpt(i, 0, n) cin >> v[i];
-
-    cout << cost(v, n - 1, k);
+    vll dp(n, -1);
+    cout << cost(v, dp, n - 1, k);
 
     nl;
 }
