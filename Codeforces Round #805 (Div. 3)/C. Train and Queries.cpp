@@ -58,21 +58,22 @@ void init(){
     return;
 }
 
-ll cost(vll &v, vll &dp, ll i, ll k) {
+ll cost(vll &v, vll &dp, ll idx, ll k) {
 
-    if(i == 0) return 0;
-    if(i <= 0) return inf;
+    dp[0] = 0;
 
-    if(dp[i] != -1) return dp[i];
+    rpt(i, 0, idx + 1) {
 
-    ll minCost = inf,
-           itr = min(i + 1, k + 1);
+        ll minCost = inf,
+               itr = min(idx + 1, k + 1);
+        
+        rpt(j, 1, itr) 
+            minCost = min(minCost, dp[i - j] + abs(v[i] - v[i - j]));
 
-    rpt(j, 1, itr) 
-        minCost = min(minCost, cost(v, dp, i - j, k) + abs(v[i] - v[i - j]));
-    
+        dp[i] = minCost;
+    }
 
-    return dp[i] = minCost;
+    return dp[idx];
 
 }
 
