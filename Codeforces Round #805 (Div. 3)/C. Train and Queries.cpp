@@ -62,15 +62,9 @@ ll cost(vll &v, vll &dp, ll idx, ll k) {
 
     dp[0] = 0;
 
-    rpt(i, 1, idx + 1) {
-
-        ll itr = min(i + 1, k + 1);
-        
-        rpt(j, 1, itr) 
+    rpt(i, 1, idx + 1) 
+        for(int j = 1; j < min(i + 1, k + 1); j++) 
             dp[i] = min(dp[i], dp[i - j] + abs(v[i] - v[i - j]));
-
-    }
-
     return dp[idx];
 
 }
