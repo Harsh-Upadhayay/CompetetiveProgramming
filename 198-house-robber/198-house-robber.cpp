@@ -1,23 +1,23 @@
 class Solution {
     
-    int cost(vector<int> &nums, vector<int> &dp, int i) {
+    int cost(vector<int> &nums, vector<int> &dp) {
           
-        if(i < 0) return 0;
-        if(i == 0) return nums[0];
+        dp[0] = nums[0];
+        if(nums.size() > 1) dp[1] = max(nums[0], nums[1]);
         
-        if(dp[i] != -1) return dp[i];
-        
-        int l = cost(nums, dp, i - 1);
-        int r = cost(nums, dp, i - 2) + nums[i];        
-        
-        return dp[i] = max(l, r);
+        for(int i = 2; i < nums.size(); i++) {
+            
+            dp[i] = max(dp[i - 1], dp[i - 2] + nums[i]);
+            
+        }
+        return dp[nums.size() - 1];
     }
     
 public:
     int rob(vector<int>& nums) {
         vector<int> dp(nums.size(), -1);
         
-        return cost(nums, dp, nums.size() - 1);
+        return cost(nums, dp);
     }
 };
 // 1 2 3 1
