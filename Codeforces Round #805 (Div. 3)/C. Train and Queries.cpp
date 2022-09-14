@@ -60,44 +60,10 @@ void init(){
 
 
 void solve(void){
-    
     ll n; cin >> n;
-    string s; cin>> s;
-
-    if(n == 1) {
-        if('W' == s[0]) kill("YES")
-        else kill("NO")
-    }
-
-    if(n == 2) {
-        if( 'R' == s[0] && 'B' == s[1] ||
-            'B' == s[0] && 'R' == s[1]) kill ("YES")
-        else kill("NO")
-    }
-
-
-    if(s[0]     != 'W' && s[1]     == 'W') kill ("NO")
-    if(s[n - 1] != 'W' && s[n - 2] == 'W') kill ("NO")
-
-    bool rf = false, bf = false;
-
-    int i = 0;
-    while(s[i] == 'W') i++;
-
-    for(; i < n; i++) {
-
-        if(s[i] == 'W') {
-            if(!(rf && bf)) kill("NO")
-            rf = bf = false;
-            continue;
-        }
-        rf |= s[i] == 'R';
-        bf |= s[i] == 'B';
-        debug(s[i], rf, bf);
-    }
-    if(s[n - 1] != 'W' && !(rf && bf)) cout << "NO";
-    else
-        cout << "YES";
+    vector<string> v(n); rpt(i, 0, n) cin >> v[i];
+    sort(all(v));
+    print(v);
     nl;
 }
 
