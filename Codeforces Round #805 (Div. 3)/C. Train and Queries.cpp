@@ -95,7 +95,9 @@ void solve(void){
         bf |= s[i] == 'B';
         debug(s[i], rf, bf);
     }
-    cout << "YES";
+    if(!(rf && bf)) cout << "NO";
+    else
+        cout << "YES";
     nl;
 }
 
