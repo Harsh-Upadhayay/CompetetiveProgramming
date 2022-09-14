@@ -63,7 +63,7 @@ void solve(void){
     ll n; cin >> n;
     vll v(n); rpt(i, 0, n) cin >> v[i];
     map<int, int> freq; for(auto x : v) freq[x]++;
-    for(auto x : freq) if(x.second >= 3) cout << x.first;
+    for(auto x : freq) if(x.second >= 3) kill(x.first);
     nl;
 }
 
