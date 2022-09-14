@@ -88,10 +88,11 @@ void solve(void){
 
         if(s[i] == 'W') {
             if(!(rf && bf)) kill("NO")
-                continue;
+            continue;
         }
         rf |= s[i] == 'R';
         bf |= s[i] == 'B';
+        debug(s[i], rf, bf);
     }
     cout << "YES";
     nl;
