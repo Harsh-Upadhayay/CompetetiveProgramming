@@ -58,15 +58,12 @@ void init(){
     return;
 }
 
+
 void solve(void){
-    
     ll n; cin >> n;
-
-    if(n >= 1900) kill("Division 1");
-    if(n <= 1899 && n >= 1600) kill("Division 2");
-    if(n <= 1599 && n >= 1400) kill("Division 3");
-    if(n <= 1399) kill("Division 4");
-
+    vll v(n); rpt(i, 0, n) cin >> v[i];
+    map<int, int> freq; for(auto x : v) freq[x]++;
+    for(auto x : freq) if(x.second >= 3) cout << x.first;
     nl;
 }
 
