@@ -88,6 +88,7 @@ void solve(void){
 
         if(s[i] == 'W') {
             if(!(rf && bf)) kill("NO")
+            rf = bf = false;
             continue;
         }
         rf |= s[i] == 'R';
