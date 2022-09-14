@@ -63,7 +63,7 @@ void solve(void){
     ll n; cin >> n;
     vector<string> v(n); rpt(i, 0, n) cin >> v[i];
     sort(all(v));
-    print(v);
+    print(v); nl;
     for(auto &x : v) reverse(all(x));
     sort(all(v));
     print(v);
