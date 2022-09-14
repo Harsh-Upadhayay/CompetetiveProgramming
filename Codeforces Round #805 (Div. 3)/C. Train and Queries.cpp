@@ -62,19 +62,37 @@ void init(){
 void solve(void){
     
     ll n; cin >> n;
-    vll o, e; 
-    rpt(i, 0, n){
-        ll x; cin >> x; 
-        if(i % 2) o.push_back(x);
-        else      e.push_back(x);
+    string s; cin>> s;
+
+    if(n == 1) {
+        if('W' == s[0]) kill("YES")
+        else kill("NO")
     }
 
-    ll f = o[0] % 2;
-    for(auto x : o) if(f != x % 2) kill("NO");
-    f = e[0] % 2;
-    for(auto x : e) if(f != x % 2) kill("NO");
-    cout << "YES";
+    if(n == 2) {
+        if( 'R' == s[0] && 'B' == s[1] ||
+            'B' == s[0] && 'R' == s[1]) kill ("YES")
+        else kill("NO")
+    }
 
+
+    if(s[0]     != 'W' && s[1]     == 'W') kill ("NO")
+    if(s[n - 1] != 'W' && s[n - 2] == 'W') kill ("NO")
+
+    bool rf = false, bf = false;
+
+    int i = 0;
+    while(s[i] == 'W') i++;
+
+    for(; i < n; i++) {
+
+        if(s[i] == 'W') {
+            if(!(rf && bf)) kill("NO")
+        }
+        rf |= s[i] == 'R';
+        bf |= s[i] == 'B';
+    }
+    cout << "YES";
     nl;
 }
 
