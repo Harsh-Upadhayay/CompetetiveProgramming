@@ -60,11 +60,21 @@ void init(){
 
 
 void solve(void){
+    
     ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
-    map<int, int> freq; for(auto x : v) freq[x]++;
-    for(auto x : freq) if(x.second >= 3) kill(x.first);
-    cout << "-1";
+    vll o, e; 
+    rpt(i, 0, n){
+        ll x; cin >> x; 
+        if(i % 2) o.push_back(x);
+        else      e.push_back(x);
+    }
+
+    ll f = o[0] % 2;
+    for(auto x : o) if(f != x % 2) kill("NO");
+    f = e[0] % 2;
+    for(auto x : e) if(f != x % 2) kill("NO");
+    cout << "YES";
+
     nl;
 }
 
