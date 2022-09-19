@@ -75,7 +75,7 @@ void solve(void){
                 ans.push_back({i, i + 1});
         }
     }
-
+    cout << ans.size() << "\n";
     for(auto x : ans)
         cout << x.first << " " << x.second << "\n";
     nl;
