@@ -67,12 +67,14 @@ void solve(void){
     if((n - 1) % x) kill("-1");
 
     ll itr = x, w = 1;
+    bool flag = true;
     rpt(i, 0, n - 1) {
         cout << w << " ";
         itr--;
         if(!itr) {
             itr = x;
-            w += (itr + 1) ;
+            w += (itr + flag) ;
+            flag = false;
         }
     }
 
