@@ -67,7 +67,7 @@ void solve(void){
 
     rpt(i, 0, n - 1) {
         if(v[i] > v[i + 1]) {
-            if((v[i] + v[i + 1]) % 2)
+            if(!((v[i] + v[i + 1]) % 2))
                 v[i + 1] = v[i],
                 ans.push_back({i, i + 1});
         }
