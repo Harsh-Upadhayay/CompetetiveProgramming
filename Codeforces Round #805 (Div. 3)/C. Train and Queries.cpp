@@ -67,7 +67,7 @@ void solve(void){
     ll ans = 0;
     rpt(i, 1, k + 1) {
         ll j = i, m = INT_MIN;
-        while(j < n) {
+        while(j <= n) {
             m = max(m, v[j]);
             j += k;
         }
