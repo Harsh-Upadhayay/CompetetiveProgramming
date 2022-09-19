@@ -60,24 +60,20 @@ void init(){
 
 
 void solve(void){
-    ll n, x, y; cin >> n >> x >> y;
+    
+    ll n, k; cin >> n >> k;
+    vll v(n + 1); rpt(i, 1, n + 1) cin >> v[i];
 
-    if((x && y) || (!x && !y)) kill("-1")
-    if(x == 0) swap(x, y);
-    if((n - 1) % x) kill("-1");
-
-    ll itr = x, w = 1;
-    bool flag = true;
-    rpt(i, 0, n - 1) {
-        cout << w << " ";
-        itr--;
-        if(!itr) {
-            itr = x;
-            w += (itr + flag) ;
-            flag = false;
+    ll ans = 0;
+    rpt(i, 1, k + 1) {
+        ll j = i, m = INT_MIN;
+        while(j < n) {
+            m = max(m, v[j]);
+            j += k;
         }
+        ans += m;
     }
-
+    cout << ans;
     nl;
 }
 
