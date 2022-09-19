@@ -65,24 +65,19 @@ void solve(void){
     vll v(n); rpt(i, 0, n) cin >> v[i];
     vector<pair<ll, ll>> ans;
 
-    if(n < 2) kill("0")
-
     rpt(i, 0, n - 1) {
         if(v[i] > v[i + 1]) {
-            if(!((v[i] + v[i + 1]) % 2))
+            if((v[i] + v[i + 1]) % 2)
                 v[i + 1] = v[i],
                 ans.push_back({i, i + 1});
+            else    
+                v[i] = v[i + 1],
+                ans.push_back({i, i + 1});
         }
-    debug(v);
-    }
-    if(v[n - 1] > v[n - 2]) {
-        if(!((v[n - 1] + v[n - 2]) % 2))
-            v[n - 1] = v[n - 2],
-            ans.push_back({n - 2, n - 1});
     }
     cout << ans.size() << "\n";
     for(auto x : ans)
-        cout << x.first + 1 << " " << x.second + 1 << "\n";
+        cout << x.first << " " << x.second << "\n";
     nl;
 }
 
