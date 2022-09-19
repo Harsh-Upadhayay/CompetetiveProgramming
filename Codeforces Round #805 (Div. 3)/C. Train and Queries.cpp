@@ -74,11 +74,11 @@ void solve(void){
                 v[i] = v[i + 1],
                 ans.push_back({i, i + 1});
         }
+    debug(v);
     }
     cout << ans.size() << "\n";
     for(auto x : ans)
         cout << x.first + 1 << " " << x.second + 1 << "\n";
-    debug(v);
     nl;
 }
 
