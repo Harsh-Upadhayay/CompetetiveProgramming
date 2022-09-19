@@ -70,9 +70,6 @@ void solve(void){
             if((v[i] + v[i + 1]) % 2)
                 v[i + 1] = v[i],
                 ans.push_back({i, i + 1});
-            else    
-                v[i] = v[i + 1],
-                ans.push_back({i, i + 1});
         }
     debug(v);
     }
