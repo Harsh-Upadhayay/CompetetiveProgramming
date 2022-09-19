@@ -71,7 +71,7 @@ void solve(void){
                 v[i + 1] = v[i],
                 ans.push_back({i, i + 1});
             else    
-                v[i] = v[i + 1]; 
+                v[i] = v[i + 1],
                 ans.push_back({i, i + 1});
         }
     }
