@@ -61,19 +61,23 @@ void init(){
 
 void solve(void){
     
-    ll n, k; cin >> n >> k;
-    vll v(n + 1); rpt(i, 1, n + 1) cin >> v[i];
+    ll n; cin >> n;
+    vll v(n); rpt(i, 0, n) cin >> v[i];
+    vector<pair<ll, ll>> ans;
 
-    ll ans = 0;
-    rpt(i, 1, k + 1) {
-        ll j = i, m = INT_MIN;
-        while(j <= n) {
-            m = max(m, v[j]);
-            j += k;
+    rpt(i, 0, n - 1) {
+        if(v[i] > v[i + 1]) {
+            if((v[i] + v[i + 1]) % 2)
+                v[i + 1] = v[i],
+                ans.push_back({i, i + 1});
+            else    
+                v[i] = v[i + 1]; 
+                ans.push_back({i, i + 1});
         }
-        ans += m;
     }
-    cout << ans;
+
+    for(auto x : ans)
+        cout << x.first << " " << x.second << "\n";
     nl;
 }
 
