@@ -60,13 +60,22 @@ void init(){
 
 
 void solve(void){
-    ll n; cin >> n;
-    vector<string> v(n); rpt(i, 0, n) cin >> v[i];
-    sort(all(v));
-    print(v); nl;
-    for(auto &x : v) reverse(all(x));
-    sort(all(v));
-    print(v);
+    ll n, x, y; cin >> n >> x >> y;
+
+    if((x && y) || (!x && !y)) kill("-1")
+    if(x == 0) swap(x, y);
+    if((n - 1) % x) kill("-1");
+
+    ll itr = x, w = 1;
+    rpt(i, 0, n - 1) {
+        cout << w << " ";
+        itr--;
+        if(!itr) {
+            itr = x;
+            w++;
+        }
+    }
+
     nl;
 }
 
