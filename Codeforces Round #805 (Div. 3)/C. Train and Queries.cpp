@@ -72,7 +72,7 @@ void solve(void){
         itr--;
         if(!itr) {
             itr = x;
-            w += itr;
+            w += (itr + 1) ;
         }
     }
 
