@@ -64,7 +64,7 @@ void solve(void){
     ll n, x, y; cin >> n >> x >> y;
     string a, b; cin >> a >> b;
 
-    ll i = 0, j = n - 1, cost = 0;
+    ll i = 0, j = n - 1, cost = 0, oprn = 0;
 
     while(i < j) {
 
@@ -76,9 +76,13 @@ void solve(void){
         a[j] = (a[j] == '0' ? '1' : '0');
 
         cost += (i + 1 == j ? x : y);
+        oprn += 2;
     }
 
-    cout << (a == b ? cost : -1);
+    if(x > 2 * y)
+        cout << (oprn * y);
+    else
+        cout << (a == b ? cost : -1);
 
     nl;
 }
