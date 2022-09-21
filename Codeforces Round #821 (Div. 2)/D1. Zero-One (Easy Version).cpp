@@ -63,28 +63,8 @@ void solve(void){
     
     ll n, x, y; cin >> n >> x >> y;
     string a, b; cin >> a >> b;
-
-    ll i = 0, j = n - 1, cost = 0, oprn = 0;
-
-    rpt(i, 0, n) oprn += a[i] != b[i];
-
-    while(i < j) {
-
-        while(i < n  && a[i] == b[i]) i++;
-        while(j >= 0 && a[j] == b[j]) j--;
-        if(i == j || i >= n || j < 0) break;
-
-        a[i] = (a[i] == '0' ? '1' : '0');
-        a[j] = (a[j] == '0' ? '1' : '0');
-
-        cost += (i + 1 == j ? x : y);
-    }
-
-    if(x > 2 * y && !(oprn % 2))
-        cout << (oprn % 2 ? -1 : (oprn * y));
-    else
-        cout << (a == b ? cost : -1);
-
+    string c = ""; rpt(i, 0, n) c += (a[i] == b[i] ? '0' : '1');
+    cout << c;
     nl;
 }
 
