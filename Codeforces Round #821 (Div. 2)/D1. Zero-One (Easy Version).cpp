@@ -66,6 +66,8 @@ void solve(void){
 
     ll i = 0, j = n - 1, cost = 0, oprn = 0;
 
+    rpt(i, 0, n) oprn += a[i] != b[i];
+    
     while(i < j) {
 
         while(i < n  && a[i] == b[i]) i++;
@@ -76,7 +78,6 @@ void solve(void){
         a[j] = (a[j] == '0' ? '1' : '0');
 
         cost += (i + 1 == j ? x : y);
-        oprn += 2;
     }
 
     if(x > 2 * y)
