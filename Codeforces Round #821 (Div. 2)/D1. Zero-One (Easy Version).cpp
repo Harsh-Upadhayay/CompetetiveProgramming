@@ -80,7 +80,7 @@ void solve(void){
         cost += (i + 1 == j ? x : y);
     }
 
-    if(x > 2 * y)
+    if(x > 2 * y && !(oprn % 2))
         cout << (oprn % 2 ? -1 : (oprn * y));
     else
         cout << (a == b ? cost : -1);
