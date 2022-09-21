@@ -70,7 +70,7 @@ void solve(void){
 
         while(i < n  && a[i] == b[i]) i++;
         while(j >= 0 && a[j] == b[j]) j--;
-        if(i >= n || j < 0) break;
+        if(i == j || i >= n || j < 0) break;
 
         a[i] = (a[i] == '0' ? '1' : '0');
         a[j] = (a[j] == '0' ? '1' : '0');
