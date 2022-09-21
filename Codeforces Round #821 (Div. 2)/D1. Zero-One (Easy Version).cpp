@@ -67,7 +67,7 @@ void solve(void){
     ll i = 0, j = n - 1, cost = 0, oprn = 0;
 
     rpt(i, 0, n) oprn += a[i] != b[i];
-    
+
     while(i < j) {
 
         while(i < n  && a[i] == b[i]) i++;
@@ -81,7 +81,7 @@ void solve(void){
     }
 
     if(x > 2 * y)
-        cout << (oprn * y);
+        cout << (oprn % 2 ? -1 : (oprn * y));
     else
         cout << (a == b ? cost : -1);
 
