@@ -78,8 +78,6 @@ void solve(void){
     else
         cout << (t / 2) * y;
 
-    cout << cost;
-
     nl;
 }
 
