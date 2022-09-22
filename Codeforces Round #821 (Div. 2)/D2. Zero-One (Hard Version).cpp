@@ -64,7 +64,7 @@ bool iszero(string s) {
 }
 
 ll cost(string &s, ll x, ll y, ll idx) {
-
+    debug(s);
     if(iszero(s)) return 0;
 
     if(idx == 1) {
