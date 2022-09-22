@@ -72,7 +72,7 @@ ll cost(string &s, ll x, ll y) {
 
     s[fi] = '0';
 
-    ll c = -1;
+    ll c = INT_MAX;
     rpt(i, fi, n) {
         if(s[i] == '1') {
             s[i] = '0';
