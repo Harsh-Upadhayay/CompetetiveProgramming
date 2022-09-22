@@ -64,7 +64,7 @@ bool iszero(string s) {
 }
 
 ll cost(string &s, ll x, ll y) {
-
+    debug(s);
     if(iszero(s)) return 0;
 
     ll n = s.size(), fi = -1;
@@ -73,19 +73,19 @@ ll cost(string &s, ll x, ll y) {
     s[fi] = '0';
 
     ll c = INT_MAX;
-    rpt(i, fi, n) {
-        if(s[i] == '1') {
-            s[i] = '0';
+    rpt(i, fi + 1, n) {
+        
+        s[i] = ('0' == s[i] ? '1' : '0');
 
-            if(fi + 1 == i) {
-                c = min(c, min(2 * y, x) + cost(s, x, y));
-            }
-            else {
-                c = min(c, y + cost(s, x, y));
-            }
-
-            s[i] = '1';
+        if(fi + 1 == i) {
+            c = min(c, x + cost(s, x, y));
         }
+        else {
+            c = min(c, y + cost(s, x, y));
+        }
+
+        s[i] = ('0' == s[i] ? '1' : '0');
+    
     }
 
     s[fi] = '1';
