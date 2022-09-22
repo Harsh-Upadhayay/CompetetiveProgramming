@@ -64,7 +64,7 @@ bool iszero(string s) {
 }
 
 ll cost(string &s, ll x, ll y, ll idx) {
-    debug(s);
+    
     if(iszero(s)) return 0;
 
     if(idx == 1) {
@@ -77,7 +77,7 @@ ll cost(string &s, ll x, ll y, ll idx) {
 
     s[idx] = '0';
     ll c = inf;
-    rpt(i, idx, 0) {
+    rpt(i, idx - 1, 0) {
 
         s[i] = (s[i] == '0' ? '1' : '0');
 
