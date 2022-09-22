@@ -58,13 +58,40 @@ void init(){
     return;
 }
 
+bool iszero(string s) {
+    for(char x : s) if(x != '0') return false;
+    return true;
+}
 
 void solve(void){
     
     ll n, x, y; cin >> n >> x >> y;
     string a, b; cin >> a >> b;
     string c = ""; rpt(i, 0, n) c += (a[i] == b[i] ? '0' : '1');
-    cout << c;
+
+    ll t = 0; for(char ch : c) t += ch == '1';
+    if(t % 2) kill("-1")
+
+    ll i = 0, j = n - 1, cost = 0;
+
+    while(i < j) {
+
+        while(i <  n && c[i] == '0') i++;
+        while(j >= 0 && c[j] == '0') j--;
+
+        if(i >= n || j < 0) break;
+
+        c[i] = c[j] = '0';
+
+        if(i + 1 != j)
+            cost += y;
+        else 
+            cost += min(2 * y, x);
+
+    }
+
+    cout << cost;
+
     nl;
 }
 
