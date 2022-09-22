@@ -69,7 +69,7 @@ void solve(void){
     if(t % 2) kill("-1")
 
     ll i = 0, j = n - 1, cost = 0;
-
+    debug(c);
     if(t == 2) {
         bool flag = 0;
         rpt(i, 0, n - 1) if(c[i] == 1 && c[i + 1] == 1) flag = 1;
