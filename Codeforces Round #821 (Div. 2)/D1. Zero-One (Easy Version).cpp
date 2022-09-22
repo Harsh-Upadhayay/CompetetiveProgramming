@@ -58,10 +58,6 @@ void init(){
     return;
 }
 
-bool iszero(string s) {
-    for(char x : s) if(x != '0') return false;
-    return true;
-}
 
 void solve(void){
     
@@ -74,21 +70,13 @@ void solve(void){
 
     ll i = 0, j = n - 1, cost = 0;
 
-    while(i < j) {
-
-        while(i <  n && c[i] == '0') i++;
-        while(j >= 0 && c[j] == '0') j--;
-
-        if(i >= n || j < 0) break;
-
-        c[i] = c[j] = '0';
-
-        if(i + 1 != j)
-            cost += y;
-        else 
-            cost += min(2 * y, x);
-
+    if(t == 2) {
+        bool flag = 0;
+        rpt(i, 0, n - 1) if(c[i] == c[i + 1] == 1) flag = 1;
+        cout << (flag ? min(x, 2 * y) : y);
     }
+    else
+        cout << (t / 2) * y;
 
     cout << cost;
 
