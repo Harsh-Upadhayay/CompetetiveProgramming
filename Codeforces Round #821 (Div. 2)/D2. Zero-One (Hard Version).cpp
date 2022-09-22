@@ -89,6 +89,7 @@ ll cost(string &s, ll x, ll y) {
     }
 
     s[fi] = '1';
+    return c;
 }
 
 void solve(void){
