@@ -70,7 +70,7 @@ ll cost(string &s, ll x, ll y, ll idx) {
     if(idx == 1) {
         if(s[0] == 0 && s[1] == 0) return 0;
         if(s[0] == 1 && s[1] == 1) return x;
-        if(s[0] != s[1]) return INT_MAX;
+        if(s[0] != s[1]) return inf;
     }
 
     if(s[idx] == '0') return cost(s, x, y, idx - 1);
