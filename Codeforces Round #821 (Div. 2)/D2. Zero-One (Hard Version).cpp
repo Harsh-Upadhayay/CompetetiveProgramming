@@ -63,32 +63,32 @@ bool iszero(string s) {
     return true;
 }
 
-ll cost(string &s, ll x, ll y) {
-    debug(s);
+ll cost(string &s, ll x, ll y, ll idx) {
+
     if(iszero(s)) return 0;
 
-    ll n = s.size(), fi = -1;
-    rpt(i, 0, n) if(s[i] == '1') {fi = i; break;} 
-
-    s[fi] = '0';
-
-    ll c = INT_MAX;
-    rpt(i, fi + 1, n) {
-        
-        s[i] = ('0' == s[i] ? '1' : '0');
-
-        if(fi + 1 == i) {
-            c = min(c, x + cost(s, x, y));
-        }
-        else {
-            c = min(c, y + cost(s, x, y));
-        }
-
-        s[i] = ('0' == s[i] ? '1' : '0');
-    
+    if(idx == 1) {
+        if(s[0] == 0 && s[1] == 0) return 0;
+        if(s[0] == 1 && s[1] == 1) return x;
+        if(s[0] != s[1]) return INT_MAX;
     }
 
-    s[fi] = '1';
+    if(s[idx] == '0') return cost(s, x, y, idx - 1);
+
+    s[idx] = '0';
+    ll c = inf;
+    rpt(i, idx - 1, 0) {
+
+        s[i] = (s[i] == '0' ? '1' : '0');
+
+        ll step_cost = ((i + 1 == idx) ? x : y);
+
+        c = min(c, step_cost + cost(s, x, y, idx - 1));
+
+        s[i] = (s[i] == '0' ? '1' : '0'); 
+
+    }
+    s[idx] = '1';
     return c;
 }
 
@@ -101,7 +101,7 @@ void solve(void){
     ll t = 0; for(char ch : c) t += ch == '1';
     if(t % 2) kill("-1")
 
-    cout << cost(c, x, y);
+    cout << cost(c, x, y, c.size() - 1);
 
     nl;
 }
