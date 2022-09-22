@@ -73,7 +73,7 @@ void solve(void){
     if(t == 2) {
         bool flag = 0;
         rpt(i, 0, n - 1) if(c[i] == 1 && c[i + 1] == 1) flag = 1;
-        cout << (flag ? min(x, 2 * y) : y);
+        cout << (flag ? min(x, 2 * y) : x);
     }
     else
         cout << (t / 2) * y;
