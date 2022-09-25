@@ -69,11 +69,13 @@ void solve(void){
     map<char, ll> nfreq(all(freq));
 
     map<char, ll> store;
+    ll i = 0;
     for(auto x : freq) {
         ll itr = x.second;
-        for(char ch : s) {
+        for(; i < s.size(); i++) {
             if(itr == 0) 
                 break;
+            char ch = s[i];
             cout << ch;
             if(ch == x.first) 
                 itr--;
