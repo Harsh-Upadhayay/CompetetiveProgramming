@@ -71,6 +71,7 @@ void solve(void){
     map<char, ll> store;
     for(auto x : freq) {
         ll itr = x.second;
+        cout << itr;
         for(char ch : s) {
             if(itr == 0) 
                 break;
