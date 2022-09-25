@@ -60,19 +60,14 @@ void init(){
 
 
 void solve(void){
-    
-    ll n; cin >> n;
+    ll n, c; cin >> n >> c;
     vll v(n); rpt(i, 0, n) cin >> v[i];
+    map<ll, ll> m; rpt(i, 0, n) m[v[i]]++;
 
-    sort(all(v));
-
-    ll mindiff = INT_MAX;
-
-    rpt(i, 1, n - 1) {
-        mindiff = min(mindiff, v[i + 1] - v[i - 1]);
-    }
-
-    cout << mindiff;
+    ll cost = 0;
+    for(auto x : m)
+        cost += min(c, x.second);
+    cout << cost;
 
     nl;
 }
