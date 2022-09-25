@@ -54,6 +54,7 @@ void storePrimes();
 /*_________________________________________________________________________________________________________________________________________*/
 
 vll v(15, 1);
+ll minSteps = INT_MAX;
 
 void init(){
     rpt(i, 1, 15)
@@ -61,15 +62,25 @@ void init(){
     return;
 }
 
-void subSum(vll v, ll i, ll csum = 0) {
+void subSum(vll v, ll i, ll tgt_sum, ll cur_sum = 0, ll taken = 0) {
+
+    if(cur_sum > tgt_sum) return;
+
+    if(i == 2) {
+        minSteps = min(minSteps, (ll)__builtin_popcount(tgt_sum - cur_sum));
+        return;
+    }
+
+    subSum(v, i - 1, tgt_sum, cur_sum - v[i], taken + 1);
+    subSum(v, i - 1, tgt_sum, cur_sum, taken);
 
 }
 
 void solve(void){
     
     ll n; cin >> n;
-    debug(v);
-
+    subSum(v, 14ll, n);
+    cout << minSteps;
     nl;
 }
 
