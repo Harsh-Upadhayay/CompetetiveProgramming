@@ -66,8 +66,6 @@ void solve(void){
     for(char ch : s)
         freq[ch]++;
 
-    map<char, ll> nfreq(all(freq));
-
     map<char, ll> store;
     ll i = 0;
     for(auto x : freq) {
