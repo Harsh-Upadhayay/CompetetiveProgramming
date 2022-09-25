@@ -66,6 +66,12 @@ void solve(void){
 
     vector<vll> adj(n + 1);
 
+    rpt(i, 1, n + 1) 
+        for(int j = i; j <= n; j += i)
+            if(s[j] == '0')
+                adj[i].push_back(j);
+    debug(adj);
+
     nl;
 }
 
