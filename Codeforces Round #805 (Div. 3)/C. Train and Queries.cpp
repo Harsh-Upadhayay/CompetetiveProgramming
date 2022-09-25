@@ -73,7 +73,7 @@ void solve(void){
         for(char ch : s) {
             if(x.second == 0) break;
             if(ch == x.first) x.second--;
-            else store[ch]++;
+            else store[x.first]++;
         }
     }
     debug(store);
