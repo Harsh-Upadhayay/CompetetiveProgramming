@@ -63,6 +63,15 @@ void init(){
     return;
 }
 
+ll setBits(ll x) {
+    ll bits = 0;
+    while(x) {
+        bits += x & 1;
+        x = x >> 1;
+    }
+    return bits;
+}
+
 void subSum(vll v, ll i, ll tgt_sum, ll taken = 0) {
 
     if(tgt_sum < 0) return;
@@ -84,7 +93,7 @@ void solve(void){
     subSum(v, 14ll, n);
     cout << minSteps;
     ll x = 17179869184ll;
-    cout << __builtin_popcount(x);
+    cout << setBits(x);
     exit(0);
     nl;
 }
