@@ -76,7 +76,7 @@ void solve(void){
             if(itr == 0) 
                 break;
             char ch = s[i];
-            cout << ch;
+            // cout << ch;
             if(ch == x.first) 
                 itr--;
             else 
@@ -92,11 +92,11 @@ void solve(void){
         else break;
     }
 
-    // for(auto x : store) {
-    //     ll itr = x.second;
-    //     while(itr--)
-    //         cout << x.first;
-    // }
+    for(auto x : store) {
+        ll itr = x.second;
+        while(itr--)
+            cout << x.first;
+    }
 
     nl;
 }
