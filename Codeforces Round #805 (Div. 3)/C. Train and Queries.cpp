@@ -93,9 +93,9 @@ void solve(void){
     }
 
     for(auto x : store) {
-        ll itr = x.second, n = x.first;
+        ll itr = x.second;
         while(itr--)
-            cout << n;
+            cout << x.first;
     }
 
     nl;
