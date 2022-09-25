@@ -68,6 +68,13 @@ void solve(void){
     ll sum = 0; rpt(i, 0, n) sum += x[i];
     double cp = (double)sum / n;
 
+    map<ll, ll> idx;
+
+    rpt(i, 0, n)
+        idx[x[i]] = max(t[i], idx[x[i]]);
+
+    debug(idx);
+
     double lmax = ninf;
     ll i = 0;
     while(x[i] < cp){
