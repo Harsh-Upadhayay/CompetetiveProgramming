@@ -93,9 +93,9 @@ void solve(void){
     }
     debug(store);
     for(auto x : store) {
-        ll itr = x.second;
+        ll itr = x.second, n = x.first - '0';
         while(itr--)
-            cout << x.first;
+            cout << min(n + 1, 9ll);
     }
 
     nl;
