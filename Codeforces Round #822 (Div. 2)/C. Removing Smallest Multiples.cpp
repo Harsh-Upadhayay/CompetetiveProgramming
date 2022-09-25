@@ -73,7 +73,11 @@ void solve(void){
             if(t[j] == '0') 
                 adj[i].push_back(j / i);
             
-    print(adj);
+    for(int i = 0; i < n; i++) {
+        cout << i << " : ";
+        for(auto y : adj[i]) cout << y << " ";
+        cout << "\n";
+    }
 
     nl;
 }
