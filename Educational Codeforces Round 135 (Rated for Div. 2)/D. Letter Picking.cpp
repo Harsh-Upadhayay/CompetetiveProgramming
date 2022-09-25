@@ -63,10 +63,12 @@ deque<char> alice, bob;
 void play(string s, ll l, ll r, ll turn = 0) {
 
     if(l > r) {
+        bool issmall = false;
         for(auto i1 = alice. begin(), i2 = bob.begin();
             i1 != alice.end(); i1++, i2++) {
-            cout << *i1;
+            issmall |= *i1 < *i2;
         }
+        cout << issmall;
         return;
     }
 
