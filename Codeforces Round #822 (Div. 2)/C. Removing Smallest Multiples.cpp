@@ -73,8 +73,8 @@ void solve(void){
         for(int j = i; j <= n; j += i) {
             if(t[j] == '0') {
 
-            cout << j << " ";
-                adj[i].push_back(j);
+                cout << j << " ";
+                adj[i].push_back(j / i);
             }
         }
         cout << "\n";
