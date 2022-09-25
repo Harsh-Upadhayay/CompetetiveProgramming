@@ -95,7 +95,10 @@ void solve(void){
     }
 
     double diff = rmax - (rmax + lmax) / 2;
-    cout << diff + cp;
+    if(lmax == ninf || rmax == ninf)
+        cout << cp;
+    else
+        cout << diff + cp;
     debug(sum, cp, lmax, rmax);
 
 
