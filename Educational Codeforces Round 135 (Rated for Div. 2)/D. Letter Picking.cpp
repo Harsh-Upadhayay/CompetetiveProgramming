@@ -62,7 +62,7 @@ deque<char> alice, bob;
 
 void play(string s, ll l, ll r, ll turn = 0) {
 
-    if(l < r) {
+    if(l > r) {
         debug(alice, bob);
         return;
     }
