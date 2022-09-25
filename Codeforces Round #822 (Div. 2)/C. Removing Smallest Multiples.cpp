@@ -70,6 +70,7 @@ void solve(void){
 
     ll cost = 0;
     
+    debug(ss);
     rpt(i, 0, n) {
         if(s[i] == '1') continue;
 
@@ -79,9 +80,9 @@ void solve(void){
                 cost += i + 1;
             }
 
+        debug(ss);
     }   
     cout << cost;
-    debug(ss);
 
     nl;
 }
