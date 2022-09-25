@@ -60,39 +60,11 @@ void init(){
 
 
 void solve(void){
+    
     ll n; cin >> n;
     string s; cin >> s;
 
-    set<ll> ss;
-
-    rpt(i, 0, n) 
-        if(s[i] == '0') ss.insert(i + 1);
-
-    ll cost = 0;
-    
-    debug(ss);
-    rpt(i, 0, n) {
-        if(s[i] == '1') continue;
-        
-        ll base_cost = i + 1;
-        bool flag = 0;
-
-        for(int j = i + 1; j <= n; j += (i + 1)) {
-            if(s[j] == '1') {
-                flag = 1;
-                continue;
-            }
-            if(ss.count(j)) {
-                ss.erase(j);
-                if(flag) base_cost = j;
-                cost += base_cost;
-                flag = 0;
-            }
-
-            debug(ss, cost);
-        }
-    }   
-    cout << cost;
+    vector<vll> adj(n + 1);
 
     nl;
 }
