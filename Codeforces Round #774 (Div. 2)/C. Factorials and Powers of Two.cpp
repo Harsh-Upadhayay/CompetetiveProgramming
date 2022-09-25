@@ -79,7 +79,7 @@ void subSum(vll v, ll i, ll tgt_sum, ll taken = 0) {
 }
 
 void solve(void){
-    
+    minSteps = INT_MAX;
     ll n; cin >> n;
     subSum(v, 14ll, n);
     cout << minSteps;
