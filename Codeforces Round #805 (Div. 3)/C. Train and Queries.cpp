@@ -76,7 +76,7 @@ void solve(void){
             else store[ch]++;
         }
     }
-
+    debug(store);
     for(auto x : freq) {
         if(x.second == 0) {
             ll itr = nfreq[x.first];
