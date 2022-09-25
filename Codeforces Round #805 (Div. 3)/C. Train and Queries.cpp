@@ -90,11 +90,11 @@ void solve(void){
         else break;
     }
 
-    for(auto x : store) {
-        ll itr = x.second;
-        while(itr--)
-            cout << x.first;
-    }
+    // for(auto x : store) {
+    //     ll itr = x.second;
+    //     while(itr--)
+    //         cout << x.first;
+    // }
 
     nl;
 }
