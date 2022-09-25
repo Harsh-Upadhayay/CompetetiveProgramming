@@ -78,7 +78,7 @@ void subSum(vll v, ll i, ll tgt_sum, ll taken = 0) {
 
     if(i == 2) {
         cerr << tgt_sum << " ";
-        minSteps = min(minSteps, (ll)__builtin_popcount(tgt_sum) + taken);
+        minSteps = min(minSteps, setBits(tgt_sum) + taken);
         return;
     }
 
@@ -92,9 +92,6 @@ void solve(void){
     ll n; cin >> n;
     subSum(v, 14ll, n);
     cout << minSteps;
-    ll x = 17179869184ll;
-    cout << setBits(x);
-    exit(0);
     nl;
 }
 
