@@ -65,13 +65,13 @@ void solve(void){
     vll x(n); rpt(i, 0, n) cin >> x[i];
     vll t(n); rpt(i, 0, n) cin >> t[i];
 
-    ll sum = 0; rpt(i, 0, n) sum += x[i];
-    double cp = (double)sum / n;
-
     map<ll, ll> idx;
 
     rpt(i, 0, n)
         idx[x[i]] = max(t[i], idx[x[i]]);
+
+    ll sum = 0; for(auto x : idx) sum += x.first;
+    double cp = (double)sum / idx.size();
 
     debug(idx);
 
