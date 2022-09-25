@@ -69,8 +69,8 @@ void solve(void){
     rpt(i, 1, n + 1) {
         cout << i << " : ";
         for(int j = i; j <= n; j += i) {
-            if(s[j] == '0') {
-                
+            if(s[j - 1] == '0') {
+
             cout << j << " ";
                 adj[i].push_back(j);
             }
