@@ -67,7 +67,7 @@ void subSum(vll v, ll i, ll tgt_sum, ll taken = 0) {
     if(tgt_sum < 0) return;
 
     if(i == 2) {
-        // cout << cur_sum;
+        cout << tgt_sum;
         minSteps = min(minSteps, (ll)__builtin_popcount(tgt_sum));
         return;
     }
