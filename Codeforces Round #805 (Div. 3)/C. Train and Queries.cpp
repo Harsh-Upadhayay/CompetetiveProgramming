@@ -91,7 +91,7 @@ void solve(void){
         }
         else break;
     }
-
+    debug(store);
     for(auto x : store) {
         ll itr = x.second;
         while(itr--)
