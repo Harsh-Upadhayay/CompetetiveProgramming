@@ -75,14 +75,22 @@ void solve(void){
         if(s[i] == '1') continue;
         
         ll base_cost = i + 1;
+        bool flag = 0;
 
-        for(int j = i + 1; j <= n; j += (i + 1))
+        for(int j = i + 1; j <= n; j += (i + 1)) {
+            if(s[j] == '1') {
+                flag = 1;
+                continue;
+            }
             if(ss.count(j)) {
                 ss.erase(j);
+                if(flag) base_cost = j;
                 cost += base_cost;
+                flag = 0;
             }
 
-        debug(ss, cost);
+            debug(ss, cost);
+        }
     }   
     cout << cost;
 
