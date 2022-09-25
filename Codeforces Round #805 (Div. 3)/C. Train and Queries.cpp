@@ -71,13 +71,13 @@ void solve(void){
     double lmax = INT_MIN;
     ll i = 0;
     while(x[i] < cp){
-        lmax = max(lmax, t[i] + (x[i] - cp));
+        lmax = max(lmax, t[i] - (x[i] - cp));
         i++;
     }
 
     double rmax = INT_MIN;
     while(i < n) {
-        rmax = max(rmax, t[i] + (cp - x[i]));
+        rmax = max(rmax, t[i] - (cp - x[i]));
         i++;
     }
 
