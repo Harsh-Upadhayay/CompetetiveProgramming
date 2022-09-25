@@ -70,12 +70,13 @@ void solve(void){
 
     map<char, ll> store;
     for(auto x : freq) {
+        ll itr = x.second;
         for(char ch : s) {
-            if(x.second == 0) 
+            if(itr == 0) 
                 break;
             
             if(ch == x.first) 
-                x.second--;
+                itr--;
             else 
                 store[ch]++;
         }
