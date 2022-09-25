@@ -80,7 +80,7 @@ void solve(void){
                 cost += i + 1;
             }
 
-        debug(ss);
+        debug(ss, cost);
     }   
     cout << cost;
 
