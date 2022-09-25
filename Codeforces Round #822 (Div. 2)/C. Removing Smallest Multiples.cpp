@@ -68,18 +68,12 @@ void solve(void){
     
     vector<vll> adj(n + 1);
 
-    rpt(i, 1, n + 1) {
-        cout << i << " : ";
-        for(int j = i; j <= n; j += i) {
-            if(t[j] == '0') {
-
-                cout << j << " ";
+    rpt(i, 1, n + 1) 
+        for(int j = i; j <= n; j += i) 
+            if(t[j] == '0') 
                 adj[i].push_back(j / i);
-            }
-        }
-        cout << "\n";
-    }
-    debug(adj);
+            
+    print(adj);
 
     nl;
 }
