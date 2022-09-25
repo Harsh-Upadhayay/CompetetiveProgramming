@@ -73,11 +73,13 @@ void solve(void){
     debug(ss);
     rpt(i, 0, n) {
         if(s[i] == '1') continue;
+        
+        ll base_cost = i + 1;
 
         for(int j = i + 1; j <= n; j += (i + 1))
             if(ss.count(j)) {
                 ss.erase(j);
-                cost += i + 1;
+                cost += base_cost;
             }
 
         debug(ss, cost);
