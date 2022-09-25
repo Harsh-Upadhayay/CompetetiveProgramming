@@ -68,14 +68,14 @@ void solve(void){
     ll sum = 0; rpt(i, 0, n) sum += x[i];
     double cp = (double)sum / n;
 
-    double lmax = INT_MIN;
+    double lmax = ninf;
     ll i = 0;
     while(x[i] < cp){
         lmax = max(lmax, t[i] + (cp - x[i]));
         i++;
     }
 
-    double rmax = INT_MIN;
+    double rmax = ninf;
     while(i < n) {
         rmax = max(rmax, t[i] + (x[i] - cp));
         i++;
