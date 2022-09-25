@@ -92,8 +92,6 @@ void solve(void){
     debug(store);
     for(auto x : store) {
         ll itr = x.second, n = x.first - '0';
-        if(x.first == freq.rbegin() -> first)
-
         while(itr--)
             cout << min(n + !(x.first == freq.rbegin() -> first), 9ll);
     }
