@@ -68,8 +68,7 @@ void solve(void){
     rpt(i, 0, n) 
         if(s[i] == '0') ss.insert(i + 1);
 
-    // ll maxn = *ss.rbegin();
-    // cout << maxn;
+    auto x = ss.rbegin();
 
     debug(ss);
 
