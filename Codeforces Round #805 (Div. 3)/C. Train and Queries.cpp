@@ -71,9 +71,13 @@ void solve(void){
     map<char, ll> store;
     for(auto x : freq) {
         for(char ch : s) {
-            if(x.second == 0) break;
-            if(ch == x.first) x.second--;
-            else store[ch]++;
+            if(x.second == 0) 
+                break;
+            
+            if(ch == x.first) 
+                x.second--;
+            else 
+                store[ch]++;
         }
     }
     debug(store);
