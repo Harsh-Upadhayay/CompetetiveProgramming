@@ -68,7 +68,18 @@ void solve(void){
     rpt(i, 0, n) 
         if(s[i] == '0') ss.insert(i + 1);
 
+    ll cost = 0;
+    
+    rpt(i, 0, n) {
+        if(s[i] == '1') continue;
+
+        for(int j = i + 1; j <= n; j += (i + 1))
+            if(ss.count(j)) {
+                ss.erase(j);
+                cost += i + 1;
+            }
         
+    }   
 
     debug(ss);
 
