@@ -69,6 +69,13 @@ void solve(void){
         cout << "\n";
     }
 
+    for(int i = 3; i <= n; i++) {
+        cout << "1 ";
+        rpt(j, 0, i - 2)
+            cout << "0 ";
+        cout << "1\n";
+    }
+
     nl;
 }
 
