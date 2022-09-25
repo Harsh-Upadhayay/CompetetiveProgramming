@@ -64,7 +64,7 @@ void solve(void){
     string s; cin >> s;
 
     rpt(i, 0, n) 
-        if(s[i] == '1') cout << i + 1;
+        if(s[i] == '1') cout << i + 1 << " ";
 
     nl;
 }
