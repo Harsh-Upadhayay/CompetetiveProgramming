@@ -83,11 +83,11 @@ void solve(void){
                 break;
     cout << cost;   
 
-    for(int i = 0; i < n; i++) {
-        cout << i << " : ";
-        for(auto y : adj[i]) cout << y << " ";
-        cout << "\n";
-    }
+    // for(int i = 0; i < n; i++) {
+    //     cout << i << " : ";
+    //     for(auto y : adj[i]) cout << y << " ";
+    //     cout << "\n";
+    // }
 
     nl;
 }
