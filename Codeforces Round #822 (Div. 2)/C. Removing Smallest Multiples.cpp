@@ -64,12 +64,15 @@ void solve(void){
     ll n; cin >> n;
     string s; cin >> s;
 
+    string t = " ";
+    s = t + s;
+
     vector<vll> adj(n + 1);
 
     rpt(i, 1, n + 1) {
         cout << i << " : ";
         for(int j = i; j <= n; j += i) {
-            if(s[j - 1] == '0') {
+            if(s[j ] == '0') {
 
             cout << j << " ";
                 adj[i].push_back(j);
