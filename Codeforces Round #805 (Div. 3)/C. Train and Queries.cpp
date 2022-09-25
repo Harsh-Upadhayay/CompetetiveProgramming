@@ -66,19 +66,19 @@ void solve(void){
     vll t(n); rpt(i, 0, n) cin >> t[i];
 
     ll sum = 0; rpt(i, 0, n) sum += x[i];
-    double cp  = (double)sum / n;
+    double cp = (double)sum / n;
 
     double lmax = INT_MIN;
     ll i = 0;
     while(x[i] < cp){
-        i++;
         lmax = max(lmax, t[i] + (x[i] - cp));
+        i++;
     }
 
     double rmax = INT_MIN;
     while(i < n) {
-        i++;
         rmax = max(rmax, t[i] + (cp - x[i]));
+        i++;
     }
 
     debug(lmax, rmax);
