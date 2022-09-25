@@ -64,7 +64,7 @@ void solve(void){
     ll n; cin >> n;
 
     for(int i = 0; i < min(2ll, n); i++){
-        rpt(j, 0, i)
+        rpt(j, 0, i + 1)
             cout << "1 ";
         cout << "\n";
     }
