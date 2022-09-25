@@ -82,6 +82,7 @@ void solve(void){
     }
     debug(store);
     for(auto x : freq) {
+        cout << "F";
         if(x.second == 0) {
             ll itr = nfreq[x.first];
             while(itr--)
