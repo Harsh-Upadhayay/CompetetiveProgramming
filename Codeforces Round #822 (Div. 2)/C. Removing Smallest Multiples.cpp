@@ -72,7 +72,17 @@ void solve(void){
         for(int j = i; j <= n; j += i) 
             if(t[j] == '0') 
                 adj[i].push_back(j / i);
-            
+    
+    ll cost = 0;
+
+    for(int i = 0; i < n; i++)
+        for(int j = 0; j < adj[i].size(); j++) 
+            if(j + 1 == adj[i][j])
+                cost += i;
+            else
+                break;
+    cout << cost;   
+
     for(int i = 0; i < n; i++) {
         cout << i << " : ";
         for(auto y : adj[i]) cout << y << " ";
