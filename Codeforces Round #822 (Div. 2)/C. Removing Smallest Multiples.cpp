@@ -73,7 +73,8 @@ void solve(void){
         ll j = i;
         while(t[j] == '0' && j <= n) 
             j += i,
-            cost += i;
+            cost += i,
+            t[j] = '1';
     }
     cout << cost;
     // rpt(i, 1, n + 1) 
