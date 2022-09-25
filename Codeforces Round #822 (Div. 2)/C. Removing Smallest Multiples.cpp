@@ -66,7 +66,7 @@ void solve(void){
 
     string t = " ";
     s = t + s;
-
+    cout << s;
     vector<vll> adj(n + 1);
 
     rpt(i, 1, n + 1) {
