@@ -60,14 +60,29 @@ void init(){
 
 
 void solve(void){
-    ll n, c; cin >> n >> c;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
-    map<ll, ll> m; rpt(i, 0, n) m[v[i]]++;
+    
+    ll n; cin >> n;
+    vll x(n); rpt(i, 0, n) cin >> x[i];
+    vll t(n); rpt(i, 0, n) cin >> t[i];
 
-    ll cost = 0;
-    for(auto x : m)
-        cost += min(c, x.second);
-    cout << cost;
+    ll sum = 0; rpt(i, 0, n) sum += x[i];
+    double cp  = (double)sum / n;
+
+    double lmax = INT_MIN;
+    ll i = 0;
+    while(x[i] < cp){
+        i++;
+        lmax = max(lmax, t[i] + (x[i] - cp));
+    }
+
+    double rmax = INT_MIN;
+    while(i < n) {
+        i++;
+        rmax = max(rmax, t[i] + (cp - x[i]));
+    }
+
+    debug(lmax, rmax);
+
 
     nl;
 }
