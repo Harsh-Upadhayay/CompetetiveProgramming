@@ -90,12 +90,12 @@ void solve(void){
         else break;
     }
     cout << freq.rbegin() -> first;
-    // debug(store);
-    // for(auto x : store) {
-    //     ll itr = x.second, n = x.first - '0';
-    //     while(itr--)
-    //         cout << min(n + 1, 9ll);
-    // }
+    debug(store);
+    for(auto x : store) {
+        ll itr = x.second, n = x.first - '0';
+        while(itr--)
+            cout << min(n + 1, 9ll);
+    }
 
     nl;
 }
