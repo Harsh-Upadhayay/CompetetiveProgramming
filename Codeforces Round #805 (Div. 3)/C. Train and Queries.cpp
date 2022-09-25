@@ -63,22 +63,17 @@ void solve(void){
     
     ll n; cin >> n;
     vll v(n); rpt(i, 0, n) cin >> v[i];
-    vector<pair<ll, ll>> ans;
 
-    rpt(i, 0, n - 1) {
-        if(v[i] > v[i + 1]) {
-            if((v[i] + v[i + 1]) % 2)
-                v[i + 1] = v[i],
-                ans.push_back({i, i + 1});
-            else    
-                v[i] = v[i + 1],
-                ans.push_back({i, i + 1});
-        }
-        debug(v);
+    sort(all(v));
+
+    ll mindiff = INT_MAX;
+
+    rpt(i, 1, n - 1) {
+        mindiff = min(mindiff, v[i + 1] - v[i - 1]);
     }
-    cout << ans.size() << "\n";
-    for(auto x : ans)
-        cout << x.first << " " << x.second << "\n";
+
+    cout << mindiff;
+
     nl;
 }
 
