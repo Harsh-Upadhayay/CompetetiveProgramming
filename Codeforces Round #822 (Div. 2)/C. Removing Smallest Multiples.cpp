@@ -68,7 +68,7 @@ void solve(void){
     rpt(i, 0, n) 
         if(s[i] == '0') ss.insert(i + 1);
 
-    auto x = ss.rbegin();
+        
 
     debug(ss);
 
