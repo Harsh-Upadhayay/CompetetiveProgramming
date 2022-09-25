@@ -71,12 +71,14 @@ void solve(void){
     double lmax = ninf;
     ll i = 0;
     while(x[i] < cp){
+        debug(x[i], t[i], t[i] + (x[i] - cp));
         lmax = max(lmax, t[i] + (cp - x[i]));
         i++;
     }
-
+    return;
     double rmax = ninf;
     while(i < n) {
+        debug(x[i], t[i], t[i] + (x[i] - cp));
         rmax = max(rmax, t[i] + (x[i] - cp));
         i++;
     }
