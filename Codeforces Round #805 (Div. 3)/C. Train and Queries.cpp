@@ -81,7 +81,7 @@ void solve(void){
         i++;
     }
 
-    debug(cp,lmax, rmax);
+    debug(sum, cp, lmax, rmax);
 
 
     nl;
