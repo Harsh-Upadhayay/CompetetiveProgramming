@@ -59,6 +59,7 @@ ll minSteps = INT_MAX;
 void init(){
     rpt(i, 1, 15)
         v[i] = i * v[i - 1];
+    debug(v);
     return;
 }
 
