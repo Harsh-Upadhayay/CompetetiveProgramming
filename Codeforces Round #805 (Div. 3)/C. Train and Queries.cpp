@@ -60,47 +60,37 @@ void init(){
 
 
 void solve(void){
-    
-    ll n; cin >> n;
-    vll x(n); rpt(i, 0, n) cin >> x[i];
-    vll t(n); rpt(i, 0, n) cin >> t[i];
+    string s; cin >> s;
 
-    map<ll, ll> idx;
+    map<char, ll> freq;
+    for(char ch : s)
+        freq[ch]++;
 
-    rpt(i, 0, n)
-        idx[x[i]] = max(t[i], idx[x[i]]);
+    map<char, ll> nfreq(all(freq));
 
-    ll sum = 0; for(auto x : idx) sum += x.first;
-    double cp = (double)sum / idx.size();
-
-    debug(idx);
-
-    double lmax = ninf;
-    ll i = 0;
-
-    for(auto x : idx) {
-        if((double)x.first > cp) continue;
-
-        lmax = max(lmax, x.second + cp - x.first);
-
+    map<char, ll> store;
+    for(auto x : freq) {
+        for(char ch : s) {
+            if(x.second == 0) break;
+            if(ch == x.first) x.second--;
+            else store[ch]++;
+        }
     }
 
-    double rmax = ninf;
-   
-    for(auto x : idx) {
-        if((double)x.first <= cp) continue;
-
-        rmax = max(rmax, x.second + x.first - cp);
-
+    for(auto x : freq) {
+        if(x.second == 0) {
+            ll itr = nfreq[x.first];
+            while(itr--)
+                cout << x.first;
+        }
+        else break;
     }
 
-    double diff = rmax - (rmax + lmax) / 2;
-    if(lmax == ninf || rmax == ninf)
-        cout << cp;
-    else
-        cout << diff + cp;
-    debug(sum, cp, lmax, rmax);
-
+    for(auto x : store) {
+        ll itr = x.second;
+        while(itr--)
+            cout << x.first;
+    }
 
     nl;
 }
