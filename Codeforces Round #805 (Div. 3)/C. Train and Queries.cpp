@@ -95,6 +95,7 @@ void solve(void){
     }
 
     double diff = rmax - (rmax + lmax) / 2;
+    cout << diff + cp;
     debug(sum, cp, lmax, rmax);
 
 
