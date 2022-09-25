@@ -83,7 +83,8 @@ void solve(void){
     ll n; cin >> n;
     subSum(v, 14ll, n);
     cout << minSteps;
-    cout << __builtin_popcount(17179869184ll);
+    ll x = 17179869184ll;
+    cout << __builtin_popcount(x);
     exit(0);
     nl;
 }
