@@ -77,19 +77,24 @@ void solve(void){
 
     double lmax = ninf;
     ll i = 0;
-    while(x[i] < cp){
-        debug(x[i], t[i], t[i] + (x[i] - cp));
-        lmax = max(lmax, t[i] + (cp - x[i]));
-        i++;
-    }
-    return;
-    double rmax = ninf;
-    while(i < n) {
-        debug(x[i], t[i], t[i] + (x[i] - cp));
-        rmax = max(rmax, t[i] + (x[i] - cp));
-        i++;
+
+    for(auto x : idx) {
+        if((double)x.first > cp) continue;
+
+        lmax = max(lmax, x.second + cp - x.first);
+
     }
 
+    double rmax = ninf;
+   
+    for(auto x : idx) {
+        if((double)x.first <= cp) continue;
+
+        rmax = max(rmax, x.second + x.first - cp);
+
+    }
+
+ 
     debug(sum, cp, lmax, rmax);
 
 
