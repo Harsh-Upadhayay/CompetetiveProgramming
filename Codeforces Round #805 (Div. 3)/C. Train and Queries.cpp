@@ -73,7 +73,7 @@ void solve(void){
     rpt(i, 0, n)
         idx[x[i]] = max(t[i], idx[x[i]]);
 
-    debug(idx);
+    cout << "F";
 
     double lmax = ninf;
     ll i = 0;
