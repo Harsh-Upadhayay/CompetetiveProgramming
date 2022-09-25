@@ -62,18 +62,18 @@ void init(){
     return;
 }
 
-void subSum(vll v, ll i, ll tgt_sum, ll cur_sum = 0, ll taken = 0) {
+void subSum(vll v, ll i, ll tgt_sum, ll taken = 0) {
 
-    if(cur_sum > tgt_sum) return;
+    if(tgt_sum < 0) return;
 
     if(i == 2) {
         // cout << cur_sum;
-        minSteps = min(minSteps, (ll)__builtin_popcount(tgt_sum - cur_sum));
+        minSteps = min(minSteps, (ll)__builtin_popcount(tgt_sum));
         return;
     }
 
-    subSum(v, i - 1, tgt_sum, cur_sum + v[i], taken + 1);
-    subSum(v, i - 1, tgt_sum, cur_sum, taken);
+    subSum(v, i - 1, tgt_sum - v[i], taken + 1);
+    subSum(v, i - 1, tgt_sum, taken);
 
 }
 
