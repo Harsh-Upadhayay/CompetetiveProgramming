@@ -94,7 +94,7 @@ void solve(void){
 
     }
 
- 
+    cout << (rmax + lmax) / 2;
     debug(sum, cp, lmax, rmax);
 
 
