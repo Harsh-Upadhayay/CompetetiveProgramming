@@ -72,7 +72,7 @@ void subSum(vll v, ll i, ll tgt_sum, ll cur_sum = 0, ll taken = 0) {
         return;
     }
 
-    subSum(v, i - 1, tgt_sum, cur_sum - v[i], taken + 1);
+    subSum(v, i - 1, tgt_sum, cur_sum + v[i], taken + 1);
     subSum(v, i - 1, tgt_sum, cur_sum, taken);
 
 }
