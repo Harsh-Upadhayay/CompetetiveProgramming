@@ -63,8 +63,12 @@ void solve(void){
     ll n; cin >> n;
     string s; cin >> s;
 
+    set<ll> ss;
+
     rpt(i, 0, n) 
-        if(s[i] == '1') cout << i + 1 << " ";
+        if(s[i] == '0') ss.insert(i + 1);
+
+    debug(ss);
 
     nl;
 }
