@@ -66,10 +66,15 @@ void solve(void){
 
     vector<vll> adj(n + 1);
 
-    rpt(i, 1, n + 1) 
-        for(int j = i; j <= n; j += i)
+    rpt(i, 1, n + 1) {
+        cout << i << " : ";
+        for(int j = i; j <= n; j += i) {
+            cout << j << " ";
             if(s[j] == '0')
                 adj[i].push_back(j);
+        }
+        cout << "\n";
+    }
     debug(adj);
 
     nl;
