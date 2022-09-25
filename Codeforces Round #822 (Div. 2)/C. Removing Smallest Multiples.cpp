@@ -68,29 +68,37 @@ void solve(void){
     
     vector<vll> adj(n + 1);
 
-    rpt(i, 1, n + 1) 
-        for(int j = i; j <= n; j += i) 
-            if(t[j] == '0') 
-                adj[i].push_back(j / i);
-    
     ll cost = 0;
-
-    for(int i = 0; i <= n; i++)
-        for(int j = 0; j < adj[i].size(); j++) 
-            if(j + 1 == adj[i][j]) {
-                if(t[i * (j + 1)] == '0')
-                    cost += i,
-                    t[i * (j + 1)] = '1';
-            }
-            else
-                break;
-    cout << cost;   
-
-    for(int i = 0; i < n; i++) {
-        cerr << i << " : ";
-        for(auto y : adj[i]) cerr << y << " ";
-        cerr << "\n";
+    rpt(i, 1, n + 1) {
+        ll j = i;
+        while(t[j] == '0' && j <= n) 
+            j += i,
+            cost += i;
     }
+    cout << cost;
+    // rpt(i, 1, n + 1) 
+    //     for(int j = i; j <= n; j += i) 
+    //         if(t[j] == '0') 
+    //             adj[i].push_back(j / i);
+    
+    // ll cost = 0;
+
+    // for(int i = 0; i <= n; i++)
+    //     for(int j = 0; j < adj[i].size(); j++) 
+    //         if(j + 1 == adj[i][j]) {
+    //             if(t[i * (j + 1)] == '0')
+    //                 cost += i,
+    //                 t[i * (j + 1)] = '1';
+    //         }
+    //         else
+    //             break;
+    // cout << cost;   
+
+    // for(int i = 0; i < n; i++) {
+    //     cerr << i << " : ";
+    //     for(auto y : adj[i]) cerr << y << " ";
+    //     cerr << "\n";
+    // }
 
     nl;
 }
