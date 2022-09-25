@@ -77,8 +77,11 @@ void solve(void){
 
     for(int i = 0; i < n; i++)
         for(int j = 0; j < adj[i].size(); j++) 
-            if(j + 1 == adj[i][j])
-                cost += i;
+            if(j + 1 == adj[i][j]) {
+                if(t[i * (j + 1)] == '0')
+                    cost += i,
+                    t[i * (j + 1)] = '1';
+            }
             else
                 break;
     cout << cost;   
