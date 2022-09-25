@@ -95,7 +95,7 @@ void solve(void){
     for(auto x : store) {
         ll itr = x.second;
         while(itr--)
-            cout << x.first + 1;
+            cout << x.first;
     }
 
     nl;
