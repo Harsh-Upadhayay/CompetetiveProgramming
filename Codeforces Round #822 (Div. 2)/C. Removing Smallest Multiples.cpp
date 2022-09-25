@@ -78,9 +78,9 @@ void solve(void){
                 ss.erase(j);
                 cost += i + 1;
             }
-        
-    }   
 
+    }   
+    cout << cost;
     debug(ss);
 
     nl;
