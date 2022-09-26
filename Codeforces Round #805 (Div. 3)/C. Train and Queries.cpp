@@ -88,6 +88,7 @@ ll subsum(ll tgt, ll i = 0) {
 void solve(void){
     
     ll n; cin >> n;
+    vector<vll> dp(arr.size(), vll (n + 1));
     cout << subsum(n);
     nl;
 }
