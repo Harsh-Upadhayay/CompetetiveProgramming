@@ -70,8 +70,6 @@ void init(){
     rpt(i, 1, 40002) 
         if(is_pallindrom(i))
             arr.push_back(i);
-    debug(arr.size());
-    exit(0);
     return;
 }
 
