@@ -89,7 +89,7 @@ ll subsum(vector<vll> &dp, ll tgt, ll i = 0) {
 void solve(void){
     
     ll n; cin >> n;
-    vector<vll> dp(arr.size(), vll (n + 1));
+    vector<vll> dp(arr.size(), vll (n + 1, -1));
     cout << subsum(dp, n);
     nl;
 }
