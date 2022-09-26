@@ -53,61 +53,33 @@ void storePrimes();
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
 
+bool is_pallindrom(ll n) {
+    ll rev = 0, num = n;
+
+    while(n) 
+        rev = rev * 10 + n % 10,
+        n /= 10;
+
+    return rev == num;
+}
+
+vll arr;
+
 void init(){
+
+    rpt(i, 1, 10e5) 
+        if(is_pallindrom(i))
+            arr.push_back(i);
 
     return;
 }
 
-struct Rect {
-    ll ht, wd;
-};
-
-struct query {
-    ll hs, ws, hb, wb;
-};
-
-bool HS(query a, query b) {
-    return a.hs < b.hs;
-}
-
-bool WS(query a, query b) {
-    return a.ws < b.ws;
-}
-
-bool HB(query a, query b) {
-    return a.hb < b.hb;
-}
-
-bool WB(query a, query b) {
-    return a.wb < b.wb;
-}
 
 void solve(void){
+    
+    ll n; cin >> n;
 
-    ll n, q; cin >> n >> q;
-
-    vector<Rect> v(n); 
-    rpt(i, 0, n) cin >> v[i].ht >> v[i].wd;
-
-    vector<query> qr(q);
-    rpt(i, 0, q) 
-        cin >> qr[i].hs >> qr[i].ws >> qr[i].hb >> qr[i].wb;
-
-    // for(auto rect : v) {
-
-    //     if( hs < rect.ht && ws < rect.wd &&
-    //         hb > rect.ht && wb > rect.wd)
-    //         area += rect.ht * rect.wd;
-    // }
-    // cout << area;
-    // nl;
-
-    vector<query> hss(all(qr)), wss(all(qr)), hbs(all(qr)), wbs(all(qr));
-
-    sort(all(hss), HS);
-    sort(all(wss), WS);
-    sort(all(hbs), HB);
-    sort(all(wbs), WB);
+    debug(arr);
 
     nl;
 }
