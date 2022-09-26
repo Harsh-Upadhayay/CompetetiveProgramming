@@ -71,15 +71,23 @@ void init(){
         if(is_pallindrom(i))
             arr.push_back(i);
 
+    cout << arr.size();
     return;
 }
 
+// ll subsum(ll tgt, ll i) {
+
+//     if(tgt == 0) return 1;
+
+//     if(arr[i] > tgt)
+
+// }
 
 void solve(void){
     
     ll n; cin >> n;
 
-    debug(arr);
+
 
     nl;
 }
