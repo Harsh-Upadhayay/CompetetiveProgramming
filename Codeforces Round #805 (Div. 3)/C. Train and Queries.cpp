@@ -67,7 +67,7 @@ vll arr;
 
 void init(){
 
-    rpt(i, 1, 10e5) 
+    rpt(i, 1, 4 * 10e4 + 1) 
         if(is_pallindrom(i))
             arr.push_back(i);
 
