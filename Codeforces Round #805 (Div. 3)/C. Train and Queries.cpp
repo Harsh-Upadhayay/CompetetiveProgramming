@@ -67,7 +67,7 @@ vll arr;
 
 void init(){
 
-    rpt(i, 1, 4  + 1) 
+    rpt(i, 1, 4) 
         if(is_pallindrom(i))
             arr.push_back(i);
     debug(arr);
@@ -100,7 +100,7 @@ void solve(void){
     //     }
     // }
 
-    cout << subsum(dp, n);
+    subsum(dp, n);
     print(dp);
 
     nl;
