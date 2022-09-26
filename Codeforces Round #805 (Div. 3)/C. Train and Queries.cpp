@@ -68,7 +68,7 @@ void solve(void){
     vector<Rect> v(n); rpt(i, 0, n) cin >> v[i].ht >> v[i].wd;
 
     while(q--) {
-        ll hs, ws, hb, wb, area = 1; 
+        ll hs, ws, hb, wb, area = 0; 
         cin >> hs >> ws >> hb >> wb;
 
         bool f = false;
@@ -76,7 +76,7 @@ void solve(void){
 
             if( hs < rect.ht && ws < rect.wd &&
                 hb > rect.ht && wb > rect.wd)
-                area *= rect.ht * rect.wd,
+                area += rect.ht * rect.wd,
                 f = true;
         }
         cout << (f ? area : 0);
