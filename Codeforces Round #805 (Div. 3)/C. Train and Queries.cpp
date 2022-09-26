@@ -70,7 +70,8 @@ void init(){
     rpt(i, 1, 4) 
         if(is_pallindrom(i))
             arr.push_back(i);
-    debug(arr);
+    debug(arr.size());
+    exit(0);
     return;
 }
 
@@ -91,14 +92,17 @@ void solve(void){
     ll n; cin >> n;
     vector<vll> dp(n + 1, vll (arr.size(), -1));
 
-    // rpt(i, 0, arr.size())
-    //     dp[0][i] = 1;
+    rpt(i, 0, arr.size())
+        dp[0][i] = 1;
 
-    // rpt(i, 1, n + 1) {
-    //     rpt(j, 0, arr.size()) {
+    rpt(i, 1, n + 1) {
+        rpt(j, 0, arr.size()) {
 
-    //     }
-    // }
+            if(i - arr[j] < 0) continue;
+            
+
+        }
+    }
 
     subsum(dp, n);
     print(dp);
