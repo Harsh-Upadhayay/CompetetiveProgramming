@@ -78,18 +78,22 @@ ll subsum(vector<vll> &dp, ll tgt, ll i = 0) {
 
     if(tgt == 0) return 1;
     if(tgt < 0 ||i == arr.size()) return 0;
-    if(dp[i][tgt] != -1) return dp[i][tgt];
+    if(dp[tgt][i] != -1) return dp[tgt][i];
 
     ll l = subsum(dp, tgt - arr[i], i);
     ll r = subsum(dp, tgt, i + 1);
     
-    return dp[i][tgt] = ((l % MOD) + (r % MOD)) % MOD;
+    return dp[tgt][i] = ((l % MOD) + (r % MOD)) % MOD;
 }
 
 void solve(void){
     
     ll n; cin >> n;
-    vector<vll> dp(arr.size(), vll (n + 1, -1));
+    vector<vll> dp(n + 1, vll (arr.size(), -1));
+
+    // rpt(i, 0, arr.size())
+
+
     cout << subsum(dp, n);
     nl;
 }
