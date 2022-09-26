@@ -67,15 +67,15 @@ vll arr;
 
 void init(){
 
-    rpt(i, 1, 4 * 10e4 + 1) 
+    rpt(i, 1, 4  + 1) 
         if(is_pallindrom(i))
             arr.push_back(i);
-
+    debug(arr);
     return;
 }
 
 ll subsum(vector<vll> &dp, ll tgt, ll i = 0) {
-
+    debug(tgt, i);
     if(tgt == 0) return 1;
     if(tgt < 0 ||i == arr.size()) return 0;
     if(dp[tgt][i] != -1) return dp[tgt][i];
@@ -92,9 +92,17 @@ void solve(void){
     vector<vll> dp(n + 1, vll (arr.size(), -1));
 
     // rpt(i, 0, arr.size())
+    //     dp[0][i] = 1;
 
+    // rpt(i, 1, n + 1) {
+    //     rpt(j, 0, arr.size()) {
+
+    //     }
+    // }
 
     cout << subsum(dp, n);
+    print(dp);
+
     nl;
 }
 
