@@ -71,13 +71,15 @@ void solve(void){
         ll hs, ws, hb, wb, area = 1; 
         cin >> hs >> ws >> hb >> wb;
 
+        bool f = false;
         for(auto rect : v) {
 
             if( hs < rect.ht && ws < rect.wd &&
                 hb > rect.ht && wb > rect.wd)
-                area *= rect.ht * rect.wd;
+                area *= rect.ht * rect.wd,
+                f = true;
         }
-        cout << area;
+        cout << (f ? area : 0);
         nl;
     }
     // rpt(i, 0, n)
