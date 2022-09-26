@@ -68,13 +68,19 @@ void solve(void){
     vector<Rect> v(n); rpt(i, 0, n) cin >> v[i].ht >> v[i].wd;
 
     while(q--) {
-        ll hs, ws, hb, wb; 
+        ll hs, ws, hb, wb, area = 1; 
         cin >> hs >> ws >> hb >> wb;
 
-        /*do something */
+        for(auto rect : v) {
+            if( hs < rect.ht && ws < rect.wd &&
+                hb > rect.ht && ws > rect.wd)
+                area *= rect.ht * rect.wd;
+        }
+        cout << area;
+        nl;
     }
-    rpt(i, 0, n)
-        cout << v[i].ht << " " << v[i].wd << "\n";
+    // rpt(i, 0, n)
+    //     cout << v[i].ht << " " << v[i].wd << "\n";
     nl;
 }
 
