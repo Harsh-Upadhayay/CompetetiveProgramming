@@ -102,7 +102,7 @@ void solve(void){
 
     subsum(dp, n);
     print(dp);
-
+    debug('\n');
     nl;
 }
 
