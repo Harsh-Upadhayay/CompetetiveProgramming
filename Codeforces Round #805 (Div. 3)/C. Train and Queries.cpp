@@ -67,18 +67,17 @@ vll arr;
 
 void init(){
 
-    rpt(i, 1, 4) 
+    rpt(i, 1, 4 * 10e4 + 1) 
         if(is_pallindrom(i))
             arr.push_back(i);
-    debug(arr);
+
     return;
 }
 
 ll subsum(ll tgt, ll i = 0) {
-    debug(tgt);
+
     if(tgt == 0) return 1;
-    if(tgt < 0) return 0;
-    if(i == arr.size()) return 0;
+    if(tgt < 0 ||i == arr.size()) return 0;
 
     ll l = subsum(tgt - arr[i], i);
     ll r = subsum(tgt, i + 1);
