@@ -58,44 +58,23 @@ void init(){
     return;
 }
 
+struct Rect {
+    ll ht, wd;
+};
 
 void solve(void){
-    string s; cin >> s;
 
-    map<char, ll> freq;
-    for(char ch : s)
-        freq[ch]++;
+    ll n, q; cin >> n >> q;
+    vector<Rect> v(n); rpt(i, 0, n) cin >> v[i].ht >> v[i].wd;
 
-    map<char, ll> store;
-    ll i = 0;
-    for(auto x : freq) {
-        ll itr = x.second;
-        for(; i < s.size(); i++) {
-            if(itr == 0) 
-                break;
-            char ch = s[i];
-            // cout << ch;
-            if(ch == x.first) 
-                itr--;
-            else 
-                store[ch]++;
-        }
-    }
-    for(auto x : freq) {
-        if(store.count(x.first) == 0) {
-            ll itr = freq[x.first];
-            while(itr--)
-                cout << x.first;
-        }
-        else break;
-    }
-    debug(store);
-    for(auto x : store) {
-        ll itr = x.second, n = x.first - '0';
-        while(itr--)
-            cout << min(n + !(x.first == freq.rbegin() -> first), 9ll);
-    }
+    while(q--) {
+        ll hs, ws, hb, wb; 
+        cin >> hs >> ws >> hb >> wb;
 
+        /*do something */
+    }
+    rpt(i, 0, n)
+        cout << v[i].ht << " " << v[i].wd << "\n";
     nl;
 }
 
