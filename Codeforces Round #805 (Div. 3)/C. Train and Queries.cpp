@@ -67,21 +67,22 @@ vll arr;
 
 void init(){
 
-    rpt(i, 1, 4 * 10e4 + 1) 
+    rpt(i, 1, 4 * 10e1 + 1) 
         if(is_pallindrom(i))
             arr.push_back(i);
 
-    cout << arr.size();
     return;
 }
 
-// ll subsum(ll tgt, ll i) {
+ll subsum(ll tgt, ll i = 0) {
 
-//     if(tgt == 0) return 1;
+    if(tgt == 0) return 1;
+    if(tgt < 0) return 0;
 
-//     if(arr[i] > tgt)
 
-// }
+    
+
+}
 
 void solve(void){
     
