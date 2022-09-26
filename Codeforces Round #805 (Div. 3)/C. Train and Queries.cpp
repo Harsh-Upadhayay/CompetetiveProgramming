@@ -70,7 +70,7 @@ void solve(void){
     while(q--) {
         ll hs, ws, hb, wb, area = 1; 
         cin >> hs >> ws >> hb >> wb;
-
+        debug(hs, ws, hb, wb);
         for(auto rect : v) {
             if( hs < rect.ht && ws < rect.wd &&
                 hb > rect.ht && ws > rect.wd)
