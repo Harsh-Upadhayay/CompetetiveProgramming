@@ -58,22 +58,44 @@ void init(){
     return;
 }
 
+priority_queue<ll> pq;
 
-void solve(void){
-    ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
-    vll a(n); a[0] = v[0];
-    bool flag = false;
+void showpq(priority_queue<ll> gq)
+{
+    priority_queue<ll> g = gq;
+    while (!g.empty()) {
+        cout << '\t' << g.top();
+        g.pop();
+    }
+    cout << '\n';
+}
+  
 
-    rpt(i, 1, n) {
-        a[i] = a[i - 1] + v[i];
-        flag |= v[i] && a[i - 1] > v[i];
-        debug(i, flag);
+void dfs(map<ll, vll> adj, vll visited, ll s = 1, ll depth = 0) {
+
+    if(visited[s]) return;
+
+    visited[s] = true;
+    if(adj[s].size() == 1) pq.push(depth);
+
+    for(auto x : adj[s]){
+        dfs(adj, visited, x, depth + 1);
     }
 
-    if(flag) cout << "-1";
-    else print(a);
+}
 
+void solve(void){
+    ll n, k; cin >> n >> k;
+    map<ll, vll> adj;
+    pq = priority_queue <ll>();
+    vll visited(n + 1, false);
+    rpt(i, 2, n + 1) {
+        ll x; cin >> x;
+        adj[x].push_back(i);
+        adj[i].push_back(x);
+    }
+    dfs(adj, visited);
+    showpq(pq);
     nl;
 }
 
