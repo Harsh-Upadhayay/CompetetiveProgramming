@@ -96,7 +96,7 @@ void solve(void){
     }
     dfs(adj, visited);
 
-    showpq(pq);
+    // showpq(pq);
     while(k--) {
         auto x = pq.top();
         pq.pop();
