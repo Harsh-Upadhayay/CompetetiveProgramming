@@ -64,7 +64,7 @@ void showpq(priority_queue<ll> gq)
 {
     priority_queue<ll> g = gq;
     while (!g.empty()) {
-        cout << ' ' << g.top();
+        cout << g.top() << " ";
         g.pop();
     }
     cout << '\n';
