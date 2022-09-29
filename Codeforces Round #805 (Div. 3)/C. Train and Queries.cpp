@@ -67,7 +67,7 @@ void solve(void){
 
     rpt(i, 1, n) {
         a[i] = a[i - 1] + v[i];
-        flag |= a[i - 1] - v[i] > 0;
+        flag |= v[i] && a[i - 1] > v[i];
     }
 
     if(flag) cout << "-1";
