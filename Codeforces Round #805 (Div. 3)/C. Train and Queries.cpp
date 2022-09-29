@@ -53,59 +53,25 @@ void storePrimes();
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
 
-bool is_pallindrom(ll n) {
-    ll rev = 0, num = n;
-
-    while(n) 
-        rev = rev * 10 + n % 10,
-        n /= 10;
-
-    return rev == num;
-}
-
-vll arr;
-
 void init(){
 
-    rpt(i, 1, 40002) 
-        if(is_pallindrom(i))
-            arr.push_back(i);
     return;
 }
 
-ll subsum(vector<vll> &dp, ll tgt, ll i) {
-
-    if(tgt == 0) return 1;
-    if(i == 0) return (tgt % arr[0] ? 0 : tgt / arr[0]);
-    if(dp[tgt][i] != -1) return dp[tgt][i];
-
-    ll l = 0;
-    if(tgt >= arr[i]) l = subsum(dp, tgt - arr[i], i);
-    ll r = subsum(dp, tgt, i - 1);
-    
-    return dp[tgt][i] = ((l % MOD) + (r % MOD)) % MOD;
-}
 
 void solve(void){
-    
-    ll n; cin >> n;
-    vector<vll> dp(n + 1, vll (arr.size(), -1));
+    ll n, m; cin >> n >> m;
+    ll ai = 1, aj = 1;
 
-    // rpt(i, 0, arr.size())
-    //     dp[0][i] = 1;
+    rpt(i, 1, n + 1) {
+        rpt(j, 1, m + 1) {
+            if(i + 2 > n || j + 1 > m || i + 1 > m || j + 1 > m)
+                ai = i, aj = j;
+        }
+    }
 
-    // rpt(i, 1, n + 1) {
-    //     rpt(j, 0, arr.size()) {
+    cout << ai << " " << aj;
 
-    //         if(i - arr[j] < 0) continue;
-            
-
-    //     }
-    // }
-
-    cout << subsum(dp, n, arr.size() - 1);
-    // print(dp);
-    debug('\n');
     nl;
 }
 
