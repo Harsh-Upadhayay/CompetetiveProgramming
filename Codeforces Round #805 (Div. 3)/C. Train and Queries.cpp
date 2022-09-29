@@ -96,7 +96,7 @@ void solve(void){
     }
     dfs(adj, visited);
 
-    // showpq(pq);
+    showpq(pq);
     while(k--) {
         auto x = pq.top();
         pq.pop();
@@ -104,6 +104,7 @@ void solve(void){
         pq.push(x / 2 + x % 2);
         
     }
+    nl; showpq(pq);nl;
     cout << pq.top();
 
     nl;
