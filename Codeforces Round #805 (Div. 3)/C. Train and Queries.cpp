@@ -60,24 +60,18 @@ void init(){
 
 
 void solve(void){
-    ll n, m; cin >> n >> m;
-    ll ai = 1, aj = 1;
+    ll n; cin >> n;
+    vll v(n); rpt(i, 0, n) cin >> v[i];
+    vll a(n); a[0] = v[0];
+    bool flag = false;
 
-    rpt(i, 1, n + 1) {
-        rpt(j, 1, m + 1) {
-            if( (i + 2 > n || j + 1 > m) &&
-                (i + 2 > n || j - 1 <= 0) &&
-                (i - 2 <= 0 || j - 1 <= 0) &&
-                (i - 2 <= 0 || j + 1 > m) &&
-                (i + 1 > n || j + 2 > m) &&
-                (i + 1 > n || j - 2 <= 0) &&
-                (i - 1 <= 0 || j - 2 <= 0) &&
-                (i - 1 <= 0 || j + 2 > m))
-                ai = i, aj = j;
-        }
+    rpt(i, 1, n) {
+        a[i] = a[i - 1] + v[i];
+        flag |= a[i] - v[i] > 0;
     }
 
-    cout << ai << " " << aj;
+    if(flag) cout << "-1";
+    else print(a);
 
     nl;
 }
