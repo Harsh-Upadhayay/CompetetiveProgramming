@@ -65,7 +65,14 @@ void solve(void){
 
     rpt(i, 1, n + 1) {
         rpt(j, 1, m + 1) {
-            if(i + 2 > n || j + 1 > m || i + 1 > m || j + 1 > m)
+            if( (i + 2 > n || j + 1 > m) &&
+                (i + 2 > m || j - 1 > m) &&
+                (i - 2 > m || j - 1 > m) &&
+                (i - 2 > m || j + 1 > m) &&
+                (i + 1 > n || j + 2 > m) &&
+                (i + 1 > m || j - 2 > m) &&
+                (i - 1 > m || j - 2 > m) &&
+                (i - 1 > m || j + 2 > m))
                 ai = i, aj = j;
         }
     }
