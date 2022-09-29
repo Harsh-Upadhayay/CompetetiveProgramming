@@ -76,11 +76,11 @@ void init(){
 ll subsum(vector<vll> &dp, ll tgt, ll i) {
 
     if(tgt == 0) return 1;
-    if(i == 0) return tgt == arr[i];
+    if(i == 0) return (tgt % arr[i] ? 0 : tgt / arr[i]);
     if(dp[tgt][i] != -1) return dp[tgt][i];
 
     ll l = 0;
-    if(tgt >= arr[i] ) l = subsum(dp, tgt - arr[i], i);
+    if(tgt >= arr[i]) l = subsum(dp, tgt - arr[i], i);
     ll r = subsum(dp, tgt, i - 1);
     
     return dp[tgt][i] = ((l % MOD) + (r % MOD)) % MOD;
