@@ -98,11 +98,11 @@ void solve(void){
 
     while(k--) {
         auto x = pq.top();
-    
             pq.push(x / 2),
             pq.push(x / 2 + x % 2);
         
     }
+    showpq(pq);
     cout << pq.top();
 
     nl;
