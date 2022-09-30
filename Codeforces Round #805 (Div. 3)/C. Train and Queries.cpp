@@ -68,8 +68,8 @@ void solve(void){
         if(v[i]) a.push_back(x);
         else b.push_back(x);
     }    
-    sort(all(a));
-    sort(all(b));
+    sort(all(a), greater<ll>());
+    sort(all(b), greater<ll>());
     debug(a, b);
     nl;
 }
