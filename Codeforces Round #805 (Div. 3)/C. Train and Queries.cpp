@@ -76,7 +76,6 @@ void solve(void){
         kill("NO");
 
     cout << "YES";
-    debug(a);
 
 
     nl;
