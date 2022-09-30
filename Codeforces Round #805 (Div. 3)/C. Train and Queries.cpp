@@ -70,10 +70,21 @@ void solve(void){
     }    
     sort(all(a), greater<ll>());
     sort(all(b), greater<ll>());
+    ll ans = 0;
     if(a.size() != b.size()) {
         if(a.size() < b.size()) 
             swap(a, b);
+        rpt(i, 0, b.size())
+            ans += 2 * b[i] + 2 * a[i];
+        rpt(i, b.size(), a.size())
+            ans += a[i];        
     }
+    else {
+        rpt(i, 0, a.size()) 
+            ans += 2 * (a[i] + b[i]);
+        ans -= min(nmin(a), nmin(b));
+    }
+    cout << ans;
     debug(a, b);
     nl;
 }
