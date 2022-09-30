@@ -71,12 +71,11 @@ void solve(void){
         if(a[i + 1] < a[i]) kill("NO");
 
     ll lim = a[0], cnt = n - k + 1;
-
+    debug(cnt);
     if(cnt < lim)
         kill("NO");
 
     cout << "YES";
-
     debug(a);
 
 
