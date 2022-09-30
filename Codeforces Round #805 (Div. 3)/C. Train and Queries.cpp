@@ -64,6 +64,7 @@ void solve(void){
     ll n, k; cin >> n >> k;
     vll v(k); rpt(i, 0, k) cin >> v[i];
     vll a(k - 1); 
+    if(k == 1) kill("YES");
     rpt(i, 0, k - 1)
         a[i] = v[i + 1] - v[i];
 
@@ -71,7 +72,7 @@ void solve(void){
         if(a[i + 1] < a[i]) kill("NO");
 
     ll lim = a[0], cnt = n - k + 1;
-    debug(cnt, lim);
+
     if(lim * cnt < v[0])
         kill("NO");
 
