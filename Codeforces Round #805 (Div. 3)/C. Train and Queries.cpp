@@ -74,7 +74,7 @@ void init(){
 }
 
 ll subsum(vector<vll> &dp, ll ind, ll tgt) {
-    debug(ind, tgt);
+
     if(tgt == 0) return 1;
     if(ind == 0) return !(tgt % arr[0]);
     if(dp[ind][tgt] != -1) return dp[ind][tgt];
@@ -89,22 +89,27 @@ ll subsum(vector<vll> &dp, ll ind, ll tgt) {
 void solve(void){
     
     ll n; cin >> n;
-    vector<vll> dp(arr.size(), vll (n + 1, -1));
+    vector<vll> dp(arr.size(), vll (n + 1, 0));
 
-    // rpt(i, 0, arr.size())
-    //     dp[0][i] = 1;
+    rpt(ind, 0, arr.size()) 
+        dp[ind][0] = 1;
 
-    // rpt(i, 1, n + 1) {
-    //     rpt(j, 0, arr.size()) {
+    rpt(tgt, 0, n + 1) 
+        dp[0][tgt] = !(tgt % arr[0]);
 
-    //         if(i - arr[j] < 0) continue;
+    rpt(ind, 1, arr.size()) {
+        rpt(tgt, 0, n + 1) {
+
+            ll l = 0;
+            if(tgt >= arr[ind]) l = dp[ind][tgt - arr[ind]];
+            ll r = dp[ind - 1][tgt];
             
+            dp[ind][tgt] = ((l % MOD) + (r % MOD)) % MOD;
+        }
+    }
 
-    //     }
-    // }
+    cout << dp[arr.size() - 1][n];
 
-    cout << subsum(dp, arr.size() - 1, n);
-    // print(dp);
     debug('\n');
     nl;
 }
