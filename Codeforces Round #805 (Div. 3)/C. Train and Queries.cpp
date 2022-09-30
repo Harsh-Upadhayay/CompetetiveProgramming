@@ -74,7 +74,8 @@ void solve(void){
 
     if(cnt < lim)
         kill("NO");
-    cout << "YES\n";
+
+    cout << "YES";
 
     debug(a);
 
