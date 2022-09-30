@@ -61,17 +61,18 @@ void init(){
 
 void solve(void){
     ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) {cin >> v[i];};
+    vll v(n); rpt(i, 0, n) cin >> v[i];
     ll c = count_if(all(v), [](ll x){return x % 2;});
+
     if(c % 4 == 0 || c % 4 == 3) 
         cout << "Alice";
-    if(c % 4 == 1) {
+    else if(c % 4 == 1) {
         if((n - c) % 2 == 0) 
             cout << "Bob";
         else
             cout << "Alice";
     }
-    if(c % 4 == 2) {
+    else if(c % 4 == 2) {
         cout << "Bob";
     }
     nl;
