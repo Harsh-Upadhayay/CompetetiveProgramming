@@ -72,7 +72,7 @@ void solve(void){
 
     ll lim = a[0], cnt = n - k + 1;
     debug(cnt);
-    if(cnt < lim)
+    if(lim > cnt)
         kill("NO");
 
     cout << "YES";
