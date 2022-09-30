@@ -71,7 +71,7 @@ void solve(void){
         if(a[i + 1] < a[i]) kill("NO");
 
     ll lim = a[0], cnt = n - k + 1;
-    debug(cnt);
+    debug(cnt, lim);
     if(lim > cnt)
         kill("NO");
 
