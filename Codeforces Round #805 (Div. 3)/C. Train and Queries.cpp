@@ -73,26 +73,10 @@ void init(){
     return;
 }
 
-ll subsum(vector<vll> &dp, ll ind, ll tgt) {
-
-    if(tgt == 0) return 1;
-    if(ind == 0) return !(tgt % arr[0]);
-    if(dp[ind][tgt] != -1) return dp[ind][tgt];
-
-    ll l = 0;
-    if(tgt >= arr[ind]) l = subsum(dp, ind, tgt - arr[ind]);
-    ll r = subsum(dp, ind - 1, tgt);
-    
-    return dp[ind][tgt] = ((l % MOD) + (r % MOD)) % MOD;
-}
-
 void solve(void){
     
     ll n; cin >> n;
     vector<ll> prev(n + 1), curr(n + 1);
-
-    
-    prev[0] = 1;
 
     rpt(tgt, 0, n + 1) 
         prev[tgt] = !(tgt % arr[0]);
@@ -109,7 +93,7 @@ void solve(void){
             
             curr[tgt] = ((l % MOD) + (r % MOD)) % MOD;
         }
-        prev = curr;
+        prev = curr; 
     }
 
     cout << prev[n];
