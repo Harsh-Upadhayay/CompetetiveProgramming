@@ -61,9 +61,8 @@ void init(){
 
 void solve(void){
     ll n; cin >> n;
-    ll c = 0;
-    vll v(n); rpt(i, 0, n) {cin >> v[i]; c += v[i] % 2;};
-    debug(c);
+    vll v(n); rpt(i, 0, n) {cin >> v[i];};
+    ll c = count_if(all(v), [](ll x){return x % 2;});
     if(c % 4 == 0 || c % 4 == 3) 
         cout << "Alice";
     if(c % 4 == 1) {
