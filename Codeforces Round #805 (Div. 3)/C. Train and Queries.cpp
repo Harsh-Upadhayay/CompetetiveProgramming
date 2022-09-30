@@ -70,6 +70,10 @@ void solve(void){
     }    
     sort(all(a), greater<ll>());
     sort(all(b), greater<ll>());
+    if(a.size() != b.size()) {
+        if(a.size() < b.size()) 
+            swap(a, b);
+    }
     debug(a, b);
     nl;
 }
