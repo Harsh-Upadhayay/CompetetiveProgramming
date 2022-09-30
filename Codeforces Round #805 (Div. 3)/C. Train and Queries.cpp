@@ -64,8 +64,13 @@ void solve(void){
     ll n, k; cin >> n >> k;
     vll v(k); rpt(i, 0, k) cin >> v[i];
     vll a(k - 1); 
-    if(k == 1) kill("YES");
-    
+    if(k == 1) {
+        if(v[0] >= 0)
+            kill("YES")
+        else
+            kill("NO")
+    }
+
     rpt(i, 0, k - 1)
         a[i] = v[i + 1] - v[i];
 
