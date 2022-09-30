@@ -76,7 +76,7 @@ void init(){
 ll subsum(vector<vll> &dp, ll ind, ll tgt) {
     debug(ind, tgt);
     if(tgt == 0) return 1;
-    if(ind == 0) return !(arr[0] % tgt);
+    if(ind == 0) return !(tgt % arr[0]);
     if(dp[ind][tgt] != -1) return dp[ind][tgt];
 
     ll l = 0;
