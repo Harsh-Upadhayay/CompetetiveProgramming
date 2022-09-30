@@ -68,7 +68,7 @@ void solve(void){
     rpt(i, 0, k - 1)
         a[i] = v[i + 1] - v[i];
 
-    rpt(i, 0, k - 1) 
+    rpt(i, 0, k - 2) 
         if(a[i + 1] < a[i]) kill("NO");
 
     ll lim = a[0], cnt = n - k + 1;
