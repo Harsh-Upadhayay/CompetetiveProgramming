@@ -58,55 +58,19 @@ void init(){
     return;
 }
 
-priority_queue<ll> pq;
-
-void showpq(priority_queue<ll> gq)
-{
-    priority_queue<ll> g = gq;
-    while (!g.empty()) {
-        cout << g.top() << " ";
-        g.pop();
-    }
-    cout << '\n';
-}
-  
-
-void dfs(map<ll, vll> adj, vll visited, ll s = 1, ll depth = 0) {
-
-    if(visited[s]) return;
-
-    visited[s] = true;
-    if(adj[s].size() == 1) pq.push(depth);
-
-    for(auto x : adj[s]){
-        dfs(adj, visited, x, depth + 1);
-    }
-
-}
 
 void solve(void){
-    ll n, k; cin >> n >> k;
-    map<ll, vll> adj;
-    pq = priority_queue <ll>();
-    vll visited(n + 1, false);
-    rpt(i, 2, n + 1) {
+    ll n; cin >> n;
+    vll v(n); rpt(i, 0, n) cin >> v[i];
+    vll a, b;
+    rpt(i, 0, n) {
         ll x; cin >> x;
-        adj[x].push_back(i);
-        adj[i].push_back(x);
-    }
-    dfs(adj, visited);
-
-    showpq(pq);
-    while(k--) {
-        auto x = pq.top();
-        pq.pop();
-        pq.push(x / 2),
-        pq.push(x / 2 + x % 2);
-        
-    }
-    nl; showpq(pq);nl;
-    cout << pq.top();
-
+        if(v[i]) a.push_back(x);
+        else b.push_back(x);
+    }    
+    sort(all(a));
+    sort(all(b));
+    debug(a, b);
     nl;
 }
 
