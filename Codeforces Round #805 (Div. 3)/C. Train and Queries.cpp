@@ -60,32 +60,15 @@ void init(){
 
 
 void solve(void){
-    ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
-    vll a, b;
-    rpt(i, 0, n) {
-        ll x; cin >> x;
-        if(v[i]) a.push_back(x);
-        else b.push_back(x);
-    }    
-    sort(all(a), greater<ll>());
-    sort(all(b), greater<ll>());
-    ll ans = 0;
-    if(a.size() != b.size()) {
-        if(a.size() < b.size()) 
-            swap(a, b);
-        rpt(i, 0, b.size())
-            ans += 2 * b[i] + 2 * a[i];
-        rpt(i, b.size(), a.size())
-            ans += a[i];        
-    }
-    else {
-        rpt(i, 0, a.size()) 
-            ans += 2 * (a[i] + b[i]);
-        ans -= min(nmin(a), nmin(b));
-    }
-    cout << ans;
-    debug(a, b);
+    
+    ll n, k; cin >> n >> k;
+    vll v(k); rpt(i, 0, k) cin >> v[i];
+    vll a(k - 1); 
+    rpt(i, 0, k - 1)
+        a[i] = v[i + 1] - v[i];
+    debug(a);
+
+
     nl;
 }
 
