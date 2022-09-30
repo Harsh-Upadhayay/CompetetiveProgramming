@@ -69,6 +69,13 @@ void solve(void){
 
     rpt(i, 0, k - 1) 
         if(a[i + 1] < a[i]) kill("NO");
+
+    ll lim = a[0], cnt = n - k + 1;
+
+    if(cnt < lim)
+        kill("NO");
+    cout << "YES\n";
+
     debug(a);
 
 
