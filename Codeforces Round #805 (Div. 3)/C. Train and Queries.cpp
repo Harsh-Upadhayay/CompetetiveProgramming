@@ -64,39 +64,40 @@ bool is_pallindrom(ll n) {
 }
 
 vll arr;
+vector<vll> dp(500, vll (40004, 0));
 
 void init(){
 
     rpt(i, 1, 40002) 
         if(is_pallindrom(i))
             arr.push_back(i);
+
+    ll n = 40001;
+    rpt(ind, 0, arr.size()) 
+        dp[ind][0] = 1;
+
+    rpt(tgt, 0, n + 1) 
+        dp[0][tgt] = !(tgt % arr[0]);
+
+    rpt(ind, 1, arr.size()) {
+        rpt(tgt, 0, n + 1) {
+
+            ll l = 0;
+            if(tgt >= arr[ind]) l = dp[ind][tgt - arr[ind]];
+            ll r = dp[ind - 1][tgt];
+            
+            dp[ind][tgt] = ((l % MOD) + (r % MOD)) % MOD;
+        }
+    }
     return;
 }
+
 
 void solve(void){
     
     ll n; cin >> n;
-    vector<ll> prev(n + 1), curr(n + 1);
 
-    rpt(tgt, 0, n + 1) 
-        prev[tgt] = !(tgt % arr[0]);
-
-    rpt(ind, 1, arr.size()) {
-
-        prev[0] = curr[0] = 1;
-
-        rpt(tgt, 0, n + 1) {
-
-            ll l = 0;
-            if(tgt >= arr[ind]) l = curr[tgt - arr[ind]];
-            ll r = prev[tgt];
-            
-            curr[tgt] = ((l % MOD) + (r % MOD)) % MOD;
-        }
-        prev = curr; 
-    }
-
-    cout << prev[n];
+    cout << dp[arr.size() - 1][n];
 
     debug('\n');
     nl;
