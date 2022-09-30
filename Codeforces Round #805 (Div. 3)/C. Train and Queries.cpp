@@ -72,7 +72,7 @@ void init(){
         if(is_pallindrom(i))
             arr.push_back(i);
 
-    ll n = 40001;
+    ll n = 40002;
     rpt(ind, 0, arr.size()) 
         dp[ind][0] = 1;
 
