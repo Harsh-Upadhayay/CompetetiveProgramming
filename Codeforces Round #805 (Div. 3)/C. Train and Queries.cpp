@@ -64,7 +64,7 @@ void solve(void){
     ll c = 0;
     vll v(n); rpt(i, 0, n) {cin >> v[i]; c += v[i] % 2;};
     if(c % 4 == 0 || c % 4 == 3) 
-        cout << "Alice";
+        cout << "Alaice";
     if(c % 4 == 1) {
         if((n - c) % 2 == 0) 
             cout << "Bob";
