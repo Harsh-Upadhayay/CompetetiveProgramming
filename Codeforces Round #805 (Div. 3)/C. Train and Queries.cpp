@@ -60,25 +60,21 @@ void init(){
 
 
 void solve(void){
-    
-    ll n, k; cin >> n >> k;
-    vll v(k); rpt(i, 0, k) cin >> v[i];
-    vll a(k - 1); 
-    if(k == 1) kill("YES");
-    rpt(i, 0, k - 1)
-        a[i] = v[i + 1] - v[i];
-
-    rpt(i, 0, k - 2) 
-        if(a[i + 1] < a[i]) kill("NO");
-
-    ll lim = a[0], cnt = n - k + 1;
-
-    if(lim * cnt < v[0])
-        kill("NO");
-
-    cout << "YES";
-
-
+    ll n; cin >> n;
+    ll c = 0;
+    vll v(n); rpt(i, 0, n) {cin >> v[i]; c += v[i] % 2;};
+    debug(c);
+    if(c % 4 == 0 || c % 4 == 3) 
+        cout << "Alice";
+    if(c % 4 == 1) {
+        if((n - c) % 2 == 0) 
+            cout << "Bob";
+        else
+            cout << "Alice";
+    }
+    if(c % 4 == 2) {
+        cout << "Bob";
+    }
     nl;
 }
 
