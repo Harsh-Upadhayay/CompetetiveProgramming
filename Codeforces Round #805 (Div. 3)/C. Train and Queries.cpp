@@ -69,6 +69,7 @@ void solve(void){
         else b.push_back(x);
     }    
     sort(all(a), greater<ll>());
+    a.pop_back();
     sort(all(b), greater<ll>());
     debug(a, b);
     nl;
