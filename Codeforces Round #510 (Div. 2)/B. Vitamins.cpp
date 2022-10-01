@@ -72,7 +72,7 @@ ll f(vector<ll> &arr, vector<string> &vit, vector<map<vector<ll>, ll>> &dp, ll i
         else return INT_MAX;
     }
 
-    if(dp[ind][tgt]) return dp[ind][tgt];
+    // if(dp[ind][tgt]) return dp[ind][tgt];
 
     ll nottake = f(arr, vit, dp, ind - 1, tgt);
     
