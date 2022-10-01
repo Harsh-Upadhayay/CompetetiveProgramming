@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-#define TESTCASE
+// #define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -63,7 +63,7 @@ bool allVit(vector<ll> &tgt) {
     return true;
 }
 
-ll f(vector<ll> &arr, vector<string> &vit, ll ind, vector<ll> &tgt) {
+ll f(vector<ll> &arr, vector<string> &vit, ll ind, vector<ll> tgt) {
     debug(ind, tgt);
     if(allVit(tgt)) return 0;
     if(ind == 0) { 
