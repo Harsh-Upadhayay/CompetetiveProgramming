@@ -53,53 +53,32 @@ void storePrimes();
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
 
-bool is_pallindrom(ll n) {
-    ll rev = 0, num = n;
-
-    while(n) 
-        rev = rev * 10 + n % 10,
-        n /= 10;
-
-    return rev == num;
-}
-
-vll arr;
-vector<vll> dp(500, vll (40004, 0));
-
 void init(){
 
-    rpt(i, 1, 40002) 
-        if(is_pallindrom(i))
-            arr.push_back(i);
-
-    ll n = 40002;
-    rpt(ind, 0, arr.size()) 
-        dp[ind][0] = 1;
-
-    rpt(tgt, 0, n + 1) 
-        dp[0][tgt] = !(tgt % arr[0]);
-
-    rpt(ind, 1, arr.size()) {
-        rpt(tgt, 0, n + 1) {
-
-            ll l = 0;
-            if(tgt >= arr[ind]) l = dp[ind][tgt - arr[ind]];
-            ll r = dp[ind - 1][tgt];
-            
-            dp[ind][tgt] = ((l % MOD) + (r % MOD)) % MOD;
-        }
-    }
     return;
 }
 
 
 void solve(void){
-    
     ll n; cin >> n;
-
-    cout << dp[arr.size() - 1][n];
-
-    debug('\n');
+    ll c = 0;
+    vll v(n); rpt(i, 0, n) {cin >> v[i]; c += v[i] % 2;};
+    
+    if(c % 4 == 0 || c % 4 == 3) {
+        cout << "Alice";nl;
+        return;
+    }
+    if(c % 4 == 1) {
+        if((n - c) % 2 == 0) 
+            cout << "Bob";
+        else
+            cout << "Alice";nl;
+        return;
+    }
+    if(c % 4 == 2) {
+        cout << "Bob";nl;
+        return;
+    }
     nl;
 }
 
