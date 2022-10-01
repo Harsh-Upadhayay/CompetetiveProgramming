@@ -90,7 +90,8 @@ void solve(void){
         cin >> arr[i] >> vit[i];
 
     vector<ll> tgt(3, 0);
-    cout << f(arr, vit, n - 1, tgt);
+    ll ans = f(arr, vit, n - 1, tgt);
+    cout << (ans == INT_MAX ? -1 : ans);
     nl;
 }
 
