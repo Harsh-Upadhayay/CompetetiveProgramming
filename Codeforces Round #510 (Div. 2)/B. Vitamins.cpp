@@ -64,6 +64,7 @@ bool allVit(vector<ll> &tgt) {
 }
 
 ll f(vector<ll> &arr, vector<string> &vit, ll ind, vector<ll> tgt) {
+    debug(ind, tgt);
     if(allVit(tgt)) return 0;
     if(ind == 0) { 
         for(char x : vit[0]) tgt[x - 'A'] = 1;
