@@ -63,7 +63,12 @@ bool allVit(vector<ll> &tgt) {
     return true;
 }
 
-ll f(vector<ll> &arr, vector<string> &vit, vector<map<vector<ll>, ll>> &dp, ll ind, vector<ll> tgt) {
+bool idx(vector<ll> &arr) {
+    ll idx = 0; 
+    rpt(i, 0, 3) idx += arr[i] * pow(2, i);
+}
+
+ll f(vector<ll> &arr, vector<string> &vit, vector<vector<ll>> &dp, ll ind, vector<ll> tgt) {
     debug(ind, tgt);
     if(allVit(tgt)) return 0;
     if(ind == 0) { 
@@ -72,14 +77,14 @@ ll f(vector<ll> &arr, vector<string> &vit, vector<map<vector<ll>, ll>> &dp, ll i
         else return INT_MAX;
     }
 
-    if(dp[ind][tgt]) return dp[ind][tgt];
+    if(dp[ind][idx(tgt)] != -1) return dp[ind][idx(tgt)];
 
     ll nottake = f(arr, vit, dp, ind - 1, tgt);
     
     for(char x : vit[ind]) tgt[x - 'A'] = 1;
     ll take = arr[ind] + f(arr, vit, dp, ind - 1, tgt);
     
-    return dp[ind][tgt] = min(take, nottake);
+    return dp[ind][idx(tgt)] = min(take, nottake);
     
 }
 
@@ -92,7 +97,7 @@ void solve(void){
         cin >> arr[i] >> vit[i];
 
     vector<ll> tgt(3, 0);
-    vector<map<vector<ll>, ll>> dp(n);
+    vector<vector<ll>> dp(n, vector<ll> (8, -1));
     ll ans = f(arr, vit, dp, n - 1, tgt);
     cout << (ans == INT_MAX ? -1 : ans);
     nl;
