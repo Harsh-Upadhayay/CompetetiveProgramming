@@ -66,6 +66,7 @@ bool allVit(vector<ll> &tgt) {
 bool idx(vector<ll> &arr) {
     ll idx = 0; 
     rpt(i, 0, 3) idx += arr[i] * pow(2, i);
+    return idx;
 }
 
 ll f(vector<ll> &arr, vector<string> &vit, vector<vector<ll>> &dp, ll ind, vector<ll> tgt) {
