@@ -75,7 +75,7 @@ ll f(vector<ll> &arr, vector<string> &vit, vector<vector<ll>> &dp, ll ind, vecto
     if(ind == 0) { 
         for(char x : vit[0]) tgt[x - 'A'] = 1;
         if(allVit(tgt)) return arr[0];
-        else return INT_MAX;
+        else return inf;
     }
 
     if(dp[ind][idx(tgt)] != inf) return dp[ind][idx(tgt)];
@@ -100,7 +100,7 @@ void solve(void){
     vector<ll> tgt(3, 0);
     vector<vector<ll>> dp(n, vector<ll> (8, inf));
     ll ans = f(arr, vit, dp, n - 1, tgt);
-    cout << (ans == INT_MAX ? -1 : ans);
+    cout << (ans == inf ? -1 : ans);
     nl;
 }
 
