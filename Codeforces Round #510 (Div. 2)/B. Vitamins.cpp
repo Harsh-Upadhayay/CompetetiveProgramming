@@ -78,7 +78,7 @@ ll f(vector<ll> &arr, vector<string> &vit, vector<vector<ll>> &dp, ll ind, vecto
         else return INT_MAX;
     }
 
-    if(dp[ind][idx(tgt)] != -1) return dp[ind][idx(tgt)];
+    if(dp[ind][idx(tgt)] != inf) return dp[ind][idx(tgt)];
 
     ll nottake = f(arr, vit, dp, ind - 1, tgt);
     
@@ -98,7 +98,7 @@ void solve(void){
         cin >> arr[i] >> vit[i];
 
     vector<ll> tgt(3, 0);
-    vector<vector<ll>> dp(n, vector<ll> (8, -1));
+    vector<vector<ll>> dp(n, vector<ll> (8, inf));
     ll ans = f(arr, vit, dp, n - 1, tgt);
     cout << (ans == INT_MAX ? -1 : ans);
     nl;
