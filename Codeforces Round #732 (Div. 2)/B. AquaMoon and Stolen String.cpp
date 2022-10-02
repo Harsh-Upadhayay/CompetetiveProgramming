@@ -108,8 +108,10 @@ void solve(void){
         vll v = ans_freq;
         for(auto y : x) 
             v[i(y)] ++;
+        debug(x);
         if(issame(v, all_freq))
             kill(x);
+
     }
 
     nl;
