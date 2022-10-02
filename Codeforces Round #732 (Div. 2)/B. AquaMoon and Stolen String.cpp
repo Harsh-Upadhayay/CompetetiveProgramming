@@ -140,7 +140,7 @@ int main() {
     #ifdef TESTCASE
         cin >> t;
     #endif
-    cout << t;
+    // cout << t;
     while(t--) 
         solve();
 
