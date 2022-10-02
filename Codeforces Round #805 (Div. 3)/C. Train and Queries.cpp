@@ -85,8 +85,8 @@ void solve(void){
         a[i] -= 1;
     }
 
-    cout << ans.size();
-    for(auto x : ans) cout << x.first<< " " << x.second << "\n";
+    cout << ans.size() << "\n";
+    for(auto x : ans) cout << x.first << " " << x.second << "\n";
 
     nl;
 }
