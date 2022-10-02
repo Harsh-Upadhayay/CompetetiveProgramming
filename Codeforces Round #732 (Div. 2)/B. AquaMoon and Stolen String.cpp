@@ -74,7 +74,7 @@ bool issame(vll a, vll b) {
 void solve(void){
     
     ll n, k; cin >> n >> k;
-    debug(n, k);
+
     vector<ll> all_freq(26, 0), miss_freq(26, 0), ans_freq(26, 0);
     vector<string> inp;
 
@@ -140,7 +140,7 @@ int main() {
     #ifdef TESTCASE
         cin >> t;
     #endif
-
+    cout << t;
     while(t--) 
         solve();
 
