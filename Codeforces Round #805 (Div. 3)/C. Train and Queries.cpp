@@ -81,7 +81,8 @@ void solve(void){
         while(j < n && a[j] >= b[j]) j++;
 
         if(j == n || i == n) break;
-        ans.push_back({i, j});
+
+        ans.push_back({i + 1, j + 1});
         a[j] += 1,
         a[i] -= 1;
     }
