@@ -105,7 +105,7 @@ void solve(void){
     }
 
     for(auto x : potential_ans) {
-        vll v = ans_freq;
+        vll v = miss_freq;
         for(auto y : x) 
             v[i(y)] ++;
         debug(x);
