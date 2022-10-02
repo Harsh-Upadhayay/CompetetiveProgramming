@@ -58,11 +58,39 @@ void init(){
     return;
 }
 
+
 void solve(void){
+    
     ll n; cin >> n;
-    cout << n % 2;
+    vll a(n), b(n);
+    rpt(i, 0, n) cin >> a[i];
+    rpt(j, 0, n) cin >> b[j];
+
+    ll  asum = accumulate(all(a), 0),
+        bsum = accumulate(all(b), 0);
+
+    if(asum != bsum) kill("-1");
+
+    vector<pair<ll, ll>> ans;
+
+    ll i = 0, j = 0;
+    
+    while(j < n && i < n) {
+
+        while(i < n && a[i] <= b[i]) i++;
+        while(j < n && a[j] >= b[j]) j++;
+
+        ans.push_back({i, j});
+        a[j] += 1,
+        a[i] -= 1;
+    }
+
+    cout << ans.size();
+    for(auto x : ans) cout << x.first<< " " << x.second << "\n";
+
     nl;
 }
+
 
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
