@@ -66,7 +66,7 @@ void solve(void){
     ll ls = ceil(sqrt(l));
     ll rs = floor(sqrt(r));
 
-    debug(ls * ls, rs * rs, r);
+    debug(ls * ls, rs * rs);
     ll ans = 3 * (rs - ls) + 1;
 
     for(ll i = l; i < ls * ls; i++){
@@ -78,7 +78,7 @@ void solve(void){
         // cout << i << " ";
         ans += !(i % (ll)floor(sqrt(i)));
     }
-    
+
     cout << ans;
 
     nl;
