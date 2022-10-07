@@ -73,7 +73,7 @@ ll mex(vll &v, ll k) {
         }
         idx = i;
     }
-    return idx;
+    return idx + 1;
 }
 
 void solve(void){
