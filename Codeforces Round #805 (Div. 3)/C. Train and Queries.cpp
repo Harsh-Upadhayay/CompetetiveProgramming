@@ -58,37 +58,14 @@ void init(){
     return;
 }
 
-ll mex(vll &v, ll k) {
-    ll ans = 26;
-    vll n;
-    for(int i = 0; i < 26 && k; i++, k--) {
-        if(!v[i]) {ans = i, k++; continue;}
-        v[i]--;
-        n.push_back(i);
-    }
-    ll idx;
-    rpt(i, 0, n.size()) {
-        if(n[i] != i) {
-            return i;
-        }
-        idx = i;
-    }
-    return idx + 1;
-}
 
 void solve(void){
     
-    ll n, k; cin >> n >> k;
-    vll freq(26, 0);
-    rpt(i, 0, n) {char x; cin >> x; freq[x - 'a']++;}
+    ll n; cin >> n;
+    vll r(3, 0), c(3, 0);
+    rpt(i, 0, 3) cin >> r[i] >> c[i];
 
-    debug(freq);
 
-    rpt(i, 0, k) {
-        ll m = mex(freq, n / k);
-        debug(freq);
-        cout << (char)(m + 'a');
-    }
 
     nl;
 }
