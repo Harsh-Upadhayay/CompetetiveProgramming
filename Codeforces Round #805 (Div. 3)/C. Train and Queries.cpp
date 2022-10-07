@@ -67,9 +67,10 @@ ll mex(vll &v, ll k) {
         n.push_back(i);
     }
     rpt(i, 0, n.size())
-        if(n[i] != i)
+        if(n[i] != i) {
             return i;
-    return ans;
+        }
+    return 26;
 }
 
 void solve(void){
