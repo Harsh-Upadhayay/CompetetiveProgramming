@@ -70,7 +70,7 @@ void solve(void){
     
     ll n, k; cin >> n >> k;
     vll freq(26, 0);
-    rpt(i, 0, n) {ll x; cin >> x; freq[x - 'a']++;}
+    rpt(i, 0, n) {char x; cin >> x; freq[x - 'a']++;}
 
     debug(freq);
 
