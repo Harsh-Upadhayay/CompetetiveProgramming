@@ -58,25 +58,24 @@ void init(){
     return;
 }
 
+ll mex(vll &v) {
+    rpt(i, 0, 26) {
+        if(v[i] == 0) return i;
+        v[i]--;
+    }
+    return 26;
+}
 
 void solve(void){
     
-    ll l, r; cin >> l >> r;
+    ll n, k; cin >> n >> k;
+    vll freq(26, 0);
+    rpt(i, 0, n) {ll x; cin >> x; freq[x - 'a']++;}
 
-    ll ls = ceil(sqrt(l));
-    ll rs = floor(sqrt(r));
-
-    debug(ls * ls, rs * rs);
-    ll ans = 3 * (rs - ls) + 1;
-
-    ls -= 1;
-
-    ans += ((ls * (ls + 1)) >= l);
-    ans += ((ls * (ls + 2)) >= l);
-    ans += ((rs * (rs + 1)) <= r);
-    ans += ((rs * (rs + 2)) <= r);
-    
-    cout << ans;
+    rpt(i, 0, k) {
+        ll m = mex(freq);
+        cout << (char)(m + 'a');
+    }
 
     nl;
 }
