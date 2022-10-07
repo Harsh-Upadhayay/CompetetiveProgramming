@@ -98,8 +98,10 @@ void solve(void){
 
     debug(mr, mc);
 
-    if(mr == -1)
+    if(mr == -1){
         flag = (mr == x || mc == y);
+        debug(mr, mc, x, y);
+    }
     
     else
         flag = (!(abs(mr - x) % 2) || !(abs(mc - y) % 2));
