@@ -98,10 +98,9 @@ void solve(void){
 
     debug(mr, mc);
 
-    if(mr == -1){
-        cout << "F";
+    if(mr == -1)
         flag = (mr == x || mc == y);
-    }
+    
     else
         flag = (!(abs(mr - x) % 2) || !(abs(mc - y) % 2));
 
