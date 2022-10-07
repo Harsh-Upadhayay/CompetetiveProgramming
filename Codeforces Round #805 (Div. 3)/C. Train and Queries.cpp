@@ -58,6 +58,8 @@ void init(){
     return;
 }
 
+bool edge_flag = false;
+
 pair<ll, ll> edge_case(ll n, vll r, vll c) {
     ll lt = 1, rt = n, up = 1, dn = n;
 
@@ -79,7 +81,7 @@ pair<ll, ll> edge_case(ll n, vll r, vll c) {
         (ans.fi == lt && ans.second == dn) ||
         (ans.fi == rt && ans.second == up) ||
         (ans.fi == rt && ans.second == dn))
-        ans = {-1, -1};
+        edge_flag = true;
 
     return ans;
 }
@@ -98,7 +100,7 @@ void solve(void){
 
     debug(mr, mc);
 
-    if(mr == -1){
+    if(edge_flag){
         flag = (mr == x || mc == y);
         debug(mr, mc, x, y);
     }
