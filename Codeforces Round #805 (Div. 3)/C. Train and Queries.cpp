@@ -66,11 +66,14 @@ ll mex(vll &v, ll k) {
         v[i]--;
         n.push_back(i);
     }
-    rpt(i, 0, n.size())
+    ll idx;
+    rpt(i, 0, n.size()) {
         if(n[i] != i) {
             return i;
         }
-    return 26;
+        idx = i;
+    }
+    return idx;
 }
 
 void solve(void){
