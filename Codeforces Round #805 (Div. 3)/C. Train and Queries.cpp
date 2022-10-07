@@ -98,15 +98,14 @@ void solve(void){
     ll mr = p.first, mc = p.second;
     bool flag = false;
 
-    debug(mr, mc);
+    debug(edge_flag, mr, mc);
 
     if(edge_flag)
         flag = (mr == x || mc == y);
     
-    else{
-        cout << "F";
+    else
         flag = (!(abs(mr - x) % 2) || !(abs(mc - y) % 2));
-    }
+    
 
     cout << (flag ? "YES" : "NO");
     
