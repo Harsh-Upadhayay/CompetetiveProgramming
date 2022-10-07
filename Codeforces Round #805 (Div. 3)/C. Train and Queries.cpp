@@ -69,11 +69,15 @@ void solve(void){
     debug(ls * ls, rs * rs);
     ll ans = 3 * (rs - ls) + 1;
 
-    for(ll i = l; i < ls * ls; i++)
+    for(ll i = l; i < ls * ls; i++){
+        cout << i << " ";
         ans += !(i % (ll)floor(sqrt(i)));
+    }
 
-    for(ll i = (rs + 1) * (rs + 1) + 1; i <= r; i++)
+    for(ll i = (rs + 1) * (rs + 1) + 1; i <= r; i++){
+        cout << i << " ";
         ans += !(i % (ll)floor(sqrt(i)));
+    }
     cout << ans;
 
     nl;
