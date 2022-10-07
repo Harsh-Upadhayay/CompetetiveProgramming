@@ -72,6 +72,8 @@ void solve(void){
     vll freq(26, 0);
     rpt(i, 0, n) {ll x; cin >> x; freq[x - 'a']++;}
 
+    debug(freq);
+
     rpt(i, 0, k) {
         ll m = mex(freq);
         cout << (char)(m + 'a');
