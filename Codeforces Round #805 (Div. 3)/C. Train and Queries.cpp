@@ -88,6 +88,8 @@ pair<ll, ll> edge_case(ll n, vll r, vll c) {
 
 void solve(void){
     
+    edge_flag = false;
+
     ll n; cin >> n;
     vll r(3, 0), c(3, 0);
     rpt(i, 0, 3) cin >> r[i] >> c[i];
