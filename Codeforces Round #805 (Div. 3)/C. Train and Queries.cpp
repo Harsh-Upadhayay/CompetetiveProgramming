@@ -78,6 +78,7 @@ void solve(void){
         // cout << i << " ";
         ans += !(i % (ll)floor(sqrt(i)));
     }
+    
     cout << ans;
 
     nl;
