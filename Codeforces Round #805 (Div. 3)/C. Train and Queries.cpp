@@ -70,12 +70,12 @@ void solve(void){
     ll ans = 3 * (rs - ls) + 1;
 
     for(ll i = l; i < ls * ls; i++){
-        cout << i << " ";
+        // cout << i << " ";
         ans += !(i % (ll)floor(sqrt(i)));
     }
 
-    for(ll i = (rs * rs )+ 1; i <= r; i++){
-        cout << i << " ";
+    for(ll i = (rs * rs) + 1; i <= r; i++){
+        // cout << i << " ";
         ans += !(i % (ll)floor(sqrt(i)));
     }
     cout << ans;
