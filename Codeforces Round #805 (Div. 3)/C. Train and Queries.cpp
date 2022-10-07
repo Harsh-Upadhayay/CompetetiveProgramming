@@ -61,20 +61,27 @@ void init(){
 pair<ll, ll> edge_case(ll n, vll r, vll c) {
     ll lt = 1, rt = n, up = 1, dn = n;
 
-    /* first pair */
+    pair<ll, ll> ans;
+
     if( (r[0] == r[1] && c[0] == c[2]) || 
         (r[0] == r[2] && c[0] == c[1])) 
-        return {r[0], c[0]};
+        ans = {r[0], c[0]};
 
     if( (r[1] == r[0] && c[1] == c[2]) || 
         (r[1] == r[2] && c[1] == c[0])) 
-        return {r[1], c[1]};
+        ans = {r[1], c[1]};
 
     if( (r[2] == r[1] && c[2] == c[0]) || 
         (r[2] == r[0] && c[2] == c[1])) 
-        return {r[2], c[2]};
+        ans = {r[2], c[2]};
 
-    return {-1, -1};
+    if( (ans.fi == lt && ans.second == up) ||
+        (ans.fi == lt && ans.second == dn) ||
+        (ans.fi == rt && ans.second == up) ||
+        (ans.fi == rt && ans.second == dn))
+        ans = {-1, -1};
+
+    return ans;
 }
 
 void solve(void){
