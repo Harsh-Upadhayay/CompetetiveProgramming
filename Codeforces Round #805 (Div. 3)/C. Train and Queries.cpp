@@ -83,7 +83,7 @@ void solve(void){
     rpt(i, 0, k) {
         ll m = mex(freq, n / k);
         debug(freq);
-        cout << (char)(m + 'a');
+        cout << (m + 'a');
     }
 
     nl;
