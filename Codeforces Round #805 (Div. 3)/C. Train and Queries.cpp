@@ -58,12 +58,44 @@ void init(){
     return;
 }
 
+pair<ll, ll> edge_case(ll n, vll r, vll c) {
+    ll lt = 1, rt = n, up = 1, dn = n;
+
+    /* first pair */
+    if( (r[0] == r[1] && c[0] == c[2]) || 
+        (r[0] == r[2] && c[0] == c[1])) 
+        return {r[0], c[0]};
+
+    if( (r[1] == r[0] && c[1] == c[2]) || 
+        (r[1] == r[2] && c[1] == c[0])) 
+        return {r[1], c[1]};
+
+    if( (r[2] == r[1] && c[2] == c[0]) || 
+        (r[2] == r[0] && c[2] == c[1])) 
+        return {r[2], c[2]};
+
+    return {-1, -1};
+}
 
 void solve(void){
     
     ll n; cin >> n;
     vll r(3, 0), c(3, 0);
     rpt(i, 0, 3) cin >> r[i] >> c[i];
+    ll x, y; cin >> x >> y;
+
+    pair<ll, ll> p = edge_case(n, r, c);
+
+    ll mr = p.first, mc = p.second;
+    bool flag = false;
+
+    if(mr == -1)
+        flag = (mr == x || mc == y);
+    else
+        flag = (!(abs(mr - x) % 2) || !(abs(mc - y) % 2));
+
+    cout << (flag ? "YES" : "NO");
+    
 
 
 
