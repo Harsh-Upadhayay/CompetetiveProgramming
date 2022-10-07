@@ -89,6 +89,8 @@ void solve(void){
     ll mr = p.first, mc = p.second;
     bool flag = false;
 
+    debug(mr, mc);
+
     if(mr == -1)
         flag = (mr == x || mc == y);
     else
