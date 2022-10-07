@@ -72,7 +72,7 @@ void solve(void){
     for(ll i = l; i < ls * ls; i++)
         ans += !(i % (ll)floor(sqrt(i)));
 
-    for(ll i = (rs + 1) * (rs + 1); i < r + 1; i++)
+    for(ll i = (rs + 1) * (rs + 1) + 1; i <= r; i++)
         ans += !(i % (ll)floor(sqrt(i)));
     cout << ans;
 
