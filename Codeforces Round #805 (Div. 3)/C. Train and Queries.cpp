@@ -100,10 +100,8 @@ void solve(void){
 
     debug(mr, mc);
 
-    if(edge_flag){
+    if(edge_flag)
         flag = (mr == x || mc == y);
-        debug(mr, mc, x, y);
-    }
     
     else
         flag = (!(abs(mr - x) % 2) || !(abs(mc - y) % 2));
