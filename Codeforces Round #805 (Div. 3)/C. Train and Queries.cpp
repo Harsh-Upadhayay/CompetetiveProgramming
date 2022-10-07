@@ -61,34 +61,20 @@ void init(){
 
 void solve(void){
     
-    ll n; cin >> n;
-    vll a(n), b(n);
-    rpt(i, 0, n) cin >> a[i];
-    rpt(j, 0, n) cin >> b[j];
+    ll l, r; cin >> l >> r;
 
-    ll  asum = accumulate(all(a), 0),
-        bsum = accumulate(all(b), 0);
+    ll ls = ceil(sqrt(l));
+    ll rs = floor(sqrt(r));
 
-    if(asum != bsum) kill("-1");
+    ll ans = 3 * (rs - ls) + 1;
 
-    vector<pair<ll, ll>> ans;
+    // rpt(i, l, ls)
+    //     ans += !(i / floor(sqrt(i)));
 
-    ll i = 0, j = 0;
-    
-    while(j < n && i < n) {
+    // rpt(i, rs + 1, r + 1)
+    //     ans += !(i / floor(sqrt(i)));
 
-        while(i < n && a[i] <= b[i]) i++;
-        while(j < n && a[j] >= b[j]) j++;
-
-        if(j == n || i == n) break;
-
-        ans.push_back({i + 1, j + 1});
-        a[j] += 1,
-        a[i] -= 1;
-    }
-
-    cout << ans.size() << "\n";
-    for(auto x : ans) cout << x.first << " " << x.second << "\n";
+    cout << ans;
 
     nl;
 }
