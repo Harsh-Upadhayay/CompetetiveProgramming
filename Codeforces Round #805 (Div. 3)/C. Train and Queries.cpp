@@ -103,8 +103,10 @@ void solve(void){
     if(edge_flag)
         flag = (mr == x || mc == y);
     
-    else
+    else{
+        cout << "F";
         flag = (!(abs(mr - x) % 2) || !(abs(mc - y) % 2));
+    }
 
     cout << (flag ? "YES" : "NO");
     
