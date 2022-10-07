@@ -76,6 +76,7 @@ void solve(void){
 
     rpt(i, 0, k) {
         ll m = mex(freq);
+        debug(freq);
         cout << (char)(m + 'a');
     }
 
