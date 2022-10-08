@@ -71,7 +71,7 @@ void solve(void){
     if(!f) kill(n);
     f = 1;
     for(auto x : s) f = f & is_special[x - 'a'] == 1;
-    if(!f) kill("0");
+    if(f) kill("0");
     ll itr = 0;
     reverse(all(s));
     while(1) {
