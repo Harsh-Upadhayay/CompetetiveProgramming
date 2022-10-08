@@ -84,7 +84,7 @@ void solve(void){
                 flag = true;
             }
         }
-        if(!flag) kill(itr)
+        if(!flag) kill(itr);
         itr++;
         debug(s);
 
