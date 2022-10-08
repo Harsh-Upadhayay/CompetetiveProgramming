@@ -64,11 +64,12 @@ void solve(void){
     ll n; cin >> n;
     string s; cin >> s;
     ll k; cin >> k;
-    vector<ll> is_special(26, 0); rpt(i, 0, k){ char ch; cin >> ch; is_special[ch - 'a'] = 1;}
+    vector<ll> is_special(26, 0); rpt(i, 0, k){char ch; cin >> ch; is_special[ch - 'a'] = 1;}
+    
     ll f = 0;
-
     for(auto x : s) if(is_special[x - 'a']) f = true;
     if(!f) kill("0");
+    
     ll itr = 0;
     reverse(all(s));
 
@@ -85,6 +86,7 @@ void solve(void){
                 flag = true;
             }
         }
+        cout << itr;
         if(!flag) {
             cout << itr << "\n";
             return;
