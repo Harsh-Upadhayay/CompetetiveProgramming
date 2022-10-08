@@ -66,6 +66,10 @@ void solve(void){
     string sb = bitset<64>(b).to_string(); 
     string sc = bitset<64>(c).to_string(); 
     string ans = "";
+    if(c < a || c < b) {
+        cout << "-1\n";
+        return ;
+    }
     for(int i = 0; i < 64; i++) {
         if(sc[i] == '1') {
             if(sa[i] == '1' && sb[i] == '1')
