@@ -67,6 +67,7 @@ void solve(void){
     ll rs = floor(sqrt(r));
 
     debug(ls * ls, rs * rs);
+    while(ls * ls < l) ls++;
     ll ans = 3 * (rs - ls) + 1;    
     ls -= 1;
 
