@@ -63,7 +63,8 @@ void solve(void){
     
     ll n; cin >> n;
     string s; cin >> s;
-    cout << s[0];
+    ll i = 0; while(s[i] == '1') i++;
+    cout << s[i];
     nl;
 }
 
