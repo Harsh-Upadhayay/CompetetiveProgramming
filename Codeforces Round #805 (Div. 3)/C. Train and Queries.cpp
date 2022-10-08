@@ -85,7 +85,10 @@ void solve(void){
                 flag = true;
             }
         }
-        if(!flag) kill("itr");
+        if(!flag) {
+            cout << itr << "\n";
+            return;
+        }
         itr++;
     }
     nl;
