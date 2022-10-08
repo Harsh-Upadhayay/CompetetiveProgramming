@@ -81,14 +81,12 @@ void solve(void){
             ans += '0';
     }
     long long ians = stoi(ans, nullptr, 2);
-    debug(sa, sb, sc, ans, ians);
-    debug((a | ians) & (b | ians));
+    
     if(((a | ians) & (b | ians)) == c)
         cout << ians;
     else
         cout << -1;
-    // cout << stoi(an/s, nullptr, 2);
-    nl;
+    cout << "\n";
 }
 
 
