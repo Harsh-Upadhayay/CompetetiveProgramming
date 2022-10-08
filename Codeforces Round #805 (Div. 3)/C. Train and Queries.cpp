@@ -61,7 +61,7 @@ void init(){
 ll bf(ll l, ll r) {
     ll count = 0;
     rpt(i, l, r + 1) 
-        count += !(i / floor(sqrt(i)));
+        count += !(i % (ll)floor(sqrt(i)));
     return count;
 }
 
