@@ -60,33 +60,11 @@ void init(){
 
 
 void solve(void){
-    long long a, b, c; cin >> a >> b >> c;
-
-    string sa = bitset<64>(a).to_string(); 
-    string sb = bitset<64>(b).to_string(); 
-    string sc = bitset<64>(c).to_string(); 
-    string ans = "";
-    // if(c < a || c < b) {
-    //     cout << "-1\n";
-    //     return ;
-    // }
-    for(int i = 0; i < 64; i++) {
-        if(sc[i] == '1') {
-            if(sa[i] == '1' && sb[i] == '1')
-                ans += '0';
-            else 
-                ans += '1';
-        }
-        else
-            ans += '0';
-    }
-    long long ians = stoi(ans, nullptr, 2);
     
-    if(((a | ians) & (b | ians)) == c)
-        cout << ians;
-    else
-        cout << -1;
-    cout << "\n";
+    ll n; cin >> n;
+    string s; cin >> s;
+    cout << s[0];
+    nl;
 }
 
 
