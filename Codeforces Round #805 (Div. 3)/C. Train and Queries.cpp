@@ -69,8 +69,8 @@ void solve(void){
     while(1 && itr--) {
 
         for(int i = 0; i < n; i++) {
-            if(is_special[s[i]]) {
-                cout << i;;
+            if(is_special[s[i] - 'a']) {
+
                 ll j = i - 1;
                 while(j >= 0 && s[j] != '-') j--;
                 if(j < 0) kill(itr);
