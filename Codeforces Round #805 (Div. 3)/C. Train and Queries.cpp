@@ -76,7 +76,7 @@ void solve(void){
         else
             ans += '0';
     }
-    debug(sc);
+    debug(ans);
     cout << stoi(ans, nullptr, 2);
     nl;
 }
