@@ -76,15 +76,18 @@ void solve(void){
     reverse(all(s));
     while(1) {
 
+        bool flag = false;
         for(int i = 0; i < n; i++) {
             if(is_special[s[i] - 'a']) {
                 ll j = i + 1;
                 while(j < n && s[j] == '-') j++;
-                if(j == n) kill(itr);
+                if(j == n) continue;
                 while(is_special[s[j] - 'a']) s[j] = '-', j++;
                 s[j] = '-';
+                flag = true;
             }
         }
+        if(!flag) kill(itr)
         itr++;
         debug(s);
 
