@@ -63,8 +63,10 @@ void solve(void){
     
     ll n; cin >> n;
     string s; cin >> s;
-    ll i = 0; while(i < n && s[i] == '1') i++;
-    if(i < n) cout << i;
+    ll fo = 0; while(fo < n && s[fo] == '0') fo++;
+    ll so = fo + 1; while(so < n && s[so] == '0') so++;
+
+    if(so < n) cout << (so - fo);
     else cout << n;
     nl;
 }
