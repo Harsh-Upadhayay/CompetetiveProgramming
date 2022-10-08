@@ -83,7 +83,7 @@ void solve(void){
     long long ians = stoi(ans, nullptr, 2);
     debug(sa, sb, sc, ans, ians);
     debug((a | ians) & (b | ians));
-    if((a | ians) & (b | ians) == c)
+    if(((a | ians) & (b | ians)) == c)
         cout << ians;
     else
         cout << -1;
