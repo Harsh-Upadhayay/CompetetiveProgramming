@@ -58,6 +58,12 @@ void init(){
     return;
 }
 
+ll bf(ll l, ll r) {
+    ll count = 0;
+    rpt(i, l, r + 1) 
+        count += !(i / floor(sqrt(i)));
+    return count;
+}
 
 void solve(void){
     
@@ -72,6 +78,7 @@ void solve(void){
     debug(ls, rs);
     debug(ls * ls, rs * rs);
     ll ans = 3 * (rs - ls) + 1;    
+    debug(bf(ls, rs));
     ls -= 1;
 
     debug(ans);
