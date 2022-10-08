@@ -72,8 +72,8 @@ void solve(void){
     ll ls = ceil(sqrtl(l));
     ll rs = floor(sqrtl(r));
 
-    while(ls * ls < l) ls++;
-    while(rs * rs > r) rs--;
+    // while(ls * ls < l) ls++;
+    // while(rs * rs > r) rs--;
 
     debug(ls, rs);
     debug(ls * ls, rs * rs );
