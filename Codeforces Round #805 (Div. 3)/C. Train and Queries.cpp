@@ -65,9 +65,9 @@ void solve(void){
     string s; cin >> s;
     ll k; cin >> k;
     vector<ll> is_special(26, 0); rpt(i, 0, k){ char ch; cin >> ch; is_special[ch - 'a'] = 1;}
-    ll f = 1;
-    for(auto x : s) f |= !is_special[x - 'a'];
-    if(f) kill(n);
+    ll f = 0;
+    for(auto x : s) if(is_special[x - 'a']) f = true;
+    if(!f) kill(n);
     ll itr = 0;
     reverse(all(s));
     while(1) {
