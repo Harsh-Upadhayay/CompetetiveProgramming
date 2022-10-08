@@ -70,7 +70,7 @@ void solve(void){
     for(auto x : s) if(is_special[x - 'a']) f = true;
     if(!f) kill(n);
     f = 1;
-    for(auto x : s) if(!is_special[x - 'a']) f = true;
+    for(auto x : s) if(!is_special[x - 'a']) f = 0;
     if(!f) kill("0");
     ll itr = 0;
     reverse(all(s));
