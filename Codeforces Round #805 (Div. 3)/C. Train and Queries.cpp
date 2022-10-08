@@ -69,6 +69,7 @@ void solve(void){
     debug(s);
     for(auto x : s) if(is_special[x - 'a']) f = true;
     if(!f) kill(n);
+    f = 1;
     for(auto x : s) if(!is_special[x - 'a']) f = true;
     if(!f) kill("0");
     ll itr = 0;
