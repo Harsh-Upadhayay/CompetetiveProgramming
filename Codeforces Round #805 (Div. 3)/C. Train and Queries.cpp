@@ -63,8 +63,9 @@ void solve(void){
     
     ll n; cin >> n;
     string s; cin >> s;
-    ll i = 0; while(s[i] == '1') i++;
-    cout << s[i];
+    ll i = 0; while(i < n && s[i] == '1') i++;
+    if(i < n) cout << s[i];
+    else cout << "\n";
     nl;
 }
 
