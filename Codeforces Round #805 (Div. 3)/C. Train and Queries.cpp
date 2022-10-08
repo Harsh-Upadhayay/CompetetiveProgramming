@@ -70,6 +70,8 @@ void solve(void){
     for(auto x : s) if(is_special[x - 'a']) f = true;
     if(!f) kill("0");
     
+    for(auto x : is_special) cout << x << " ";
+
     ll itr = 0;
     reverse(all(s));
 
@@ -86,11 +88,7 @@ void solve(void){
                 flag = true;
             }
         }
-        cout << itr;
-        if(!flag) {
-            cout << itr << "\n";
-            return;
-        }
+        if(!flag) kill(itr);
         itr++;
     }
     nl;
