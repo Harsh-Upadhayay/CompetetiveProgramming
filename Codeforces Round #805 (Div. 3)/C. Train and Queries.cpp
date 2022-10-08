@@ -63,11 +63,24 @@ void solve(void){
     
     ll n; cin >> n;
     string s; cin >> s;
-    ll fo = 0; while(fo < n && s[fo] == '0') fo++;
-    ll so = fo + 1; while(so < n && s[so] == '0') so++;
+    ll k; cin >> k;
+    vector<ll> is_special(26, 0); { char ch; cin >> ch; is_special[ch - 'a'] = 1;}
 
-    if(so < n) cout << (so - fo);
-    else cout << n;
+    ll itr = 10;
+    while(1 && itr--) {
+
+        for(int i = 0; i < n; i++) {
+            if(is_special[s[i]]) {
+                ll j = i - 1;
+                while(j >= 0 && s[j] != '-') j--;
+                if(j < 0) kill(itr);
+                s[j] = '-';
+                debug(s);
+            }
+        }
+
+    }
+
     nl;
 }
 
