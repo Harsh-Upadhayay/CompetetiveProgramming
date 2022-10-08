@@ -66,7 +66,7 @@ void solve(void){
     string sb = bitset<64>(b).to_string(); 
     string sc = bitset<64>(c).to_string(); 
 
-    cout << sa[63];
+    cout << sa;
 
     // bitset< 64 > input;
     // cin >> input;
