@@ -69,14 +69,14 @@ void solve(void){
     
     ll l, r; cin >> l >> r;
 
-    ll ls = ceil(sqrt(l));
-    ll rs = floor(sqrt(r));
+    ll ls = ceil(sqrtl(l));
+    ll rs = floor(sqrtl(r));
 
     while(ls * ls < l) ls++;
     while(rs * rs > r) rs--;
 
     debug(ls, rs);
-    debug(ls * ls, rs * rs);
+    debug(ls * ls, rs * rs );
     ll ans = 3 * (rs - ls) + 1;    
     // debug(bf(ls * ls, rs * rs));
     ls -= 1;
