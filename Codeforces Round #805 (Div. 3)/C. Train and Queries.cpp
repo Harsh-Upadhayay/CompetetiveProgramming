@@ -58,41 +58,19 @@ void init(){
     return;
 }
 
-ll bf(ll l, ll r) {
-    ll count = 0;
-    rpt(i, l, r + 1) 
-        count += !(i % (ll)floor(sqrt(i)));
-    return count;
-}
 
 void solve(void){
-    
-    ll l, r; cin >> l >> r;
+    long long a, b, c; cin >> a >> b >> c;
 
-    ll ls = ceil(sqrtl(l));
-    ll rs = floor(sqrtl(r));
+    string sa = bitset<64>(a).to_string(); 
+    string sb = bitset<64>(b).to_string(); 
+    string sc = bitset<64>(c).to_string(); 
 
-    // while(ls * ls < l) ls++;
-    // while(rs * rs > r) rs--;
+    cout << sa[0];
 
-    debug(ls, rs);
-    debug(ls * ls, rs * rs );
-    ll ans = 3 * (rs - ls) + 1;    
-    
-    ls -= 1;
-
-    debug(ans);
-    ans += ((ls * (ls + 1)) >= l);
-    // debug(ans);
-    ans += ((ls * (ls + 2)) >= l);
-    // debug(ans);
-    ans += ((rs * (rs + 1)) <= r);
-    // debug(ans);
-    ans += ((rs * (rs + 2)) <= r);
-    // debug(ans);
-    
-    cout << ans;
-
+    // bitset< 64 > input;
+    // cin >> input;
+    // unsigned long ul = input.to_ulong();
     nl;
 }
 
