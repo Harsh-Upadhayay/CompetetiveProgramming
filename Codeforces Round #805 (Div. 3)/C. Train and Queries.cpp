@@ -78,7 +78,7 @@ void solve(void){
     debug(ls, rs);
     debug(ls * ls, rs * rs);
     ll ans = 3 * (rs - ls) + 1;    
-    debug(bf(ls, rs));
+    // debug(bf(ls * ls, rs * rs));
     ls -= 1;
 
     debug(ans);
