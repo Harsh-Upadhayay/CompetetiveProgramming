@@ -80,8 +80,8 @@ void solve(void){
         else
             ans += '0';
     }
-    debug(sa, sb, sc, ans);
     long long ians = stoi(ans, nullptr, 2);
+    debug(sa, sb, sc, ans, ians);
     if((a | ians) & (b | ians) == c)
         cout << ians;
     else
