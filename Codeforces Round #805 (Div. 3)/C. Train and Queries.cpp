@@ -64,8 +64,8 @@ void solve(void){
     ll n; cin >> n;
     string s; cin >> s;
     ll i = 0; while(i < n && s[i] == '1') i++;
-    if(i < n) cout << 1;
-    else cout << i;
+    if(i < n) cout << i;
+    else cout << n;
     nl;
 }
 
