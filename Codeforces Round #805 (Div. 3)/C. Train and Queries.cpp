@@ -66,18 +66,20 @@ void solve(void){
     ll k; cin >> k;
     vector<ll> is_special(26, 0); rpt(i, 0, k){ char ch; cin >> ch; is_special[ch - 'a'] = 1;}
     ll itr = 0;
-    while(1 && itr--) {
+    ll bi = 20;
+    reverse(all(s));
+    while(1 && bi--) {
 
         for(int i = 0; i < n; i++) {
             if(is_special[s[i] - 'a']) {
-                ll j = i - 1;
-                while(j >= 0 && s[j] == '-') j--;
-                if(j < 0) kill(itr);
-                itr++;
+                ll j = i + 1;
+                while(j < n && s[i] == '-') j++;
+                if(j == n) kill(itr);
                 s[j] = '-';
-                debug(s);
             }
         }
+        itr++;
+        debug(s);
 
     }
 
