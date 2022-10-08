@@ -68,7 +68,8 @@ void solve(void){
 
     while(ls * ls < l) ls++;
     while(rs * rs > r) rs--;
-    
+
+    debug(ls, rs);
     debug(ls * ls, rs * rs);
     ll ans = 3 * (rs - ls) + 1;    
     ls -= 1;
