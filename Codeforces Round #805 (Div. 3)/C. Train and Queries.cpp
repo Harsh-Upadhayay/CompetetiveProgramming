@@ -67,7 +67,7 @@ void solve(void){
     string sc = bitset<64>(c).to_string(); 
     string ans = "";
     for(int i = 0; i < 64; i++) {
-        if(sc[i] == 1) {
+        if(sc[i] == '1') {
             if(sa[i] == '1' && sb[i] == '1')
                 ans += '0';
             else 
