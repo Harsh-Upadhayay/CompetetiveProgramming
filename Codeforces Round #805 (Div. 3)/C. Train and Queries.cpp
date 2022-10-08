@@ -76,6 +76,7 @@ void solve(void){
                 while(j < n && s[j] == '-') j++;
                 if(j == n) kill(itr);
                 while(is_special[s[j] - 'a']) s[j] = '-', j++;
+                s[j] = '-';
             }
         }
         itr++;
