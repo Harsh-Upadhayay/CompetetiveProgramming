@@ -77,7 +77,7 @@ void solve(void){
             ans += '0';
     }
     debug(sc);
-    cout << stoi(ans, 0, 2);
+    cout << stoi(ans, nullptr, 2);
     nl;
 }
 
