@@ -78,18 +78,18 @@ void solve(void){
     debug(ls, rs);
     debug(ls * ls, rs * rs );
     ll ans = 3 * (rs - ls) + 1;    
-    // debug(bf(ls * ls, rs * rs));
+    
     ls -= 1;
 
     debug(ans);
     ans += ((ls * (ls + 1)) >= l);
-    debug(ans);
+    // debug(ans);
     ans += ((ls * (ls + 2)) >= l);
-    debug(ans);
+    // debug(ans);
     ans += ((rs * (rs + 1)) <= r);
-    debug(ans);
+    // debug(ans);
     ans += ((rs * (rs + 2)) <= r);
-    debug(ans);
+    // debug(ans);
     
     cout << ans;
 
