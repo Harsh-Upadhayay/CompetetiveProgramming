@@ -67,14 +67,18 @@ void solve(void){
     ll rs = floor(sqrt(r));
 
     debug(ls * ls, rs * rs);
-    ll ans = 3 * (rs - ls) + 1;
-
+    ll ans = 3 * (rs - ls) + 1;    
     ls -= 1;
 
+    debug(ans);
     ans += ((ls * (ls + 1)) >= l);
+    debug(ans);
     ans += ((ls * (ls + 2)) >= l);
+    debug(ans);
     ans += ((rs * (rs + 1)) <= r);
+    debug(ans);
     ans += ((rs * (rs + 2)) <= r);
+    debug(ans);
     
     cout << ans;
 
