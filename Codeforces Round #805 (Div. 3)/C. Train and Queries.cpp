@@ -70,6 +70,7 @@ void solve(void){
 
         for(int i = 0; i < n; i++) {
             if(is_special[s[i]]) {
+                cout << i;;
                 ll j = i - 1;
                 while(j >= 0 && s[j] != '-') j--;
                 if(j < 0) kill(itr);
