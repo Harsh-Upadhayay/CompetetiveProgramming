@@ -65,7 +65,7 @@ void solve(void){
     string sa = bitset<64>(a).to_string(); 
     string sb = bitset<64>(b).to_string(); 
     string sc = bitset<64>(c).to_string(); 
-    string ans = " ";
+    string ans = "";
     for(int i = 0; i < 64; i++) {
         if(sc[i] == 1) {
             if(sa[i] == '1' && sb[i] == '1')
