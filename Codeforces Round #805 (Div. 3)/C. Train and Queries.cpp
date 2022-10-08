@@ -66,7 +66,7 @@ void solve(void){
     ll ls = ceil(sqrt(l));
     ll rs = floor(sqrt(r));
 
-    debug(ls, rs, (rs - ls) * 3);
+    debug(ls, rs);
     ll ans = 3 * (rs - ls) + 1;    
     ls -= 1;
 
