@@ -58,31 +58,17 @@
         return;
     }
 
-    ll f(string s, vll dp, ll i) {
-
-        if(i == 0) 
-            return 1;
-        if(i == 1) 
-            return 1 + (ll)(s[0] != s[1]);
-        if(dp[i] != -1) return dp[i];
-
-        ll x = 0;
-        if(s[i] != s[i - 1]) x = f(s, dp, i - 2) % MOD;
-        return dp[i] = (x + f(s, dp, i - 1) % MOD) % MOD; 
-    }
-
     void solve(void){
         
         string s; cin >> s;
-        ll prev, pprev, curr = 0;
-        vll dp(s.size(), -1);
 
         if(s.size() == 1) kill("1");
         if(s.size() == 2) kill(1 + (ll)(s[0] != s[1]));
         
 
-        pprev = 1;
-        prev = 1 + (s[0] != s[1]);
+        ll  pprev = 1,
+            prev = 1 + (s[0] != s[1]),
+            curr = 0;
 
         for(ll i = 2; i < s.size(); i++)
             
@@ -91,18 +77,7 @@
             pprev = prev,
             prev = curr,
             curr = 0;
-        
-
-        // ll im2 = 1;
-        // dp[1] = 1 + (ll)(s[0] != s[1]);
-
-        // for(int i = 2; i < s.size(); i++) {
-
-        //     ll x = 0;
-        //     if(s[i] != s[i - 1]) x = dp[i - 2] % MOD;
-        //     dp[i] = (x + dp[i - 1] % MOD) % MOD; 
-        // }
-
+    
         cout << prev << "\n";
     }
 
