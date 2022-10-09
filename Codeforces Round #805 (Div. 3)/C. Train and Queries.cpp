@@ -84,6 +84,7 @@ void solve(void){
     freq.clear();
 
     ll n, m; cin >> n >> m;
+    vector<vector<ll>> dp(n + 1, vector<ll> (m + 1, -1));
 
     vll v;
     cout << "(" << n << ", " << m << ")" << " : " << f(n, m, 0xFFFFFFFF, v) << "\n";
