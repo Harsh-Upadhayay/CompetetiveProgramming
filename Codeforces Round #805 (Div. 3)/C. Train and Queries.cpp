@@ -70,7 +70,7 @@
             prev = 1 + (s[0] != s[1]),
             curr = 0;
 
-        for(ll i = 2; i < s.size(); i++)
+        rpt(i, 2, s.size())
             
             curr = (((s[i] != s[i - 1] ? pprev : curr) % MOD) + (prev % MOD)) %  MOD,
 
