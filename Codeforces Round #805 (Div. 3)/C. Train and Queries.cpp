@@ -67,8 +67,7 @@ ll f(string s, vll dp, ll i) {
     if(dp[i] != -1) return dp[i];
 
     ll x = 0;
-    if(s[i] != s[i - 1]) {x = (s, dp, i - 2);
-        cout << "F";}
+    if(s[i] != s[i - 1]) x = f(s, dp, i - 2);
     return dp[i] = x + f(s, dp, i - 1); 
 }
 
