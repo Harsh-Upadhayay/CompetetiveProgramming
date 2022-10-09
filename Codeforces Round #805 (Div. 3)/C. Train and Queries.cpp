@@ -59,12 +59,12 @@ void init(){
 }
 
 ll f(string s, vll dp, ll i) {
-    debug(i);
+    debug(i, s[i], s[i - 1]);
     if(i == 0) 
         return 1;
     if(i == 1) 
         return 1 + (ll)(s[0] != s[1]);
-    // if(dp[i] != -1) return dp[i];
+    if(dp[i] != -1) return dp[i];
 
     ll x = 0;
     if(s[i] != s[i - 1]) x = (s, dp, i - 2);
