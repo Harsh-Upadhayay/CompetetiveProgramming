@@ -79,13 +79,13 @@ void solve(void){
     pprev = 1;
     prev = 1 + (s[0] != s[1]);
 
-    for(ll i = 2; i < s.size(); i++){
+    for(ll i = 2; i < s.size(); i++)
         
         curr = (s[i] != s[i - 1] ? pprev : curr) + prev,
 
         pprev = prev,
         prev = curr;
-    }
+    
 
     cout << prev << "\n";
 }
