@@ -78,7 +78,7 @@ void solve(void){
     ll n, m; cin >> n >> m;
 
     vll v;
-    f(n, m, 1, v);
+    f(n, m, 0xFFFFF, v);
 
     nl;
     nl;
