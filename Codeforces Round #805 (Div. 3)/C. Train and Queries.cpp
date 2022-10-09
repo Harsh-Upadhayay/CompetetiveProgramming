@@ -63,7 +63,7 @@ void solve(void){
     ll n; cin >> n;
 
     ll ansi, ans = INT_MIN;
-    rpt(i, 0, n) {ll x; cin >> x; if(ans < x) {ans = x, ansi = i;};}
+    rpt(i, 1, n + 1) {ll x; cin >> x; if(ans < x) {ans = x, ansi = i;};}
 
     cout << ansi;
 
