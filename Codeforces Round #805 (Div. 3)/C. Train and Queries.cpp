@@ -70,7 +70,7 @@ ll f(ll n, ll m, ll an, vll v) {
     ll ans = 0;
     rpt(i, 1, m + 1) 
         v.push_back(i),
-        ans += f(n - 1, m, an & i, v);
+        ans += f(n - 1, m, an & i, v),
         v.pop_back();
     
 
