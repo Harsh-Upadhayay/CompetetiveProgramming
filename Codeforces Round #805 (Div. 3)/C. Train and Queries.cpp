@@ -64,7 +64,7 @@ ll f(ll n, ll m, ll an, vll v) {
 
     if(an == 0) return 0;
     if(n == 0) {
-        // print(v);
+        print(v);
         // cout << an << "\n";
         freq[an]++;
         return an;
@@ -89,8 +89,8 @@ void solve(void){
     vll v;
     cout << "(" << n << ", " << m << ")" << " : " << f(n, m, 0xFFFFFFFF, v) << "\n";
 
-    for(auto x : freq)
-        cout <<  x.first << " : " << x.second << ", " << setw(80) << bitset<64>(x.second) << "\n";
+    // for(auto x : freq)
+    //     cout <<  x.first << " : " << x.second << ", " << setw(80) << bitset<64>(x.second) << "\n";
 
     nl;
     nl;
