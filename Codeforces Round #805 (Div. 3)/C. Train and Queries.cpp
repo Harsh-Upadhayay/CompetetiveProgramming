@@ -23,7 +23,7 @@ using namespace std;
 #define vll                     vector<ll>
 #define ninf                    ((ll)((-1)*1e18+5))
 #define inf                     ((ll)(1e18+5))
-#define MOD                     ((ll)(1e9+7))
+#define MOD                     ((ll)(998244353ll))
 #define nmin(v)                 *min_element(all(v))
 #define nmax(v)                 *max_element(all(v))
 #define rpt(i, begin, end)      for (__typeof(end) i = (begin) - ((begin) > (end)); i != (end) - ((begin) > (end)); i += 1 - 2 * ((begin) > (end)))
@@ -81,7 +81,7 @@ void solve(void){
 
     for(ll i = 2; i < s.size(); i++)
         
-        curr = (s[i] != s[i - 1] ? pprev : curr) + prev,
+        curr = (((s[i] != s[i - 1] ? pprev : curr) % MOD) + (prev % MOD)) %  MOD,
 
         pprev = prev,
         prev = curr;
