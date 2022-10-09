@@ -75,22 +75,26 @@ void solve(void){
         //     mp.find(mp[v[i]])->second.push_back(i);
         // }
     }
-    bool flag=true;
+    // bool flag=true;
     while(p--){
         ll a,b;
         cin>>a>>b;
         if(abs(mp.find(a)->first-mp.find(b)->second)>k){
-            flag = false;
-            break;
+            // flag = false;
+            // break;
+            no;
+        }
+        else{
+            yes;
         }
     }
-    if (flag)
-    {
-        yes;
-    }
-    else{
-        no;
-    }
+    // if (flag)
+    // {
+    //     yes;
+    // }
+    // else{
+    //     no;
+    // }
     nl;
 }
 
