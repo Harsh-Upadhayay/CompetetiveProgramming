@@ -58,7 +58,7 @@ void init(){
     return;
 }
 
-vll arr = {4, 5, 1, 2, 3, 6};
+vll arr = {1, 2, 3, 4, 5, 6};
 
 void solve(void){
     ll n; cin >> n;
