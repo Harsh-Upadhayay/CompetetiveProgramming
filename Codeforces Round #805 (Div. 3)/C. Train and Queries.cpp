@@ -58,39 +58,24 @@ void init(){
     return;
 }
 
+ll f(string s, ll i) {
+
+    if(i == 0) 
+        return 1;
+    if(i == 1) 
+        return 1 + (ll)(s[0] != s[1]);
+
+    ll x = 0;
+    if(s[i] != s[i - 1]) x = (s, i - 2);
+    return x + f(s, i - 1); 
+}
 
 void solve(void){
     
-    ll n; cin >> n;
     string s; cin >> s;
-    ll k; cin >> k;
-    vector<ll> is_special(26, 0); rpt(i, 0, k){char ch; cin >> ch; is_special[ch - 'a'] = 1;}
-    
-    ll f = 0;
-    for(auto x : s) if(is_special[x - 'a']) f = true;
-    if(!f) kill("0");
-    
-    for(auto x : is_special) cout << x << " ";
 
-    ll itr = 0;
-    reverse(all(s));
+    cout << f(s, s.size() - 1);
 
-    while(1) {
-
-        bool flag = false;
-        for(int i = 0; i < n; i++) {
-            if(is_special[s[i] - 'a']) {
-                ll j = i + 1;
-                while(j < n && s[j] == '-') j++;
-                if(j == n) continue;
-                while(is_special[s[j] - 'a']) s[j] = '-', j++;
-                s[j] = '-';
-                flag = true;
-            }
-        }
-        if(!flag) kill(itr);
-        itr++;
-    }
     nl;
 }
 
