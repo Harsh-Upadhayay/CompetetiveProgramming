@@ -62,7 +62,7 @@ ll f(ll n, ll m, ll an, vll v) {
 
     if(n == 0) {
         print(v);
-        cout << an;
+        cout << an << "\n";
         return an;
     }   
 
@@ -80,6 +80,7 @@ void solve(void){
     vll v;
     f(n, m, 1, v);
 
+    nl;
     nl;
 }
 
