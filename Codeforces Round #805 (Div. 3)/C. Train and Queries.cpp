@@ -87,7 +87,7 @@ void solve(void){
     ll n, m; cin >> n >> m;
 
     vll v;
-    cout << f(n, m, 0xFFFFFFFF, v);
+    cout << f(n, m, 0xFFFFFFFF, v) << "\n";
 
     for(auto x : freq)
         cout << x.first << " : " << x.second << "\n";
