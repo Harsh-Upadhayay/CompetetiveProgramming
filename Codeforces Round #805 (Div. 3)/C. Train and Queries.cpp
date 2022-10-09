@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-// #define TESTCASE
+#define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -60,42 +60,13 @@ void init(){
 
 
 void solve(void){
-    map<ll, ll> mp;
-    ll n,k,p; cin>>n>>k>>p;
-    vll v(n,0);
-    for (int i = 0; i < n; ++i)
-    {
-        cin>>v[i];
-        mp[i+1]=v[i];
-        // if(mp.find(v[i]) == mp.end()){
-        //     vll x(1,i);
-        //     mp[v[i]] = x;
-        // }
-        // else{
-        //     mp.find(mp[v[i]])->second.push_back(i);
-        // }
-    }
-    // bool flag=true;
-    while(p--){
-        ll a,b;
-        cin>>a>>b;
-        if(abs(mp.find(a)->first-mp.find(b)->second)>k){
-            // flag = false;
-            // break;
-            no;
-        }
-        else{
-            yes;
-        }
-        nl;
-    }
-    // if (flag)
-    // {
-    //     yes;
-    // }
-    // else{
-    //     no;
-    // }
+    ll n; cin >> n;
+
+    ll ansi, ans = INT_MIN;
+    rpt(i, 0, n) {ll x; cin >> x; if(ans < x) {ans = x, ansi = i;};}
+
+    cout << ansi;
+
     nl;
 }
 
