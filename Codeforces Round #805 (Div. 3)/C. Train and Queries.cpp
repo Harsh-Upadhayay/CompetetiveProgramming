@@ -58,19 +58,24 @@
         return;
     }
 
+// #define ll      long long int
+// #define kill(x) {cout << x << "\n"; return; }
+
+
     void solve(void){
         
         string s; cin >> s;
+        ll n = s.size();
 
-        if(s.size() == 1) kill("1");
-        if(s.size() == 2) kill(1 + (ll)(s[0] != s[1]));
+        if(n == 1) kill("1");
+        if(n == 2) kill(1 + (ll)(s[0] != s[1]));
         
 
         ll  pprev = 1,
             prev = 1 + (s[0] != s[1]),
             curr = 0;
 
-        rpt(i, 2, s.size())
+        for(ll i = 2; i < n; i++)
             
             curr = (((s[i] != s[i - 1] ? pprev : curr) % MOD) + (prev % MOD)) %  MOD,
 
