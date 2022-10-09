@@ -87,6 +87,7 @@ void solve(void){
         else{
             yes;
         }
+        nl;
     }
     // if (flag)
     // {
