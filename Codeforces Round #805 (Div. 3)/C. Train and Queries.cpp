@@ -103,7 +103,7 @@
         //     dp[i] = (x + dp[i - 1] % MOD) % MOD; 
         // }
 
-        // cout << dp[s.size() - 1] << "\n";
+        cout << prev << "\n";
     }
 
 
