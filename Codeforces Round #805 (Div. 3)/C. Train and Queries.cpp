@@ -89,7 +89,7 @@ void solve(void){
         curr = 0;
     
 
-    cout << prev << " " << f(s, dp, s.size() - 1)<< "\n";
+    cout << prev << "\n";
 }
 
 
