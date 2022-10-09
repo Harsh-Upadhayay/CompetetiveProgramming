@@ -58,14 +58,19 @@ void init(){
     return;
 }
 
+vll arr = {4, 5, 1, 2, 3, 6};
 
 void solve(void){
     ll n; cin >> n;
 
-    ll ansi, ans = INT_MIN;
-    rpt(i, 1, n + 1) {ll x; cin >> x; if(ans < x) {ans = x, ansi = i;};}
+    ll x = 0;
 
-    cout << ansi;
+    rpt(i, 0, arr.size()) {
+        cout << x << " ";
+        if(x < arr[i]) x += arr[i];
+        else x = 0;
+    }
+    cout << x;
 
     nl;
 }
