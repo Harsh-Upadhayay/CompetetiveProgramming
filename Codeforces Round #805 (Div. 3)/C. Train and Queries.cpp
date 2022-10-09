@@ -58,12 +58,15 @@ void init(){
     return;
 }
 
+map<ll, ll> freq;
+
 ll f(ll n, ll m, ll an, vll v) {
 
     if(an == 0) return 0;
     if(n == 0) {
         // print(v);
-        cout << an << "\n";
+        // cout << an << "\n";
+        freq[an]++;
         return an;
     }   
 
@@ -78,10 +81,16 @@ ll f(ll n, ll m, ll an, vll v) {
 }
 
 void solve(void){
+
+    freq.clear();
+
     ll n, m; cin >> n >> m;
 
     vll v;
     cout << f(n, m, 0xFFFFFFFF, v);
+
+    for(auto x : freq)
+        cout << x.first << " : " << x.second << "\n";
 
     nl;
     nl;
