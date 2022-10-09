@@ -66,19 +66,21 @@ ll f(ll n, ll m, ll an, vll v) {
         return an;
     }   
 
-    rpt(i, 1, m + 1) 
+    ll ans = 0;
+    rpt(i, 1, m + 1) {
         // v.push_back(i),
-        f(n - 1, m, an & i, v);
+        ans += f(n - 1, m, an & i, v);
         // v.pop_back();
+    }
 
-    return 0;
+    return ans;
 }
 
 void solve(void){
     ll n, m; cin >> n >> m;
 
     vll v;
-    f(n, m, 0xFFFFFFFF, v);
+    cout << f(n, m, 0xFFFFFFFF, v);
 
     nl;
     nl;
