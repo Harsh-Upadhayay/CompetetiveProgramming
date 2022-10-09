@@ -76,9 +76,16 @@ void solve(void){
     string s; cin >> s;
     vll dp(s.size(), -1);
 
-    cout << f(s, dp, s.size() - 1);
+    dp[0] = 1;
+    dp[1] = 1 + s[0] != s[1];
 
-    nl;
+    for(ll i = 2; i < s.size(); i++){
+        ll x = 0;
+        if(s[i] != s[i - 1]) x = dp[i - 2];
+        dp[i] = x + f(s, dp, i - 1);     nl;
+    }
+
+    cout << dp[s.size() - 1];
 }
 
 
