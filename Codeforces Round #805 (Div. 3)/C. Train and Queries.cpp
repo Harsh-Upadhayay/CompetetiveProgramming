@@ -61,15 +61,15 @@ void init(){
 ll f(ll n, ll m, ll an, vll v) {
 
     if(n == 0) {
-        print(v);
+        // print(v);
         cout << an << "\n";
         return an;
     }   
 
     rpt(i, 1, m + 1) 
-        v.push_back(i),
-        f(n - 1, m, an & i, v),
-        v.pop_back();
+        // v.push_back(i),
+        f(n - 1, m, an & i, v);
+        // v.pop_back();
 
     return 0;
 }
