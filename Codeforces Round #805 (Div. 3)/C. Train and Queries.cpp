@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-#define TESTCASE
+// #define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -58,41 +58,39 @@ void init(){
     return;
 }
 
-map<ll, ll> freq;
-
-ll f(ll n, ll m, ll an, vll v) {
-
-    if(an == 0) return 0;
-    if(n == 0) {
-        // print(v);
-        // cout << an << "\n";
-        freq[an]++;
-        return an;
-    }   
-
-    ll ans = 0;
-    rpt(i, 1, m + 1) 
-        v.push_back(i),
-        ans += f(n - 1, m, an & i, v),
-        v.pop_back();
-
-    return ans;
-}
 
 void solve(void){
-
-    freq.clear();
-
-    ll n, m; cin >> n >> m;
-    vector<vector<ll>> dp(n + 1, vector<ll> (m + 1, -1));
-
-    vll v;
-    cout << "(" << n << ", " << m << ")" << " : " << f(n, m, 0xFFFFFFFF, v) << "\n";
-
-    for(auto x : freq)
-        cout  << bitset<23>(x.second) << "\t" << x.first << " : " << x.second << "\n";
-
-    nl;
+    map<ll, ll> mp;
+    ll n,k,p; cin>>n>>k>>p;
+    vll v(n,0);
+    for (int i = 0; i < n; ++i)
+    {
+        cin>>v[i];
+        mp[i+1]=v[i];
+        // if(mp.find(v[i]) == mp.end()){
+        //     vll x(1,i);
+        //     mp[v[i]] = x;
+        // }
+        // else{
+        //     mp.find(mp[v[i]])->second.push_back(i);
+        // }
+    }
+    bool flag=true;
+    while(p--){
+        ll a,b;
+        cin>>a>>b;
+        if(abs(mp.find(a)->first-mp.find(b)->second)>k){
+            flag = false;
+            break;
+        }
+    }
+    if (flag)
+    {
+        yes;
+    }
+    else{
+        no;
+    }
     nl;
 }
 
