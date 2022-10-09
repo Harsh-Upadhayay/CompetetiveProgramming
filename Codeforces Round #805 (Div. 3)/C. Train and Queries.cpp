@@ -77,7 +77,7 @@ void solve(void){
     vll dp(s.size(), -1);
 
     dp[0] = 1;
-    dp[1] = 1 + s[0] != s[1];
+    dp[1] = 1 + (s[0] != s[1]);
 
     for(ll i = 2; i < s.size(); i++){
         ll x = 0;
