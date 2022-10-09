@@ -59,7 +59,7 @@ void init(){
 }
 
 ll f(string s, vll dp, ll i) {
-    
+
     if(i == 0) 
         return 1;
     if(i == 1) 
@@ -85,7 +85,8 @@ void solve(void){
         curr = (((s[i] != s[i - 1] ? pprev : curr) % MOD) + (prev % MOD)) %  MOD,
 
         pprev = prev,
-        prev = curr;
+        prev = curr,
+        curr = 0;
     
 
     cout << prev << " " << f(s, dp, s.size() - 1)<< "\n";
