@@ -65,7 +65,7 @@ ll f(ll n, ll m, ll an, vll v) {
     if(an == 0) return 0;
     if(n == 0) {
         print(v);
-        // cout << an << "\n";
+        cout << an << "\n";
         freq[an]++;
         return an;
     }   
