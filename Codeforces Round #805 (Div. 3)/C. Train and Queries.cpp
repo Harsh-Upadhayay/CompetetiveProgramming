@@ -80,9 +80,9 @@ void solve(void){
     prev = 1 + (s[0] != s[1]);
 
     for(ll i = 2; i < s.size(); i++){
-        ll x = 0;
-        if(s[i] != s[i - 1]) x = pprev;
-        curr = x + prev;
+        
+        if(s[i] != s[i - 1]) curr = pprev;
+        curr += prev;
 
         pprev = prev,
         prev = curr;
