@@ -64,8 +64,8 @@ ll f(ll n, ll m, ll an, vll v) {
 
     if(an == 0) return 0;
     if(n == 0) {
-        print(v);
-        cout << " : " << an << "\n";
+        // print(v);
+        cout << an << "\n";
         freq[an]++;
         return an;
     }   
@@ -75,7 +75,7 @@ ll f(ll n, ll m, ll an, vll v) {
         v.push_back(i),
         ans += f(n - 1, m, an & i, v),
         v.pop_back();
-    
+
     return ans;
 }
 
@@ -88,8 +88,8 @@ void solve(void){
     vll v;
     cout << "(" << n << ", " << m << ")" << " : " << f(n, m, 0xFFFFFFFF, v) << "\n";
 
-    // for(auto x : freq)
-    //     cout <<  x.first << " : " << x.second << ", " << setw(80) << bitset<64>(x.second) << "\n";
+    for(auto x : freq)
+        cout <<  x.first << " : " << x.second << ", " << setw(80) << bitset<64>(x.second) << "\n";
 
     nl;
     nl;
