@@ -76,7 +76,6 @@ ll f(ll n, ll m, ll an, vll v) {
         ans += f(n - 1, m, an & i, v),
         v.pop_back();
     
-        cout << "FF";
     return ans;
 }
 
