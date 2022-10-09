@@ -74,14 +74,14 @@ void init(){
 void solve(void){
     
     string s; cin >> s;
-    ll prev, pprev, curr = 0;
+    ll prev, pprev, curr;
 
     pprev = 1;
     prev = 1 + (s[0] != s[1]);
 
     for(ll i = 2; i < s.size(); i++){
-        if(s[i] != s[i - 1]) curr = pprev;
-        curr += prev;
+        
+        curr = (s[i] != s[i - 1] ? pprev : curr) + prev,
 
         pprev = prev,
         prev = curr;
