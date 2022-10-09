@@ -81,7 +81,7 @@ void solve(void){
 
     for(ll i = 2; i < s.size(); i++)
         
-        curr = (((s[i] != s[i - 1] ? pprev : curr) % MOD) + (prev % MOD)) %  MOD,
+        curr += (((s[i] != s[i - 1] ? pprev : 0) % MOD) + (prev % MOD)) %  MOD,
 
         pprev = prev,
         prev = curr;
