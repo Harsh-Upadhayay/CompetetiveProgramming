@@ -85,7 +85,7 @@ void solve(void){
         dp[i] = x + f(s, dp, i - 1);     nl;
     }
 
-    cout << dp[s.size() - 1];
+    cout << dp[s.size() - 1] << "\n";
 }
 
 
