@@ -82,7 +82,7 @@ void solve(void){
     for(ll i = 2; i < s.size(); i++){
         ll x = 0;
         if(s[i] != s[i - 1]) x = dp[i - 2];
-        dp[i] = x + dp[i - 1];     nl;
+        dp[i] = x + dp[i - 1];
     }
 
     cout << dp[s.size() - 1] << "\n";
