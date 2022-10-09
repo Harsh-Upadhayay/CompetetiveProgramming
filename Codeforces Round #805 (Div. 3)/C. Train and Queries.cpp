@@ -89,7 +89,7 @@ void solve(void){
     cout << "(" << n << ", " << m << ")" << " : " << f(n, m, 0xFFFFFFFF, v) << "\n";
 
     for(auto x : freq)
-        cout  << bitset<23>(x.second) << "\n";
+        cout  << bitset<23>(x.second) << "\t" << x.first << " : " << x.second << "\n";
 
     nl;
     nl;
