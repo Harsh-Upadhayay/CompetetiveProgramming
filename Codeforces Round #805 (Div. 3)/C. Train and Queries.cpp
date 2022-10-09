@@ -74,7 +74,7 @@ void init(){
 void solve(void){
     
     string s; cin >> s;
-    ll prev, pprev, curr;
+    ll prev, pprev, curr = 0;
 
     pprev = 1;
     prev = 1 + (s[0] != s[1]);
