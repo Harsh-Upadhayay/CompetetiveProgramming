@@ -58,23 +58,25 @@ void init(){
     return;
 }
 
-ll f(string s, ll i) {
+ll f(string s, vll dp, ll i) {
 
     if(i == 0) 
         return 1;
     if(i == 1) 
         return 1 + (ll)(s[0] != s[1]);
+    if(dp[i] != -1) return dp[i];
 
     ll x = 0;
-    if(s[i] != s[i - 1]) x = (s, i - 2);
-    return x + f(s, i - 1); 
+    if(s[i] != s[i - 1]) x = (s, dp, i - 2);
+    return dp[i] = x + f(s, dp, i - 1); 
 }
 
 void solve(void){
     
     string s; cin >> s;
+    vll dp(s.size(), -1);
 
-    cout << f(s, s.size() - 1);
+    cout << f(s, dp, s.size() - 1);
 
     nl;
 }
