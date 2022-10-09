@@ -59,7 +59,7 @@ void init(){
 }
 
 ll f(string s, vll dp, ll i) {
-    debug(i, s[i], s[i - 1]);
+    
     if(i == 0) 
         return 1;
     if(i == 1) 
