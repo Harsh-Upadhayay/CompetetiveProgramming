@@ -58,18 +58,18 @@ void init(){
     return;
 }
 
-ll f(string s, vll dp, ll i) {
+// ll f(string s, vll dp, ll i) {
 
-    if(i == 0) 
-        return 1;
-    if(i == 1) 
-        return 1 + (ll)(s[0] != s[1]);
-    if(dp[i] != -1) return dp[i];
+//     if(i == 0) 
+//         return 1;
+//     if(i == 1) 
+//         return 1 + (ll)(s[0] != s[1]);
+//     if(dp[i] != -1) return dp[i];
 
-    ll x = 0;
-    if(s[i] != s[i - 1]) x = (s, dp, i - 2);
-    return dp[i] = x + f(s, dp, i - 1); 
-}
+//     ll x = 0;
+//     if(s[i] != s[i - 1]) x = (s, dp, i - 2);
+//     return dp[i] = x + f(s, dp, i - 1); 
+// }
 
 void solve(void){
     
