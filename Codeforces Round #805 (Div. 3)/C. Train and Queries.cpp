@@ -77,29 +77,33 @@
         ll prev, pprev, curr = 0;
         vll dp(s.size(), -1);
 
-        // pprev = 1;
-        // prev = 1 + (s[0] != s[1]);
-
-        // for(ll i = 2; i < s.size(); i++)
-            
-        //     curr = (((s[i] != s[i - 1] ? pprev : curr) % MOD) + (prev % MOD)) %  MOD,
-
-        //     pprev = prev,
-        //     prev = curr,
-        //     curr = 0;
+        if(s.size() == 1) kill("1");
+        if(s.size() == 2) kill(1 + (ll)(s[0] != s[1]));
         
 
-        dp[0] = 1;
-        dp[1] = 1 + (ll)(s[0] != s[1]);
+        pprev = 1;
+        prev = 1 + (s[0] != s[1]);
 
-        for(int i = 2; i < s.size(); i++) {
+        for(ll i = 2; i < s.size(); i++)
+            
+            curr = (((s[i] != s[i - 1] ? pprev : curr) % MOD) + (prev % MOD)) %  MOD,
 
-            ll x = 0;
-            if(s[i] != s[i - 1]) x = dp[i - 2] % MOD;
-            dp[i] = (x + dp[i - 1] % MOD) % MOD; 
-        }
+            pprev = prev,
+            prev = curr,
+            curr = 0;
+        
 
-        cout << dp[s.size() - 1] << "\n";
+        // ll im2 = 1;
+        // dp[1] = 1 + (ll)(s[0] != s[1]);
+
+        // for(int i = 2; i < s.size(); i++) {
+
+        //     ll x = 0;
+        //     if(s[i] != s[i - 1]) x = dp[i - 2] % MOD;
+        //     dp[i] = (x + dp[i - 1] % MOD) % MOD; 
+        // }
+
+        // cout << dp[s.size() - 1] << "\n";
     }
 
 
