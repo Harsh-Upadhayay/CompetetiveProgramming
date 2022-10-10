@@ -76,7 +76,7 @@ void solve(void){
 
     ll x = lcm(v[0], v[1]);
     rpt(i, 2, n) {
-        if(!(v[i] % x)) kill("NO"); 
+        if(!(v[i] % x && v[i] != v[i - 1] & v[i - 1] != v[i - 1])) kill("NO"); 
         x = lcm(v[i - 1], v[i - 2]);
     }
     kill("YES");
