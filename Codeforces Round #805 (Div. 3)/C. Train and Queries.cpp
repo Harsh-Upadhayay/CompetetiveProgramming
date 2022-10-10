@@ -62,6 +62,7 @@ void init(){
 void solve(void){
     
     ll n; cin >> n;
+
     vll a(n), b(n), c(n, 0);
     rpt(i, 0, n) cin >> a[i];
     rpt(i, 0, n) cin >> b[i];
@@ -79,10 +80,10 @@ void solve(void){
     ll df = 0;
     rpt(i, 0, n) if(a[i] != c[i]) df = 1;
     
-    cnt = 0;
-    rpt(i, 0, n) if(b[i] != c[i]) cnt++; 
+    ll ncnt = 0;
+    rpt(i, 0, n) if(b[i] != c[i]) ncnt++; 
 
-    cout << cnt + df;
+    cout << cnt + df + ncnt;
     nl;
 }
 
