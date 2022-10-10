@@ -72,28 +72,28 @@ void solve(void){
     ll n; cin >> n;
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    // if(n < 3) kill("YES");
+    if(n < 3) kill("YES");
 
-    // ll x = lcm(v[0], v[1]);
-    // rpt(i, 2, n) {
-    //     if(!(v[i] % x) && (v[i] != v[i - 1] && v[i - 1] != v[i - 2])) kill("NO"); 
-    //     x = lcm(v[i - 1], v[i - 2]);
-    // }
-    // kill("YES");
+    ll x = lcm(v[0], v[1]);
+    rpt(i, 2, n) {
+        if(!(v[i] % x) && (v[i] != v[i - 1] && v[i - 1] != v[i - 2])) kill("NO"); 
+        x = lcm(v[i - 1], v[i - 2]);
+    }
+    kill("YES");
 
-    vll b(n + 1, 0);
-    vll x = randarray(n);
+    // vll b(n + 1, 0);
+    // vll x = randarray(n);
 
-    // print(x); nl;
-    vll a;
-    rpt(i, 0, n - 1)
-        a.push_back(__gcd(x[i], x[i + 1]));
+    // // print(x); nl;
+    // vll a;
+    // rpt(i, 0, n - 1)
+    //     a.push_back(__gcd(x[i], x[i + 1]));
 
-    cout << n - 1 << "\n";
-    print(a); nl;
-    // rpt(i, 0, n - 2) cout << __gcd(a[i], a[i + 1]) << " ";
+    // cout << n - 1 << "\n";
+    // print(a); nl;
+    // // rpt(i, 0, n - 2) cout << __gcd(a[i], a[i + 1]) << " ";
 
-    nl; nl;
+    nl;;
 }
 
 
