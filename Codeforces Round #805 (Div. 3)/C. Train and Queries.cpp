@@ -71,14 +71,12 @@ void solve(void){
     vll b(n + 1, 0);
     vll x = randarray(n);
 
-    // print(x);
+    // print(x); nl;
     vll a;
-    cout << "\n";
     rpt(i, 0, n - 1)
         a.push_back(__gcd(x[i], x[i + 1]));
 
-    print(v);
-    cout << "\n";
+    print(a); nl;
     rpt(i, 0, n - 2) cout << __gcd(a[i], a[i + 1]) << " ";
 
     nl; nl;
