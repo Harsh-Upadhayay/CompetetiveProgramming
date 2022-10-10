@@ -58,20 +58,21 @@ void init(){
     return;
 }
 
-vll arr = {2, 1, 3, 4};
 
 void solve(void){
+    
     ll n; cin >> n;
+    vll a(n), b(n);
+    rpt(i, 0, n) cin >> a[i];
+    rpt(i, 0, n) cin >> b[i];
 
-    ll x = 0;
-
-    rpt(i, 0, arr.size()) {
-        cout << x << " ";
-        if(x < arr[i]) x += arr[i];
-        else x = 0;
+    ll ca = 0, cb = 0;
+    rpt(i, 0, n) {
+        if(a[i] != b[i])
+            ca += a[i],
+            cb += b[i];
     }
-    cout << x;
-
+    debug(ca, cb);
     nl;
 }
 
