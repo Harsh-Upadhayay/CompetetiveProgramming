@@ -80,7 +80,7 @@ void solve(void){
     //     x = lcm(v[i - 1], v[i - 2]);
     // }
     // kill("YES");
-
+    
     vll b(n + 1, 0);
     vll x = randarray(n);
 
@@ -89,8 +89,7 @@ void solve(void){
     rpt(i, 0, n - 1)
         a.push_back(__gcd(x[i], x[i + 1]));
 
-    // print(a); nl;
-    cout << n - 1;
+    print(a); nl;
     rpt(i, 0, n - 2) cout << __gcd(a[i], a[i + 1]) << " ";
 
     nl; nl;
