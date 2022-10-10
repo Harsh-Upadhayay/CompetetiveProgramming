@@ -18,11 +18,6 @@ public:
         string ans = "";
         int i = n, j = m;
         
-        for(auto x : dp) {
-            for(auto y : x) cout << y << " ";
-            cout << "\n";
-        }
-        
         while (i && j) {
             if(str1[i - 1] == str2[j - 1]) ans += str1[i - 1], i--, j--;
             else {
