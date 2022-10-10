@@ -71,7 +71,7 @@ ll lcm(ll a, ll b) {
 void solve(void){
     ll n; cin >> n;
     vll v(n); rpt(i, 0, n) cin >> v[i];
-    
+
     // if(n < 3) kill("YES");
 
     // ll x = lcm(v[0], v[1]);
@@ -93,7 +93,6 @@ void solve(void){
     print(a); nl;
     // rpt(i, 0, n - 2) cout << __gcd(a[i], a[i + 1]) << " ";
 
-    nl;;
 }
 
 
