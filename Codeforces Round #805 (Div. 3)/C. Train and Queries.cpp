@@ -60,7 +60,7 @@ void init(){
 
 vector<ll> randarray(ll n) {
     vll v(n);
-    rpt(i, 0, n) v[i] = (rand() % 9) * 2 + 21;
+    rpt(i, 0, n) v[i] = (rand() % 9) + 1;
     return v;
 }
 
