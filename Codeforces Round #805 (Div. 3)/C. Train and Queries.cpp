@@ -60,7 +60,7 @@ void init(){
 
 vector<ll> randarray(ll n) {
     vll v(n);
-    rpt(i, 0, n) v[i] = rand() % 50 + 1;
+    rpt(i, 0, n) v[i] = rand() % 9 + 1;
     return v;
 }
 
@@ -70,10 +70,12 @@ void solve(void){
 
     vll b(n + 1, 0);
     vll x = randarray(n);
+
+    print(x);
     rpt(i, 0, n - 1)
         cout << __gcd(x[i], x[i + 1]) << " ";
 
-    nl;
+    nl; nl;
 }
 
 
