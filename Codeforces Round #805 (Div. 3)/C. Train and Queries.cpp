@@ -71,13 +71,13 @@ ll lcm(ll a, ll b) {
 void solve(void){
     ll n; cin >> n;
     vll v(n); rpt(i, 0, n) cin >> v[i];
-
+    cout << "F";
     ll x = lcm(v[0], v[1]);
     rpt(i, 2, n) {
-        if(!(v[i] % x) && (v[i] != v[i - 1] && v[i - 1] != v[i - 2])) kill("NO"); 
+        if(!(v[i] % x) && (v[i] != v[i - 1] && v[i - 1] != v[i - 2])) {no}; 
         x = lcm(v[i - 1], v[i - 2]);
     }
-    kill("YES");
+    // kill("YES");
 
     // vll b(n + 1, 0);
     // vll x = randarray(n);
