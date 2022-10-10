@@ -71,7 +71,7 @@ void solve(void){
     vll b(n + 1, 0);
     vll x = randarray(n);
 
-    print(x);
+    // print(x);
     vll a;
     cout << "\n";
     rpt(i, 0, n - 1)
