@@ -77,7 +77,7 @@ void solve(void){
     rpt(i, 0, n - 1)
         a.push_back(__gcd(x[i], x[i + 1]));
 
-    for(auto x : a) cout << x << " ";
+    print(v);
     cout << "\n";
     rpt(i, 0, n - 2) cout << __gcd(a[i], a[i + 1]) << " ";
 
