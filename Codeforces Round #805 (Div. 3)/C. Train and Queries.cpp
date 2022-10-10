@@ -66,13 +66,16 @@ void solve(void){
     rpt(i, 0, n) cin >> a[i];
     rpt(i, 0, n) cin >> b[i];
 
-    ll ca = 0, cb = 0;
+    ll ca = 0, cb = 0, df = 0;
     rpt(i, 0, n) {
         if(a[i] != b[i])
+            df = 1,
             ca += a[i],
             cb += b[i];
     }
     debug(ca, cb);
+    ll ans = df + abs(ca - cb);
+    cout << ans;
     nl;
 }
 
