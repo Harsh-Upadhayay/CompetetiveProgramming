@@ -78,6 +78,7 @@ void solve(void){
     rpt(i, 1, n - 1) {
         if(!(v[i] % x) && !(v[i] == v[i -1] && v[i] == v[i + 1]))
             {cout << i; kill("NO")};
+        x = __gcd(v[i - 1], v[i + 1]);
     }
     kill("YES");
 
