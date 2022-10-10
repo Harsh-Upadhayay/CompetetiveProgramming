@@ -74,7 +74,7 @@ void solve(void){
             cb += b[i];
     }
     debug(ca, cb);
-    ll ans = df + abs(ca - cb);
+    ll ans = abs(ca - cb);
     cout << ans;
     nl;
 }
