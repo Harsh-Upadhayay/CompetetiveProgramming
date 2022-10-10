@@ -72,7 +72,7 @@ void solve(void){
     vll x = randarray(n);
 
     print(x);
-    for(auto y : x) cout << y;
+    cout << "\n";
     rpt(i, 0, n - 1)
         cout << __gcd(x[i], x[i + 1]) << " ";
 
