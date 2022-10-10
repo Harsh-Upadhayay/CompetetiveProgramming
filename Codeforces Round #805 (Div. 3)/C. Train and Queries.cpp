@@ -80,7 +80,7 @@ void solve(void){
     rpt(i, 0, n) if(a[i] != c[i]) df = 1;
     
     cnt = 0;
-    rpt(i, 0, n) if(a[i] != b[i]) cnt++; 
+    rpt(i, 0, n) if(b[i] != c[i]) cnt++; 
 
     cout << cnt + df;
     nl;
