@@ -82,7 +82,7 @@ void solve(void){
     
     ll ncnt = 0;
     rpt(i, 0, n) if(b[i] != c[i]) ncnt++; 
-
+    debug(cnt, df, ncnt);
     cout << cnt + df + ncnt;
     nl;
 }
