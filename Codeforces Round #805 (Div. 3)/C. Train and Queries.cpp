@@ -70,7 +70,7 @@ ll lcm(ll a, ll b) {
 
 void solve(void){
     ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
+    // vll v(n); rpt(i, 0, n) cin >> v[i];
 
     // if(n < 3) kill("YES");
 
