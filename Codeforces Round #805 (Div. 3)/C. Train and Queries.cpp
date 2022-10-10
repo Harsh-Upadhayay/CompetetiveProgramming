@@ -90,7 +90,7 @@ void solve(void){
         a.push_back(__gcd(x[i], x[i + 1]));
 
     print(a); nl;
-    rpt(i, 0, n - 2) cout << __gcd(a[i], a[i + 1]) << " ";
+    // rpt(i, 0, n - 2) cout << __gcd(a[i], a[i + 1]) << " ";
 
     nl; nl;
 }
