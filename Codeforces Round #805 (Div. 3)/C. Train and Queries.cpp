@@ -58,32 +58,21 @@ void init(){
     return;
 }
 
+vector<ll> randarray(ll n) {
+    vll v(n);
+    rpt(i, 0, n) v[i] = rand() % 50 + 1;
+    return v;
+}
 
 void solve(void){
-    
     ll n; cin >> n;
+    vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    vll a(n), b(n), c(n, 0);
-    rpt(i, 0, n) cin >> a[i];
-    rpt(i, 0, n) cin >> b[i];
+    vll b(n + 1, 0);
+    vll x = randarray(n);
+    rpt(i, 0, n - 1)
+        cout << __gcd(x[i], x[i + 1]) << " ";
 
-    ll cnt = 0;
-    rpt(i, 0, n) cnt += a[i];
-
-    ll i = 0;
-    while(cnt && i < n) {
-        if(b[i])
-            cnt--, c[i] = 1;
-        i++;
-    }
-
-    ll df = 0;
-    rpt(i, 0, n) if(a[i] != c[i]) df = 1;
-    
-    ll ncnt = 0;
-    rpt(i, 0, n) if(b[i] != c[i]) ncnt++; 
-    debug(cnt, df, ncnt);
-    cout << cnt + df + ncnt;
     nl;
 }
 
