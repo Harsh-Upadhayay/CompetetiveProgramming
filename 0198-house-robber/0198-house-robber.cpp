@@ -4,23 +4,25 @@ class Solution {
 public:
     int rob(vector<int>& nums) {
         
-        vector<int> dp(nums.size(), -1);
+        int pprev, prev, curr;
         
         if(nums.size() == 1) return nums[0];
         
-        dp[0] = nums[0];
-        dp[1] = max(nums[0], nums[1]);
+        pprev = nums[0];
+        prev = max(nums[0], nums[1]);
         
         for(int i = 2; i < nums.size(); i++) {
             
             int rob, notrob;
-            rob = nums[i] + dp[i - 2];
-            notrob = dp[i - 1];
+            rob = nums[i] + pprev;
+            notrob = prev;
 
-            dp[i] = max(rob, notrob);
+            curr = max(rob, notrob),
+            pprev = prev,
+            prev = curr;
         }
             
         
-        return dp[nums.size() - 1];
+        return prev;
     }
 };
