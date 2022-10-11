@@ -85,7 +85,7 @@ ll f(vll &v, ll l, ll r) {
 void solve(void){
     
     ll n; cin >> n;
-    cout << n;
+    cout << n  << " ";
     // vll v(n); rpt(i, 0, n) cin >> v[i];
     // cout << "FF";
     // cout << f(v, 0, v.size() - 1);
