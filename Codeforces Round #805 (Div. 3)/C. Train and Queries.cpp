@@ -58,42 +58,10 @@ void init(){
     return;
 }
 
-vector<ll> randarray(ll n) {
-    vll v(n);
-    rpt(i, 0, n) v[i] = (rand() % 99) + 1;
-    return v;
-}
-
-ll lcm(ll a, ll b) {
-    return (a * b) / __gcd(a, b);
-}
 
 void solve(void){
-    ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
-
-    if(n < 3) kill("YES");
-
-    ll x = __gcd(v[0], v[2]);
-    rpt(i, 1, n - 1) {
-        if(!(v[i] % x) && (v[i] != v[i -1] && v[i] != v[i + 1]))
-            {cout << i << x; kill("NO")};
-        x = __gcd(v[i - 1], v[i + 1]);
-    }
-    kill("YES");
-
-    // vll b(n + 1, 0);
-    // vll x = randarray(n);
-
-    // // print(x); nl;
-    // vll a;
-    // rpt(i, 0, n - 1)
-    //     a.push_back(__gcd(x[i], x[i + 1]));
-
-    // cout << n - 1 << "\n";
-    // print(a); nl;
-    // rpt(i, 0, n - 2) cout << __gcd(a[i], a[i + 1]) << " ";
-
+    cout << "FF";
+    nl;
 }
 
 
