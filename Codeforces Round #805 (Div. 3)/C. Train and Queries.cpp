@@ -62,7 +62,8 @@ ll itr = 50;
 
 ll f(vll &v, ll l, ll r) {
 
-    if(itr-- <= 0) return 0;
+    if(l <= r) return 0;
+
     if(l + 1 == r) {
         if(v[l] > v[r]) {
             swap(v[l], v[r]);
