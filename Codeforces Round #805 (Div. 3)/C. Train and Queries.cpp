@@ -58,9 +58,33 @@ void init(){
     return;
 }
 
+ll itr = 50;
+
+ll f(vll &v, ll l, ll r) {
+
+    if(itr-- <= 0) return 0;
+    if(l + 1 == r) {
+        if(v[l] > v[r]) {
+            swap(v[l], v[r]);
+            return 1;
+        }
+        return 0;
+    } 
+
+    ll mid = (l + r) / 2;
+
+    ll  lft = f(v, l, mid),
+        rgt  = f(v, mid + 1, r);
+
+    if(lft == -1 || rgt == -1 || v[mid] > v[mid + 1])
+        return -1;
+
+    return lft + rgt;
+}
 
 void solve(void){
     cout << "FF";
+
     nl;
 }
 
