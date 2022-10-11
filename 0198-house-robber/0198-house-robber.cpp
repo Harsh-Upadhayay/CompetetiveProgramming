@@ -11,17 +11,12 @@ public:
         pprev = nums[0];
         prev = max(nums[0], nums[1]);
         
-        for(int i = 2; i < nums.size(); i++) {
+        for(int i = 2; i < nums.size(); i++) 
             
-            int rob, notrob;
-            rob = nums[i] + pprev;
-            notrob = prev;
-
-            curr = max(rob, notrob),
+            curr = max(nums[i] + pprev, prev),
             pprev = prev,
             prev = curr;
-        }
-            
+                    
         
         return prev;
     }
