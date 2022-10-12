@@ -61,7 +61,7 @@ void init(){
 
 void solve(void){
     double n = 10.1231312;
-    cout << setprecision(10) << n;
+    cout << setprecision(100) << n;
     nl;
 }
 
