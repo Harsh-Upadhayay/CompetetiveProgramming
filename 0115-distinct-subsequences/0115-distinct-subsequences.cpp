@@ -1,22 +1,33 @@
+
 class Solution {
 
-int f(string &t, string &s, vector<vector<long long int>> &dp, int i, int j) {
+    int f(string s, string t, vector<vector<int>> &dp, int i, int j) {
+        if(j == -1) return 1;
+        if(i < j) return 0;
+        if(dp[i][j] != -1) return dp[i][j];
+        
+        int take = (s[i] == t[j] ? f(s, t, dp, i - 1, j - 1) : 0);
+        
+        return dp[i][j] = take + f(s, t, dp, i - 1, j);
+    }
     
-    if(j == -1) return 1;
-    if(i < j) return 0;
-    if(dp[i][j] != -1) return dp[i][j];
-    
-    long long int take = 0;
-    if(t[i] == s[j]) take = f(t, s, dp, i - 1, j - 1);
-       
-    return dp[i][j] = (take + f(t, s, dp, i - 1, j));
-}
-
-public:
+    public:
     int numDistinct(string s, string t) {
-        swap(s, t);
-        int ls = s.size(), lt = t.size();
-        vector<vector<long long int>> dp(lt, vector<long long int> (ls, -1));
-        return f(t, s, dp, lt - 1, ls - 1);
+        int n = s.size(), m = t.size();
+        vector<vector<int>> dp(n, vector<int>(m , -1));
+        
+//         for(int i = 0; i <= n; i++)
+//             dp[i][0] = 1;
+        
+//         for(int i = 1; i <= n; i++) {
+//             for(int j = 1; j <= m; j++) {
+                
+//                 int take = (s[i - 1] == t[j - 1] ? dp[i - 1][j - 1] : 0);
+
+//                 dp[i][j] = take + dp[i - 1][j];
+//             }
+//         }
+        
+        return f(s, t, dp, n - 1, m - 1);
     }
 };
