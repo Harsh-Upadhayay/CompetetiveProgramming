@@ -80,7 +80,7 @@ void solve(void){
         else
             right[v[i]] = i + 1;
     }
-
+    debug(left, right);
     ll ans = -1;
     for(auto x : ele) {
         for(auto y : ele) {
