@@ -84,7 +84,7 @@ void solve(void){
     ll ans = -1;
     for(auto x : ele) {
         for(auto y : ele) {
-            if(__gcd(x, y) != 1 && x != y) continue;
+            if(__gcd(x, y) != 1 || x == y) continue;
 
             ans = max(ans, left[x] + right[y]);
         }
