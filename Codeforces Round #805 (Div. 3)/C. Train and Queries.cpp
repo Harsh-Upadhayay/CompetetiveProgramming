@@ -86,7 +86,7 @@ void solve(void){
         for(auto y : ele) {
             if(__gcd(x, y) != 1) continue;
 
-            ans = max(ans, left[x] + right[y]);
+            ans = max(ans, right[x] + right[y]);
         }
     }
     cout << ans;
