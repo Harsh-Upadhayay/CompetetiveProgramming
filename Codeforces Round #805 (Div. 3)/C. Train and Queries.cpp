@@ -60,8 +60,36 @@ void init(){
 
 
 void solve(void){
-    double n = 10.1231312;
-    cout << setprecision(100) << n;
+    
+    ll n; cin >> n;
+    map<ll, ll> left, right;
+    set<ll> ele;
+    vll v(n); rpt(i, 0, n) cin >> v[i];
+
+    rpt(i, 0, n)
+        ele.insert(v[i]);
+
+    rpt(i, 0, n) {
+        if(left.find(v[i]) != left.end())
+            left[v[i]] = min(left[v[i]], i + 1);
+        else
+            left[v[i]] = i + 1;
+
+        if(right.find(v[i]) != right.end())
+            right[v[i]] = max(right[v[i]], i + 1);
+        else
+            right[v[i]] = i + 1;
+    }
+
+    ll ans = -1;
+    for(auto x : ele) {
+        for(auto y : ele) {
+            if(__gcd(x, y) != 1) continue;
+
+            ans = max(ans, left[x] + right[y]);
+        }
+    }
+    cout << ans;
     nl;
 }
 
