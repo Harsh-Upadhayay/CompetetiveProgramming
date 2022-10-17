@@ -103,6 +103,7 @@ void solve(void){
     string s; cin >> s;
     vll v(n); rpt(i, 0, n) cin >> v[i];
     vll lid(n); rpt(i, 0, n) lid[i] = s[i] == '1';
+    debug(lid);
 
     ll dp[n][2][2] = {-1};
     rpt(i, 0, n)
