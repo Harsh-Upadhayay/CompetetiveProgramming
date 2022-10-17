@@ -70,9 +70,8 @@ void init(){
     cerr << "******************************************************\n"; \
 }   
 
-ll f(vll &v, vll &lid, ll dp[][2][2], ll i) {
+ll f(vll &v, vll &lid, ll i) {
 
-    debugdp;
 
     if(i == v.size() - 1) {
         if(lid[i] == '1') return v[i];
@@ -81,17 +80,17 @@ ll f(vll &v, vll &lid, ll dp[][2][2], ll i) {
 
     // if(dp[i] [lid[i]] [lid[i + 1]] != -1) return dp[i] [lid[i]] [lid[i + 1]];
 
-    if(lid[i] == '1') return v[i] + f(v, lid, dp, i + 1);
+    if(lid[i] == '1') return v[i] + f(v, lid, i + 1);
 
-    if(lid[i + 1] != '1') return f(v, lid, dp, i + 1); 
+    if(lid[i + 1] != '1') return f(v, lid, i + 1); 
 
 
     ll take = 0, nottake = 0;
     
-    nottake = f(v, lid, dp, i + 1);
+    nottake = f(v, lid, i + 1);
 
     swap(lid[i + 1], lid[i]);
-    take = v[i] + f(v, lid, dp, i + 1);
+    take = v[i] + f(v, lid, i + 1);
     swap(lid[i + 1], lid[i]);
 
     return  max(take, nottake);
@@ -111,8 +110,7 @@ void solve(void){
             rpt(k, 0, 2)
                 dp[i][j][k] = -1;
 
-    cout << f(v, lid, dp, 0);
-    debugdp;
+    cout << f(v, lid, 0);
 
     nl;
 }
