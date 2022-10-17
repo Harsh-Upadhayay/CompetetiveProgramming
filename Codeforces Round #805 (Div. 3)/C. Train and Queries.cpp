@@ -107,11 +107,11 @@ void solve(void){
 
     ll dp[n][2][2] = {-1};
 
+    debugdp
     cout << f(v, lid, dp, 0);
 
     cout << "\n";
 
-    debugdp
 
     nl;
 }
