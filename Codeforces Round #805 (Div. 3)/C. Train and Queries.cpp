@@ -63,9 +63,10 @@ void solve(void){
     
     ll n; cin >> n;
 
-    cout << "1 3 2 ";
+    cout << "1 3 ";
     rpt(i, 4, n + 1)
         cout << i << " ";
+    cout << "2";
 
     nl;
 }
