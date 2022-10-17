@@ -58,20 +58,7 @@ void init(){
     return;
 }
 
-#define debugdp { \
-   rpt(i, 0, v.size()) {   \
-        rpt(j, 0, 2) {  \
-            rpt(k, 0, 2)    \
-                cerr << dp[i][j][k] << " "; \
-            cerr << "\n";   \
-        }   \
-        cerr << "\n";   \
-    }   \
-    cerr << "******************************************************\n"; \
-}   
-
-ll f(vll &v, vll lid, ll i) {
-
+ll f(vll &v, string &lid, map<pair<ll, string>, ll> &dp, ll i) {
 
 
     if(i == v.size() - 1) {
@@ -80,33 +67,32 @@ ll f(vll &v, vll lid, ll i) {
     }
 
 
-    if(lid[i] == '1') return  v[i] + f(v, lid, i + 1);
+    if(lid[i] == '1') return v[i] + f(v, lid, dp, i + 1);
 
-    if(lid[i + 1] != '1') return  f(v, lid, i + 1); 
+    if(lid[i + 1] != '1') return  f(v, lid, dp, i + 1); 
+
 
     ll take = 0, nottake = 0;
     
-    nottake = f(v, lid, i + 1);
+    nottake = f(v, lid, dp, i + 1);
 
     swap(lid[i + 1], lid[i]);
-    take = v[i] + f(v, lid, i + 1);
+    take = v[i] + f(v, lid, dp, i + 1);
     swap(lid[i + 1], lid[i]);
-
-
 
     return  max(take, nottake);
 
 }
 
-
 void solve(void){
     
     ll n; cin >> n;
-    string s; cin >> s;
+    string lid; cin >> lid;
     vll v(n); rpt(i, 0, n) cin >> v[i];
-    vll lid(n); rpt(i, 0, n) lid[i] = s[i] == '1';
 
-    cout << f(v, lid, 0);
+    map<pair<ll, string>, ll> dp; 
+
+    cout << f(v, lid, dp, 0);
 
     nl;
 }
