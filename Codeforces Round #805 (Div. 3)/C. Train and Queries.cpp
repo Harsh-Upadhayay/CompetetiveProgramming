@@ -97,6 +97,15 @@ void solve(void){
 
     cout << f(v, lid, dp, 0);
 
+    rpt(i, 0, n) {
+        rpt(j, 0, 2) {
+            rpt(k, 0, 2)
+                cout << dp[i][j][k] << " ";
+            cout << "\n";
+        }
+        cout << "\n";
+    }
+
     nl;
 }
 
