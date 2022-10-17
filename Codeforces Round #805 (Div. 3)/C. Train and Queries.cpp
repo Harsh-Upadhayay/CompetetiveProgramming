@@ -58,8 +58,21 @@ void init(){
     return;
 }
 
+#define debugdp { \
+   rpt(i, 0, v.size()) {   \
+        rpt(j, 0, 2) {  \
+            rpt(k, 0, 2)    \
+                cerr << dp[i][j][k] << " "; \
+            cerr << "\n";   \
+        }   \
+        cerr << "\n";   \
+    }   \
+    cerr << "******************************************************\n"; \
+}   
+
 ll f(vll &v, vll &lid, ll dp[][2][2], ll i) {
 
+    debugdp;
 
     if(i == v.size() - 1) {
         if(lid[i] == '1') return v[i];
