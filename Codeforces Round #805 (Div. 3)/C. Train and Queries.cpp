@@ -111,9 +111,8 @@ void solve(void){
             rpt(k, 0, n)
                 dp[i][j][k] = -1;
 
-    debugdp
-
     cout << f(v, lid, dp, 0);
+    debugdp
 
     cout << "\n";
 
