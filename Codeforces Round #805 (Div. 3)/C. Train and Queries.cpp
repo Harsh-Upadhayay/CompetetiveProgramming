@@ -74,15 +74,15 @@ ll f(vll &v, vll &lid, ll dp[][2][2], ll i) {
 
 
     if(i == v.size() - 1) {
-        if(lid[i] == '1') return v[i];
+        if(lid[i] == 1) return v[i];
         else return 0;
     }
 
     if(dp[i] [lid[i]] [lid[i + 1]] != -1) return dp[i] [lid[i]] [lid[i + 1]];
 
-    if(lid[i] == '1') return dp[i] [lid[i]] [lid[i + 1]] = v[i] + f(v, lid, dp, i + 1);
+    if(lid[i] == 1) return dp[i] [lid[i]] [lid[i + 1]] = v[i] + f(v, lid, dp, i + 1);
 
-    if(lid[i + 1] != '1') return  dp[i] [lid[i]] [lid[i + 1]] = f(v, lid, dp, i + 1); 
+    if(lid[i + 1] != 1) return  dp[i] [lid[i]] [lid[i + 1]] = f(v, lid, dp, i + 1); 
 
 
 
