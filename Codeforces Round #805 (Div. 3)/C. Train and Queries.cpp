@@ -109,6 +109,7 @@ void solve(void){
             dp[n - 1][0][0] = (lid[0]) * v[0];
 
 
+    debugdp;
     rpt(i, n - 2, 0) {
 
 
@@ -129,7 +130,6 @@ void solve(void){
     }
 
 
-    debugdp;
 
 
     cout << dp[0][lid[0]][lid[1]];
