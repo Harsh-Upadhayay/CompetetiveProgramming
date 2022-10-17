@@ -78,13 +78,10 @@ ll f(vll &v, vll &lid, ll dp[][2][2], ll i) {
         else return 0;
     }
 
-    if(dp[i] [lid[i]] [lid[i + 1]] != -1) return dp[i] [lid[i]] [lid[i + 1]];
 
     if(lid[i] == 1) return dp[i] [lid[i]] [lid[i + 1]] = v[i] + f(v, lid, dp, i + 1);
 
     if(lid[i + 1] != 1) return  dp[i] [lid[i]] [lid[i + 1]] = f(v, lid, dp, i + 1); 
-
-
 
     ll take = 0, nottake = 0;
     
@@ -103,15 +100,38 @@ void solve(void){
     ll n; cin >> n;
     string s; cin >> s;
     vll v(n); rpt(i, 0, n) cin >> v[i];
-    vll lid(n); rpt(i, 0, n) lid[i] = s[i] == '1';
+    vll lid(n + 1, 0); rpt(i, 0, n) lid[i] = s[i] == '1';
 
-    ll dp[n][2][2] = {-1};
-    rpt(i, 0, n)
+    ll dp[n][2][2];
+
+    rpt(k, 0, 2)
         rpt(j, 0, 2)
-            rpt(k, 0, 2)
-                dp[i][j][k] = -1;
+            dp[n - 1][0][0] = (lid[0]) * v[0];
 
-    cout << f(v, lid, dp, 0);
+
+    rpt(i, n - 2, 0) {
+
+
+        if(lid[i] == 1) dp[i] [lid[i]] [lid[i + 1]] = v[i] + dp[i + 1] [lid[i + 1]] [lid[i + 2]];
+
+        if(lid[i + 1] != 1) dp[i] [lid[i]] [lid[i + 1]] = dp[i + 1] [lid[i + 1]] [lid[i + 2]]; 
+
+        ll take = 0, nottake = 0;
+        
+        nottake = dp[i + 1] [lid[i + 1]] [lid[i + 2]];
+
+        swap(lid[i + 1], lid[i]);
+        take = v[i] + dp[i + 1] [lid[i + 1]] [lid[i + 2]];
+        swap(lid[i + 1], lid[i]);
+
+        dp[i] [lid[i]] [lid[i + 1]] = max(take, nottake);
+
+    }
+
+
+
+
+    cout << dp[0][lid[0]][lid[1]];
 
     nl;
 }
