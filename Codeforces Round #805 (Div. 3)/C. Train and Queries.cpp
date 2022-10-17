@@ -70,6 +70,7 @@ void solve(void){
         if(v[i] > v[i - 1] && lid[i] == 1 && lid[i - 1] == 0) 
             lid[i] = 0, 
             lid[i - 1] = 1;
+        debug(lid);
     }
 
     ll ans = 0;
