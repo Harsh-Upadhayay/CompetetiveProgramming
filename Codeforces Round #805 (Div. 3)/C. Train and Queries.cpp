@@ -58,38 +58,21 @@ void init(){
     return;
 }
 
+ll fact(ll n) {
+    ll x = 1;
+    rpt(i, 1, n + 1)
+        x *= i;
+    return x;
+}
 
 void solve(void){
     
     ll n; cin >> n;
-    map<ll, ll> left, right;
-    set<ll> ele;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
+    ll x; rpt(i, 0, n) cin >> x;
 
-    rpt(i, 0, n)
-        ele.insert(v[i]);
+    n = 10 - n;
+    ll ans = 6 * fact(n) / (fact(n - 2) * 2);
 
-    rpt(i, 0, n) {
-        if(left.find(v[i]) != left.end())
-            left[v[i]] = min(left[v[i]], i + 1);
-        else
-            left[v[i]] = i + 1;
-
-        if(right.find(v[i]) != right.end())
-            right[v[i]] = max(right[v[i]], i + 1);
-        else
-            right[v[i]] = i + 1;
-    }
-    debug(left, right);
-    ll ans = -1;
-    for(auto x : ele) {
-        for(auto y : ele) {
-            if(__gcd(x, y) != 1) continue;
-
-            ans = max(ans, right[x] + right[y]);
-        }
-    }
-    cout << ans;
     nl;
 }
 
