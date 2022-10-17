@@ -59,7 +59,7 @@ void init(){
 }
 
 #define debugdp { \
-    cout << i << "\n"; \
+    cerr << i << "\n"; \
    rpt(i, 0, v.size()) {   \
         rpt(j, 0, 2) {  \
             rpt(k, 0, 2)    \
