@@ -80,7 +80,7 @@ ll f(vll &v, vll &lid, ll dp[][2][2], ll i) {
         else return 0;
     }
 
-    if(dp[i][lid[i]][lid[i + 1]] != -1) return dp[i][lid[i]][lid[i + 1]];
+    // if(dp[i][lid[i]][lid[i + 1]] != -1) return dp[i][lid[i]][lid[i + 1]];
 
     if(lid[i] == '1') return dp[i][lid[i]][lid[i + 1]] = v[i] + f(v, lid, dp, i + 1);
 
