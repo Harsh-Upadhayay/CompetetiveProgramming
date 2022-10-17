@@ -105,11 +105,11 @@ void solve(void){
     vll lid(n); rpt(i, 0, n) lid[i] = s[i] == '1';
 
 
-    ll dp[n][2][2] = {-1};
-    rpt(i, 0, n)
-        rpt(j, 0, 2)
-            rpt(k, 0, 2)
-                dp[i][j][k] = -1;
+    // ll dp[n][2][2] = {-1};
+    // rpt(i, 0, n)
+    //     rpt(j, 0, 2)
+    //         rpt(k, 0, 2)
+    //             dp[i][j][k] = -1;
 
     cout << f(v, lid, 0);
 
