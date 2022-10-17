@@ -58,8 +58,21 @@ void init(){
     return;
 }
 
+#define debugdp { \
+   rpt(i, 0, v.size()) {   \
+        rpt(j, 0, 2) {  \
+            rpt(k, 0, 2)    \
+                cerr << dp[i][j][k] << " "; \
+            cerr << "\n";   \
+        }   \
+        cerr << "\n";   \
+    }   \
+}   
+
 ll f(vll &v, vll &lid, ll dp[][2][2], ll i) {
 
+
+    debugdp;
 
     if(i == v.size() - 1) {
         if(lid[i] == '1') return v[i];
@@ -86,17 +99,6 @@ ll f(vll &v, vll &lid, ll dp[][2][2], ll i) {
 
 }
 
-#define debugdp { \
-   rpt(i, 0, n) {   \
-        rpt(j, 0, 2) {  \
-            rpt(k, 0, 2)    \
-                cerr << dp[i][j][k] << " "; \
-            cerr << "\n";   \
-        }   \
-        cerr << "\n";   \
-    }   \
-}   
-
 
 void solve(void){
     
@@ -112,11 +114,6 @@ void solve(void){
                 dp[i][j][k] = -1;
 
     cout << f(v, lid, dp, 0);
-    nl;
-    debugdp
-
-    cout << "\n";
-
 
     nl;
 }
