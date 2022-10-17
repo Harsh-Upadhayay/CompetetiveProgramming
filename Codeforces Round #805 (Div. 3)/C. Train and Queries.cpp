@@ -90,10 +90,10 @@ ll f(vll &v, vll &lid, ll dp[][2][2], ll i) {
    rpt(i, 0, n) {   \
         rpt(j, 0, 2) {  \
             rpt(k, 0, 2)    \
-                cout << dp[i][j][k] << " "; \
-            cout << "\n";   \
+                cerr << dp[i][j][k] << " "; \
+            cerr << "\n";   \
         }   \
-        cout << "\n";   \
+        cerr << "\n";   \
     }   \
 }   
 
