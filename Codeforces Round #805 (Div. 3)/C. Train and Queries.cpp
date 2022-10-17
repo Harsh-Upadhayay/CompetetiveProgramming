@@ -62,11 +62,13 @@ void init(){
 void solve(void){
     
     ll n; cin >> n;
+    string s; cin >> s;
+    vll lid(n); rpt(i, 0, n) lid[i] = s[i] == '1';
+    vll v(n); rpt(i, 0, n) cin >> v[i];
+    debug(lid);
+    rpt(i, 1, n) {
 
-    cout << "1 3 ";
-    rpt(i, 4, n + 1)
-        cout << i << " ";
-    cout << "2";
+    }
 
     nl;
 }
