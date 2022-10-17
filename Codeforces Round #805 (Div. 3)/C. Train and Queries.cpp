@@ -131,7 +131,7 @@ void solve(void){
 
 
 
-    cout << dp[0][lid[0]][lid[1]];
+    cout << dp[0][lid[0]][lid[1]] << " ";
 
     nl;
 }
