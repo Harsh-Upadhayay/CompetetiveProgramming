@@ -113,6 +113,7 @@ void solve(void){
                 dp[i][j][k] = -1;
 
     cout << f(v, lid, dp, 0);
+    debugdp;
 
     nl;
 }
