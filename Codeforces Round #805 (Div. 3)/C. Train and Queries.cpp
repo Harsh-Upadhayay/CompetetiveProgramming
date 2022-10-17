@@ -58,50 +58,42 @@ void init(){
     return;
 }
 
+ll f(vll &v, string &lid, map<pair<ll, string>, ll> &dp, ll i) {
 
-ll f(vll &v, vll &lid, ll i) {
 
     if(i == v.size() - 1) {
-        if(lid[i] == 1) return v[i];
+        if(lid[i] == '1') return v[i];
         else return 0;
     }
 
-    if(lid[i] == 1) return v[i] + f(v, lid, i + 1);
 
-    if(lid[i + 1] == 1) {
-        ll take = 0, nottake = 0;
-        
-        nottake = f(v, lid, i + 1);
+    if(lid[i] == '1') return dp[{i, lid}] = v[i] + f(v, lid, dp, i + 1);
 
-        swap(lid[i + 1], lid[i]);
-        take = v[i] + f(v, lid, i + 1);
-        swap(lid[i + 1], lid[i]);
+    if(lid[i + 1] != '1') return dp[{i, lid}] = f(v, lid, dp, i + 1); 
 
-        return max(take, nottake);
-    }
-    return f(v, lid, i + 1);
+    if(dp.count({i, lid}) == 1) return dp[{i, lid}];
+
+    ll take = 0, nottake = 0;
+    
+    nottake = f(v, lid, dp, i + 1);
+
+    swap(lid[i + 1], lid[i]);
+    take = v[i] + f(v, lid, dp, i + 1);
+    swap(lid[i + 1], lid[i]);
+
+    return dp[{i, lid}] = max(take, nottake);
 
 }
 
 void solve(void){
     
     ll n; cin >> n;
-    string s; cin >> s;
-    vll lid(n); rpt(i, 0, n) lid[i] = s[i] == '1';
+    string lid; cin >> lid;
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    // rpt(i, 1, n) {
-    //     if(v[i] < v[i - 1] && lid[i] == 1 && lid[i - 1] == 0) 
-    //         lid[i] = 0, 
-    //         lid[i - 1] = 1;
-    // }
+    map<pair<ll, string>, ll> dp; 
 
-    // ll ans = 0;
-    // rpt(i, 0, n)
-    //     if(lid[i] == 1)
-    //         ans += v[i];
-
-    cout << f(v, lid, 0);
+    cout << f(v, lid, dp, 0);
 
     nl;
 }
