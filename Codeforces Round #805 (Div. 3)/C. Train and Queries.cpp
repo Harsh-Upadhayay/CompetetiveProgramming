@@ -58,21 +58,15 @@ void init(){
     return;
 }
 
-ll fact(ll n) {
-    ll x = 1;
-    rpt(i, 1, n + 1)
-        x *= i;
-    return x;
-}
 
 void solve(void){
     
     ll n; cin >> n;
-    ll x; rpt(i, 0, n) cin >> x;
 
-    n = 10 - n;
-    ll ans = 6 * fact(n) / (fact(n - 2) * 2);
-    cout << ans;
+    cout << "1 3 2 ";
+    rpt(i, 4, n + 1)
+        cout << i << " ";
+
     nl;
 }
 
