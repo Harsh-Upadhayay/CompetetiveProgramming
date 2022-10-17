@@ -65,10 +65,19 @@ void solve(void){
     string s; cin >> s;
     vll lid(n); rpt(i, 0, n) lid[i] = s[i] == '1';
     vll v(n); rpt(i, 0, n) cin >> v[i];
-    debug(lid);
-    rpt(i, 1, n) {
 
+    rpt(i, 1, n) {
+        if(v[i] > v[i - 1] && lid[i] == 1 && lid[i - 1] == 0) 
+            lid[i] = 0, 
+            lid[i - 1] = 1;
     }
+
+    ll ans = 0;
+    rpt(i, 0, n)
+        if(lid[i] == 1)
+            ans += v[i];
+
+    cout << ans;
 
     nl;
 }
