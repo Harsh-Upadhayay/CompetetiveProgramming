@@ -86,6 +86,18 @@ ll f(vll &v, vll &lid, ll dp[][2][2], ll i) {
 
 }
 
+#define debugdp { \
+   rpt(i, 0, n) {   \
+        rpt(j, 0, 2) {  \
+            rpt(k, 0, 2)    \
+                cout << dp[i][j][k] << " "; \
+            cout << "\n";   \
+        }   \
+        cout << "\n";   \
+    }   \
+}   
+
+
 void solve(void){
     
     ll n; cin >> n;
@@ -99,14 +111,7 @@ void solve(void){
 
     cout << "\n";
 
-    rpt(i, 0, n) {
-        rpt(j, 0, 2) {
-            rpt(k, 0, 2)
-                cout << dp[i][j][k] << " ";
-            cout << "\n";
-        }
-        cout << "\n";
-    }
+    debugdp
 
     nl;
 }
