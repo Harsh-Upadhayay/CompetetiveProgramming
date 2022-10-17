@@ -59,7 +59,6 @@ void init(){
 }
 
 #define debugdp { \
-    cerr << i << "\n"; \
    rpt(i, 0, v.size()) {   \
         rpt(j, 0, 2) {  \
             rpt(k, 0, 2)    \
@@ -116,7 +115,7 @@ void solve(void){
                 dp[i][j][k] = -1;
 
     cout << f(v, lid, dp, 0);
-
+    debugdp
     nl;
 }
 
