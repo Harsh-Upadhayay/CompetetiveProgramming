@@ -75,7 +75,7 @@ ll f(vll &v, vll &lid, ll dp[][2][2], ll i) {
 
 
     debugdp;
-
+    dp[0][0][0] = 5;
     if(i == v.size() - 1) {
         if(lid[i] == '1') return v[i];
         else return 0;
