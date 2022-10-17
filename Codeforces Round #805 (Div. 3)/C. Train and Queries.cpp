@@ -107,8 +107,8 @@ void solve(void){
 
     ll dp[n][2][2] = {-1};
     rpt(i, 0, n)
-        rpt(j, 0, n)
-            rpt(k, 0, n)
+        rpt(j, 0, 2)
+            rpt(k, 0, 2)
                 dp[i][j][k] = -1;
 
     cout << f(v, lid, dp, 0);
