@@ -70,7 +70,7 @@ void init(){
     cerr << "******************************************************\n"; \
 }   
 
-ll f(vll &v, vll &lid, ll i) {
+ll f(vll &v, vll lid, ll i) {
 
 
 
@@ -92,6 +92,8 @@ ll f(vll &v, vll &lid, ll i) {
     take = v[i] + f(v, lid, i + 1);
     swap(lid[i + 1], lid[i]);
 
+
+
     return  max(take, nottake);
 
 }
@@ -103,13 +105,6 @@ void solve(void){
     string s; cin >> s;
     vll v(n); rpt(i, 0, n) cin >> v[i];
     vll lid(n); rpt(i, 0, n) lid[i] = s[i] == '1';
-
-
-    // ll dp[n][2][2] = {-1};
-    // rpt(i, 0, n)
-    //     rpt(j, 0, 2)
-    //         rpt(k, 0, 2)
-    //             dp[i][j][k] = -1;
 
     cout << f(v, lid, 0);
 
