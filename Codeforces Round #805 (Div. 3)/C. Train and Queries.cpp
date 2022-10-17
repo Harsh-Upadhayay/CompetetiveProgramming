@@ -82,9 +82,9 @@ ll f(vll &v, vll &lid, ll dp[][2][2], ll i) {
 
     // if(dp[i][lid[i]][lid[i + 1]] != -1) return dp[i][lid[i]][lid[i + 1]];
 
-    if(lid[i] == '1') return dp[i][lid[i]][lid[i + 1]] = v[i] + f(v, lid, dp, i + 1);
+    if(lid[i] == '1') return  v[i] + f(v, lid, dp, i + 1);
 
-    if(lid[i + 1] != '1') return dp[i][lid[i]][lid[i + 1]] = f(v, lid, dp, i + 1); 
+    if(lid[i + 1] != '1') return  f(v, lid, dp, i + 1); 
 
     if(dp[i][lid[i]][lid[i + 1]] != -1) return dp[i][lid[i]][lid[i + 1]];
 
@@ -96,7 +96,7 @@ ll f(vll &v, vll &lid, ll dp[][2][2], ll i) {
     take = v[i] + f(v, lid, dp, i + 1);
     swap(lid[i + 1], lid[i]);
 
-    return dp[i][lid[i]][lid[i + 1]] = max(take, nottake);
+    return  max(take, nottake);
 
 }
 
