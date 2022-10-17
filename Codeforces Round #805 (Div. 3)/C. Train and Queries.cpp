@@ -72,7 +72,7 @@ void solve(void){
 
     n = 10 - n;
     ll ans = 6 * fact(n) / (fact(n - 2) * 2);
-
+    cout << ans;
     nl;
 }
 
