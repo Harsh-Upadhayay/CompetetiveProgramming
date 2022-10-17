@@ -71,7 +71,7 @@ ll f(vll &v, string &lid, vll &dp, ll i) {
 
     if(lid[i + 1] != '1') return dp[i] = f(v, lid, dp, i + 1); 
 
-    // if(dp[i] != -1) return dp[i];
+    if(dp[i] != -1) return dp[i];
 
     ll take = 0, nottake = 0;
     
