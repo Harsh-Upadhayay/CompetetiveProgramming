@@ -66,7 +66,17 @@ void solve(void){
 
     ll  low = a * b * 2,
         high = floor((double)c * d / (double)(a * b)) * a * b;
-    debug(low, high);
+    // debug(low, high);
+
+    if(high < low) kill ("-1 -1");
+
+    while(low < high) {
+
+
+
+        low += a * b;
+    }
+
 
     nl;
 }
