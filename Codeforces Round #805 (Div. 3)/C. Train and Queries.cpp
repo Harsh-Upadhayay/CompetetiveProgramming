@@ -74,14 +74,25 @@ void solve(void){
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
     ll hv = 0, avil = 0;
+    vll steps;
 
     rpt(i, 0, n) {
-        hv += f(v[i]);
-        avil += f(i + 1);
+        hv += f(v[i]),
+        avil += f(i + 1),
+        steps.push_back(avil);
     }
-    cout << avil << " " << hv;
-    if(avil + hv < n)
-        kill("NO");
+
+    sort(all(steps), greater<ll>());
+
+    ll i = 0;
+    while(hv < n) 
+        hv += steps[i++];
+
+    if(hv < n) 
+        cout << -1;
+    else 
+        cout << i;
+
     nl;
 }
 
