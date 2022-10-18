@@ -61,44 +61,37 @@ void init(){
 
 void solve(void){
     
-    ll n, q; cin >> n >> q;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
+    ll n; char c; string s; 
+    cin >> n >> c >> s;
 
-    ll odd = count_if(all(v), [](ll x) { return x % 2;}),
-       eve = count_if(all(v), [](ll x) {return !(x % 2);}),
-       sum = accumulate(all(v), 0ll);
+    vll v(n);
 
-    debug(v, odd, eve, sum);
+    ll idx = -1;
+    rpt(i, n, 0) 
+        if(s[i] == 'g') {
+            idx = i;
+            break;
+        } 
 
-
-    while(q--) {
-        ll t, x; cin >> t >> x;
-
-        if(t == 1) {
-
-            sum += odd * x;
-
-            if(x % 2 == 1) {
-                eve = n,
-                odd = 0;
-            }
-
-        }
-        else {
-
-            sum += eve * x;
-
-            if(x % 2 == 1) {
-                odd = n,
-                eve = 0;
-            }
-
-        }
-
-        cout << sum;
-        nl;
+    ll dist = 0;
+    for(int i = idx; i >= 0; i--) {
+        if(s[i] == 'g')
+            v[i] = dist = 0;
+        else
+            v[i] = ++dist;
     }
 
+    ll idx2 = -1;
+    rpt(i, 0, n) 
+        if(s[i] == 'g') {
+            idx2 = i;
+            break;
+        } 
+
+    for(int i = idx + 1; i < n; i++) {
+        v[i] = n - i + idx2;
+    }
+    debug(v);
 
     nl;
 }
