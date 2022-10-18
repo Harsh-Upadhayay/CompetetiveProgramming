@@ -63,6 +63,7 @@ ll f(ll n) {
     rpt(i, 0, 32) {
         if(!(n % x))
             ans = i;
+        x *= 2;
     }
     return ans;
 }
