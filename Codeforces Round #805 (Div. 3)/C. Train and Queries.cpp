@@ -80,6 +80,8 @@ void solve(void){
         avil += f(i + 1);
     }
     cout << avil << " " << hv;
+    if(avil + hv < n)
+        kill("NO");
     nl;
 }
 
