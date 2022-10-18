@@ -73,7 +73,7 @@ void solve(void){
     ll n; cin >> n;
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    cout << f( 7);
+    cout << f(12);
 
     nl;
 }
