@@ -66,7 +66,7 @@ void solve(void){
 
     ll odd = count_if(all(v), [](ll x) { return x % 2;}),
        eve = count_if(all(v), [](ll x) {return !(x % 2);}),
-       sum = accumulate(all(v), 0);
+       sum = accumulate(all(v), 0ll);
 
     debug(v, odd, eve, sum);
 
