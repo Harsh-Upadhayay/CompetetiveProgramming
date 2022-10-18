@@ -79,7 +79,7 @@ void solve(void){
     rpt(i, 0, n) {
         hv += f(v[i]),
         avil += f(i + 1),
-        steps.push_back(avil);
+        steps.push_back(f(i + 1));
     }
 
     sort(all(steps), greater<ll>());
