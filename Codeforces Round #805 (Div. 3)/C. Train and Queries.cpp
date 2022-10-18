@@ -60,21 +60,33 @@ void init(){
 
 
 void solve(void){
-    ll n; cin >> n;
+    
+    ll n, q; cin >> n >> q;
     vll v(n); rpt(i, 0, n) cin >> v[i];
-    string s; cin >> s;
 
-    map<ll, char> mp;
-    debug(s, v);
-    rpt(i, 0, n) {
-        if(mp.count(v[i])) {
-            if(mp[v[i]] != s[i])
-                kill("NO");
+    ll odd = count_if(all(v), [](ll x) { return x % 2;}),
+       eve = count_if(all(v), [](ll x) {return !(x % 2);}),
+       sum = accumulate(all(v), 0);
+
+    debug(v, odd, eve, sum);
+
+
+    while(q--) {
+        ll t, x; cin >> t >> x;
+
+        ll ans = 0;
+        if(t == 1) {
+
         }
-        else 
-            mp[v[i]] = s[i];
+        else {
+
+        }
+
+        cout << ans;
+        nl;
     }
-    cout << "YES";
+
+
     nl;
 }
 
