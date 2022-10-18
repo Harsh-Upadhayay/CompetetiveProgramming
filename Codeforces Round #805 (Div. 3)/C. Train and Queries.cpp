@@ -93,6 +93,12 @@ void solve(void){
     }
     debug(v);
 
+    ll ans = ninf;
+    rpt(i, 0, n)
+        if(s[i] == c)
+            ans = max(ans, v[i]);
+    cout << ans;
+
     nl;
 }
 
