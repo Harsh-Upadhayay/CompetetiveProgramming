@@ -84,6 +84,7 @@ void solve(void){
 
     sort(all(steps), greater<ll>());
     debug(hv, avil, steps);
+    debug(f(20));
     ll i = 0;
     while(hv < n) 
         hv += steps[i++];
