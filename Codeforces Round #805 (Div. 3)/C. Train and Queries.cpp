@@ -58,41 +58,15 @@ void init(){
     return;
 }
 
-ll f(ll n) {
-    ll x = 1, ans;
-    rpt(i, 0, 32) {
-        if(!(n % x))
-            ans = i;
-        x *= 2;
-    }
-    return ans;
-}
 
 void solve(void){
     
-    ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
+    ll a, b, c, d;
+    cin >> a >> b >> c >> d;
 
-    ll hv = 0, avil = 0;
-    vll steps;
-
-    rpt(i, 0, n) {
-        hv += f(v[i]),
-        avil += f(i + 1),
-        steps.push_back(f(i + 1));
-    }
-
-    sort(all(steps), greater<ll>());
-    debug(hv, avil, steps);
-    ll i = 0;
-
-    while(hv < n && i < steps.size()) 
-        hv += steps[i++];
-    debug(hv);
-    if(hv < n) 
-        cout << -1;
-    else 
-        cout << i;
+    ll  low = a * b * 2,
+        high = floor((double)c * d / (double)(a * b)) * a * b;
+    debug(low, high);
 
     nl;
 }
