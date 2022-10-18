@@ -88,6 +88,7 @@ void solve(void){
     while(hv < n) 
         hv += steps[i++];
 
+    cout << hv;
     if(hv < n) 
         cout << -1;
     else 
