@@ -64,15 +64,15 @@ void solve(void){
     vll v(n); rpt(i, 0, n) cin >> v[i];
     string s; cin >> s;
 
-    map<char, ll> mp;
+    map<ll, char> mp;
     debug(s, v);
     rpt(i, 0, n) {
-        if(mp.find(s[i]) != mp.end()) {
-            if(mp[s[i]] != v[i])
+        if(mp.count(v[i])) {
+            if(mp[v[i]] != s[i])
                 kill("NO");
         }
         else 
-            mp[s[i]] = v[i];
+            mp[v[i]] = s[i];
     }
     cout << "YES";
     nl;
