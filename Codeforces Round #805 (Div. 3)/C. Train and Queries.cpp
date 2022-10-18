@@ -86,7 +86,7 @@ void solve(void){
     debug(hv, avil, steps);
     ll i = 0;
 
-    while(hv < n) 
+    while(hv < n && i < steps.size()) 
         hv += steps[i++];
     debug(hv);
     if(hv < n) 
