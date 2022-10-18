@@ -67,7 +67,7 @@ void solve(void){
     map<char, ll> mp;
     debug(s, v);
     rpt(i, 0, n) {
-        if(mp.count(s[i])) {
+        if(mp.find(s[i]) != mp.end()) {
             if(mp[s[i]] != v[i])
                 kill("NO");
         }
