@@ -74,15 +74,28 @@ void solve(void){
     while(q--) {
         ll t, x; cin >> t >> x;
 
-        ll ans = 0;
         if(t == 1) {
+
+            sum += odd * x;
+
+            if(x % 2 == 1) {
+                eve = n,
+                odd = 0;
+            }
 
         }
         else {
 
+            sum += eve * x;
+
+            if(x % 2 == 1) {
+                odd = n,
+                eve = 0;
+            }
+
         }
 
-        cout << ans;
+        cout << sum;
         nl;
     }
 
