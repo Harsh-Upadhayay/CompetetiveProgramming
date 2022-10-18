@@ -65,7 +65,7 @@ void solve(void){
     string s; cin >> s;
 
     map<char, ll> mp;
-
+    debug(s, v);
     rpt(i, 0, n) {
         if(mp.count(s[i])) {
             if(mp[s[i]] != v[i])
