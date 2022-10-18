@@ -58,46 +58,21 @@ void init(){
     return;
 }
 
+ll f(ll n) {
+    ll x = 1, ans;
+    rpt(i, 0, 32) {
+        if(!(n % x))
+            ans = i;
+    }
+    return ans;
+}
 
 void solve(void){
     
-    ll n; char c; string s; 
-    cin >> n >> c >> s;
+    ll n; cin >> n;
+    vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    vll v(n);
-
-    ll idx = -1;
-    rpt(i, n, 0) 
-        if(s[i] == 'g') {
-            idx = i;
-            break;
-        } 
-
-    ll dist = 0;
-    for(int i = idx; i >= 0; i--) {
-        if(s[i] == 'g')
-            v[i] = dist = 0;
-        else
-            v[i] = ++dist;
-    }
-
-    ll idx2 = -1;
-    rpt(i, 0, n) 
-        if(s[i] == 'g') {
-            idx2 = i;
-            break;
-        } 
-
-    for(int i = idx + 1; i < n; i++) {
-        v[i] = n - i + idx2;
-    }
-    debug(v);
-
-    ll ans = ninf;
-    rpt(i, 0, n)
-        if(s[i] == c)
-            ans = max(ans, v[i]);
-    cout << ans;
+    cout << f(10);
 
     nl;
 }
