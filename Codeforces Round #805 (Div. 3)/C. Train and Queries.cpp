@@ -73,8 +73,13 @@ void solve(void){
     ll n; cin >> n;
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    cout << f(12);
+    ll hv = 0, avil = 0;
 
+    rpt(i, 0, n) {
+        hv += f(v[i]);
+        avil += f(i + 1);
+    }
+    cout << avil << " " << hv;
     nl;
 }
 
