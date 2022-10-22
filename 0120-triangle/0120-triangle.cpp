@@ -18,19 +18,19 @@ public:
     int minimumTotal(vector<vector<int>>& arr) {
         
         int n = arr.size();
-        vector<vector<int>> dp(n + 1, vector<int> (n + 1, 0));
+        vector<int> cur(n + 1, 0), nxt(cur);
         
-        for(int i = n - 1; i >= 0; i--) {
+        for(int i = n - 1; i >= 0; i--, nxt = cur) {
             for(int j = i; j >= 0; j--) {
                 
                 int left = 0, right = 0;
-                left = arr[i][j] + dp[i + 1][j];
-                right = arr[i][j] + dp[i + 1][j + 1];
+                left = arr[i][j] + nxt[j];
+                right = arr[i][j] + nxt[j + 1];
 
-                dp[i][j] = min(left, right);
+                cur[j] = min(left, right);
             }
         }
         
-        return dp[0][0];
+        return cur[0];
     }
 };
