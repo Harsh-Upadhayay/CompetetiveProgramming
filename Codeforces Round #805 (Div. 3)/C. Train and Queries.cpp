@@ -76,6 +76,8 @@ void solve(void){
     rpt(i, 1, n + 1)
         cf |= cv[i];
 
+    debug(rv, cv);
+
     cout << (rf && cf ? "YES":"NO");
 
     nl;
