@@ -61,22 +61,22 @@ void init(){
 
 void solve(void){
     
-    ll a, b, c, d;
-    cin >> a >> b >> c >> d;
+    ll n, m; cin >> n >> m;
 
-    ll  low = a * b * 2,
-        high = floor((double)c * d / (double)(a * b)) * a * b;
-    // debug(low, high);
-
-    if(high < low) kill ("-1 -1");
-
-    while(low < high) {
-
-
-
-        low += a * b;
+    vll rv(n + 1), cv(n + 1);
+    while(m--) {
+        ll r, c; cin >> r >> c;
+        rv[r] = 1,
+        cv[c] = 1;
     }
 
+    bool rf = 0, cf = 0;
+    rpt(i, 1, n + 1)
+        rf |= rv[i];
+    rpt(i, 1, n + 1)
+        cf |= cv[i];
+
+    cout << (rf && cf ? "YES":"NO");
 
     nl;
 }
