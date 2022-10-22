@@ -3,8 +3,8 @@ class Solution {
     
     int f(vector<vector<int>>& arr, vector<vector<int>> &dp, int i, int j) {
         
-        if(i >= arr.size()) return 0;
-        if(j >= arr[i].size()) return inf;
+        if(i == arr.size()) return 0;
+        if(j == arr[i].size()) return inf;
         if(dp[i][j] != -1) return dp[i][j];
         
         int left = 0, right = 0;
@@ -19,6 +19,8 @@ public:
         
         int n = arr.size();
         vector<vector<int>> dp(n + 1, vector<int> (n + 1, -1));
+        
+        // for(j = 0; j < )
         
         return f(arr, dp, 0, 0);
     }
