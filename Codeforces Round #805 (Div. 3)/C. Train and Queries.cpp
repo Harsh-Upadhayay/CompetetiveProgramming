@@ -70,15 +70,15 @@ void solve(void){
         cv[c] = 1;
     }
 
-    bool rf = 0, cf = 0;
+    bool rf = 1, cf = 1;
     rpt(i, 1, n + 1)
-        rf |= rv[i];
+        rf &= rv[i];
     rpt(i, 1, n + 1)
-        cf |= cv[i];
+        cf &= cv[i];
 
     debug(rv, cv);
 
-    cout << (rf && cf ? "YES":"NO");
+    cout << (!rf && !cf ? "YES":"NO");
 
     nl;
 }
