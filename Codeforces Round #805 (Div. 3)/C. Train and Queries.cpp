@@ -58,6 +58,19 @@ void init(){
     return;
 }
 
+int f(vll &v, int i) {
+
+    if(i < 0) return 0;
+
+    int nottake = f(v, i - 1),
+        take = 1;
+
+    int nxt = i - 1; while(nxt >= 0 && __gcd(v[i], v[nxt]) == 1) nxt--;
+
+    take += f(v, nxt);
+
+    return max(take, nottake);
+}
 
 void solve(void){
     
@@ -67,6 +80,7 @@ void solve(void){
     ll gcd = v[0]; rpt(i, 0, n) gcd = __gcd(gcd, v[i]);
     for(auto &x : v) x /= gcd;
 
+    cout << n - f(v, n - 1);
     debug(v);
 
     nl;
