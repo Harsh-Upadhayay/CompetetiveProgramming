@@ -65,7 +65,9 @@ void solve(void){
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
     ll gcd = v[0]; rpt(i, 0, n) gcd = __gcd(gcd, v[i]);
-    cout << gcd;
+    for(auto &x : v) x /= gcd;
+
+    debug(v);
 
     nl;
 }
