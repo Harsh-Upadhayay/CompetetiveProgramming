@@ -81,6 +81,7 @@ void solve(void){
     for(auto &x : v) x /= gcd;
 
     ll i, x = v[0]; while(i < n && v[i] == x) i++;
+debug(i);
     if(i == n) kill("-1");
 
     ll ans = n - f(v, n - 1);
