@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-#define TESTCASE
+// #define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -61,24 +61,11 @@ void init(){
 
 void solve(void){
     
-    ll n, m; cin >> n >> m;
+    ll n; cin >> n;
+    vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    vll rv(n + 1), cv(n + 1);
-    while(m--) {
-        ll r, c; cin >> r >> c;
-        rv[r] = 1,
-        cv[c] = 1;
-    }
-
-    bool rf = 1, cf = 1;
-    rpt(i, 1, n + 1)
-        rf &= rv[i];
-    rpt(i, 1, n + 1)
-        cf &= cv[i];
-
-    debug(rv, cv);
-
-    cout << (!rf && !cf ? "YES":"NO");
+    ll gcd = v[0]; rpt(i, 0, n) gcd = __gcd(gcd, v[i]);
+    cout << gcd;
 
     nl;
 }
