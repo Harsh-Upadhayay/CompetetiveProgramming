@@ -59,7 +59,7 @@ void init(){
 }
 
 int f(vll &v, vector<vll> &dp, ll i, ll gcd) {
-    debug(i);
+    debug(i, gcd);
     if(i < 0) return 0;
     if(dp[i][gcd + 1] != -1) return dp[i][gcd + 1];
 
