@@ -59,16 +59,17 @@ void init(){
 }
 
 int f(vll &v, vll &dp, int i) {
-
+    debug(i);
     if(i < 0) return 0;
     if(dp[i] != -1) return dp[i];
 
-    int nottake = f(v, dp, i - 1),
-        take = 1;
+    int take = 1;
 
     int nxt = i - 1; while(nxt >= 0 && __gcd(v[i], v[nxt]) == 1) nxt--;
 
     take += f(v, dp, nxt);
+
+    int nottake = f(v, dp, i - 1);
 
     return dp[i] = max(take, nottake);
 }
