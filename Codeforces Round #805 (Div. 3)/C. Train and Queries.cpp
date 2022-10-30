@@ -61,7 +61,7 @@ void init(){
 int f(vll &v, vector<vll> &dp, ll i, ll gcd) {
     debug(i, gcd);
     if(i < 0) return 0;
-    // if(dp[i][gcd + 1] != -1) return dp[i][gcd + 1];
+    if(dp[i][gcd + 1] != -2) return dp[i][gcd + 1];
 
     int take = 0;
     if(gcd == -1)
@@ -85,7 +85,7 @@ void solve(void){
     ll i = 0, x = v[0]; while(i < n && v[i] == x) i++;
     if(i == n) kill("-1");
 
-    vector<vll> dp(n, vll (nmax(v) + 1, -1));
+    vector<vll> dp(n, vll (nmax(v) + 1, -2));
     ll ans = n - f(v, dp, n - 1, -1);
     cout << (ans == n ? -1 : ans);
     debug(v);
