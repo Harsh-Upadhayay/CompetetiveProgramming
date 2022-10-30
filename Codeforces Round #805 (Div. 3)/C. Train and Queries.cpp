@@ -85,7 +85,7 @@ void solve(void){
     if(i == n) kill("-1");
 
     vll dp(n, -1);
-    ll ans = f(v, dp, n - 1);
+    ll ans = n - f(v, dp, n - 1);
     cout << (ans == n ? -1 : ans);
     debug(v);
     nl;
