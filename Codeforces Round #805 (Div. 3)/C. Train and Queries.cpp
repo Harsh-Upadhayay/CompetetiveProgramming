@@ -85,7 +85,7 @@ void solve(void){
     ll i = 0, x = v[0]; while(i < n && v[i] == x) i++;
     if(i == n) kill("-1");
 
-    vector<vll> dp(n, vll (nmax(v) + 1, -1));
+    vector<vll> dp(n, vll (nmax(v) + 2, -1));
     ll ans = n - f(v, dp, n - 1, -1);
     cout << (ans == n ? -1 : ans);
     debug(v);
