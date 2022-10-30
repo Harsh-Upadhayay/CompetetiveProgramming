@@ -58,18 +58,19 @@ void init(){
     return;
 }
 
-int f(vll &v, int i) {
+int f(vll &v, vll &dp, int i) {
 
     if(i < 0) return 0;
+    if(dp[i] != -1) return dp[i];
 
-    int nottake = f(v, i - 1),
+    int nottake = f(v, dp, i - 1),
         take = 1;
 
     int nxt = i - 1; while(nxt >= 0 && __gcd(v[i], v[nxt]) == 1) nxt--;
 
-    take += f(v, nxt);
+    take += f(v, dp, nxt);
 
-    return max(take, nottake);
+    return dp[i] = max(take, nottake);
 }
 
 void solve(void){
@@ -83,7 +84,8 @@ void solve(void){
     ll i = 0, x = v[0]; while(i < n && v[i] == x) i++;
     if(i == n) kill("-1");
 
-    ll ans = n - f(v, n - 1);
+    vll dp(n, -1);
+    ll ans = n - f(v, dp, n - 1);
     cout << (ans == n ? -1 : ans);
 
     nl;
