@@ -80,7 +80,7 @@ void solve(void){
     ll gcd = v[0]; rpt(i, 0, n) gcd = __gcd(gcd, v[i]);
     for(auto &x : v) x /= gcd;
 
-    ll i, x = v[0]; while(i < n && v[i] == x) i++;
+    ll i = 0, x = v[0]; while(i < n && v[i] == x) i++;
 debug(i);
     if(i == n) kill("-1");
 
