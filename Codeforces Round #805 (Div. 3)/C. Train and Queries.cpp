@@ -64,7 +64,10 @@ int f(vll &v, vector<vll> &dp, ll i, ll gcd) {
     // if(dp[i][gcd + 1] != -1) return dp[i][gcd + 1];
 
     int take = 0;
-    if(__gcd(gcd, v[i]) > 1) take = 1 + f(v, dp, i - 1, __gcd(gcd, v[i]));
+    if(gcd == -1)
+        take = 1 + f(v, dp, i - 1, v[i]);
+    else if(__gcd(gcd, v[i]) > 1) 
+        take = 1 + f(v, dp, i - 1, __gcd(gcd, v[i]));
 
     int nottake = f(v, dp, i - 1, gcd);
 
