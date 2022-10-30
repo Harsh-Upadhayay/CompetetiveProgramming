@@ -80,7 +80,8 @@ void solve(void){
     ll gcd = v[0]; rpt(i, 0, n) gcd = __gcd(gcd, v[i]);
     for(auto &x : v) x /= gcd;
 
-    cout << n - f(v, n - 1);
+    ll ans = n - f(v, n - 1);
+    cout << (ans == n ? -1 : ans);
     debug(v);
 
     nl;
