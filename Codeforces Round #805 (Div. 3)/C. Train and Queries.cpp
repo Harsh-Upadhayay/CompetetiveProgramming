@@ -61,6 +61,7 @@ void init(){
 int f(vll &v, vll &dp, int i) {
     debug(i);
     if(i < 0) return 0;
+    if(i == 0) return 1;
     if(dp[i] != -1) return dp[i];
 
     int take = 1;
