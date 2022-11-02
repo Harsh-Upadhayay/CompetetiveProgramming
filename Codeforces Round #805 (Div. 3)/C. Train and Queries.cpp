@@ -4,8 +4,7 @@ using namespace std;
 #define MOD ((long long)1000000007)
 
 long long f(vector<vector<long long>> &grid, vector<vector<long long>> &dp, int i, int j) {
-
-
+    cout << i << " " << j ;
     if(i < 0 || j < 0) return 0;
     if(i == 0 && j == 0) return 1;
     if(dp[i][j] != -1) return dp[i][j];
