@@ -69,7 +69,7 @@ ll f(vector<vector<ll>> &grid, int i, int j) {
     // diag
 
     ll diag = 0;
-    for(int itr_i = i - 1; itr_i >= 0; itr_i --)
+    for(int itr_i = i - 1; itr_i >= 0 && j - (i - itr_i) > 0; itr_i --)
         diag = grid[itr_i][j - itr_i] * (diag % MOD + f(grid, itr_i, j - (i - itr_i)) % MOD) % MOD;
 
     // up
