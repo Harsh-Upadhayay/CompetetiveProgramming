@@ -7,11 +7,11 @@ long long f(vector<vector<long long>> &grid, vector<vector<long long>> &dp, int 
     cout << i << " " << j << "\n";
     if(i < 0 || j < 0) return 0;
     if(i == 0 && j == 0) return 1;
-    // if(dp[i][j] != -1) return dp[i][j];
+    if(dp[i][j] != -1) return dp[i][j];
     // diag
 
     long long diag = 0;
-    for(int itr_i = i - 1; itr_i >= 0 && j - (i - itr_i) > 0; itr_i --)
+    for(int itr_i = i - 1; itr_i >= 0 && j - (i - itr_i) >= 0; itr_i --)
         diag = grid[itr_i][j - itr_i] * (diag % MOD + f(grid, dp, itr_i, j - (i - itr_i)) % MOD) % MOD;
 
     // up
