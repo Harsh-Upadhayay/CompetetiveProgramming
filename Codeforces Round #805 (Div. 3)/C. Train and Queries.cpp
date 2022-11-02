@@ -4,7 +4,7 @@ using namespace std;
 #define MOD ((long long)1000000007)
 
 long long f(vector<vector<long long>> &grid, vector<vector<long long>> &dp, int i, int j) {
-    cout << i << " " << j << "\n";
+    // cout << i << " " << j << "\n";
     if(i < 0 || j < 0) return 0;
     if(i == 0 && j == 0) return 1;
     if(dp[i][j] != -1) return dp[i][j];
@@ -16,15 +16,18 @@ long long f(vector<vector<long long>> &grid, vector<vector<long long>> &dp, int 
 
     // up
     long long up = 0;
-    for(int itr_j = j - 1; itr_j >= 0; itr_j--)
+    for(int itr_j = j - 1; itr_j >= 0; itr_j--) {
+
         up  = grid[i][itr_j] * (up % MOD + f(grid, dp, i, itr_j) % MOD) % MOD;
+        cout << up << " ";
+    }
 
     // left
     long long left = 0;
     for(int itr_i = i - 1; itr_i >= 0; itr_i--)
         left  = grid[itr_i][j] * (left % MOD + f(grid, dp, itr_i, j) % MOD) % MOD;
 
-    cout << up << " " << left << " " << diag << "\n\n";
+    // cout << up << " " << left << " " << diag << "\n\n";
 
     return dp[i][j] = (up + left + diag);
 }
