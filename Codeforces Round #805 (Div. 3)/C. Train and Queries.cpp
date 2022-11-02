@@ -23,7 +23,7 @@ using namespace std;
 #define vll                     vector<ll>
 #define ninf                    ((ll)((-1)*1e18+5))
 #define inf                     ((ll)(1e18+5))
-#define MOD                     ((ll)(1e9+7))
+// #define MOD                     ((ll)(1e9+7))
 #define nmin(v)                 *min_element(all(v))
 #define nmax(v)                 *max_element(all(v))
 #define rpt(i, begin, end)      for (__typeof(end) i = (begin) - ((begin) > (end)); i != (end) - ((begin) > (end)); i += 1 - 2 * ((begin) > (end)))
@@ -58,37 +58,42 @@ void init(){
     return;
 }
 
-int f(vll &v, vector<vll> &dp, ll i, ll gcd) {
-    debug(i, gcd);
-    if(i < 0) return 0;
-    if(dp[i][gcd + 1] != -1) return dp[i][gcd + 1];
+#define MOD ((long long)1000000007)
+ll f(vector<vector<ll>> &grid, int i, int j) {
 
-    int take = 0;
-    if(gcd == -1)
-        take = 1 + f(v, dp, i - 1, v[i]);
-    else if(__gcd(gcd, v[i]) > 1) 
-        take = 1 + f(v, dp, i - 1, __gcd(gcd, v[i]));
+    if(i < 0 || j < 0) return 0;
+    if(i == 0 && j == 0) return 1;
 
-    int nottake = f(v, dp, i - 1, gcd);
+    // diag
 
-    return dp[i][gcd + 1] = max(take, nottake);
+    ll diag = 0;
+    for(int itr_i = i - 1; itr_i >= 0; itr_i --)
+        diag = grid[itr_i][j - itr_i] * (diag % MOD + f(grid, itr_i, j - (i - itr_i)) % MOD) % MOD;
+
+    // up
+    ll up = 0;
+    for(int itr_j = j - 1; itr_j >= 0; itr_j--)
+        up  = grid[i][itr_j] * (up % MOD + f(grid, i, itr_j) % MOD) % MOD;
+
+    // left
+    ll left = 0;
+    for(int itr_i = i - 1; itr_i >= 0; itr_i--)
+        left  = grid[itr_i][j] * (left % MOD + f(grid, itr_i, j) % MOD) % MOD;
+
+
+    return (up + left + diag);
 }
 
 void solve(void){
     
-    ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
+    ll n, m; cin >> n >> m;
+    vector<vector<ll>> grid(n, vector<ll> (m, 0));
+    rpt(i, 0, n)
+        rpt(j, 0, n)
+            cin >> grid[i][j];
 
-    ll gcd = v[0]; rpt(i, 0, n) gcd = __gcd(gcd, v[i]);
-    for(auto &x : v) x /= gcd;
+    cout << f(grid, n - 1, m - 1);
 
-    ll i = 0, x = v[0]; while(i < n && v[i] == x) i++;
-    if(i == n) kill("-1");
-
-    vector<vll> dp(n, vll (nmax(v) + 2, -1));
-    ll ans = n - f(v, dp, n - 1, -1);
-    cout << (ans == n ? -1 : ans);
-    debug(v);
     nl;
 }
 
