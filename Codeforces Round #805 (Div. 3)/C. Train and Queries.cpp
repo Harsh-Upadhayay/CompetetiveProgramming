@@ -15,18 +15,16 @@ long long f(vector<vector<long long>> &grid, vector<vector<long long>> &dp, int 
         diag = grid[itr_i][j - itr_i] * (diag % MOD + f(grid, dp, itr_i, j - (i - itr_i)) % MOD) % MOD;
 
     // up
-    long long up = 0;
+    long long left = 0;
     for(int itr_j = j - 1; itr_j >= 0; itr_j--)
-        up  = grid[i][itr_j] * (up % MOD + f(grid, dp, i, itr_j) % MOD) % MOD;
+        left  = grid[i][itr_j] * (left % MOD + f(grid, dp, i, itr_j) % MOD) % MOD;
 
     // left
-    long long left = 0;
+    long long up = 0;
     for(int itr_i = i - 1; itr_i >= 0; itr_i--) {
 
-        left  = grid[itr_i][j] * (left % MOD + f(grid, dp, itr_i, j) % MOD) % MOD;
-        cout << left;
+        up  = grid[itr_i][j] * (up % MOD + f(grid, dp, itr_i, j) % MOD) % MOD;
     }
-    cout << "\n";
     // cout << up << " " << left << " " << diag << "\n\n";
 
     return dp[i][j] = (up + left + diag);
