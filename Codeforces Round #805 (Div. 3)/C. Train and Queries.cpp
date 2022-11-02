@@ -12,7 +12,7 @@ long long f(vector<vector<long long>> &grid, vector<vector<long long>> &dp, int 
 
     long long diag = 0;
     for(int itr_i = i - 1; itr_i >= 0 && j - (i - itr_i) >= 0; itr_i --)
-        diag = grid[itr_i][(i - itr_i)] * (diag % MOD + f(grid, dp, itr_i, j - (i - itr_i)) % MOD) % MOD;
+        diag = grid[itr_i][j - (i - itr_i)] * (diag % MOD + f(grid, dp, itr_i, j - (i - itr_i)) % MOD) % MOD;
 
     // up
     long long left = 0;
