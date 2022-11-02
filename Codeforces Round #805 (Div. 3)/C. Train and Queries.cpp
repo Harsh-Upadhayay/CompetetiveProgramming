@@ -61,6 +61,8 @@ void init(){
 #define MOD ((long long)1000000007)
 ll f(vector<vector<ll>> &grid, int i, int j) {
 
+    debug(i, j);
+
     if(i < 0 || j < 0) return 0;
     if(i == 0 && j == 0) return 1;
 
