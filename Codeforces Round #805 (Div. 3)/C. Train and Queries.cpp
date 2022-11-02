@@ -25,7 +25,7 @@ long long f(vector<vector<long long>> &grid, vector<vector<long long>> &dp, int 
 
         up  = grid[itr_i][j] * (up % MOD + f(grid, dp, itr_i, j) % MOD) % MOD;
     }
-    // cout << up << " " << left << " " << diag << "\n\n";
+    cout << up << " " << left << " " << diag << "\n\n";
 
     return dp[i][j] = (up + left + diag);
 }
