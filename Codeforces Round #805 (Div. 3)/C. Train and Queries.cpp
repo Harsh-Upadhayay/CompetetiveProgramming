@@ -59,42 +59,41 @@ void init(){
 }
 
 #define MOD ((long long)1000000007)
-ll f(vector<vector<ll>> &grid, int i, int j) {
+ll f(vector<vector<ll>> &grid, vector<vector<ll>> &dp, int i, int j) {
 
-    debug(i, j);
 
     if(i < 0 || j < 0) return 0;
     if(i == 0 && j == 0) return 1;
-
+    if(dp[i][j] != -1) return dp[i][j];
     // diag
 
     ll diag = 0;
     for(int itr_i = i - 1; itr_i >= 0 && j - (i - itr_i) > 0; itr_i --)
-        diag = grid[itr_i][j - itr_i] * (diag % MOD + f(grid, itr_i, j - (i - itr_i)) % MOD) % MOD;
+        diag = grid[itr_i][j - itr_i] * (diag % MOD + f(grid, dp, itr_i, j - (i - itr_i)) % MOD) % MOD;
 
     // up
     ll up = 0;
     for(int itr_j = j - 1; itr_j >= 0; itr_j--)
-        up  = grid[i][itr_j] * (up % MOD + f(grid, i, itr_j) % MOD) % MOD;
+        up  = grid[i][itr_j] * (up % MOD + f(grid, dp, i, itr_j) % MOD) % MOD;
 
     // left
     ll left = 0;
     for(int itr_i = i - 1; itr_i >= 0; itr_i--)
-        left  = grid[itr_i][j] * (left % MOD + f(grid, itr_i, j) % MOD) % MOD;
+        left  = grid[itr_i][j] * (left % MOD + f(grid, dp, itr_i, j) % MOD) % MOD;
 
 
-    return (up + left + diag);
+    return dp[i][j] = (up + left + diag);
 }
 
 void solve(void){
     
     ll n, m; cin >> n >> m;
     vector<vector<ll>> grid(n, vector<ll> (m, 0));
+    vector<vector<ll>> dp(n, vector<ll> (m, -1));
     rpt(i, 0, n)
         rpt(j, 0, n)
             cin >> grid[i][j];
-
-    cout << f(grid, n - 1, m - 1);
+    cout << f(grid, dp, n - 1, m - 1);
 
     nl;
 }
