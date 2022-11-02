@@ -25,7 +25,6 @@ long long f(vector<vector<long long>> &grid, vector<vector<long long>> &dp, int 
         left  = grid[itr_i][j] * (left % MOD + f(grid, dp, itr_i, j) % MOD) % MOD;
 
     cout << up << " " << left << " " << diag << "\n";
-    freopen("input.txt", "r", stdin);
 
     return dp[i][j] = (up + left + diag);
 }
