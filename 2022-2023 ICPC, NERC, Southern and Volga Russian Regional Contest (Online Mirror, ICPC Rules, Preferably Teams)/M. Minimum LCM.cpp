@@ -65,12 +65,12 @@ ll lcm (ll a, ll b) {
 void solve(void){
     ll n; cin >> n;
 
-    n = n * 2 + 1;
+    ll a = n / 2, b = (n + 1) / 2;
 
-    cout << n << "\n";
-    rpt(i, 1, n / 2 + 1) 
-        cout << i << " " << n - i << " : " << lcm(i, n - i) << " \n";
-    
+    while(a > 0 && b < n && (lcm(a, n) == 1 || lcm(b, n) == 1))
+        a--, b++;
+
+    cout << a << " " << b;    
 
     nl;
 }
