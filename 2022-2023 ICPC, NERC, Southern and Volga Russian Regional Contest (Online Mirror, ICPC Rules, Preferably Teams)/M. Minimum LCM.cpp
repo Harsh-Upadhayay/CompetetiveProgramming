@@ -67,7 +67,7 @@ void solve(void){
 
     ll a = n / 2, b = (n + 1) / 2;
 
-    while(a > 0 && b < n && (lcm(a, n) == 1 || lcm(b, n) == 1))
+    while(a > 0 && b < n && (lcm(a, n) == a * n || lcm(b, n) == b * n))
         a--, b++;
 
     cout << a << " " << b;    
