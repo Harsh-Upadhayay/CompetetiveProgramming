@@ -65,6 +65,8 @@ ll lcm (ll a, ll b) {
 void solve(void){
     ll n; cin >> n;
 
+    n = n * 2 + 1;
+
     cout << n << "\n";
     rpt(i, 1, n) 
         cout << i << " " << n - i << " : " << lcm(i, n - i) << " \n";
