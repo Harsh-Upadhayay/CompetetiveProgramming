@@ -68,7 +68,7 @@ void solve(void){
     n = n * 2 + 1;
 
     cout << n << "\n";
-    rpt(i, 1, n / 2) 
+    rpt(i, 1, n / 2 + 1) 
         cout << i << " " << n - i << " : " << lcm(i, n - i) << " \n";
     
 
