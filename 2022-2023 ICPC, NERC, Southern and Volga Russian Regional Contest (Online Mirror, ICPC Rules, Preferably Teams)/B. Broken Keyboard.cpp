@@ -58,9 +58,22 @@ void init(){
     return;
 }
 
+ll fun(ll a, ll b) {
+
+	if(a == 0) return 0;
+
+	ll div, add;
+	div = fun(a / b, b);
+	add = fun(a, b + 1);
+
+	return min(add, div) + 1;
+
+}
 
 void solve(void){
-    
+    ll a, b; cin >> a >> b;
+
+    cout << a << b;
     nl;
 }
 
