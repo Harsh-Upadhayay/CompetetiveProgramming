@@ -61,6 +61,8 @@ void init(){
 ll fun(ll a, ll b) {
 
 	if(a == 0) return 0;
+	if(b == 1) return 1 + fun(a, b + 1);
+	if(a / b == 0) return 1;
 
 	ll div, add;
 	div = fun(a / b, b);
@@ -72,8 +74,7 @@ ll fun(ll a, ll b) {
 
 void solve(void){
     ll a, b; cin >> a >> b;
-
-    cout << a << b;
+    cout << fun(a, b);
     nl;
 }
 
