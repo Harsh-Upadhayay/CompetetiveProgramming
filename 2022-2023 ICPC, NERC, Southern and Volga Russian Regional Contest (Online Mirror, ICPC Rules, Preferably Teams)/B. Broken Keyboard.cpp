@@ -74,7 +74,10 @@ ll fun(ll a, ll b) {
 
 void solve(void){
     ll a, b; cin >> a >> b;
-    cout << fun(a, b);
+    int ctr = b == 1;
+    b += b == 1;
+    for(; a; a /= b, ctr++);
+    cout << ctr;
     debug("\n");
     nl;
 }
