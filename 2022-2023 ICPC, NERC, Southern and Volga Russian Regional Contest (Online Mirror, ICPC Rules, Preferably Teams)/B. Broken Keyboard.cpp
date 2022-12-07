@@ -71,8 +71,8 @@ void solve(void){
     ll a, b; cin >> a >> b;
 
     ll ans = 40;
-    rpt(i, 1, 30) {
-    	ans = min(ans, fun(a, b));
+    rpt(i, 0, 30) {
+    	ans = min(ans, fun(a, b) + i);
     	debug(ans);
     	b++;
     }
