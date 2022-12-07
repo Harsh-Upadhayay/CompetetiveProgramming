@@ -73,10 +73,10 @@ void solve(void){
     ll ans = 40;
     rpt(i, 1, 30) {
     	ans = min(ans, fun(a, b));
+    	debug(ans);
     	b++;
     }
     cout << ans;
-    debug("\n");
     nl;
 }
 
