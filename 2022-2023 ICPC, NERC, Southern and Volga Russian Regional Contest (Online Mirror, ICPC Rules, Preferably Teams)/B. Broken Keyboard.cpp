@@ -78,7 +78,7 @@ void solve(void){
     b += b == 1;
     for(; a; a /= b, ctr++) {
     	if(a == b)
-    		break;
+    		kill(ctr + 1);
     }
     cout << ctr;
     debug("\n");
