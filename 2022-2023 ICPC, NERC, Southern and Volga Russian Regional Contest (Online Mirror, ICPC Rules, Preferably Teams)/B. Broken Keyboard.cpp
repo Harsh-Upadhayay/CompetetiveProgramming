@@ -59,28 +59,23 @@ void init(){
 }
 
 ll fun(ll a, ll b) {
-	debug(a, b);
-	if(a == 0) return 0;
-	if(b == 1) return 1 + fun(a, b + 1);
-	if(a / b == 0) return 1;
 
-	ll div, add;
-	div = fun(a / b, b);
-	add = fun(a, b + 1);
+	int ctr = b == 1;
+	b += b == 1;
+	for(; a; a /= b, ctr++);
 
-	return min(add, div) + 1;
-
+	return ctr;
 }
 
 void solve(void){
     ll a, b; cin >> a >> b;
-    int ctr = b == 1;
-    b += b == 1;
-    for(; a; a /= b, ctr++) {
-    	if(a == b)
-    		kill(ctr + 1);
+
+    ll ans = 40;
+    rpt(i, 1, 30) {
+    	ans = min(ans, fun(a, b));
+    	b++;
     }
-    cout << ctr;
+    cout << ans;
     debug("\n");
     nl;
 }
