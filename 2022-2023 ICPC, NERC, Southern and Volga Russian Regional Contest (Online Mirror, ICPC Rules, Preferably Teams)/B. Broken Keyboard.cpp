@@ -59,7 +59,7 @@ void init(){
 }
 
 ll fun(ll a, ll b) {
-
+	debug(a, b);
 	if(a == 0) return 0;
 	if(b == 1) return 1 + fun(a, b + 1);
 	if(a / b == 0) return 1;
@@ -75,6 +75,7 @@ ll fun(ll a, ll b) {
 void solve(void){
     ll a, b; cin >> a >> b;
     cout << fun(a, b);
+    debug("\n");
     nl;
 }
 
