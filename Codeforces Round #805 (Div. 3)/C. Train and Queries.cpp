@@ -61,7 +61,11 @@ void init(){
 
 void solve(void){
     ll n; cin >> n;
-    cout << pow(10, n) - 2;
+    ll x = (n / 4) + (n % 4 > 1);
+    rpt(i, 0, n - x)
+    	cout << 9;
+    rpt(i, 0, x)
+    	cout << 8;
     nl;
 }
 
