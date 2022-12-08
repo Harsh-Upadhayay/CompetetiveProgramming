@@ -61,7 +61,7 @@ void init(){
 
 void solve(void){
     ll n; cin >> n;
-    ll x = (n / 4) + (n % 4 > 1);
+    ll x = (n / 4) + (n % 4);
     rpt(i, 0, n - x)
     	cout << 9;
     rpt(i, 0, x)
