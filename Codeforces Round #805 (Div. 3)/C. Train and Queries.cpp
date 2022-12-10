@@ -60,9 +60,11 @@ void init(){
 
 
 void solve(void){
-    
-    rpt(i, 0, 26)
-    	cout << i + 1 << " " << (char)('A' + i) <<"\n";
+    	
+    string s1 = "ASPIRANTS", s2 = "PVTCRKCU";
+    rpt(i, 0, s1.length())
+    	cout << i << " " << s1[i] - 'A' + 1 << s1[i] <<
+    						s2[i] - 'A' + 1 << s2[i];
     nl;
 }
 
