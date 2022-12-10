@@ -56,16 +56,13 @@ void storePrimes();
 void init(){
 
     return;
-}
+}	
 
 
 void solve(void){
-    ll n; cin >> n;
-    ll x = (n / 4) + !!(n % 4);
-    rpt(i, 0, n - x)
-    	cout << 9;
-    rpt(i, 0, x)
-    	cout << 8;
+    
+    rpt(i, 0, 26)
+    	cout << i + 1 << " " << 'A' + i;
     nl;
 }
 
