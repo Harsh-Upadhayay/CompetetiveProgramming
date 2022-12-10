@@ -62,7 +62,7 @@ void init(){
 void solve(void){
     
     rpt(i, 0, 26)
-    	cout << i + 1 << " " << 'A' + i;
+    	cout << i + 1 << " " << (char)('A' + i);
     nl;
 }
 
