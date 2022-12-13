@@ -68,9 +68,9 @@ void solve(void){
     	string tmp = "";  
     	tmp += s[i]; tmp += s[i + 1];
 
-    	// if(mp.find(tmp) != mp.end() && mp[tmp] != i)
-    	// 	kill("YES");
-    	cout<<(mp.find(tmp) != mp.end());
+    	if(mp.find(tmp) != mp.end() && mp[tmp] != i){
+    		cout << "Yes";return;
+    	}
     	if(mp[tmp] != i)
     		mp[tmp] = i + 1;
     }
