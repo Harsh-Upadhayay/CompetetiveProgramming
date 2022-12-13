@@ -67,8 +67,11 @@ void solve(void){
     for(int i = 0; i < n - 1; i++) {
     	string tmp = "";  
     	tmp += s[i]; tmp += s[i + 1];
+
     	if(st.count(tmp))
     		kill("YES");
+
+    	st.insert(tmp);
     }
     cout << "NO";
     nl;
