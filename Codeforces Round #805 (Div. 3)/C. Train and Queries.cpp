@@ -71,11 +71,11 @@ void solve(void){
     	// if(mp.find(tmp) != mp.end() && mp[tmp] != i)
     	// 	kill("YES");
 
+    debug(mp);
     	if(mp[tmp] != i)
     		mp[tmp] = i + 1;
     }
 
-    debug(mp);
     cout << "NO";
     nl;
 }
