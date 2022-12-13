@@ -74,7 +74,8 @@ void solve(void){
     	if(mp[tmp] != i)
     		mp[tmp] = i + 1;
     }
-    debug(mp);
+    for(auto x : mp)
+    	cout << x.first << " " << x.second << "\n";
     cout << "NO";
     nl;
 }
