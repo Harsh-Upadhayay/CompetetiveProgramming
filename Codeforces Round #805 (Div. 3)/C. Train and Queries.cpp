@@ -68,14 +68,12 @@ void solve(void){
     	string tmp = "";  
     	tmp += s[i]; tmp += s[i + 1];
 
-    	if(mp.count(tmp) && mp[tmp] != i)
+    	if(mp.find(tmp) != mp.end() && mp[tmp] != i)
     		kill("YES");
 
     	if(mp[tmp] != i)
     		mp[tmp] = i + 1;
     }
-    for(auto x : mp)
-    	cout << x.first << " " << x.second << "\n";
     cout << "NO";
     nl;
 }
