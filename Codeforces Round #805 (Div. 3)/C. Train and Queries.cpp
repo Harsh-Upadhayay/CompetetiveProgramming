@@ -63,15 +63,16 @@ void solve(void){
     ll n; cin >> n;
     string s; cin >> s;
     set<string> st;
-
-    for(int i = 0; i < n - 1; i+=2) {
+    string last = "";
+    for(int i = 0; i < n - 1; i+=1) {
     	string tmp = "";  
     	tmp += s[i]; tmp += s[i + 1];
 
-    	if(st.count(tmp))
+    	if(st.count(tmp) && last != tmp)
     		kill("YES");
 
     	st.insert(tmp);
+    	last = tmp;
     }
     cout << "NO";
     nl;
