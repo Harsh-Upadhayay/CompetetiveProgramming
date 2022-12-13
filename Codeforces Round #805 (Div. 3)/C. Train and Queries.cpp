@@ -61,7 +61,7 @@ void init(){
 
 void solve(void){
     ll n; cin >> n;
-    cout << (int)log10(n);
+    cout << n / pow(10, (int)log10(n));
     nl;
 }
 
