@@ -69,7 +69,7 @@ void solve(void){
     	tmp += s[i]; tmp += s[i + 1];
 
     	if(mp.find(tmp) != mp.end() && mp[tmp] != i){
-    		cout << "Yes";return;
+    		cout << (mp.find(tmp) != mp.end());return;
     	}
     	if(mp[tmp] != i)
     		mp[tmp] = i + 1;
