@@ -63,17 +63,19 @@ void solve(void){
     ll n; cin >> n;
     string s; cin >> s;
     map<string, ll> mp;
-    debug(mp);
+
     for(int i = 0; i < n - 1; i+=1) {
     	string tmp = "";  
     	tmp += s[i]; tmp += s[i + 1];
 
-    	if(mp.find(tmp) != mp.end() && mp[tmp] != i)
-    		kill("YES");
+    	// if(mp.find(tmp) != mp.end() && mp[tmp] != i)
+    	// 	kill("YES");
 
     	if(mp[tmp] != i)
     		mp[tmp] = i + 1;
     }
+
+    debug(mp);
     cout << "NO";
     nl;
 }
