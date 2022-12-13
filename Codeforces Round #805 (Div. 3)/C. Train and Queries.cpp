@@ -71,7 +71,8 @@ void solve(void){
     	if(mp.count(tmp) && mp[tmp] != i)
     		kill("YES");
 
-    	mp[tmp] = i + 1;
+    	if(mp[tmp] != i)
+    		mp[tmp] = i + 1;
     }
     cout << "NO";
     nl;
