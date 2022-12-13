@@ -74,6 +74,7 @@ void solve(void){
     	if(mp[tmp] != i)
     		mp[tmp] = i + 1;
     }
+    debug(mp);
     cout << "NO";
     nl;
 }
