@@ -56,14 +56,13 @@ void storePrimes();
 void init(){
 
     return;
-}	
+}
 
 
 void solve(void){
-    	
-    string s1 = "ASPIRANTS", s2 = "PVTCRKCU";
-    rpt(i, 0, s1.length())
-    	cout << i + 1 << " " << s1[i] - 'A' + 1 << " " << s2[i] - 'A' + 1 << "\n";
+    ll n; cin >> n;
+    rpt(i, 1, n + 1)
+    	cout << i << "\n";
     nl;
 }
 
