@@ -63,7 +63,7 @@ void solve(void){
     ll n; cin >> n;
     string s; cin >> s;
     map<string, ll> mp;
-
+    debug(mp);
     for(int i = 0; i < n - 1; i+=1) {
     	string tmp = "";  
     	tmp += s[i]; tmp += s[i + 1];
