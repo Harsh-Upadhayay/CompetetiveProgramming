@@ -70,10 +70,9 @@ void solve(void){
 
     	// if(mp.find(tmp) != mp.end() && mp[tmp] != i)
     	// 	kill("YES");
-
+    	cout<<(mp.find(tmp) != mp.end());
     	if(mp[tmp] != i)
     		mp[tmp] = i + 1;
-    debug(mp);
     }
 
     cout << "NO";
