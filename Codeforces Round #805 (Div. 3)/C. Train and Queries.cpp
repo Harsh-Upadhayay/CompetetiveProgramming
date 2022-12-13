@@ -64,7 +64,7 @@ void solve(void){
     string s; cin >> s;
     set<string> st;
 
-    for(int i = 0; i < n - 1; i++) {
+    for(int i = 0; i < n - 1; i+=2) {
     	string tmp = "";  
     	tmp += s[i]; tmp += s[i + 1];
 
