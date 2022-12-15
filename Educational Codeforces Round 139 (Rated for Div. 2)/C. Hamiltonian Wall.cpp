@@ -62,12 +62,15 @@ void init(){
 void solve(void){
     ll n = 2, m; cin >> m;
 
-    vector<vector<char>> grid(n, vector<char>(m));
+    vector<vector<int>> grid(n, vector<int>(m));
     rpt(i, 0, n)
-    	rpt(j, 0, m)
-    		cin >> grid[i][j];
+    	rpt(j, 0, m) {
+    		ll x; cin >> x;
+    		grid[i][j] = x == 'W';
+    	}
 
     debug(grid);
+
 
     nl;
 }
