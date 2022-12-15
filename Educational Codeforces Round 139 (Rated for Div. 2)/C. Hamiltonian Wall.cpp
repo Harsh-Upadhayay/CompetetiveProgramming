@@ -65,7 +65,7 @@ void solve(void){
     vector<vector<int>> grid(n, vector<int>(m));
     rpt(i, 0, n)
     	rpt(j, 0, m) {
-    		ll x; cin >> x;
+    		char x; cin >> x;
     		grid[i][j] = x == 'W';
     	}
 
