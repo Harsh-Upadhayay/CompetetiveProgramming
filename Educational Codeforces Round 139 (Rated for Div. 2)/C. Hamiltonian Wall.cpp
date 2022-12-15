@@ -69,8 +69,7 @@ void solve(void){
     		grid[i][j] = x == 'W';
     	}
 
-    debug(grid);
-
+    print(grid);
 
     nl;
 }
