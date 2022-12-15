@@ -60,22 +60,15 @@ void init(){
 
 
 void solve(void){
-    ll n; cin >> n;
-    string s; cin >> s;
-    map<string, ll> mp;
+    ll n = 2, m; cin >> m;
 
-    for(int i = 0; i < n - 1; i+=1) {
-    	string tmp = "";  
-    	tmp += s[i]; tmp += s[i + 1];
+    vector<vector<char>> grid(n, vector<char>(m));
+    rpt(i, 0, n)
+    	rpt(j, 0, m)
+    		cin >> grid[i][j];
 
-    	if(mp.find(tmp) != mp.end() && mp[tmp] != i){
-    		cout << (mp.find(tmp) != mp.end());return;
-    	}
-    	if(mp[tmp] != i)
-    		mp[tmp] = i + 1;
-    }
+    debug(grid);
 
-    cout << "NO";
     nl;
 }
 
