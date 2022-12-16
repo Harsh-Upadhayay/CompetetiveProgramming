@@ -79,7 +79,7 @@ void solve(void){
     ll ans = inf;
     rpt(i, 0, n) {
     	ans = min(ans, setbit(v[i], v[i] % 2));
-    	cout << ans;
+    	cout << setbit(v[i], v[i] % 2);
     }
     
     cout << ans;
