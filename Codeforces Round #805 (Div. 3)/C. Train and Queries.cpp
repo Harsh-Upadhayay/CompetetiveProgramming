@@ -58,6 +58,15 @@ void init(){
     return;
 }
 
+ll setbit(ll x, ll p) {
+	ll ans = 0;
+	while(x) {
+		if(x & 1 == !p)
+			return ans;
+		x = x >> 1;
+	}
+	return inf;
+}
 
 void solve(void){
     ll n; cin >> n;
@@ -65,8 +74,12 @@ void solve(void){
 
     ll sum = accumulate(all(v), 0);
     if(!(sum % 2)) kill("0");
+
+    ll ans = inf;
+    rpt(i, 0, n) 
+    	ans = min(ans, setbit(v[i], v[i] % 2));
     
-    cout << sum;
+    cout << ans;
 
     nl;
 }
