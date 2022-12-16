@@ -63,6 +63,7 @@ ll setbit(ll x, ll p) {
 	while(x) {
 		if(x & 1 == !p)
 			return ans;
+		ans ++;
 		x = x >> 1;
 	}
 	return inf;
