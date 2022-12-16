@@ -77,8 +77,10 @@ void solve(void){
     if(!(sum % 2)) kill("0");
 
     ll ans = inf;
-    rpt(i, 0, n) 
+    rpt(i, 0, n) {
     	ans = min(ans, setbit(v[i], v[i] % 2));
+    	cout << ans;
+    }
     
     cout << ans;
 
