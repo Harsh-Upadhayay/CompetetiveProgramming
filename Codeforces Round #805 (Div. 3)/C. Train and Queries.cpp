@@ -60,10 +60,8 @@ void init(){
 
 ll setbit(ll x, ll p) {
 	ll ans = 0;
-	while(x) {
-		if(x & 1 == !p)
-			return ans;
-		ans ++;
+	while(x & 1 == p) {
+		ans ++,
 		x = x >> 1;
 	}
 	return ans;
