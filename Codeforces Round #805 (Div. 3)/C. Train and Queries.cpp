@@ -66,7 +66,7 @@ ll setbit(ll x, ll p) {
 		ans ++;
 		x = x >> 1;
 	}
-	return inf;
+	return ans;
 }
 
 void solve(void){
