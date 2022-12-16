@@ -75,7 +75,7 @@ void solve(void){
 
     ll sum = accumulate(all(v), 0);
     if(!(sum % 2)) kill("0");
-
+    
     ll ans = inf;
     rpt(i, 0, n) 
     	ans = min(ans, setbit(v[i], v[i] % 2));
