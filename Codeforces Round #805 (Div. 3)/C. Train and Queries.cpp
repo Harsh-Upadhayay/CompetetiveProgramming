@@ -62,10 +62,11 @@ void init(){
 void solve(void){
     ll n; cin >> n;
     vll v(n); rpt(i, 0, n) cin >> v[i];
-
+    cout << v[1];
     ll sum = 0;
 
     rpt(i, 0, n) sum += v[i];
+
     cout << sum;
 
     nl;
