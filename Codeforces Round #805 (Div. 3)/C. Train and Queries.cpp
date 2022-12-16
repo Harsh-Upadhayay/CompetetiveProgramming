@@ -72,7 +72,7 @@ void solve(void){
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
     ll sum = 0; rpt(i, 0, n) sum ^= (v[i] & 1);
-    if(sum) kill("0");
+    if(!sum) kill("0");
 
     ll ans = inf;
     rpt(i, 0, n) 
