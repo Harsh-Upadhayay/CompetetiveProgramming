@@ -64,6 +64,8 @@ void solve(void){
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
     ll sum = accumulate(all(v), 0);
+    if(!(sum % 2)) kill("0");
+    
     cout << sum;
 
     nl;
