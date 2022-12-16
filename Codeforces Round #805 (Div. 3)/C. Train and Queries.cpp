@@ -60,14 +60,11 @@ void init(){
 
 
 void solve(void){
-    ll n = 2, m; cin >> m;
+    ll n; cin >> n;
+    vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    vector<vector<char>> grid(n, vector<char>(m));
-    rpt(i, 0, n)
-    	rpt(j, 0, m)
-    		cin >> grid[i][j];
-
-    debug(grid);
+    ll sum = accumulate(all(v), 0);
+    cout << sum;
 
     nl;
 }
