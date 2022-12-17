@@ -68,7 +68,8 @@ void solve(void){
 
     rpt(i, 1, n) {
     	if(v[i] <= v[0]) continue;
-    	
+    	debug(v);
+
     	v[0] += ceil((v[0] + v[i]) / 2);
     }
     debug(v);
