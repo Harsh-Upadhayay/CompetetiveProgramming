@@ -67,7 +67,7 @@ void solve(void){
     rpt(i, 0, 3)
     	hz |= (x[i % 3] - x[(i + 1) % 3]) == 0,
     	vt |= (y[i % 3] - y[(i + 1) % 3]) == 0;
-
+    debug(x, y);
     cout << ((hz && vt) ? "YES" : "NO");
 
     nl;
