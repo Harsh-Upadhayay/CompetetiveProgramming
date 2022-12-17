@@ -58,27 +58,17 @@ void init(){
     return;
 }
 
-ll setbit(ll x, ll p) {
-	ll ans = 0;
-	while((x & 1) == p) {
-		ans ++,
-		x = x >> 1;
-	}
-	return ans;
-}
 
 void solve(void){
-    ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
+    vll x(3), y(3);
+    rpt(i, 0, 3) cin >> x[i] >> y[i];
 
-    ll sum = 0; rpt(i, 0, n) sum += v[i];
-    if(!(sum % 2)) kill("0");
+    bool hz = false, vt = false;
+    rpt(i, 0, 3)
+    	hz |= (x[i % 3] - x[(i + 1) % 3]) == 0,
+    	vt |= (y[i % 3] - y[(i + 1) % 3]) == 0;
 
-    ll ans = inf;
-    rpt(i, 0, n) 
-    	ans = min(ans, setbit(v[i], v[i] % 2));
-    
-    cout << ans;
+    cout << ((hz && vt) ? "YES" : "NO");
 
     nl;
 }
