@@ -70,7 +70,7 @@ void solve(void){
     	if(v[i] <= v[0]) continue;
     	v[0] = ceil((v[0] + v[i]) / 2.0);
     }
-    debug(v);
+    cout << v[0];
     nl;
 }
 
