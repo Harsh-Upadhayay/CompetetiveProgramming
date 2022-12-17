@@ -60,16 +60,17 @@ void init(){
 
 
 void solve(void){
-    vll x(3), y(3);
-    rpt(i, 0, 3) cin >> x[i] >> y[i];
+    
+    ll n; cin >> n;
+    vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    bool hz = false, vt = false;
-    rpt(i, 0, 3)
-    	hz |= (x[i % 3] - x[(i + 1) % 3]) == 0,
-    	vt |= (y[i % 3] - y[(i + 1) % 3]) == 0;
-    debug(x, y);
-    cout << (!(hz && vt) ? "YES" : "NO");
+    sort(v.begin() + 1, v.end());
 
+    rpt(i, 1, n) {
+    	if(v[i] <= v[0]) continue;
+
+    }
+    debug(v);
     nl;
 }
 
