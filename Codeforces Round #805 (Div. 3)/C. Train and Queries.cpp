@@ -58,19 +58,57 @@ void init(){
     return;
 }
 
+string getLPS(string text)
+{
+	int N = text.size();
+	if(N == 0)
+		return "";
+	N = 2*N + 1;
+	int L[N] = {0, 1}; 
+	int C = 1, R = 2, i = 0, im, mll = 0, mlcp = 0,	start = -1, end = -1, diff = -1;
+	
+	for (i = 2; i < N; i++)
+	{
+		
+		im = 2*C-i;
+		L[i] = 0;
+		diff = R - i;
+		
+		if(diff > 0)
+			L[i] = min(L[im], diff);
+
+		while ( ((i + L[i]) < N && (i - L[i]) > 0) &&
+			( ((i + L[i] + 1) % 2 == 0) ||
+			(text[(i + L[i] + 1)/2] == text[(i - L[i] - 1)/2] )))
+		
+			L[i]++;
+		
+
+		if(L[i] > mll) 
+		
+			mll = L[i],
+			mlcp = i;
+		
+
+		if (i + L[i] > R)
+		
+			C = i,
+			R = i + L[i];
+		
+	}
+	start = (mlcp - mll)/2;
+	end = start + mll - 1;
+	string lps = "";
+
+	for(int i = start; i <= end; i++)
+		lps += text[i];
+
+	return lps;
+}
 
 void solve(void){
-    
-    ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
-
-    sort(v.begin() + 1, v.end());
-
-    rpt(i, 1, n) {
-    	if(v[i] <= v[0]) continue;
-    	v[0] = ceil((v[0] + v[i]) / 2.0);
-    }
-    cout << v[0];
+	string s = "abacdfgdcaba";
+    cout << getLPS(s);
     nl;
 }
 
