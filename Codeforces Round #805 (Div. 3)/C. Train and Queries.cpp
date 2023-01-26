@@ -22,7 +22,7 @@ using namespace std;
 #define ub                      upper_bound
 #define vll                     vector<ll>
 #define ninf                    ((ll)((-1)*1e18+5))
-#define inf                     ((ll)(1e18+5))
+#define inf                     ((ll)(1e9+5))
 #define MOD                     ((ll)(1e9+7))
 #define nmin(v)                 *min_element(all(v))
 #define nmax(v)                 *max_element(all(v))
@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-#define TESTCASE
+// #define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -58,57 +58,85 @@ void init(){
     return;
 }
 
-string getLPS(string text)
+class cmp
 {
-	int N = text.size();
-	if(N == 0)
-		return "";
-	N = 2*N + 1;
-	int L[N] = {0, 1}; 
-	int C = 1, R = 2, i = 0, im, mll = 0, mlcp = 0,	start = -1, end = -1, diff = -1;
-	
-	for (i = 2; i < N; i++)
-	{
-		
-		im = 2*C-i;
-		L[i] = 0;
-		diff = R - i;
-		
-		if(diff > 0)
-			L[i] = min(L[im], diff);
-
-		while ( ((i + L[i]) < N && (i - L[i]) > 0) &&
-			( ((i + L[i] + 1) % 2 == 0) ||
-			(text[(i + L[i] + 1)/2] == text[(i - L[i] - 1)/2] )))
-		
-			L[i]++;
-		
-
-		if(L[i] > mll) 
-		
-			mll = L[i],
-			mlcp = i;
-		
-
-		if (i + L[i] > R)
-		
-			C = i,
-			R = i + L[i];
-		
-	}
-	start = (mlcp - mll)/2;
-	end = start + mll - 1;
-	string lps = "";
-
-	for(int i = start; i <= end; i++)
-		lps += text[i];
-
-	return lps;
+public:
+    int operator() (pair<int, pair<int, int>> a, pair<int, pair<int, int>> b) {
+    
+    return a.first < b.first;
 }
+};
+class Solution {
+  public:
+    int shortestPath(vector<vector<int>> &grid, pair<int, int> source,
+                     pair<int, int> destination) {
+                         
+        int n = grid.size(),
+            m = grid[0].size();
+        priority_queue <pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, cmp> pq;
+        
+        vector<vector<int>> dist(n, vector<int> (m, inf));
+        
+        int sx = source.first,
+            sy = source.second,
+            dx = destination.first,
+            dy = destination.second;
+        
+        dist[sx][sy] = 0;
+        
+        if(grid[sx][sy] == 0 || grid[dx][dy] == 0) 
+            return dist[dx][dy] == inf ? -1 : dist[dx][dy];
+        
+        pq.push({0, {sx, sy}});
+        
+        int delX[] = {-1, 0, 1, 0},
+            delY[] = {0, 1, 0, -1};
+        
+        while(!pq.empty()) {
+            
+            int d = pq.top().first,
+                x = pq.top().second.first,
+                y = pq.top().second.second;
+            pq.pop();
+            
+            debug(x, y, d);
+
+            for(int i = 0; i < 4; i++) {
+                
+                int adjX = x + delX[i],
+                    adjY = y + delY[i];
+                
+                if(adjX >= 0 && adjY >= 0 && adjX < n && adjY < m && grid[adjX][adjY] == 1) {
+                    
+                    if(dist[adjX][adjY] > dist[x][y] + 1)
+                        dist[adjX][adjY] = dist[x][y] + 1,
+                        pq.push({dist[x][y] + 1, {adjX, adjY}});
+                    
+                }
+                
+            }
+            
+        }
+        print(dist);
+
+        return dist[dx][dy] == inf ? -1 : dist[dx][dy];
+    }
+};
+
 
 void solve(void){
-	string s = "abacdfgdcaba";
-    cout << getLPS(s);
+    
+    Solution obj;
+
+    ll n, m; cin >> n >> m;
+    vector<vector<int>> grid(n, vector<int> (m));
+    rpt(i, 0, n)
+        rpt(j, 0, m)
+            cin >> grid[i][j];
+
+
+    obj.shortestPath(grid, {0, 1}, {2, 2});
+
     nl;
 }
 
