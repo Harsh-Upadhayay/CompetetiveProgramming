@@ -64,45 +64,15 @@ void solve(void){
     vll mp[n + 1];
 
     ll x;
-
+    vector<vector<int>> grid(n, vector<int> (n - 1));
     rpt(i, 0, n) {
 
-        rpt(i, 0, n - 1) {
-            cin >> x;
-            mp[x].push_back(i);
+        rpt(j, 0, n - 1) {
+            grid[i][j];
         }
 
-
     }
-
-    // for(int i = 1; i <= n; i++) {
-    //     cout << i << " : ";
-    //     for(int x : mp[i]) cout << x << " ";
-    //     cout << "\n";
-    // }
-
-    vll ans(n, 0);
-    rpt(i, 1, n + 1) {
-
-        map<int, int> freq;
-
-        for(int idx : mp[i]) 
-            if(freq[idx] > 2)
-                break;
-            else
-                freq[idx]++;
-        
-        int idx = -1;
-        debug(freq);
-        for(auto x : freq)
-            if(x.second >= 2)
-                idx = x.first;
-
-        ans[idx] = i;
-
-    }
-
-    print(ans);
+    print(grid);
 
     nl;
 }
