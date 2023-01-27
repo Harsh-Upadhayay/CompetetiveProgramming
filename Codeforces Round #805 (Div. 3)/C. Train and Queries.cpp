@@ -69,19 +69,14 @@ void solve(void){
     while(x > 0 && (s / x) < n) x--;
      
     int rm = s - (n * x);
-    cout << rm;
+    vector<int> ans(n, x);
 
-    rpt(i, 0, n) {
-
-        if(6 - x >= rm) {
-            cout << (x + (6 - x)) << " ";
-            rm -= (6 - x);
-        }
-        else
-            cout << x + rm << " ";
-            rm = 0;
+    int i = 0;
+    while(rm) {
+        ans[(i++) % n]++;
+        rm--;
     }
-
+    print(ans);
 
 
     nl;
