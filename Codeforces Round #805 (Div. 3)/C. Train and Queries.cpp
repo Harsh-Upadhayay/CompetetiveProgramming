@@ -75,11 +75,11 @@ void solve(void){
 
     }
 
-    for(int i = 1; i <= n; i++) {
-        cout << i << " : ";
-        for(int x : mp[i]) cout << x << " ";
-        cout << "\n";
-    }
+    // for(int i = 1; i <= n; i++) {
+    //     cout << i << " : ";
+    //     for(int x : mp[i]) cout << x << " ";
+    //     cout << "\n";
+    // }
 
     vll ans(n, 0);
     rpt(i, 1, n + 1) {
@@ -93,6 +93,7 @@ void solve(void){
                 freq[idx]++;
         
         int idx = -1;
+        debug(freq);
         for(auto x : freq)
             if(x.second >= 2)
                 idx = x.first;
