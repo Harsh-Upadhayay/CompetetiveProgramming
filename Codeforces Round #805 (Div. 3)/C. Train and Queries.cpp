@@ -67,8 +67,8 @@ void solve(void){
 
     int x = -1;
     rpt(i, 1, 7) {
-        if(s / i >= n) {
-            x = i;
+        if(s / i < n) {
+            x = i - 1;
             break;
         }
     }
