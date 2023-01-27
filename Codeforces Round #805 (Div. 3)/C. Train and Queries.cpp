@@ -92,6 +92,21 @@ void solve(void){
         }
 
     }
+
+
+    vector<int> freq(n + 1, 0);
+    for(int x : ans)
+        if(x != -1)
+            freq[x]++;
+    int ele;
+    rpt(i, 1, n + 1) 
+        if(!freq[i])
+            ele = i;
+    for(int &x : ans)
+        if(x == -1) 
+            x = ele;
+
+
     print(ans);
 
     nl;
