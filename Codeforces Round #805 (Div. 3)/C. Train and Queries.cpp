@@ -71,7 +71,19 @@ void solve(void){
         }
 
     }
+    vector<int> ans(n, -1);
+    for(int j = 0; j < n - 1; j++) {
+
+        vector<int> freq(n + 1, 0);
+
+        for(int i = 0; i < n; i++) {
+
+            freq[grid[i][j]]++;
+        }
+
+    }
     print(grid);
+    print(ans);
 
     nl;
 }
