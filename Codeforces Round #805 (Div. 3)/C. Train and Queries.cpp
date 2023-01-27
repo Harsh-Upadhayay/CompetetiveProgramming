@@ -106,6 +106,22 @@ void solve(void){
         if(x == -1) 
             x = ele;
 
+    if(!(n % 2)) {
+
+        pair<int, int> p = {ans[n / 2 - 1], ans[n / 2]};
+        int fp = 0;
+
+        for(int i = 0; i < n; i++) {
+            for(int j = 0; j < n - 2; j++) {
+
+                if(grid[i][j] == p.fi && grid[i][j + 1] == p.se)
+                    fp++;
+
+            }
+        }
+        if(!fp)
+            swap(ans[n / 2 - 1], ans[n / 2]);
+    }
 
     print(ans);
 
