@@ -78,7 +78,7 @@ void solve(void){
             cout << x << " ";
     }
     else {
-
+        cout << "F";
         int rm = x - (s % x);
 
         rpt(i, 0, n) {
