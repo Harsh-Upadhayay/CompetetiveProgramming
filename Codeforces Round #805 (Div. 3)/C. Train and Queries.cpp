@@ -73,7 +73,7 @@ void solve(void){
     }
     vector<int> ans(n, -1);
     for(int j = 0; j < n / 2; j++) {
-
+        {
         vector<int> freq(n + 1, 0);
 
         for(int i = 0; i < n; i++) {
@@ -81,15 +81,16 @@ void solve(void){
             freq[grid[i][j]]++;
             if(freq[grid[i][j]] == n - j - 1)
                 ans[j] = grid[i][j];
-        }
-
+        }}
+        {
+        vector<int> freq(n + 1, 0);
         for(int i = 0; i < n; i++) {
 
             freq[grid[i][n - 1 - j - 1]]++;
             if(freq[grid[i][n - 1 - j - 1]] == n - j - 1)
                 ans[n - 1 - j] = grid[i][n - 1 - j - 1];
 
-        }
+        }}
 
     }
     print(ans);nl;
