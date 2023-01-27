@@ -123,7 +123,7 @@ void solve(void){
             swap(ans[n / 2 - 1], ans[n / 2]);
     }
 
-    print(ans);
+    // print(ans);
 
     nl;
 }
