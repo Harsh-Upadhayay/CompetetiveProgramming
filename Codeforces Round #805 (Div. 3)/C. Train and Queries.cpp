@@ -75,6 +75,12 @@ void solve(void){
 
     }
 
+    for(int i = 1; i <= n; i++) {
+        cout << i << " : ";
+        for(int x : mp[i]) cout << x << " ";
+        cout << "\n";
+    }
+
     vll ans(n, 0);
     rpt(i, 1, n + 1) {
 
