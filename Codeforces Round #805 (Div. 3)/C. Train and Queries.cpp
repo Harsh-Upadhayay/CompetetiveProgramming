@@ -60,72 +60,14 @@ void init(){
 
 
 void solve(void){
+    
     ll n; cin >> n;
-    vll mp[n + 1];
+    vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    vector<vector<int>> grid(n, vector<int> (n - 1));
-    rpt(i, 0, n) {
+    map<ll, ll> freq;
+    for(ll x : v) freq[x]++;
 
-        rpt(j, 0, n - 1) {
-            cin >> grid[i][j];
-        }
-
-    }
-    vector<int> ans(n, -1);
-    for(int j = 0; j < n / 2; j++) {
-        {
-        vector<int> freq(n + 1, 0);
-
-        for(int i = 0; i < n; i++) {
-
-            freq[grid[i][j]]++;
-            if(freq[grid[i][j]] == n - j - 1)
-                ans[j] = grid[i][j];
-        }}
-        {
-        vector<int> freq(n + 1, 0);
-        for(int i = 0; i < n; i++) {
-
-            freq[grid[i][n - 1 - j - 1]]++;
-            if(freq[grid[i][n - 1 - j - 1]] == n - j - 1)
-                ans[n - 1 - j] = grid[i][n - 1 - j - 1];
-
-        }}
-
-    }
-    vector<int> freq(n + 1, 0);
-    for(int x : ans)
-        if(x != -1)
-            freq[x]++;
-    int ele = -1;
-    rpt(i, 1, n + 1) 
-        if(!freq[i])
-            ele = i;
-
-    for(int &x : ans)
-        if(x == -1 || freq[x] > 1){ 
-            x = ele;
-            break;
-        }
-    if(!(n % 2)) {
-
-        pair<int, int> p = {ans[n / 2 - 1], ans[n / 2]};
-        int fp = 0;
-
-        for(int i = 0; i < n; i++) {
-            for(int j = 0; j < n - 2; j++) {
-
-                if(grid[i][j] == p.fi && grid[i][j + 1] == p.se)
-                    fp++;
-
-            }
-        }
-        if(!fp)
-            swap(ans[n / 2 - 1], ans[n / 2]);
-    }
-
-    print(ans);
-    // print(ans);
+    debug(freq);
 
     nl;
 }
