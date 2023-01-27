@@ -99,6 +99,7 @@ void solve(void){
         if(x != -1)
             freq[x]++;
     int ele;
+    debug(ele);
     rpt(i, 1, n + 1) 
         if(!freq[i])
             ele = i;
