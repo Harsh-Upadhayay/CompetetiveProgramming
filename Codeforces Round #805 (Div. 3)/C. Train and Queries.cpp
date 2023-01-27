@@ -63,12 +63,11 @@ void solve(void){
     ll n; cin >> n;
     vll mp[n + 1];
 
-    ll x;
     vector<vector<int>> grid(n, vector<int> (n - 1));
     rpt(i, 0, n) {
 
         rpt(j, 0, n - 1) {
-            grid[i][j];
+            cin >> grid[i][j];
         }
 
     }
