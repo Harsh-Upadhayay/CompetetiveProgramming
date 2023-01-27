@@ -64,6 +64,7 @@ void solve(void){
     ll n; cin >> n;
 
     int start = pow(2, floor(log2(n)) - 1);
+    int end = pow(2, ceil(log2(n)) + 1);
     cout << start;
 
     for(ll i = 1; i <= (1000); i++) {
