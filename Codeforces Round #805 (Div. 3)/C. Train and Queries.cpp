@@ -62,37 +62,17 @@ void init(){
 void solve(void){
     
     ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    map<ll, ll> freq;
-    for(ll x : v) freq[x]++;
-    debug(freq);
+    for(ll i = 1; i <= (1000); i++) {
 
-    ll count = 0, prvF = -1, prvE;
+        ll j = n * 2 - i;
 
-    for(auto x : freq) {
+        if((i ^ j) == n) {
+            cout << i << " " << j << "\n";
+        } 
 
-        if(prvE == -1) {
-            count = x.second;
-            prvF = x.second;
-            prvE = x.first;
-        }
-
-        else {
-            if(x.first - prvE == 1) {
-                count += max(0ll, x.second - prvF);
-                prvF = x.second;
-                prvE = x.first;
-            }
-            else {
-                count += x.second;
-                prvF = x.second;
-                prvE = x.first;
-            }
-
-        }
     }
-    cout << count;
+
     nl;
 }
 
