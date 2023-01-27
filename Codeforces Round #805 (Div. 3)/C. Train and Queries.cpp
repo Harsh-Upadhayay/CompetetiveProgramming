@@ -103,8 +103,10 @@ void solve(void){
         if(!freq[i])
             ele = i;
     for(int &x : ans)
-        if(x == -1) 
+        if(x == -1 || freq[x] > 1){ 
             x = ele;
+            break;
+        }
 
     if(!(n % 2)) {
 
