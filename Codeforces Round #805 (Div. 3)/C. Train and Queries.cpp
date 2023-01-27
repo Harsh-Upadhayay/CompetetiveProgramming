@@ -66,7 +66,7 @@ void solve(void){
     s = r, n -= 1;
 
     int x = -1;
-    rpt(i, 6, 1) {
+    rpt(i, 7, 1) {
         cout << i;
         if((s / i) > n) {
             x = i;
