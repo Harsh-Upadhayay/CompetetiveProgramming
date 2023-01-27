@@ -69,6 +69,7 @@ void solve(void){
     while(x > 0 && (s / x) < n) x--;
      
     int rm = s - (n * x);
+    cout << rm;
 
     rpt(i, 0, n) {
 
