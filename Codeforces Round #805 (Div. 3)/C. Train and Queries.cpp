@@ -92,6 +92,7 @@ void solve(void){
         }
 
     }
+    print(ans);
     print(grid);
 
     vector<int> freq(n + 1, 0);
