@@ -87,7 +87,7 @@ void solve(void){
 
             freq[grid[i][n - 1 - j - 1]]++;
             if(freq[grid[i][n - 1 - j - 1]] == n - j - 1)
-                ans[n - 1 - j - 1] = grid[i][n - 1 - j - 1];
+                ans[n - 1 - j] = grid[i][n - 1 - j - 1];
 
         }
 
