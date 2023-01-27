@@ -98,7 +98,7 @@ void solve(void){
     for(int x : ans)
         if(x != -1)
             freq[x]++;
-    int ele;
+    int ele = -1;
     debug(ele);
     rpt(i, 1, n + 1) 
         if(!freq[i])
