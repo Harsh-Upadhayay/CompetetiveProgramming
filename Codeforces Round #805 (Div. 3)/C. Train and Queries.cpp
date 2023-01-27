@@ -67,8 +67,7 @@ void solve(void){
 
     int x = -1;
     rpt(i, 7, 1) {
-        cout << i;
-        if((s / i) > n) {
+        if((s / i) >= n) {
             x = i;
             break;
         }
