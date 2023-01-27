@@ -67,13 +67,9 @@ void solve(void){
 
     int x = 6;
     while(x > 0 && (s / x) < n) x--;
-    cout << x;
 
-    if(s % x == 0) {
-        rpt(i, 0, n)
-            cout << x << " ";
-    }
-    else {
+    
+     {
         cout << "F";
         int rm = x - (s % x);
 
