@@ -68,12 +68,13 @@ void solve(void){
     int end = pow(2ll, min(29ll, (ll)ceil(log2(n)) + 2));
     cout << start;
 
-    for(ll i = 1; i <= (1000); i++) {
+    for(ll i = start; i <= (end); i++) {
 
         ll j = n * 2 - i;
 
         if((i ^ j) == n) {
             cout << i << " " << j << "\n";
+            break;
         } 
 
     }
