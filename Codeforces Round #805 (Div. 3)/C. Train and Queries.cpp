@@ -79,6 +79,8 @@ void solve(void){
         for(int i = 0; i < n; i++) {
 
             freq[grid[i][j]]++;
+            if(freq[grid[i][j]] == n - i - 1)
+                ans[j] = grid[i][j];
         }
 
     }
