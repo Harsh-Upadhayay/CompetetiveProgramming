@@ -102,7 +102,7 @@ void solve(void){
     rpt(i, 1, n + 1) 
         if(!freq[i])
             ele = i;
-    debug(ele);
+    debug(freq[1]);
     for(int &x : ans)
         if(x == -1 || freq[x] > 1){ 
             x = ele;
