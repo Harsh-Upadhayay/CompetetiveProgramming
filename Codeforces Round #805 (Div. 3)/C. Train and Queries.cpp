@@ -60,16 +60,42 @@ void init(){
 
 
 void solve(void){
-    
-    string pi = "31415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679",
-        qry;
-    cin >> qry;
+    ll n; cin >> n;
+    vll mp[n + 1];
 
-    int ans = 0;
-    rpt(i, 0, qry.size())
-        if(qry[i] == pi[i]) ans++;
-        else break;
-    cout << ans;
+    ll x;
+
+    rpt(i, 0, n) {
+
+        rpt(i, 0, n - 1) {
+            cin >> x;
+            mp[x].push_back(i);
+        }
+
+
+    }
+
+    vll ans(n, 0);
+    rpt(i, 1, n + 1) {
+
+        map<int, int> freq;
+
+        for(int idx : mp[i]) 
+            if(freq[idx] > 2)
+                break;
+            else
+                freq[idx]++;
+        
+        int idx = -1;
+        for(auto x : freq)
+            if(x.second >= 2)
+                idx = x.first;
+
+        ans[idx] = i;
+
+    }
+
+    print(ans);
 
     nl;
 }
