@@ -93,7 +93,6 @@ void solve(void){
         }}
 
     }
-    print(ans);
     vector<int> freq(n + 1, 0);
     for(int x : ans)
         if(x != -1)
@@ -102,13 +101,12 @@ void solve(void){
     rpt(i, 1, n + 1) 
         if(!freq[i])
             ele = i;
-    debug(freq[1]);
+
     for(int &x : ans)
         if(x == -1 || freq[x] > 1){ 
             x = ele;
             break;
         }
-
     if(!(n % 2)) {
 
         pair<int, int> p = {ans[n / 2 - 1], ans[n / 2]};
@@ -126,6 +124,7 @@ void solve(void){
             swap(ans[n / 2 - 1], ans[n / 2]);
     }
 
+    print(ans);
     // print(ans);
 
     nl;
