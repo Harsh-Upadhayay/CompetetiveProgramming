@@ -92,7 +92,6 @@ void solve(void){
         }
 
     }
-    print(grid);
     print(ans);
 
     nl;
