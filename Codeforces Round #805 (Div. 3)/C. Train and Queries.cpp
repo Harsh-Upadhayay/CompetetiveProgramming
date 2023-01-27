@@ -60,24 +60,40 @@ void init(){
 
 
 void solve(void){
-    
-    ll n, s, r; cin >> n >> s >> r;
-    cout << s - r << " ";
-    s = r, n -= 1;
+    ll n; cin >> n;
+    vll mp[n + 1];
 
-    int x = 6;
-    while(x > 0 && (s / x) < n) x--;
-     
-    int rm = s - (n * x);
-    vector<int> ans(n, x);
+    vector<vector<int>> grid(n, vector<int> (n - 1));
+    rpt(i, 0, n) {
 
-    int i = 0;
-    while(rm) {
-        ans[(i++) % n]++;
-        rm--;
+        rpt(j, 0, n - 1) {
+            cin >> grid[i][j];
+        }
+
     }
-    print(ans);
+    vector<int> ans(n, -1);
+    for(int j = 0; j < n / 2; j++) {
 
+        vector<int> freq(n + 1, 0);
+
+        for(int i = 0; i < n; i++) {
+
+            freq[grid[i][j]]++;
+            if(freq[grid[i][j]] == n - j - 1)
+                ans[j] = grid[i][j];
+        }
+
+        for(int i = 0; i < n; i++) {
+
+            freq[grid[i][n - 1 - j - 1]]++;
+            if(freq[grid[i][n - 1 - j - 1]] == n - j - 1)
+                ans[n - 1 - j - 1] = grid[i][n - 1 - j - 1];
+
+        }
+
+    }
+    print(grid);
+    print(ans);
 
     nl;
 }
