@@ -68,19 +68,27 @@ void solve(void){
     for(ll x : v) freq[x]++;
     debug(freq);
 
-    ll count = 0, prv = -1;
+    ll count = 0, prvF = -1, prvE;
 
     for(auto x : freq) {
 
-        if(prv == -1) {
+        if(prvE == -1) {
             count = x.second;
-            prv = x.second;
+            prvF = x.second;
+            prvE = x.first;
         }
 
         else {
-
-            count += max(0ll, x.second - prv);
-            prv = x.second;
+            if(x.first - prvE == 1) {
+                count += max(0ll, x.second - prvF);
+                prvF = x.second;
+                prvE = x.first;
+            }
+            else {
+                count += x.second;
+                prvF = x.second;
+                prvE = x.first;
+            }
 
         }
     }
