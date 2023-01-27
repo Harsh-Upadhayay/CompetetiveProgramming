@@ -74,7 +74,7 @@ void solve(void){
 
         if((i ^ j) == n) {
             cout << i << " " << j << "\n";
-            break;
+            kill("");
         } 
 
     }
