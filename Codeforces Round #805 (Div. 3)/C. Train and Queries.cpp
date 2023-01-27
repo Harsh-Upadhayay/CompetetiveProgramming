@@ -65,13 +65,8 @@ void solve(void){
     cout << s - r << " ";
     s = r, n -= 1;
 
-    int x = -1;
-    rpt(i, 7, 1) {
-        if((s / i) >= n) {
-            x = i;
-            break;
-        }
-    }
+    int x = 6;
+    while(x > 0 && (s / x) < n) x--;
 
     if(s % x == 0) {
         rpt(i, 0, n)
