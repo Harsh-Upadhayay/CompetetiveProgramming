@@ -63,13 +63,15 @@ void solve(void){
     
     ll n; cin >> n;
 
+    int start = pow(2, log2(n));
+    cout << start;
+
     for(ll i = 1; i <= (1000); i++) {
 
         ll j = n * 2 - i;
 
         if((i ^ j) == n) {
             cout << i << " " << j << "\n";
-            cout << bitset<10>(i) << " " << bitset<10>(j) << "\n";
         } 
 
     }
