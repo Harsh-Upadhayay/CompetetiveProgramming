@@ -66,9 +66,25 @@ void solve(void){
 
     map<ll, ll> freq;
     for(ll x : v) freq[x]++;
-
     debug(freq);
 
+    ll count = 0, prv = -1;
+
+    for(auto x : freq) {
+
+        if(prv == -1) {
+            count = x.second;
+            prv = x.second;
+        }
+
+        else {
+
+            count += max(0ll, x.second - prv);
+            prv = x.second;
+
+        }
+    }
+    cout << count;
     nl;
 }
 
