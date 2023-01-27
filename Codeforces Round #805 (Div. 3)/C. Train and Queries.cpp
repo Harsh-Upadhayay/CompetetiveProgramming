@@ -84,7 +84,7 @@ void solve(void){
         rpt(i, 0, n) {
 
             if(6 - x >= rm) {
-                cout << (x + (6 - x));
+                cout << (x + (6 - x)) << " ";
                 rm -= (6 - x);
             }
             else
