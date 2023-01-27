@@ -93,7 +93,7 @@ void solve(void){
         }}
 
     }
-
+    print(ans);
     vector<int> freq(n + 1, 0);
     for(int x : ans)
         if(x != -1)
