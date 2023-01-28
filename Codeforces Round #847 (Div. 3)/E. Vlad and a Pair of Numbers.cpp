@@ -70,7 +70,7 @@ void solve(void){
     int end = 10e3;
 
     cout << n << " : " << bitset<x>(n) << " \n";
-    for(ll i = start; i <= n; i++) {
+    for(ll i = start; i <= 1000; i++) {
 
         ll j = n * 2 - i;
 
