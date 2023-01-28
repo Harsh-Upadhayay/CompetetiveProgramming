@@ -63,7 +63,7 @@ void solve(void){
     
     ll n; cin >> n;
 
-    n += 20;
+    n += 40;
 
     int start = 1;
     const int x = 6;
