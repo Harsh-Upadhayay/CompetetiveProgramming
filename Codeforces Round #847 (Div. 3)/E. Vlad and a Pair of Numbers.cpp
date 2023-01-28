@@ -65,7 +65,7 @@ void solve(void){
 
 
     int start = 1;
-    const int x = 4;
+    const int x = 6;
     int end = 10e3;
 
     cout << n << " \n";
