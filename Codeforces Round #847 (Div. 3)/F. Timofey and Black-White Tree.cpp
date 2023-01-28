@@ -107,7 +107,6 @@ void solve(void){
     for(ll qry : qrys) {
         ans.push_back(getPositivity(adj, isblack, v, qry));
         isblack[qry] = 1;
-        debug(isblack);
     }
     
 
