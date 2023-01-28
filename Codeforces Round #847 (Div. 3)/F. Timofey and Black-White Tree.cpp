@@ -126,7 +126,6 @@ void solve(void){
     }
     
     print(ans);
-
     nl;
 }
 
