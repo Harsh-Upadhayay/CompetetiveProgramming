@@ -63,26 +63,11 @@ void solve(void){
     
     ll n; cin >> n;
 
-    n += 50;
-
-    int start = 1;
-    const int x = 6;
-    int end = 10e3;
-
-    cout << n << " : " << bitset<x>(n) << " \n";
-    for(ll i = start; i <= n; i++) {
-
-        ll j = n * 2 - i;
-
-        if((i ^ j) == n) {
-            cout << i << " " << j << "\n";
-            cout << n << " : " << bitset<x>(n) << "\n" 
-                 << i << " : " << bitset<x>(i) << "\n" 
-                 << j << " : " << bitset<x>(j) << "\n\n";
-        } 
-
-    }
-    cout << "-----\n";
+    if(((n / 2) ^ (2 * n - n / 2)) == n)
+        cout << (n / 2) << " " << (2 * n - n / 2);
+    else
+        cout << "-1";
+    
     nl;
 }
 
