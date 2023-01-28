@@ -77,7 +77,7 @@ void solve(void){
             cout << i << " " << j << "\n";
             cout << bitset<x>(n) << "\n" 
                  << bitset<x>(i) << "\n" 
-                 << bitset<x>(j) << "\n";
+                 << bitset<x>(j) << "\n\n";
         } 
 
     }
