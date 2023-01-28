@@ -74,7 +74,7 @@ ll getPositivity(vll adj[], vll &isblack, ll v, ll src) {
         ll curN = q.front().first,
            curD = q.front().second;
 
-        cout << curN << " ";
+        cout << curN << "," << curD << " ";
 
         q.pop();
 
