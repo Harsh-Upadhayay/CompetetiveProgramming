@@ -69,7 +69,7 @@ void solve(void){
     int end = 10e3;
 
     cout << n << " \n";
-    for(ll i = start; i <= (end); i++) {
+    for(ll i = start; i <= n / 2; i++) {
 
         ll j = n * 2 - i;
 
