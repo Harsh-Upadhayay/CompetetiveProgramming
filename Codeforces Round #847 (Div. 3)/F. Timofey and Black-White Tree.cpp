@@ -77,9 +77,9 @@ ll getPositivity(vll adj[], vll &isblack, ll v, ll src) {
             return curD;
 
         for(ll adjN : adj[curN]) {
-            
-            vis[adjN] = 1;
-            q.push({adjN, curD + 1});
+            if(!vis[adjN])
+                vis[adjN] = 1,
+                q.push({adjN, curD + 1});
 
         }
 
