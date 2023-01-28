@@ -66,7 +66,7 @@ ll getPositivity(vll adj[], vll &isblack, ll v, ll src, ll minTN) {
     q.push({src, 0});
     vis[src] = 1;
 
-    cout << endl << src << " : ";
+    // cout << endl << src << " : ";
 
 
     while(!q.empty()) {
