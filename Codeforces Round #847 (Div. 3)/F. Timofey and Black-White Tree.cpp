@@ -65,7 +65,6 @@ ll getPositivity(vll adj[], vll &isblack, ll v, ll src) {
     queue<pair<ll, ll>> q;
     q.push({src, 0});
     vis[src] = 1;
-    isblack[src] = 0;
 
     while(!q.empty()) {
 
@@ -108,7 +107,6 @@ void solve(void){
     vll ans;
     for(ll qry : qrys) {
 
-        isblack[qry] = 1;
         ans.push_back(getPositivity(adj, isblack, v, qry));
     }
 
