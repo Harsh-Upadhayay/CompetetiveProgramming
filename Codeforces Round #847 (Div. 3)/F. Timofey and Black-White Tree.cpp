@@ -58,7 +58,7 @@ void init(){
     return;
 }
 
-ll getPositivity(vll adj[], vll &isblack, ll v, ll src, ll minTN) {
+ll getPositivity(vll adj[], vll &isblack, ll v, ll src, ll &minTN) {
 
     vll vis(v + 1, 0);
 
@@ -82,7 +82,7 @@ ll getPositivity(vll adj[], vll &isblack, ll v, ll src, ll minTN) {
         q.pop();
 
         if(isblack[curN])
-            return curD;
+            return minTN = curD;
 
         for(ll adjN : adj[curN]) {
             if(!vis[adjN])
