@@ -65,11 +65,14 @@ ll getPositivity(vll adj[], vll &isblack, ll v, ll src) {
     queue<pair<ll, ll>> q;
     q.push({src, 0});
     vis[src] = 1;
+    isblack[src] = 0;
 
     while(!q.empty()) {
 
         ll curN = q.front().first,
            curD = q.front().second;
+
+        q.pop();
 
         if(isblack[curN])
             return curD;
@@ -83,6 +86,7 @@ ll getPositivity(vll adj[], vll &isblack, ll v, ll src) {
 
     }
 
+    isblack[src] = 1;
     return -1;
 }
 
