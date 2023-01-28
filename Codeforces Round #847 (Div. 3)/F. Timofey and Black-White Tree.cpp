@@ -125,7 +125,6 @@ void solve(void){
         isblack[qry] = 1;
     }
     
-    nl;
     print(ans);
 
     nl;
