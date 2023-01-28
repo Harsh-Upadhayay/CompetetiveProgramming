@@ -64,8 +64,8 @@ void solve(void){
     ll n; cin >> n;
 
 
-    int start = pow(2ll, max(1ll, (ll)floor(log2(n)) - 1));
-    int end = pow(2ll, min(29ll, (ll)ceil(log2(n))));
+    int start = 1;
+    int end = 2e10;
 
     for(ll i = start; i <= (end); i++) {
 
