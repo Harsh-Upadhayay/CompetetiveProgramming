@@ -63,8 +63,8 @@ void solve(void){
     
     ll n; cin >> n;
 
-    if(((n >> 1) ^ ((n << 1) - (n >> 1))) == n)
-        cout << (n >> 2) << " " << ((n << 1) - (n >> 1));
+    if(((n / 2) ^ (2 * n - n / 2)) == n)
+        cout << (n / 2) << " " << (2 * n - n / 2);
     else
         cout << "-1";
     
