@@ -77,7 +77,7 @@ ll getPositivity(vll adj[], vll &isblack, ll v, ll src, ll minTN) {
         if(curD > minTN) 
             return minTN;
 
-        cout << curN << "," << curD << " ";
+        // cout << curN << "," << curD << " ";
 
         q.pop();
 
@@ -120,7 +120,7 @@ void solve(void){
     vll ans;
     ll minTN = INT_MAX;
     for(ll qry : qrys) {
-        debug(qry, isblack);
+        // debug(qry, isblack);
         ans.push_back(getPositivity(adj, isblack, v, qry, minTN));
         isblack[qry] = 1;
     }
