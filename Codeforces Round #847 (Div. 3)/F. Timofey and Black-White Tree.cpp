@@ -58,7 +58,7 @@ void init(){
     return;
 }
 
-ll getPositivity(vll adj[], vll &isblack, ll v, ll src) {
+ll getPositivity(vll adj[], vll &isblack, ll v, ll src, ll minTN) {
 
     vll vis(v + 1, 0);
 
@@ -73,6 +73,9 @@ ll getPositivity(vll adj[], vll &isblack, ll v, ll src) {
 
         ll curN = q.front().first,
            curD = q.front().second;
+
+        if(curD > minTN) 
+            return minTN;
 
         cout << curN << "," << curD << " ";
 
@@ -115,9 +118,10 @@ void solve(void){
     isblack[c] = 1;
 
     vll ans;
+    ll minTN = INT_MAX;
     for(ll qry : qrys) {
         debug(qry, isblack);
-        ans.push_back(getPositivity(adj, isblack, v, qry));
+        ans.push_back(getPositivity(adj, isblack, v, qry, minTN));
         isblack[qry] = 1;
     }
     
