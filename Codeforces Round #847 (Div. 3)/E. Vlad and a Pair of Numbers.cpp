@@ -68,7 +68,7 @@ void solve(void){
     const int x = 6;
     int end = 10e3;
 
-    cout << n << " \n";
+    cout << n << " : " << bitset<x>(n) << " \n";
     for(ll i = start; i <= n; i++) {
 
         ll j = n * 2 - i;
