@@ -100,6 +100,13 @@ void solve(void){
         adj[v].push_back(u);
     }     
 
+    for(int i = 1; i <= v; i++) {
+        cout << i << " : ";
+        for(int x : adj[i])
+            cout << x << " ";
+        cout << "\n";
+    }
+
     vll isblack(v + 1, 0);
     isblack[c] = 1;
 
