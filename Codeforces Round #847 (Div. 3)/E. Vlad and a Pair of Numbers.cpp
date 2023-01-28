@@ -75,9 +75,9 @@ void solve(void){
 
         if((i ^ j) == n) {
             cout << i << " " << j << "\n";
-            cout << bitset<x>(n) << "\n" 
-                 << bitset<x>(i) << "\n" 
-                 << bitset<x>(j) << "\n\n";
+            cout << n << " : " << bitset<x>(n) << "\n" 
+                 << i << " : " << bitset<x>(i) << "\n" 
+                 << j << " : " << bitset<x>(j) << "\n\n";
         } 
 
     }
