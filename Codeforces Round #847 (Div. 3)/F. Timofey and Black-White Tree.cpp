@@ -85,7 +85,6 @@ ll getPositivity(vll adj[], vll &isblack, ll v, ll src) {
 
     }
 
-    isblack[src] = 1;
     return -1;
 }
 
@@ -107,6 +106,7 @@ void solve(void){
     vll ans;
     for(ll qry : qrys) {
         ans.push_back(getPositivity(adj, isblack, v, qry));
+        isblack[qry] = 1;
         debug(isblack);
     }
     
