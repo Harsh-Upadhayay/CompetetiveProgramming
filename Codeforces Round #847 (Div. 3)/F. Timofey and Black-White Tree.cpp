@@ -66,10 +66,15 @@ ll getPositivity(vll adj[], vll &isblack, ll v, ll src) {
     q.push({src, 0});
     vis[src] = 1;
 
+    cout << src << " : ";
+
+
     while(!q.empty()) {
 
         ll curN = q.front().first,
            curD = q.front().second;
+
+        cout << curN << " ";
 
         q.pop();
 
@@ -84,7 +89,7 @@ ll getPositivity(vll adj[], vll &isblack, ll v, ll src) {
         }
 
     }
-
+    cout << "\n";
     return -1;
 }
 
@@ -100,12 +105,12 @@ void solve(void){
         adj[v].push_back(u);
     }     
 
-    for(int i = 1; i <= v; i++) {
-        cout << i << " : ";
-        for(int x : adj[i])
-            cout << x << " ";
-        cout << "\n";
-    }
+    // for(int i = 1; i <= v; i++) {
+    //     cout << i << " : ";
+    //     for(int x : adj[i])
+    //         cout << x << " ";
+    //     cout << "\n";
+    // }
 
     vll isblack(v + 1, 0);
     isblack[c] = 1;
