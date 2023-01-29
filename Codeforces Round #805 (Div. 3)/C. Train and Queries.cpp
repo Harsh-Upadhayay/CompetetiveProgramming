@@ -62,23 +62,23 @@ ll eqn(ll x, ll y) {
 
 void init(){
 
-    for(int i = 11; i <= 99; i += 1){
+    // for(int i = 11; i <= 99; i += 1){
 
 
-        cout << i << " : ";
+    //     cout << i << " : ";
 
-        for(int x = 1; x < 100; x++) {
-            for(int y = 1; y < 100; y++) {
+    //     for(int x = 1; x < 100; x++) {
+    //         for(int y = 1; y < 100; y++) {
 
-                if(eqn(x, y) == i)
-                    cout << x << " " << y << "\n";
+    //             if(eqn(x, y) == i)
+    //                 cout << x << " " << y << "\n";
 
-            }
-        }
+    //         }
+    //     }
 
-    }
+    // }
 
-    return;
+    // return;
 }
 
 
