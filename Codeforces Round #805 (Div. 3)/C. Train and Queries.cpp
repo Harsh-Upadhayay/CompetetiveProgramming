@@ -57,6 +57,11 @@ void init(){
 
     return;
 }
+
+bool fun(pair<ll, ll> &a, pair<ll, ll> &b) {
+    return (a.fi == b.fi ? a.se > b.se : a.first > b.first);
+}
+
 vector<pair<ll, ll>> primeFactors(ll n)
 {
     map<ll, ll> freq;
@@ -82,7 +87,7 @@ vector<pair<ll, ll>> primeFactors(ll n)
     for(auto x : freq)
         ans.push_back({x.se, x.fi});
 
-    sort(all(ans));
+    sort(all(ans), fun);
     return ans;
 }
 
