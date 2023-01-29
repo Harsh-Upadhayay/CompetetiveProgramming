@@ -110,7 +110,7 @@ void solve(void){
             curans *= pow(v[i].second, freq);
             v[i].first -= freq;
             i++;
-            cout << curans;
+            cout << curans << " ";
         }
 
         ans += curans;
