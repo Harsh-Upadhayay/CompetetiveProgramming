@@ -59,7 +59,7 @@ void init(){
 }
 
 bool fun(pair<ll, ll> &a, pair<ll, ll> &b) {
-    return (a.fi == b.fi ? a.se > b.se : a.first > b.first);
+    return (a.fi == b.fi ? a.se > b.se : a.first < b.first);
 }
 
 vector<pair<ll, ll>> primeFactors(ll n)
