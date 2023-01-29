@@ -53,48 +53,36 @@ void storePrimes();
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
 
-ll eqn(ll x, ll y) {
-
-    ll ans = pow(x, y)* y + pow(y, x) * x;
-    return ans;
-
-}
-
 void init(){
 
-    // for(int i = 11; i <= 99; i += 1){
-
-
-    //     cout << i << " : ";
-
-    //     for(int x = 1; x < 100; x++) {
-    //         for(int y = 1; y < 100; y++) {
-
-    //             if(eqn(x, y) == i)
-    //                 cout << x << " " << y << "\n";
-
-    //         }
-    //     }
-
-    // }
-
-    // return;
+    return;
+}
+map<ll, ll> primeFactors(ll n)
+{
+    map<ll, ll> freq;
+    while (n % 2 == 0)
+    {
+        freq[2]++;
+        n /= 2;
+    }
+ 
+    for (ll i = 3; i <= sqrt(n); i = i + 2)
+    {
+        while (n % i == 0)
+        {
+            freq[i]++;
+            n /= i;
+        }
+    }
+ 
+    if (n > 2)
+        freq[n]++;
+    return freq;
 }
 
-
 void solve(void){
-    
     ll n; cin >> n;
-
-
-
-    if(n % 2) {
-        cout << "-1";
-    }
-    else {
-        cout << 1 << " " << n / 2;
-    }
-
+    debug(primeFactors(n));
     nl;
 }
 
