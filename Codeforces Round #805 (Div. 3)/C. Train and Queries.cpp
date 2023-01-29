@@ -102,17 +102,17 @@ void solve(void){
     for(int it = 0; it < v.size(); it++) {
 
         ll curans = ceil(pow(v[it].second, v[it].first));
-        cout << v[it].second << " " << v[it].first << " ";
-        cout << curans << " ";
+        // cout << v[it].second << " " << v[it].first << " ";
+        // cout << curans << " ";
 
         int freq = v[it].first,
             i = it + 1;
         while(i < v.size() && v[i].first >= freq) {
             
-            curans *= pow(v[i].second, freq);
+            curans *= ceil(pow(v[i].second, freq));
             v[i].first -= freq;
             i++;
-            cout << curans << " ";
+            // cout << curans << " ";
         }
 
         ans += curans;
