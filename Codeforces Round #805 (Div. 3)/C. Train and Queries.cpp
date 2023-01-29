@@ -103,6 +103,8 @@ void solve(void){
 
         ll curans = pow(v[it].second, v[it].first);
 
+        cout << curans << " ";
+
         int freq = v[it].first,
             i = it + 1;
         while(i < v.size() && v[i].first >= freq) {
