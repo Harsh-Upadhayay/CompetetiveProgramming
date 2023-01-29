@@ -63,21 +63,13 @@ void solve(void){
     
     ll n; cin >> n;
 
-
-    int start = 1;
-    int end = 2e10;
-
-    for(ll i = start; i <= (end); i++) {
-
-        ll j = n * 2 - i;
-
-        if((i ^ j) == n) {
-            cout << i << " " << j << "\n";
-            kill("");
-        } 
-
+    if(n % 2) {
+        cout << "-1";
     }
-    cout << "-1";
+    else {
+        cout << 1 << " " << n / 2;
+    }
+
     nl;
 }
 
