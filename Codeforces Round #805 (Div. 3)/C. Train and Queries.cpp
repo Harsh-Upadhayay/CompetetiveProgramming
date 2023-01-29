@@ -93,7 +93,28 @@ vector<pair<ll, ll>> primeFactors(ll n)
 
 void solve(void){
     ll n; cin >> n;
-    debug(primeFactors(n));
+    vector<pair<ll, ll>> v = (primeFactors(n));
+
+    ll ans = 0;
+
+    for(int it = 0; it < v.size(); it++) {
+
+        ll curans = pow(v[it].second, v[it].first);
+
+        int freq = v[it].first,
+            i = it + 1;
+        while(i < v.size() && v[i].first > freq) {
+            
+            curans *= pow(v[i].second, freq);
+            v[i].first -= freq;
+        }
+
+        ans += curans;
+
+    }
+
+    cout << ans;
+
     nl;
 }
 
