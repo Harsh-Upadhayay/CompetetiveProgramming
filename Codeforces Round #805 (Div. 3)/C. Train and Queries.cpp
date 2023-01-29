@@ -105,10 +105,11 @@ void solve(void){
 
         int freq = v[it].first,
             i = it + 1;
-        while(i < v.size() && v[i].first > freq) {
+        while(i < v.size() && v[i].first >= freq) {
             
             curans *= pow(v[i].second, freq);
             v[i].first -= freq;
+            i++;
         }
 
         ans += curans;
