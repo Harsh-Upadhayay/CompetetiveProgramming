@@ -97,6 +97,8 @@ void solve(void){
 
     ll ans = 0;
 
+    debug(v);
+
     for(int it = 0; it < v.size(); it++) {
 
         ll curans = pow(v[it].second, v[it].first);
