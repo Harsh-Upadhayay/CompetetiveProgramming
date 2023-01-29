@@ -102,7 +102,7 @@ void solve(void){
     for(int it = 0; it < v.size(); it++) {
 
         ll curans = pow(v[it].second, v[it].first);
-
+        cout << v[it].second << " " << v[it].first << " ";
         cout << curans << " ";
 
         int freq = v[it].first,
