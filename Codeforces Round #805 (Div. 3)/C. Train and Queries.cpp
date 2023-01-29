@@ -57,7 +57,7 @@ void init(){
 
     return;
 }
-map<ll, ll> primeFactors(ll n)
+vector<pair<ll, ll>> primeFactors(ll n)
 {
     map<ll, ll> freq;
     while (n % 2 == 0)
@@ -77,7 +77,13 @@ map<ll, ll> primeFactors(ll n)
  
     if (n > 2)
         freq[n]++;
-    return freq;
+
+    vector<pair<ll, ll>> ans;
+    for(auto x : freq)
+        ans.push_back({x.se, x.fi});
+
+    sort(all(ans));
+    return ans;
 }
 
 void solve(void){
