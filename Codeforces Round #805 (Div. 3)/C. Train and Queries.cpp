@@ -58,69 +58,55 @@ void init(){
     return;
 }
 
-bool fun(pair<ll, ll> &a, pair<ll, ll> &b) {
-    return (a.fi == b.fi ? a.se > b.se : a.first < b.first);
-}
 
-vector<pair<ll, ll>> primeFactors(ll n)
-{
-    map<ll, ll> freq;
-    while (n % 2 == 0)
-    {
-        freq[2]++;
-        n /= 2;
-    }
- 
-    for (ll i = 3; i <= sqrt(n); i = i + 2)
-    {
-        while (n % i == 0)
-        {
-            freq[i]++;
-            n /= i;
-        }
-    }
- 
-    if (n > 2)
-        freq[n]++;
+int mainfun(vector<int> rowA, vector<int> rowB) {
 
-    vector<pair<ll, ll>> ans;
-    for(auto x : freq)
-        ans.push_back({x.se, x.fi});
+    int n = rowA.size(), 
+        m = rowB.size();
 
-    sort(all(ans), fun);
+    int sumA = 0,
+        sumB = 0;
+
+    int acnt = 0, 
+        bcnt = 0;
+
+    for(int x : rowA) sumA += x, acnt += (x == 0);
+    for(int x : rowB) sumB += x, bcnt += (x == 0);
+
+    if(sumA == sumB) 
+        return sumA;
+
+    if( acnt == 0 && bcnt == 0     ||
+        acnt == 0 && (sumA < sumB) ||
+        bcnt == 0 && (sumB < sumA)
+        )
+        return -1;
+
+    if(sumA < sumB)
+        swap(sumA, sumB),
+        swap(acnt, bcnt);
+
+    sumA += acnt;
+
+    int diff = sumA - sumB;
+
+    int ans = 0;
+    if(diff < bcnt) 
+        ans = sumA + (bcnt - diff);
+    else 
+        ans = sumA;
+
     return ans;
+
 }
 
 void solve(void){
-    ll n; cin >> n;
-    vector<pair<ll, ll>> v = (primeFactors(n));
+    ll n, m; cin >> n >> m;
+    vector<int> a(n), b(m);
+    rpt(i, 0, n) cin >> a[i];
+    rpt(i, 0, m) cin >> b[i];
 
-    ll ans = 0;
-
-    debug(v);
-
-    for(int it = 0; it < v.size(); it++) {
-
-        ll curans = v[it].second;
-        // cout << v[it].second << " " << v[it].first << " ";
-        // cout << curans << " ";
-
-        int freq = v[it].first,
-            i = it + 1;
-        while(i < v.size() && v[i].first >= freq) {
-            
-            curans *= v[i].second;
-            v[i].first -= freq;
-            i++;
-            // cout << curans << " ";
-        }
-        curans *= freq;
-
-        ans += curans;
-
-    }
-
-    cout << ans;
+    cout << mainfun(a, b);
 
     nl;
 }
