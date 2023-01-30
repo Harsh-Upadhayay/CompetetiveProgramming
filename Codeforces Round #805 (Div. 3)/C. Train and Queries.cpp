@@ -76,9 +76,11 @@ int mainfun(vector<int> rowA, vector<int> rowB) {
     if(sumA == sumB) 
         return sumA;
 
-    if( acnt == 0 && bcnt == 0     ||
-        acnt == 0 && (sumA < sumB) ||
-        bcnt == 0 && (sumB < sumA)
+    if( (acnt == 0 && bcnt == 0)     ||
+        (acnt == 0 && (sumA < sumB)) ||
+        (bcnt == 0 && (sumB < sumA)) ||
+        (bcnt == 0 && acnt != 0 && (abs(sumB - sumA) < acnt)) ||
+        (acnt == 0 && bcnt != 0 && (abs(sumB - sumA) < bcnt))
         )
         return -1;
 
