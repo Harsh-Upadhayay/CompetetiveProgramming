@@ -126,7 +126,7 @@ void solve(void){
     if(st.size() >= k)
         cout << countSubs(vb, vb);
     else if(k == 0)
-        cout << countSubs(va, vb);
+        cout << countSubs(va, vb) << "F";
     else {
 
         set<ll> diff;
