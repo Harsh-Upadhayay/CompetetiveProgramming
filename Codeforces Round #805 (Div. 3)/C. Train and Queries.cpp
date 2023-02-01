@@ -83,18 +83,17 @@ void combinationUtil(vll &arr, vll &data,
                     ll index, ll r, vll &va, vll &vb){
     if (index == r)
     {   
-        set<ll> comb;
+        unordered_set<ll> comb;
         rpt(j, 0, r)
             comb.insert(data[j]);
 
-            vll ta = va;
+        vll ta = va;
 
-            rpt(i, 0, va.size())
-                if(comb.count(ta[i]))
-                    ta[i] = vb[i];
+        rpt(i, 0, va.size())
+            if(comb.count(ta[i]))
+                ta[i] = vb[i];
 
-            ANS = max(ANS, countSubs(ta, vb));
-
+        ANS = max(ANS, countSubs(ta, vb));
         
         return;
     }
@@ -138,12 +137,10 @@ void solve(void){
         cout << countSubs(va, vb);
     else {
 
-    
         vll diff;
         for(ll x : st) diff.push_back(x);
 
         fun(diff, n, k, va, vb);
-
 
         cout << ANS;
 
