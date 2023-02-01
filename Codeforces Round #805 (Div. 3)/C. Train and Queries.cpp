@@ -59,56 +59,21 @@ void init(){
 }
 
 
-int mainfun(vector<int> rowA, vector<int> rowB) {
-
-    int n = rowA.size(), 
-        m = rowB.size();
-
-    int sumA = 0,
-        sumB = 0;
-
-    int acnt = 0, 
-        bcnt = 0;
-
-    for(int x : rowA) sumA += x, acnt += (x == 0);
-    for(int x : rowB) sumB += x, bcnt += (x == 0);
-
-    if(sumA == sumB) 
-        return sumA;
-
-    if( (acnt == 0 && bcnt == 0)     ||
-        (acnt == 0 && (sumA < sumB)) ||
-        (bcnt == 0 && (sumB < sumA)) ||
-        (bcnt == 0 && acnt != 0 && (abs(sumB - sumA) < acnt)) ||
-        (acnt == 0 && bcnt != 0 && (abs(sumB - sumA) < bcnt))
-        )
-        return -1;
-
-    if(sumA < sumB)
-        swap(sumA, sumB),
-        swap(acnt, bcnt);
-
-    sumA += acnt;
-
-    int diff = sumA - sumB;
-
-    int ans = 0;
-    if(diff < bcnt) 
-        ans = sumA + (bcnt - diff);
-    else 
-        ans = sumA;
-
-    return ans;
-
-}
-
 void solve(void){
-    ll n, m; cin >> n >> m;
-    vector<int> a(n), b(m);
-    rpt(i, 0, n) cin >> a[i];
-    rpt(i, 0, m) cin >> b[i];
+    ll n; cin >> n;
+    vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    cout << mainfun(a, b);
+    bool adj = 0, alt = 0;
+    ll sum;
+
+    for(int i = 0; i < n - 1; i++)
+        adj |= (v[i] + v[i + 1] == -2),
+        alt |= (v[i] + v[i + 1] == 0),
+        sum += v[i];
+
+    if(adj) sum += 2;
+
+    cout << sum;
 
     nl;
 }
