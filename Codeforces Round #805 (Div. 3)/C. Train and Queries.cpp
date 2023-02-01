@@ -64,14 +64,14 @@ void solve(void){
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
     bool adj = 0, alt = 0;
-    ll sum = 0;
+    ll sum = v[n - 1];
 
     for(int i = 0; i < n - 1; i++)
         adj |= (v[i] + v[i + 1] == -2),
         alt |= (v[i] + v[i + 1] == 0),
         sum += v[i];
 
-    cout << sum;
+
 
     if(adj) sum += 2;
     else if(!alt) sum -= 2;
