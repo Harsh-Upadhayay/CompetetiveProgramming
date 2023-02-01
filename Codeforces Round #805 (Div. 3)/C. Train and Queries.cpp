@@ -129,14 +129,11 @@ void solve(void){
         cout << countSubs(va, vb);
     else {
 
-        set<ll> diff;
-        rpt(i, 0, n)
-            if(va[i] != vb[i])
-                diff.insert(va[i]);
-        vll diffv;
-        for(ll x : diff) diffv.push_back(x);
+    
+        vll diff;
+        for(ll x : st) diff.push_back(x);
 
-        fun(diffv, n, k);
+        fun(diff, n, k);
 
         for(auto comb : combs) {
 
