@@ -123,7 +123,7 @@ void solve(void){
 
     ll ans = 0;
 
-    if(st.size() >= k)
+    if(k >= st.size())
         cout << countSubs(vb, vb);
     else if(k == 0)
         cout << countSubs(va, vb) << "F";
