@@ -132,7 +132,7 @@ void solve(void){
         vll diffv;
         for(ll x : diff) diffv.push_back(x);
 
-        // fun(diffv, n, k);
+        fun(diffv, n, k);
 
         for(auto comb : combs) {
 
