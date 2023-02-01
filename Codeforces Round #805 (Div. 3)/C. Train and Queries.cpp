@@ -64,7 +64,7 @@ void solve(void){
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
     bool adj = 0, alt = 0;
-    ll sum;
+    ll sum = 0;
 
     for(int i = 0; i < n - 1; i++)
         adj |= (v[i] + v[i + 1] == -2),
