@@ -58,7 +58,7 @@ void init(){
     return;
 }
 
-vector<set<ll>> combs;
+ll ANS = 0;
 
 ll countSubs(vll a, vll b) {
 
@@ -78,15 +78,24 @@ ll countSubs(vll a, vll b) {
     return ans;
 }
 
-void combinationUtil(vll arr, vll data,
+void combinationUtil(vll &arr, vll &data,
                     ll start, ll end,
-                    ll index, ll r){
+                    ll index, ll r, vll &va, vll &vb){
     if (index == r)
     {   
-        set<ll> tst;
+        set<ll> comb;
         rpt(j, 0, r)
-            tst.insert(data[j]);
-        combs.push_back(tst);
+            comb.insert(data[j]);
+
+            vll ta = va;
+
+            rpt(i, 0, va.size())
+                if(comb.count(ta[i]))
+                    ta[i] = vb[i];
+
+            ANS = max(ANS, countSubs(ta, vb));
+
+        
         return;
     }
  
@@ -95,19 +104,19 @@ void combinationUtil(vll arr, vll data,
     {
         data[index] = arr[i];
         combinationUtil(arr, data, i+1,
-                        end, index+1, r);
+                        end, index+1, r, va, vb);
     }
 }
  
-void fun(vll arr, ll n, ll r) {
+void fun(vll &arr, ll n, ll r, vll &va, vll &vb) {
     vll data(r);
  
-    combinationUtil(arr, data, 0, n-1, 0, r);
+    combinationUtil(arr, data, 0, n-1, 0, r, va, vb);
 }
  
 void solve(void){
     ll n, k; cin >> n >> k;
-    combs.clear();
+    ANS = 0;
     string a, b; cin >> a >> b;
 
     vll va(n), vb(n);
@@ -133,21 +142,10 @@ void solve(void){
         vll diff;
         for(ll x : st) diff.push_back(x);
 
-        fun(diff, n, k);
+        fun(diff, n, k, va, vb);
 
-        for(auto comb : combs) {
 
-            vll ta = va;
-
-            rpt(i, 0, n)
-                if(comb.count(ta[i]))
-                    ta[i] = vb[i];
-
-            ans = max(ans, countSubs(ta, vb));
-
-        }
-
-        cout << ans;
+        cout << ANS;
 
     }
     nl;
