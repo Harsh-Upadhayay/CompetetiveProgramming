@@ -58,26 +58,97 @@ void init(){
     return;
 }
 
+vector<set<ll>> combs;
 
+ll countSubs(vll a, vll b) {
+
+    ll sc = 0, ans = 0;
+
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] == b[i]) sc++;
+        else {
+
+            ans += ((sc * (sc + 1)) / 2);
+            sc = 0;
+        }
+    }
+
+    return ans;
+}
+
+void combinationUtil(vll arr, vll data,
+                    ll start, ll end,
+                    ll index, ll r){
+    if (index == r)
+    {   
+        set<ll> tst;
+        rpt(j, 0, r)
+            tst.insert(data[j]);
+        combs.push_back(tst);
+        return;
+    }
+ 
+    for (ll i = start; i <= end &&
+        end - i + 1 >= r - index; i++)
+    {
+        data[index] = arr[i];
+        combinationUtil(arr, data, i+1,
+                        end, index+1, r);
+    }
+}
+ 
+void fun(vll arr, ll n, ll r) {
+    vll data(r);
+ 
+    combinationUtil(arr, data, 0, n-1, 0, r);
+}
+ 
 void solve(void){
-    ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
+    ll n, k; cin >> n >> k;
 
-    bool adj = 0, alt = 0;
-    ll sum = v[n - 1];
+    string a, b; cin >> a >> b;
 
-    for(int i = 0; i < n - 1; i++)
-        adj |= (v[i] + v[i + 1] == -2),
-        alt |= (v[i] + v[i + 1] == 0),
-        sum += v[i];
+    vll va(n), vb(n);
+    set<ll> st;
+    rpt(i, 0, n) {
+        va[i] = a[i] - 'a',
+        vb[i] = b[i] - 'a';
 
-        debug(sum, adj, alt);
+        if(va[i] != vb[i])
+            st.insert(va[i]);
+    }
 
-    if(adj) sum += 4;
-    else if(!alt) sum -= 4;
 
-    cout << sum;
+    ll ans = 0;
 
+    if(st.size() >= k || k == 0)
+        cout << countSubs(va, vb);
+    else {
+
+        set<ll> diff;
+        rpt(i, 0, n)
+            if(va[i] != vb[i])
+                diff.insert(va[i]);
+        vll diffv;
+        for(ll x : diff) diffv.push_back(x);
+
+        // fun(diffv, n, k);
+
+        for(auto comb : combs) {
+
+            vll ta = va;
+
+            rpt(i, 0, n)
+                if(comb.count(ta[i]))
+                    ta[i] = vb[i];
+
+            ans = max(ans, countSubs(ta, vb));
+
+        }
+
+        cout << ans;
+
+    }
     nl;
 }
 
@@ -156,3 +227,4 @@ void storePrimes(){
 }
 
 /*_________________________________________________________________________________________________________________________________________*/
+    
