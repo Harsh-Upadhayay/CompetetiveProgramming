@@ -72,7 +72,8 @@ ll countSubs(vll a, vll b) {
             sc = 0;
         }
     }
-
+    if(sc)
+        ans += ((sc * (sc + 1)) / 2);
     return ans;
 }
 
@@ -122,7 +123,7 @@ void solve(void){
     ll ans = 0;
 
     if(st.size() >= k || k == 0)
-        cout << countSubs(va, vb) << "F";
+        cout << countSubs(va, vb);
     else {
 
         set<ll> diff;
