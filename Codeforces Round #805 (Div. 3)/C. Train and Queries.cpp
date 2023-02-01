@@ -140,7 +140,7 @@ void solve(void){
         vll diff;
         for(ll x : st) diff.push_back(x);
 
-        fun(diff, n, k, va, vb);
+        fun(diff, diff.size(), k, va, vb);
 
         cout << ANS;
 
