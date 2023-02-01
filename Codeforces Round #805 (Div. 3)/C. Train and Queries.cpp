@@ -107,7 +107,7 @@ void fun(vll arr, ll n, ll r) {
  
 void solve(void){
     ll n, k; cin >> n >> k;
-
+    combs.clear();
     string a, b; cin >> a >> b;
 
     vll va(n), vb(n);
