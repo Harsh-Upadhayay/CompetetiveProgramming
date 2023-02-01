@@ -72,7 +72,8 @@ void solve(void){
         sum += v[i];
 
     if(adj) sum += 2;
-
+    if(!alt) sum -= 2;
+    
     cout << sum;
 
     nl;
