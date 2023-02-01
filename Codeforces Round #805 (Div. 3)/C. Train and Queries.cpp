@@ -74,7 +74,7 @@ void solve(void){
         debug(sum, adj, alt);
 
     if(adj) sum += 4;
-    else if(!alt) sum -= 2;
+    else if(!alt) sum -= 4;
 
     cout << sum;
 
