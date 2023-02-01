@@ -71,7 +71,7 @@ void solve(void){
         alt |= (v[i] + v[i + 1] == 0),
         sum += v[i];
 
-        debug(sum);
+        debug(sum, adj, alt);
 
     if(adj) sum += 2;
     else if(!alt) sum -= 2;
