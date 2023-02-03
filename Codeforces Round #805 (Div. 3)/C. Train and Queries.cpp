@@ -75,7 +75,7 @@ void init(){
 void solve(void){
     ll n, c; cin >> n >> c;
     vll cst(n + 1, inf); rpt(i, 1, n + 1) cin >> cst[i];
-    rpt(i, 1, n + 1) cst[i] -= i;
+    rpt(i, 1, n + 1) cst[i] += i;
 
     sort(all(cst));
 
