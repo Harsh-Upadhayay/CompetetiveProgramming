@@ -66,7 +66,7 @@ void solve(void){
     vll lf(n, 0), rf(n, 0);
 
     rpt(i, 0, n) ls.insert(s[i]), lf[i] = ls.size();
-    rpt(i, n - 1, 0) {
+    rpt(i, n , 0) {
         rs.insert(s[i]), rf[i] = rs.size();
         cout << i << " ";
     }
