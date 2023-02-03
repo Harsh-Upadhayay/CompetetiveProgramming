@@ -60,20 +60,16 @@ void init(){
 
 
 void solve(void){
-    
     ll n; cin >> n;
     string s; cin >> s;
+    set<char> ls, rs;
+    vll lf(n, 0), rf(n, 0);
 
-    ll l = 0, r = n - 1;
+    rpt(i, 0, n) ls.insert(s[i]), lf[i] = ls.size();
+    rpt(i, n - 1, 0) rs.insert(s[i]), rf[i] = rs.size();
 
+    debug(lf, rf);
 
-    while(l < r) {
-        debug(l, r);
-        if(s[l] != s[r]) l++, r--, n -= 2;
-        else break;
-
-    }
-    cout << n;
     nl;
 }
 
