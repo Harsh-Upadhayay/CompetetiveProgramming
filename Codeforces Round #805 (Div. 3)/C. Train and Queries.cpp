@@ -66,12 +66,12 @@ void solve(void){
 
     ll flag = 0;
 
-    for(auto x : s) {
+    for(auto c : s) {
 
-        if(x == 'U') y++;
-        if(x == 'R') x++;
-        if(x == 'L') x--;
-        if(x == 'D') y--;
+        if(c == 'U') y++;
+        if(c == 'R') x++;
+        if(c == 'L') x--;
+        if(c == 'D') y--;
 
         if(x == 1 && y == 1) flag = 1;
         debug(x, y);
