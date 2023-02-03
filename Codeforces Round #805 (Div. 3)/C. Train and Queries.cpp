@@ -74,6 +74,7 @@ void solve(void){
         if(x == 'D') y--;
 
         if(x == 1 && y == 1) flag = 1;
+        debug(x, y);
 
     }
     if(flag) yes
