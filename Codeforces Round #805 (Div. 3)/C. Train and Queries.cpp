@@ -71,9 +71,10 @@ void solve(void){
     ll ans = 0;
     debug(lf);
     debug( rf);
-    rpt(i, 0, n) {
+    rpt(i, 0, n - 1) {
 
-        ans = max(lf[i] + rf[i], ans);
+        ans = max(lf[i] + rf[i + 1], ans),
+        ans = max(lf[i + 1] + rf[i], ans);
 
     }
     cout << ans;
