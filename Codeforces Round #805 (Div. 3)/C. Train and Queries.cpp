@@ -66,7 +66,7 @@ void solve(void){
 
     ll sum = 0, minE = inf, cnt = 0, izp = 0;
     rpt(i, 0, n) sum += abs(v[i]), minE = min(minE, abs(v[i])), cnt += (v[i] < 0), izp != v[i] == 0;
-    cout << sum << " ";
+    debug(sum, izp, cnt);
     if(izp || cnt % 2) cout << sum;
     else 
         cout << (sum - 2 * minE);
