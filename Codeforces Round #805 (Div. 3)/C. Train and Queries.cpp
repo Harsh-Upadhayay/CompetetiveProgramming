@@ -58,26 +58,38 @@ void init(){
     return;
 }
 
-ll fun(vll &cst, vll &vis, ll i, ll c) {
-    debug(i, c);
-    if(i > cst.size() || c <= 0) return 0;
+// ll fun(vll &cst, vll &vis, ll i, ll c) {
+//     debug(i, c);
+//     if(i > cst.size() || c <= 0) return 0;
 
-    int take = 0, 
-        nottake = fun(cst, vis, i + 1, c);
+//     int take = 0, 
+//         nottake = fun(cst, vis, i + 1, c);
 
-    if(!vis[i] && cst[i] <= c) 
-        vis[i] = 1,
-        take = 1 + fun(cst, vis, 0, c - cst[i]);
+//     if(!vis[i] && cst[i] <= c) 
+//         vis[i] = 1,
+//         take = 1 + fun(cst, vis, 0, c - cst[i]);
 
-    return max(take, nottake);
-}
+//     return max(take, nottake);
+// }
 
 void solve(void){
     ll n, c; cin >> n >> c;
-    vll cst(n); rpt(i, 0, n) cin >> cst[i];
-    vll vis(n, 0);
+    vll cst(n + 1, inf); rpt(i, 1, n + 1) cin >> cst[i];
+    rpt(i, 1, n + 1) cst[i] -= i;
 
-    cout << fun(cst, vis, 0, c);
+    sort(all(cst));
+
+    ll ans = 0;
+
+    for(int i = 0; i < n + 1; i++) {
+
+        ans += (cst[i] <= c);
+        c -= cst[i];
+
+    }
+
+    cout << ans;
+
     debug('\n');
     nl;
 }
