@@ -64,11 +64,13 @@ void solve(void){
     ll n; cin >> n;
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    ll sum = 0;
-    rpt(i, 0, n) sum += abs(v[i]);
+    ll sum = 0, minE = inf, cnt = 0, izp = 0;
+    rpt(i, 0, n) sum += abs(v[i]), minE = min(minE, abs(v[i])), cnt += (v[i] < 0), izp != v[i] == 0;
 
-    sum -= 2 * (min(abs(v[0]), abs(v[n - 1])));
-    cout << sum;
+    if(izp || cnt % 2) cout << sum;
+    else 
+        cout << (sum - 2 * minE);
+
 
     nl;
 }
