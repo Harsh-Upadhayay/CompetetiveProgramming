@@ -66,12 +66,16 @@ void solve(void){
     vll lf(n, 0), rf(n, 0);
 
     rpt(i, 0, n) ls.insert(s[i]), lf[i] = ls.size();
-    rpt(i, n , 0) {
-        rs.insert(s[i]), rf[i] = rs.size();
-        cout << i << " ";
-    }
-    debug(lf, rf);
+    rpt(i, n, 0) rs.insert(s[i]), rf[i] = rs.size();
 
+    ll ans = 0;
+
+    rpt(i, 0, n) {
+
+        ans = max(lf[i], rf[i]) - 1;
+
+    }
+    cout << ans;
     nl;
 }
 
