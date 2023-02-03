@@ -73,14 +73,14 @@ void solve(void){
     
     debug(lfcst);
     debug(rcst);
-    sort(all(cst));
+    sort(all(lfcst));
  
     ll ans = 0;
  
     for(int i = 0; i < n + 1; i++) {
  
-        ans += (cst[i] <= c);
-        c -= cst[i];
+        ans += (lfcst[i] <= c);
+        c -= lfcst[i];
  
     }
  
