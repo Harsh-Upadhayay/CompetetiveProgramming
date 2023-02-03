@@ -58,93 +58,16 @@ void init(){
     return;
 }
 
-ll ANS = 0;
 
-ll countSubs(vll a, vll b) {
-
-    ll sc = 0, ans = 0;
-
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] == b[i]) sc++;
-        else {
-
-            ans += ((sc * (sc + 1)) / 2);
-            sc = 0;
-        }
-    }
-    if(sc)
-        ans += ((sc * (sc + 1)) / 2);
-
-    return ans;
-}
-
-void combinationUtil(vll &arr, vll &data,
-                    ll start, ll end,
-                    ll index, ll r, vll &va, vll &vb){
-    if (index == r)
-    {   
-        unordered_set<ll> comb;
-        rpt(j, 0, r)
-            comb.insert(data[j]);
-
-        vll ta = va;
-
-        rpt(i, 0, va.size())
-            if(comb.count(ta[i]))
-                ta[i] = vb[i];
-
-        ANS = max(ANS, countSubs(ta, vb));
-        
-        return;
-    }
- 
-    for (ll i = start; i <= end &&
-        end - i + 1 >= r - index; i++)
-    {
-        data[index] = arr[i];
-        combinationUtil(arr, data, i+1,
-                        end, index+1, r, va, vb);
-    }
-}
- 
-void fun(vll &arr, ll n, ll r, vll &va, vll &vb) {
-    vll data(r);
- 
-    combinationUtil(arr, data, 0, n-1, 0, r, va, vb);
-}
- 
 void solve(void){
-    ll n, k; cin >> n >> k;
-    ANS = 0;
-    string a, b; cin >> a >> b;
+    
+    char ch; cin >> ch;
+    string s = "codeforces";
+    set<char> st;
+    for(auto x : s) st.insert(x);
+    if(st.count(ch)) yes
+    else no;
 
-    vll va(n), vb(n);
-    set<ll> st;
-    rpt(i, 0, n) {
-        va[i] = a[i] - 'a',
-        vb[i] = b[i] - 'a';
-
-        if(va[i] != vb[i])
-            st.insert(va[i]);
-    }
-
-
-    ll ans = 0;
-
-    if(k >= st.size())
-        cout << countSubs(vb, vb);
-    else if(k == 0)
-        cout << countSubs(va, vb);
-    else {
-
-        vll diff;
-        for(ll x : st) diff.push_back(x);
-
-        fun(diff, diff.size(), k, va, vb);
-
-        cout << ANS;
-
-    }
     nl;
 }
 
@@ -223,4 +146,3 @@ void storePrimes(){
 }
 
 /*_________________________________________________________________________________________________________________________________________*/
-    
