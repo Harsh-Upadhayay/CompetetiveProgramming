@@ -65,7 +65,7 @@ void solve(void){
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
     ll sum = 0;
-    rpt(i, 0, n) sum += v[i];
+    rpt(i, 0, n) sum += abs(v[i]);
 
     sum -= 2 * (min(abs(v[0]), abs(v[n - 1])));
     cout << sum;
