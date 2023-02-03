@@ -69,7 +69,7 @@ void solve(void){
     rpt(i, n, 0) rs.insert(s[i]), rf[i] = rs.size();
 
     ll ans = 0;
-
+    debug(lf, rf);
     rpt(i, 0, n) {
 
         ans = max(lf[i] + rf[i], ans);
