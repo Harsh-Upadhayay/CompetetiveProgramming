@@ -75,11 +75,24 @@ void init(){
 void solve(void){
     ll n, c; cin >> n >> c;
     vll cst(n + 1, inf); rpt(i, 1, n + 1) cin >> cst[i];
-    rpt(i, 1, n + 1) cst[i] += i;
+    
+    ll idx, minE = ninf;
+    rpt(i, 1, n + 1){
+
+        if(minE < cst[i] + i) {
+
+            minE = cst[i];
+            idx = i;
+
+        }
+    }
+
+    cst[idx] = inf; 
+    ll ans = 1;
+    c -= minE;
 
     sort(all(cst));
 
-    ll ans = 0;
 
     for(int i = 0; i < n + 1; i++) {
 
