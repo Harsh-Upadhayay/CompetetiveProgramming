@@ -68,7 +68,7 @@ void solve(void){
 
 
     while(l < r) {
-
+        debug(l, r);
         if(s[l] != s[r]) l--, r++, n -= 2;
         else break;
 
