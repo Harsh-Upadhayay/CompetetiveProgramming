@@ -58,6 +58,13 @@ void init(){
     return;
 }
 
+bool fun(pair<ll,ll> a, pair<ll, ll> b) {
+
+
+
+
+}
+
 void solve(void){
     ll n, c; cin >> n >> c;
     vll cst(n + 1, inf); rpt(i, 1, n + 1) cin >> cst[i];
@@ -73,16 +80,19 @@ void solve(void){
     
     debug(lfcst);
     debug(rcst);
-    sort(all(lfcst));
+
+    multimap<ll, ll> lmp, rmp;
+
+    for(int i = 1; i <= n + 1; i++) 
+        lmp.insert({lfcst[i], rcst[i]}),
+        rmp.insert({rcst[i], lfcst[i]});
+
+
+    debug(lmp);
+    debug(rmp);
  
     ll ans = 0;
  
-    for(int i = 0; i < n + 1; i++) {
- 
-        ans += (lfcst[i] <= c);
-        c -= lfcst[i];
- 
-    }
  
     cout << ans;
  
