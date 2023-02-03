@@ -81,22 +81,53 @@ void solve(void){
     // debug(lfcst);
     // debug(rcst);
 
-    multimap<ll, ll> lmp, rmp;
+    multiset<pair<ll, ll>> lmp, rmp;
 
     for(int i = 1; i <= n; i++) 
         lmp.insert({lfcst[i], rcst[i]}),
         rmp.insert({rcst[i], lfcst[i]});
 
-    // while(c > 0) {
+    ll ans = 0;
+ 
+    while(c > 0) {
 
-        
+        auto lpath = lmp.begin(),
+             rpath = rmp.begin();
 
-    // }
+        ll lcost = lpath -> first,
+            rcost = rpath -> first;
+
+        debug(lcost, rcost);
+        ans += (min(lcost, rcost) <= c);
+        c -= min(lcost, rcost);
+
+        if(lcost < rcost) {
+            rmp.erase({lpath -> second, lpath -> first});
+            lmp.erase(lpath);
+        }
+        else if(lcost > rcost) {
+            lmp.erase({rpath -> second, rpath -> first});
+            rmp.erase(rpath);
+        }
+        else {
+            if(lpath -> second == rpath -> second) {
+                lmp.erase({rpath -> second, rpath -> first});
+                rmp.erase(rpath);
+
+            }
+            else if(lpath -> second > rpath -> second)  {
+                rmp.erase({lpath -> second, lpath -> first});
+                lmp.erase(lpath);
+            }
+            else{
+                lmp.erase({rpath -> second, rpath -> first});
+                rmp.erase(rpath);
+            }
+        }
+    }
 
     debug(lmp);
     debug(rmp);
- 
-    ll ans = 0;
  
  
     cout << ans;
