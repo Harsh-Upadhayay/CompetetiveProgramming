@@ -81,7 +81,7 @@ void solve(void){
     debug(lfcst);
     debug(rcst);
 
-    bool firstItr = false;
+    bool firstItr = true;;
     multiset<pair<ll, ll>> lmp, rmp;
 
     for(int i = 1; i <= n; i++) 
