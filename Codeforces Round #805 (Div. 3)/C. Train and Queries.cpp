@@ -58,19 +58,26 @@ void init(){
     return;
 }
 
+ll fun(vll &cst, vll &vis, ll i, ll c) {
+
+    if(i > cst.size() || c <= 0) return 0;
+
+    int take = 0, 
+        nottake = fun(cst, vis, i + 1, c);
+
+    if(!vis[i] && cst[i] <= c) 
+        vis[i] = 1,
+        take = 1 + fun(cst, vis, 0, c - cst[i]);
+
+    return max(take, nottake);
+}
 
 void solve(void){
-    
-    ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
+    ll n, c; cin >> n >> c;
+    vll cst(n); rpt(i, 0, n) cin >> cst[i];
+    vll vis(n, 0);
 
-    ll sum = 0, minE = inf, cnt = 0, izp = 0;
-    rpt(i, 0, n) sum += abs(v[i]), minE = min(minE, abs(v[i])), cnt += (v[i] < 0), izp != v[i] == 0;
-    debug(sum, izp, cnt);
-    if(izp || !(cnt % 2)) cout << sum;
-    else 
-        cout << (sum - 2 * minE);
-
+    cout << fun(cst, vis, 0, c);
 
     nl;
 }
