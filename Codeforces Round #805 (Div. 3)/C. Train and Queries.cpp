@@ -59,7 +59,7 @@ void init(){
 }
 
 ll fun(vll &cst, vll &vis, ll i, ll c) {
-
+    debug(i, c);
     if(i > cst.size() || c <= 0) return 0;
 
     int take = 0, 
@@ -78,7 +78,7 @@ void solve(void){
     vll vis(n, 0);
 
     cout << fun(cst, vis, 0, c);
-
+    debug('\n');
     nl;
 }
 
