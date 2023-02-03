@@ -58,20 +58,6 @@ void init(){
     return;
 }
 
-// ll fun(vll &cst, vll &vis, ll i, ll c) {
-//     debug(i, c);
-//     if(i > cst.size() || c <= 0) return 0;
-
-//     int take = 0, 
-//         nottake = fun(cst, vis, i + 1, c);
-
-//     if(!vis[i] && cst[i] <= c) 
-//         vis[i] = 1,
-//         take = 1 + fun(cst, vis, 0, c - cst[i]);
-
-//     return max(take, nottake);
-// }
-
 void solve(void){
     ll n, c; cin >> n >> c;
     vll cst(n + 1, inf); rpt(i, 1, n + 1) cin >> cst[i];
