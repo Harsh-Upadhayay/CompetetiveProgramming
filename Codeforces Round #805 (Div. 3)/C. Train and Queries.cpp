@@ -81,6 +81,7 @@ void solve(void){
     debug(lfcst);
     debug(rcst);
 
+    bool firstItr = false;
     multiset<pair<ll, ll>> lmp, rmp;
 
     for(int i = 1; i <= n; i++) 
@@ -98,6 +99,18 @@ void solve(void){
             rcost = rpath -> first;
 
         debug(lcost, rcost);
+        if(firstItr) {
+
+            firstItr = false;
+            ans += (lcost <= c);
+            c -= lcost;
+
+            lmp.erase(lpath);
+            rmp.erase({lpath -> second, lpath -> first});
+
+            continue;
+        }
+
         ans += (min(lcost, rcost) <= c);
         c -= min(lcost, rcost);
 
