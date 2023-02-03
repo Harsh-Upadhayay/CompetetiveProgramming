@@ -72,7 +72,7 @@ void solve(void){
 
     rpt(i, 0, n) {
 
-        ans = max(lf[i], rf[i]) - 1;
+        ans = max(lf[i] + rf[i], ans) - 1;
 
     }
     cout << ans;
