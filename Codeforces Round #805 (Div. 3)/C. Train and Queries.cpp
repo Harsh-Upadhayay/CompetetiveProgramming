@@ -76,6 +76,8 @@ void solve(void){
         ans = max(lf[i] + rf[i + 1], ans);
 
     }
+
+
     cout << ans;
     nl;
 }
