@@ -60,25 +60,20 @@ void init(){
 
 
 void solve(void){
+    
     ll n; cin >> n;
     string s; cin >> s;
-    ll x = 0, y = 0;
 
-    ll flag = 0;
+    ll l = 0, r = n - 1;
 
-    for(auto c : s) {
 
-        if(c == 'U') y++;
-        if(c == 'R') x++;
-        if(c == 'L') x--;
-        if(c == 'D') y--;
+    while(l < r) {
 
-        if(x == 1 && y == 1) flag = 1;
-        debug(x, y);
+        if(s[l] != s[r]) l--, r++, n -= 2;
+        else break;
 
     }
-    if(flag) yes
-    else no
+    cout << n;
     nl;
 }
 
