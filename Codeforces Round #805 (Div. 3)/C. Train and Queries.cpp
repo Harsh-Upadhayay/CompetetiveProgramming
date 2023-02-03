@@ -60,25 +60,16 @@ void init(){
 
 
 void solve(void){
+    
     ll n; cin >> n;
-    string s; cin >> s;
-    set<char> ls, rs;
-    vll lf(n, 0), rf(n, 0);
+    vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    rpt(i, 0, n) ls.insert(s[i]), lf[i] = ls.size();
-    rpt(i, n, 0) rs.insert(s[i]), rf[i] = rs.size();
+    ll sum = 0;
+    rpt(i, 0, n) sum += v[i];
 
-    ll ans = 0;
-    debug(lf);
-    debug( rf);
-    rpt(i, 0, n - 1) {
+    sum -= 2 * (min(abs(v[0]), abs(v[n - 1])));
+    cout << sum;
 
-        ans = max(lf[i] + rf[i + 1], ans);
-
-    }
-
-
-    cout << ans;
     nl;
 }
 
