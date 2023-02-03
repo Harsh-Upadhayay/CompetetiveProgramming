@@ -78,8 +78,8 @@ void solve(void){
 
     } 
     
-    // debug(lfcst);
-    // debug(rcst);
+    debug(lfcst);
+    debug(rcst);
 
     multiset<pair<ll, ll>> lmp, rmp;
 
