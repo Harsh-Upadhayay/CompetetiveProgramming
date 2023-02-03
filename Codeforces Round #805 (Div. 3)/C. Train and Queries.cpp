@@ -62,37 +62,33 @@ void solve(void){
     ll n, c; cin >> n >> c;
     vll cst(n + 1, inf); rpt(i, 1, n + 1) cin >> cst[i];
     
-    ll idx, minE = ninf;
+    vll lfcst(n + 1, inf), rcst(n + 1, inf);
+
     rpt(i, 1, n + 1){
 
-        if(minE < cst[i] + i) {
+        lfcst[i] = cst[i] + i,
+        rcst[i] = cst[i] + n - i + 1; 
 
-            minE = cst[i];
-            idx = i;
-
-        }
-    }
-
-    cst[idx] = inf; 
-    ll ans = 1;
-    c -= minE;
-
+    } 
+    
+    debug(lfcst);
+    debug(rcst);
     sort(all(cst));
-
-
+ 
+    ll ans = 0;
+ 
     for(int i = 0; i < n + 1; i++) {
-
+ 
         ans += (cst[i] <= c);
         c -= cst[i];
-
+ 
     }
-
+ 
     cout << ans;
-
+ 
     debug('\n');
     nl;
 }
-
 
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
