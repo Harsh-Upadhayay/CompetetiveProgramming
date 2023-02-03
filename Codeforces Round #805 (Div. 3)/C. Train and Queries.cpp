@@ -78,8 +78,8 @@ void solve(void){
 
     } 
     
-    debug(lfcst);
-    debug(rcst);
+    // debug(lfcst);
+    // debug(rcst);
 
     multimap<ll, ll> lmp, rmp;
 
@@ -87,6 +87,11 @@ void solve(void){
         lmp.insert({lfcst[i], rcst[i]}),
         rmp.insert({rcst[i], lfcst[i]});
 
+    // while(c > 0) {
+
+        
+
+    // }
 
     debug(lmp);
     debug(rmp);
