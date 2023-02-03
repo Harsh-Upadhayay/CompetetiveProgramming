@@ -83,7 +83,7 @@ void solve(void){
 
     multimap<ll, ll> lmp, rmp;
 
-    for(int i = 1; i <= n + 1; i++) 
+    for(int i = 1; i <= n; i++) 
         lmp.insert({lfcst[i], rcst[i]}),
         rmp.insert({rcst[i], lfcst[i]});
 
