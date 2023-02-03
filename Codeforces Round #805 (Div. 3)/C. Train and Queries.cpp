@@ -68,7 +68,7 @@ void solve(void){
     rpt(i, 0, n) ls.insert(s[i]), lf[i] = ls.size();
     rpt(i, n - 1, 0) {
         rs.insert(s[i]), rf[i] = rs.size();
-        cout << i;
+        cout << i << " ";
     }
     debug(lf, rf);
 
