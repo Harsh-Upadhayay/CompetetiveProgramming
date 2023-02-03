@@ -107,7 +107,7 @@ void solve(void){
 
             lmp.erase(lpath);
             rmp.erase({lpath -> second, lpath -> first});
-
+            debug(c);
             continue;
         }
 
