@@ -60,14 +60,24 @@ void init(){
 
 
 void solve(void){
-    
-    char ch; cin >> ch;
-    string s = "codeforces";
-    set<char> st;
-    for(auto x : s) st.insert(x);
-    if(st.count(ch)) yes
-    else no;
+    ll n; cin >> n;
+    string s; cin >> s;
+    ll x = 0, y = 0;
 
+    ll flag = 0;
+
+    for(auto x : s) {
+
+        if(x == 'U') y++;
+        if(x == 'R') x++;
+        if(x == 'L') x--;
+        if(x == 'D') y--;
+
+        if(x == 1 && y == 1) flag = 1;
+
+    }
+    if(flag) yes
+    else no
     nl;
 }
 
