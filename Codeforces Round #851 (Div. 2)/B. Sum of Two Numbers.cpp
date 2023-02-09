@@ -70,7 +70,7 @@ ll sum(ll x) {
 void solve(ll n){
     
     // ll n; cin >> n;
-    cout << n << " :  ";
+    // cout << n << " :  ";
     ll a, b;
     if(n % 2 && (n / 2) % 10 == 9) 
         a = n / 2 - 4, b = n / 2 + 5;
@@ -79,8 +79,7 @@ void solve(ll n){
 
     if(a + b != n || abs(sum(a) - sum(b)) > 1)
         cout << a << " " << b << " " << a + b << " " << abs(sum(a) - sum(b));
-    else
-        cout << a << " " << b;
+    
 
     nl;
 }
