@@ -77,7 +77,10 @@ void solve(ll n){
     else
         a = n / 2, b = n / 2 + n % 2;
 
-    cout << a << " " << b << " " << a + b << " " << abs(sum(a) - sum(b));
+    if(a + b != n || abs(sum(a) - sum(b)) > 1)
+        cout << a << " " << b << " " << a + b << " " << abs(sum(a) - sum(b));
+    else
+        cout << a << " " << b;
 
     nl;
 }
