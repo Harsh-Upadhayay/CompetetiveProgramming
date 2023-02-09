@@ -76,7 +76,7 @@ void solve(ll n){
     while(n % 2 && _ % 10 == 9) c++, _ /= 10;
     if(n == 199)debug(c);
     if(c >= 1) 
-        a = n / 2 - 4 * stoi(s.substr(0, c)), b = n / 2 + (5 * stoi(s.substr(0, c))) - 9;
+        a = n / 2 - 4 * stoi(s.substr(0, c)), b = n / 2 + (5 * stoi(s.substr(0, c))) - 9 * ((c > 1) ? stoi(s.substr(0, c - 1)) : 0);
     else
         a = n / 2, b = n / 2 + n % 2;
 
