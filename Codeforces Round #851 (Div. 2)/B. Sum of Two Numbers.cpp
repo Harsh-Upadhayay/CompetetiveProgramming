@@ -58,18 +58,26 @@ void init(){
     return;
 }
 
+ll sum(ll x) {
+
+    ll s = 0;
+    while(x) 
+        s += x % 10,
+        x /= 10;
+    return s;
+}
 
 void solve(ll n){
     
     // ll n; cin >> n;
     cout << n << " :  ";
-    if(n % 2 && (n / 2) % 10 == 9) {
-
-        cout << n / 2 - 4 << " " << n / 2 + 5;
-
-    }
+    ll a, b;
+    if(n % 2 && (n / 2) % 10 == 9) 
+        a = n / 2 - 4, b = n / 2 + 5;
     else
-        cout << n / 2 << " " << n / 2 + n % 2;
+        a = n / 2, b = n / 2 + n % 2;
+
+    cout << a << " " << b << " " << a + b << abs(sum(a) - sum(b));
 
     nl;
 }
