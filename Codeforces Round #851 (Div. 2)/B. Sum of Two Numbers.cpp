@@ -75,7 +75,7 @@ void solve(ll n){
     string s = "1111111111";
     while(n % 2 && _ % 10 == 9) c++, _ /= 10;
     if(n == 199)debug(c);
-    if(c == 1) 
+    if(c >= 1) 
         a = n / 2 - 4 * stoi(s.substr(0, c)), b = n / 2 + 5 * stoi(s.substr(0, c));
     else
         a = n / 2, b = n / 2 + n % 2;
