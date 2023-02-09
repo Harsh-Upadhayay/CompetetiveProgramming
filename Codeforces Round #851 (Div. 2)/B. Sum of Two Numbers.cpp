@@ -81,7 +81,7 @@ void solve(ll n){
         cout << a << " " << b << " " << a + b << " " << abs(sum(a) - sum(b));
     
 
-    nl;
+    // nl;
 }
 
 
