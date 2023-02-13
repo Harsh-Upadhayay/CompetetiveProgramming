@@ -75,6 +75,7 @@ void solve(void){
         if(uniqVals.size() <= 2) {
 
             uniqVals.insert(arr[fwd]);
+            maxLen = max(maxLen, fwd - bkw + 1);
             fwd++;
         }
 
@@ -91,7 +92,6 @@ void solve(void){
 
         debug(fwd, bkw);
 
-        maxLen = max(maxLen, fwd - bkw + 1);
     }
 
 
