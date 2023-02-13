@@ -63,7 +63,7 @@ void solve(void){
     
     int n = 5;
 
-    vector<int> arr = {1,2,3,2,2};
+    vector<int> arr = {1,3,2,3,2,2};
 
     set<int> uniqVals;
     int maxLen = 0,
