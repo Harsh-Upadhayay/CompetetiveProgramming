@@ -63,8 +63,8 @@ void solve(void){
     
    
 
-    vector<int> arr = {12,2,2,3,1,2,3,2,3,2,2};
-    int n = 6;
+    vector<int> arr = {1,2,3,4,5,6,7,8,9,10,11};
+    int n = 11;
 
     set<int> uniqVals;
     int maxLen = 0,
