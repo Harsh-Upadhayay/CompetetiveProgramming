@@ -63,7 +63,7 @@ void solve(void){
     
    
 
-    vector<int> arr = {1,4,2,3,2,2};
+    vector<int> arr = {12,2,2,3,1,2,3,2,3,2,2};
     int n = 6;
 
     set<int> uniqVals;
