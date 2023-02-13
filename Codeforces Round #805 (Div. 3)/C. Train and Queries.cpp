@@ -61,9 +61,10 @@ void init(){
 
 void solve(void){
     
-    int n = 5;
+   
 
     vector<int> arr = {1,4,2,3,2,2};
+    int n = 6;
 
     set<int> uniqVals;
     int maxLen = 0,
