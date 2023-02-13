@@ -89,6 +89,7 @@ void solve(void){
 
         }
 
+        debug(fwd, bkw);
 
         maxLen = max(maxLen, fwd - bkw + 1);
     }
