@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-#define TESTCASE
+// #define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -58,95 +58,47 @@ void init(){
     return;
 }
 
-bool fun(pair<ll,ll> a, pair<ll, ll> b) {
-
-
-
-
-}
 
 void solve(void){
-    ll n, c; cin >> n >> c;
-    vll cst(n + 1, inf); rpt(i, 1, n + 1) cin >> cst[i];
     
-    vll lfcst(n + 1, inf), rcst(n + 1, inf);
+    int n = 5;
 
-    rpt(i, 1, n + 1){
+    vector<int> arr = {1,2,3,2,2};
 
-        lfcst[i] = cst[i] + i,
-        rcst[i] = cst[i] + n - i + 1; 
+    set<int> uniqVals;
+    int maxLen = 0,
+        fwd = 0,
+        bkw = 0;
 
-    } 
-    
-    debug(lfcst);
-    debug(rcst);
+    while(fwd < arr.size()) {
 
-    bool firstItr = true;;
-    multiset<pair<ll, ll>> lmp, rmp;
+        if(uniqVals.size() <= 2) {
 
-    for(int i = 1; i <= n; i++) 
-        lmp.insert({lfcst[i], rcst[i]}),
-        rmp.insert({rcst[i], lfcst[i]});
-
-    ll ans = 0;
- 
-    while(c > 0) {
-
-        auto lpath = lmp.begin(),
-             rpath = rmp.begin();
-
-        ll lcost = lpath -> first,
-            rcost = rpath -> first;
-
-        debug(lcost, rcost);
-        if(firstItr) {
-
-            firstItr = false;
-            ans += (lcost <= c);
-            c -= lcost;
-
-            lmp.erase(lpath);
-            rmp.erase({lpath -> second, lpath -> first});
-            continue;
+            uniqVals.insert(arr[fwd]);
+            fwd++;
         }
 
-        ans += (min(lcost, rcost) <= c);
-        c -= min(lcost, rcost);
-
-        if(lcost < rcost) {
-            rmp.erase({lpath -> second, lpath -> first});
-            lmp.erase(lpath);
-        }
-        else if(lcost > rcost) {
-            lmp.erase({rpath -> second, rpath -> first});
-            rmp.erase(rpath);
-        }
         else {
-            if(lpath -> second == rpath -> second) {
-                lmp.erase({rpath -> second, rpath -> first});
-                rmp.erase(rpath);
+
+            while(uniqVals.size() > 2) {
+
+                uniqVals.erase(arr[bkw]);
+                bkw++;
 
             }
-            else if(lpath -> second > rpath -> second)  {
-                rmp.erase({lpath -> second, lpath -> first});
-                lmp.erase(lpath);
-            }
-            else{
-                lmp.erase({rpath -> second, rpath -> first});
-                rmp.erase(rpath);
-            }
+
         }
+
+
+        maxLen = max(maxLen, fwd - bkw + 1);
     }
 
-    debug(lmp);
-    debug(rmp);
- 
- 
-    cout << ans;
- 
-    debug('\n');
+
+    cout << maxLen;
+
     nl;
 }
+
 
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
