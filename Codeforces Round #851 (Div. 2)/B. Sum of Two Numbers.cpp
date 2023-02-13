@@ -81,8 +81,7 @@ void solve(ll n){
         a = n / 2, b = n / 2 + n % 2;
 
     if(a + b != n || abs(sum(a) - sum(b)) > 1) {
-        cout << n << " ";
-        cout << a << " " << b << " " << a + b << " " << abs(sum(a) - sum(b)) << "\n";
+        debug(n, a, b, a + b, abs(sum(a) - sum(b)));
     }
 
 
