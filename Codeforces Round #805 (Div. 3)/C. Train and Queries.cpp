@@ -63,10 +63,10 @@ void solve(void){
     
    
 
-    vector<int> arr = {1,1,2,2,2,3,3,3,3};
-    int n = 9;
+    vector<int> arr = {2,3,1,1,4};
+    int n = 5;
 
-    set<int> uniqVals;
+    map<int, int> uniqValFreq;
     int maxLen = 0,
         fwd = 0,
         bkw = 0;
@@ -75,14 +75,14 @@ void solve(void){
 
         if(uniqVals.size() <= 2) {
 
-            uniqVals.insert(arr[fwd]);
+            uniqVals.[arr[fwd]]++;
             maxLen = max(maxLen, fwd - bkw + 1);
             fwd++;
         }
 
         else {
 
-            while(uniqVals.size() > 2) {
+            while() {
 
                 uniqVals.erase(arr[bkw]);
                 bkw++;
