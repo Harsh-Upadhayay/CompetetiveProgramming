@@ -64,13 +64,26 @@ void solve(void){
     ll n, x; cin >> n >> x;
     vll l(n), r(n); rpt(i, 0, n) cin >> l[i] >> r[i];
 
-    vll wl, wr;
+    vll freq(100);
     rpt(i, 0, n)
         if(x >= l[i] || x <= r[i])
-            wl.push_back(l[i]),
-            wr.push_back(r[i]);
+            rpt(j, l[i], r[i] + 1)
+                freq[j]++;
 
-    debug(wl, wr);
+    ll mx = nmax(freq);
+
+    ll cnt = 0, idx = -1;
+    rpt(i, 0, 100) {
+        cnt += (mx == freq[i]);
+        if(i == x && idx == -1)
+            idx = i;
+    }
+
+    if(cnt == 1 && idx == x)
+        cout << "YES";
+    else
+        cout << "NO";
+
 
     nl;
 }
