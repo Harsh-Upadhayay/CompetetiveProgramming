@@ -71,7 +71,7 @@ void solve(void){
                 freq[j]++;
 
     ll mx = nmax(freq);
-
+    debug(freq);
     ll cnt = 0, idx = -1;
     rpt(i, 0, 100) {
         cnt += (mx == freq[i]);
