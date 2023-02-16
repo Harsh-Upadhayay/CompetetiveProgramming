@@ -69,8 +69,15 @@ bool isalt(string s) {
 
 void solve(void){
     
-    ll n, m; cin >> n >> m;
+    ll n, m, dup = 0; cin >> n >> m;
     string a, b; cin >> a >> b;
+
+    string c = a + b;
+
+    for(int i = 0; i < c.size() - 1; i ++) 
+        dup += (c[i] == c[i + 1]);
+
+    debug(dup);
 
     bool af = isalt(a), bf = isalt(b);
 
