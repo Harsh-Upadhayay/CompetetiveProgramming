@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-// #define TESTCASE
+#define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -58,45 +58,36 @@ void init(){
     return;
 }
 
+bool isalt(string s) {
+
+    for(int i = 0; i < s.size() - 1; i++)
+        if(s[i] == s[i + 1])
+            return false;
+    return true;
+
+}
 
 void solve(void){
     
-   
+    ll n, m; cin >> n >> m;
+    string a, b; cin >> a >> b;
 
-    vector<int> arr = {2,3,1,1,4};
-    int n = 5;
+    bool af = isalt(a), bf = isalt(b);
 
-    map<int, int> uniqValFreq;
-    int maxLen = 0,
-        fwd = 0,
-        bkw = 0;
+    if(af && bf) kill("YES");
+    if(!af && !bf) kill("NO");
 
-    while(fwd < arr.size()) {
+    cout << b.substr(0, m -1 );
 
-        if(uniqVals.size() <= 2) {
+    // if(af && !bf) {
 
-            uniqVals.[arr[fwd]]++;
-            maxLen = max(maxLen, fwd - bkw + 1);
-            fwd++;
-        }
+    //     if(a[n - 1] != b[m - 1] && isalt(b.substr(0, m - 1))) {
 
-        else {
+    //     }
 
-            while() {
-
-                uniqVals.erase(arr[bkw]);
-                bkw++;
-
-            }
-
-        }
-
-        debug(fwd, bkw);
-
-    }
+    // }
 
 
-    cout << maxLen;
 
     nl;
 }
