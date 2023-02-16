@@ -58,30 +58,19 @@ void init(){
     return;
 }
 
-bool isalt(string s) {
-
-    for(int i = 0; i < s.size() - 1; i++)
-        if(s[i] == s[i + 1])
-            return false;
-    return true;
-
-}
 
 void solve(void){
     
-    ll n, m, dup = 0; cin >> n >> m;
-    string a, b; cin >> a >> b;
-    reverse(all(b));
-    string c = a + b;
+    ll n, x; cin >> n >> x;
+    vll l(n), r(n); rpt(i, 0, n) cin >> l[i] >> r[i];
 
-    for(int i = 0; i < c.size() - 1; i ++) 
-        dup += (c[i] == c[i + 1]);
+    vll wl, wr;
+    rpt(i, 0, n)
+        if(x < l[i] || x > r[i])
+            wl.push_back(l[i]),
+            wr.push_back(r[i]);
 
-    if(dup > 1) kill("NO");
-
-    cout << "YES";
-
-
+    debug(wl, wr);
 
     nl;
 }
