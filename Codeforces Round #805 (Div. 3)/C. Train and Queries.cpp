@@ -66,12 +66,12 @@ void solve(void){
 
     vll freq(100);
     rpt(i, 0, n)
-        if(x >= l[i] || x <= r[i])
+        if(x >= l[i] && x <= r[i])
             rpt(j, l[i], r[i] + 1)
                 freq[j]++;
 
     ll mx = nmax(freq);
-    debug(freq, l, r);
+    debug(freq, l, r, x);
 
     ll cnt = 0, idx = -1;
     rpt(i, 0, 100) {
