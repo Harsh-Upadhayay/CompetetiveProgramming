@@ -66,7 +66,7 @@ void solve(void){
 
     vll wl, wr;
     rpt(i, 0, n)
-        if(x < l[i] || x > r[i])
+        if(x >= l[i] || x <= r[i])
             wl.push_back(l[i]),
             wr.push_back(r[i]);
 
