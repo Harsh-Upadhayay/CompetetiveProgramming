@@ -71,7 +71,7 @@ void solve(void){
     
     ll n, m, dup = 0; cin >> n >> m;
     string a, b; cin >> a >> b;
-
+    reverse(all(b));
     string c = a + b;
 
     for(int i = 0; i < c.size() - 1; i ++) 
