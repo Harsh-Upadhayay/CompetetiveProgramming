@@ -77,22 +77,9 @@ void solve(void){
     for(int i = 0; i < c.size() - 1; i ++) 
         dup += (c[i] == c[i + 1]);
 
-    debug(dup);
+    if(dup > 1) kill("NO");
 
-    bool af = isalt(a), bf = isalt(b);
-
-    if(af && bf) kill("YES");
-    if(!af && !bf) kill("NO");
-
-    if(af && !bf) 
-
-        if(a[n - 1] != b[m - 1] && isalt(b.substr(0, m - 1))) kill ("YES");
-
-    if(!af && bf) 
-
-        if(a[n - 1] != b[m - 1] && isalt(a.substr(0, n - 1))) kill("YES");
-
-    kill("NO");
+    cout << "YES";
 
 
 
