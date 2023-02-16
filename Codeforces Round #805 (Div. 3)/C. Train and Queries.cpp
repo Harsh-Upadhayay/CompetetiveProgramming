@@ -77,15 +77,15 @@ void solve(void){
     if(af && bf) kill("YES");
     if(!af && !bf) kill("NO");
 
-    cout << b.substr(0, m -1 );
+    if(af && !bf) 
 
-    // if(af && !bf) {
+        if(a[n - 1] != b[m - 1] && isalt(b.substr(0, m - 1))) kill ("YES");
 
-    //     if(a[n - 1] != b[m - 1] && isalt(b.substr(0, m - 1))) {
+    if(!af && bf) 
 
-    //     }
+        if(a[n - 1] != b[m - 1] && isalt(a.substr(0, n - 1))) kill("YES");
 
-    // }
+    kill("NO");
 
 
 
