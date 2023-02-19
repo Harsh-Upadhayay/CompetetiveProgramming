@@ -61,7 +61,7 @@ void init(){
 ll dfs(vll adj[], vll &vis, ll sr) {
 
     vis[sr] = 1;
-    ll maxH = 0;
+    ll maxH = 1;
 
     for(auto x : adj[sr])
         if(!vis[x])
