@@ -58,14 +58,16 @@ void init(){
     return;
 }
 
-void dfs(vll adj[], vll &vis, ll sr, ll &h) {
+ll dfs(vll adj[], vll &vis, ll sr) {
 
     vis[sr] = 1;
+    ll maxH = 0;
 
     for(auto x : adj[sr])
         if(!vis[x])
-            dfs(adj, vis, x, h);
+            maxH = max(maxH, dfs(adj, vis, x) + 1);
 
+    return maxH;
 }
 
 void solve(void){
@@ -73,7 +75,6 @@ void solve(void){
     ll n, root; cin >> n;
     vll adj[n], vis(n, 0);
 
-    debug(1);
     rpt(i, 0, n) {
 
         ll x; cin >> x;
@@ -83,11 +84,9 @@ void solve(void){
             root = i;
 
     }
-    debug(1);
-    ll h = 1;
-    dfs(adj, vis, root, h);
 
-    cout << h;
+    ll h = 1;
+    cout << dfs(adj, vis, root);
 }
 
 
