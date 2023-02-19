@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-#define TESTCASE
+// #define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -58,35 +58,36 @@ void init(){
     return;
 }
 
+void dfs(vll adj[], vll &vis, ll sr, ll &h) {
+
+    vis[sr] = 1;
+
+    for(auto x : adj[sr])
+        if(!vis[x])
+            dfs(adj, vis, x, h);
+
+}
 
 void solve(void){
     
-    ll n, x; cin >> n >> x;
-    vll l(n), r(n); rpt(i, 0, n) cin >> l[i] >> r[i];
+    ll n, root; cin >> n;
+    vll adj[n], vis(n, 0);
 
-    vll freq(100);
-    rpt(i, 0, n)
-        if(x >= l[i] && x <= r[i])
-            rpt(j, l[i], r[i] + 1)
-                freq[j]++;
+    debug(1);
+    rpt(i, 0, n) {
 
-    ll mx = nmax(freq);
-    debug(freq, l, r, x);
+        ll x; cin >> x;
+        if(x != -1)
+            adj[x].push_back(i);
+        else
+            root = i;
 
-    ll cnt = 0, idx = -1;
-    rpt(i, 0, 100) {
-        cnt += (mx == freq[i]);
-        if(i == x && idx == -1)
-            idx = i;
     }
+    debug(1);
+    ll h = 1;
+    dfs(adj, vis, root, h);
 
-    if(cnt == 1 && idx == x)
-        cout << "YES";
-    else
-        cout << "NO";
-
-
-    nl;
+    cout << h;
 }
 
 
