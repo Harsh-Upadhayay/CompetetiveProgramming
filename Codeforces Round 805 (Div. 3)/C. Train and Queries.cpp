@@ -61,9 +61,9 @@ void init(){
 ll fun(vll &v, ll i, ll k) {
 
  
+    debug(i, k);
     if(k == 0) return 0;
     if(k < 0 || i < 0) return inf;
-    debug(v[i], k);
 
     ll take = 0, nottake = 0;
 
