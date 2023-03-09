@@ -85,6 +85,11 @@ void solve(void){
         cout << "\n";
     }
 
+    ll x = 0;
+    vll arr = {4, 11, 810, 817, 12, 19, 818, 825};
+    for(ll _ : arr) x ^= _;
+    cout << x;
+
     nl;
 }
 
