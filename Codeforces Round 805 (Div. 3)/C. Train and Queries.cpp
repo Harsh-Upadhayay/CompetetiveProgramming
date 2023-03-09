@@ -76,12 +76,23 @@ ll fun(vll &v, vector<vector<ll>> &dp, ll i, ll j) {
 
 void solve(void){
     
-    ll n, k; cin >> n >> k;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
+    ll n; cin >> n;
 
-    vector<vector<ll>> dp(n + 1, vector<ll> (k + 1, -1));
+    ll x = 0;
 
-    cout << fun(v, dp, n - 1, k);
+    for(int i = 1; i <= n; i++) {
+
+        cout << i << " ";
+        x ^= i;
+
+        if(!(i % 4)) {
+            cout << ": " << x << "\n";
+            x = 0;
+        }
+
+    }
+
+    // cout << fun(v, dp, n - 1, k);
 
     nl;
 }
