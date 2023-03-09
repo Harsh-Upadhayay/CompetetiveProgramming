@@ -79,7 +79,7 @@ void solve(void){
     ll n, k; cin >> n >> k;
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    vector<vector<ll>> dp(n, vector<ll> (k + 1, 0));
+    vector<vector<ll>> dp(n, vector<ll> (k + 1, -1));
 
     cout << fun(v, dp, n - 1, k);
 
