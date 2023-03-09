@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-// #define TESTCASE
+// #define TESTCASE`
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -69,7 +69,7 @@ void solve(void){
 
     for(int tgt = 1; tgt <= n ; tgt++)  
         for(int i = 1; i <= 6 && i <= tgt; i++) 
-            dp[tgt] += dp[tgt - i];
+            dp[tgt] = (dp[tgt] % MOD + dp[tgt - i] % MOD) % MOD;
     
 
     cout << dp[n];
