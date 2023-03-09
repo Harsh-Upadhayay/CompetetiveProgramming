@@ -84,7 +84,7 @@ void solve(void){
         dp[i][0] = 0;
 
     for(int i = 0; i < n; i++) {
-        for(int j = 1; j <= k; j++) {
+        for(int j = 0; j <= k; j++) {
 
             ll take = inf, nottake = inf;
 
