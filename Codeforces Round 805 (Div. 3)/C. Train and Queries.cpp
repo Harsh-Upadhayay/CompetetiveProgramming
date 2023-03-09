@@ -96,7 +96,7 @@ void solve(void){
         }
 
     }
-
+    debug(dp);
     cout << dp[n][k];
 
     nl;
