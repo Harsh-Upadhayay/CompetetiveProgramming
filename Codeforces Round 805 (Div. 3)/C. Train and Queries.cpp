@@ -53,49 +53,32 @@ void storePrimes();
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
 
+vector<vector<ll>> mat(200, vll(200, 0));
+
 void init(){
 
+    int xr = 1;
+
+    for(int i = 0; i < 200; i += 2) {
+        for(int j = 0; j < 200; j += 2) {
+
+            mat[i][j] = xr, 
+            mat[i][j + 1] = xr + 1,
+            mat[i + 1][j] = xr + 2,
+            mat[i + 1][j + 1] = xr + 3;
+
+        }
+
+        xr += 8;
+    }
+    print(mat);
     return;
-}
-
-ll fun(vll &v, vector<vector<ll>> &dp, ll i, ll j) {
-
-    if(j == 0) return 0; 
-    if(j < 0 || i < 0) return inf;
-
-    if(dp[i][j] != -1) return dp[i][j];
-
-    ll take = inf, nottake = inf;
-
-    nottake = fun(v, dp, i - 1, j);
-
-    if(v[i] <= j) take = 1 + fun(v, dp, i, j -  v[i]);
-
-    return dp[i][j] = min(take, nottake);
 }
 
 void solve(void){
     
     ll n; cin >> n;
 
-    ll x = 0;
-
-    for(int i = 1; i <= n; i++) {
-
-        cout << i << " ";
-        x ^= i;
-
-        if(!(i % 4)) {
-            cout << ": " << x << "\n";
-            x = 0;
-        }
-
-    }
-
-    vll arr = {19, 20, 49, 50};
-    x = 0;
-    for(ll _ : arr) x ^= _;
-    cout << "\n" << x;
 
     nl;
 }
