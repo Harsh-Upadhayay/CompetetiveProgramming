@@ -92,7 +92,7 @@ void solve(void){
 
     }
 
-    vll arr = {3, 4,17, 18};
+    vll arr = {11, 12, 25, 26};
     x = 0;
     for(ll _ : arr) x ^= _;
     cout << "\n" << x;
