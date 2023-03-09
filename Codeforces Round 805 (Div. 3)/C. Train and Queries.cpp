@@ -60,7 +60,7 @@ void init(){
 
 ll fun(vll &v, ll i, ll k) {
 
-    debug(i, k);
+    debug(v[i], k);
 
     if(k == 0) return 1;
     if(k < 0 || i < 0) return inf;
