@@ -72,7 +72,6 @@ void init(){
 
         xr += 8;
     }
-    print(mat);
     return;
 }
 
