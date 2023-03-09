@@ -62,7 +62,7 @@ ll fun(vll &v, vector<vector<ll>> &dp, ll i, ll k) {
 
     if(k == 0) return 0; 
     if(k < 0 || i < 0) return inf;
-
+    debug(i);
     if(dp[i][k] != -1) return dp[i][k];
 
     ll take = inf, nottake = inf;
