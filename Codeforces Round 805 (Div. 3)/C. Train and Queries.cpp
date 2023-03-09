@@ -67,6 +67,7 @@ void init(){
             mat[i + 1][j] = xr + 2,
             mat[i + 1][j + 1] = xr + 3;
 
+            xr += 8;
         }
 
         xr += 8;
