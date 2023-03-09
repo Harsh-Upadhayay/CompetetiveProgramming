@@ -79,25 +79,9 @@ void solve(void){
     ll n, k; cin >> n >> k;
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    vector<vector<ll>> dp(n + 1, vector<ll> (k + 1, inf));
-    for(int i = 0; i <= n; i++)
-        dp[i][0] = 0;
+    vector<vector<ll>> dp(n + 1, vector<ll> (k + 1, -1));
 
-    for(int i = 0; i < n; i++) {
-        for(int j = 0; j <= k; j++) {
-
-            ll take = inf, nottake = inf;
-
-            nottake = dp[i][j];
-
-            if(v[i] <= j) take = 1 + dp[i + 1][j - v[i]];
-
-            dp[i][j] = min(take, nottake);
-        }
-
-    }
-    debug(dp);
-    cout << dp[n][k];
+    cout << fun(v, dp, n - 1, k);
 
     nl;
 }
