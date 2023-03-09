@@ -58,20 +58,20 @@ void init(){
     return;
 }
 
-ll fun(vll &v, ll i, ll k) {
+ll fun(vll &v, vector<vector<ll>> &dp, ll i, ll k) {
 
- 
-    debug(i, k);
     if(k == 0) return 0; 
     if(k < 0 || i < 0) return inf;
 
+    if(dp[i][k] != -1) return dp[i][k];
+
     ll take = inf, nottake = inf;
 
-    nottake = fun(v, i - 1, k);
+    nottake = fun(v, dp, i - 1, k);
 
-    if(v[i] <= k) take = 1 + fun(v, i, k -  v[i]);
+    if(v[i] <= k) take = 1 + fun(v, dp, i, k -  v[i]);
 
-    return min(take, nottake);
+    return dp[i][k] = min(take, nottake);
 }
 
 void solve(void){
@@ -79,7 +79,9 @@ void solve(void){
     ll n, k; cin >> n >> k;
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    cout << fun(v, n - 1, k);
+    vector<vector<ll>> dp(n, vector<ll> (k + 1, 0));
+
+    cout << fun(v, dp, n - 1, k);
 
     nl;
 }
