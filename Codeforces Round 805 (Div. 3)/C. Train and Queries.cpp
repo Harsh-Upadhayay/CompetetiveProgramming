@@ -68,7 +68,7 @@ void solve(void){
         cin >> a[i] >> b[i];
     debug(a, b);
 
-    
+    for(in)
     
     nl;
 }
