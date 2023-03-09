@@ -62,10 +62,10 @@ ll fun(vll &v, ll i, ll k) {
 
  
     debug(i, k);
-    if(k == 0) return 0;
+    if(k == 0) return 0; 
     if(k < 0 || i < 0) return inf;
 
-    ll take = 0, nottake = 0;
+    ll take = inf, nottake = inf;
 
     nottake = fun(v, i - 1, k);
 
