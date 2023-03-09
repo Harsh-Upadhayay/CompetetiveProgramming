@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-// #define TESTCASE
+#define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -58,35 +58,22 @@ void init(){
     return;
 }
 
-ll dfs(vll adj[], vll &vis, ll sr) {
-
-    vis[sr] = 1;
-    ll maxH = 1;
-
-    for(auto x : adj[sr])
-        if(!vis[x])
-            maxH = max(maxH, dfs(adj, vis, x) + 1);
-
-    return maxH;
-}
 
 void solve(void){
     
-    ll n, root; cin >> n;
-    vll adj[n], vis(n, 0);
+    ll n; cin >> n;
+        
+    vll dp(n + 1, 0);
 
-    rpt(i, 0, n) {
+    dp[0] = 1;
 
-        ll x; cin >> x;
-        if(x != -1)
-            adj[x].push_back(i);
-        else
-            root = i;
+    for(int tgt = 1; tgt <= n ; tgt++)  
+        for(int i = 1; i <= 6 && i <= tgt; i++) 
+            dp[tgt] += dp[tgt - i];
+    
 
-    }
-
-    ll h = 1;
-    cout << dfs(adj, vis, root);
+    cout << dp[n];
+    nl;
 }
 
 
