@@ -60,6 +60,8 @@ void init(){
 
 ll fun(vll &v, ll i, ll k) {
 
+    debug(i, k);
+
     if(k == 0) return 0;
     if(k < 0 || i < 0) return inf;
 
@@ -67,7 +69,7 @@ ll fun(vll &v, ll i, ll k) {
 
     nottake = fun(v, i - 1, k);
 
-    if(v[i] <= k) take = 1 + fun(v, i, k - v[i]);
+    if(v[i] <= k) take = 1 + fun(v, i, k -  v[i]);
 
     return min(take, nottake);
 }
