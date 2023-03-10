@@ -91,7 +91,7 @@ void solve() {
         }
 
     vector<vector<ll>> dp(n, vll(n, 0));
-    dp[n - 1][n - 1] = 1;
+    dp[n - 1][n - 1] = grid[n - 1][n - 1];
 
     vll curr(n, 0), next(n, 0);
 
@@ -107,7 +107,7 @@ void solve() {
                 if(j + 1 < n) right = dp[i][j + 1];
                 if(i + 1 < n) down = dp[i + 1][j];
 
-                dp[i][j] = right + down;
+                dp[i][j] = (right % MOD + down % MOD) % MOD;
             }
         }
     }
