@@ -95,7 +95,7 @@ void solve() {
 
     for(int i = n - 1; i >= 0; i--) {
         for(int j = n - 1; j >= 0; j--) {
-
+            if(i == n - 1 && j == n - 1) continue;
             ll right = 0, down = 0;
 
             if(!grid[i][j])
