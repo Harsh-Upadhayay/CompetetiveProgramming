@@ -58,26 +58,26 @@ void init(){
     return;
 }
 
-ll fun(ll n) {
-    debug(n);
+ll fun(vll &dp, ll n) {
+
     if(!n) return 0;
+    if(dp[n] != -1) return dp[n];
 
-    ll minSteps = INT_MAX;
-
-    ll temp = n;
+    ll minSteps = inf,
+        temp = n;
 
     while(temp) 
-        minSteps = min(minSteps, (temp % 10 ? 1 + fun(n - temp % 10) : inf)),
+        minSteps = min(minSteps, (temp % 10 ? 1 + fun(dp, n - temp % 10) : inf)),
         temp /= 10;
 
-    return minSteps;
+    return dp[n] = minSteps;
 }
 
 void solve() {
 
     ll n; cin >> n; 
-
-    cout << fun(n);
+    vll dp(n + 1, -1);
+    cout << fun(dp, n);
 
 }
 
