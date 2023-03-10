@@ -100,11 +100,12 @@ void solve() {
 
             if(!grid[i][j])
                 dp[i][j] = 0;
+            else {
+                if(j + 1 < n) right = dp[i][j + 1];
+                if(i + 1 < n) down = dp[i + 1][j];
 
-            if(j + 1 < n) right = dp[i][j + 1];
-            if(i + 1 < n) down = dp[i + 1][j];
-
-            dp[i][j] = right + down;
+                dp[i][j] = right + down;
+            }
         }
     }
 
