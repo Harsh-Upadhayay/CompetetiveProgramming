@@ -78,8 +78,10 @@ void solve() {
     ll n; cin >> n; 
     vector<vector<ll>> grid(n, vll(n, 0));
     rpt(i, 0, n)
-        rpt(j, 0, n) 
-            cin >> grid[i][j];
+        rpt(j, 0, n) {
+            char ch; cin >> ch; 
+            grid[i][j] = ch == '.';
+        }
     print(grid);
 
 }
