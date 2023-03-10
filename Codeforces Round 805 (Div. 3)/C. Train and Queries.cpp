@@ -81,12 +81,12 @@ void solve(void){
         adj[v - 1].push_back({u - 1, w});
     }
 
-    rpt(i, 0, n) {
-        cout << i << " : ";
-        for(auto adjN : adj[i])
-            cout << adjN.first << "," << adjN.second<< "  ";
-        cout << "\n";
-    }
+    // rpt(i, 0, n) {
+    //     cout << i << " : ";
+    //     for(auto adjN : adj[i])
+    //         cout << adjN.first << "," << adjN.second<< "  ";
+    //     cout << "\n";
+    // }
 
     vll pathWt(n, -1);
 
