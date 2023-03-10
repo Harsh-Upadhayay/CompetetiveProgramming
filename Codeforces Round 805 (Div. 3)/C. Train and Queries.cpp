@@ -110,7 +110,7 @@ void solve() {
 
     cout << dp[0][0];
 
-    print(dp);
+    // print(dp);
 
 }
 
