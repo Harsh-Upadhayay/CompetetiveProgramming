@@ -58,19 +58,17 @@ void init(){
     return;
 }
 
-ll fun(vll &dp, ll n) {
+ll fun(vector<vector<ll>> &grid, ll i, ll j) {
 
-    if(!n) return 0;
-    if(dp[n] != -1) return dp[n];
+    ll n = grid.size();
+    if(i == n - 1 && j == n - 1)
+        return 1;
+    if(i < 0 || j < 0 || i >= n || j >= n || !grid[i][j])
+        return 0;
 
-    ll minSteps = inf,
-        temp = n;
+    return fun(grid, i + 1, j) + 
+            fun(grid, i, j + 1);
 
-    while(temp) 
-        minSteps = min(minSteps, (temp % 10 ? 1 + fun(dp, n - temp % 10) : inf)),
-        temp /= 10;
-
-    return dp[n] = minSteps;
 }
 
 void solve() {
@@ -82,8 +80,10 @@ void solve() {
             char ch; cin >> ch; 
             grid[i][j] = ch == '.';
         }
+
     print(grid);
 
+    cout << fun(grid, 0, 0);
 }
 
 /*_________________________________________________________________________________________________________________________________________*/
