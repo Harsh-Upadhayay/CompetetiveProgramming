@@ -81,9 +81,9 @@ void solve(void){
     rpt(i, 0, n) cin >> cost[i];
     rpt(i, 0, n) cin >> pages[i];
 
-    vector<vll> dp(n + 1, vll(k + 1, 0));
+    vector<vll> dp(n + 1, vll(k + 1, -1));
 
-    
+
 
     cout << fun(cost, pages, dp, n - 1, k);
     nl;
