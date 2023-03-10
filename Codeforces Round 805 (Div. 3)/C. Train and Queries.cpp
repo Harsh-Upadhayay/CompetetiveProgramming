@@ -58,20 +58,27 @@ void init(){
     return;
 }
 
+ll fun(ll n) {
+    debug(n);
+    if(!n) return 0;
 
-void solve(void){
-    
-    ll n, k; cin >> n >> k;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
- 
-    vll curr(k + 1, 1), prev(k + 1, 0);
- 
-    for(int i = 0; i < n; i++, prev = curr) 
-        for(int j = 1; j <= k; j++) 
-                curr[j] = ((v[i] <= j ? 1 + curr[j - v[i]] : 0) + prev[j]);
-    cout << (curr[k]);
- 
-    nl;
+    ll minSteps = INT_MAX;
+
+    ll temp = n;
+
+    while(temp) 
+        minSteps = min(minSteps, temp % n ? fun(n - temp % 10) : minSteps),
+        temp /= 10;
+
+    return minSteps;
+}
+
+void solve() {
+
+    ll n; cin >> n; 
+
+    cout << fun(n);
+
 }
 
 /*_________________________________________________________________________________________________________________________________________*/
