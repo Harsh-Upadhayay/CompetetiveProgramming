@@ -93,7 +93,8 @@ void solve(void){
     dfs(adj, pathWt, 0, 0);
 
     map<ll, pair<ll, ll>> mp;
-    
+
+    debug(pathWt);    
     rpt(i, 0, n) {
         rpt(j, i + 1, n) {
 
@@ -112,7 +113,6 @@ void solve(void){
         }
     }
 
-    debug(pathWt);
 
     cout << "-1";
 
