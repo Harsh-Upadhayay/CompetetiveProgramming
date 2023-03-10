@@ -63,21 +63,26 @@ void solve(void){
     
     ll n; cin >> n;
 
-    vector<pair<ll, ll>> adj[n + 1];
+    vector<pair<ll, ll>> adj[n];
 
     rpt(i, 0, n - 1) {
         ll u, v, w; cin >> u >> v >> w;
 
-        adj[u].push_back({v, w});
-        adj[v].push_back({u, w});
+        adj[u - 1].push_back({v - 1, w});
+        adj[v - 1].push_back({u - 1, w});
     }
 
-    rpt(i, 1, n + 1) {
+    rpt(i, 0, n) {
         cout << i << " : ";
         for(auto adjN : adj[i])
             cout << adjN.first << "," << adjN.second<< "  ";
         cout << "\n";
     }
+
+    vll pathWt(n + 1, 0);
+
+
+
     debug(n);
 
     nl;
