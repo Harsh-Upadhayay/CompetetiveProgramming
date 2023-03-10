@@ -60,9 +60,9 @@ void init(){
 
 ll fun(vll &cost, vll &pages,vector<vll> &dp, ll i, ll j) {
 
-    if(i < 0 || j <= 0) return 0;
-
     if(dp[i + 1][j] != -1) return dp[i + 1][j];
+
+    if(i < 0 || j <= 0) return 0;
 
     ll take = 0, nottake = 0;
 
@@ -81,7 +81,9 @@ void solve(void){
     rpt(i, 0, n) cin >> cost[i];
     rpt(i, 0, n) cin >> pages[i];
 
-    vector<vll> dp(n + 1, vll(k + 1, -1));
+    vector<vll> dp(n + 1, vll(k + 1, 0));
+
+    
 
     cout << fun(cost, pages, dp, n - 1, k);
     nl;
