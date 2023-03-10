@@ -106,12 +106,12 @@ void solve(void){
             else
                 mp[pathWt[i]] = {i, j};
 
+            if(pathWt.size() > 2e20)
+                kill("-1");
         }
     }
 
     cout << "-1";
-
-    debug(pathWt);
 
     nl;
 }
