@@ -63,7 +63,7 @@ void dfs(vector<pair<ll, ll>> adj[], vll &pathWt, ll node, ll wt) {
     pathWt[node] = wt;
 
     for(auto adjN : adj[node])
-        if(pathWt[adjN.first] != -1)
+        if(pathWt[adjN.first] == -1)
             dfs(adj, pathWt, adjN.first, wt ^ adjN.second);
 
 }
