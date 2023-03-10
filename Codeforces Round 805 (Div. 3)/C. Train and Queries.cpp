@@ -70,7 +70,12 @@ ll fun(vector<vector<ll>> &grid, vector<vector<ll>> &dp, ll i, ll j) {
 
     if(dp[i][j] != -1) return dp[i][j];
 
-    return dp[i][j] = (fun(grid, dp, i + 1, j) + fun(grid, dp, i, j + 1));
+    ll right = 0, down = 0;
+
+    if(i + 1 < n) right = fun(grid, dp, i, j + 1);
+    if(j + 1 < n) down = fun(grid, dp, i + 1, j);
+
+    return dp[i][j] = right + down;
 
 }
 
@@ -86,10 +91,10 @@ void solve() {
             grid[i][j] = ch == '.';
         }
 
-    print(grid);
+
 
     cout << fun(grid, dp, 0, 0);
-    print(dp);
+    
 }
 
 /*_________________________________________________________________________________________________________________________________________*/
