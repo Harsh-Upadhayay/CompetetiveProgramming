@@ -101,6 +101,7 @@ void solve(void){
 
             if(mp.find(x) != mp.end()) {
                 cout << mp[x].fi + 1 << " " << mp[x].se + 1<< " " << i + 1 << " " << j + 1 << "\n";
+                cout << x << "\n";
                 return ;
             }
             else
