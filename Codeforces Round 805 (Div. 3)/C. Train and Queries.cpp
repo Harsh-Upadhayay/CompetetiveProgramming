@@ -65,12 +65,12 @@ ll fun(vector<vector<ll>> &grid, vector<vector<ll>> &dp, ll i, ll j) {
     if(i == n - 1 && j == n - 1)
         return 1;
 
-    if(!grid[i][j])
-        return 0;
-
     if(dp[i][j] != -1) return dp[i][j];
 
     ll right = 0, down = 0;
+
+    if(!grid[i][j])
+        return 0;
 
     if(j + 1 < n) right = fun(grid, dp, i, j + 1);
     if(i + 1 < n) down = fun(grid, dp, i + 1, j);
