@@ -107,7 +107,7 @@ void solve(void){
                 return ;
             }
             else
-                mp[pathWt[i]] = {i, j};
+                mp[x] = {i, j};
 
             if(pathWt.size() > 2e20)
                 kill("-1");
