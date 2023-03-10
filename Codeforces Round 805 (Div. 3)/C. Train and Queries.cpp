@@ -58,6 +58,15 @@ void init(){
     return;
 }
 
+void dfs(vector<pair<ll, ll>> adj[], vll &pathWt, ll node, ll wt) {
+
+    pathWt[node] = wt;
+
+    for(auto adjN : adj[node])
+        if(pathWt[adjN.first] != -1)
+            dfs(adj, pathWt, adjN.first, wt ^ adjN.second);
+
+}
 
 void solve(void){
     
@@ -79,11 +88,12 @@ void solve(void){
         cout << "\n";
     }
 
-    vll pathWt(n + 1, 0);
+    vll pathWt(n + 1, -1);
+
+    dfs(adj, pathWt, 0, 0);
 
 
-
-    debug(n);
+    debug(pathWt);
 
     nl;
 }
