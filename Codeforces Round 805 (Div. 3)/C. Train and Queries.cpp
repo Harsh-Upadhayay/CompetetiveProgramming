@@ -67,7 +67,7 @@ ll fun(ll n) {
     ll temp = n;
 
     while(temp) 
-        minSteps = min(minSteps, (temp % n ? fun(n - temp % 10) : inf)),
+        minSteps = min(minSteps, (temp % 10 ? fun(n - temp % 10) : inf)),
         temp /= 10;
 
     return minSteps;
