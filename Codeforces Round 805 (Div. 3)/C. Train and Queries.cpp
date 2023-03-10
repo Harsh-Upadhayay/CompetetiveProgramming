@@ -91,7 +91,7 @@ void solve() {
         }
 
     vector<vector<ll>> dp(n, vll(n, 0));
-    dp[n - 1][n - 1] = grid[n - 1][n - 1];
+    dp[n - 1][n - 1] = grid[n - 1][n - 1]   ;
 
     vll curr(n, 0), next(n, 0);
 
