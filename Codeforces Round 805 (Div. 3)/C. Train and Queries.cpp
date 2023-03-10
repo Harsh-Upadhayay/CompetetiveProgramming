@@ -81,11 +81,26 @@ void solve(void){
     rpt(i, 0, n) cin >> cost[i];
     rpt(i, 0, n) cin >> pages[i];
 
-    vector<vll> dp(n + 1, vll(k + 1, -1));
+    vector<vll> dp(n + 1, vll(k + 1, 0));
+
+    for(int i = 0; i < n; i++ ){ 
+
+        for(int j = 1; j <= k; j++){
 
 
+            ll take = 0, nottake = 0;
 
-    cout << fun(cost, pages, dp, n - 1, k);
+            nottake = dp[i][j];
+
+            if(cost[i] <= j) take = pages[i] + dp[i][j - cost[i]];
+
+            dp[i + 1][j] = max(take, nottake);
+
+        }
+
+    }
+
+    cout << dp[n][k];
     nl;
 }
 
