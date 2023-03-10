@@ -95,14 +95,14 @@ void solve(void){
     map<ll, pair<ll, ll>> mp;
 
     debug(pathWt);
-
+        
     rpt(i, 0, n) {
         rpt(j, i + 1, n) {
 
             int x = pathWt[i] ^ pathWt[j];
 
             if(mp.find(x) != mp.end()) {
-                cout << mp[x].fi << " " << mp[x].se << " " << i << " " << j  << "\n";
+                cout << mp[x].fi + 1 << " " << mp[x].se + 1 << " " << i + 1 << " " << j + 1 << "\n";
                 cout << x << "\n";
                 return ;
             }
