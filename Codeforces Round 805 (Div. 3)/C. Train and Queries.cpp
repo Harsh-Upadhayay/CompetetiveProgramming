@@ -88,7 +88,7 @@ void solve(void){
         cout << "\n";
     }
 
-    vll pathWt(n + 1, -1);
+    vll pathWt(n, -1);
 
     dfs(adj, pathWt, 0, 0);
 
