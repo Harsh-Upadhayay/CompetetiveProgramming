@@ -81,8 +81,6 @@ void solve(void){
     rpt(i, 0, n) cin >> cost[i];
     rpt(i, 0, n) cin >> pages[i];
 
-    vector<vll> dp(n + 1, vll(k + 1, 0));
-
     vll curr(k + 1, 0), prev(curr);
 
     for(int i = 0; i < n; i++ ){ 
