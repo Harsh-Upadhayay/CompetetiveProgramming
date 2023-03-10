@@ -63,12 +63,12 @@ ll fun(vector<vector<ll>> &grid, vector<vector<ll>> &dp, ll i, ll j) {
     ll n = grid.size();
 
     if(i == n - 1 && j == n - 1)
-        return dp[i][j] = 1;
+        return 1;
 
     if(i < 0 || j < 0 || i >= n || j >= n || !grid[i][j])
         return 0;
 
-    if(grid[i][j] != -1) return grid[i][j];
+    // if(grid[i][j] != -1) return grid[i][j];
 
     return grid[i][j] = (fun(grid, dp, i + 1, j) + fun(grid, dp, i, j + 1));
 
@@ -89,6 +89,7 @@ void solve() {
     print(grid);
 
     cout << fun(grid, dp, 0, 0);
+    print(dp);
 }
 
 /*_________________________________________________________________________________________________________________________________________*/
