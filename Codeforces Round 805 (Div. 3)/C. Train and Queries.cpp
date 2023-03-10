@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-// #define TESTCASE
+#define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -58,50 +58,28 @@ void init(){
     return;
 }
 
-ll fun(vll &cost, vll &pages,vector<vll> &dp, ll i, ll j) {
-
-    if(dp[i + 1][j] != -1) return dp[i + 1][j];
-
-    if(i < 0 || j <= 0) return 0;
-
-    ll take = 0, nottake = 0;
-
-    nottake = fun(cost, pages, dp, i - 1, j);
-
-    if(cost[i] <= j) take = pages[i] + fun(cost, pages, dp, i - 1, j - cost[i]);
-
-    return dp[i + 1][j] = max(take, nottake);
-}
 
 void solve(void){
     
-    ll n, k; cin >> n >> k;
+    ll n; cin >> n;
 
-    vll cost(n), pages(n);
-    rpt(i, 0, n) cin >> cost[i];
-    rpt(i, 0, n) cin >> pages[i];
+    vector<pair<ll, ll>> adj[n + 1];
 
-    vll curr(k + 1, 0), prev(curr);
+    rpt(i, 0, n - 1) {
+        ll u, v, w; cin >> u >> v >> w;
 
-    for(int i = 0; i < n; i++ ){ 
-
-        for(int j = 1; j <= k; j++){
-
-
-            ll take = 0, nottake = 0;
-
-            nottake = prev[j];
-
-            if(cost[i] <= j) take = pages[i] + prev[j - cost[i]];
-
-            curr[j] = max(take, nottake);
-
-        }
-        prev = curr;
-
+        adj[u].push_back({v, w});
+        adj[v].push_back({u, w});
     }
 
-    cout << curr[k];
+    rpt(i, 1, n + 1) {
+        cout << i << " : ";
+        for(auto adjN : adj[i])
+            cout << adjN.first << "," << adjN.second<< "  ";
+        cout << "\n";
+    }
+    debug(n);
+
     nl;
 }
 
