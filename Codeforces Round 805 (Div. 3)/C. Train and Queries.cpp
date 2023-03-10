@@ -94,7 +94,6 @@ void solve() {
     dp[n - 1][n - 1] = 1;
 
     vll curr(n, 0), next(n, 0);
-    next[n - 1] = 1;
 
     for(int i = n - 1; i >= 0; i--) {
         for(int j = n - 1; j >= 0; j--) {
@@ -103,18 +102,17 @@ void solve() {
             ll right = 0, down = 0;
 
             if(!grid[i][j])
-                curr[j] = 0;
+                dp[i][j] = 0;
             else {
-                if(j + 1 < n) right = curr[j + 1];
-                if(i + 1 < n) down = next[j];
+                if(j + 1 < n) right = dp[i][j + 1];
+                if(i + 1 < n) down = dp[i + 1][j];
 
-                curr[j] = right + down;
+                dp[i][j] = right + down;
             }
         }
-        next = curr;
     }
 
-    cout << curr[0];
+    cout << dp[0][0];
 
 }
 
