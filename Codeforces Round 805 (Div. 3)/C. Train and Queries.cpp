@@ -68,8 +68,7 @@ ll fun(vector<vector<ll>> &grid, vector<vector<ll>> &dp, ll i, ll j) {
 
     if(grid[i][j] != -1) return grid[i][j];
 
-    return grid[i][j] = fun(grid, dp, i + 1, j) + 
-            fun(grid, dp, i, j + 1);
+    return grid[i][j] = fun(grid, dp, i + 1, j) + fun(grid, dp, i, j + 1);
 
 }
 
