@@ -83,6 +83,8 @@ void solve(void){
 
     vector<vll> dp(n + 1, vll(k + 1, 0));
 
+    vll curr(k + 1, 0), prev(curr);
+
     for(int i = 0; i < n; i++ ){ 
 
         for(int j = 1; j <= k; j++){
@@ -90,17 +92,18 @@ void solve(void){
 
             ll take = 0, nottake = 0;
 
-            nottake = dp[i][j];
+            nottake = prev[j];
 
-            if(cost[i] <= j) take = pages[i] + dp[i][j - cost[i]];
+            if(cost[i] <= j) take = pages[i] + prev[j - cost[i]];
 
-            dp[i + 1][j] = max(take, nottake);
+            curr[j] = max(take, nottake);
 
         }
+        prev = curr;
 
     }
 
-    cout << dp[n][k];
+    cout << curr[k];
     nl;
 }
 
