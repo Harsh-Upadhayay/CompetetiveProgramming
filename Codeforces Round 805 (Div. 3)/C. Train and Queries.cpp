@@ -76,8 +76,21 @@ ll fun(vll &dp, ll n) {
 void solve() {
 
     ll n; cin >> n; 
-    vll dp(n + 1, -1);
-    cout << fun(dp, n);
+    vll dp(n + 1, 0);
+
+    for(int i = 1; i <= n; i++) {
+
+        ll minSteps = inf,
+        temp = i;
+
+        while(temp) 
+            minSteps = min(minSteps, (temp % 10 ? 1 + dp[i - temp % 10] : inf)),
+            temp /= 10;
+
+        dp[i] = minSteps;
+    }
+
+    cout << dp[n];
 
 }
 
