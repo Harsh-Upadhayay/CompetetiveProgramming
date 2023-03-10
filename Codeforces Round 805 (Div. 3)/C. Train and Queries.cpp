@@ -62,7 +62,7 @@ ll fun(vll &cost, vll &pages,vector<vll> &dp, ll i, ll j) {
 
     if(i < 0 || j <= 0) return 0;
 
-    if(dp[i][j] != -1) return dp[i][j];
+    if(dp[i + 1][j] != -1) return dp[i + 1][j];
 
     ll take = 0, nottake = 0;
 
@@ -70,7 +70,7 @@ ll fun(vll &cost, vll &pages,vector<vll> &dp, ll i, ll j) {
 
     if(cost[i] <= j) take = pages[i] + fun(cost, pages, dp, i - 1, j - cost[i]);
 
-    return dp[i][j] = max(take, nottake);
+    return dp[i + 1][j] = max(take, nottake);
 }
 
 void solve(void){
@@ -81,7 +81,7 @@ void solve(void){
     rpt(i, 0, n) cin >> cost[i];
     rpt(i, 0, n) cin >> pages[i];
 
-    vector<vll> dp(n + 1, vll(k + 1, 0));
+    vector<vll> dp(n + 1, vll(k + 1, -1));
 
     cout << fun(cost, pages, dp, n - 1, k);
     nl;
