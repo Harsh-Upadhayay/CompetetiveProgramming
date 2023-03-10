@@ -92,6 +92,22 @@ void solve(void){
 
     dfs(adj, pathWt, 0, 0);
 
+    map<ll, pair<ll, ll>> mp;
+    
+    rpt(i, 0, n) {
+        rpt(j, i + 1, n) {
+
+            int x = pathWt[i] ^ pathWt[j];
+
+            if(mp.find(x) != mp.end()) {
+                cout << mp[x].fi + 1 << " " << mp[x].se + 1<< " " << i + 1 << j + 1 << "\n";
+                return ;
+            }
+            else
+                mp[pathWt[i]] = {i, j};
+
+        }
+    }
 
     debug(pathWt);
 
