@@ -63,7 +63,8 @@ ll fun(vector<vector<ll>> &grid, vector<vector<ll>> &dp, ll i, ll j) {
     ll n = grid.size();
 
     if(i == n - 1 && j == n - 1)
-        return 1;
+        return dp[i][j] = 1;
+
     if(i < 0 || j < 0 || i >= n || j >= n || !grid[i][j])
         return 0;
 
