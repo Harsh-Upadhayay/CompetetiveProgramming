@@ -100,7 +100,7 @@ void solve(void){
             int x = pathWt[i] ^ pathWt[j];
 
             if(mp.find(x) != mp.end()) {
-                cout << mp[x].fi + 1 << " " << mp[x].se + 1<< " " << i + 1 << j + 1 << "\n";
+                cout << mp[x].fi + 1 << " " << mp[x].se + 1<< " " << i + 1 << " " << j + 1 << "\n";
                 return ;
             }
             else
@@ -108,6 +108,8 @@ void solve(void){
 
         }
     }
+
+    cout << "-1";
 
     debug(pathWt);
 
