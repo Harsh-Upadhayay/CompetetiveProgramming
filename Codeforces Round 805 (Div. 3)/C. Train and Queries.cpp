@@ -86,7 +86,7 @@ void solve(void){
 
     for(int i = 0; i < n; i++) {
         print(prev); nl;
-        curr[0] = i;
+        curr[0] = i + 1;
         for(int j = 0; j < m; j++) {
 
             if(i == 0 && j == 0) curr[1] = a[0] == b[0];
