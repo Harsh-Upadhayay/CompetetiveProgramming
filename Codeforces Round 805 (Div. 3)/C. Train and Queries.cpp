@@ -85,7 +85,7 @@ void solve(void){
 
 
     for(int i = 0; i < n; i++) {
-        print(prev); nl;
+        // print(prev); nl;
         curr[0] = i + 1;
         for(int j = 0; j < m; j++) {
 
