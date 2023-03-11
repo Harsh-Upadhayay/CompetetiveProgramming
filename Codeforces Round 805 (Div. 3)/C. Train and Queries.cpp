@@ -79,21 +79,13 @@ void solve(void){
     string a, b; cin >> a >> b;
     ll n = a.size(), m = b.size();
 
-    vector<vector<ll>> dp(n + 1, vector<ll> (m + 1, -1));
-
     vll curr(m + 1, -1), prev(m + 1, -1);
-
-    for(int i = 0; i <= n; i++)
-        dp[i][0] = i;
     for(int j = 0; j <= m; j++)
         prev[j] = j;
 
 
-    dp[1][1] = (a[0] == b[0]);
-
     for(int i = 0; i < n; i++) {
         curr[0] = i;
-        print(prev); nl;
         for(int j = 0; j < m; j++) {
 
             if(i == 0 && j == 0) curr[1] = a[0] == b[0];
