@@ -105,6 +105,7 @@ void solve(void){
     }
 
     cout << dp[n][m];
+    print(dp);
     nl;
 }
 
