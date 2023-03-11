@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-#define TESTCASE
+// #define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -58,65 +58,23 @@ void init(){
     return;
 }
 
-void dfs(vector<pair<ll, ll>> adj[], vll &pathWt, ll node, ll wt) {
+ll fun(string &a, string &b, ll i, ll j) {
 
-    pathWt[node] = wt;
+    if(i < 0 || j < 0) return max(i, j) + 1;
 
-    for(auto adjN : adj[node])
-        if(pathWt[adjN.first] == -1)
-            dfs(adj, pathWt, adjN.first, wt ^ adjN.second);
+    if(a[i] == b[i]) return fun(a, b, i - 1, j - 1);
+
+    else
+        return 1 + min({fun(a, b, i - 1, j),
+                        fun(a, b, i, j - 1),
+                        fun(a, b, i - 1, j - 1) });
 
 }
 
 void solve(void){
-    
-    ll n; cin >> n;
-
-    vector<pair<ll, ll>> adj[n];
-
-    rpt(i, 0, n - 1) {
-        ll u, v, w; cin >> u >> v >> w;
-
-        adj[u - 1].push_back({v - 1, w});
-        adj[v - 1].push_back({u - 1, w});
-    }
-
-    // rpt(i, 0, n) {
-    //     cout << i << " : ";
-    //     for(auto adjN : adj[i])
-    //         cout << adjN.first << "," << adjN.second<< "  ";
-    //     cout << "\n";
-    // }
-
-    vll pathWt(n, -1);
-
-    dfs(adj, pathWt, 0, 0);
-
-    map<ll, pair<ll, ll>> mp;
-
-    debug(pathWt);
-
-    rpt(i, 0, n) {
-        rpt(j, i + 1, n) {
-
-            int x = pathWt[i] ^ pathWt[j];
-            debug(i + 1, j + 1, x);
-            if(mp.find(x) != mp.end()) {
-                cout << mp[x].fi + 1 << " " << mp[x].se + 1 << " " << i + 1 << " " << j + 1 << "\n";
-            
-                return ;
-            }
-            else
-                mp[x] = {i, j};
-
-            if(pathWt.size() > 2e20)
-                kill("-1");
-        }
-    }
-
-
-    cout << "-1";
-
+    string a, b; cin >> a >> b;
+    ll n = a.size(), m = b.size();
+    cout << fun(a, b, n - 1, m - 1);
     nl;
 }
 
