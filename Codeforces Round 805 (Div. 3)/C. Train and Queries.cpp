@@ -93,11 +93,11 @@ void solve(void){
 
     for(int i = 0; i < n; i++) {
         curr[0] = i;
+        debug(prev);
         for(int j = 0; j < m; j++) {
 
             if(i == 0 && j == 0) curr[0] = a[0] == b[0];
             else if(a[i] == b[i]) curr[j + 1] = prev[j];
-
             else
                 curr[j + 1] = 1 + min({
                                 prev[j + 1],
@@ -106,7 +106,6 @@ void solve(void){
                                     }); 
 
         }
-
         prev = curr;
     }
 
