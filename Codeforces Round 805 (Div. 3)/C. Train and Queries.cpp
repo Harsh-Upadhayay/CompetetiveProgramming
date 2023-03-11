@@ -82,6 +82,7 @@ void solve(void){
     vector<vector<ll>> dp(n + 1, vector<ll> (m + 1, -1));
 
     vll curr(m + 1, -1), prev(m + 1, -1);
+    
     for(int i = 0; i <= n; i++)
         dp[i][0] = i;
     for(int j = 0; j <= m; j++)
