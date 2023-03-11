@@ -58,26 +58,31 @@ void init(){
     return;
 }
 
-ll fun(string &a, string &b, ll i, ll j) {
+ll fun(string &a, string &b,vector<vector<ll>> &dp, ll i, ll j) {
 
     debug(i, j);
     
     if(i == 0 && j == 0) return a[0] == b[0];
     if(i < 0 || j < 0) return max(i, j) + 1;
 
-    if(a[i] == b[i]) return fun(a, b, i - 1, j - 1);
+    if(dp[i][j] != -1) return dp[i][j];
+
+    if(a[i] == b[i]) return dp[i][j] = fun(a, b, dp, i - 1, j - 1);
 
     else
-        return 1 + min({fun(a, b, i - 1, j),
-                        fun(a, b, i, j - 1),
-                        fun(a, b, i - 1, j - 1) });
+        return dp[i][j] = 1 + min({fun(a, b, dp, i - 1, j),
+                        fun(a, b, dp, i, j - 1),
+                        fun(a, b, dp, i - 1, j - 1) });
 
 }
 
 void solve(void){
     string a, b; cin >> a >> b;
     ll n = a.size(), m = b.size();
-    cout << fun(a, b, n - 1, m - 1);
+
+    vector<vector<ll>> dp(n + 1, vector<ll> (m + 1, -1));
+
+    cout << fun(a, b, dp, n - 1, m - 1);
     nl;
 }
 
