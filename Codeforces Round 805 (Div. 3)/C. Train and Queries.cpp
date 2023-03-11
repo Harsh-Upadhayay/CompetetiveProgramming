@@ -74,6 +74,7 @@ void solve(void){
 
     set<ll> st;
     fun(v, st, n - 1, 0);
+    st.erase(0);
     cout << st.size();
     debug(st);
     nl;
