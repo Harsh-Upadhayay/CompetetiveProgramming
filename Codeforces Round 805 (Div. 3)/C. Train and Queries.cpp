@@ -79,6 +79,8 @@ void solve(void){
     string a, b; cin >> a >> b;
     ll n = a.size(), m = b.size();
 
+    vector<vector<ll>> dp(n + 1, vector<ll> (m + 1, -1));
+
     vll curr(m + 1, -1), prev(m + 1, -1);
     for(int j = 0; j <= m; j++)
         prev[j] = j;
@@ -102,7 +104,7 @@ void solve(void){
         prev = curr;
     }
 
-    cout << curr[m];
+    cout << curr[m] << fun(a, b, dp, n - 1, m - 1);
     nl;
 }
 
