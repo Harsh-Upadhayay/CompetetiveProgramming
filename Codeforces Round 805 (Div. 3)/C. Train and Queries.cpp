@@ -61,16 +61,16 @@ void init(){
 ll fun(string &a, string &b,vector<vector<ll>> &dp, ll i, ll j) {
 
     debug(i, j);
+    if(dp[i + 1][j + 1] != -1) return dp[i + 1][j + 1];
     
     if(i == 0 && j == 0) return a[0] == b[0];
     if(i < 0 || j < 0) return max(i, j) + 1;
 
-    if(dp[i][j] != -1) return dp[i][j];
 
-    if(a[i] == b[i]) return dp[i][j] = fun(a, b, dp, i - 1, j - 1);
+    if(a[i] == b[i]) return dp[i + 1][j + 1] = fun(a, b, dp, i - 1, j - 1);
 
     else
-        return dp[i][j] = 1 + min({fun(a, b, dp, i - 1, j),
+        return dp[i + 1][j + 1] = 1 + min({fun(a, b, dp, i - 1, j),
                         fun(a, b, dp, i, j - 1),
                         fun(a, b, dp, i - 1, j - 1) });
 
