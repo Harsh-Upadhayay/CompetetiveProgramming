@@ -60,6 +60,8 @@ void init(){
 
 ll fun(string &a, string &b, ll i, ll j) {
 
+    debug(i, j);
+
     if(i < 0 || j < 0) return max(i, j) + 1;
 
     if(a[i] == b[i]) return fun(a, b, i - 1, j - 1);
