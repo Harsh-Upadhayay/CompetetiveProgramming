@@ -81,27 +81,27 @@ void solve(void){
 
     vector<vector<ll>> dp(n + 1, vector<ll> (m + 1, -1));
 
-    // for(int i = 0; i <= n; i++)
-    //     dp[i][0] = i;
-    // for(int j = 0; j <= m; j++)
-    //     dp[0][j] = j;
+    for(int i = 0; i <= n; i++)
+        dp[i][0] = i;
+    for(int j = 0; j <= m; j++)
+        dp[0][j] = j;
 
-    // dp[1][1] = (a[0] == b[0]);
+    dp[1][1] = (a[0] == b[0]);
 
-    // for(int i = 0; i < n; i++) {
-    //     for(int j = 0; j < m; j++) {
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < m; j++) {
 
+            if(i == 0 && j == 0) continue;
 
+            if(a[i] == b[i]) dp[i + 1][j + 1] = dp[i][j];
 
-    //         if(a[i] == b[i]) dp[i + 1][j + 1] = dp[i][j];
+            else
+                dp[i + 1][j + 1] = 1 + min({dp[i][j + 1],
+                                dp[i + 1][j],
+                                dp[i][j] }); 
 
-    //         else
-    //             dp[i + 1][j + 1] = 1 + min({dp[i][j + 1],
-    //                             dp[i + 1][j],
-    //                             dp[i][j] }); 
-
-    //     }
-    // }
+        }
+    }
 
     cout << fun(a, b, dp, n - 1, m - 1);
     print(dp);
