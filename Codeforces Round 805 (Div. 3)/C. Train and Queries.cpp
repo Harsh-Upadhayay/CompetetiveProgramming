@@ -62,7 +62,7 @@ ll fun(string &a, string &b,vector<vector<ll>> &dp, ll i, ll j) {
 
     if(dp[i + 1][j + 1] != -1) return dp[i + 1][j + 1];
     
-    if(i == 0 && j == 0) return a[0] == b[0];
+    if(i == 0 && j == 0) return dp[i + 1][j + 1] = a[0] == b[0];
     if(i < 0 || j < 0) return max(i, j) + 1;
 
 
