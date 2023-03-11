@@ -87,7 +87,7 @@ void solve(void){
     for(int j = 0; j <= m; j++)
         dp[0][j] = j;
 
-    dp[1][1] = a[0] == b[0];
+    dp[1][1] = (a[0] == b[0]);
 
     for(int i = 0; i < n; i++) {
         for(int j = 0; j < m; j++) {
