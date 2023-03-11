@@ -103,7 +103,7 @@ void solve(void){
         }
     }
 
-    cout << fun(a, b, dp, n - 1, m - 1);
+    cout << dp[n][m];
     print(dp);
     nl;
 }
