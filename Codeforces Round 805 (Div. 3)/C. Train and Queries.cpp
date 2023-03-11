@@ -58,53 +58,24 @@ void init(){
     return;
 }
 
-ll fun(string &a, string &b,vector<vector<ll>> &dp, ll i, ll j) {
+void fun(vll &v, set<ll> &st, ll i, ll j) {
 
-    if(dp[i + 1][j + 1] != -1) return dp[i + 1][j + 1];
-    
-    if(i == 0 && j == 0) return dp[1][1] = a[0] == b[0];
-    if(i < 0 || j < 0) return dp[i + 1][j + 1] = max(i, j) + 1;
-
-
-    if(a[i] == b[j]) return dp[i + 1][j + 1] = fun(a, b, dp, i - 1, j - 1);
-
+    if(i < 0)
+        st.insert(j);
     else
-        return dp[i + 1][j + 1] = 1 + min({fun(a, b, dp, i - 1, j),
-                        fun(a, b, dp, i, j - 1),
-                        fun(a, b, dp, i - 1, j - 1) });
-
+        fun(v, st, i - 1, j),
+        fun(v, st, i - 1, j + v[i]);
 }
 
 void solve(void){
-    string a, b; cin >> a >> b;
-    ll n = a.size(), m = b.size();
+    
+    ll n; cin >> n;
+    vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    vector<vector<ll>> dp(n + 1, vector<ll> (m + 1, -1));
-
-    vll curr(m + 1, -1), prev(m + 1, -1);
-    for(int j = 0; j <= m; j++)
-        prev[j] = j;
-
-
-    for(int i = 0; i < n; i++) {
-        // print(prev); nl;
-        curr[0] = i + 1;
-        for(int j = 0; j < m; j++) {
-
-            if(i == 0 && j == 0) curr[1] = a[0] == b[0];
-            else if(a[i] == b[j]) curr[j + 1] = prev[j];
-            else
-                curr[j + 1] = 1 + min({
-                                prev[j + 1],
-                                curr[j],
-                                prev[j]
-                                    }); 
-
-        }
-        prev = curr;
-    }
-
-    cout << curr[m] << fun(a, b, dp, n - 1, m - 1);
+    set<ll> st;
+    fun(v, st, n - 1, 0);
+    cout << st.size();
+    debug(st);
     nl;
 }
 
