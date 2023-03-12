@@ -63,6 +63,8 @@ void solve(void){
     
     ll n, x, p; cin >> n >> x >> p;
 
+    cout << n << "\n";
+
     rpt(k, 1, p + 1) {
 
         ll expr = x + (k * (k + 1))/ 2;
