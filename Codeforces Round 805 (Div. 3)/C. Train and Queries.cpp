@@ -71,7 +71,8 @@ void solve(void){
 
             ll expr = x + (k * (k + 1))/ 2;
             if(expr % n == 0) {
-                cout << k << "\n";
+                if(k > n)
+                    cout << n << " " << x << " : " << k << "\n";
                 break;
             }
 
