@@ -65,7 +65,7 @@ void solve(void){
 
     rpt(x, 0, n + 1)
     {
-        cout << n << "\n";
+        cout << n << " " << x << "\n";
 
         rpt(k, 1, p + 1) {
 
