@@ -70,8 +70,10 @@ void solve(void){
         rpt(k, 1, p + 1) {
 
             ll expr = x + (k * (k + 1)) / 2;
-            if(expr % n == 0) 
-                kill(k);
+            if(expr % n == 0) {
+                cout << k << "\n";
+                break;
+            }
             
         }
     }
