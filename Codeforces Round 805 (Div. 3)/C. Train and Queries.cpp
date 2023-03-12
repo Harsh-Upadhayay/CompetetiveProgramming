@@ -63,17 +63,22 @@ void solve(void){
     
     ll n, x, p; cin >> n >> x >> p;
 
-   
-    rpt(k, 1, n + 1) {
+    rpt(x, 0, n + 1)
+    {
+        cout << n << " " << x << "\n";
 
-        ll expr = x + (k * (k + 1))/ 2;
-        if(expr % n == 0) 
-            kill("YES");
+        rpt(k, 1, p + 1) {
 
+            ll expr = x + (k * (k + 1))/ 2;
+            if(expr % n == 0) {
+                cout << k << " " << expr << "\n";
+                break;
+            }
+
+        }
+
+        nl;
     }
-
-    cout << "NO";
-
     nl;
 }
 
