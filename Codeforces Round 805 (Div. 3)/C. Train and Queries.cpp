@@ -64,20 +64,13 @@ void solve(void){
     ll n, x, p; cin >> n >> x >> p;
     ll itr = min(p + 1, n + 1);
 
+    rpt(k, 1, itr) {
 
-    rpt(x, 0, n + 1) {
-        cout << x << "\n";
-        rpt(k, 1, p + 1) {
+        ll expr = x + ((k * (k + 1)) / 2);
+        if(expr % n == 0) 
+            kill("YES");
 
-            ll expr = x + (k * (k + 1)) / 2;
-            if(expr % n == 0) {
-                cout << k << "\n";
-                break;
-            }
-            
-        }
     }
-
 
     cout << "NO";
     nl;
