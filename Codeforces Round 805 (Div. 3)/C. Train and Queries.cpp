@@ -62,15 +62,15 @@ void init(){
 void solve(void){
     
     ll n, x, p; cin >> n >> x >> p;
-
-    rpt(k, 1, p + 1) {
+    ll itr = min(p + 1, n + 1);
+    rpt(k, 1, itr) {
 
         ll expr = x + (k * (k + 1))/ 2;
         if(expr % n == 0) {
-            cout << k << " " << expr << "\n";
-            break;
+            kill("YES");
         }
     }
+    cout << "NO";
     nl;
 }
 
