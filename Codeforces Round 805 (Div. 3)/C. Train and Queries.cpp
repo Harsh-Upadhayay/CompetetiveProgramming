@@ -63,16 +63,20 @@ void solve(void){
     
     ll n, x, p; cin >> n >> x >> p;
 
-    cout << n << "\n";
+    rpt(x, 0, n + 1)
+    {
+        cout << n << "\n";
 
-    rpt(k, 1, p + 1) {
+        rpt(k, 1, p + 1) {
 
-        ll expr = x + (k * (k + 1))/ 2;
-        if(expr % n == 0)
-            cout << k << " " << expr << "\n";
+            ll expr = x + (k * (k + 1))/ 2;
+            if(expr % n == 0) {
+                cout << k << " " << expr << "\n";
+                break;
+            }
 
+        }
     }
-
     nl;
 }
 
