@@ -78,7 +78,7 @@ void solve(void){
 
         }
 
-        nl;
+        // nl;
     }
     nl;
 }
