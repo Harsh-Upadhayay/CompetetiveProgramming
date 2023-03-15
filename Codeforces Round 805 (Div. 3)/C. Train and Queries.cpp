@@ -58,21 +58,20 @@ void init(){
     return;
 }
 
-ll fun(ll i, ll j, ll k, vll ds) {
+ll fun(vector<vector<vector<ll>>> &dp, ll i, ll j, ll k) {
 
     if(i == 0){
-        print(ds);
         return 1;
     }
+
+    if(dp[i][j + 1][k] != -1) return dp[i][j + 1][k];
 
     int ways = 0;
 
     if(j == -1) {
 
         for(ll it = 1; it < 7; it++)
-            ds.push_back(it),
-            ways += fun(i - 1, it, it == 1 ? 2 : 0, ds),
-            ds.pop_back();
+            ways += fun(dp,i - 1, it, it == 1 ? 2 : 0);
 
     }
 
@@ -80,30 +79,26 @@ ll fun(ll i, ll j, ll k, vll ds) {
 
         for(ll it = 2; it < 7; it++)
             if(__gcd(it, j) == 1)
-                ds.push_back(it),
-                ways += fun(i - 1, it, k - 1, ds),
-                ds.pop_back();
+                ways += fun(dp, i - 1, it, k - 1);
 
     }
     else {
 
         for(ll it = 1; it < 7; it++)
             if(__gcd(it, j) == 1)
-                ds.push_back(it),
-                ways += fun(i - 1, it, it == 1 ? 2 : 0, ds),
-                ds.pop_back();
+                ways += fun(dp, i - 1, it, it == 1 ? 2 : 0);
 
     }
 
-    return ways;
+    return dp[i][j + 1][k] = ways;
 
 }
 
 void solve(void){
     
     ll n; cin >> n;
-    vll ds;
-    cout << fun(n, -1, 0, ds);
+    vector<vector<vector<ll>>> dp(n + 1, vector<vector<ll>> (8, vector<ll> (3, -1)));
+    cout << fun(dp, n, -1, 0);
 
     nl;
 }
