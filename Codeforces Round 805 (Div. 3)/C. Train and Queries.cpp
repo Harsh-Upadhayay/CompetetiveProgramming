@@ -58,21 +58,45 @@ void init(){
     return;
 }
 
+ll fun(ll i, ll j, ll k) {
 
-void solve(void){
-    
-    ll n, x, p; cin >> n >> x >> p;
-    ll itr = min(p + 1, n + 1);
+    if(i == 0)
+        return 1;
 
-    rpt(k, 1, itr) {
+    int ways = 0;
 
-        ll expr = x + ((k * (k + 1)) / 2);
-        if(expr % n == 0) 
-            kill("YES");
+    if(j == -1) {
+
+        for(ll it = 1; it < 7; it++)
+            ways += fun(i - 1, it, it == 1 ? 2 : 0);
 
     }
 
-    cout << "NO";
+    else if(k) {
+
+        for(ll it = 2; it < 7; it++)
+            if(__gcd(it, j) == 1)
+                ways += fun(i - 1, it, k - 1);
+
+    }
+    else {
+
+        for(ll it = 1; it < 7; it++)
+            if(__gcd(it, j) == 1)
+                ways += fun(i - 1, it, it == 1 ? 2 : 0);
+
+    }
+
+    return ways;
+
+}
+
+void solve(void){
+    
+    ll n; cin >> n;
+
+    cout << fun(n, -1, 0);
+
     nl;
 }
 
