@@ -58,17 +58,20 @@ void init(){
     return;
 }
 
-ll fun(ll i, ll j, ll k) {
+ll fun(ll i, ll j, ll k, vll ds) {
 
-    if(i == 0)
+    if(i == 0){
+        print(ds);
         return 1;
+    }
 
     int ways = 0;
 
     if(j == -1) {
 
         for(ll it = 1; it < 7; it++)
-            ways += fun(i - 1, it, it == 1 ? 2 : 0);
+            ds.push_back(it),
+            ways += fun(i - 1, it, it == 1 ? 2 : 0, ds);
 
     }
 
@@ -76,14 +79,16 @@ ll fun(ll i, ll j, ll k) {
 
         for(ll it = 2; it < 7; it++)
             if(__gcd(it, j) == 1)
-                ways += fun(i - 1, it, k - 1);
+                ds.push_back(it),
+                ways += fun(i - 1, it, k - 1, ds);
 
     }
     else {
 
         for(ll it = 1; it < 7; it++)
             if(__gcd(it, j) == 1)
-                ways += fun(i - 1, it, it == 1 ? 2 : 0);
+                ds.push_back(it),
+                ways += fun(i - 1, it, it == 1 ? 2 : 0, ds);
 
     }
 
@@ -94,8 +99,8 @@ ll fun(ll i, ll j, ll k) {
 void solve(void){
     
     ll n; cin >> n;
-
-    cout << fun(n, -1, 0);
+    vll ds;
+    cout << fun(n, -1, 0, ds);
 
     nl;
 }
@@ -146,6 +151,7 @@ template<class T>
 void inline print(vector<T> v){
     for(auto x : v)
         cout << x << " ";
+    nl;
 }
 
 template<class T>
