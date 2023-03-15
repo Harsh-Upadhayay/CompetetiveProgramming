@@ -58,47 +58,18 @@ void init(){
     return;
 }
 
-ll fun(vector<vector<vector<ll>>> &dp, ll i, ll j, ll k) {
-
-    if(i == 0){
-        return 1;
-    }
-
-    if(dp[i][j + 1][k] != -1) return dp[i][j + 1][k];
-
-    int ways = 0;
-
-    if(j == -1) {
-
-        for(ll it = 1; it < 7; it++)
-            ways += fun(dp,i - 1, it, it == 1 ? 2 : 0);
-
-    }
-
-    else if(k) {
-
-        for(ll it = 2; it < 7; it++)
-            if(__gcd(it, j) == 1)
-                ways += fun(dp, i - 1, it, k - 1);
-
-    }
-    else {
-
-        for(ll it = 1; it < 7; it++)
-            if(__gcd(it, j) == 1)
-                ways += fun(dp, i - 1, it, it == 1 ? 2 : 0);
-
-    }
-
-    return dp[i][j + 1][k] = ways;
-
-}
 
 void solve(void){
     
     ll n; cin >> n;
-    vector<vector<vector<ll>>> dp(n + 1, vector<vector<ll>> (8, vector<ll> (3, -1)));
-    cout << fun(dp, n, -1, 0);
+    vll v(n); rpt(i, 0, n) cin >> v[i];
+
+    ll sum = 0; rpt(i, 0, n) sum += v[i];
+
+    if(sum % 2)
+        cout << "NO";
+    else
+        cout << "YES";
 
     nl;
 }
@@ -149,7 +120,6 @@ template<class T>
 void inline print(vector<T> v){
     for(auto x : v)
         cout << x << " ";
-    nl;
 }
 
 template<class T>
