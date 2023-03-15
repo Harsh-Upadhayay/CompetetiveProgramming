@@ -71,7 +71,8 @@ ll fun(ll i, ll j, ll k, vll ds) {
 
         for(ll it = 1; it < 7; it++)
             ds.push_back(it),
-            ways += fun(i - 1, it, it == 1 ? 2 : 0, ds);
+            ways += fun(i - 1, it, it == 1 ? 2 : 0, ds),
+            ds.pop_back();
 
     }
 
@@ -80,7 +81,8 @@ ll fun(ll i, ll j, ll k, vll ds) {
         for(ll it = 2; it < 7; it++)
             if(__gcd(it, j) == 1)
                 ds.push_back(it),
-                ways += fun(i - 1, it, k - 1, ds);
+                ways += fun(i - 1, it, k - 1, ds),
+                ds.pop_back();
 
     }
     else {
@@ -88,7 +90,8 @@ ll fun(ll i, ll j, ll k, vll ds) {
         for(ll it = 1; it < 7; it++)
             if(__gcd(it, j) == 1)
                 ds.push_back(it),
-                ways += fun(i - 1, it, it == 1 ? 2 : 0, ds);
+                ways += fun(i - 1, it, it == 1 ? 2 : 0, ds),
+                ds.pop_back();
 
     }
 
