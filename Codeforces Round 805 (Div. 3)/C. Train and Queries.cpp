@@ -57,38 +57,22 @@ void init(){
 
     return;
 }
-#define cInt(x) ((int)(x - 'a'))
 
-int fun(string str) {
+long long fun(vll v) {
 
-    int ans = 0;
-
-    vector<int> alphVal = {
-        1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9
-    };
-
-    for(int ssLen = 1; ssLen <= str.size(); ssLen++) {
-
-        int windowSum = 0;
-
-        for(int i = 0; i < ssLen; i++) 
-            windowSum += alphVal[cInt(str[i])];
-
-        ans += ((windowSum % ssLen) == 0);
-
-        for(int i = ssLen; i < str.size(); i++) 
-            windowSum -= alphVal[cInt(str[i - ssLen])],
-            windowSum += alphVal[cInt(str[i])],
-            ans += ((windowSum % ssLen) == 0);
-        
+    for(int i = 0; i + 1 < v.size(); i++) {
+        if(abs(v[i + 1] - v[i]) % 2)
+            cout << (abs(v[i + 1] - v[i]) / 2)  << (abs(v[i + 1] - v[i]) / 2) + 1;
+        else
+            cout << abs(v[i + 1] - v[i]) / 2;
+        cout << "\n";
     }
 
-    return ans;
 }
 
 void solve(void){
-    string s; cin >> s;
-    cout<< fun(s);
+    ll n; cin >> n;
+    vll v(n); rpt(i, 0, n) cin >> v[i];
     nl;
 }
 
