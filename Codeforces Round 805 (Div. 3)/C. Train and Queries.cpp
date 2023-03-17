@@ -61,16 +61,26 @@ void init(){
 long long fun(vll v) {
 
     int ans = 0;
+    int oans = inf;
     for(int i = 0; i + 1 < v.size(); i++)
         ans += abs(v[i + 1] - v[i]) * abs(v[i + 1] - v[i]);
+
     for(int i = 0; i + 1 < v.size(); i++) {
         int a = abs(v[i + 1] - v[i]) / 2,
             b = (abs(v[i + 1] - v[i]) % 2 ? a + 1 : -1);
         cout << a << " " << b;
+
+        int tans = ans;
+        tans -= abs(v[i + 1] - v[i]) * abs(v[i + 1] - v[i]);
+        oans = min(tans, oans);
+        tans = ans;
+        if(b != -1)
+            tans += abs(b - v[i]) * abs(b - v[i]) + abs(v[i + 1] - b) * abs(v[i + 1] - b),
+            oans = min(oans, tans);
         cout << "\n";
     }
 
-    return ans;
+    return oans;
 }
 
 void solve(void){
