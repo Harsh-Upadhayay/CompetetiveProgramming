@@ -66,8 +66,8 @@ long long fun(vll v) {
         ans += abs(v[i + 1] - v[i]) * abs(v[i + 1] - v[i]);
 
     for(int i = 0; i + 1 < v.size(); i++) {
-        int a = abs(v[i + 1] - v[i]) / 2 + v[i],
-            b = (abs(v[i + 1] - v[i]) % 2 ? a + 1 + v[i]: -1);
+        int a = abs(v[i + 1] - v[i]) / 2 + min(v[i], v[i + 1]),
+            b = (abs(v[i + 1] - v[i]) % 2 ? a + 1 + min(v[i], v[i + 1]): -1);
 
         int tans = ans;
         tans -= abs(v[i + 1] - v[i]) * abs(v[i + 1] - v[i]);
