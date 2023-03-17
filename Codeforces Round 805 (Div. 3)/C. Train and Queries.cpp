@@ -60,14 +60,15 @@ void init(){
 
 long long fun(vll v) {
 
+    int ans = 0;
     for(int i = 0; i + 1 < v.size(); i++) {
-        if(abs(v[i + 1] - v[i]) % 2)
-            cout << (abs(v[i + 1] - v[i]) / 2)  << (abs(v[i + 1] - v[i]) / 2) + 1;
-        else
-            cout << abs(v[i + 1] - v[i]) / 2;
+        int a = abs(v[i + 1] - v[i]) / 2,
+            b = (abs(v[i + 1] - v[i]) % 2 ? a + 1 : -1);
+        cout << a << " " << b;
         cout << "\n";
     }
 
+    return ans;
 }
 
 void solve(void){
