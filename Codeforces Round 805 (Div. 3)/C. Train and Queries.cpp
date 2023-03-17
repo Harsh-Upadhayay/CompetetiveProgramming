@@ -70,16 +70,19 @@ int fun(string str) {
     for(int ssLen = 1; ssLen <= str.size(); ssLen++) {
 
         int windowSum = 0;
+        string subStr = "";
 
         for(int i = 0; i < ssLen; i++) 
             windowSum += alphVal[cInt(str[i])];
 
         ans += ((windowSum % ssLen) == 0);
 
-        for(int i = ssLen; i < str.size() - ssLen + 1; i++)
+        for(int i = ssLen; i < str.size() - ssLen + 1; i++) {
             windowSum -= alphVal[cInt(str[i - ssLen])],
             windowSum += alphVal[cInt(str[i])],
             ans += ((windowSum % ssLen) == 0);
+            debug(ssLen, windowSum);
+        }
     }
 
     return ans;
