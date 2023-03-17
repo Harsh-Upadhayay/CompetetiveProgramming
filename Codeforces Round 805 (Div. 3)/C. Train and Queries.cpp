@@ -57,35 +57,37 @@ void init(){
 
     return;
 }
-ll fun(vector<ll> &price, ll rLen, ll cLen) {
-    debug(rLen, cLen);
-    if(rLen == 0)
-        return 0;
-    if(cLen < 1 || rLen < 0)
-        return ninf;
+#define cInt(x) ((int)(x - 'a'))
 
-    ll take = ninf, nottake = ninf;
+int fun(string str) {
 
-    nottake = fun(price, rLen, cLen - 1);
+    int ans = 0;
 
-    if(cLen <= rLen)
-        take = price[cLen - 1] + fun(price, rLen - cLen,  cLen);
-    
-    return max(take, nottake);
-}
+    vector<int> alphVal = {
+        1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9
+    };
 
-ll cutRod(vector<ll> &price, ll n)
-{
-    return fun(price, n, n);
+    for(int ssLen = 1; ssLen < str.size(); ssLen++) {
+
+        int windowSum = 0;
+
+        for(int i = 0; i < ssLen; i++) 
+            windowSum += alphVal[cInt(str[i])];
+
+        ans += ((windowSum % ssLen) == 0);
+
+        for(int i = ssLen; i < str.size() - ssLen + 1; i++)
+            windowSum -= alphVal[cInt(str[i - ssLen])],
+            windowSum += alphVal[cInt(str[i])],
+            ans += ((windowSum % ssLen) == 0);
+    }
+
+    return ans;
 }
 
 void solve(void){
-    
-    ll n; cin >> n;
-    vector<ll> v(n);
-
-    cout << cutRod(v, n);
-
+    string s; cin >> s;
+    cout<< fun(s);
     nl;
 }
 
