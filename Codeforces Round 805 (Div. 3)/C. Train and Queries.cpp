@@ -75,14 +75,12 @@ int fun(string str) {
             windowSum += alphVal[cInt(str[i])];
 
         ans += ((windowSum % ssLen) == 0);
-        debug(ssLen, windowSum);
 
-        for(int i = ssLen; i < str.size(); i++) {
+        for(int i = ssLen; i < str.size(); i++) 
             windowSum -= alphVal[cInt(str[i - ssLen])],
             windowSum += alphVal[cInt(str[i])],
             ans += ((windowSum % ssLen) == 0);
-            debug(ssLen, windowSum);
-        }
+        
     }
 
     return ans;
