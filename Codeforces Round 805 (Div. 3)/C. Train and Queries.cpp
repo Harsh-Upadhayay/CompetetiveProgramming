@@ -70,7 +70,7 @@ int fun(string str) {
     for(int ssLen = 1; ssLen <= str.size(); ssLen++) {
 
         int windowSum = 0;
-        debug(ssLen);
+        
         for(int i = 0; i < ssLen; i++) 
             windowSum += alphVal[cInt(str[i])];
 
