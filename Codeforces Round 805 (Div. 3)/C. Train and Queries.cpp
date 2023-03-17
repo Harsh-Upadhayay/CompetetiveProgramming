@@ -72,6 +72,7 @@ long long fun(vll v) {
 
         int tans = ans;
         tans -= abs(v[i + 1] - v[i]) * abs(v[i + 1] - v[i]);
+        tans += abs(a - v[i]) * abs(a - v[i]) + abs(v[i + 1] - a) * abs(v[i + 1] - a);
         oans = min(tans, oans);
         debug(tans);
         tans = ans;
