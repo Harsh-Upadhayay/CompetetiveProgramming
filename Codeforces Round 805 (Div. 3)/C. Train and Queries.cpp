@@ -66,8 +66,8 @@ long long fun(vll v) {
         ans += abs(v[i + 1] - v[i]) * abs(v[i + 1] - v[i]);
 
     for(int i = 0; i + 1 < v.size(); i++) {
-        int a = abs(v[i + 1] - v[i]) / 2 + a,
-            b = (abs(v[i + 1] - v[i]) % 2 ? a + 1 : -1) + a;
+        int a = abs(v[i + 1] - v[i]) / 2 + v[i],
+            b = (abs(v[i + 1] - v[i]) % 2 ? a + 1 : -1) + v[i];
         cout << a << " " << b;
 
         int tans = ans;
