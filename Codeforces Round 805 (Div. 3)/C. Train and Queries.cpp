@@ -61,7 +61,7 @@ void init(){
 long long fun(vll v) {
 
     int ans = 0;
-    int oans = inf;
+    int oans = 1e8;
     for(int i = 0; i + 1 < v.size(); i++)
         ans += abs(v[i + 1] - v[i]) * abs(v[i + 1] - v[i]);
 
