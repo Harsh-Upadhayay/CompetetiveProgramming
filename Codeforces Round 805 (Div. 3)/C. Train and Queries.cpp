@@ -57,19 +57,34 @@ void init(){
 
     return;
 }
+ll fun(vector<ll> &price, ll rLen, ll cLen) {
+    debug(rLen, cLen);
+    if(rLen == 0)
+        return 0;
+    if(cLen < 1 || rLen < 0)
+        return ninf;
 
+    ll take = ninf, nottake = ninf;
+
+    nottake = fun(price, rLen, cLen - 1);
+
+    if(cLen <= rLen)
+        take = price[cLen - 1] + fun(price, rLen - cLen,  cLen);
+    
+    return max(take, nottake);
+}
+
+ll cutRod(vector<ll> &price, ll n)
+{
+    return fun(price, n, n);
+}
 
 void solve(void){
     
     ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
+    vector<ll> v(n);
 
-    ll sum = 0; rpt(i, 0, n) sum += v[i];
-
-    if(sum % 2)
-        cout << "NO";
-    else
-        cout << "YES";
+    cout << cutRod(v, n);
 
     nl;
 }
