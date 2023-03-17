@@ -77,6 +77,7 @@ long long fun(vll v) {
         if(b != -1)
             tans += abs(b - v[i]) * abs(b - v[i]) + abs(v[i + 1] - b) * abs(v[i + 1] - b),
             oans = min(oans, tans);
+        debug(tans);
         cout << "\n";
     }
 
