@@ -61,6 +61,8 @@ void init(){
 long long fun(vll v) {
 
     int ans = 0;
+    for(int i = 0; i + 1 < v.size(); i++)
+        ans += abs(v[i + 1] - v[i]) * abs(v[i + 1] - v[i]);
     for(int i = 0; i + 1 < v.size(); i++) {
         int a = abs(v[i + 1] - v[i]) / 2,
             b = (abs(v[i + 1] - v[i]) % 2 ? a + 1 : -1);
@@ -74,7 +76,7 @@ long long fun(vll v) {
 void solve(void){
     ll n; cin >> n;
     vll v(n); rpt(i, 0, n) cin >> v[i];
-    fun(v);
+    cout << fun(v);
     nl;
 
 }
