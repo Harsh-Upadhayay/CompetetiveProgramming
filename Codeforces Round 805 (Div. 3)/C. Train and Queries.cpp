@@ -66,12 +66,11 @@ int fun(string str) {
     vector<int> alphVal = {
         1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9
     };
-    debug(str);
+
     for(int ssLen = 1; ssLen <= str.size(); ssLen++) {
 
         int windowSum = 0;
-        string subStr = "";
-
+        debug(ssLen);
         for(int i = 0; i < ssLen; i++) 
             windowSum += alphVal[cInt(str[i])];
 
