@@ -68,13 +68,12 @@ long long fun(vll v) {
     for(int i = 0; i + 1 < v.size(); i++) {
         int a = abs(v[i + 1] - v[i]) / 2 + v[i],
             b = (abs(v[i + 1] - v[i]) % 2 ? a + 1 : -1) + v[i];
-        cout << a << " " << b;
 
         int tans = ans;
         tans -= abs(v[i + 1] - v[i]) * abs(v[i + 1] - v[i]);
         tans += abs(a - v[i]) * abs(a - v[i]) + abs(v[i + 1] - a) * abs(v[i + 1] - a);
         oans = min(tans, oans);
-        debug(tans);
+        debug(a, b, tans);
         tans = ans;
         if(b != -1)
             tans += abs(b - v[i]) * abs(b - v[i]) + abs(v[i + 1] - b) * abs(v[i + 1] - b),
