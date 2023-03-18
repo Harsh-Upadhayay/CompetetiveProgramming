@@ -59,11 +59,18 @@ void init(){
 }
 
 set<vll> ds;
+ll minLen;
 
 ll fun(vll &dp, ll n) {
 
     if(n == 0){
-        ds.insert(dp);
+        if(dp.size() < minLen)
+            minLen = dp.size(),
+            ds.clear(),
+            ds.insert(dp);
+        else if(dp.size() == minLen)
+            ds.insert(dp);
+
         return 0;
 
     }
@@ -92,6 +99,7 @@ void solve(void){
 
     vll dp;
     ds.clear();
+    minLen = inf;
     cout << fun(dp, n);
     debug(ds);
     nl;
