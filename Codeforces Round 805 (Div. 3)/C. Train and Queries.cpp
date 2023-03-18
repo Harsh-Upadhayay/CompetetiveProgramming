@@ -59,49 +59,30 @@ void init(){
 }
 
 
-// void solve(void){
-    
-//     ll n; cin >> n;
-//     vll v(n); rpt(i, 0, n) cin >> v[i];
-
-//     ll minE = nmin(v), sminE = inf, minEcnt = 0;
-//     for(ll x : v)
-//         if(x != minE)
-//             sminE = min(sminE, x);
-//         else
-//             minEcnt++;
-
-    
-
-
-
-//     nl;
-// }
 void solve(void){
+    
     ll n; cin >> n;
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    ll zcnt = 0, thr = ceil(n / 2.0);
-    for(ll x : v) zcnt += (x == 0);
-    
-    debug(zcnt, thr, zcnt <= thr);
+    ll g = 10;
 
-    if(zcnt <= thr)
-        kill(0);
+    rpt(a, 0, g) {
+        rpt(b, 0, g) {
+            rpt(c, 0, g) {
+                rpt(d, 0, g) {
 
-    bool nonOneEle = false;
-    bool one = false;
-    for(ll x : v) {
-        if(x != 0 && x != 1) nonOneEle = true;
-        if(x == 1) one = true;
+                    if (a * b == c + d &&
+                        a * c == b + d &&
+                        a * d == b + c &&
+                        b * c == a + d &&
+                        b * d == a + c &&
+                        c * d == a + b)
+                    cout << a << " " << b << " " << c << " " << d << "\n";
+
+                }
+            }
+        }
     }
-
-    if(!one)
-        cout << 1;
-    if(one && nonOneEle)
-        cout << 1;
-    if(one && !nonOneEle)
-        cout << 2;
 
     nl;
 }
