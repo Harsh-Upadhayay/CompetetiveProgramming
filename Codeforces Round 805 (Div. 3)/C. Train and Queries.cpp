@@ -73,12 +73,8 @@ void solve(void){
     vll q(2 * n, -1); 
     q[maxIdx] = n;
 
-    rpt(i, 0, 2*n) {
+    rpt(i, 0, 2*n)
         ans += abs(v[i] - q[i]);
-        debug(abs(v[i]- q[i]));
-    }
-    cout << ans;
-    debug(q);
     cout << min(ans, tsum);
 
     debug(v);
