@@ -83,7 +83,8 @@ void solve(void){
 
     ll zcnt = 0, thr = ceil(n / 2.0);
     for(ll x : v) zcnt += (x == 0);
-        debug(zcnt, thr);
+    
+    debug(zcnt, thr, zcnt <= thr);
     if(zcnt <= thr);
         kill(0);
 
