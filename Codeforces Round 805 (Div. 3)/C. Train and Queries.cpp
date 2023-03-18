@@ -99,7 +99,7 @@ void solve(void){
     if(!one)
         cout << 1;
     if(one && nonOneEle)
-        cout << 2;
+        cout << 1;
     if(one && !nonOneEle)
         cout << 2;
 
