@@ -101,10 +101,10 @@ void solve(ll n){
     vll dp;
     ds.clear();
     minLen = inf;
-    cout << n << " : " << fun(dp, n) << "\n";
+    cout << n << " : " << fun(dp, n);
     // for(auto x : ds)
     //     print(x);
-    nl;
+    // nl;
 }
 
 
