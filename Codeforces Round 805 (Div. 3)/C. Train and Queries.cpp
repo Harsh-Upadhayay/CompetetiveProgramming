@@ -85,9 +85,15 @@ void solve(void){
     for(ll x : v) zcnt += (x == 0);
     
     debug(zcnt, thr, zcnt <= thr);
+
     if(zcnt <= thr)
         kill(0);
 
+    bool nof = false;
+    for(ll x : v) if( x != 1) nof = true;
+
+    if(nof) cout << 1;
+    else cout << 2;
 
     nl;
 }
