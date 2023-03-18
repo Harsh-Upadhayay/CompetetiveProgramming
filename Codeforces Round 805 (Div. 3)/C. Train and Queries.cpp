@@ -61,15 +61,15 @@ void init(){
 
 void solve(void){
     
-    ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
+    // ll n; cin >> n;
+    // vll v(n); rpt(i, 0, 2*n) cin >> v[i];
 
-    ll g = 200;
+    ll g = 10;
 
-    rpt(a, 0, g) {
-        rpt(b, 0, g) {
-            rpt(c, 0, g) {
-                rpt(d, 0, g) {
+    rpt(a, -2, g) {
+        rpt(b, -2, g) {
+            rpt(c, -2, g) {
+                rpt(d, -2, g) {
 
                     if (a * b == c + d &&
                         a * c == b + d &&
