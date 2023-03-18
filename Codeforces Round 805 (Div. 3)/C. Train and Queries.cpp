@@ -79,9 +79,9 @@ void solve(void){
     if(n == 1) {
 
         cout << abs(v[0] - v[1]);
-
+        cout << "\n";
+        return;
     }
-
     if(n != 2)
         cout << min(ans, tsum);
     else {
