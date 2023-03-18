@@ -74,7 +74,7 @@ void solve(void){
     q[maxIdx] = n;
 
     rpt(i, 0, 2*n) ans += abs(v[i] - q[i]);
-
+    debug(q);
     cout << min(ans, tsum);
 
     debug(v);
