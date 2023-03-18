@@ -66,10 +66,10 @@ void solve(void){
 
     ll g = 10;
 
-    rpt(a, -2, g) {
-        rpt(b, -2, g) {
-            rpt(c, -2, g) {
-                rpt(d, -2, g) {
+    rpt(a, -4, g) {
+        rpt(b, -4, g) {
+            rpt(c, -4, g) {
+                rpt(d, -4, g) {
 
                     if (a * b == c + d &&
                         a * c == b + d &&
