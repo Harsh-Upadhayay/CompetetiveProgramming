@@ -78,15 +78,24 @@ void solve(void){
 
     vll v = {a, b, c};
 
-    // vector<vector<ll>> dp(n + 1, vector<ll>(4, inf));
+    vector<vector<ll>> dp(n + 1, vector<ll>(4, inf));
 
-    // rpt(i, 0, 4) dp[0][i] = 0;
+    rpt(i, 0, 4) dp[0][i] = 0;
 
-    // for(int i = 1; i <= n; i++) {
-    //     for(int j = -1; j)
-    // }
+    for(int i = 1; i <= n; i++) {
+        for(int j = 0; j < 3; j++) {
 
-    cout << fun(v, n, 2);
+            ll take = ninf, nottake = ninf;
+
+            nottake = dp[i][j];
+
+            if(v[j] <= i) take = 1 + dp[i - v[j]][j + 1];
+
+            dp[i][j + 1] = max(take, nottake);
+        }
+    }
+
+    cout << dp[n][3];
 
     nl;
 }
