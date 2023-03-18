@@ -78,7 +78,7 @@ void solve(void){
 
     vll v = {a, b, c};
 
-    vector<vector<ll>> dp(n + 1, vector<ll>(4, inf));
+    vector<vector<ll>> dp(n + 1, vector<ll>(4, ninf));
 
     rpt(i, 0, 4) dp[0][i] = 0;
 
