@@ -61,42 +61,28 @@ void init(){
 
 void solve(void){
     
-    ll n; cin >> n;
-    vll v(2 * n); rpt(i, 0, 2*n) cin >> v[i];
+    // ll n; cin >> n;
+    // vll v(n); rpt(i, 0, 2*n) cin >> v[i];
 
-    ll maxE = nmax(v), maxIdx = -1;
-    rpt(i, 0, 2*n) if(v[i] == maxE) maxIdx = i;
+    ll g = 10;
 
-    ll tsum = 0, ans = 0;
-    for(ll x : v) tsum += abs(x);
+    rpt(a, -2, g) {
+        rpt(b, -2, g) {
+            rpt(c, -2, g) {
+                rpt(d, -2, g) {
 
-    vll q(2 * n, -1); 
-    q[maxIdx] = n;
+                    if (a * b == c + d &&
+                        a * c == b + d &&
+                        a * d == b + c &&
+                        b * c == a + d &&
+                        b * d == a + c &&
+                        c * d == a + b)
+                    cout << a << " " << b << " " << c << " " << d << "\n";
 
-    rpt(i, 0, 2*n)
-        ans += abs(v[i] - q[i]);
-
-    if(n == 1) {
-        cout << abs(v[0] - v[1]);
-        cout << "\n";
-        return;
-    }
-    if(n != 2)
-        cout << min(ans, tsum);
-    else {
-        if(n % 2) {
-            cout << tsum;
-            nl;
-            return ;
+                }
+            }
         }
-        ll t = 0;
-        for(ll x : v) t += (abs(x - 2));
-        cout << min({ans, tsum, t});
-
     }
-
-    debug(v);
-    
 
     nl;
 }
