@@ -81,11 +81,11 @@ void solve(void){
     ll n; cin >> n;
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    ll zcnt = 0;
+    ll zcnt = 0, thr = ceil(n / 2.0);
     for(ll x : v) zcnt += (x == 0);
-        debug(zcnt, ceil(n / 2.0));
-    if(zcnt <= ceil(n / 2.0));
-        cout << 1;
+        debug(zcnt, thr);
+    if(zcnt <= thr);
+        kill(1);
 
 
     nl;
