@@ -58,12 +58,15 @@ void init(){
     return;
 }
 
-ll fun(ll n) {
+ll fun(vll &dp, ll n) {
 
     if(n == 0)
         return 0;
     if(n < 0) 
         return inf;
+
+    if(dp[n] != -1)
+        return dp[n];
 
     ll tmp = n;
     ll ans = inf;
@@ -71,19 +74,20 @@ ll fun(ll n) {
     while(tmp) {
 
         if(tmp % 10)
-            ans = min(ans, 1 + fun(n - tmp % 10));
+            ans = min(ans, 1 + fun(dp, n - tmp % 10));
 
         tmp = tmp / 10;
     }
 
-    return ans;
+    return dp[n] = ans;
 }
 
 void solve(void){
     
     ll n; cin >> n;
 
-    cout << fun(n);
+    vll dp(n + 1, -1);
+    cout << fun(dp, n);
 
     nl;
 }
