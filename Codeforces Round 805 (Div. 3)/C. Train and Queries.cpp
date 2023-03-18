@@ -130,7 +130,7 @@ int main() {
     #endif
 
     while(t--) 
-        solve(t--);
+        solve(t);
 
     return 0;
 }
