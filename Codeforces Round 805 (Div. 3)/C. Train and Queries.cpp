@@ -63,11 +63,11 @@ ll fun(vll &v, ll n, ll i) {
     debug(n, i);
 
     if(n == 0) return 0;
-    if(n < 0 || i >= v.size()) return ninf;
+    if(n < 0 || i < 0) return ninf;
 
     ll take = ninf, nottake = ninf;
 
-    nottake = fun(v, n, i + 1);
+    nottake = fun(v, n, i - 1);
 
     if(v[i] <= n) take = 1 + fun(v, n - v[i], i);
 
@@ -79,7 +79,9 @@ void solve(void){
 
     vll v = {a, b, c};
 
-    cout << fun(v, n, 0);
+
+
+    cout << fun(v, n, 2);
 
     nl;
 }
