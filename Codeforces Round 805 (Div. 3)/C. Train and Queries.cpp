@@ -59,12 +59,36 @@ void init(){
 }
 
 
-void solve(void){
+// void solve(void){
     
+//     ll n; cin >> n;
+//     vll v(n); rpt(i, 0, n) cin >> v[i];
+
+//     ll minE = nmin(v), sminE = inf, minEcnt = 0;
+//     for(ll x : v)
+//         if(x != minE)
+//             sminE = min(sminE, x);
+//         else
+//             minEcnt++;
+
+    
+
+
+
+//     nl;
+// }
+void solve(void){
     ll n; cin >> n;
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    ll minE = nmin(v);
+    ll zcnt = 0;
+    for(ll x : v) zcnt += (x == 0);
+
+    if(zcnt <= ceil(n / 2.0));
+        kill(1);
+
+    
+
 
     nl;
 }
