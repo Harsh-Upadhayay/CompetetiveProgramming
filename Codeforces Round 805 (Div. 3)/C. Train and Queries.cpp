@@ -77,7 +77,6 @@ void solve(void){
         ans += abs(v[i] - q[i]);
 
     if(n == 1) {
-
         cout << abs(v[0] - v[1]);
         cout << "\n";
         return;
@@ -85,7 +84,11 @@ void solve(void){
     if(n != 2)
         cout << min(ans, tsum);
     else {
-
+        if(n % 2) {
+            cout << tsum;
+            nl;
+            return ;
+        }
         ll t = 0;
         for(ll x : v) t += (abs(x - 2));
         cout << min({ans, tsum, t});
