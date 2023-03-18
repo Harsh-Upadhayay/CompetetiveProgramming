@@ -89,11 +89,11 @@ void solve(void){
     if(zcnt <= thr)
         kill(0);
 
-    bool nof = false;
-    for(ll x : v) if( x != 1) nof = true;
-    debug(nof);
-    if(nof) cout << 2;
-    else cout << 1;
+    bool nonOneEle = false;
+    for(ll x : v) if(x != 0 && x != 1) nonOneEle = true;
+
+    if(nonOneEle == true) cout << 1;
+    else cout << 2;
 
     nl;
 }
