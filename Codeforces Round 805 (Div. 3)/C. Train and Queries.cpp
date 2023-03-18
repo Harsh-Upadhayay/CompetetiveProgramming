@@ -58,37 +58,28 @@ void init(){
     return;
 }
 
-long long fun(vll v) {
+ll fun(vll &v, ll n, ll i) {
 
-    int ans = 0;
-    int oans = 1e8;
-    for(int i = 0; i + 1 < v.size(); i++)
-        ans += abs(v[i + 1] - v[i]) * abs(v[i + 1] - v[i]);
+    if(n == 0) return 0;
+    if(n < 0 || i >= v.size()) return ninf;
 
-    for(int i = 0; i + 1 < v.size(); i++) {
-        int a = abs(v[i + 1] - v[i]) / 2 + min(v[i], v[i + 1]),
-            b = (abs(v[i + 1] - v[i]) % 2 ? a + 1 + min(v[i], v[i + 1]): -1);
+    ll take = ninf, nottake = ninf;
 
-        int tans = ans;
-        tans -= abs(v[i + 1] - v[i]) * abs(v[i + 1] - v[i]);
-        tans += abs(a - v[i]) * abs(a - v[i]) + abs(v[i + 1] - a) * abs(v[i + 1] - a);
-        oans = min(tans, oans);
-        debug(a, b, tans);
-        tans = ans;
-        if(b != -1)
-            tans += abs(b - v[i]) * abs(b - v[i]) + abs(v[i + 1] - b) * abs(v[i + 1] - b),
-            oans = min(oans, tans);
-    }
+    nottake = fun(v, n, i + 1);
 
-    return oans;
+    if(v[i] <= n) take = 1 + fun(v, n - v[i], i);
+
+    return max(take, nottake);
 }
 
 void solve(void){
-    ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
-    cout << fun(v);
-    nl;
+    ll n, a, b, c; cin >> n >> a >> b >> c;
 
+    vll v = {a, b, c};
+
+    cout << fun(v, n, 0);
+
+    nl;
 }
 
 
