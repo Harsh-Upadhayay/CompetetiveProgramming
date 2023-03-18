@@ -101,7 +101,7 @@ void solve(void){
     if(one && nonOneEle)
         cout << 2;
     if(one && !nonOneEle)
-        cout << 1;
+        cout << 2;
 
     nl;
 }
