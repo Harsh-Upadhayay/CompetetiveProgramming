@@ -75,7 +75,16 @@ void solve(void){
 
     rpt(i, 0, 2*n)
         ans += abs(v[i] - q[i]);
-    cout << min(ans, tsum);
+
+    if(n != 2)
+        cout << min(ans, tsum);
+    else {
+
+        ll t = 0;
+        for(ll x : v) t += (abs(x - 2));
+        cout << min({ans, tsum, t});
+
+    }
 
     debug(v);
     
