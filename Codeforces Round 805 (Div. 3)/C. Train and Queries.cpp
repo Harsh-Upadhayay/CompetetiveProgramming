@@ -67,6 +67,7 @@ void solve(void){
         if(n == 1) kill("-1")
         rpt(i, 0, n - 1) cout << "1";
         cout << "0";
+        return;
     }
 
 
