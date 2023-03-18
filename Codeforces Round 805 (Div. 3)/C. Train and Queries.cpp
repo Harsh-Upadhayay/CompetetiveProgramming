@@ -61,28 +61,12 @@ void init(){
 
 void solve(void){
     
-    // ll n; cin >> n;
-    // vll v(n); rpt(i, 0, 2*n) cin >> v[i];
+    ll n; cin >> n;
+    vll v(2 * n); rpt(i, 0, 2*n) cin >> v[i];
 
-    ll g = 10;
 
-    rpt(a, -4, g) {
-        rpt(b, -4, g) {
-            rpt(c, -4, g) {
-                rpt(d, -4, g) {
-
-                    if (a * b == c + d &&
-                        a * c == b + d &&
-                        a * d == b + c &&
-                        b * c == a + d &&
-                        b * d == a + c &&
-                        c * d == a + b)
-                    cout << a << " " << b << " " << c << " " << d << "\n";
-
-                }
-            }
-        }
-    }
+    debug(v);
+    
 
     nl;
 }
