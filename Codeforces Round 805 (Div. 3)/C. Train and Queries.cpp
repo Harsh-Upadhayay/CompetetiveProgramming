@@ -99,8 +99,9 @@ void solve(ll n){
     vll dp;
     ds.clear();
     minLen = inf;
-    cout << fun(dp, n);
-    debug(ds);
+    cout << n << " : " << fun(dp, n);
+    for(auto x : ds)
+        print(x);
     nl;
 }
 
@@ -150,6 +151,7 @@ template<class T>
 void inline print(vector<T> v){
     for(auto x : v)
         cout << x << " ";
+    nl;
 }
 
 template<class T>
