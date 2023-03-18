@@ -58,11 +58,12 @@ void init(){
     return;
 }
 
+set<vll> ds;
+
 ll fun(vll &dp, ll n) {
 
     if(n == 0){
-        print(dp);
-        exit(0);
+        ds.insert(dp);
         return 0;
 
     }
@@ -90,8 +91,9 @@ void solve(void){
     ll n; cin >> n;
 
     vll dp;
+    ds.clear();
     cout << fun(dp, n);
-
+    debug(ds);
     nl;
 }
 
