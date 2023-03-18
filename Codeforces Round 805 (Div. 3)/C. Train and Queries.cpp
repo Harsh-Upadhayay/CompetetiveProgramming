@@ -75,7 +75,7 @@ void solve(void){
 
     rpt(i, 0, 2*n) {
         ans += abs(v[i] - q[i]);
-        debug(ans);
+        debug(v[i], q[i]);
     }
     debug(q);
     cout << min(ans, tsum);
