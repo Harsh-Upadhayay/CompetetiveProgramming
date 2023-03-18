@@ -58,18 +58,32 @@ void init(){
     return;
 }
 
+ll fun(ll n) {
+
+    if(n == 0)
+        return 0;
+    if(n < 0) 
+        return inf;
+
+    ll tmp = n;
+    ll ans = inf;
+
+    while(tmp) {
+
+        if(tmp % 10)
+            ans = min(ans, 1 + fun(n - tmp % 10));
+
+        tmp = tmp / 10;
+    }
+
+    return ans;
+}
 
 void solve(void){
     
-    ll n, t; cin >> n >> t;
+    ll n; cin >> n;
 
-    if(t == 10) {
-        if(n == 1) kill("-1")
-        rpt(i, 0, n - 1) cout << "1";
-        cout << "0";
-    }
-    else
-        rpt(i, 0, n) cout << t;
+    cout << fun(n);
 
     nl;
 }
