@@ -64,7 +64,7 @@ void solve(void){
     ll n; cin >> n;
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    ll g = 20;
+    ll g = 100;
 
     rpt(a, 0, g) {
         rpt(b, 0, g) {
