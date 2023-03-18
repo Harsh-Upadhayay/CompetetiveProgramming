@@ -90,10 +90,18 @@ void solve(void){
         kill(0);
 
     bool nonOneEle = false;
-    for(ll x : v) if(x != 0 && x != 1) nonOneEle = true;
+    bool one = false;
+    for(ll x : v) {
+        if(x != 0 && x != 1) nonOneEle = true;
+        if(x == 1) one = true;
+    }
 
-    if(nonOneEle == true) cout << 1;
-    else cout << 2;
+    if(!one)
+        cout << 1;
+    if(one && nonOneEle)
+        cout << 2;
+    if(one && !nonOneEle)
+        cout << 1;
 
     nl;
 }
