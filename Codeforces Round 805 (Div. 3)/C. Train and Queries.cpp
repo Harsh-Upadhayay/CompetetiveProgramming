@@ -85,7 +85,7 @@ void solve(void){
     for(ll x : v) zcnt += (x == 0);
         debug(zcnt, thr);
     if(zcnt <= thr);
-        kill(1);
+        kill(0);
 
 
     nl;
