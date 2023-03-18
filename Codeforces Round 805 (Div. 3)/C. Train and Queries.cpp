@@ -94,14 +94,16 @@ ll fun(vll &dp, ll n) {
     return ans;
 }
 
+
+
 void solve(ll n){
     
     vll dp;
     ds.clear();
     minLen = inf;
     cout << n << " : " << fun(dp, n) << "\n";
-    for(auto x : ds)
-        print(x);
+    // for(auto x : ds)
+    //     print(x);
     nl;
 }
 
