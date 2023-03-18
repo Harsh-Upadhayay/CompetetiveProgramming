@@ -84,10 +84,10 @@ void solve(void){
     ll zcnt = 0;
     for(ll x : v) zcnt += (x == 0);
 
-    if(zcnt <= ceil(n / 2.0));
+    if(zcnt >= ceil(n / 2.0));
         kill(1);
 
-    
+
 
 
     nl;
