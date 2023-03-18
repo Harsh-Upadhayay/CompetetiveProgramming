@@ -81,14 +81,17 @@ void solve(void){
         cout << "\n";
         return;
     }
+
+    
+    if(n % 2) {
+        cout << tsum;
+        nl;
+        return ;
+    }
+
     if(n != 2)
         cout << min(ans, tsum);
     else {
-        if(n % 2) {
-            cout << tsum;
-            nl;
-            return ;
-        }
         ll t = 0;
         for(ll x : v) t += (abs(x - 2));
         cout << min({ans, tsum, t});
