@@ -94,10 +94,8 @@ ll fun(vll &dp, ll n) {
     return ans;
 }
 
-void solve(void){
+void solve(ll n){
     
-    ll n; cin >> n;
-
     vll dp;
     ds.clear();
     minLen = inf;
@@ -131,7 +129,7 @@ int main() {
     #endif
 
     while(t--) 
-        solve();
+        solve(t--);
 
     return 0;
 }
