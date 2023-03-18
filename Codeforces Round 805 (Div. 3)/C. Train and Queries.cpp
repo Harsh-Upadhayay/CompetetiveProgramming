@@ -64,6 +64,18 @@ void solve(void){
     ll n; cin >> n;
     vll v(2 * n); rpt(i, 0, 2*n) cin >> v[i];
 
+    ll maxE = nmax(v), maxIdx = -1;
+    rpt(i, 0, 2*n) if(v[i] == maxE) maxIdx = i;
+
+    ll tsum = 0, ans = 0;
+    for(ll x : v) tsum += x;
+
+    vll q(2 * n, -1); 
+    q[maxIdx] = n;
+
+    rpt(i, 0, 2*n) ans += abs(v[i] - q[i]);
+
+    cout << min(ans, tsum);
 
     debug(v);
     
