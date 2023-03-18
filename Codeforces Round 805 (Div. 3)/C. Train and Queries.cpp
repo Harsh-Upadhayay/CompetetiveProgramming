@@ -62,7 +62,9 @@ ll fun(vll &dp, ll n) {
 
     if(n == 0){
         print(dp);
+        exit(0);
         return 0;
+
     }
     if(n < 0) 
         return inf;
