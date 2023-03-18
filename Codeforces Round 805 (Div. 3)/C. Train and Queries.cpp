@@ -91,7 +91,7 @@ void solve(void){
 
     bool nof = false;
     for(ll x : v) if( x != 1) nof = true;
-
+    debug(nof);
     if(nof) cout << 1;
     else cout << 2;
 
