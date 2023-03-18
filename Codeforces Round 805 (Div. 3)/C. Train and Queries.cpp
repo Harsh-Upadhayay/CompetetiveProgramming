@@ -33,7 +33,6 @@ using namespace std;
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
 #define TESTCASE
-
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -59,53 +58,33 @@ void init(){
     return;
 }
 
-set<vll> ds;
-ll minLen;
 
-ll fun(vll &dp, ll n) {
-
-    if(n == 0){
-        if(dp.size() < minLen)
-            minLen = dp.size(),
-            ds.clear(),
-            ds.insert(dp);
-        else if(dp.size() == minLen)
-            ds.insert(dp);
-
-        return 0;
-
-    }
-    if(n < 0) 
-        return inf;
-
-    ll tmp = n;
-    ll ans = inf;
-
-    while(tmp) {
-
-        if(tmp % 10)
-            dp.push_back(n - tmp % 10),
-            ans = min(ans, 1 + fun(dp, n - tmp % 10)),
-            dp.pop_back();
-
-        tmp = tmp / 10;
-    }
-
-    return ans;
-}
-
-
-
-void solve(ll n){
+void solve(void){
     
-    vll dp;
-    ds.clear();
-    minLen = inf;
-    cout << "  " << fun(dp, n);
-    // for(auto x : ds)
-    //     print(x);
-    // nl;
-}
+    ll a, b, c, d; cin >> a >> b >> c >> d;
+
+    c -= a,
+    d -= b,
+    a = b = 0;
+
+    ll ans = 0;
+
+    if(d < 0)
+        kill(-1);
+
+    ans += d,
+    a += d,
+    b += d;
+
+    if(c > a)
+        kill(-1);
+
+    ans += a - c;
+
+    cout << ans; 
+
+    nl;
+}   
 
 
 /*_________________________________________________________________________________________________________________________________________*/
@@ -132,7 +111,7 @@ int main() {
     #endif
 
     while(t--) 
-        solve(t);
+        solve();
 
     return 0;
 }
@@ -153,7 +132,6 @@ template<class T>
 void inline print(vector<T> v){
     for(auto x : v)
         cout << x << " ";
-    nl;
 }
 
 template<class T>
