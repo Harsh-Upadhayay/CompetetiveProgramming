@@ -77,6 +77,7 @@ void solve(void){
         ans += abs(v[i] - q[i]);
         debug(abs(v[i]- q[i]));
     }
+    cout << ans;
     debug(q);
     cout << min(ans, tsum);
 
