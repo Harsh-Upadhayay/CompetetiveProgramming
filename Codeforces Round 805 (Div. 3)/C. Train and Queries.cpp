@@ -60,6 +60,8 @@ void init(){
 
 ll fun(vll &v, ll n, ll i) {
 
+    debug(n, i);
+
     if(n == 0) return 0;
     if(n < 0 || i >= v.size()) return ninf;
 
