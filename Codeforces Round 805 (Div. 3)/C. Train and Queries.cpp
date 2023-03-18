@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-// #define TESTCASE/
+// #define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -58,35 +58,19 @@ void init(){
     return;
 }
 
-ll fun(vll &v, ll i, ll j) {
-
-
-    if(i == 0) return 0;
-    if(i < 0 || j < 0) return ninf;
-
-    ll take = ninf, nottake = ninf;
-
-    nottake = fun(v, i, j - 1);
-
-    if(v[j] <= i) take = 1 + fun(v, i - v[j], j);
-
-    return max(take, nottake);
-}
 
 void solve(void){
-    ll n, a, b, c; cin >> n >> a >> b >> c;
-    vll v = {a, b, c};
-
-    vector<vector<ll>> dp(n + 1, vector<ll>(4, ninf));
-    rpt(i, 0, 4) dp[0][i] = 0;
-
-    for(int i = 1; i <= n; i++) 
-        for(int j = 0; j < 3; j++) 
-            dp[i][j + 1] = max((v[j] <= i ? 1 + dp[i - v[j]][j + 1] : ninf), dp[i][j]);
-        
     
+    ll n, t; cin >> n >> t;
 
-    cout << dp[n][3];
+    if(t == 10) {
+        if(n == 1) kill("-1")
+        rpt(i, 0, n - 1) cout << "1";
+        cout << "0";
+    }
+
+
+    rpt(i, 0, n) cout << t;
 
     nl;
 }
