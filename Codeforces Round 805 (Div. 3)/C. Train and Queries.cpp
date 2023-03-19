@@ -70,10 +70,10 @@ void solve(void){
     
     ll n; cin >> n;
     vll v(n); rpt(i, 0, n) cin >> v[i];
-    print(v);
     rpt(i, 1, n)
         v[i] += v[i - 1];
-    debug(v);
+
+    print(v);
 
     ll l = 0, r = n - 1;
     while(l < r) {
