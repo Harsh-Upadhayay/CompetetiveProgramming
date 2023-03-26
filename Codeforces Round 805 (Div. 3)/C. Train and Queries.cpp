@@ -75,7 +75,7 @@ void solve(void){
     debug(tgt, v);
     while(l <= r && ctr < 5 * n) {
 
-        while(l < n) {
+        while(l < r) {
             if(abs(cpsum + v[l]) < tgt && abs(cnsum + v[l]) < tgt)
                 ans.push_back(v[l]),
                 cpsum = max((cpsum + v[l]), (v[l])),
