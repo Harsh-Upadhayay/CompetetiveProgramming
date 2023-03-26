@@ -81,6 +81,8 @@ void solve(void){
                 curSum = max(abs(curSum + v[l]), (v[l])),
                 l++;
             else break;
+
+            debug(curSum, l, r);
         }
 
         while(r >= l) {
@@ -89,8 +91,8 @@ void solve(void){
                 curSum = max(abs(curSum + v[r]), (v[r])),
                 r--;
             else break;
+            debug(curSum, l, r);
         }
-        debug(curSum, l, r);
         ctr ++;
     }
     print(ans);
