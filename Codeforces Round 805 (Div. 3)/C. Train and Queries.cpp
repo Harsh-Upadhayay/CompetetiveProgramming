@@ -60,29 +60,11 @@ void init(){
 
 
 void solve(void){
-    string s; cin >> s;
-    map<char, ll> st;
-    for(char x : s) st[x]++;
+    
+    ll n; cin >> n;
 
-    ll cnt = st.size();
-
-    if(cnt == 1)
-        cout << "-1";
-    else if(cnt == 4)
-        cout << "4";
-    else if(cnt == 3) 
-        cout << "4";
-    else {
-
-        bool f = false;
-        for(auto x : st)
-            f |= (x.second == 1);
-
-        if(f) 
-            cout << "6";
-        else
-            cout << "4";
-    }
+    ll x = ceil(sqrt(n));
+    cout << x -1 ;
 
     nl;
 }
