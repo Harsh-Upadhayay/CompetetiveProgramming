@@ -98,7 +98,7 @@ void solve(void){
     xtr *= 2,
     xtr -= 1;
     
-    if(xtr < 0)
+    if(xtr > 0)
         cout << "-" << xtr << " ";
     else
         cout << "3";
