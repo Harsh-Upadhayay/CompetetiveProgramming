@@ -91,7 +91,7 @@ void solve(void){
     rpt(i, 0, newN - 1)
         cout << "2 ";
 
-    ll xtr = (((newN - 1) * newN) / 2) - k;
+    ll xtr = k - (((newN - 1) * newN) / 2);
 
 
 
