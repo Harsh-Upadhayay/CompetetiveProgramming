@@ -78,7 +78,7 @@ void solve(void){
         day.push_back(v);
     }
 
-
+    debug(day);
     rpt(i, 0, m) {
 
         for(ll x : day[i]) {
