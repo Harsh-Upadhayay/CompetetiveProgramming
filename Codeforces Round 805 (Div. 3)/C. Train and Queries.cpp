@@ -85,7 +85,7 @@ void solve(void){
             debug(cpsum, cnsum, l, r);
         }
 
-        while(r >= l) {
+        while(r > l) {
             if(abs(cpsum + v[r]) < tgt && abs(cnsum + v[r]) < tgt)
                 ans.push_back(v[r]),
                 cpsum = max((cpsum + v[r]), (v[r])),
