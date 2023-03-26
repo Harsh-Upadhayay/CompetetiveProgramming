@@ -21,7 +21,7 @@ using namespace std;
 #define lb                      lower_bound
 #define ub                      upper_bound
 #define vll                     vector<ll>
-#define ninf                    ((ll)((-1)*1e18+5))
+#define ninf                    ((ll)((-1)*1e3))
 #define inf                     ((ll)(1e18+5))
 #define MOD                     ((ll)(1e9+7))
 #define nmin(v)                 *min_element(all(v))
