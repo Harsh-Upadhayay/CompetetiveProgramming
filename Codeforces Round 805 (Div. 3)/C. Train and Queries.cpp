@@ -83,12 +83,12 @@ void solve(void){
         return;
     }
 
-    if(((newN + 1) * newN) / 2 == k) {
-        rpt(i, 0, n)
-            cout << "1 ";
-        nl
-        return;
-    }
+    // if(((newN + 1) * newN) / 2 == k) {
+    //     rpt(i, 0, n)
+    //         cout << "1 ";
+    //     nl
+    //     return;
+    // }
 
     rpt(i, 0, newN - 1)
         cout << "2 ";
