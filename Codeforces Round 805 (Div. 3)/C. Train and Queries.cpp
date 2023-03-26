@@ -58,17 +58,22 @@ void init(){
     return;
 }
 
+ll findN(ll k) {
+
+    ll i = 1;
+    while(1)
+        if((i * (i + 1)) / 2 >= k)
+            return i;
+        else i++;
+
+}
 
 void solve(void){
     
-    ll n; cin >> n;
-    ll x = (ll)sqrt(n);
-    if(x * x == n)
-        x--;
+    ll n, k; cin >> n >> k;
 
-    cout << x;
-
-    debug(n, x);
+    ll newN = findN(k);
+    debug(newN);
     nl;
 }
 
