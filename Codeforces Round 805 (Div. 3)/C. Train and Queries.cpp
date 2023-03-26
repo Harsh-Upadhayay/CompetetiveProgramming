@@ -73,7 +73,7 @@ void solve(void){
 
     rpt(i, 0, n - 1) {
 
-        if(vta[i] < amax)
+        if(vta[i] > amax)
             swap(vta[i], vtb[i]);
 
     }
