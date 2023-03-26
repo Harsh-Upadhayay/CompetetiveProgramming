@@ -62,9 +62,9 @@ void init(){
 void solve(void){
     
     ll n; cin >> n;
-
-    cout << (ll)sqrt(n);
-
+    ll x = (ll)sqrt(n);
+    cout << x;
+    debug(n, x);
     nl;
 }
 
