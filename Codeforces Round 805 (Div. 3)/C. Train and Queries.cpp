@@ -58,42 +58,31 @@ void init(){
     return;
 }
 
-ll sum(vll &v, ll l, ll r) {
-
-    if(l == 0)
-        return v[r];
-    else
-        return v[r] - v[l - 1];
-}
 
 void solve(void){
-    
-    ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
-    rpt(i, 1, n)
-        v[i] += v[i - 1];
+    string s; cin >> s;
+    map<char, ll> st;
+    for(char x : s) st[x]++;
 
-    print(v);
+    ll cnt = st.size();
 
-    ll l = 0, r = n - 1;
-    while(l < r) {
+    if(cnt == 1)
+        cout << "-1";
+    else if(cnt == 4)
+        cout << "4";
+    else if(cnt == 3) 
+        cout << "4";
+    else {
 
-        ll mid = (l + r) / 2;
+        bool f = false;
+        for(auto x : st)
+            f |= (x.second == 1);
 
-        cout << "? " << (mid - l + 1) << " ";
-        rpt(i, l, mid + 1) cout << i + 1 << " ";
-
-        ll x; x = 5;
-
-        if(sum(v, l, mid) == x)
-            l = mid + 1;
+        if(f) 
+            cout << "6";
         else
-            r = mid - 1;
-
-        nl;
+            cout << "4";
     }
-    
-    cout << l;
 
     nl;
 }
