@@ -95,7 +95,7 @@ void solve(void){
 
 
 
-    debug(newN);
+    debug(xtr);
     nl;
 }
 
