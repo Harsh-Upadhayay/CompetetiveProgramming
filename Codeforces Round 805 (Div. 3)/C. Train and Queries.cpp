@@ -73,6 +73,28 @@ void solve(void){
     ll n, k; cin >> n >> k;
 
     ll newN = findN(k);
+
+    if(k == 0) {
+        rpt(i, 0, n)
+            cout << "-1 ";
+        nl
+        return;
+    }
+
+    if(newN == n) {
+        rpt(i, 0, n)
+            cout << "1 ";
+        nl
+        return;
+    }
+
+    rpt(i, 0, newN - 1)
+        cout << "2 ";
+
+    ll xtr = (((newN - 1) * newN) / 2) - k;
+
+
+
     debug(newN);
     nl;
 }
