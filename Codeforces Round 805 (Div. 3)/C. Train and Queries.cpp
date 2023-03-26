@@ -78,7 +78,6 @@ void solve(void){
         day.push_back(v);
     }
 
-    debug(day);
     rpt(i, 0, m) {
 
         for(ll x : day[i]) {
@@ -94,7 +93,6 @@ void solve(void){
                 break;
             }
 
-        for(ll x : day[i]) allParts[x]++;
     }
 
     if(win.size() == m)
