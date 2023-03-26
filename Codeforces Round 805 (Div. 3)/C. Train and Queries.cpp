@@ -73,7 +73,7 @@ void solve(void){
     ll n, k; cin >> n >> k;
 
     ll newN = findN(k);
-
+    debug(newN);
     cout << n << " " << k << ": ";
 
     if(k == 0) {
@@ -102,7 +102,6 @@ void solve(void){
 
     while(newN++ < n)
         cout  << "inf ";
-    debug(newN, xtr);
     nl;
 }
 
