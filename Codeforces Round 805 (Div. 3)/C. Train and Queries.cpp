@@ -73,7 +73,7 @@ void solve(void){
     ll curSum = 0;
     ll ctr = 0;
     debug(v);
-    while(l != r && ctr < 5 * n) {
+    while(l <= r && ctr < 5 * n) {
 
         while(l < n) {
             if(abs(curSum + v[l]) < tgt)
