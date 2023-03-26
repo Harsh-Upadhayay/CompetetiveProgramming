@@ -86,14 +86,22 @@ void solve(void){
     if(flag)
         kill("YES");
 
-    // swap(amax, bmax);
+    swap(amax, bmax);
+    vta = va,
+    vtb = vb;
 
-    // rpt(i, 0, n - 1) {
+    rpt(i, 0, n - 1) {
 
-    //     if(vta[i] < amax)
-    //         swap(vta[i], vtb[i]);
+        if(vta[i] < amax)
+            swap(vta[i], vtb[i]);
 
-    // }
+    }
+    rpt(i, 0, n - 1)
+        if(vta[i] > amax || vtb[i] > bmax)
+            flag = false;
+
+    if(flag)
+        kill("YES");
     cout << "NO";
     nl;
 }
