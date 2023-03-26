@@ -98,7 +98,7 @@ void solve(void){
     xtr *= 2,
     xtr -= 1;
 
-    cout << "-" << xtr << " ";
+    cout << xtr << " ";
 
     while(newN++ < n)
         cout  << "inf ";
