@@ -101,7 +101,7 @@ void solve(void){
     cout << "-" << xtr << " ";
 
     while(newN++ < n)
-        cout << ninf << " ";
+        cout  << "inf ";
     debug(newN, xtr);
     nl;
 }
