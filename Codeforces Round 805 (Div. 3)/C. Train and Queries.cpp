@@ -93,7 +93,7 @@ void solve(void){
         debug(curSum, l, r);
         ctr ++;
     }
-
+    print(ans);
     if(ctr == 5 * n)
         cout << "NO";
     else {
