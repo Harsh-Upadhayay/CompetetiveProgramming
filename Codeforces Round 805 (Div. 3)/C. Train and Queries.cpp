@@ -21,7 +21,7 @@ using namespace std;
 #define lb                      lower_bound
 #define ub                      upper_bound
 #define vll                     vector<ll>
-#define ninf                    ((ll)((-1)*1e3))
+#define ninf                    ((ll)((-1)*1e18+5))
 #define inf                     ((ll)(1e18+5))
 #define MOD                     ((ll)(1e9+7))
 #define nmin(v)                 *min_element(all(v))
@@ -33,7 +33,6 @@ using namespace std;
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
 #define TESTCASE
-#define sqrt                    sqrtl
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -59,53 +58,43 @@ void init(){
     return;
 }
 
-ll findN(ll k) {
-
-    ll i = 1;
-    while(1)
-        if((i * (i + 1)) / 2 >= k)
-            return i;
-        else i++;
-
-}
 
 void solve(void){
     
-    ll n, k; cin >> n >> k;
+    ll n; cin >> n;
+    vll va(n), vb(n); 
+    rpt(i, 0, n) cin >> va[i];
+    rpt(i, 0, n) cin >> vb[i];
 
-    ll newN = findN(k);
-    debug(newN);
-    // cout << n << " " << k << ": ";
+    ll amax = va[n - 1], bmax = vb[n - 1];
 
-    if(k == 0) {
-        rpt(i, 0, n)
-            cout << "-1 ";
-        nl
-        return;
+    vll vta = va,
+        vtb = vb;
+
+    rpt(i, 0, n - 1) {
+
+        if(vta[i] < amax)
+            swap(vta[i], vtb[i]);
+
     }
 
-    // if(((newN + 1) * newN) / 2 == k) {
-    //     rpt(i, 0, n)
-    //         cout << "1 ";
-    //     nl
-    //     return;
+    bool flag = true;
+    rpt(i, 0, n - 1)
+        if(vta[i] > amax || vtb[i] > bmax)
+            flag = false;
+
+    if(flag)
+        kill("YES");
+
+    // swap(amax, bmax);
+
+    // rpt(i, 0, n - 1) {
+
+    //     if(vta[i] < amax)
+    //         swap(vta[i], vtb[i]);
+
     // }
-
-    rpt(i, 0, newN - 1)
-        cout << "2 ";
-
-    ll xtr = (((newN + 1) * newN) / 2) - k;
-
-    xtr *= 2,
-    xtr -= 1;
-    
-    if(xtr > 0)
-        cout << "-" << xtr << " ";
-    else
-        cout << "2 ";
-
-    while(newN++ < n)
-        cout << ninf << " ";
+    cout << "NO";
     nl;
 }
 
