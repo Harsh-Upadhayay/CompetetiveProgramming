@@ -73,7 +73,7 @@ void solve(void){
 
     rpt(i, 0, n - 1) {
 
-        if(vta[i] > amax)
+        if(vta[i] > amax || vtb[i] > bmax)
             swap(vta[i], vtb[i]);
 
     }
@@ -85,6 +85,7 @@ void solve(void){
 
     if(flag)
         kill("YES");
+
     debug(vta, vtb);
     swap(amax, bmax);
     vta = va,
@@ -92,7 +93,7 @@ void solve(void){
 
     rpt(i, 0, n - 1) {
 
-        if(vta[i] > amax)
+        if(vta[i] > amax || vtb[i] > bmax)
             swap(vta[i], vtb[i]);
 
     }
@@ -102,6 +103,7 @@ void solve(void){
 
     if(flag)
         kill("YES");
+
     cout << "NO";
     nl;
 }
