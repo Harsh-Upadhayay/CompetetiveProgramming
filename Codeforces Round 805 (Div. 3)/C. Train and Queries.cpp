@@ -78,7 +78,7 @@ void solve(void){
         while(l < n) {
             if(abs(curSum + v[l]) < tgt)
                 ans.push_back(v[l]),
-                curSum = max(abs(curSum + v[l]), abs(v[l])),
+                curSum = max(abs(curSum + v[l]), (v[l])),
                 l++;
             else break;
         }
@@ -86,7 +86,7 @@ void solve(void){
         while(r >= l) {
             if(abs(curSum + v[r]) < tgt)
                 ans.push_back(v[r]),
-                curSum = max(abs(curSum + v[r]), abs(v[r])),
+                curSum = max(abs(curSum + v[r]), (v[r])),
                 r--;
             else break;
         }
