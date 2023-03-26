@@ -101,7 +101,7 @@ void solve(void){
         print(win);
     else
         cout << "-1";
-
+    debug(win);
     nl;
 }
 
