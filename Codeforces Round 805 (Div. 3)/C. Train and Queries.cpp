@@ -93,8 +93,13 @@ void solve(void){
 
     ll xtr = (((newN + 1) * newN) / 2) - k;
 
+    xtr *= 2,
+    xtr -= 1;
 
+    cout << "-" << xtr;
 
+    while(newN++ < n)
+        cout << ninf << " ";
     debug(newN, xtr);
     nl;
 }
