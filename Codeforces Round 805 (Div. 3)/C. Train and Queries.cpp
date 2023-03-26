@@ -104,7 +104,7 @@ void solve(void){
         cout << "2 ";
 
     while(newN++ < n)
-        cout  << "inf ";
+        cout << ninf << " ";
     nl;
 }
 
