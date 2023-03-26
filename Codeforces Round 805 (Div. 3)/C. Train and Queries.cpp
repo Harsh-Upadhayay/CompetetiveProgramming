@@ -70,31 +70,32 @@ void solve(void){
     ll l = 0, r = n - 1;
 
     vll ans;
-    ll curSum = 0;
+    ll cpsum = 0, cnsum = 0;
     ll ctr = 0;
     debug(tgt, v);
     while(l <= r && ctr < 5 * n) {
 
         while(l < n) {
-            if(abs(curSum + v[l]) < tgt)
+            if(abs(cpsum + v[l]) < tgt && abs(cnsum + v[l]) < tgt)
                 ans.push_back(v[l]),
-                curSum = max((curSum + v[l]), (v[l])),
+                cpsum = max((cpsum + v[l]), (v[l])),
+                cnsum = min(cnsum + v[l], v[l]),
                 l++;
             else break;
-            debug(curSum, l, r);
+            debug(cpsum, cnsum, l, r);
         }
 
         while(r >= l) {
-            if(abs(curSum + v[r]) < tgt)
+            if(abs(cpsum + v[r]) < tgt && abs(cnsum + v[r]) < tgt)
                 ans.push_back(v[r]),
-                curSum = max((curSum + v[r]), (v[r])),
+                cpsum = max((cpsum + v[r]), (v[r])),
+                cnsum = min(cnsum + v[r], v[r]),
                 r--;
             else break;
-            debug(curSum, l, r);
+            debug(cpsum, cnsum, l, r);
         }
         ctr ++;
     }
-    print(ans);
     if(ctr == 5 * n)
         cout << "NO";
     else {
