@@ -33,6 +33,7 @@ using namespace std;
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
 #define TESTCASE
+#define sqrt                    sqrtl
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
