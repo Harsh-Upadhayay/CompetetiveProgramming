@@ -63,7 +63,7 @@ void solve(void){
     
     ll n; cin >> n;
 
-    cout << sqrt(n);
+    cout << (ll)sqrt(n);
 
     nl;
 }
