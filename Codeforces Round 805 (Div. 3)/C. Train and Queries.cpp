@@ -72,7 +72,7 @@ void solve(void){
     vll ans;
     ll curSum = 0;
     ll ctr = 0;
-    debug(v);
+    debug(tgt);
     while(l <= r && ctr < 5 * n) {
 
         while(l < n) {
