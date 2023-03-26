@@ -61,45 +61,46 @@ void init(){
 
 void solve(void){
     
-    ll m; cin >> m;
+    ll n; cin >> n;
+    vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    map<ll, ll> allParts;
+    sort(all(v));
+    ll tgt = v[n - 1] - v[0];
 
-    vector<vector<ll>> day;
-    vll win;
+    ll l = 0, r = n - 1;
 
-    rpt(i, 0, m) {
+    vll ans;
+    ll curSum = 0;
+    ll ctr = 0;
 
-        ll n; cin >> n;
-        vll v(n); rpt(i, 0, n) cin >> v[i];
+    while(l != r && ctr < 5 * n) {
 
-        for(ll x : v) allParts[x]++;
-
-        day.push_back(v);
-    }
-
-    rpt(i, 0, m) {
-
-        for(ll x : day[i]) {
-            allParts[x]--;
-            if(allParts[x] == 0)
-                allParts.erase(x);
-
+        while(l < n) {
+            if(abs(curSum + v[l]) < tgt)
+                ans.push_back(v[l]),
+                curSum += v[l],
+                l++;
+            else break;
         }
 
-        for(ll x : day[i]) 
-            if(allParts.count(x) == 0) {
-                win.push_back(x);
-                break;
-            }
+        while(r > 0) {
+            if(abs(curSum + v[r]) < tgt)
+                ans.push_back(v[r]),
+                curSum += v[r],
+                r--;
+            else break;
+        }
 
+        ctr ++;
     }
 
-    if(win.size() == m)
-        print(win);
-    else
-        cout << "-1";
-    debug(win);
+    if(ctr == 5 * n)
+        cout << "NO";
+    else {
+        cout << "YES\n";
+        print(ans);
+    }
+
     nl;
 }
 
