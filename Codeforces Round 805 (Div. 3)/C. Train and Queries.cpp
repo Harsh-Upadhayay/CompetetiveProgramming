@@ -90,7 +90,7 @@ void solve(void){
                 r--;
             else break;
         }
-        debug(curSum);
+        debug(curSum, l, r);
         ctr ++;
     }
 
