@@ -61,50 +61,47 @@ void init(){
 
 void solve(void){
     
-    ll n; cin >> n;
-    vll va(n), vb(n); 
-    rpt(i, 0, n) cin >> va[i];
-    rpt(i, 0, n) cin >> vb[i];
+    ll m; cin >> m;
 
-    ll amax = va[n - 1], bmax = vb[n - 1];
+    map<ll, ll> allParts;
 
-    vll vta = va,
-        vtb = vb;
+    vector<vector<ll>> day;
+    vll win;
 
-    rpt(i, 0, n - 1) {
+    rpt(i, 0, m) {
 
-        if(vta[i] > amax || vtb[i] > bmax)
-            swap(vta[i], vtb[i]);
+        ll n; cin >> n;
+        vll v(n); rpt(i, 0, n) cin >> v[i];
 
+        for(ll x : v) allParts[x]++;
+
+        day.push_back(v);
     }
 
-    bool flag = true;
-    rpt(i, 0, n - 1)
-        if(vta[i] > amax || vtb[i] > bmax)
-            flag = false;
 
-    if(flag)
-        kill("YES");
+    rpt(i, 0, m) {
 
-    debug(vta, vtb);
-    swap(amax, bmax);
-    vta = va,
-    vtb = vb;
+        for(ll x : day[i]) {
+            allParts[x]--;
+            if(allParts[x] == 0)
+                allParts.erase(x);
 
-    rpt(i, 0, n - 1) {
+        }
 
-        if(vta[i] > amax || vtb[i] > bmax)
-            swap(vta[i], vtb[i]);
+        for(ll x : day[i]) 
+            if(allParts.count(x) == 0) {
+                win.push_back(x);
+                break;
+            }
 
+        for(ll x : day[i]) allParts[x]++;
     }
-    rpt(i, 0, n - 1)
-        if(vta[i] > amax || vtb[i] > bmax)
-            flag = false;
 
-    if(flag)
-        kill("YES");
+    if(win.size() == m)
+        print(win);
+    else
+        cout << "-1";
 
-    cout << "NO";
     nl;
 }
 
