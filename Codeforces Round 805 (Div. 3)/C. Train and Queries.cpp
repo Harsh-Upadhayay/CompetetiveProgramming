@@ -74,7 +74,7 @@ void solve(void){
 
     ll newN = findN(k);
     debug(newN);
-    cout << n << " " << k << ": ";
+    // cout << n << " " << k << ": ";
 
     if(k == 0) {
         rpt(i, 0, n)
