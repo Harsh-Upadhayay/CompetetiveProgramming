@@ -83,7 +83,7 @@ void solve(void){
             else break;
         }
 
-        while(r > 0) {
+        while(r >= l) {
             if(abs(curSum + v[r]) < tgt)
                 ans.push_back(v[r]),
                 curSum += v[r],
