@@ -63,7 +63,11 @@ void solve(void){
     
     ll n; cin >> n;
     ll x = (ll)sqrt(n);
+    if(floor(sqrt(n)) == ceil(sqrt(n)))
+        x--;
+
     cout << x;
+
     debug(n, x);
     nl;
 }
