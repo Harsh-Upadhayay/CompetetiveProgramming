@@ -85,7 +85,7 @@ void solve(void){
 
     if(flag)
         kill("YES");
-
+    debug(vta, vtb);
     swap(amax, bmax);
     vta = va,
     vtb = vb;
