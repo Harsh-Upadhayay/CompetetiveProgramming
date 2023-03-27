@@ -78,6 +78,8 @@ void solve(void){
         if(__gcd(v[i], prv) == 1)
             ctr++,
             prv = v[i];
+        else
+            prv = __gcd(v[i], prv);
 
     }
     cout << ctr;
