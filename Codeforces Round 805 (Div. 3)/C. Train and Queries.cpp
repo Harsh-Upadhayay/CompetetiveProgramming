@@ -72,6 +72,7 @@ void solve(void){
         v[i] = lcm(x, y);
     }
 
+    debug(v);
     ll ctr = 1, prv = v[0];
     rpt(i, 1, n) {
 
@@ -85,7 +86,6 @@ void solve(void){
         debug(ctr, prv);
     }
     cout << ctr;
-    debug(v);
     nl;
 }
 
