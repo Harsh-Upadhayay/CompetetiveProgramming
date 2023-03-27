@@ -71,6 +71,16 @@ void solve(void){
         ll x, y; cin >> x >> y;
         v[i] = lcm(x, y);
     }
+
+    ll ctr = 1, prv = v[0];
+    rpt(i, 1, n) {
+
+        if(__gcd(v[i], prv) == 1)
+            ctr++,
+            prv = v[i];
+
+    }
+    cout << ctr;
     debug(v);
     nl;
 }
