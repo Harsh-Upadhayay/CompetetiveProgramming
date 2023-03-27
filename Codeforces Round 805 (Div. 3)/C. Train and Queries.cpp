@@ -82,7 +82,7 @@ void solve(void){
         else
             ctr ++,
             prv = v[i];
-        debug(ctr, v);
+        debug(ctr, prv);
     }
     cout << ctr;
     debug(v);
