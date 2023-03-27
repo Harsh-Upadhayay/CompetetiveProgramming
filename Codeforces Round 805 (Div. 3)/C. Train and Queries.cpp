@@ -75,11 +75,13 @@ void solve(void){
     ll ctr = 1, prv = v[0];
     rpt(i, 1, n) {
 
-        if(__gcd(v[i], prv) == 1)
-            ctr++,
+        if(__gcd(v[i], prv) == v[i])
             prv = v[i];
+        else if(__gcd(v[i], prv) == prv)
+            prv = prv;
         else
-            prv = __gcd(v[i], prv);
+            ctr ++,
+            prv = v[i];
 
     }
     cout << ctr;
