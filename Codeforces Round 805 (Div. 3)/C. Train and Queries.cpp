@@ -58,51 +58,20 @@ void init(){
     return;
 }
 
+ll lcm(ll x, ll y) {
+
+    return (x * y) / __gcd(x, y);
+}
 
 void solve(void){
     
     ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
-
-    sort(all(v));
-    ll tgt = v[n - 1] - v[0];
-
-    ll l = 0, r = n - 1;
-
-    vll ans;
-    ll cpsum = 0, cnsum = 0;
-    ll ctr = 0;
-    debug(tgt, v);
-    while(l <= r && ctr < 5 * n) {
-
-        while(l <= r) {
-            if(abs(cpsum + v[l]) < tgt && abs(cnsum + v[l]) < tgt)
-                ans.push_back(v[l]),
-                cpsum = max((cpsum + v[l]), (v[l])),
-                cnsum = min(cnsum + v[l], v[l]),
-                l++;
-            else break;
-            debug(cpsum, cnsum, l, r);
-        }
-
-        while(r > l) {
-            if(abs(cpsum + v[r]) < tgt && abs(cnsum + v[r]) < tgt)
-                ans.push_back(v[r]),
-                cpsum = max((cpsum + v[r]), (v[r])),
-                cnsum = min(cnsum + v[r], v[r]),
-                r--;
-            else break;
-            debug(cpsum, cnsum, l, r);
-        }
-        ctr ++;
+    vll v(n);
+    rpt(i, 0, n) {
+        ll x, y; cin >> x >> y;
+        v[i] = lcm(x, y);
     }
-    if(ctr == 5 * n)
-        cout << "NO";
-    else {
-        cout << "YES\n";
-        print(ans);
-    }
-
+    debug(v);
     nl;
 }
 
