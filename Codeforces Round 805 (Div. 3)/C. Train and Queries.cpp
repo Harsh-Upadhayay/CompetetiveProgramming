@@ -58,34 +58,16 @@ void init(){
     return;
 }
 
-ll lcm(ll x, ll y) {
-
-    return (x * y) / __gcd(x, y);
-}
 
 void solve(void){
     
     ll n; cin >> n;
-    vll v(n);
-    rpt(i, 0, n) {
-        ll x, y; cin >> x >> y;
-        v[i] = lcm(x, y);
-    }
+    vll a(n), b(n);
+    rpt(i, 0, n)
+        cin >> a[i] >> b[i];
+    debug(a);
+    debug(b);
 
-    debug(v);
-    ll ctr = 1, prv = v[0];
-    rpt(i, 1, n) {
-
-        if(__gcd(v[i], prv) == v[i])
-            prv = v[i];
-        else if(__gcd(v[i], prv) == prv)
-            prv = prv;
-        else
-            ctr ++,
-            prv = v[i];
-        debug(ctr, prv);
-    }
-    cout << ctr;
     nl;
 }
 
