@@ -65,8 +65,7 @@ void solve(void){
     vll a(n), b(n);
     rpt(i, 0, n)
         cin >> a[i] >> b[i];
-    debug(a);
-    debug(b);
+        debug(a, b);
     print(a);
     nl;
 }
