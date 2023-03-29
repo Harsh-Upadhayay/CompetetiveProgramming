@@ -53,55 +53,53 @@ void storePrimes();
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
 
-
-ll diff(ll x) {
-
-    ll mx = ninf, mn = inf;
-
-    while(x) {
-        mx = max(mx, x % 10), 
-        mn = min(mn, x % 10),
-        x /= 10;
-    }
-
-    return mx - mn;
-}
-
 void init(){
-
 
     return;
 }
 
-void fun(string &a, string &b, string c, ll i) {
-    debug(c);
+bool isPush(string s) {
 
-    if(i >= c.size()) {
-        cout << (c) << "\n";
-        return;
-    }
+    string x = "push";
+    for(int i = 0; i < x.size(); i++)
+        if(s[i] != x[i])
+            return false;
 
-
-    rpt(ch, '0', '9' + 1) 
-        if(1) {
-            c[i] = ch;
-                fun(a, b, c, i + 1);
-        }
+    return true;
 
 }
 
+string fun(vector<string> logs) {
+
+    string curB = "";
+
+    map<string, set<string>> mp;
+
+    for(string log : logs) {
+
+        if(isPush(log)) 
+            mp[curB].insert(log.substr(5, log.size() - 4));
+    
+        else
+            curB = log.substr(7, log.size() - 6);
+
+    }
+
+    string maxB = "";
+    int mx = 0;
+
+    for(auto x : mp) {
+        if(mx < x.second.size())
+            mx = x.second.size(),
+            maxB = x.first;
+    }
+
+    return maxB;
+}
 
 void solve(void){
     
-    string a, b; cin >> a >> b;
-    string c = "";
-    ll dif = b.size() - a.size();
-    reverse(all(a));
-    while(dif--)
-        a += '0';
-    for(auto x : a) c += '0';
-    reverse(all(a));
-    fun(a, b, c, 0);
+
 
     nl;
 }
