@@ -78,10 +78,11 @@ void solve(void){
 
         ll curSum = 0;
         ll idx = n - 1;
-        for(auto x : v)
+        for(auto x : v) {
             curSum += ((((-1) * idx) * v[i]) + (n - 1 - idx * v[i])),
             idx--;
-        debug(curSum);
+            debug(curSum);
+        }
         ans += curSum;
     }   
     cout << ans;
