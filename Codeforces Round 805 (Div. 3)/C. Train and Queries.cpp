@@ -136,12 +136,12 @@ string fun(vector<string> input) {
 
         for(int i = 0; i < newspltstr.size(); i++) {
             if(j >= newspltstr[i].size()) {
-                reverse(ans.begin(), ans.end());
+                // reverse(ans.begin(), ans.end());
                 return ans;
             }
 
             if(curStr != newspltstr[i][j]) {
-                reverse(ans.begin(), ans.end());
+                // reverse(ans.begin(), ans.end());
                 return ans;
             }
 
