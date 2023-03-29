@@ -86,6 +86,7 @@ string fun(vector<string> input) {
         vector<string> v;
 
         string curStr = "";
+
         for(char ch : str) {
 
             if(ch == '/' && curStr != "")
@@ -94,6 +95,8 @@ string fun(vector<string> input) {
             if(ch != '/')
                 curStr += ch;
         }
+        if(curStr != "")
+            v.push_back(curStr);
         spltStr.push_back(v);
     }
 
