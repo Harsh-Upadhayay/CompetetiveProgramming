@@ -75,10 +75,22 @@ void init(){
     return;
 }
 
-ll fun(string &a, string &b, string c) {
+ll fun(string &a, string &b, string c, ll i) {
 
+    if(stol(c) < stol(a) || stol(c) > stol(b))
+        return ninf;
 
+    if(i >= c.size())
+        return diff(stol(c));
 
+    ll ans = ninf;
+
+    rpt(ch, '0', '9')
+        if(c[i] != ch)
+            c[i] = ch,
+            ans = max(ans, fun(a, b, c, i + 1));
+
+    return ans;
 }
 
 
@@ -86,14 +98,13 @@ void solve(void){
     
     string a, b; cin >> a >> b;
 
-    int dif = b.size() - a.size();
+    ll dif = b.size() - a.size();
     reverse(all(a));
     while(dif--)
         a += '0';
     reverse(all(a));
-    debug(a);
 
-    cout << fun(a, b, a);
+    cout << fun(a, b, a, 0);
 
     nl;
 }
