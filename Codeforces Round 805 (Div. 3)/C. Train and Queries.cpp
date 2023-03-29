@@ -103,7 +103,7 @@ void solve(void){
         a += '0',
         c += '0'; 
     reverse(all(a));
-
+    debug(c);
     fun(a, b, c, c.size() - 1);
 
     nl;
