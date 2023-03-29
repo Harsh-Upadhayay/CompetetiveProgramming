@@ -66,7 +66,6 @@ ll diff(ll x) {
         mx = max(mx, x % 10), 
         mn = min(mn, x % 10),
         x /= 10;
-        debug(mx, mn);
     }
 
     return mx - mn;
@@ -75,8 +74,6 @@ ll diff(ll x) {
 void solve(void){
     
     ll l, r; cin >> l >> r;
-    debug(l, r);
-    debug(diff(90));
     ll maxD = ninf;
     vll ans;    
 
