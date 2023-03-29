@@ -85,9 +85,9 @@ void fun(string &a, string &b, string c, ll i) {
 
 
     rpt(ch, '0', '9' + 1) 
-            if(ch != c[i])
-                c[i] = ch,
-                fun(a, b, c, i - 1);
+        if(ch != c[i])
+            c[i] = ch,
+            fun(a, b, c, i - 1);
         
 
 }
@@ -96,14 +96,15 @@ void fun(string &a, string &b, string c, ll i) {
 void solve(void){
     
     string a, b; cin >> a >> b;
-
+    string c = "";
     ll dif = b.size() - a.size();
     reverse(all(a));
     while(dif--)
-        a += '0';
+        a += '0',
+        c += '0';
     reverse(all(a));
 
-    fun(a, b, a, a.size());
+    fun(a, b, c, c.size());
 
     nl;
 }
