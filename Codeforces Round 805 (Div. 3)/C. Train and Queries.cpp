@@ -75,8 +75,6 @@ void init(){
 
 void fun(string &a, string &b, string c, ll i) {
     debug(c);
-    if(c < a || c > b)
-        return;
 
     if(i < 0) {
         cout << (c) << "\n";
@@ -85,10 +83,11 @@ void fun(string &a, string &b, string c, ll i) {
 
 
     rpt(ch, '0', '9' + 1) 
-        if(ch != c[i])
-            c[i] = ch,
-            fun(a, b, c, i - 1);
-        
+        if(ch != c[i]) {
+            c[i] = ch;
+            if(c > a && c < b) 
+                fun(a, b, c, i - 1);
+        }
 
 }
 
