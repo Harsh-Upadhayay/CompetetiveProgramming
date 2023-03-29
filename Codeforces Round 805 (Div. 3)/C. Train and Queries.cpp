@@ -128,7 +128,7 @@ string fun(vector<string> input) {
     for(auto &x : newspltstr)
         reverse(x.begin(), x.end());
 
-    string ans = "";
+    vector<string> ans;
 
     for(int j = 0; j < 10000; j++) {
 
@@ -136,21 +136,33 @@ string fun(vector<string> input) {
 
         for(int i = 0; i < newspltstr.size(); i++) {
             if(j >= newspltstr[i].size()) {
-                // reverse(ans.begin(), ans.end());
-                return ans;
+                reverse(ans.begin(), ans.end());
+                string temp = "";
+                for(auto x : ans)
+                    temp += (x + '/');
+                temp.pop_back();
+                return temp;
             }
 
             if(curStr != newspltstr[i][j]) {
-                // reverse(ans.begin(), ans.end());
-                return ans;
+                reverse(ans.begin(), ans.end());
+                string temp = "";
+                for(auto x : ans)
+                    temp += (x + '/');
+                temp.pop_back();
+                return temp;
             }
 
         }
 
-        ans += ('/' + curStr);
+        ans.push_back (curStr);
     }
 
-    return ans;
+        string temp = "";
+        for(auto x : ans)
+            temp += (x + '/');
+        temp.pop_back();
+    return temp;
 }
 
 void solve(void){
