@@ -58,22 +58,60 @@ void init(){
     return;
 }
 
-int fun(vector<int> del, int intHel) {
+// int fun(vector<int> del, int intHel) {
 
-    for(auto x : del) 
-        if(x < 0)
-            intHel = max(0, intHel + x);
-        else
-            intHel = min(100, intHel + x);
+//     for(auto x : del) 
+//         if(x < 0)
+//             intHel = max(0, intHel + x);
+//         else
+//             intHel = min(100, intHel + x);
 
-    return intHel;
+//     return intHel;
 
+// }
+
+// void solve(void){
+//     int n, h; cin >> n >> h;
+//     vector<int> v(n); rpt(i, 0, n) cin >> v[i];
+//     cout << fun(v, h);
+//     nl;
+// }
+
+string fun(vector<string> input) {
+
+    vector<vector<string>> spltStr;
+
+    for(auto str : input) {
+
+        vector<string> v;
+
+        string curStr = "";
+
+        for(char ch : str) {
+
+            if(ch == '/')
+                v.push_back(curStr),
+                curStr = "";
+            curStr += ch;
+        }
+
+        spltStr.push_back(v);
+    }
+
+    debug(spltStr);
+
+    return "";
 }
 
 void solve(void){
-    int n, h; cin >> n >> h;
-    vector<int> v(n); rpt(i, 0, n) cin >> v[i];
-    cout << fun(v, h);
+    
+    int n; cin >> n;
+    vector<string> input;
+
+    rpt(i, 0, n) cin >> input[i];
+
+    cout << fun(input);
+
     nl;
 }
 
