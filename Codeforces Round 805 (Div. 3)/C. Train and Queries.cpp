@@ -93,13 +93,38 @@ string fun(vector<string> input) {
                 v.push_back(curStr),
                 curStr = "";
             if(ch != '/')
-            curStr += ch;
+                curStr += ch;
         }
         spltStr.push_back(v);
     }
 
     debug(spltStr);
 
+    vector<vector<string>> newspltstr;
+    for(auto spstr : spltStr) {
+
+        stack<string> curStk;
+
+        for(auto str : spstr) {
+
+            if(str == ".." && curStk.size())
+                curStk.pop();
+            else
+                curStk.push(str);
+
+        }
+
+        vector<string> v;
+        while(!curStk.empty())
+            v.push_back(curStk.top()),
+            curStk.pop();
+
+        reverse(v.begin(), v.end());
+
+        newspltstr.push_back(v);
+    }
+
+    debug(newspltstr);
     return "";
 }
 
