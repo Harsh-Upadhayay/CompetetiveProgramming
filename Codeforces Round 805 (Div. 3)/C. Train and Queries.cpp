@@ -161,7 +161,7 @@ void solve(void){
 
     vector<string> logs = {"FFF", ".F.", ".FF", "#F.", "FF.", "...", "..#", "..."};
     
-    debug(fun(logs));
+    print(fun(logs));
 
     nl;
 }
