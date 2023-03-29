@@ -109,13 +109,13 @@ void solve(void){
 
 
     ll l, r; cin >> l >> r;
-    ll ans = 0, val = -1;
+    ll ans = inf, val = -1;
     rpt(i, 0, 200) {
 
         if((l + i) < l || (l + i) > r)
             break;
 
-        if(ans <= diff(l + i))
+        if(ans >= diff(l + i))
             ans = diff(l + i),
             val = l + i;
 
