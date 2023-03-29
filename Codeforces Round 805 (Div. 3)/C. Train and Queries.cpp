@@ -67,11 +67,11 @@ ll diff(ll x) {
     return mx - mn;
 }
 
-vector<short> mp(100001);
+vector<short> mp(1000001);
 
 void init(){
 
-    rpt(i, 1, 100001)
+    rpt(i, 1, 1000001)
         mp[i] = diff(i);
 
     return;
