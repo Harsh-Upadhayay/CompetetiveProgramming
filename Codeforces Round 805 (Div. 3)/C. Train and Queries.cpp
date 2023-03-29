@@ -76,7 +76,7 @@ void init(){
 void fun(string &a, string &b, string c, ll i) {
     debug(c);
 
-    if(i < 0) {
+    if(i >= c.size()) {
         cout << (c) << "\n";
         return;
     }
@@ -86,7 +86,7 @@ void fun(string &a, string &b, string c, ll i) {
         if(ch != c[i]) {
             c[i] = ch;
             if(c > a && c < b) 
-                fun(a, b, c, i - 1);
+                fun(a, b, c, i + 1);
         }
 
 }
@@ -102,7 +102,7 @@ void solve(void){
         a += '0';
     for(auto x : a) c += '0';
     reverse(all(a));
-    fun(a, b, c, c.size() - 1);
+    fun(a, b, c, 0);
 
     nl;
 }
