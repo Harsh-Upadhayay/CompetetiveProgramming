@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-// #define TESTCASE
+#define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -58,116 +58,22 @@ void init(){
     return;
 }
 
-bool isPush(string s) {
+int fun(vector<int> del, int intHel) {
 
-    string x = "push";
-    for(int i = 0; i < x.size(); i++)
-        if(s[i] != x[i])
-            return false;
+    for(auto x : del) 
+        if(x < 0)
+            intHel = max(0, intHel - x);
+        else
+            intHel = min(100, intHel + x);
 
-    return true;
-
-}
-
-// string fun(vector<string> logs) {
-
-//     string curB = "";
-
-//     map<string, set<string>> mp;
-
-//     for(string log : logs) {
-
-//         if(isPush(log)) 
-//             mp[curB].insert(log.substr(5, log.size() - 4));
-    
-//         else
-//             curB = log.substr(7, log.size() - 6);
-
-//     }
-
-//     string maxB = "";
-//     int mx = 0;
-
-//     for(auto x : mp) {
-//         if(mx < x.second.size())
-//             mx = x.second.size(),
-//             maxB = x.first;
-//     }
-
-//     return maxB;
-// }
-
-vector<vector<char>> fun(vector<vector<char>> mat) {
-
-    int n = mat.size(), m = mat[0].size();
-
-    int minD = 100;
-
-    for(int j = 0; j < m; j++) {
-
-        int curD = 0;
-
-        int f = -1, h = -1;
-        for(int i = 0; i < n; i++) {
-
-            if(mat[i][j] == '#' && f == -1) {
-                continue;
-            }
-            if(mat[i][j] == '#' && f != -1) {
-                curD = i - f - 1;
-                minD = min(curD, minD);
-            }
-            if(mat[i][j] == 'F')
-                f = i;
-
-        }
-
-    }
-    bool f = false;
-    for(int j = 0; j < m; j++) {
-        int curD = 100;
-        for(int i = n - 1; i >= 0; i--) {
-            if(mat[i][j] == 'F') {
-                curD = n - i - 1;
-                debug(i, j, curD);
-                f = true;
-                break;
-            }
-         
-        }  
-        debug(minD);
-        minD = min(curD, minD);
-    }
-
-    vector<vector<char>> ans(n, vector<char>(m, '.'));
-
-    for(int i = 0; i < n; i++) {
-        for(int j = 0; j < m; j++) {
-
-            if(mat[i][j] == 'F') {
-                ans[i + minD][j] = 'F';
-            }
-            if(mat[i][j] == '#')
-                ans[i][j] = '#';
-
-        }
-    }
-
-    // cout << minD;
-    return ans;
+    return intHel;
 
 }
 
 void solve(void){
-    
-    ll n, m; cin >> n >> m;
-
-    vector<vector<char>> logs(n, vector<char>(m));
-    rpt(i, 0, n)
-        rpt(j, 0, m)
-            cin >> logs[i][j];
-    print(fun(logs));
-
+    int n, h; cin >> n >> h;
+    vector<int> v(n); rpt(i, 0, n) cin >> v[i];
+    cout << fun(v, h);
     nl;
 }
 
