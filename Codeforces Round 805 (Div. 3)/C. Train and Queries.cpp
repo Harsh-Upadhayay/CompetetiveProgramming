@@ -114,7 +114,7 @@ vector<string> fun(vector<string> mat) {
                 continue;
             }
             if(mat[i][j] == '#' && f != -1) {
-                curD = i - f;
+                curD = i - f - 1;
                 minD = min(curD, minD);
             }
             if(mat[i][j] == 'F')
