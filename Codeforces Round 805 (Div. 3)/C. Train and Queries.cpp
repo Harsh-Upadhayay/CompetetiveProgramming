@@ -143,7 +143,6 @@ string fun(vector<string> input) {
                     temp += (x + '/');
                 if(temp.size())
                     temp.pop_back();
-                temp += '.';
                 return temp;
             }
 
@@ -154,7 +153,6 @@ string fun(vector<string> input) {
                     temp += (x + '/');
                 if(temp.size())
                     temp.pop_back();
-                temp += '.';
                 return temp;
             }
 
