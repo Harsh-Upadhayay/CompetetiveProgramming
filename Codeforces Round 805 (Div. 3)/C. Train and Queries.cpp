@@ -53,10 +53,6 @@ void storePrimes();
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
 
-void init(){
-
-    return;
-}
 
 ll diff(ll x) {
 
@@ -71,25 +67,34 @@ ll diff(ll x) {
     return mx - mn;
 }
 
+vector<short> mp(100001);
+
+void init(){
+
+    rpt(i, 1, 100001)
+        mp[i] = diff(i);
+
+    return;
+}
+
 void solve(void){
     
     ll l, r; cin >> l >> r;
-    ll maxD = ninf;
-    vll ans;    
+    // ll maxD = ninf;
+    // vll ans;    
 
-    rpt(i, l, r + 1) {
-        if(maxD < diff(i)) {
-            maxD = diff(i);
-            ans.clear();
-            ans.push_back(i);
-        }
-        else if(maxD == diff(i))
-            ans.push_back(i);
-        debug(i, maxD, ans);
-    }
+    // rpt(i, l, r + 1) {
+    //     if(maxD < diff(i)) {
+    //         maxD = diff(i);
+    //         ans.clear();
+    //         ans.push_back(i);
+    //     }
+    //     else if(maxD == diff(i))
+    //         ans.push_back(i);
+    //     debug(i, maxD, ans);
+    // }
 
-    cout << maxD << " : ";
-    print(ans);
+    // cout << maxD << " : ";
 
     nl;
 }
