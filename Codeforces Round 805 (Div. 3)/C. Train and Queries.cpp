@@ -80,30 +80,8 @@ void init(){
 void solve(void){
     
     ll l, r; cin >> l >> r;
-    // ll maxD = ninf;
-    // vll ans;    
-
-    // rpt(i, l, r + 1) {
-    //     if(maxD < diff(i)) {
-    //         maxD = diff(i);
-    //         ans.clear();
-    //         ans.push_back(i);
-    //     }
-    //     else if(maxD == diff(i))
-    //         ans.push_back(i);
-    //     debug(i, maxD, ans);
-    // }
-
-    // cout << maxD << " : ";
-
-    short ans = 0;
-    ll val = -1;
-
-    rpt(i, l, r + 1)
-        if(ans <= mp[i])
-            ans = mp[i],
-            val = i;
-    cout << val;
+    rpt(i, 0, 10000)
+        cout << i << " " << mp[i] << "\n";
     nl;
 }
 
