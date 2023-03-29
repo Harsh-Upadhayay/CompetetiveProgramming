@@ -83,6 +83,7 @@ void solve(void){
         if(maxD < diff(i)) {
             maxD = diff(i);
             ans.clear();
+            ans.push_back(i);
         }
         else
             ans.push_back(i);
