@@ -75,7 +75,6 @@ void solve(void){
         rpt(j, 0, n)
             v[j] = mat[j][i];
         sort(all(v));
-        debug(v);
         ll curSum = 0;
         ll idx = n - 1;
         for(auto x : v) {
