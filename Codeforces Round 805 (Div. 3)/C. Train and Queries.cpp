@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-#define TESTCASE
+// #define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -101,11 +101,7 @@ void solve(void){
     
     ll n; cin >> n;
 
-    vector<string> logs;
-    string str;
-    rpt(i, 0, n)
-        getline(cin, str),
-        logs.push_back(str);
+    vector<string> logs = {"switch branch1","push file1","push file2","push file1","switch branch2"};
     debug(logs);
     cout << fun(logs);
 
