@@ -81,7 +81,7 @@ void solve(void){
         for(auto x : v) {
             curSum += ( (((-1) * idx) * x) + (n - 1 - idx * x)),
             idx--;
-            debug(curSum);
+            debug(idx, n - 1 - idx, curSum);
         }
         ans += curSum;
     }   
