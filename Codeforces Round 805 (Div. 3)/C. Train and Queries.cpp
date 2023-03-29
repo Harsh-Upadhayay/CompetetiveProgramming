@@ -109,12 +109,19 @@ void solve(void){
 
 
     ll l, r; cin >> l >> r;
+    ll ans = 0, val = -1;
+    rpt(i, 0, 200) {
 
-    rpt(i, 1, 10001) {
-        cout << i << " " << diff(i) << "\n";
-        if(!(i % 10))
-            cout << "\n";
+        if((l + i) < l || (l + i) > r)
+            break;
+
+        if(ans <= diff(l + i))
+            ans = diff(l + 1),
+            val = l + i;
+
     }
+
+    cout << val;
 
     nl;
 }
