@@ -123,7 +123,7 @@ vector<vector<char>> fun(vector<vector<char>> mat) {
         }
 
     }
-
+    debug(minD);
     for(int j = 0; j < m; j++) {
         int curD = 0;
         for(int i = n - 1; i >= 0; i--) {
@@ -151,7 +151,7 @@ vector<vector<char>> fun(vector<vector<char>> mat) {
 
         }
     }
-    
+
     // cout << minD;
     return ans;
 
