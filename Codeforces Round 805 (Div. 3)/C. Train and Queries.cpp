@@ -101,7 +101,8 @@ void solve(void){
     
     ll n; cin >> n;
 
-    vector<string> logs = {"switch branch1","push file1","push file2","push file1","switch branch2"};
+    vector<string> logs = {"switch branch1","push file1","push file2","push file1","switch branch2",
+                            "switch issue2", "push file1", "push file1", "push file2", "push file3"};
     debug(logs);
     cout << fun(logs);
 
