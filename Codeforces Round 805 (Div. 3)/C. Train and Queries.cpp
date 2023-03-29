@@ -92,6 +92,7 @@ string fun(vector<string> input) {
             if(ch == '/' && curStr != "")
                 v.push_back(curStr),
                 curStr = "";
+            if(ch != '/')
             curStr += ch;
         }
         spltStr.push_back(v);
