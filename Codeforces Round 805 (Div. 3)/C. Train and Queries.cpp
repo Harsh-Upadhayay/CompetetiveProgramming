@@ -64,7 +64,7 @@ ll diff(ll x) {
 
     while(x) {
         mx = max(mx, x % 10), 
-        mn = min(mx, x % 10),
+        mn = min(mn, x % 10),
         x /= 10;
         debug(mx, mn);
     }
