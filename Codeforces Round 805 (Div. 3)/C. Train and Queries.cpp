@@ -109,7 +109,7 @@ void solve(void){
     vector<string> input;
 
     rpt(i, 0, n) cin >> input[i];
-
+    debug(input);
     cout << fun(input);
 
     nl;
