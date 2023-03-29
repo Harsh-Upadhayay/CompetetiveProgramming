@@ -166,7 +166,8 @@ string fun(vector<string> input) {
     string temp = "";
     for(auto x : ans)
         temp += (x + '/');
-    temp.pop_back();
+    if(temp.size())
+        temp.pop_back();
     temp += '.';
     return temp;
 }
