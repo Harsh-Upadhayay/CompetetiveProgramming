@@ -104,7 +104,7 @@ void solve(void){
         c += '0'; 
     reverse(all(a));
 
-    fun(a, b, c, c.size());
+    fun(a, b, c, c.size() - 1);
 
     nl;
 }
