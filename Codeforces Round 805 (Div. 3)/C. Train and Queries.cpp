@@ -68,13 +68,23 @@ void solve(void){
         mat.push_back(v);
     }
 
+    ll ans = 0;
+
     rpt(i, 0, m) {
         vll v(n);
         rpt(j, 0, n)
             v[j] = mat[j][i];
-        debug(v);
-    }
+        sort(all(v));
 
+        ll curSum = 0;
+        ll idx = n - 1;
+        for(auto x : v)
+            curSum += ((((-1) * idx) * v[i]) + (n - 1 - idx * v[i])),
+            idx--;
+
+        ans += curSum;
+    }   
+    cout << ans;
     nl;
 }
 
