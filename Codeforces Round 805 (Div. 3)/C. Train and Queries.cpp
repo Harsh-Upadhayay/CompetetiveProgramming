@@ -125,7 +125,7 @@ vector<vector<char>> fun(vector<vector<char>> mat) {
     }
     bool f = false;
     for(int j = 0; j < m; j++) {
-        int curD = 0;
+        int curD = 100;
         for(int i = n - 1; i >= 0; i--) {
             if(mat[i][j] == 'F') {
                 curD = n - i - 1;
@@ -136,11 +136,7 @@ vector<vector<char>> fun(vector<vector<char>> mat) {
          
         }  
         debug(minD);
-        if(f)
-            break;
-
         minD = min(curD, minD);
-
     }
 
     vector<vector<char>> ans(n, vector<char>(m, '.'));
