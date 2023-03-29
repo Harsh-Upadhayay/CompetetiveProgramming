@@ -116,7 +116,7 @@ void solve(void){
             break;
 
         if(ans <= diff(l + i))
-            ans = diff(l + 1),
+            ans = diff(l + i),
             val = l + i;
 
     }
