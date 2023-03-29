@@ -100,7 +100,6 @@ string fun(vector<string> input) {
         spltStr.push_back(v);
     }
 
-    debug(spltStr);
 
     vector<vector<string>> newspltstr;
     for(auto spstr : spltStr) {
@@ -126,7 +125,13 @@ string fun(vector<string> input) {
         newspltstr.push_back(v);
     }
 
-    debug(newspltstr);
+    for(auto x : newspltstr) {
+        for(auto y : x) {
+            cout << y << " ";
+        }
+        cout << "\n";
+    }
+
     return "";
 }
 
