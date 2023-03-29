@@ -86,7 +86,7 @@ void fun(string &a, string &b, string c, ll i) {
     ll ans = ninf,
        val = -1;
 
-    rpt(ch, '0', '9') {
+    rpt(ch, '0', '9' + 1) {
             if(ch == c[i])
                 continue;
             c[i] = ch,
