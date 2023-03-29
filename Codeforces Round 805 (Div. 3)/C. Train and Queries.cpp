@@ -62,12 +62,17 @@ void init(){
 void solve(void){
     ll n, m; cin >> n >> m;
 
+    vector<vll> mat;
     rpt(i, 0, n) {
         vll v(m); rpt(i, 0, m) cin >> v[i];
-        print(v);
-        cout << ": ";
-        ll sum = 0; rpt(i, 0, m) sum += v[i];
-        cout << sum << "\n";
+        mat.push_back(v);
+    }
+
+    rpt(i, 0, m) {
+        vll v(n);
+        rpt(j, 0, n)
+            v[j] = mat[j][i];
+        debug(v);
     }
 
     nl;
