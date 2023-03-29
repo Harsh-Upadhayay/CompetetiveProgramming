@@ -86,7 +86,7 @@ string fun(vector<string> input) {
         vector<string> v;
 
         string curStr = "";
-
+        debug(str);
         for(char ch : str) {
 
             if(ch == '/' && curStr != "")
