@@ -94,7 +94,6 @@ string fun(vector<string> input) {
                 curStr = "";
             curStr += ch;
         }
-        debug(str);
         spltStr.push_back(v);
     }
 
