@@ -123,18 +123,21 @@ vector<vector<char>> fun(vector<vector<char>> mat) {
         }
 
     }
-
+    bool f = false;
     for(int j = 0; j < m; j++) {
         int curD = 0;
         for(int i = n - 1; i >= 0; i--) {
             if(mat[i][j] == 'F') {
                 curD = n - i - 1;
                 debug(i, j);
+                f = true;
                 break;
             }
          
         }  
         debug(minD);
+        if(f)
+            break;
 
         minD = min(curD, minD);
 
