@@ -151,7 +151,7 @@ vector<vector<char>> fun(vector<vector<char>> mat) {
 
         }
     }
-
+    
     // cout << minD;
     return ans;
 
