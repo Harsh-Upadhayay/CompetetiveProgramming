@@ -100,10 +100,9 @@ void solve(void){
     ll dif = b.size() - a.size();
     reverse(all(a));
     while(dif--)
-        a += '0',
-        c += '0'; 
+        a += '0';
+    for(auto x : a) c += '0';
     reverse(all(a));
-    debug(c);
     fun(a, b, c, c.size() - 1);
 
     nl;
