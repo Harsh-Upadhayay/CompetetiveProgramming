@@ -83,20 +83,13 @@ void fun(string &a, string &b, string c, ll i) {
         return;
     }
 
-    ll ans = ninf,
-       val = -1;
 
-    rpt(ch, '0', '9' + 1) {
-            if(ch == c[i])
-                continue;
-            c[i] = ch,
-            fun(a, b, c, i - 1);
-            // if(ans < x.fi)
-            //     ans = x.fi,
-            //     val = stol(ch);
-        }
+    rpt(ch, '0', '9' + 1) 
+            if(ch != c[i])
+                c[i] = ch,
+                fun(a, b, c, i - 1);
+        
 
-    // return {ans, val};
 }
 
 
