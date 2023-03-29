@@ -78,7 +78,7 @@ void fun(string &a, string &b, string c, ll i) {
     if(c < a || c > b)
         return;
 
-    if(i >= c.size()) {
+    if(i < 0) {
         cout << (c) << "\n";
         return;
     }
@@ -90,7 +90,7 @@ void fun(string &a, string &b, string c, ll i) {
             if(ch == c[i])
                 continue;
             c[i] = ch,
-            fun(a, b, c, i + 1);
+            fun(a, b, c, i - 1);
             // if(ans < x.fi)
             //     ans = x.fi,
             //     val = stol(ch);
@@ -111,7 +111,7 @@ void solve(void){
     reverse(all(a));
     fun(a, b, a, 0);     
 
-    fun(a, b, a, 0);
+    fun(a, b, a, a.size());
 
     nl;
 }
