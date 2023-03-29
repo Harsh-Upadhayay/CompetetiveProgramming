@@ -99,7 +99,15 @@ string fun(vector<string> logs) {
 
 void solve(void){
     
+    ll n; cin >> n;
 
+    vector<string> logs;
+    string str;
+    rpt(i, 0, n)
+        getline(cin, str),
+        logs.push_back(str);
+    debug(logs);
+    cout << fun(logs);
 
     nl;
 }
