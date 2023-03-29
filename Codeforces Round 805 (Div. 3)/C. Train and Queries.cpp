@@ -87,7 +87,6 @@ ll fun(string &a, string &b, string c, ll i) {
 
     rpt(ch, '0', '9')
         if(c[i] != ch)
-            c[i] = ch,
             ans = max(ans, fun(a, b, c, i - 1));
 
     return ans;
