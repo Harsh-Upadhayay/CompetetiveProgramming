@@ -80,14 +80,14 @@ ll fun(string &a, string &b, string c, ll i) {
     if(stol(c) < stol(a) || stol(c) > stol(b))
         return ninf;
 
-    if(i < 0)
+    if(i >= c.size())
         return diff(stol(c));
 
     ll ans = ninf;
 
     rpt(ch, '0', '9')
         if(c[i] != ch)
-            ans = max(ans, fun(a, b, c, i - 1));
+            ans = max(ans, fun(a, b, c, i + 1));
 
     return ans;
 }
@@ -103,7 +103,7 @@ void solve(void){
         a += '0';
     reverse(all(a));
 
-    cout << fun(a, b, a, a.size() -1);
+    cout << fun(a, b, a, 0);
 
     nl;
 }
