@@ -69,41 +69,49 @@ ll diff(ll x) {
 
 void init(){
 
-    // rpt(i, 1, 1000001)
-    //     mp[i] = diff(i);
 
     return;
 }
 
-ll fun(string &a, string &b, string c, ll i) {
+void fun(string &a, string &b, string c, ll i) {
 
     if(stol(c) < stol(a) || stol(c) > stol(b))
-        return ninf;
+        return;
 
     if(i >= c.size())
-        return diff(stol(c));
+        cout << (c) << "\n";
 
-    ll ans = ninf;
+    ll ans = ninf,
+       val = -1;
 
-    rpt(ch, '0', '9')
-        if(c[i] != ch)
-            ans = max(ans, fun(a, b, c, i + 1));
+    rpt(ch, '0', '9') {
+            c[i] = ch,
+            fun(a, b, c, i + 1);
+            // if(ans < x.fi)
+            //     ans = x.fi,
+            //     val = stol(ch);
+        }
 
-    return ans;
+    // return {ans, val};
 }
 
 
 void solve(void){
     
-    string a, b; cin >> a >> b;
+    // string a, b; cin >> a >> b;
 
-    ll dif = b.size() - a.size();
-    reverse(all(a));
-    while(dif--)
-        a += '0';
-    reverse(all(a));
+    // ll dif = b.size() - a.size();
+    // reverse(all(a));
+    // while(dif--)
+    //     a += '0';
+    // reverse(all(a));
+    // fun(a, b, a, 0);     
 
-    cout << fun(a, b, a, 0);
+
+    ll l, r; cin >> l >> r;
+
+    rpt(i, 1, 10001)
+        cout << i << " " << diff(i) << "\n";
 
     nl;
 }
