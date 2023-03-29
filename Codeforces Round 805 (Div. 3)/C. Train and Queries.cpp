@@ -135,12 +135,14 @@ string fun(vector<string> input) {
         string curStr = newspltstr[0][j];
 
         for(int i = 0; i < newspltstr.size(); i++) {
+            debug(ans);
             if(j >= newspltstr[i].size()) {
                 reverse(ans.begin(), ans.end());
                 string temp = "";
                 for(auto x : ans)
                     temp += (x + '/');
-                temp.pop_back();
+                if(temp.size())
+                    temp.pop_back();
                 return temp;
             }
 
@@ -149,7 +151,8 @@ string fun(vector<string> input) {
                 string temp = "";
                 for(auto x : ans)
                     temp += (x + '/');
-                temp.pop_back();
+                if(temp.size())
+                    temp.pop_back();
                 return temp;
             }
 
@@ -158,10 +161,13 @@ string fun(vector<string> input) {
         ans.push_back (curStr);
     }
 
-        string temp = "";
-        for(auto x : ans)
-            temp += (x + '/');
-        temp.pop_back();
+
+
+    string temp = "";
+    for(auto x : ans)
+        temp += (x + '/');
+    temp.pop_back();
+    temp += '.';
     return temp;
 }
 
