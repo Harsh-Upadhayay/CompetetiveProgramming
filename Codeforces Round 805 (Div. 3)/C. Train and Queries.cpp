@@ -74,7 +74,7 @@ ll diff(ll x) {
 void solve(void){
     
     ll l, r; cin >> l >> r;
-
+    debug(l, r);
 
     ll maxD = ninf;
     vll ans;    
