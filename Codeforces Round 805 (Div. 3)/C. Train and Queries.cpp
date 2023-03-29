@@ -101,7 +101,7 @@ void solve(void){
     reverse(all(a));
     while(dif--)
         a += '0',
-        c += '0';
+        c += '0'; 
     reverse(all(a));
 
     fun(a, b, c, c.size());
