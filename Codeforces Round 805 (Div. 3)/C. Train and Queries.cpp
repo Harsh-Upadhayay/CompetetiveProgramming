@@ -85,9 +85,9 @@ void solve(void){
             ans.clear();
             ans.push_back(i);
         }
-        if(maxD == diff(i))
+        else if(maxD == diff(i))
             ans.push_back(i);
-        debug(maxD, ans);
+        debug(i, maxD, ans);
     }
 
     cout << maxD << " : ";
