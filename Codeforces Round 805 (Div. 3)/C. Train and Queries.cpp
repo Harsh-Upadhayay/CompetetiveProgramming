@@ -69,42 +69,72 @@ bool isPush(string s) {
 
 }
 
-string fun(vector<string> logs) {
+// string fun(vector<string> logs) {
 
-    string curB = "";
+//     string curB = "";
 
-    map<string, set<string>> mp;
+//     map<string, set<string>> mp;
 
-    for(string log : logs) {
+//     for(string log : logs) {
 
-        if(isPush(log)) 
-            mp[curB].insert(log.substr(5, log.size() - 4));
+//         if(isPush(log)) 
+//             mp[curB].insert(log.substr(5, log.size() - 4));
     
-        else
-            curB = log.substr(7, log.size() - 6);
+//         else
+//             curB = log.substr(7, log.size() - 6);
+
+//     }
+
+//     string maxB = "";
+//     int mx = 0;
+
+//     for(auto x : mp) {
+//         if(mx < x.second.size())
+//             mx = x.second.size(),
+//             maxB = x.first;
+//     }
+
+//     return maxB;
+// }
+
+vector<string> fun(vector<string> mat) {
+
+    int n = mat.size(), m = mat[0].size();
+
+    int minD = 100;
+
+    for(int j = 0; j < m; j++) {
+
+        int curD = 0;
+
+        int f = -1, h = -1;
+        for(int i = 0; i < n; i++) {
+
+            if(mat[i][j] == '#' && f == -1) {
+                continue;
+            }
+            if(mat[i][j] == '#' && f != -1) {
+                curD = i - f;
+                minD = min(curD, minD);
+            }
+            if(mat[i][j] == 'F')
+                f = i;
+
+        }
 
     }
+    cout << minD;
+    return mat;
 
-    string maxB = "";
-    int mx = 0;
-
-    for(auto x : mp) {
-        if(mx < x.second.size())
-            mx = x.second.size(),
-            maxB = x.first;
-    }
-
-    return maxB;
 }
 
 void solve(void){
     
     ll n; cin >> n;
 
-    vector<string> logs = {"switch branch1","push file1","push file2","push file1","switch branch2",
-                            "switch issue2", "push file1", "push file1", "push file2", "push file3"};
-    debug(logs);
-    cout << fun(logs);
+    vector<string> logs = {"FFF", ".F.", ".FF", "#F.", "FF.", "...", "..#", "..."};
+    
+    fun(logs);
 
     nl;
 }
