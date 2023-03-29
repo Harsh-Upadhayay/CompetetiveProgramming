@@ -146,6 +146,8 @@ vector<vector<char>> fun(vector<string> mat) {
             if(mat[i][j] == 'F') {
                 ans[i + minD][j] = 'F';
             }
+            if(mat[i][j] == '#')
+                ans[i][j] = '#';
 
         }
     }
