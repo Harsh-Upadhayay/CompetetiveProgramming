@@ -58,32 +58,39 @@ void init(){
     return;
 }
 
+ll diff(ll x) {
 
-void solve(void){
-    ll n, m; cin >> n >> m;
+    ll mx = ninf, mn = inf;
 
-    vector<vll> mat;
-    rpt(i, 0, n) {
-        vll v(m); rpt(i, 0, m) cin >> v[i];
-        mat.push_back(v);
+    while(x) {
+        mx = max(mx, x % 10), 
+        mn = min(mx, x % 10),
+        x /= 10;
     }
 
-    ll ans = 0;
+    return mx - mn;
+}
 
-    rpt(i, 0, m) {
-        vll v(n);
-        rpt(j, 0, n)
-            v[j] = mat[j][i];
-        sort(all(v));
-        ll curSum = 0;
-        ll idx = n - 1;
-        for(auto x : v) {
-            curSum += ( (((-1) * idx) * x) + ((n - 1 - idx) * x) ),
-            idx--;
+void solve(void){
+    
+    ll l, r; cin >> l >> r;
+
+
+    ll maxD = ninf;
+    vll ans;    
+
+    rpt(i, l, r + 1) {
+        if(maxD < diff(i)) {
+            maxD = diff(i);
+            ans.clear();
         }
-        ans += curSum;
-    }   
-    cout << ans;
+        else
+            ans.push_back(i);
+    }
+
+    cout << maxD << " : ";
+    print(ans);
+
     nl;
 }
 
