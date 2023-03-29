@@ -85,8 +85,6 @@ void solve(void){
             ans.clear();
             ans.push_back(i);
         }
-        else if(maxD == diff(i))
-            ans.push_back(i);
         debug(maxD, ans);
     }
 
