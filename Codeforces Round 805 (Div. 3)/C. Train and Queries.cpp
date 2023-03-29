@@ -161,7 +161,7 @@ void solve(void){
     
     ll n; cin >> n;
 
-    vector<string> logs = {"FFF", ".F.", ".FF", "#F.", "FF.", "...", "..#", "..."};
+    vector<string> logs = {"FFF", ".F.", ".FF", "#F.", "FF#", "...", "..#", "..."};
     
     print(fun(logs));
 
