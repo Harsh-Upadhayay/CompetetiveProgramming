@@ -67,21 +67,34 @@ ll diff(ll x) {
     return mx - mn;
 }
 
-vector<short> mp(1000001);
-
 void init(){
 
-    rpt(i, 1, 1000001)
-        mp[i] = diff(i);
+    // rpt(i, 1, 1000001)
+    //     mp[i] = diff(i);
 
     return;
 }
 
+ll fun(string &a, string &b, string c) {
+
+
+
+}
+
+
 void solve(void){
     
-    ll l, r; cin >> l >> r;
-    rpt(i, 0, 10000)
-        cout << i << " " << mp[i] << "\n";
+    string a, b; cin >> a >> b;
+
+    int dif = b.size() - a.size();
+    reverse(all(a));
+    while(dif--)
+        a += '0';
+    reverse(all(a));
+    debug(a);
+
+    cout << fun(a, b, a);
+
     nl;
 }
 
