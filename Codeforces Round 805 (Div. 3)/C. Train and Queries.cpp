@@ -125,12 +125,10 @@ string fun(vector<string> input) {
         newspltstr.push_back(v);
     }
 
-    for(auto x : newspltstr) {
-        for(auto y : x) {
-            cout << y << " ";
-        }
-        cout << "\n";
-    }
+    for(auto &x : newspltstr)
+        reverse(x.begin(), x.end());
+
+    debug(newspltstr);
 
     return "";
 }
