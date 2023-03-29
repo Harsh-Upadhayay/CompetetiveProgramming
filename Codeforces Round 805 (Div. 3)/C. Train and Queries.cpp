@@ -85,7 +85,6 @@ void fun(string &a, string &b, string c, ll i) {
     rpt(ch, '0', '9' + 1) 
         if(1) {
             c[i] = ch;
-            if(c >= a && c <= b) 
                 fun(a, b, c, i + 1);
         }
 
