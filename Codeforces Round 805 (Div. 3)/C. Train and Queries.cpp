@@ -60,9 +60,15 @@ void init(){
 
 
 void solve(void){
-    
-    string a, b; cin >> a >> b;
-    cout << a[0];
+    ll n, m; cin >> n >> m;
+
+    rpt(i, 0, n) {
+        vll v(m); rpt(i, 0, m) cin >> v[i];
+        print(v);
+        cout << ": ";
+        ll sum = 0; rpt(i, 0, m) sum += v[i];
+        cout << sum << "\n";
+    }
 
     nl;
 }
