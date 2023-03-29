@@ -74,7 +74,7 @@ void init(){
 }
 
 void fun(string &a, string &b, string c, ll i) {
-
+    debug(c);
     if(c < a || c > b)
         return;
 
