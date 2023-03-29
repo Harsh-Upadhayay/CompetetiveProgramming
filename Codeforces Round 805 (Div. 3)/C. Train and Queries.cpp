@@ -89,7 +89,7 @@ string fun(vector<string> input) {
 
         for(char ch : str) {
 
-            if(ch == '/')
+            if(ch == '/' && curStr != "")
                 v.push_back(curStr),
                 curStr = "";
             curStr += ch;
