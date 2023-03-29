@@ -97,7 +97,7 @@ bool isPush(string s) {
 //     return maxB;
 // }
 
-vector<vector<char>> fun(vector<string> mat) {
+vector<vector<char>> fun(vector<vector<char>> mat) {
 
     int n = mat.size(), m = mat[0].size();
 
@@ -131,7 +131,7 @@ vector<vector<char>> fun(vector<string> mat) {
                 curD = n - i - 1;
                 break;
             }
-
+         
         }
 
         minD = min(curD, minD);
@@ -159,10 +159,12 @@ vector<vector<char>> fun(vector<string> mat) {
 
 void solve(void){
     
-    ll n; cin >> n;
+    ll n, m; cin >> n >> m;
 
-    vector<string> logs = {"FFF", ".F.", ".FF", "#F.", "FF#", "...", "..#", "..."};
-    
+    vector<vector<char>> logs(n, vector<char>(m));
+    rpt(i, 0, n)
+        rpt(j, 0, m)
+            cin >> logs[i][j];
     print(fun(logs));
 
     nl;
