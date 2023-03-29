@@ -79,7 +79,7 @@ void solve(void){
         ll curSum = 0;
         ll idx = n - 1;
         for(auto x : v) {
-            curSum += ( (((-1) * idx) * x) + (n - 1 - idx * x)),
+            curSum += ( (((-1) * idx) * x) + ((n - 1 - idx) * x) ),
             debug(idx, n - 1 - idx, curSum),
             idx--;
         }
