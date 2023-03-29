@@ -97,10 +97,13 @@ void solve(void){
     // cout << maxD << " : ";
 
     short ans = 0;
+    ll val = -1;
 
     rpt(i, l, r + 1)
-        ans = max(ans, mp[i]);
-    cout << ans;
+        if(ans <= mp[i])
+            ans = mp[i],
+            val = i;
+    cout << val;
     nl;
 }
 
