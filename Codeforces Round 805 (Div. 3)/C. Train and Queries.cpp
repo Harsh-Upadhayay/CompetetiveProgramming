@@ -62,7 +62,7 @@ int fun(vector<int> del, int intHel) {
 
     for(auto x : del) 
         if(x < 0)
-            intHel = max(0, intHel - x);
+            intHel = max(0, intHel + x);
         else
             intHel = min(100, intHel + x);
 
