@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-#define TESTCASE
+// #define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -106,11 +106,11 @@ string fun(vector<string> input) {
 void solve(void){
     
     int n; cin >> n;
-    vector<string> input;
+    vector<string> input(n);
 
     rpt(i, 0, n) cin >> input[i];
     debug(input);
-    cout << fun(input);
+    // cout << fun(input);
 
     nl;
 }
