@@ -129,7 +129,7 @@ vector<vector<char>> fun(vector<vector<char>> mat) {
         for(int i = n - 1; i >= 0; i--) {
             if(mat[i][j] == 'F') {
                 curD = n - i - 1;
-                debug(i, j);
+                debug(i, j, curD);
                 f = true;
                 break;
             }
