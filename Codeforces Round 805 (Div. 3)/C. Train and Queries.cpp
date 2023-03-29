@@ -78,13 +78,17 @@ void fun(string &a, string &b, string c, ll i) {
     if(stol(c) < stol(a) || stol(c) > stol(b))
         return;
 
-    if(i >= c.size())
+    if(i >= c.size()) {
         cout << (c) << "\n";
+        return;
+    }
 
     ll ans = ninf,
        val = -1;
 
     rpt(ch, '0', '9') {
+            if(ch == c[i])
+                continue;
             c[i] = ch,
             fun(a, b, c, i + 1);
             // if(ans < x.fi)
@@ -98,30 +102,16 @@ void fun(string &a, string &b, string c, ll i) {
 
 void solve(void){
     
-    // string a, b; cin >> a >> b;
+    string a, b; cin >> a >> b;
 
-    // ll dif = b.size() - a.size();
-    // reverse(all(a));
-    // while(dif--)
-    //     a += '0';
-    // reverse(all(a));
-    // fun(a, b, a, 0);     
+    ll dif = b.size() - a.size();
+    reverse(all(a));
+    while(dif--)
+        a += '0';
+    reverse(all(a));
+    fun(a, b, a, 0);     
 
-
-    ll l, r; cin >> l >> r;
-    ll ans = inf, val = -1;
-    rpt(i, 0, 200) {
-
-        if((l + i) < l || (l + i) > r)
-            break;
-
-        if(ans >= diff(l + i))
-            ans = diff(l + i),
-            val = l + i;
-
-    }
-
-    cout << val;
+    fun(a, b, a, 0);
 
     nl;
 }
