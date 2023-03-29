@@ -75,7 +75,7 @@ void init(){
 
 void fun(string &a, string &b, string c, ll i) {
 
-    if(stol(c) < stol(a) || stol(c) > stol(b))
+    if(c < a || c > b)
         return;
 
     if(i >= c.size()) {
