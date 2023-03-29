@@ -110,8 +110,11 @@ void solve(void){
 
     ll l, r; cin >> l >> r;
 
-    rpt(i, 1, 10001)
+    rpt(i, 1, 10001) {
         cout << i << " " << diff(i) << "\n";
+        if(!(i % 10))
+            cout << "\n";
+    }
 
     nl;
 }
