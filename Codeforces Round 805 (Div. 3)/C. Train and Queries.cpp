@@ -58,42 +58,34 @@ void init(){
     return;
 }
 
-// ll fun(string &num, ll ind, ll sum, ll tight) {
+ll fun(string &num, ll dig, ll even, ll leadingz, ll tight) {
 
-//     if(sum == 0)
-//         return 1;
-//     if(ind >= num.size())
-//         return 0;
+    if(dig < 0)
+        return 1;
 
-//     ll ans = 0;
-//     rpt(i, 0, 10)
-//         if(tight) {
-//             if(i <= (num[ind] - '0') && i <= sum)
-//                 ans += fun(num, ind + 1, sum - i, (num[ind] - '0') == i);
-//         }
-//         else {
-//             if(i <= sum)
-//                 ans += fun(num, ind + 1, sum - i, 0);
-//         }
-
-
-//     return ans;
-// }
-
-ll fun(string &num, ll ind, ll tight) {
-
-    if(ind >= num.size())
-        return 0;
-
+    ll ub = tight ? num[num.size() - dig] - '0' : 9; 
     ll ans = 0;
 
-    ll ub = tight ? (num[ind] - '0') : 9;
-    
-    rpt(i, 0, ub + 1) 
+    if(even) {
 
-        if((i % 2) == (ind % 2)) 
-            ans += 1 + fun(num, ind + 1, tight && (i == ub));    
+        for(int i = 0; i <= ub; i += 2)
+            ans += fun(num, dig - 1 , 0, 0, (tight && (i == ub)));
 
+    }
+
+    else {
+
+        if(leadingz) {
+
+            ans += fun(num, dig - 1, 0, 1, 0);
+
+        }
+
+        for(int i = 1; i <= ub; i += 2)
+            ans += fun(num, dig - 1 , 1, 0, (tight && (i == ub)));
+        
+
+    }
 
     return ans;
 }
@@ -102,9 +94,8 @@ void solve(void){
     
     string l, r; cin >> l >> r;
 
-    ll ind = 0, sum = 10, tight = 1, fc = 1;
-
-    cout << fun(r, ind, tight) << " " << fun(l, ind, tight);
+    ll dig = l.size(), even = 0, leadingz = 1, tight = 1;
+    cout << fun(l, dig, even, leadingz = 1, tight);
 
     nl;
 }
