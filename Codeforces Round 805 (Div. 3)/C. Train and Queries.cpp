@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-// #define TESTCASE
+#define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -58,126 +58,15 @@ void init(){
     return;
 }
 
-// int fun(vector<int> del, int intHel) {
-
-//     for(auto x : del) 
-//         if(x < 0)
-//             intHel = max(0, intHel + x);
-//         else
-//             intHel = min(100, intHel + x);
-
-//     return intHel;
-
-// }
-
-// void solve(void){
-//     int n, h; cin >> n >> h;
-//     vector<int> v(n); rpt(i, 0, n) cin >> v[i];
-//     cout << fun(v, h);
-//     nl;
-// }
-
-string fun(vector<string> input) {
-
-    vector<vector<string>> spltStr;
-
-    for(auto str : input) {
-
-        vector<string> v;
-
-        string curStr = "";
-
-        for(char ch : str) {
-
-            if(ch == '/' && curStr != "")
-                v.push_back(curStr),
-                curStr = "";
-            if(ch != '/')
-                curStr += ch;
-        }
-        if(curStr != "")
-            v.push_back(curStr);
-        spltStr.push_back(v);
-    }
-
-
-    vector<vector<string>> newspltstr;
-    for(auto spstr : spltStr) {
-
-        stack<string> curStk;
-
-        for(auto str : spstr) {
-
-            if(str == ".." && curStk.size())
-                curStk.pop();
-            else
-                curStk.push(str);
-
-        }
-
-        vector<string> v;
-        while(!curStk.empty())
-            v.push_back(curStk.top()),
-            curStk.pop();
-
-        reverse(v.begin(), v.end());
-
-        newspltstr.push_back(v);
-    }
-
-    for(auto &x : newspltstr)
-        reverse(x.begin(), x.end());
-
-    vector<string> ans;
-
-    for(int j = 0; j < 10000; j++) {
-
-        string curStr = newspltstr[0][j];
-
-        for(int i = 0; i < newspltstr.size(); i++) {
-            debug(ans);
-            if(j >= newspltstr[i].size()) {
-                reverse(ans.begin(), ans.end());
-                string temp = "";
-                for(auto x : ans)
-                    temp += (x + '/');
-                if(temp.size())
-                    temp.pop_back();
-                return temp;
-            }
-
-            if(curStr != newspltstr[i][j]) {
-                reverse(ans.begin(), ans.end());
-                string temp = "";
-                for(auto x : ans)
-                    temp += (x + '/');
-                if(temp.size())
-                    temp.pop_back();
-                return temp;
-            }
-
-        }
-
-        ans.push_back (curStr);
-    }
-
-
-
-    string temp = "";
-    for(auto x : ans)
-        temp += (x + '/');
-    if(temp.size())
-        temp.pop_back();
-    return temp;
-}
 
 void solve(void){
     
-    int n; cin >> n;
-    vector<string> input(n);
+    ll n; cin >> n;
+    vll a(n), b(n);
+    rpt(i, 0, n)
+        cin >> a[i] >> b[i];
 
-    rpt(i, 0, n) cin >> input[i];
-    cout << fun(input);
+    debug(a, b);
 
     nl;
 }
