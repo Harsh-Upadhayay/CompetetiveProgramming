@@ -58,35 +58,61 @@ void init(){
     return;
 }
 
-ll fun(string &num, ll ind, ll sum, ll tight) {
+// ll fun(string &num, ll ind, ll sum, ll tight) {
 
-    if(sum == 0)
-        return 1;
+//     if(sum == 0)
+//         return 1;
+//     if(ind >= num.size())
+//         return 0;
+
+//     ll ans = 0;
+//     rpt(i, 0, 10)
+//         if(tight) {
+//             if(i <= (num[ind] - '0') && i <= sum)
+//                 ans += fun(num, ind + 1, sum - i, (num[ind] - '0') == i);
+//         }
+//         else {
+//             if(i <= sum)
+//                 ans += fun(num, ind + 1, sum - i, 0);
+//         }
+
+
+//     return ans;
+// }
+
+ll fun(string &num, ll ind, ll tight) {
+
     if(ind >= num.size())
         return 0;
 
     ll ans = 0;
-    rpt(i, 0, 10)
+
+    rpt(i, 0, 10) {
+
         if(tight) {
-            if(i <= (num[ind] - '0') && i <= sum)
-                ans += fun(num, ind + 1, sum - i, (num[ind] - '0') == i);
+
+            if(i <= (num[ind] - '0'))
+                ans += fun(num, ind + 1, (num[ind] - '0') == i);
+
         }
         else {
-            if(i <= sum)
-                ans += fun(num, ind + 1, sum - i, 0);
+
+            ans += fun(num, ind + 1, 0);
+
         }
 
+    }
 
     return ans;
 }
 
 void solve(void){
     
-    ll n; cin >> n;
+    string l, r; cin >> l >> r;
 
     ll ind = 0, sum = 10, tight = 1;
-    string num = "123";
-    cout << fun(num, ind, sum, tight);
+
+    cout << fun(l, ind, tight);
 
     nl;
 }
