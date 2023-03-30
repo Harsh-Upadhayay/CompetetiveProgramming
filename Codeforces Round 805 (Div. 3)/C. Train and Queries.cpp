@@ -92,7 +92,7 @@ void solve(void){
     string l, r; cin >> l >> r;
 
     ll dig = l.size(), even = 0, leadingz = 1, tight = 1;
-    cout << fun(l, dig, even, leadingz, tight);
+    cout << fun(r, dig, even, leadingz, tight) - fun(l, dig, even, leadingz, tight);
 
     nl;
 }
