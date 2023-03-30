@@ -92,7 +92,7 @@ ll fun(string &num, ll ind, ll tight) {
     rpt(i, 0, ub + 1) 
 
         if((i % 2) == (ind % 2)) 
-            ans += 1 + fun(num, ind + 1, tight && i == ub);    
+            ans += 1 + fun(num, ind + 1, tight && (i == ub));    
 
 
     return ans;
@@ -101,7 +101,7 @@ ll fun(string &num, ll ind, ll tight) {
 void solve(void){
     
     string l, r; cin >> l >> r;
-    debug(l, r);
+
     ll ind = 0, sum = 10, tight = 1;
 
     cout << fun(r, ind, tight) << " " << fun(l, ind, tight);
