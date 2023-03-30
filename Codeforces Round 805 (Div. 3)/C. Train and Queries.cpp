@@ -60,7 +60,7 @@ void init(){
 
 ll fun(string &num, ll dig, ll even, ll leadingz, ll tight) {
 
-    if(dig < 0)
+    if(dig <= 0)
         return 1;
 
     ll ub = tight ? num[num.size() - dig] - '0' : 9; 
@@ -75,11 +75,8 @@ ll fun(string &num, ll dig, ll even, ll leadingz, ll tight) {
 
     else {
 
-        if(leadingz) {
-
+        if(leadingz) 
             ans += fun(num, dig - 1, 0, 1, 0);
-
-        }
 
         for(int i = 1; i <= ub; i += 2)
             ans += fun(num, dig - 1 , 1, 0, (tight && (i == ub)));
