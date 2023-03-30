@@ -89,16 +89,18 @@ ll fun(string &num, ll ind, ll tight) {
 
     rpt(i, 0, 10) {
 
-        if(tight) {
+        if(i % 2 != ind % 2) {
+            if(tight) {
 
-            if(i <= (num[ind] - '0'))
-                ans += 1 + fun(num, ind + 1, (num[ind] - '0') == i);
+                if(i <= (num[ind] - '0'))
+                    ans += 1 + fun(num, ind + 1, (num[ind] - '0') == i);
 
-        }
-        else {
+            }
+            else {
 
-            ans += 1 + fun(num, ind + 1, 0);
+                ans += 1 + fun(num, ind + 1, 0);
 
+            }
         }
 
     }
