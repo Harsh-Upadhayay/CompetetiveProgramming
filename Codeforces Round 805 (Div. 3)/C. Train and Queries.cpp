@@ -58,17 +58,24 @@ void init(){
     return;
 }
 
-ll fun(ll dig, ll sum) {
+ll fun(string &num, ll ind, ll sum, ll tight) {
 
     if(sum == 0)
         return 1;
-    if(dig <= 0)
+    if(ind >= num.size())
         return 0;
 
     ll ans = 0;
     rpt(i, 0, 10)
-        if(i <= sum)
-            ans += fun(dig - 1, sum - i);
+        if(tight) {
+            if(i <= (num[ind] - '0') && i <= sum)
+                ans += fun(num, ind + 1, sum - i, (num[ind] - '0') == i);
+        }
+        else {
+            if(i <= sum)
+                ans += fun(num, ind + 1, sum - i, 0);
+        }
+
 
     return ans;
 }
@@ -77,8 +84,9 @@ void solve(void){
     
     ll n; cin >> n;
 
-    ll dig = 2, sum = 10;
-    cout << fun(dig, sum);
+    ll ind = 0, sum = 10, tight = 1;
+    string num = "123";
+    cout << fun(num, ind, sum, tight);
 
     nl;
 }
