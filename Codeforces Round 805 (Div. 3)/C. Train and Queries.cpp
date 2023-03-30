@@ -111,7 +111,7 @@ ll fun(string &num, ll ind, ll tight) {
 void solve(void){
     
     string l, r; cin >> l >> r;
-
+    debug(l, r);
     ll ind = 0, sum = 10, tight = 1;
 
     cout << fun(r, ind, tight) << " " << fun(l, ind, tight);
