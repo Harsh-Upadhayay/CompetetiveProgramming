@@ -88,13 +88,12 @@ ll fun(string &num, ll ind, ll tight) {
     ll ans = 0;
 
     ll ub = tight ? (num[ind] - '0') : 9;
-    rpt(i, 0, ub + 1) {
+    
+    rpt(i, 0, ub + 1) 
 
         if((i % 2) == (ind % 2)) 
             ans += 1 + fun(num, ind + 1, tight && i == ub);    
-        
 
-    }
 
     return ans;
 }
