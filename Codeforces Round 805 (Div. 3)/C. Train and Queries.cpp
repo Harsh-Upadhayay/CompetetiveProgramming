@@ -80,19 +80,19 @@ void init(){
 //     return ans;
 // }
 
-ll fun(string &num, ll ind, ll tight, ll fc) {
+ll fun(string &num, ll ind, ll tight, ll shift) {
 
-    if(ind >= num.size())
+    if(ind > num.size())
         return 0;
 
     ll ans = 0;
 
     ll ub = tight ? (num[ind] - '0') : 9;
     
-    rpt(i, fc, ub + 1) 
+    rpt(i, 0, ub + 1) 
 
         if((i % 2) == (ind % 2)) 
-            ans += 1 + fun(num, ind + 1, tight && (i == ub), 0);    
+            ans += 1 + fun(num, ind + 1, tight && (i == ub), shift);    
 
 
     return ans;
@@ -102,9 +102,9 @@ void solve(void){
     
     string l, r; cin >> l >> r;
 
-    ll ind = 0, sum = 10, tight = 1, fc = 1;
+    ll ind = 1, sum = 10, tight = 1, shift = 0;
 
-    cout << fun(r, ind, tight, fc) << " " << fun(l, ind, tight, fc);
+    cout << fun(r, ind, tight, shift) << " " << fun(l, ind, tight, shift);
 
     nl;
 }
