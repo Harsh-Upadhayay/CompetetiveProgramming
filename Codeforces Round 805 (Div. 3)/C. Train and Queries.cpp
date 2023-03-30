@@ -92,12 +92,12 @@ ll fun(string &num, ll ind, ll tight) {
         if(tight) {
 
             if(i <= (num[ind] - '0'))
-                ans += fun(num, ind + 1, (num[ind] - '0') == i);
+                ans += 1 + fun(num, ind + 1, (num[ind] - '0') == i);
 
         }
         else {
 
-            ans += fun(num, ind + 1, 0);
+            ans += 1 + fun(num, ind + 1, 0);
 
         }
 
