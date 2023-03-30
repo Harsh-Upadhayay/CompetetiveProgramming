@@ -58,22 +58,27 @@ void init(){
     return;
 }
 
-void adjust(string &a, string &b) {
+ll fun(ll dig, ll sum) {
 
-    int n = b.size() - a.size();
+    if(sum == 0)
+        return 1;
+    if(dig <= 0)
+        return 0;
 
-    reverse(all(a));
-    while(n--) a += '0';
-    reverse(all(a));
+    ll ans = 0;
+    rpt(i, 0, 9)
+        if(i <= sum)
+            ans += fun(dig - 1, sum - i);
 
+    return ans;
 }
 
 void solve(void){
     
-    string a, b; cin >> a >> b;
-    adjust(a, b);
+    ll n; cin >> n;
 
-    debug(a, b);
+    ll dig = 2, sum = 10;
+    cout << fun(dig, sum);
 
     nl;
 }
