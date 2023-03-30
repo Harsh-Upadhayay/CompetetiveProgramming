@@ -89,7 +89,7 @@ ll fun(string &num, ll ind, ll tight) {
 
     rpt(i, 0, 10) {
 
-        if(i % 2 != ind % 2) {
+        if((i % 2) != (ind % 2)) {
             if(tight) {
 
                 if(i <= (num[ind] - '0'))
