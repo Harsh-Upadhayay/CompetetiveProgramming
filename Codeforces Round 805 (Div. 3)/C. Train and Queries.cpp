@@ -77,7 +77,7 @@ void solve(void){
     
     ll n; cin >> n;
 
-    ll dig = 1, sum = 2;
+    ll dig = 1, sum = 4;
     cout << fun(dig, sum);
 
     nl;
