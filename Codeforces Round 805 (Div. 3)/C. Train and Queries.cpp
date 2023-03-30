@@ -58,13 +58,20 @@ void init(){
     return;
 }
 
+void adjust(string &a, string &b) {
+
+    int n = b.size() - a.size();
+
+    reverse(all(a));
+    while(n--) a += '0';
+    reverse(all(a));
+
+}
 
 void solve(void){
     
-    ll n; cin >> n;
-    vll a(n), b(n);
-    rpt(i, 0, n)
-        cin >> a[i] >> b[i];
+    string a, b; cin >> a >> b;
+    adjust(a, b);
 
     debug(a, b);
 
