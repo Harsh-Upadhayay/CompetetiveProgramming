@@ -114,7 +114,7 @@ void solve(void){
 
     ll ind = 0, sum = 10, tight = 1;
 
-    cout << l << " : " << fun(l, ind, tight);
+    cout << fun(r, ind, tight) - fun(l, ind, tight);
 
     nl;
 }
