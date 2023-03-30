@@ -66,7 +66,7 @@ ll fun(ll dig, ll sum) {
         return 0;
 
     ll ans = 0;
-    rpt(i, 0, 9)
+    rpt(i, 0, 10)
         if(i <= sum)
             ans += fun(dig - 1, sum - i);
 
