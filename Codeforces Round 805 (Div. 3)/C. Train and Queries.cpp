@@ -75,7 +75,7 @@ void solve(void){
 
         ll l = (2 * x) - 1, r = (2 * x) + 1;
 
-        debug(n, l, x);
+        debug(n, l, r);
 
         if(n <= l)
             ans.push_back(1),
