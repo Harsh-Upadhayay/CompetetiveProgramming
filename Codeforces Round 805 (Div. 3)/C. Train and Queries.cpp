@@ -58,41 +58,19 @@ void init(){
     return;
 }
 
-ll fun(string &num, ll dig, ll even, ll leadingz, ll tight) {
-
-    if(dig <= 0)
-        return 1;
-
-    ll ub = tight ? num[num.size() - dig] - '0' : 9; 
-    ll ans = 0;
-
-    if(even) {
-
-        for(int i = 0; i <= ub; i += 2)
-            ans += fun(num, dig - 1 , 0, 0, (tight && (i == ub)));
-
-    }
-
-    else {
-
-        if(leadingz) 
-            ans += fun(num, dig - 1, 0, 1, 0);
-
-        for(int i = 1; i <= ub; i += 2)
-            ans += fun(num, dig - 1 , 1, 0, (tight && (i == ub)));
-        
-
-    }
-
-    return ans;
-}
 
 void solve(void){
-    
-    string l, r; cin >> l >> r;
+    ll n; cin >> n;
+    vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    ll dig = l.size(), even = 0, leadingz = 1, tight = 1;
-    cout << fun(r, dig, even, leadingz, tight) - fun(l, dig, even, leadingz, tight);
+    bool ans = false;
+    rpt(i, 0, n)
+        ans |= ((i + 1 - v[i]) >= 0);
+
+    if(ans)
+        yes
+    else
+        no
 
     nl;
 }
