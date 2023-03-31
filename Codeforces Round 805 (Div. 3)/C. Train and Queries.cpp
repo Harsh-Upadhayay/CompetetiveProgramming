@@ -60,17 +60,43 @@ void init(){
 
 
 void solve(void){
+    
     ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
+    vll ans;
 
-    bool ans = false;
-    rpt(i, 0, n)
-        ans |= ((i + 1 - v[i]) >= 0);
+    ll x = 1;
+    stack<ll> st;
 
-    if(ans)
-        yes
-    else
-        no
+    if(!(n % 2)) kill("NO");
+
+    ll ctr = 0;
+
+    while(x != n && ctr++ < 40) {
+
+        ll l = (2 * x) - 1, r = (2 * x) + 1;
+
+        if(n <= l)
+            ans.push_back(1),
+            st.push(r),
+            x = l;
+
+        else if(n <= r)
+            ans.push_back(2),
+            st.push(l),
+            x = r;
+
+        else {
+            if(st.size())
+                x = st.top(),
+                st.pop();
+            if(ans.size())
+                ans.pop_back();
+        }
+        debug(x);
+
+    }
+
+    print(ans);
 
     nl;
 }
