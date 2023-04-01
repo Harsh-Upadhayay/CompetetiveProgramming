@@ -84,20 +84,20 @@ pair<ll, ll> fun(string &ls, string &rs, ll n, ll upTight, ll loTight) {
         lb = loTight ? ls[ls.size() - n] - '0' : 0;
     ll ansSum = 0, ansFreq = 0;
     debug(lb, ub);
-    // rpt(i, 0, 10) {
+    rpt(i, 0, 10) {
 
-    //     if(i >= lb && i <= ub) {
+        if(i >= lb && i <= ub) {
 
-    //         auto retV = fun(ls, rs, n - 1, upTight && (i == ub), loTight && (i == lb));
-    //         ll sum = retV.second,
-    //             freq = retV.first;
+            auto retV = fun(ls, rs, n - 1, upTight && (i == ub), loTight && (i == lb));
+            ll sum = retV.second,
+                freq = retV.first;
 
-    //         ansSum += (i * freq + sum),
-    //         ansFreq += freq; 
+            ansSum += (i * freq + sum),
+            ansFreq += freq; 
 
-    //     }
+        }
 
-    // }
+    }
     return {ansFreq, ansSum};
 }
 
