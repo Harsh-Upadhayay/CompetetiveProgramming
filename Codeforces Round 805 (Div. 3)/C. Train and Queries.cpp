@@ -87,7 +87,10 @@ ll bruteForce(ll l, ll r) {
 
 void solve(void){
     ll l, r; cin >> l >> r;
-    cout << bruteForce(1, l);
+
+    string ls = to_string(l),
+            rs = to_string(r);
+    debug(l, r);
     nl;
     nl;
 }
