@@ -99,13 +99,21 @@ ll optimized(ll l, ll u) {
     return fun(ls, us, n, 1, 1).first;
 }
 
-void solve(void){
+void solve(ll t){
     
-    // ll l, u; cin >> l >> u;
-    ll n; cin >> n;
-    if(n == 1)
-        yes
-    else no
+    ll ans = 1;
+    if(t % 2)
+        rpt(i, 0, 2) {
+            ll x; cin >> x;
+            ans *= x;
+        }
+    else 
+        rpt(i, 0, 3) {
+            ll x; cin >> x;
+            ans *= x;
+        }
+
+    cout << ans;
     nl;
 }
 
@@ -133,8 +141,8 @@ int main() {
         cin >> t;
     #endif
 
-    while(t--) 
-        solve();
+    rpt(i, 1, t + 1)
+        solve(i);
 
     return 0;
 }
