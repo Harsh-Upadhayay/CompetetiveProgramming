@@ -61,7 +61,7 @@ void init(){
 pair<ll, pair<ll, ll>> fun(string &ls, string &us, ll n, bool utt, bool ltt) {
 
     if(n == 0)
-        return {inf, {ninf, inf}};
+        return {ninf, {ninf, inf}};
 
     ll ub = utt ? us[us.size() - n] - '0' : '9',
        lb = ltt ? ls[ls.size() - n] - '0' : '0',
@@ -77,7 +77,7 @@ pair<ll, pair<ll, ll>> fun(string &ls, string &us, ll n, bool utt, bool ltt) {
             mx = max(pmax, i),
             mn = min(pmin, i);
 
-            ans = min(ans, mx - mn);
+            ans = max(ans, mx - mn);
         }
 
     }
