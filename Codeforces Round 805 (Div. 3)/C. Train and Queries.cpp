@@ -70,7 +70,7 @@ pair<ll, pair<ll, ll>> fun(string &ls, string &us, ll n, bool utt, bool ltt) {
     rpt(i, 1, (ll)10) {
 
         if(i >= lb && i <= ub) {
-            debug(i);
+            debug(i, utt, ltt);
             auto it = fun(ls, us, n - 1, utt && (i == ub), ltt && (i == lb));
             ll pmax = it.second.first, pmin = it.second.second;
 
