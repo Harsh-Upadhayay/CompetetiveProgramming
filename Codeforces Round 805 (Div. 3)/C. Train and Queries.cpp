@@ -59,7 +59,7 @@ void init(){
 }
 
 pair<ll, pair<ll, ll>> fun(string &ls, string &us, ll n, bool utt, bool ltt) {
-
+    debug(5);
     if(n == 0)
         return {inf, {ninf, inf}};
 
