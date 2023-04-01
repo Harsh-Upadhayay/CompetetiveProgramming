@@ -75,15 +75,15 @@ ll bruteForce(ll l, ll r) {
     return ans;
 }
 
-pair<ll, ll> fun(string &ls, string &rs, ll i, ll upTight, ll loTight) {
+pair<ll, ll> fun(string &ls, string &rs, ll n, ll upTight, ll loTight) {
 
-    if(i = 0)
+    if(n = 0)
         return {1, 0};
 
-    ll ub = upTight ? rs[rs.size() - i] - '0' : 9,
-        lb = loTight ? ls[ls.size() - i] - '0' : 0,
+    ll ub = upTight ? rs[rs.size() - n] - '0' : 9,
+        lb = loTight ? ls[ls.size() - n] - '0' : 0,
         ansSum = 0, ansFreq = 0;
-        debug(rs.size(), i);
+        // debug(rs.size(), i);
     // debug(lb, ub, rs[rs.size() - i]);
     rpt(i, 0, 10) {
 
@@ -114,7 +114,7 @@ optimized(ll l, ll r) {
     while(lz--)
         ls += '0';
     reverse(all(ls));
-    debug(n);
+
     cout << fun(ls, rs, n, 1, 1).second;
 
     return 0;
