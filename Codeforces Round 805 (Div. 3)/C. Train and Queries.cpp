@@ -76,7 +76,7 @@ ll bruteForce(ll l, ll r) {
     ll ans = 0;
     rpt(i, l, r + 1) 
         if(isBoring(i)){
-            cout << i << " ";
+            cout << i << "\n";
             ans++;
         }
 
