@@ -75,6 +75,33 @@ ll bruteForce(ll l, ll r) {
     return ans;
 }
 
+pair<ll, ll> fun(string &ls, string &rs, ll i, ll upTight, ll loTight) {
+
+    if(i = 0)
+        return {1, 0};
+
+    ll ub = upTight ? rs[rs.size() - i] - '0' : 9,
+        lb = loTight ? ls[ls.size() - i] - '0' : 0,
+        ansSum = 0, ansFreq = 0;
+
+    rpt(i, 0, 10) {
+
+        if(i >= lb && i <= ub) {
+
+            auto retV = fun(ls, rs, i - 1, upTight && (i == ub), loTight && (i == lb));
+            ll sum = retV.second,
+                freq = retV.first;
+
+            ansSum += (i * freq + sum),
+            ansFreq += freq; 
+
+        }
+
+    }
+
+    return {ansFreq, ansSum};
+}
+
 optimized(ll l, ll r) {
 
     string ls = to_string(l),
@@ -88,7 +115,7 @@ optimized(ll l, ll r) {
         ls += '0';
     reverse(all(ls));
 
-    // cout << fun(ls, rs, n, 1, 1).second ;
+    cout << fun(ls, rs, n, 1, 1).second ;
 
     return 0;
 }
@@ -97,7 +124,7 @@ void solve(void){
     
     ll l, r; cin >> l >> r;
 
-    cout << bruteForce(l, r);
+    cout << optimized(l, r);
 
     nl;
 }
