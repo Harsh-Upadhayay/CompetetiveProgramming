@@ -115,12 +115,13 @@ void solve(void){
 
     string ls = to_string(l - 1),
             rs = to_string(r);
-    debug(ls, rs);
+
 
     bool odd = 1, leadz = 1, tight = 1;
-    cout << fun(ls, ls.size(), odd, leadz, tight) << " " << bruteForce(1, l - 1);
+    ll lft = fun(ls, ls.size(), odd, leadz, tight);
+    ll rt = fun(rs, rs.size(), odd, leadz, tight);
+    cout << (rt - lft);
 
-    nl;
     nl;
 }
 
