@@ -113,8 +113,9 @@ ll fun(string &s, vector<vector<vector<vector<ll>>>> &dp, ll dig, bool odd, bool
     return dp[dig][odd][leadz][tight] = ans;
 }
 
-void solve(void){
-    ll l, r; cin >> l >> r;
+ll optimized(ll l, ll r){
+
+
 
     string ls = to_string(l - 1),
             rs = to_string(r);
@@ -132,8 +133,21 @@ void solve(void){
     debug(dp);
     ll rt = fun(rs, dp, rs.size(), odd, leadz, tight);
     
-    cout << (rt - lft);
-    nl;
+    return  (rt - lft);
+}
+
+void solve(void) {
+
+    ll lim = 100;
+    ll l = rand() % lim;
+    ll r = l + rand() % lim;
+
+
+    if(bruteForce(l, r) != optimized(l, r)) {
+        debug(l, r, bruteForce(l, r), optimized(l, r));
+        return;
+    }
+
 }
 
 
@@ -142,7 +156,7 @@ void solve(void){
 
 int main() {
     Timer _;
-    srand(time(0));
+    // srand(time(0));
     #ifdef DarkLord
         freopen("input.txt","r",stdin);
         freopen("output.txt","w",stdout);
