@@ -76,7 +76,7 @@ ll bruteForce(ll l, ll r) {
     ll ans = 0;
     rpt(i, l, r + 1) 
         if(isBoring(i)){
-            cout << i << "\n";
+            // cout << i << "\n";
             ans++;
         }
 
@@ -88,9 +88,12 @@ ll bruteForce(ll l, ll r) {
 void solve(void){
     ll l, r; cin >> l >> r;
 
-    string ls = to_string(l),
+    string ls = to_string(l - 1),
             rs = to_string(r);
     debug(ls, rs);
+
+    // cout << fun(ls, )
+
     nl;
     nl;
 }
