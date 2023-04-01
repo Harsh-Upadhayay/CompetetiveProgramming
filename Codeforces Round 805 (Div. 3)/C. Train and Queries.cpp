@@ -88,6 +88,9 @@ ll fun(string &s, vector<vector<vector<vector<ll>>>> &dp, ll dig, bool odd, bool
     if(dig == 0) 
         return !leadz;
 
+    if(dp[dig][odd][leadz][tight] != -1)
+        return dp[dig][odd][leadz][tight];
+
     ll ans = 0,
         ub = tight ? s[s.size() - dig] - '0' : 9;
 
@@ -107,7 +110,7 @@ ll fun(string &s, vector<vector<vector<vector<ll>>>> &dp, ll dig, bool odd, bool
 
     }
 
-    return ans;
+    return dp[dig][odd][leadz][tight] = ans;
 }
 
 void solve(void){
