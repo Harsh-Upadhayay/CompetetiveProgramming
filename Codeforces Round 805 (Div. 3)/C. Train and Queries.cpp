@@ -58,76 +58,52 @@ void init(){
     return;
 }
 
-ll dsum(ll n) {
-    ll ans = 0;
-    while(n)
-        ans += n % 10,
-        n /= 10;
-    return ans;
-}
-
-ll bruteForce(ll l, ll r) {
-
-    ll ans = 0;
-    rpt(i, l, r + 1)
-        ans += dsum(i);
-
-    return ans;
-}
-
-pair<ll, ll> fun(string &ls, string &rs, vector<vector<vector<pair<ll, ll>>>> &dp, ll n, ll upTight, ll loTight) {
+pair<ll, pair<ll, ll>> fun(string &ls, string &us, ll n, bool utt, bool ltt) {
 
     if(n == 0)
-        return {1, 0};
+        return {inf, {ninf, inf}};
 
-    if(dp[n][upTight][loTight].first != -1 && dp[n][upTight][loTight].second != -1)
-        return dp[n][upTight][loTight];
+    ll ub = utt ? us[us.size() - n] - '0' : '9',
+       lb = ltt ? ls[ls.size() - n] - '0' : '0',
+       mn = inf, mx = ninf, ans = inf;
 
-    ll ub = upTight ? rs[rs.size() - n] - '0' : 9,
-        lb = loTight ? ls[ls.size() - n] - '0' : 0;
-    ll ansSum = 0, ansFreq = 0;
-
-    rpt(i, 0, 10) {
+    rpt(i, 1, (ll)10) {
 
         if(i >= lb && i <= ub) {
 
-            auto retV = fun(ls, rs, dp, n - 1, upTight && (i == ub), loTight && (i == lb));
-            ll sum = retV.second,
-                freq = retV.first;
+            auto it = fun(ls, us, n - 1, utt && (i == ub), ltt && (i == lb));
+            ll pmax = it.second.first, pmin = it.second.second;
 
-            ansSum += (i * freq + sum),
-            ansFreq += freq; 
+            mx = max(pmax, i),
+            mn = min(pmin, i);
 
+            ans = min(ans, mx - mn);
         }
 
     }
 
-    return dp[n][upTight][loTight] = {ansFreq, ansSum};
+    return {ans, {mx, mn}};
 }
 
-ll optimized(ll l, ll r) {
+ll optimized(ll l, ll u) {
 
     string ls = to_string(l),
-            rs = to_string(r);
+            us = to_string(u);
 
-    ll lz = rs.size() - ls.size(),
-        n = rs.size();
-
+    ll d = us.size() - ls.size(), n = us.size();
     reverse(all(ls));
-    while(lz--)
+    while(d--)
         ls += '0';
     reverse(all(ls));
 
-    vector<vector<vector<pair<ll, ll>>>> dp(n + 1, vector<vector<pair<ll, ll>>> (2, vector<pair<ll, ll>> (2, {-1, -1})));
-
-   return fun(ls, rs, dp, n, 1, 1).second;
+    return fun(ls, us, n, 1, 1).first;
 }
 
 void solve(void){
     
-    ll l, r; cin >> l >> r;
+    ll l, u; cin >> l >> u;
 
-    cout << optimized(l, r);
+    cout << optimized(l, u);
 
     nl;
 }
