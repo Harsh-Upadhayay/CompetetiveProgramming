@@ -75,7 +75,7 @@ ll bruteForce(ll l, ll r) {
     return ans;
 }
 
-ll optimized(ll l, ll r) {
+optimized(ll l, ll r) {
 
     string ls = to_string(l),
             rs = to_string(r);
@@ -88,7 +88,7 @@ ll optimized(ll l, ll r) {
         ls += '0';
     reverse(all(ls));
 
-    // cout << fun(ls, rs, n, 1, 1);
+    // cout << fun(ls, rs, n, 1, 1).second ;
 
     return 0;
 }
