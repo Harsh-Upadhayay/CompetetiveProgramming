@@ -90,7 +90,7 @@ void solve(void){
 
     string ls = to_string(l),
             rs = to_string(r);
-    debug(l, r);
+    debug(ls, rs);
     nl;
     nl;
 }
