@@ -105,7 +105,7 @@ pair<ll, ll> fun(string &ls, string &rs, vector<vector<vector<pair<ll, ll>>>> &d
     return dp[n][upTight][loTight] = {ansFreq, ansSum};
 }
 
-optimized(ll l, ll r) {
+ll optimized(ll l, ll r) {
 
     string ls = to_string(l),
             rs = to_string(r);
