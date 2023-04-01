@@ -113,7 +113,7 @@ optimized(ll l, ll r) {
     while(lz--)
         ls += '0';
     reverse(all(ls));
-
+    debug(ls, rs);
     cout << fun(ls, rs, n, 1, 1).second;
 
     return 0;
