@@ -75,10 +75,13 @@ ll bruteForce(ll l, ll r) {
     return ans;
 }
 
-pair<ll, ll> fun(string &ls, string &rs, ll n, ll upTight, ll loTight) {
+pair<ll, ll> fun(string &ls, string &rs, vector<vector<vector<pair<ll, ll>>>> &dp, ll n, ll upTight, ll loTight) {
 
     if(n == 0)
         return {1, 0};
+
+    if(dp[n][upTight][loTight].first != -1 && dp[n][upTight][loTight].second != -1)
+        return dp[n][upTight][loTight];
 
     ll ub = upTight ? rs[rs.size() - n] - '0' : 9,
         lb = loTight ? ls[ls.size() - n] - '0' : 0;
@@ -88,7 +91,7 @@ pair<ll, ll> fun(string &ls, string &rs, ll n, ll upTight, ll loTight) {
 
         if(i >= lb && i <= ub) {
 
-            auto retV = fun(ls, rs, n - 1, upTight && (i == ub), loTight && (i == lb));
+            auto retV = fun(ls, rs, dp, n - 1, upTight && (i == ub), loTight && (i == lb));
             ll sum = retV.second,
                 freq = retV.first;
 
@@ -98,7 +101,8 @@ pair<ll, ll> fun(string &ls, string &rs, ll n, ll upTight, ll loTight) {
         }
 
     }
-    return {ansFreq, ansSum};
+
+    return dp[n][upTight][loTight] = {ansFreq, ansSum};
 }
 
 optimized(ll l, ll r) {
@@ -114,7 +118,9 @@ optimized(ll l, ll r) {
         ls += '0';
     reverse(all(ls));
 
-   return fun(ls, rs, n, 1, 1).second;
+    vector<vector<vector<pair<ll, ll>>>> dp(n + 1, vector<vector<pair<ll, ll>>> (2, vector<pair<ll, ll>> (2, {-1, -1})));
+
+   return fun(ls, rs, dp, n, 1, 1).second;
 }
 
 void solve(void){
