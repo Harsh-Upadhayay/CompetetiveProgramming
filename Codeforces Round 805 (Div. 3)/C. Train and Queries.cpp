@@ -83,7 +83,32 @@ ll bruteForce(ll l, ll r) {
     return ans;
 }
 
+ll fun(string &s, ll dig, bool odd, bool leadz, bool tight) {
 
+    if(dig == 0) 
+        return !leadz;
+
+    ll ans = 0,
+        ub = tight ? s[s.size() - dig] - '0' : 9;
+
+    if(!odd) {
+
+        for(int i = 0; i < ub; i += 2) 
+            ans += fun(s, dig - 1, 1, 0, (tight && (i == ub)));
+
+    }
+    else {
+
+        if(leadz)
+            ans += fun(s, dig - 1, 1, 1, 0);
+
+        for(int i = 1; i < ub; i += 2)
+            ans += fun(s, dig - 1, 0, 0, (tight && (i == ub)));
+
+    }
+
+    return ans;
+}
 
 void solve(void){
     ll l, r; cin >> l >> r;
@@ -92,7 +117,8 @@ void solve(void){
             rs = to_string(r);
     debug(ls, rs);
 
-    // cout << fun(ls, )
+    bool odd = 1, leadz = 1, tight = 1;
+    cout << fun(ls, ls.size(), odd, leadz, tight);
 
     nl;
     nl;
