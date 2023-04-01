@@ -83,7 +83,7 @@ pair<ll, ll> fun(string &ls, string &rs, ll n, ll upTight, ll loTight) {
     ll ub = upTight ? rs[rs.size() - n] - '0' : 9,
         lb = loTight ? ls[ls.size() - n] - '0' : 0,
         ansSum = 0, ansFreq = 0;
-        // debug(rs.size(), i);
+        debug(rs.size(), n);
     // debug(lb, ub, rs[rs.size() - i]);
     rpt(i, 0, 10) {
 
