@@ -83,9 +83,11 @@ ll bruteForce(ll l, ll r) {
     return ans;
 }
 
+
+
 void solve(void){
     ll l, r; cin >> l >> r;
-    cout << bruteForce(l, r);
+    cout << bruteForce(1, l);
     nl;
     nl;
 }
