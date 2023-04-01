@@ -139,7 +139,7 @@ ll optimized(ll l, ll r){
 void solve(void) {
 
     ll lim = 100;
-    ll l = rand() % lim;
+    ll l = 1 + rand() % lim;
     ll r = l + rand() % lim;
 
 
