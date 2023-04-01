@@ -83,57 +83,71 @@ ll bruteForce(ll l, ll r) {
     return ans;
 }
 
-ll fun(string &s, vector<vector<vector<vector<ll>>>> &dp, ll dig, bool odd, bool leadz, bool tight) {
+ll fun(string &l, string &s, vector<vector<vector<vector<vector<ll>>>>> &dp, ll dig, bool odd, bool leadz, bool tight, bool loTight) {
 
     if(dig == 0) 
         return !leadz;
-
-    if(dp[dig][odd][leadz][tight] != -1)
-        return dp[dig][odd][leadz][tight];
+ 
+    if(dp[dig][odd][leadz][tight][loTight] != -1)
+        return dp[dig][odd][leadz][tight][loTight];
 
     ll ans = 0,
-        ub = tight ? s[s.size() - dig] - '0' : 9;
+        ub = tight ? s[s.size() - dig] - '0' : 9,
+        lb = loTight ? l[l.size() - dig] - '0' : 0;
 
     if(!odd) {
 
-        for(int i = 0; i <= ub; i += 2) 
-            ans += fun(s, dp, dig - 1, 1, 0, (tight && (i == ub)));
+        vll avil = {0, 2, 4, 6, 8};
+
+        for(ll i : avil)
+            if(i >= lb && i <= ub) 
+                ans += fun(l, s, dp, dig - 1, 1, 0, (tight && (i == ub)), (loTight && (i == lb)));
 
     }
     else {
 
-        if(leadz)
-            ans += fun(s, dp, dig - 1, 1, 1, 0);
+        vll avil = {1, 3, 5, 7, 9};
 
-        for(int i = 1; i <= ub; i += 2)
-            ans += fun(s, dp, dig - 1, 0, 0, (tight && (i == ub)));
+        if(leadz && lb == 0)
+            ans += fun(l, s, dp, dig - 1, 1, 1, 0, 1);
+
+        for(ll i : avil)
+            if(i >= lb && i <= ub)
+                ans += fun(l, s, dp, dig - 1, 0, 0, (tight && (i == ub)), (loTight && (i == lb)));
 
     }
 
-    return dp[dig][odd][leadz][tight] = ans;
+    return dp[dig][odd][leadz][tight][loTight] = ans;
 }
 
 ll optimized(ll l, ll r){
 
 
 
-    string ls = to_string(l - 1),
+    string ls = to_string(l),
             rs = to_string(r);
 
-    vector<vector<vector<vector<ll>>>> dp(
-        rs.size() + 1, vector<vector<vector<ll>>> (
-            2, vector<vector<ll>>(
-                2, vector<ll> (
-                    2, -1))));
+    ll diff = rs.size() - ls.size();
+    reverse(all(ls));
+    while(diff--)
+        ls += '0';
+    reverse(all(ls));
 
-    bool odd = 1, leadz = 1, tight = 1;
-    ll lft = fun(ls, dp, ls.size(), odd, leadz, tight);
-    rpt(i, 0, rs.size() + 1)
-        rpt(j, 0, 2) rpt(k, 0, 2) rpt(l, 0, 2) dp[i][j][k][l] = -1;
+    vector<vector<vector<vector<vector<ll>>>>> dp(
+        rs.size() + 1, vector<vector<vector<vector<ll>>>> (
+            2, vector<vector<vector<ll>>>(
+                2, vector<vector<ll>> (
+                    2, vector<ll> (
+                        2, -1)))));
+
+    bool odd = 1, leadz = 1, tight = 1, loTight = 1;
+    // ll lft = fun(ls, dp, ls.size(), odd, leadz, tight);
+    // rpt(i, 0, rs.size() + 1)
+    //     rpt(j, 0, 2) rpt(k, 0, 2) rpt(l, 0, 2) rpt(m, 0, 2) dp[i][j][k][l][m] = -1;
     // debug(dp);
-    ll rt = fun(rs, dp, rs.size(), odd, leadz, tight);
+    ll rt = fun(ls, rs, dp, rs.size(), odd, leadz, tight, loTight);
     
-    return  (rt - lft);
+    return  rt;
 }
 
 void solve(void) {
