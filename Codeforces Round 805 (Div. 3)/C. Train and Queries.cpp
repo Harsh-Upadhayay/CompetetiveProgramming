@@ -98,7 +98,7 @@ pair<ll, ll> fun(string &ls, string &rs, ll i, ll upTight, ll loTight) {
         }
 
     }
-
+    debug(ansFreq, ansSum);
     return {ansFreq, ansSum};
 }
 
@@ -115,7 +115,7 @@ optimized(ll l, ll r) {
         ls += '0';
     reverse(all(ls));
 
-    cout << fun(ls, rs, n, 1, 1).second ;
+    cout << fun(ls, rs, n, 1, 1).second;
 
     return 0;
 }
