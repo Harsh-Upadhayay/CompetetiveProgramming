@@ -83,6 +83,7 @@ pair<ll, ll> fun(string &ls, string &rs, ll i, ll upTight, ll loTight) {
     ll ub = upTight ? rs[rs.size() - i] - '0' : 9,
         lb = loTight ? ls[ls.size() - i] - '0' : 0,
         ansSum = 0, ansFreq = 0;
+        debug(rs.size(), i);
     // debug(lb, ub, rs[rs.size() - i]);
     rpt(i, 0, 10) {
 
@@ -113,7 +114,7 @@ optimized(ll l, ll r) {
     while(lz--)
         ls += '0';
     reverse(all(ls));
-    debug(ls, rs);
+
     cout << fun(ls, rs, n, 1, 1).second;
 
     return 0;
