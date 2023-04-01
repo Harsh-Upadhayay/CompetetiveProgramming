@@ -69,8 +69,10 @@ ll dsum(ll n) {
 ll bruteForce(ll l, ll r) {
 
     ll ans = 0;
-    rpt(i, l, r + 1)
+    rpt(i, l, r + 1){
+        cout << i << " " << dsum(i) << "\n";
         ans += dsum(i);
+    }
 
     return ans;
 }
