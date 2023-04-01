@@ -83,7 +83,7 @@ ll bruteForce(ll l, ll r) {
     return ans;
 }
 
-ll fun(string &s, ll dig, bool odd, bool leadz, bool tight) {
+ll fun(string &s, vector<vector<vector<vector<ll>>>> &dp, ll dig, bool odd, bool leadz, bool tight) {
 
     if(dig == 0) 
         return !leadz;
@@ -94,16 +94,16 @@ ll fun(string &s, ll dig, bool odd, bool leadz, bool tight) {
     if(!odd) {
 
         for(int i = 0; i <= ub; i += 2) 
-            ans += fun(s, dig - 1, 1, 0, (tight && (i == ub)));
+            ans += fun(s, dp, dig - 1, 1, 0, (tight && (i == ub)));
 
     }
     else {
 
         if(leadz)
-            ans += fun(s, dig - 1, 1, 1, 0);
+            ans += fun(s, dp, dig - 1, 1, 1, 0);
 
         for(int i = 1; i <= ub; i += 2)
-            ans += fun(s, dig - 1, 0, 0, (tight && (i == ub)));
+            ans += fun(s, dp, dig - 1, 0, 0, (tight && (i == ub)));
 
     }
 
@@ -116,12 +116,18 @@ void solve(void){
     string ls = to_string(l - 1),
             rs = to_string(r);
 
+    vector<vector<vector<vector<ll>>>> dp(
+        rs.size() + 1, vector<vector<vector<ll>>> (
+            2, vector<vector<ll>>(
+                2, vector<ll> (
+                    2, -1))));
 
     bool odd = 1, leadz = 1, tight = 1;
-    ll lft = fun(ls, ls.size(), odd, leadz, tight);
-    ll rt = fun(rs, rs.size(), odd, leadz, tight);
+    ll lft = fun(ls, dp, ls.size(), odd, leadz, tight);
+    // fill(all(dp), -1);
+    ll rt = fun(rs, dp, rs.size(), odd, leadz, tight);
+    
     cout << (rt - lft);
-
     nl;
 }
 
