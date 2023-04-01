@@ -77,28 +77,26 @@ ll bruteForce(ll l, ll r) {
 
 pair<ll, ll> fun(string &ls, string &rs, ll n, ll upTight, ll loTight) {
 
-    if(n = 0)
-        return {1, 0};
-    debug(n);
+    if(n == 0)
+
     ll ub = upTight ? rs[rs.size() - n] - '0' : 9,
-        lb = loTight ? ls[ls.size() - n] - '0' : 0,
-        ansSum = 0, ansFreq = 0;
-        debug(rs.size(), n);
-    // debug(lb, ub, rs[rs.size() - i]);
-    rpt(i, 0, 10) {
+        lb = loTight ? ls[ls.size() - n] - '0' : 0;
+    ll    ansSum = 0, ansFreq = 0;
 
-        if(i >= lb && i <= ub) {
+    // rpt(i, 0, 10) {
 
-            auto retV = fun(ls, rs, i - 1, upTight && (i == ub), loTight && (i == lb));
-            ll sum = retV.second,
-                freq = retV.first;
+    //     if(i >= lb && i <= ub) {
 
-            ansSum += (i * freq + sum),
-            ansFreq += freq; 
+    //         auto retV = fun(ls, rs, n - 1, upTight && (i == ub), loTight && (i == lb));
+    //         ll sum = retV.second,
+    //             freq = retV.first;
 
-        }
+    //         ansSum += (i * freq + sum),
+    //         ansFreq += freq; 
 
-    }
+    //     }
+
+    // }
     return {ansFreq, ansSum};
 }
 
