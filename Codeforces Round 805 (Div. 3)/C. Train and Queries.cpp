@@ -78,11 +78,12 @@ ll bruteForce(ll l, ll r) {
 pair<ll, ll> fun(string &ls, string &rs, ll n, ll upTight, ll loTight) {
 
     if(n == 0)
+        return {1, 0};
 
     ll ub = upTight ? rs[rs.size() - n] - '0' : 9,
         lb = loTight ? ls[ls.size() - n] - '0' : 0;
-    ll    ansSum = 0, ansFreq = 0;
-
+    ll ansSum = 0, ansFreq = 0;
+    debug(lb, ub);
     // rpt(i, 0, 10) {
 
     //     if(i >= lb && i <= ub) {
