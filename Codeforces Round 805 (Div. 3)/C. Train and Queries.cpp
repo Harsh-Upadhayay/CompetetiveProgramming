@@ -129,6 +129,7 @@ void solve(void){
     ll lft = fun(ls, dp, ls.size(), odd, leadz, tight);
     rpt(i, 0, rs.size())
         rpt(j, 0, 2) rpt(k, 0, 2) rpt(l, 0, 2) dp[i][j][k][l] = -1;
+    debug(dp);
     ll rt = fun(rs, dp, rs.size(), odd, leadz, tight);
     
     cout << (rt - lft);
