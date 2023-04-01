@@ -120,34 +120,86 @@ ll fun(string &l, string &s, vector<vector<vector<vector<vector<ll>>>>> &dp, ll 
     return dp[dig][odd][leadz][tight][loTight] = ans;
 }
 
-ll optimized(ll l, ll r){
+ll optimized(ll ls, ll rs){
 
+    string l = to_string(ls),
+            s = to_string(rs);
 
-
-    string ls = to_string(l),
-            rs = to_string(r);
-
-    ll diff = rs.size() - ls.size();
-    reverse(all(ls));
+    ll diff = s.size() - l.size();
+    reverse(all(l));
     while(diff--)
-        ls += '0';
-    reverse(all(ls));
+        l += '0';
+    reverse(all(l));
+
+    ll n = s.size();
 
     vector<vector<vector<vector<vector<ll>>>>> dp(
-        rs.size() + 1, vector<vector<vector<vector<ll>>>> (
+        n + 1, vector<vector<vector<vector<ll>>>> (
             2, vector<vector<vector<ll>>>(
                 2, vector<vector<ll>> (
                     2, vector<ll> (
-                        2, -1)))));
+                        2, 0)))));
 
-    bool odd = 1, leadz = 1, tight = 1, loTight = 1;
-    // ll lft = fun(ls, dp, ls.size(), odd, leadz, tight);
-    // rpt(i, 0, rs.size() + 1)
-    //     rpt(j, 0, 2) rpt(k, 0, 2) rpt(l, 0, 2) rpt(m, 0, 2) dp[i][j][k][l][m] = -1;
-    // debug(dp);
-    ll rt = fun(ls, rs, dp, rs.size(), odd, leadz, tight, loTight);
+
+
+    rpt(j, 0, 2) 
+        rpt(l, 0, 2) 
+            rpt(m, 0, 2) 
+                dp[0][j][0][l][m] = 1;
+
+    rpt(dig, 1, n + 1) {
+
+        rpt(odd, 0, 2) {
+
+            rpt(leadz, 0, 2) {
+
+                rpt(tight, 0, 2) {
+
+                    rpt(loTight, 0, 2) {
+
+
+                        ll ans = 0,
+                            ub = tight ? s[s.size() - dig] - '0' : 9,
+                            lb = loTight ? l[l.size() - dig] - '0' : 0;
+
+                        if(!odd) {
+
+                            vll avil = {0, 2, 4, 6, 8};
+
+                            for(ll i : avil)
+                                if(i >= lb && i <= ub) 
+                                    ans += dp[dig - 1][1][0][(tight && (i == ub))][(loTight && (i == lb))];
+
+
+                        }
+                        else {
+
+                            vll avil = {1, 3, 5, 7, 9};
+
+                            if(leadz && lb == 0)
+                                ans += dp[dig - 1][1][1][0][1];
+
+                            for(ll i : avil)
+                                if(i >= lb && i <= ub)
+                                    ans += dp[dig - 1][0][0][(tight && (i == ub))][(loTight && (i == lb))];
+
+                        }
+
+                        dp[dig][odd][leadz][tight][loTight] = ans;
+
+                    }
+
+
+                }
+
+            }
+
+        }
+
+    }
+
     
-    return  rt;
+    return dp[n][1][1][1][1];
 }
 
 void solve(void) {
