@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-// #define TESTCASE
+#define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -102,7 +102,7 @@ ll optimized(ll l, ll u) {
 void solve(ll t){
     
     ll ans = 1;
-    if(t % 2)
+    if(!(t % 2))
         rpt(i, 0, 2) {
             ll x; cin >> x;
             ans *= x;
