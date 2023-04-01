@@ -93,7 +93,7 @@ ll fun(string &s, ll dig, bool odd, bool leadz, bool tight) {
 
     if(!odd) {
 
-        for(int i = 0; i < ub; i += 2) 
+        for(int i = 0; i <= ub; i += 2) 
             ans += fun(s, dig - 1, 1, 0, (tight && (i == ub)));
 
     }
@@ -102,7 +102,7 @@ ll fun(string &s, ll dig, bool odd, bool leadz, bool tight) {
         if(leadz)
             ans += fun(s, dig - 1, 1, 1, 0);
 
-        for(int i = 1; i < ub; i += 2)
+        for(int i = 1; i <= ub; i += 2)
             ans += fun(s, dig - 1, 0, 0, (tight && (i == ub)));
 
     }
