@@ -76,7 +76,7 @@ ll bruteForce(ll l, ll r) {
 }
 
 pair<ll, ll> fun(string &ls, string &rs, ll n, ll upTight, ll loTight) {
-
+    debug(n);
     if(n = 0)
         return {1, 0};
 
