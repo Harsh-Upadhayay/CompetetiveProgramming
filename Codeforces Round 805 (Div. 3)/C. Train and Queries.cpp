@@ -58,164 +58,47 @@ void init(){
     return;
 }
 
-bool isBoring(ll n) {
-    vll v;
+ll dsum(ll n) {
+    ll ans = 0;
     while(n)
-        v.push_back(n % 10),
+        ans += n % 10,
         n /= 10;
-    reverse(all(v));
-
-    rpt(i, 0, v.size())
-        if((i + 1) % 2 != (v[i] % 2))
-            return false;
-    return true;
+    return ans;
 }
 
 ll bruteForce(ll l, ll r) {
 
     ll ans = 0;
-    rpt(i, l, r + 1) 
-        if(isBoring(i)){
-            // cout << i << "\n";
-            ans++;
-        }
+    rpt(i, l, r + 1)
+        ans += dsum(i);
 
     return ans;
 }
 
-ll fun(string &l, string &s, vector<vector<vector<vector<vector<ll>>>>> &dp, ll dig, bool odd, bool leadz, bool tight, bool loTight) {
+ll optimized(ll l, ll r) {
 
-    if(dig == 0) 
-        return !leadz;
- 
-    if(dp[dig][odd][leadz][tight][loTight] != -1)
-        return dp[dig][odd][leadz][tight][loTight];
+    string ls = to_string(l),
+            rs = to_string(r);
 
-    ll ans = 0,
-        ub = tight ? s[s.size() - dig] - '0' : 9,
-        lb = loTight ? l[l.size() - dig] - '0' : 0;
+    ll lz = rs.size() - ls.size(),
+        n = rs.size();
 
-    if(!odd) {
+    reverse(all(ls));
+    while(lz--)
+        ls += '0';
+    reverse(all(ls));
 
-        vll avil = {0, 2, 4, 6, 8};
+    // cout << fun(ls, rs, n, 1, 1);
 
-        for(ll i : avil)
-            if(i >= lb && i <= ub) 
-                ans += fun(l, s, dp, dig - 1, 1, 0, (tight && (i == ub)), (loTight && (i == lb)));
-
-    }
-    else {
-
-        vll avil = {1, 3, 5, 7, 9};
-
-        if(leadz && lb == 0)
-            ans += fun(l, s, dp, dig - 1, 1, 1, 0, 1);
-
-        for(ll i : avil)
-            if(i >= lb && i <= ub)
-                ans += fun(l, s, dp, dig - 1, 0, 0, (tight && (i == ub)), (loTight && (i == lb)));
-
-    }
-
-    return dp[dig][odd][leadz][tight][loTight] = ans;
+    return 0;
 }
 
-ll optimized(ll ls, ll rs){
-
-    string l = to_string(ls),
-            s = to_string(rs);
-
-    ll diff = s.size() - l.size();
-    reverse(all(l));
-    while(diff--)
-        l += '0';
-    reverse(all(l));
-
-    ll n = s.size();
-
-    vector<vector<vector<vector<vector<ll>>>>> dp(
-        n + 1, vector<vector<vector<vector<ll>>>> (
-            2, vector<vector<vector<ll>>>(
-                2, vector<vector<ll>> (
-                    2, vector<ll> (
-                        2, 0)))));
-
-
-
-    rpt(j, 0, 2) 
-        rpt(l, 0, 2) 
-            rpt(m, 0, 2) 
-                dp[0][j][0][l][m] = 1;
-
-    rpt(dig, 1, n + 1) {
-
-        rpt(odd, 0, 2) {
-
-            rpt(leadz, 0, 2) {
-
-                rpt(tight, 0, 2) {
-
-                    rpt(loTight, 0, 2) {
-
-
-                        ll ans = 0,
-                            ub = tight ? s[s.size() - dig] - '0' : 9,
-                            lb = loTight ? l[l.size() - dig] - '0' : 0;
-
-                        if(!odd) {
-
-                            vll avil = {0, 2, 4, 6, 8};
-
-                            for(ll i : avil)
-                                if(i >= lb && i <= ub) 
-                                    ans += dp[dig - 1][1][0][(tight && (i == ub))][(loTight && (i == lb))];
-
-
-                        }
-                        else {
-
-                            vll avil = {1, 3, 5, 7, 9};
-
-                            if(leadz && lb == 0)
-                                ans += dp[dig - 1][1][1][0][1];
-
-                            for(ll i : avil)
-                                if(i >= lb && i <= ub)
-                                    ans += dp[dig - 1][0][0][(tight && (i == ub))][(loTight && (i == lb))];
-
-                        }
-
-                        dp[dig][odd][leadz][tight][loTight] = ans;
-
-                    }
-
-
-                }
-
-            }
-
-        }
-
-    }
-
+void solve(void){
     
-    return dp[n][1][1][1][1];
-}
-
-void solve(void) {
-
-    // ll lim = 10000;
-    // ll l = 1 + (rand() % lim);
-    // ll r = l + (rand() % lim);
-
-
-    // if(bruteForce(l, r) != optimized(l, r)) {
-    //     debug(l, r, bruteForce(l, r), optimized(l, r));
-    //     return;
-    // }
-
     ll l, r; cin >> l >> r;
-    cout << optimized(l, r);
+
+    cout << bruteForce(l, r);
+
     nl;
 }
 
@@ -225,7 +108,7 @@ void solve(void) {
 
 int main() {
     Timer _;
-    // srand(time(0));
+    srand(time(0));
     #ifdef DarkLord
         freopen("input.txt","r",stdin);
         freopen("output.txt","w",stdout);
@@ -243,10 +126,8 @@ int main() {
         cin >> t;
     #endif
 
-    rpt(i, 1, t + 1) {
-        cout << "Case #" << i << ": ";
+    while(t--) 
         solve();
-    }
 
     return 0;
 }
