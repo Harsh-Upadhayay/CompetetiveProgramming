@@ -87,6 +87,7 @@ void solve(void){
     ll l, r; cin >> l >> r;
     cout << bruteForce(l, r);
     nl;
+    nl;
 }
 
 
