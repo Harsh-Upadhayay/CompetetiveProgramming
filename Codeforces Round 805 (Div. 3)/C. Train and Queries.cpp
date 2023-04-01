@@ -58,49 +58,34 @@ void init(){
     return;
 }
 
+bool isBoring(ll n) {
+    vll v;
+    while(n)
+        v.push_back(n % 10),
+        n /= 10;
+    reverse(all(v));
 
-void solve(void){
-    
-    ll n; cin >> n;
-    vll ans;
+    rpt(i, 0, v.size())
+        if((i + 1) % 2 != (v[i] % 2))
+            return false;
+    return true;
+}
 
-    ll x = 1;
-    stack<ll> st;
+ll bruteForce(ll l, ll r) {
 
-    if(!(n % 2)) kill("NO");
-
-    ll ctr = 0;
-
-    while(x != n && ctr++ < 40) {
-
-        ll l = (2 * x) - 1, r = (2 * x) + 1;
-
-        debug(n, l, r);
-
-        if(n <= l)
-            ans.push_back(1),
-            st.push(r),
-            x = l;
-
-        else if(n <= r)
-            ans.push_back(2),
-            st.push(l),
-            x = r;
-
-        else {
-            if(st.size())
-                x = st.top(),
-                st.pop();
-            if(ans.size())
-                ans.pop_back();
+    ll ans = 0;
+    rpt(i, l, r + 1) 
+        if(isBoring(i)){
+            cout << i << " ";
+            ans++;
         }
 
-        debug(x);
+    return ans;
+}
 
-    }
-
-    print(ans);
-
+void solve(void){
+    ll n; cin >> n;
+    cout << bruteForce(0, n);
     nl;
 }
 
