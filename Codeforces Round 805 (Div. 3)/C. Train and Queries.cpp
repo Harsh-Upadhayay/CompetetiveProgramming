@@ -118,7 +118,7 @@ void solve(void){
     debug(ls, rs);
 
     bool odd = 1, leadz = 1, tight = 1;
-    cout << fun(ls, ls.size(), odd, leadz, tight) << " " << bruteForce(1, l);
+    cout << fun(ls, ls.size(), odd, leadz, tight) << " " << bruteForce(1, l - 1);
 
     nl;
     nl;
