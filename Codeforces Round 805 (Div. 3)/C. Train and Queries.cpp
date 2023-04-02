@@ -68,7 +68,7 @@ void solve(void){
     for(ll ele : v)
         x ^= ele;
 
-    if(n % 2) {
+    if(!(n % 2)) {
         if(x == 0)
             cout << "1";
         else
