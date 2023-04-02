@@ -122,7 +122,7 @@ string conNum(const string &ls,
     return "";
 }
 
-ll optimized(ll l, ll r) {
+string optimized(ll l, ll r) {
 
     string ls = to_string(l),
            rs = to_string(r);
@@ -145,8 +145,8 @@ ll optimized(ll l, ll r) {
     string num = "";
 
     num = conNum(ls, rs, num, n, minDiff, 1, 1, 0, 9);
-    cout << conNum;
-    return minDiff;
+    
+    return num;
 }
 
 void solve(void){
