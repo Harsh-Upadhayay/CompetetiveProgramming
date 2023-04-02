@@ -128,7 +128,6 @@ void removeLeadz(string &num) {
     while(num.back() == '0')
         num.pop_back();
     reverse(all(num));
-
 }
 
 string optimized(ll l, ll r) {
