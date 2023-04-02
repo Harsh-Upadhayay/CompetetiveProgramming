@@ -105,7 +105,13 @@ ll optimized(ll l, ll r) {
                         10, vector<ll>(
                             10, -1)))));
 
-    return fun(ls, rs, dp, n, 1, 1, 0, 9);
+    ll minDiff = fun(ls, rs, dp, n, 1, 1, 0, 9);
+
+    string num = "";
+
+    // num = constructNum()
+
+    return minDiff;
 }
 
 void solve(void){
