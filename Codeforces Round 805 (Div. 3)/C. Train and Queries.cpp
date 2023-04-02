@@ -58,6 +58,59 @@ void init(){
     return;
 }
 
+ll getClosest(ll val1, ll val2,
+               ll target)
+{
+    if (target - val1 >= val2 - target)
+        return val2;
+    else
+        return val1;
+}
+ 
+ll findClosest(vll arr, ll n, ll target)
+{
+    // Corner cases
+  //left-side case
+    if (target <= arr[0])
+        return arr[0];
+  //right-side case
+    if (target >= arr[n - 1])
+        return arr[n - 1];
+ 
+    // Doing binary search
+    ll i = 0, j = n, mid = 0;
+    while (i < j) {
+        mid = (i + j) / 2;
+ 
+        if (arr[mid] == target)
+            return arr[mid];
+ 
+        /* If target is less than array element,
+            then search in left */
+        if (target < arr[mid]) {
+ 
+            // If target is greater than previous
+            // to mid, return closest of two
+            if (mid > 0 && target > arr[mid - 1])
+                return getClosest(arr[mid - 1],
+                                  arr[mid], target);  
+            j = mid;
+        }
+      /* Repeat for left half */
+ 
+        // If target is greater than mid
+        else {
+            if (mid < n - 1 && target < arr[mid + 1])
+                return getClosest(arr[mid],
+                                  arr[mid + 1], target);
+            // update i
+            i = mid + 1;
+        }
+    }
+ 
+    // Only single element left after search
+    return arr[mid];
+}
 
 void solve(void){
     
@@ -68,13 +121,16 @@ void solve(void){
     rpt(i, 0, n) cin >> line[i];
     rpt(i, 0, m) cin >> parb[i][0] >> parb[i][1] >> parb[i][2];
     debug(parb);
-    ll k = nmin(line);
+    
+    sort(all(line));
 
     rpt(i, 0, m) {
         ll a = parb[i][0],
             b = parb[i][1],
-            c = parb[i][2],
-            expr = (((b - k) * (b - k)) - (4 * a * c));
+            c = parb[i][2];
+        ll k = findClosest(line, n, b),
+        expr = (((b - k) * (b - k)) - (4 * a * c));
+
         debug(expr);
         if(expr < 0)
             cout << "YES\n" << k << "\n";
