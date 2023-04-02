@@ -152,7 +152,7 @@ T inline min(T a, T b, T c, T d, T e){
 template<class T>
 void inline print(vector<T> v){
     for(auto x : v)
-        cout << x << "";
+        cout << x << " ";
 }
 
 template<class T>
