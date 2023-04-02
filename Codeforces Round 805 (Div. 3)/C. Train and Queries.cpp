@@ -58,117 +58,12 @@ void init(){
     return;
 }
 
-ll fun(const string &ls, 
-        const string &rs,
-        vector<vector<vector<vector<vector<vector<ll>>>>>> &dp,
-        ll n,
-        ll upTight, ll loTight,
-        ll mxTn, ll mnTn,
-        ll leadz) {
-    // debug(ls, rs, n, upTight, loTight, mxTn, mnTn, leadz);
-    if(n == 0)
-        return mxTn - mnTn;
-
-    if(dp[n][upTight][loTight][mxTn][mnTn][leadz] != -1)
-        return dp[n][upTight][loTight][mxTn][mnTn][leadz];
-
-    ll ans = inf,
-        ub = upTight ? rs[rs.size() - n] - '0' : 9,
-        lb = loTight ? ls[ls.size() - n] - '0' : 0;
-
-    rpt(i, lb, ub + 1) {
-
-        leadz &= (i == 0);
-        ans = min(ans, fun(ls, rs, dp, n - 1,
-                            upTight && (i == ub),
-                            loTight && (i == lb),
-                            leadz ? 0 : max(mxTn, i),
-                            leadz ? 9 : min(mnTn, i),
-                            leadz));
-    }
-
-    return dp[n][upTight][loTight][mxTn][mnTn][leadz] = ans;
-}
-
-
-string conNum(const string &ls, 
-        const string &rs,
-        string &num,
-        ll n, ll mxDiff,
-        ll upTight, ll loTight,
-        ll mxTn, ll mnTn,
-        ll leadz) {
-    debug(n);
-    if(mxTn - mnTn > mxDiff)
-        return "";
-
-    if(n == 0)
-        return num;
-
-
-    ll ans = inf,
-        ub = upTight ? rs[rs.size() - n] - '0' : 9,
-        lb = loTight ? ls[ls.size() - n] - '0' : 0;
-
-    rpt(i, lb, ub + 1) {
-
-        num += (char)('0' + i);
-        leadz &= (i == 0);
-        string x = conNum(ls, rs, num, n - 1, mxDiff,
-            upTight && (i == ub),
-            loTight && (i == lb),
-            leadz ? 0 : max(mxTn, i),
-            leadz ? 9 : min(mnTn, i),
-            leadz);
-        if(x != "")
-            return x;
-        num.pop_back();
-    }
-
-    return "";
-}
-
-void removeLeadz(string &num) {
-
-    reverse(all(num));
-    while(num.back() == '0')
-        num.pop_back();
-    reverse(all(num));
-}
-
-string optimized(ll l, ll r) {
-
-    string ls = to_string(l),
-           rs = to_string(r);
-
-    reverse(all(ls));
-    ll d = rs.size() - ls.size(), n = rs.size();
-    while(d--)
-        ls += '0';
-    reverse(all(ls));
-
-    vector<vector<vector<vector<vector<vector<ll>>>>>> dp(
-            n + 1, vector<vector<vector<vector<vector<ll>>>>> (
-                2, vector<vector<vector<vector<ll>>>>(2,
-                    vector<vector<vector<ll>>>(
-                        10, vector<vector<ll>>(
-                            10, vector<ll>(
-                                2, -1))))));
-
-    ll minDiff = fun(ls, rs, dp, n, 1, 1, 0, 9, 1);
-
-    string num = "";
-    num = conNum(ls, rs, num, n, minDiff, 1, 1, 0, 9, 1);
-    removeLeadz(num);
-
-    return num;
-}
 
 void solve(void){
     
-    ll l, r; cin >> l >> r;
+    string x, l, r; cin >> x >> l >> x >> r;
 
-    cout << optimized(l, r);
+    debug(l, r);
 
     nl;
 }
