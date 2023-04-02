@@ -64,15 +64,13 @@ ll fun(const string &ls,
         ll upTight, ll loTight,
         ll mxTn, ll mnTn) {
 
-    // debug(n, upTight, loTight, mxTn, mnTn);
-
     if(n == 0)
         return mxTn - mnTn;
 
     ll ans = inf,
         ub = upTight ? rs[rs.size() - n] - '0' : 9,
         lb = loTight ? ls[ls.size() - n] - '0' : 0;
-        
+
     rpt(i, lb, ub + 1) {
 
         ans = min(ans, fun(ls, rs, n - 1,
@@ -96,7 +94,9 @@ ll optimized(ll l, ll r) {
         ls += '0';
     reverse(all(ls));
 
-    return fun(ls, rs, n, 1, 1, ninf, inf);
+    // vector<vector<vector<vector<
+
+    return fun(ls, rs, n, 1, 1, 0, 9);
 }
 
 void solve(void){
