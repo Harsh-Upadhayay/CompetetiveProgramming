@@ -72,8 +72,15 @@ void solve(void){
             idx = i, minch = s[i];
         }
     }
+    if(minch <= s[0]) {
+        cout << minch;
+        rpt(i, 0, n)
+            if(i != idx)
+                cout << s[i];
 
-    debug(minch, idx);
+    }
+    else
+        cout << s;
     nl;
 }
 
