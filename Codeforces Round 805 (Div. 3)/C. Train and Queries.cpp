@@ -60,16 +60,17 @@ void init(){
 
 ll fun(const string &ls, 
         const string &rs,
-        vector<vector<vector<vector<vector<ll>>>>> &dp,
+        vector<vector<vector<vector<vector<vector<ll>>>>>> &dp,
         ll n,
         ll upTight, ll loTight,
-        ll mxTn, ll mnTn) {
-    debug(ls, rs, n, upTight, loTight, mxTn, mnTn);
+        ll mxTn, ll mnTn,
+        ll leadz) {
+    debug(ls, rs, n, upTight, loTight, mxTn, mnTn, leadz);
     if(n == 0)
         return mxTn - mnTn;
 
-    if(dp[n][upTight][loTight][mxTn][mnTn] != -1)
-        return dp[n][upTight][loTight][mxTn][mnTn];
+    if(dp[n][upTight][loTight][mxTn][mnTn][leadz] != -1)
+        return dp[n][upTight][loTight][mxTn][mnTn][leadz];
 
     ll ans = inf,
         ub = upTight ? rs[rs.size() - n] - '0' : 9,
@@ -77,14 +78,16 @@ ll fun(const string &ls,
 
     rpt(i, lb, ub + 1) {
 
+        leadz &= (i == 0);
         ans = min(ans, fun(ls, rs, dp, n - 1,
                             upTight && (i == ub),
                             loTight && (i == lb),
-                            max(mxTn, i),
-                            min(mnTn, i)));
+                            leadz ? 0 : max(mxTn, i),
+                            leadz ? 9 : min(mnTn, i),
+                            leadz));
     }
 
-    return dp[n][upTight][loTight][mxTn][mnTn] = ans;
+    return dp[n][upTight][loTight][mxTn][mnTn][leadz] = ans;
 }
 
 
@@ -141,14 +144,15 @@ string optimized(ll l, ll r) {
         ls += '0';
     reverse(all(ls));
 
-    vector<vector<vector<vector<vector<ll>>>>> dp(
-            n + 1, vector<vector<vector<vector<ll>>>> (
-                2, vector<vector<vector<ll>>>(2,
-                    vector<vector<ll>>(
-                        10, vector<ll>(
-                            10, -1)))));
+    vector<vector<vector<vector<vector<vector<ll>>>>>> dp(
+            n + 1, vector<vector<vector<vector<vector<ll>>>>> (
+                2, vector<vector<vector<vector<ll>>>>(2,
+                    vector<vector<vector<ll>>>(
+                        10, vector<vector<ll>>(
+                            10, vector<ll>(
+                                2, -1))))));
 
-    ll minDiff = fun(ls, rs, dp, n, 1, 1, 0, 9);
+    ll minDiff = fun(ls, rs, dp, n, 1, 1, 0, 9, 1);
     cout << minDiff;
 
     string num = "";
