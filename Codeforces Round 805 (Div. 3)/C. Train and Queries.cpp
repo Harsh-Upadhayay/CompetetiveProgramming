@@ -107,7 +107,7 @@ void solve(void){
     vector<vector<ll>> parb(m, vector<ll> (3, 0));
     rpt(i, 0, n) cin >> line[i];
     rpt(i, 0, m) cin >> parb[i][0] >> parb[i][1] >> parb[i][2];
-    debug(parb);
+    // debug(parb);
     
     sort(all(line));
 
