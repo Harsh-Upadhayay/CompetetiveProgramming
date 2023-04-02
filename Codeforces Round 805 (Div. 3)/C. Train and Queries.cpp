@@ -66,8 +66,10 @@ ll fun(const string &ls,
         ll upTight, ll loTight,
         ll mxTn, ll mnTn) {
 
-    if(n == 0)
+    if(n == 0) {
+        cout << num << " ";
         return mxTn - mnTn;
+    }
 
     if(dp[n][upTight][loTight][mxTn][mnTn] != -1)
         return dp[n][upTight][loTight][mxTn][mnTn];
@@ -84,7 +86,7 @@ ll fun(const string &ls,
                             loTight && (i == lb),
                             max(mxTn, i),
                             min(mnTn, i)));
-        // num.pop_back();
+        num.pop_back();
     }
 
     return dp[n][upTight][loTight][mxTn][mnTn] = ans;
