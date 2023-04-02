@@ -60,6 +60,7 @@ void init(){
 
 ll fun(const string &ls, 
         const   string &rs,
+        string &num,
         vector<vector<vector<vector<vector<ll>>>>> &dp,
         ll n,
         ll upTight, ll loTight,
@@ -77,11 +78,13 @@ ll fun(const string &ls,
 
     rpt(i, lb, ub + 1) {
 
-        ans = min(ans, fun(ls, rs, dp, n - 1,
+        num += (char)('0' + i);
+        ans = min(ans, fun(ls, rs, num, dp, n - 1,
                             upTight && (i == ub),
                             loTight && (i == lb),
                             max(mxTn, i),
                             min(mnTn, i)));
+        // num.pop_back();
     }
 
     return dp[n][upTight][loTight][mxTn][mnTn] = ans;
@@ -107,9 +110,9 @@ ll optimized(ll l, ll r) {
                         10, vector<ll>(
                             10, -1)))));
 
-    ll minDiff = fun(ls, rs, dp, n, 1, 1, 0, 9);
-
     string num = "";
+    ll minDiff = fun(ls, rs, num, dp, n, 1, 1, 0, 9);
+    cout << num << " ";
 
     // num = constructNum()
 
