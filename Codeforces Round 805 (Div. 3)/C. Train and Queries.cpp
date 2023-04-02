@@ -153,7 +153,6 @@ string optimized(ll l, ll r) {
                                 2, -1))))));
 
     ll minDiff = fun(ls, rs, dp, n, 1, 1, 0, 9, 1);
-    cout << minDiff;
 
     string num = "";
     num = conNum(ls, rs, num, n, minDiff, 1, 1, 0, 9);
