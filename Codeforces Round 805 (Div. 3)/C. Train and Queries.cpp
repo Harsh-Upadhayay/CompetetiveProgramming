@@ -118,7 +118,7 @@ void solve(void){
         ll k = findClosest(line, n, b),
         expr = (((b - k) * (b - k)) - (4 * a * c));
 
-        debug(expr);
+        // debug(expr);
         if(expr < 0)
             cout << "YES\n" << k << "\n";
         else
