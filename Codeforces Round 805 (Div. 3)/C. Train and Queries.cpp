@@ -155,9 +155,7 @@ string optimized(ll l, ll r) {
     ll minDiff = fun(ls, rs, dp, n, 1, 1, 0, 9, 1);
     cout << minDiff;
 
-    string num = "*";
-
-    cout << num;
+    string num = "";
     num = conNum(ls, rs, num, n, minDiff, 1, 1, 0, 9);
     removeLeadz(num);
     return num;
