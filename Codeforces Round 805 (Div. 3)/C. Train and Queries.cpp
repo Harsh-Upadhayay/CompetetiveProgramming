@@ -67,7 +67,7 @@ void solve(void){
     char minch = 'z';
     ll idx = -1;
 
-    rpt(i, 1, n) {
+    for(int i = n - 1; i > 0; i--) {
         if(minch > s[i]) {
             idx = i, minch = s[i];
         }
