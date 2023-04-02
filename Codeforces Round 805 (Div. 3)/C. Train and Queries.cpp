@@ -59,17 +59,14 @@ void init(){
 }
 
 ll fun(const string &ls, 
-        const   string &rs,
-        string &num,
+        const string &rs,
         vector<vector<vector<vector<vector<ll>>>>> &dp,
         ll n,
         ll upTight, ll loTight,
         ll mxTn, ll mnTn) {
 
-    if(n == 0) {
-        // cout << num << " ";
+    if(n == 0)
         return mxTn - mnTn;
-    }
 
     if(dp[n][upTight][loTight][mxTn][mnTn] != -1)
         return dp[n][upTight][loTight][mxTn][mnTn];
@@ -80,19 +77,50 @@ ll fun(const string &ls,
 
     rpt(i, lb, ub + 1) {
 
-        num += (char)('0' + i);
-        ans = min(ans, fun(ls, rs, num, dp, n - 1,
+        ans = min(ans, fun(ls, rs, dp, n - 1,
                             upTight && (i == ub),
                             loTight && (i == lb),
                             max(mxTn, i),
                             min(mnTn, i)));
-        num.pop_back();
     }
 
     return dp[n][upTight][loTight][mxTn][mnTn] = ans;
 }
 
 
+string conNum(const string &ls, 
+        const string &rs,
+        string &num,
+        ll n, ll mxDiff,
+        ll upTight, ll loTight,
+        ll mxTn, ll mnTn) {
+
+    if(mxTn - mnTn > mxDiff)
+        return "";
+
+    if(n == 0)
+        return num;
+
+
+    ll ans = inf,
+        ub = upTight ? rs[rs.size() - n] - '0' : 9,
+        lb = loTight ? ls[ls.size() - n] - '0' : 0;
+
+    rpt(i, lb, ub + 1) {
+
+        num += (char)('0' + i);
+        string x = conNum(ls, rs, num, n - 1, mxDiff,
+            upTight && (i == ub),
+            loTight && (i == lb),
+            max(mxTn, i),
+            min(mnTn, i));
+        if(x != "")
+            return x;
+        num.pop_back();
+    }
+
+    return "";
+}
 
 ll optimized(ll l, ll r) {
 
@@ -112,12 +140,12 @@ ll optimized(ll l, ll r) {
                         10, vector<ll>(
                             10, -1)))));
 
+    ll minDiff = fun(ls, rs, dp, n, 1, 1, 0, 9);
+
     string num = "";
-    ll minDiff = fun(ls, rs, num, dp, n, 1, 1, 0, 9);
-    num = "";
 
-    // num = constructNum()
-
+    num = conNum(ls, rs, num, n, minDiff, 1, 1, 0, 9);
+    cout << conNum;
     return minDiff;
 }
 
