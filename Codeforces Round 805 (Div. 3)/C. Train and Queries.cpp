@@ -83,7 +83,7 @@ void solve(void){
     if(!(n % 2)) kill("NO");
 
     vector<ll> dp;
-    cout << fun(3, n, dp);
+    fun(3, n, dp);
 
     nl;
 }
