@@ -59,14 +59,15 @@ void init(){
 }
 
 ll getClosest(ll val1, ll val2,
-               ll target) {
+               ll target)
+{
     if (target - val1 >= val2 - target)
         return val2;
     else
         return val1;
 }
  
-ll findClosest(vll arr, ll n, ll target) {
+ll findClosest(vll &arr, ll n, ll target) {
     if (target <= arr[0])
         return arr[0];
     if (target >= arr[n - 1])
