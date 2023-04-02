@@ -157,8 +157,8 @@ string optimized(ll l, ll r) {
 
     string num = "*";
 
-    num = conNum(ls, rs, num, n, minDiff, 1, 1, 0, 9);
     cout << num;
+    num = conNum(ls, rs, num, n, minDiff, 1, 1, 0, 9);
     removeLeadz(num);
     return num;
 }
