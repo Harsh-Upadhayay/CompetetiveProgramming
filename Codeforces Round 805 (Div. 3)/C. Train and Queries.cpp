@@ -58,34 +58,32 @@ void init(){
     return;
 }
 
-vll ans;
 
-ll fun(ll i, ll n, vll &v) {
+// ll fun(ll i, ll n, vll &v) {
 
-    if(i == n) {
-        ans = v;
-        return 1;
-    }
+//     if(i == n) {
+//         ans = v;
+//         return 1;
+//     }
     
-    if(i > n)
-        return 0;
+//     if(i > n)
+//         return 0;
 
-    v.push_back(0);
-    ll l = fun(2 * i - 1, n, v);
-    v.pop_back();
-    if(l)
-        return 1;
-    v.push_back(1);
-    ll r = fun(2 * i + 1, n, v);
-    v.pop_back();
+//     v.push_back(0);
+//     ll l = fun(2 * i - 1, n, v);
+//     v.pop_back();
+//     if(l)
+//         return 1;
+//     v.push_back(1);
+//     ll r = fun(2 * i + 1, n, v);
+//     v.pop_back();
 
-    if(r)
-        return 1;
-    return 0;
-}
+//     if(r)
+//         return 1;
+//     return 0;
+// }
 
 void solve(void){
-    ans.clear();
     ll n; cin >> n;
     if(!(n % 2)) kill("-1");
 
@@ -94,10 +92,9 @@ void solve(void){
 
     // cout << ans.size() + 1 << "\n";
     // cout << "1";
-    // print(ans);
-    // cout << "\n";
-    // string ans = bitset<64>(n).to_string();
-    // ans.pop_back();
+    // print(ans);   
+     string ans = bitset<64>(n).to_string();
+    ans.pop_back();
 
     bool leadz = true;
     for(char x : ans) {
