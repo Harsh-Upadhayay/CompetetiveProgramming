@@ -71,7 +71,15 @@ void solve(void){
     ll k = nmin(line);
 
     rpt(i, 0, m) {
+        ll a = parb[i][0],
+            b = parb[i][1],
+            c = parb[i][2],
+            expr = (((b - k) * (b - k)) - (4 * a * c));
 
+        if(expr < 0)
+            cout << "YES\n" << k << "\n";
+        else
+            cout << "NO\n";
     }
 
     nl;
