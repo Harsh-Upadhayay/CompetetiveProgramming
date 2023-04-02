@@ -61,22 +61,19 @@ void init(){
 
 void solve(void){
     
-    ll n;cin>> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
+    ll n; cin >> n;
+    string s; cin >> s;
 
-    ll x = 0;
-    for(ll ele : v)
-        x ^= ele;
+    char minch = 'z';
+    ll idx = -1;
 
-    if(!(n % 2)) {
-        if(x == 0)
-            cout << "1";
-        else
-            cout << "-1";
-    } 
-    else
-        cout << x;
+    rpt(i, 1, n) {
+        if(minch > s[i]) {
+            idx = i, minch = s[i];
+        }
+    }
 
+    debug(minch, idx);
     nl;
 }
 
