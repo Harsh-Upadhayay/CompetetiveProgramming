@@ -96,7 +96,7 @@ void solve(void){
     cout << "1";
     print(ans);
     cout << "\n";
-    cout << bitset<10>(n);
+    cout << bitset<10>(4);
     nl; 
 }
 
