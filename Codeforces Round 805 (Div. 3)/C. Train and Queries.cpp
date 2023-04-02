@@ -67,7 +67,7 @@ ll fun(const string &ls,
         ll mxTn, ll mnTn) {
 
     if(n == 0) {
-        cout << num << " ";
+        // cout << num << " ";
         return mxTn - mnTn;
     }
 
