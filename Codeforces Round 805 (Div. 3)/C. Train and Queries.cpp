@@ -58,10 +58,14 @@ void init(){
     return;
 }
 
+vll ans;
+
 ll fun(ll i, ll n, vll &v) {
 
-    if(i == n) 
+    if(i == n) {
+        ans = v;
         return 1;
+    }
     
     if(i > n)
         return 0;
@@ -77,16 +81,16 @@ ll fun(ll i, ll n, vll &v) {
 }
 
 void solve(void){
-    
+    ans.clear();
     ll n; cin >> n;
     if(!(n % 2)) kill("-1");
 
     vector<ll> dp;
     fun(3, n, dp);
 
-    cout << dp.size() + 1 << "\n";
+    cout << ans.size() + 1 << "\n";
     cout << "2 ";
-    print(dp);
+    print(ans);
     debug(dp);
     nl; 
 }
