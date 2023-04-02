@@ -87,7 +87,7 @@ void solve(void){
     cout << dp.size() + 1 << "\n";
     cout << "2 ";
     print(dp);
-
+    debug(dp);
     nl; 
 }
 
