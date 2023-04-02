@@ -73,10 +73,14 @@ ll fun(ll i, ll n, vll &v) {
     v.push_back(1);
     ll l = fun(2 * i - 1, n, v);
     v.pop_back();
+    if(l)
+        return 1;
     v.push_back(2);
     ll r = fun(2 * i + 1, n, v);
     v.pop_back();
 
+    if(r)
+        return 1;
     return 0;
 }
 
@@ -85,13 +89,12 @@ void solve(void){
     ll n; cin >> n;
     if(!(n % 2)) kill("-1");
 
-    vector<ll> dp;
-    fun(3, n, dp);
+    vector<ll> v;
+    fun(3, n, v);
 
     cout << ans.size() + 1 << "\n";
     cout << "2 ";
     print(ans);
-    debug(dp);
     nl; 
 }
 
