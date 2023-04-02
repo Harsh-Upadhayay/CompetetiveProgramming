@@ -58,12 +58,32 @@ void init(){
     return;
 }
 
+ll fun(ll i, ll n, vll &v) {
+
+    if(i == n) {
+        print(v);
+        return 1;
+    }
+    if(i > n)
+        return 0;
+
+    v.push_back(1);
+    ll l = fun(2 * i - 1, n, v);
+    v.pop_back();
+    v.push_back(2);
+    ll r = fun(2 * i + 1, n, v);
+    v.pop_back();
+
+    return 0;
+}
 
 void solve(void){
     
-    string x, l, r; cin >> x >> l >> x >> r;
+    ll n; cin >> n;
+    if(!(n % 2)) kill("NO");
 
-    debug(l, r);
+    vector<ll> dp;
+    cout << fun(3, n, dp);
 
     nl;
 }
