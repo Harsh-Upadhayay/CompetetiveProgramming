@@ -93,16 +93,17 @@ void solve(void){
     // cout << ans.size() + 1 << "\n";
     // cout << "1";
     // print(ans);   
-     string ans = bitset<64>(n).to_string();
-    ans.pop_back();
-
+    string ans = bitset<64>(n).to_string();
+    vll ret;
     bool leadz = true;
     for(char x : ans) {
         leadz &= (x == '0');
         if(!leadz) {
-            cout << (x - '0' + 1) << " ";
+            ret.push_back((x - '0' + 1) );
         }
     }
+    cout << ret.size() << "\n";
+    print(ret);
     nl; 
 }
 
