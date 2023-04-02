@@ -81,6 +81,7 @@ void solve(void){
     }
     else
         cout << s;
+    debug(minch, idx);
     nl;
 }
 
