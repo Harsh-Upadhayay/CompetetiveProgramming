@@ -60,6 +60,7 @@ void init(){
 
 ll fun(const string &ls, 
         const string &rs,
+        vector<vector<vector<vector<vector<ll>>>>> &dp,
         ll n,
         ll upTight, ll loTight,
         ll mxTn, ll mnTn) {
@@ -73,7 +74,7 @@ ll fun(const string &ls,
 
     rpt(i, lb, ub + 1) {
 
-        ans = min(ans, fun(ls, rs, n - 1,
+        ans = min(ans, fun(ls, rs, dp, n - 1,
                             upTight && (i == ub),
                             loTight && (i == lb),
                             max(mxTn, i),
@@ -94,9 +95,14 @@ ll optimized(ll l, ll r) {
         ls += '0';
     reverse(all(ls));
 
-    // vector<vector<vector<vector<
+    vector<vector<vector<vector<vector<ll>>>>> dp(
+            n + 1, vector<vector<vector<vector<ll>>>> (
+                2, vector<vector<vector<ll>>>(2,
+                    vector<vector<ll>>(
+                        9, vector<ll>(
+                            9, -1)))));
 
-    return fun(ls, rs, n, 1, 1, 0, 9);
+    return fun(ls, rs, dp, n, 1, 1, 0, 9);
 }
 
 void solve(void){
