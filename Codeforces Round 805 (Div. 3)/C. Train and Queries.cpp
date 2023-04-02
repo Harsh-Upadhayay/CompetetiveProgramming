@@ -61,27 +61,19 @@ void init(){
 
 void solve(void){
     
-    ll n; cin >> n;
-    string s; cin >> s;
+    ll n, m; cin >> n >> m;
 
-    char minch = 'z';
-    ll idx = -1;
+    vll line(n);
+    vector<vector<ll>> parb(m, vector<ll> (3, 0));
+    rpt(i, 0, n) cin >> line[i];
+    rpt(i, 0, m) cin >> parb[i][0] >> parb[i][1] >> parb[i][2];
+    debug(parb);
+    ll k = nmin(line);
 
-    for(int i = n - 1; i > 0; i--) {
-        if(minch > s[i]) {
-            idx = i, minch = s[i];
-        }
-    }
-    if(minch <= s[0] && idx != -1) {
-        cout << minch;
-        rpt(i, 0, n)
-            if(i != idx)
-                cout << s[i];
+    rpt(i, 0, m) {
 
     }
-    else
-        cout << s;
-    debug(minch, idx);
+
     nl;
 }
 
