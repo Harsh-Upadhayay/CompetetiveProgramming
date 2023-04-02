@@ -60,10 +60,9 @@ void init(){
 
 ll fun(ll i, ll n, vll &v) {
 
-    if(i == n) {
-        print(v);
+    if(i == n) 
         return 1;
-    }
+    
     if(i > n)
         return 0;
 
@@ -80,13 +79,15 @@ ll fun(ll i, ll n, vll &v) {
 void solve(void){
     
     ll n; cin >> n;
-    if(!(n % 2)) kill("NO");
+    if(!(n % 2)) kill("-1");
 
-    cout << n << " ";
     vector<ll> dp;
     fun(3, n, dp);
 
-    nl;
+    cout << dp.size() + 1 << "\n";
+    cout << "2 "; print(dp);
+
+    nl; 
 }
 
 
