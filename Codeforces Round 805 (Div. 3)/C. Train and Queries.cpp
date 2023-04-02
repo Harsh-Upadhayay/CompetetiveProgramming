@@ -114,7 +114,7 @@ ll optimized(ll l, ll r) {
 
     string num = "";
     ll minDiff = fun(ls, rs, num, dp, n, 1, 1, 0, 9);
-    cout << num << " ";
+    num = "";
 
     // num = constructNum()
 
