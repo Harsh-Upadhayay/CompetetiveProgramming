@@ -96,7 +96,8 @@ string conNum(const string &ls,
         string &num,
         ll n, ll mxDiff,
         ll upTight, ll loTight,
-        ll mxTn, ll mnTn) {
+        ll mxTn, ll mnTn,
+        ll leadz) {
     debug(n);
     if(mxTn - mnTn > mxDiff)
         return "";
@@ -112,11 +113,13 @@ string conNum(const string &ls,
     rpt(i, lb, ub + 1) {
 
         num += (char)('0' + i);
+        leadz &= (i == 0);
         string x = conNum(ls, rs, num, n - 1, mxDiff,
             upTight && (i == ub),
             loTight && (i == lb),
-            max(mxTn, i),
-            min(mnTn, i));
+            leadz ? 0 : max(mxTn, i),
+            leadz ? 9 : min(mnTn, i),
+            leadz);
         if(x != "")
             return x;
         num.pop_back();
@@ -155,7 +158,7 @@ string optimized(ll l, ll r) {
     ll minDiff = fun(ls, rs, dp, n, 1, 1, 0, 9, 1);
 
     string num = "";
-    num = conNum(ls, rs, num, n, minDiff, 1, 1, 0, 9);
+    num = conNum(ls, rs, num, n, minDiff, 1, 1, 0, 9, 1);
     removeLeadz(num);
 
     return num;
