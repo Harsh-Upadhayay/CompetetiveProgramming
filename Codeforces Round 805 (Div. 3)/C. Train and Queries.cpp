@@ -68,6 +68,9 @@ ll fun(const string &ls,
     if(n == 0)
         return mxTn - mnTn;
 
+    if(dp[n][upTight][loTight][mxTn][mnTn] != -1)
+        return dp[n][upTight][loTight][mxTn][mnTn];
+
     ll ans = inf,
         ub = upTight ? rs[rs.size() - n] - '0' : 9,
         lb = loTight ? ls[ls.size() - n] - '0' : 0;
@@ -81,7 +84,7 @@ ll fun(const string &ls,
                             min(mnTn, i)));
     }
 
-    return ans;
+    return dp[n][upTight][loTight][mxTn][mnTn] = ans;
 }
 
 ll optimized(ll l, ll r) {
