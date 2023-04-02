@@ -72,7 +72,7 @@ ll fun(const string &ls,
     ll ans = inf,
         ub = upTight ? rs[rs.size() - 1] - '0' : 9,
         lb = loTight ? ls[ls.size() - 1] - '0' : 0;
-
+    debug(lb, ub);
     rpt(i, lb, ub + 1) {
 
         ans = min(ans, fun(ls, rs, n - 1,
