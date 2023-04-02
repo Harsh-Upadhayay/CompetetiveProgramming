@@ -122,6 +122,15 @@ string conNum(const string &ls,
     return "";
 }
 
+void removeLeadz(string &num) {
+
+    reverse(all(num));
+    while(num.back() == '0')
+        num.pop_back();
+    reverse(all(num));
+
+}
+
 string optimized(ll l, ll r) {
 
     string ls = to_string(l),
@@ -146,6 +155,8 @@ string optimized(ll l, ll r) {
 
     num = conNum(ls, rs, num, n, minDiff, 1, 1, 0, 9);
     
+    removeLeadz(num);
+
     return num;
 }
 
