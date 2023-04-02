@@ -64,6 +64,8 @@ ll fun(const string &ls,
         ll upTight, ll loTight,
         ll mxTn, ll mnTn) {
 
+    debug(n, upTight, loTight, mxTn, mnTn);
+
     if(n == 0)
         return mxTn - mnTn;
 
