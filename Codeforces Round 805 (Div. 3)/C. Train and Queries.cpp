@@ -89,14 +89,23 @@ void solve(void){
     ll n; cin >> n;
     if(!(n % 2)) kill("-1");
 
-    vector<ll> v;
-    fun(3, n, v);
+    // vector<ll> v;
+    // fun(3, n, v);
 
-    cout << ans.size() + 1 << "\n";
-    cout << "1";
-    print(ans);
-    cout << "\n";
-    cout << bitset<64>(n).to_string();
+    // cout << ans.size() + 1 << "\n";
+    // cout << "1";
+    // print(ans);
+    // cout << "\n";
+    // string ans = bitset<64>(n).to_string();
+    // ans.pop_back();
+
+    bool leadz = true;
+    for(char x : ans) {
+        leadz &= (x == '0');
+        if(!leadz) {
+            cout << (x - '0' + 1) << " ";
+        }
+    }
     nl; 
 }
 
