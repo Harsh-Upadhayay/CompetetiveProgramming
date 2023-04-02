@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-#define TESTCASE
+// #define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -58,62 +58,51 @@ void init(){
     return;
 }
 
-pair<ll, pair<ll, ll>> fun(string &ls, string &us, ll n, bool utt, bool ltt) {
+ll fun(const string &ls, 
+        const string &rs,
+        ll n,
+        ll upTight, ll loTight,
+        ll mxTn, ll mnTn) {
 
     if(n == 0)
-        return {ninf, {ninf, inf}};
+        return mxTn - mnTn;
 
-    ll ub = utt ? us[us.size() - n] - '0' : '9',
-       lb = ltt ? ls[ls.size() - n] - '0' : '0',
-       mn = inf, mx = ninf, ans = inf;
+    ll ans = inf,
+        ub = upTight ? rs[rs.size() - 1] - '0' : 9,
+        lb = loTight ? ls[ls.size() - 1] - '0' : 0;
 
-    rpt(i, 1, (ll)10) {
+    rpt(i, lb, ub + 1) {
 
-        if(i >= lb && i <= ub) {
-            debug(i, utt, ltt);
-            auto it = fun(ls, us, n - 1, utt && (i == ub), ltt && (i == lb));
-            ll pmax = it.second.first, pmin = it.second.second;
-
-            mx = max(pmax, i),
-            mn = min(pmin, i);
-
-            ans = max(ans, mx - mn);
-        }
-
+        ans = min(ans, fun(ls, rs, n - 1,
+                            upTight && (i == ub),
+                            loTight && (i == lb),
+                            max(mxTn, i),
+                            min(mnTn, i)));
     }
 
-    return {ans, {mx, mn}};
+    return ans;
 }
 
-ll optimized(ll l, ll u) {
+ll optimized(ll l, ll r) {
 
     string ls = to_string(l),
-            us = to_string(u);
+           rs = to_string(r);
 
-    ll d = us.size() - ls.size(), n = us.size();
     reverse(all(ls));
+    ll d = rs.size() - ls.size(), n = rs.size();
     while(d--)
         ls += '0';
     reverse(all(ls));
 
-    return fun(ls, us, n, 1, 1).first;
+    return fun(ls, rs, n, 1, 1, ninf, inf);
 }
 
-void solve(ll t){
+void solve(void){
     
-    ll ans = 1;
-    if(!(t % 2))
-        rpt(i, 0, 2) {
-            ll x; cin >> x;
-            ans *= x;
-        }
-    else 
-        rpt(i, 0, 3) {
-            ll x; cin >> x;
-            ans *= x;
-        }
+    ll l, r; cin >> l >> r;
 
-    cout << ans;
+    cout << optimized(l, r);
+
     nl;
 }
 
@@ -141,8 +130,8 @@ int main() {
         cin >> t;
     #endif
 
-    rpt(i, 1, t + 1)
-        solve(i);
+    while(t--) 
+        solve();
 
     return 0;
 }
