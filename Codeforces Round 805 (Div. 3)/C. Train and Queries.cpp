@@ -70,12 +70,12 @@ ll fun(ll i, ll n, vll &v) {
     if(i > n)
         return 0;
 
-    v.push_back(1);
+    v.push_back(0);
     ll l = fun(2 * i - 1, n, v);
     v.pop_back();
     if(l)
         return 1;
-    v.push_back(2);
+    v.push_back(1);
     ll r = fun(2 * i + 1, n, v);
     v.pop_back();
 
@@ -93,8 +93,10 @@ void solve(void){
     fun(3, n, v);
 
     cout << ans.size() + 1 << "\n";
-    cout << "2 ";
+    cout << "1";
     print(ans);
+    cout << "\n";
+    cout << bitset<10>(n);
     nl; 
 }
 
@@ -143,7 +145,7 @@ T inline min(T a, T b, T c, T d, T e){
 template<class T>
 void inline print(vector<T> v){
     for(auto x : v)
-        cout << x << " ";
+        cout << x << "";
 }
 
 template<class T>
