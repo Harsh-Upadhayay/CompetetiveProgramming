@@ -85,7 +85,8 @@ void solve(void){
     fun(3, n, dp);
 
     cout << dp.size() + 1 << "\n";
-    cout << "2 "; print(dp);
+    cout << "2 ";
+    print(dp);
 
     nl; 
 }
