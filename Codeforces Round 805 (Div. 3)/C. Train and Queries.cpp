@@ -70,8 +70,8 @@ ll fun(const string &ls,
         return mxTn - mnTn;
 
     ll ans = inf,
-        ub = upTight ? rs[rs.size() - 1] - '0' : 9,
-        lb = loTight ? ls[ls.size() - 1] - '0' : 0;
+        ub = upTight ? rs[rs.size() - n] - '0' : 9,
+        lb = loTight ? ls[ls.size() - n] - '0' : 0;
     debug(lb, ub);
     rpt(i, lb, ub + 1) {
 
