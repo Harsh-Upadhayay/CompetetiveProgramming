@@ -59,7 +59,7 @@ void init(){
 }
 
 ll fun(const string &ls, 
-        const string &rs,
+        const   string &rs,
         vector<vector<vector<vector<vector<ll>>>>> &dp,
         ll n,
         ll upTight, ll loTight,
@@ -86,6 +86,8 @@ ll fun(const string &ls,
 
     return dp[n][upTight][loTight][mxTn][mnTn] = ans;
 }
+
+
 
 ll optimized(ll l, ll r) {
 
