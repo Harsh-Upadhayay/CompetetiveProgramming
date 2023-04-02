@@ -75,7 +75,7 @@ void solve(void){
             b = parb[i][1],
             c = parb[i][2],
             expr = (((b - k) * (b - k)) - (4 * a * c));
-
+        debug(expr);
         if(expr < 0)
             cout << "YES\n" << k << "\n";
         else
