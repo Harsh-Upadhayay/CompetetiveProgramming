@@ -94,6 +94,7 @@ void solve(void){
     // cout << "1";
     // print(ans);   
     string ans = bitset<64>(n).to_string();
+    ans.pop_back();
     vll ret;
     bool leadz = true;
     for(char x : ans) {
