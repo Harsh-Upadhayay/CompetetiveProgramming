@@ -97,7 +97,7 @@ string conNum(const string &ls,
         ll n, ll mxDiff,
         ll upTight, ll loTight,
         ll mxTn, ll mnTn) {
-
+    debug(n);
     if(mxTn - mnTn > mxDiff)
         return "";
 
@@ -157,6 +157,7 @@ string optimized(ll l, ll r) {
     string num = "";
     num = conNum(ls, rs, num, n, minDiff, 1, 1, 0, 9);
     removeLeadz(num);
+
     return num;
 }
 
