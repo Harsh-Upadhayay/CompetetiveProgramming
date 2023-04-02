@@ -102,8 +102,8 @@ ll optimized(ll l, ll r) {
             n + 1, vector<vector<vector<vector<ll>>>> (
                 2, vector<vector<vector<ll>>>(2,
                     vector<vector<ll>>(
-                        9, vector<ll>(
-                            9, -1)))));
+                        10, vector<ll>(
+                            10, -1)))));
 
     return fun(ls, rs, dp, n, 1, 1, 0, 9);
 }
