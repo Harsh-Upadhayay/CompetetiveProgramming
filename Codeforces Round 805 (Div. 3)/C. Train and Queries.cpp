@@ -76,6 +76,7 @@ void solve(void){
         cout << i << ": ";
         for(ll adjN : adj[i])
             cout << adjN << " ";
+        cout << "\n";
     }
 
     nl;
