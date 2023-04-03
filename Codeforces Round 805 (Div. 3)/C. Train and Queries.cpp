@@ -63,16 +63,16 @@ void solve(void){
     
     ll n; cin >> n;
 
-    vll adj[n];
+    vll adj[n + 1];
 
     rpt(i, 0, n) {
         ll u, v; cin >> u >> v;
 
-        adj[u - 1].push_back(v - 1),
-        adj[v - 1].push_back(u -1 );
+        adj[u].push_back(v),
+        adj[v].push_back(u);
     }
 
-    rpt(i, 0, n) {
+    rpt(i, 1, n + 1) {
         cout << i << ": ";
         for(ll adjN : adj[i])
             cout << adjN << " ";
