@@ -67,7 +67,7 @@ void solve(void){
 
     rpt(i, 0, n) {
         ll u, v; cin >> u >> v;
-
+        debug(u, v);
         adj[u].push_back(v),
         adj[v].push_back(u);
     }
