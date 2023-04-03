@@ -32,7 +32,6 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-#define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -58,71 +57,25 @@ void init(){
     return;
 }
 
-ll getClosest(ll val1, ll val2,
-               ll target)
-{
-    if (target - val1 >= val2 - target)
-        return val2;
-    else
-        return val1;
-}
- 
-ll findClosest(vll &arr, ll n, ll target) {
-    if (target <= arr[0])
-        return arr[0];
-    if (target >= arr[n - 1])
-        return arr[n - 1];
- 
-    ll i = 0, j = n, mid = 0;
-    while (i < j) {
-        mid = (i + j) / 2;
- 
-        if (arr[mid] == target)
-            return arr[mid];
- 
-        if (target < arr[mid]) {
 
-            if (mid > 0 && target > arr[mid - 1])
-                return getClosest(arr[mid - 1],
-                                  arr[mid], target);  
-            j = mid;
-        }
-        else {
-            if (mid < n - 1 && target < arr[mid + 1])
-                return getClosest(arr[mid],
-                                  arr[mid + 1], target);
-            
-            i = mid + 1;
-        }
-    }
- 
-    return arr[mid];
-}
-
+// #define TESTCASE
 void solve(void){
     
-    ll n, m; cin >> n >> m;
+    ll n; cin >> n;
 
-    vll line(n);
-    vector<vector<ll>> parb(m, vector<ll> (3, 0));
-    rpt(i, 0, n) cin >> line[i];
-    rpt(i, 0, m) cin >> parb[i][0] >> parb[i][1] >> parb[i][2];
-    // debug(parb);
-    
-    sort(all(line));
+    vll adj[n];
 
-    rpt(i, 0, m) {
-        ll a = parb[i][0],
-            b = parb[i][1],
-            c = parb[i][2];
-        ll k = findClosest(line, n, b),
-        expr = (((b - k) * (b - k)) - (4 * a * c));
+    rpt(i, 0, n) {
+        ll u, v; cin >> u >> v;
 
-        // debug(expr);
-        if(expr < 0)
-            cout << "YES\n" << k << "\n";
-        else
-            cout << "NO\n";
+        adj[u - 1].push_back(v - 1),
+        adj[v - 1].push_back(u -1 );
+    }
+
+    rpt(i, 0, n) {
+        cout << i << ": ";
+        for(ll adjN : adj[i])
+            cout << adjN << " ";
     }
 
     nl;
