@@ -95,7 +95,7 @@ ll find(ll k, ll n) {
     ll mxn;
     rpt(i, 0, 40) {
         ll exp = (n * (n + 1)) / 2;
-        if(exp < n)
+        if(exp < d)
             mxn = i;
     }
 
