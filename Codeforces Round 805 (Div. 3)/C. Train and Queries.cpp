@@ -132,6 +132,21 @@ void solve(void){
 
     debug(a, b);
 
+    priority_queue<pair<ll, ll>> pqa, pqb;
+
+    rpt(i, 0, n)
+        pqa.push({distVa[i], i}),
+        pqb.push({distVb[i], i});
+
+    set<ll> st;
+    rpt(i, 0, n) st.insert(i);
+
+    ll k = n;
+
+    while(k--) {
+        cout << k;
+    }
+
     nl;
 }
 
