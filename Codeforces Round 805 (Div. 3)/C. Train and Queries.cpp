@@ -111,8 +111,8 @@ void solve(void){
     ll mxN = find(k, n);
     debug(mxN);
     vll ans;
-    ll d = 1;
-    rpt(i, 0, mxN) {
+    ll d = 0;
+    rpt(i, 1, mxN + 1) {
         ans.push_back(i + d);
         d++;
     }
