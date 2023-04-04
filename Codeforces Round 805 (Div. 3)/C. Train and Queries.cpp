@@ -121,7 +121,12 @@ void solve(void){
     for(int i = 1; ans.size() <= mxN; i += d) 
         ans.push_back(i),
         d++;
-
+    ll lastE = ans.back();
+    rpt(i, lastE, n) {
+        if(ans.size() >= k)
+            break;
+        ans.push_back(i);
+    }
     print(ans);
     nl;
 }
