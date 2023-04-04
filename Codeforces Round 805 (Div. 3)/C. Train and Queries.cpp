@@ -113,6 +113,7 @@ void solve(void){
     if(n == k) {
         rpt(i, 1, n)
             cout << i << " ";
+        nl;
         return;
     }
     vll ans;
