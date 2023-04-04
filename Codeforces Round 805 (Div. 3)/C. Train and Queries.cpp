@@ -107,12 +107,14 @@ void solve(void){
     ll k, n; cin >> k >> n;
 
     ll mxN = find(k, n);
+    debug(mxN);
     vll ans;
     ll d = 1;
-    // rpt(i, 0, mxN)
-    //     ans.push_back(i + d),
+    // rpt(i, 0, mxN) {
+    //     ans.push_back(i + d);
     //     d++;
-    // debug(ans);
+    // }
+    // print(ans);
     nl;
 }
 
