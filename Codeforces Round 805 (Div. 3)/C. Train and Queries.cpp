@@ -70,8 +70,8 @@ void solve(void){
         debug(x, tx);
         if((tx + x - 1) <= d) {
             ans.push_back(ans.back() + x),
-            x++,
-            tx += (x - 1);
+            tx += (x - 1),
+            x++;
         }
         else
             ans.push_back(ans.back() + 1);
