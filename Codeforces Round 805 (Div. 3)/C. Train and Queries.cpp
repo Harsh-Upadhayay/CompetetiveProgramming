@@ -69,7 +69,6 @@ void solve(void){
     rpt(i,  0, n) {
         if(!flag && (s[i] <= ch) && (ch != '0')) {
             flag = true;
-            cout << "F";
             cout << ch;
         }
         cout << s[i];
