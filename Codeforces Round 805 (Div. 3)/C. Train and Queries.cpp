@@ -78,7 +78,6 @@ void solve(void){
         if(v[i] != n - i) sn.insert(v[i]);
     }
 
-    debug(fn, sn);
 
     set<ll> of, os;
 
