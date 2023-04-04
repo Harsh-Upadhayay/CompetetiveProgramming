@@ -62,12 +62,23 @@ void init(){
 void solve(void){
     
     ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) v[i] = n - i;
-    if(n == 3) kill(-1);
-    if(n == 5) kill("5 4 1 2 3");
-    if(n % 2)
-        swap(v[n / 2], v[(n / 2) + 1]);
-    print(v);
+    char ch; cin >> ch;
+
+    string s; cin >> s;
+    bool flag = false;
+    rpt(i,  0, n) {
+        if(!flag && s[i] <= ch) {
+            flag = true;
+            cout << ch;
+        }
+        cout << s[i];
+    }
+
+    if(!flag)
+        cout << ch;
+
+
+
     nl;
 }
 
