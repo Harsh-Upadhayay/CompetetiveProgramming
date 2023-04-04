@@ -61,55 +61,11 @@ void init(){
 
 void solve(void){
     
-    string a, b; cin >> a >> b;
+    ll n; cin >> n;
+    vll v(n); rpt(i, 0, n) v[i] = n - i;
 
-    char x = a[a.size() - 1],
-        y = b[b.size() - 1];
-
-    if(a == "M") {
-        if(y == 'S')
-            cout << ">";
-        else if(y == 'L')
-            cout << "<";
-        else
-            cout << "=";
-    }
-    else if(b == "M") {
-        if(x == 'S')
-            cout << "<";
-        else if(x == 'L')
-            cout << ">";
-        else
-            cout << "=";
-    }
-    else {
-        if(y == x) {
-            
-            if(y == 'S') {
-                if(a.size() > b.size())
-                    cout << "<";
-                else if(a.size() < b.size()) 
-                    cout << ">";
-                else
-                    cout << "=";
-            }
-            else {
-                if(a.size() > b.size())
-                    cout << ">";
-                else if(a.size() < b.size()) 
-                    cout << "<";
-                else
-                    cout << "=";
-            }
-        }
-        else {
-            if(y == 'S')
-                cout << ">";
-            else
-                cout << "<";
-        }
-
-    }
+    if(n % 2)
+        swap(v[n / 2], v[(n / 2) + 1]);
 
     nl;
 }
