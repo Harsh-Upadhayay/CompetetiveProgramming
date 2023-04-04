@@ -57,6 +57,51 @@ void init(){
     return;
 }
 
+void print(vector<ll> adj[], ll n) {
+
+    rpt(i, 0, n) {
+        cout << i << ": ";
+        for(ll adjN : adj[i])
+            cout << adjN << " ";
+        cout << "\n";
+    } 
+}
+
+void bfs(vector<ll> adj[], vll dist, ll src) {
+
+    queue<ll> q;
+    q.push(src);
+    dist[src] = 0;
+
+    while(!q.empty()) {
+
+        ll curN = q.front(),
+            curD = dist[curN]; 
+        q.pop();
+
+        for(auto adjN : adj[curN]) {
+
+            if(curD + 1 < dist[adjN])
+                dist[adjN] = curD + 1,
+                q.push(adjN);
+        }
+
+    }
+
+    return;
+}
+
+ll maxIdx(vll v) {
+
+    ll idx = -1, mx = ninf;
+
+    rpt(i, 0, v.size())
+        if(mx < v[i])
+            mx = v[i],
+            idx = i;
+
+    return idx;
+}
 
 // #define TESTCASE
 void solve(void){
@@ -70,14 +115,19 @@ void solve(void){
 
         adj[u - 1].push_back(v - 1),
         adj[v - 1].push_back(u - 1);
-    }
+    }                  
 
-    rpt(i, 0, n) {
-        cout << i << ": ";
-        for(ll adjN : adj[i])
-            cout << adjN << " ";
-        cout << "\n";
-    }
+    vll distV0(n, inf), distVa(n, inf), distVb(n, inf);
+    
+    bfs(adj, distV0, 0);
+    debug(distV0);
+    ll a = maxIdx(distV0); 
+
+    bfs(adj, distVa, a);
+    debug(distV0);
+    ll b = maxIdx(distVa);
+
+    debug(a, b);
 
     nl;
 }
