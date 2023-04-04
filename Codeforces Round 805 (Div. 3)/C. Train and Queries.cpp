@@ -83,6 +83,38 @@ void solve(void){
     }
     debug(of, os);
 
+    cout << *of.begin();
+
+    bool turn = 0;
+    // while(1) {
+
+    //     if(tie(fn, sn))
+    //         kill("Tie");
+
+    //     if(fn.size() == 0)
+    //         kill("First");
+
+    //     if(sn.size() == 0)
+    //         kill("Second");
+
+    //     if(turn) {
+
+    //         if(of.size()) { 
+    //             of.erase(of.front());
+    //             fn.erase(of.front());
+    //         }
+
+    //         turn = !turn;
+    //     }
+    //     else {
+
+    //         trun = !turn;
+    //     }
+
+
+
+    // }
+
     nl;
 }
 
