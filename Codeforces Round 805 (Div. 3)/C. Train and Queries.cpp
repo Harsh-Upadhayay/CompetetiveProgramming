@@ -60,24 +60,16 @@ void init(){
 
 
 void solve(void){
-    ll k, n; cin >> k >> n;
+    
+    ll a, b, c, d;
+    cin >> a >> b >> c >> d;
+    ll mx = max({a, b, c, d}),
+        mn = min({a, b, c, d});
 
-    ll d = n - k, x = 1, tx = 0;
-    vll ans(1, 1);
-
-    while(ans.size() < k) {
-
-        debug(x, tx);
-        if((tx + x - 1) <= d) {
-            ans.push_back(ans.back() + x),
-            tx += (x - 1),
-            x++;
-        }
-        else
-            ans.push_back(ans.back() + 1);
-
-    }
-    print(ans);
+    if((mx == a && mn == d) || (mx == b && mn == c))
+        cout << "YES";
+    else
+        cout << "NO";
     nl;
 }
 
