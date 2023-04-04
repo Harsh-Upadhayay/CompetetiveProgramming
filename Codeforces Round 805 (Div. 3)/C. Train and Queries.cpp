@@ -115,7 +115,7 @@ void solve(void){
 
     }
     if(a.size() != n)
-        a.push_back(0);
+        a.push_back(*a.end());
     debug(a);
 
     nl;
