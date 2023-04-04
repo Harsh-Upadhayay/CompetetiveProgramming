@@ -63,26 +63,28 @@ void solve(void){
     
     string a, b; cin >> a >> b;
 
+    char x = a[a.size() - 1],
+        y = b[b.size() - 1];
+
     if(a == "M") {
-        if(*b.end() == 'S')
+        if(y == 'S')
             cout << ">";
-        else if(*b.end() == 'L')
+        else if(y == 'L')
             cout << "<";
         else
             cout << "=";
     }
     else if(b == "M") {
-        if(*a.end() == 'S')
+        if(x == 'S')
             cout << "<";
-        else if(*a.end() == 'L')
+        else if(x == 'L')
             cout << ">";
         else
             cout << "=";
     }
     else {
-        debug(*b.end());
-        if(*b.end() == *a.end()) {
-            if(*b.end() == 'S') {
+        if(y == x) {
+            if(y == 'S') {
                 if(a.size() > b.size())
                     cout << "<";
                 else if(a.size() < b.size()) 
@@ -100,7 +102,7 @@ void solve(void){
             }
         }
         else {
-            if(*b.end() == 'S')
+            if(y == 'S')
                 cout << ">";
             else
                 cout << "<";
