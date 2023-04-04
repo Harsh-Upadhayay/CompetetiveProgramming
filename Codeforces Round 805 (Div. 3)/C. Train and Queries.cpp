@@ -58,6 +58,13 @@ void init(){
     return;
 }
 
+bool tie(set<ll> &a, set<ll> &b) {
+
+    if(a.size() != 1 || b.size() != 1)
+        return false;
+
+    return *a.begin() == *b.begin();
+}
 
 void solve(void){
     
@@ -83,37 +90,53 @@ void solve(void){
     }
     debug(of, os);
 
-    cout << *of.begin();
 
     bool turn = 0;
-    // while(1) {
+    while(1) {
 
-    //     if(tie(fn, sn))
-    //         kill("Tie");
+        if(tie(fn, sn))
+            kill("Tie");
 
-    //     if(fn.size() == 0)
-    //         kill("First");
+        if(fn.size() == 0)
+            kill("First");
 
-    //     if(sn.size() == 0)
-    //         kill("Second");
+        if(sn.size() == 0)
+            kill("Second");
 
-    //     if(turn) {
+        if(turn) {
 
-    //         if(of.size()) { 
-    //             of.erase(of.front());
-    //             fn.erase(of.front());
-    //         }
+            if(of.size()) { 
+                ll x = *of.begin();
+                of.erase(x);
+                fn.erase(x);
+            }
+            else {
+                ll x = *fn.begin();
+                fn.erase(x);
+                sn.erase(x);
+            }
 
-    //         turn = !turn;
-    //     }
-    //     else {
+            turn = !turn;
+        }
+        else {  
 
-    //         trun = !turn;
-    //     }
+            if(os.size()) {
+                ll x = *os.begin();
+                os.erase(x);
+                sn.erase(x);
+            }
+            else {
+                ll x = *sn.begin();
+                sn.erase(x);
+                fn.erase(x);
+            }
+
+            turn = !turn;
+        }
 
 
 
-    // }
+    }
 
     nl;
 }
