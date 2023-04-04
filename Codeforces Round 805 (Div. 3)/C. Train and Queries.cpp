@@ -134,7 +134,7 @@ void solve(void){
             turn = !turn;
         }
 
-
+        debug(fn, sn);
 
     }
 
