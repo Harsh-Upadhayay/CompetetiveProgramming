@@ -92,7 +92,7 @@ void solve(void){
         }
         else {
 
-
+            b = -1;
 
         }
 
