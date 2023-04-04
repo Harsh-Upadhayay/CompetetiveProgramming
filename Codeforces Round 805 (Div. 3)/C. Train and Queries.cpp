@@ -65,6 +65,13 @@ ll find(ll n,ll r, ll c) {
             if((r - i) == 0 || (c - i) == 0)
                 return i;
         }
+        else if(r <= n / 2 && c > n / 2) {
+if((r - i) == 0 || (c - i) == 0)
+                return i;
+        }
+        else if(r > n/ 2 && c <= n / 2) {
+
+        }
         else {
             if(r - (n - i + 1) == 0 || (c - (n - i + 1)) == 0)
                 return i;
