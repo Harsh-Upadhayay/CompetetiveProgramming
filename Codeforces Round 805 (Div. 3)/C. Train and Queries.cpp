@@ -63,7 +63,7 @@ void solve(void){
     
     ll n; cin >> n;
     vll v(n); rpt(i, 0, n) v[i] = n - i;
-
+    if(n == 3) kill(-1);
     if(n % 2)
         swap(v[n / 2], v[(n / 2) + 1]);
     print(v);
