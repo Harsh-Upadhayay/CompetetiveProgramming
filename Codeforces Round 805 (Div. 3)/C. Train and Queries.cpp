@@ -67,17 +67,16 @@ void solve(void){
     a.push_back(v[0]);
 
     rpt(i, 1, n - 1) {
-        if(a[i - 1] <= v[i])
-            a.push_back(v[i]);
-        else {
-            a.push_back(v[i]),
-            a.push_back(v[i]);
-        }
+        if(max(v[i], a[i - 1]) != v[i])
+            a.push_back(0);
+        a.push_back(v[i]);
+
     }
     if(a.size() < n)
         a.push_back(0);
     rpt(i, 0, n - 1)
         cout << max(a[i], a[i + 1]) << " ";
+
     nl;
 }
 
