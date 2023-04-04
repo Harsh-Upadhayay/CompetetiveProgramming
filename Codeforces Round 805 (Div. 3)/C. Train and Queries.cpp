@@ -141,10 +141,21 @@ void solve(void){
     set<ll> st;
     rpt(i, 0, n) st.insert(i);
 
-    ll k = n + 1;
+    ll k = n + 1, comp = 0;
 
     while(--k) {
-        cout << k;
+
+        while(!pqa.empty() && pqa.top().fi >= k)
+            comp |= 1,
+            st.erase(pqa.top().se),
+            pqa.pop();
+            
+        while(!pqb.empty() && pqb.top().fi >= k)
+            comp |= 1,
+            st.erase(pqb.top().se),
+            pqb.pop();
+
+        cout << st.size() + comp << " ";
     }
 
     nl;
