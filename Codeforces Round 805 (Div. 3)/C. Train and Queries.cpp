@@ -66,7 +66,7 @@ void solve(void){
 
     if(n % 2)
         swap(v[n / 2], v[(n / 2) + 1]);
-
+    print(v);
     nl;
 }
 
