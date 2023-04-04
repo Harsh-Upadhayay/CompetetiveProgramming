@@ -67,7 +67,7 @@ void solve(void){
     string s; cin >> s;
     bool flag = false;
     rpt(i,  0, n) {
-        if(!flag && (s[i] <= ch) && (ch != '0')) {
+        if(!flag && (s[i] < ch) && (ch != '0')) {
             flag = true;
             cout << ch;
         }
