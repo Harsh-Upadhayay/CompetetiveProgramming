@@ -124,8 +124,11 @@ void solve(void){
     ll a = maxIdx(distV0); 
 
     bfs(adj, distVa, a);
-    debug(distV0);
+    debug(distVa);
     ll b = maxIdx(distVa);
+
+    bfs(adj, distVb, b);
+    debug(distVb);
 
     debug(a, b);
 
