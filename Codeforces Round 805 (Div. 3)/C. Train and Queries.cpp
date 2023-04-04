@@ -75,7 +75,7 @@ void solve(void){
         }
     }
 
-
+    print(a);
     nl;
 }
 
