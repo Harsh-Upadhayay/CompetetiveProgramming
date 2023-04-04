@@ -68,7 +68,7 @@ void solve(void){
 
     rpt(i, 0, n - 1) {
 
-        ll a, b;
+        ll a, b = -1;
 
         if(i == 0) {
             a = v[0];
