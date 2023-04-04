@@ -32,6 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
+#define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -57,112 +58,10 @@ void init(){
     return;
 }
 
-void print(vector<ll> adj[], ll n) {
 
-    rpt(i, 0, n) {
-        cout << i << ": ";
-        for(ll adjN : adj[i])
-            cout << adjN << " ";
-        cout << "\n";
-    } 
-}
-
-void bfs(vector<ll> adj[], vll &dist, ll src) {
-
-    queue<ll> q;
-    q.push(src);
-    dist[src] = 0;
-
-    while(!q.empty()) {
-
-        ll curN = q.front(),
-            curD = dist[curN]; 
-        q.pop();
-
-        for(auto adjN : adj[curN]) {
-
-            if(curD + 1 < dist[adjN])
-                dist[adjN] = curD + 1,
-                q.push(adjN);
-        }
-
-    }
-
-    return;
-}
-
-ll maxIdx(vll v) {
-
-    ll idx = -1, mx = ninf;
-
-    rpt(i, 0, v.size())
-        if(mx < v[i])
-            mx = v[i],
-            idx = i;
-
-    return idx;
-}
-
-// #define TESTCASE
 void solve(void){
-    
-    ll n; cin >> n;
-
-    vll adj[n];
-
-    rpt(i, 0, n - 1) {
-        ll u, v; cin >> u >> v;
-
-        adj[u - 1].push_back(v - 1),
-        adj[v - 1].push_back(u - 1);
-    }                  
-
-    vll distV0(n, inf), distVa(n, inf), distVb(n, inf);
-    
-    bfs(adj, distV0, 0);
-    debug(distV0);
-    ll a = maxIdx(distV0); 
-
-    bfs(adj, distVa, a);
-    debug(distVa);
-    ll b = maxIdx(distVa);
-
-    bfs(adj, distVb, b);
-    debug(distVb);
-
-    debug(a, b);
-
-    priority_queue<pair<ll, ll>> pqa, pqb;
-
-    rpt(i, 0, n)
-        pqa.push({distVa[i], i}),
-        pqb.push({distVb[i], i});
-
-    set<ll> st;
-    rpt(i, 0, n) st.insert(i);
-
-    ll k = n + 1, comp = 0;
-
-    vll ans;
-
-    while(--k) {
-
-        while(!pqa.empty() && pqa.top().fi >= k)
-            comp |= 1,
-            st.erase(pqa.top().se),
-            pqa.pop();
-            
-        while(!pqb.empty() && pqb.top().fi >= k)
-            comp |= 1,
-            st.erase(pqb.top().se),
-            pqb.pop();
-
-        ans.push_back(st.size() + comp);
-    }
-
-    rpt(i, ans.size(), 0)
-        cout << ans[i] << " ";
-
+    string s; cin >> s;
+    cout << ((s[0] - '0') + (s[2] - '0'));
     nl;
 }
 
