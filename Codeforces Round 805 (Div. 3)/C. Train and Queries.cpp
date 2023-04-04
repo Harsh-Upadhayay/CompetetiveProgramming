@@ -60,18 +60,12 @@ void init(){
 
 
 void solve(void){
-    
-    ll a, b, c, d;
-    cin >> a >> b >> c >> d;
-    debug(a, b, c, d);
-    ll mx = max({a, b, c, d}),
-        mn = min({a, b, c, d});
+    ll n; cin >> n;
+    vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    if((mx == a && mn == d) || (mx == b && mn == c) 
-        ||(mx == d && mn == a) || (mx == c && mn == b))
-        cout << "YES";
-    else
-        cout << "NO";
+    rpt(i, 0, n)
+        cout << v[i] - 40741153 << " ";
+
     nl;
 }
 
