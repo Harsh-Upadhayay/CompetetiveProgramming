@@ -62,7 +62,7 @@ void init(){
 void solve(void){
     
     string a, b; cin >> a >> b;
-    
+
     if(a == "M") {
         if(*b.end() == 'S')
             cout << ">";
@@ -92,7 +92,7 @@ void solve(void){
             }
             else {
                 if(a.size() > b.size())
-                    cout << "?";
+                    cout << "<";
                 else if(a.size() < b.size()) 
                     cout << "<";
                 else
