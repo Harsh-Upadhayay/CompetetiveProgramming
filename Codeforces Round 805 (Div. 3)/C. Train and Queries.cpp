@@ -61,8 +61,14 @@ void init(){
 ll find(ll n,ll r, ll c) {
 
     rpt(i, 1, n + 1) {
-        if((r - i) == 0 || (c - i) == 0)
-            return i;
+        if(r < n / 2 || c < n / 2) {
+            if((r - i) == 0 || (c - i) == 0)
+                return i;
+        }
+        else {
+            if(r - (n - i) == 0 || (c - n - i) == 0)
+                return i;
+        }
     }
 
     return n;
@@ -73,10 +79,10 @@ void solve(void){
 
     ll x = n / 2;
 
-    if(a > x) a -= x;
-    if(b > x) b -= x;
-    if(c > x) c -= x;
-    if(d > x) d -= x;
+    // if(a > x) a -= x;
+    // if(b > x) b -= x;
+    // if(c > x) c -= x;
+    // if(d > x) d -= x;
     debug(x, a, b, c, d);
     ll bx = find(n, a, b);
     ll by = find(n, c, d);
