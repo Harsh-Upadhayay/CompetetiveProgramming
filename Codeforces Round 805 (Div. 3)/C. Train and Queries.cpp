@@ -88,7 +88,6 @@ void solve(void){
         if(sn.count(i) && !fn.count(i))
             os.insert(i);
     }
-    debug(of, os);
 
 
     bool turn = 0;
