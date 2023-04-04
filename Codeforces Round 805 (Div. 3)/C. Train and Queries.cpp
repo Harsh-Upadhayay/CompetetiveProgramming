@@ -62,7 +62,7 @@ void init(){
 void solve(void){
     
     string a, b; cin >> a >> b;
-    debug(a, b);
+    
     if(a == "M") {
         if(*b.end() == 'S')
             cout << ">";
