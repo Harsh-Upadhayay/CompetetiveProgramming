@@ -76,6 +76,7 @@ void solve(void){
             ans.push_back(ans.back() + 1);
 
     }
+    print(ans);
     nl;
 }
 
