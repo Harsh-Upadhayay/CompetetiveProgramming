@@ -92,8 +92,8 @@ void solve(void){
         }
         else {
 
-            b = -1;
-
+            if(a != v[i])
+                b = v[i];
         }
 
         ans.push_back({a, b});
