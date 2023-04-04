@@ -66,7 +66,7 @@ ll find(ll n,ll r, ll c) {
                 return i;
         }
         else {
-            if(r - (n - i) == 0 || (c - n - i) == 0)
+            if(r - (n - i) == 0 || (c - (n - i)) == 0)
                 return i;
         }
     }
