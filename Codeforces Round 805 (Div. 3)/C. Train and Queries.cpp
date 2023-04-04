@@ -122,7 +122,7 @@ void solve(void){
         ans.push_back(i),
         d++;
     ll lastE = ans.back();
-    rpt(i, lastE, n) {
+    rpt(i, lastE + 1, n) {
         if(ans.size() >= k)
             break;
         ans.push_back(i);
