@@ -143,7 +143,7 @@ void solve(void){
 
     ll k = n + 1;
 
-    while(k--) {
+    while(--k) {
         cout << k;
     }
 
