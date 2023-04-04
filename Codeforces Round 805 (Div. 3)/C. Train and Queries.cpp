@@ -58,81 +58,53 @@ void init(){
     return;
 }
 
-bool tie(set<ll> &a, set<ll> &b) {
-
-    if(a.size() != 1 || b.size() != 1)
-        return false;
-
-    return *a.begin() == *b.begin();
-}
 
 void solve(void){
     
-    ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
+    string a, b; cin >> a >> b;
 
-    set<ll> fn, sn;
-
-    rpt(i, 0, n) {
-        if(v[i] != i + 1) fn.insert(v[i]);
-        if(v[i] != n - i) sn.insert(v[i]);
+    if(a == "M") {
+        if(*b.end() == 'S')
+            cout << ">";
+        else if(*b.end() == 'L')
+            cout << "<";
+        else
+            cout << "=";
     }
-
-
-    set<ll> of, os;
-
-    rpt(i, 1, n + 1) {
-        if(fn.count(i) && !sn.count(i))
-            of.insert(i);
-        if(sn.count(i) && !fn.count(i))
-            os.insert(i);
+    else if(b == "M") {
+        if(*a.end() == 'S')
+            cout << "<";
+        else if(*a.end() == 'L')
+            cout << ">";
+        else
+            cout << "=";
     }
+    else {
 
-
-    bool turn = 1;
-    while(1) {
-
-        if(tie(fn, sn))
-            kill("Tie");
-
-        if(fn.size() == 0)
-            kill("First");
-
-        if(sn.size() == 0)
-            kill("Second");
-
-        if(turn) {
-
-            if(of.size()) { 
-                ll x = *of.begin();
-                of.erase(x);
-                fn.erase(x);
+        if(*b.end() == *a.end()) {
+            if(*b.end() == 'S') {
+                if(a.size() > b.size())
+                    cout << "<";
+                else if(a.size() < b.size()) 
+                    cout << ">";
+                else
+                    cout << "=";
             }
             else {
-                ll x = *fn.begin();
-                fn.erase(x);
-                sn.erase(x);
+                if(a.size() > b.size())
+                    cout << "?";
+                else if(a.size() < b.size()) 
+                    cout << "<";
+                else
+                    cout << "=";
             }
-
-            turn = !turn;
         }
-        else {  
-
-            if(os.size()) {
-                ll x = *os.begin();
-                os.erase(x);
-                sn.erase(x);
-            }
-            else {
-                ll x = *sn.begin();
-                sn.erase(x);
-                fn.erase(x);
-            }
-
-            turn = !turn;
+        else {
+            if(*b.end() == 'S')
+                cout << ">";
+            else
+                cout << "<";
         }
-
-        debug(fn, sn);
 
     }
 
