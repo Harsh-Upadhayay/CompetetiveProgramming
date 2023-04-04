@@ -113,12 +113,14 @@ void solve(void){
     if(n == k) {
         rpt(i, 1, n)
             cout << i << " ";
+        return;
     }
     vll ans;
     ll d = 0;
     for(int i = 1; ans.size() <= mxN; i += d) 
         ans.push_back(i),
         d++;
+
     print(ans);
     nl;
 }
