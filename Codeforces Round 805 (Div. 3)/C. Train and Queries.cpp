@@ -74,8 +74,8 @@ void solve(void){
             a.push_back(v[i]);
         }
     }
-
-    print(a);
+    rpt(i, 0, n - 1)
+        cout << max(a[i], a[i + 1]) << " ";
     nl;
 }
 
