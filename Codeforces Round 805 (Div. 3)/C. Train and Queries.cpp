@@ -58,25 +58,31 @@ void init(){
     return;
 }
 
+ll find(ll n,ll r, ll c) {
+
+    rpt(i, 1, n + 1) {
+        if((r - i) == 0 || (c - i) == 0)
+            return i;
+    }
+
+    return n;
+}
 
 void solve(void){
-    ll n; cin >> n;
-    vll v(n - 1); rpt(i, 0, n - 1) cin >> v[i];
+    ll n, a, b, c, d; cin >> n >> a >> b >> c >> d;
 
-    vll a;
-    a.push_back(v[0]);
+    ll x = n / 2;
 
-    rpt(i, 1, n - 1) {
-        if(max(v[i], a[i - 1]) != v[i - 1])
-            a.push_back(0);
-        a.push_back(v[i]);
+    if(a > x) a -= x;
+    if(b > x) b -= x;
+    if(c > x) c -= x;
+    if(d > x) d -= x;
 
-    }
-    if(a.size() < n)
-        a.push_back(0);
-    rpt(i, 0, n - 1)
-        cout << max(a[i], a[i + 1]) << " ";
+    ll bx = find(n, a, b);
+    ll by = find(n, c, d);
 
+
+    cout << abs(bx - by);
     nl;
 }
 
