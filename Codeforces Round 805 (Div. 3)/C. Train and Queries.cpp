@@ -109,7 +109,8 @@ void solve(void){
         else {
             if(ans[i].fi != ans[i - 1].se)
                 a.push_back(ans[i].fi);
-            a.push_back(ans[i].se);
+            if(i != n - 1)
+                a.push_back(ans[i].se);
         }
 
     }
