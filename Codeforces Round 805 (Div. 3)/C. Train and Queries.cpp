@@ -58,10 +58,33 @@ void init(){
     return;
 }
 
+void rotate(ll &a, ll &b, ll&c, ll &d) {
+    ll t = a;
+    a = c;
+    c = d;
+    d = b;
+    b = a;
+}
+
+bool isB(ll a, ll b, ll c, ll d) {
+
+    return (a < c && a < b && 
+        b < d && c < d);
+
+}
 
 void solve(void){
-    string s; cin >> s;
-    cout << ((s[0] - '0') + (s[2] - '0'));
+    
+    ll a, b, c, d; cin >> a >> b >> c >> d;
+    
+    rpt(i, 0, 4) {
+        if(isB(a, b, c, d))
+            kill("YES")
+        else
+            rotate(a, b, c, d);
+    }
+    cout << "NO";
+
     nl;
 }
 
