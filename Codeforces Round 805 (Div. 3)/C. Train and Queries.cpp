@@ -80,11 +80,11 @@ void solve(void){
             cout << "=";
     }
     else {
-
+        debug(*b.end());
         if(*b.end() == *a.end()) {
             if(*b.end() == 'S') {
                 if(a.size() > b.size())
-                    cout << "<s";
+                    cout << "<";
                 else if(a.size() < b.size()) 
                     cout << ">";
                 else
