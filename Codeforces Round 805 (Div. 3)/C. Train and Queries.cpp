@@ -105,12 +105,13 @@ void solve() {
     ll n; cin >> n;
     vll v(n); rpt(i, 0, n - 1) cin >> v[i];
 
-    vll ans(1, v[0]);
-
+    vll ans(1, v[0]);   
+    bool flag = false;
     rpt(i, 1, n - 1) {
         debug(ans);
-        if(max(ans[i - 1], v[i]) != v[i - 1])
-            ans.push_back(v[i - 1]);
+        if(!flag && max(ans[i - 1], v[i]) != v[i - 1])
+            ans.push_back(v[i - 1]),
+            flag = true;
         ans.push_back(v[i]);
 
     }
