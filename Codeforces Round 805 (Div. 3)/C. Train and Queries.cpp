@@ -82,22 +82,41 @@ ll find(ll n,ll r, ll c) {
     return n;
 }
 
-void solve(void){
-    ll n, a, b, c, d; cin >> n >> a >> b >> c >> d;
+// void solve(void){
+//     ll n, a, b, c, d; cin >> n >> a >> b >> c >> d;
 
-    ll x = n / 2;
+//     ll x = n / 2;
 
-    // if(a > x) a -= x;
-    // if(b > x) b -= x;
-    // if(c > x) c -= x;
-    // if(d > x) d -= x;
-    // debug(x, a, b, c, d);
-    ll bx = find(n, a, b);
-    ll by = find(n, c, d);
-    debug(bx, by);
+//     // if(a > x) a -= x;
+//     // if(b > x) b -= x;
+//     // if(c > x) c -= x;
+//     // if(d > x) d -= x;
+//     // debug(x, a, b, c, d);
+//     ll bx = find(n, a, b);
+//     ll by = find(n, c, d);
+//     debug(bx, by);
 
-    cout << abs(bx - by);
-    nl;
+//     cout << abs(bx - by);
+//     nl;
+// }
+
+void solve() {
+
+    ll n; cin >> n;
+    vll v(n); rpt(i, 0, n - 1) cin >> v[i];
+
+    vll ans(1, v[0]);
+
+    rpt(i, 1, n - 1) {
+        debug(ans);
+        if(max(ans[i - 1], v[i]) != v[i - 1])
+            ans.push_back(v[i - 1]);
+        ans.push_back(v[i]);
+
+    }
+
+    print(ans);
+
 }
 
 
