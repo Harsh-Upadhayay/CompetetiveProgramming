@@ -67,7 +67,8 @@ void solve(void){
     ll mx = max({a, b, c, d}),
         mn = min({a, b, c, d});
 
-    if((mx == a && mn == d) || (mx == b && mn == c))
+    if((mx == a && mn == d) || (mx == b && mn == c) 
+        ||(mx == d && mn == a) || (mx == c && mn == b))
         cout << "YES";
     else
         cout << "NO";
