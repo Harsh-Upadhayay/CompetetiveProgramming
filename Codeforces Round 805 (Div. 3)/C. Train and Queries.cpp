@@ -141,7 +141,7 @@ void solve(void){
     set<ll> st;
     rpt(i, 0, n) st.insert(i);
 
-    ll k = n;
+    ll k = n + 1;
 
     while(k--) {
         cout << k;
