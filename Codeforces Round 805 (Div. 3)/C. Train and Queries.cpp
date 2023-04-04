@@ -110,6 +110,10 @@ void solve(void){
 
     ll mxN = find(k, n);
     debug(mxN);
+    if(n == k) {
+        rpt(i, 1, n)
+            cout << i << " ";
+    }
     vll ans;
     ll d = 0;
     for(int i = 1; ans.size() <= mxN; i += d) 
