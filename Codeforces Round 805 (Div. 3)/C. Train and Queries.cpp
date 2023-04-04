@@ -83,7 +83,7 @@ void solve(void){
     }
     debug(of, os);
 
-    cout << *of.begin();
+    cout << (*of.begin());
 
     bool turn = 0;
     // while(1) {
