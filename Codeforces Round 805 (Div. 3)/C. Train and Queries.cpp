@@ -92,7 +92,7 @@ void init(){
 ll find(ll k, ll n) {
 
     ll d = n - k;
-    ll mxn;
+    ll mxn = -1;
     rpt(i, 0, 40) {
         ll exp = (n * (n + 1)) / 2;
         if(exp < d)
