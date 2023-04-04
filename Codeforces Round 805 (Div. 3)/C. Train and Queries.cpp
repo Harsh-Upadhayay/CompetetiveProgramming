@@ -60,23 +60,20 @@ void init(){
 
 
 void solve(void){
-    
     ll n; cin >> n;
-    char ch; cin >> ch;
+    vll v(n - 1); rpt(i, 0, n - 1) cin >> v[i];
 
-    string s; cin >> s;
-    bool flag = false;
-    rpt(i,  0, n) {
-        if(!flag && (s[i] < ch)) {
-            flag = true;
-            cout << ch;
+    vll a;
+    a.push_back(v[0]);
+
+    rpt(i, 1, n - 1) {
+        if(a[i - 1] <= v[i])
+            a.push_back(v[i]);
+        else {
+            a.push_back(v[i]),
+            a.push_back(v[i]);
         }
-        cout << s[i];
     }
-
-    if(!flag)
-        cout << ch;
-
 
 
     nl;
