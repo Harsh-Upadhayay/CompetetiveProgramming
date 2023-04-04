@@ -58,65 +58,19 @@ void init(){
     return;
 }
 
-ll find(ll n,ll r, ll c) {
 
-    rpt(i, 1, n + 1) {
-        if(r <= n / 2 && c <= n / 2) {
-            if((r - i) == 0 || (c - i) == 0)
-                return i;
-        }
-        else if(r <= n / 2 && c > n / 2) {
-            if((r - i) == 0 || (c - (n - i + 1)) == 0)
-                    return i;
-        }
-        else if(r > n/ 2 && c <= n / 2) {
-            if((r - (n - i + 1)) == 0 || (c - i) == 0)
-                    return i;
-        }
-        else {
-            if(r - (n - i + 1) == 0 || (c - (n - i + 1)) == 0)
-                return i;
-        }
-    }
+void solve(void){
+    vll v(5); rpt(i, 0, 5) cin >> v[i];
 
-    return n;
-}
+    rpt(i, 1, 5)
+        if(v[i] > v[0] / 2)
+            v[i] = v[0] - v[i] + 1;
 
-// void solve(void){
-//     ll n, a, b, c, d; cin >> n >> a >> b >> c >> d;
+    ll a = (v[2] < v[1] ? v[2] : v[1]),
+        b = (v[4] < v[3] ? v[4] : v[3]);
 
-//     ll x = n / 2;
+    cout << (abs(a - b));
 
-//     // if(a > x) a -= x;
-//     // if(b > x) b -= x;
-//     // if(c > x) c -= x;
-//     // if(d > x) d -= x;
-//     // debug(x, a, b, c, d);
-//     ll bx = find(n, a, b);
-//     ll by = find(n, c, d);
-//     debug(bx, by);
-
-//     cout << abs(bx - by);
-//     nl;
-// }
-
-void solve() {
-
-    ll n; cin >> n;
-    vll v(n); rpt(i, 0, n - 1) cin >> v[i];
-
-    vll ans(1, v[0]);   
-    bool flag = false;
-    rpt(i, 1, n - 1) {
-        debug(ans);
-        if(!flag && max(ans[i - 1], v[i]) != v[i - 1])
-            ans.push_back(v[i - 1]),
-            flag = true;
-        ans.push_back(v[i]);
-
-    }
-
-    print(ans);
     nl;
 }
 
