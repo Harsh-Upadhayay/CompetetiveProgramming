@@ -74,6 +74,7 @@ void solve(void){
         }
         else
             ans.push_back(ans.back() + 1);
+        debug(x, tx);
 
     }
     print(ans);
