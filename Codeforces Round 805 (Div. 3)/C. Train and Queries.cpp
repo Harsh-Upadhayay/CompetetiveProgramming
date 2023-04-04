@@ -67,7 +67,7 @@ void print(vector<ll> adj[], ll n) {
     } 
 }
 
-void bfs(vector<ll> adj[], vll dist, ll src) {
+void bfs(vector<ll> adj[], vll &dist, ll src) {
 
     queue<ll> q;
     q.push(src);
