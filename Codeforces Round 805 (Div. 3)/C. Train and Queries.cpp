@@ -83,10 +83,10 @@ void solve(void){
     // if(b > x) b -= x;
     // if(c > x) c -= x;
     // if(d > x) d -= x;
-    debug(x, a, b, c, d);
+    // debug(x, a, b, c, d);
     ll bx = find(n, a, b);
     ll by = find(n, c, d);
-
+    debug(bx, by);
 
     cout << abs(bx - by);
     nl;
