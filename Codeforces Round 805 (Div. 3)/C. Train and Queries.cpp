@@ -95,7 +95,7 @@ void solve(void){
             }
             else {
                 if(a.size() > b.size())
-                    cout << "<s";
+                    cout << ">";
                 else if(a.size() < b.size()) 
                     cout << "<";
                 else
