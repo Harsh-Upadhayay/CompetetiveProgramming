@@ -74,6 +74,8 @@ void solve(void){
             a.push_back(v[i]);
         }
     }
+    if(a.size() < n)
+        a.push_back(0);
     rpt(i, 0, n - 1)
         cout << max(a[i], a[i + 1]) << " ";
     nl;
