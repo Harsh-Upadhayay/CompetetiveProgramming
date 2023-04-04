@@ -111,7 +111,7 @@ void solve(void){
     ll mxN = find(k, n);
     debug(mxN);
     if(n == k) {
-        rpt(i, 1, n)
+        rpt(i, 1, n + 1)
             cout << i << " ";
         nl;
         return;
