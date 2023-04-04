@@ -68,7 +68,7 @@ void solve(void){
     while(ans.size() < k) {
 
         debug(x, tx);
-        if(tx + x - 1 <= d) {
+        if((tx + x - 1) <= d) {
             ans.push_back(ans.back() + x),
             x++,
             tx += (x - 1);
