@@ -66,7 +66,7 @@ void solve(void){
 
     vector<pair<ll, ll>> ans;
 
-    rpt(i, 0, n) {
+    rpt(i, 0, n - 1) {
 
         ll a, b;
 
