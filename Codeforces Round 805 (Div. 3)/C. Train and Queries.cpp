@@ -99,7 +99,21 @@ void solve(void){
         ans.push_back({a, b});
     }
 
-    debug(ans);
+    vll a;
+    rpt(i, 0, n - 1) {
+
+        if(i == 0) {
+            a.push_back(ans[i].fi),
+            a.push_back(ans[i].se);
+        }
+        else {
+            if(ans[i].fi != ans[i - 1].se)
+                a.push_back(ans[i].fi);
+            a.push_back(ans[i].se);
+        }
+
+    }
+    debug(a);
 
     nl;
 }
