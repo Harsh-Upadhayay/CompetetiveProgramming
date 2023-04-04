@@ -67,13 +67,21 @@ void solve(void){
     set<ll> fn, sn;
 
     rpt(i, 0, n) {
-
         if(v[i] != i + 1) fn.insert(v[i]);
         if(v[i] != n - i) sn.insert(v[i]);
-    
     }
 
     debug(fn, sn);
+
+    set<ll> of, os;
+
+    rpt(i, 1, n + 1) {
+        if(fn.count(i) && !sn.count(i))
+            of.insert(i);
+        if(sn.count(i) && !fn.count(i))
+            os.insert(i);
+    }
+    debug(of, os);
 
     nl;
 }
