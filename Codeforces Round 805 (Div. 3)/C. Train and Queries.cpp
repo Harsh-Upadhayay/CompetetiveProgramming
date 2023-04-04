@@ -112,7 +112,7 @@ void solve(void){
     debug(mxN);
     vll ans;
     ll d = 0;
-    for(int i = 1; i <= mxN; i += d) 
+    for(int i = 1; ans.size() <= mxN; i += d) 
         ans.push_back(i),
         d++;
     print(ans);
