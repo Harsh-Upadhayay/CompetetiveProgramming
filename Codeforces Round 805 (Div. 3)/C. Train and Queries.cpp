@@ -84,6 +84,7 @@ void solve(void){
     }
     else {
         if(y == x) {
+            cout << "F";
             if(y == 'S') {
                 if(a.size() > b.size())
                     cout << "<";
