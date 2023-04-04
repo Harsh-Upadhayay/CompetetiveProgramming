@@ -63,6 +63,7 @@ void solve(void){
     
     ll a, b, c, d;
     cin >> a >> b >> c >> d;
+    debug(a, b, c, d);
     ll mx = max({a, b, c, d}),
         mn = min({a, b, c, d});
 
