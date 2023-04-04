@@ -53,38 +53,66 @@ void storePrimes();
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
 
+// void rotate(ll &a, ll &b, ll&c, ll &d) {
+//     ll t = a;
+//     a = c;
+//     c = d;
+//     d = b;
+//     b = a;
+// }
+
+// bool isB(ll a, ll b, ll c, ll d) {
+
+//     return (a < c && a < b && 
+//         b < d && c < d);
+
+// }
+
+// void solve(void){
+    
+//     ll a, b, c, d; cin >> a >> b >> c >> d;
+    
+//     rpt(i, 0, 4) {
+//         if(isB(a, b, c, d))
+//             kill("YES")
+//         else
+//             rotate(a, b, c, d);
+//     }
+//     cout << "NO";
+
+//     nl;
+// }
+
+
 void init(){
 
     return;
 }
 
-void rotate(ll &a, ll &b, ll&c, ll &d) {
-    ll t = a;
-    a = c;
-    c = d;
-    d = b;
-    b = a;
-}
+ll find(ll k, ll n) {
 
-bool isB(ll a, ll b, ll c, ll d) {
+    ll d = n - k;
+    ll mxn;
+    rpt(i, 0, 40) {
+        ll exp = (n * (n + 1)) / 2;
+        if(exp < n)
+            mxn = i;
+    }
 
-    return (a < c && a < b && 
-        b < d && c < d);
-
+    return mxn;
 }
 
 void solve(void){
     
-    ll a, b, c, d; cin >> a >> b >> c >> d;
-    
-    rpt(i, 0, 4) {
-        if(isB(a, b, c, d))
-            kill("YES")
-        else
-            rotate(a, b, c, d);
-    }
-    cout << "NO";
+    ll k, n; cin >> k >> n;
 
+    ll mxN = find(k, n);
+    vll ans;
+    ll d = 1;
+    // rpt(i, 0, mxN)
+    //     ans.push_back(i + d),
+    //     d++;
+    // debug(ans);
     nl;
 }
 
