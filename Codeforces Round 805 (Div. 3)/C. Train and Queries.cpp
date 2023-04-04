@@ -103,8 +103,9 @@ void solve(void){
     rpt(i, 0, n - 1) {
 
         if(i == 0) {
-            a.push_back(ans[i].fi),
-            a.push_back(ans[i].se);
+            a.push_back(ans[i].fi);
+            if(ans[i].se != -1)
+                a.push_back(ans[i].se);
         }
         else {
             if(ans[i].fi != ans[i - 1].se)
