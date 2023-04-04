@@ -143,6 +143,8 @@ void solve(void){
 
     ll k = n + 1, comp = 0;
 
+    vll ans;
+
     while(--k) {
 
         while(!pqa.empty() && pqa.top().fi >= k)
@@ -155,8 +157,11 @@ void solve(void){
             st.erase(pqb.top().se),
             pqb.pop();
 
-        cout << st.size() + comp << " ";
+        ans.push_back(st.size() + comp);
     }
+
+    rpt(i, ans.size(), 0)
+        cout << ans[i] << " ";
 
     nl;
 }
