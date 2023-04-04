@@ -60,11 +60,20 @@ void init(){
 
 
 void solve(void){
+    
     ll n; cin >> n;
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    rpt(i, 0, n)
-        cout << v[i] - 40741153 << " ";
+    set<ll> fn, sn;
+
+    rpt(i, 0, n) {
+
+        if(v[i] != i + 1) fn.insert(v[i]);
+        if(v[i] != n - i) sn.insert(v[i]);
+    
+    }
+
+    debug(fn, sn);
 
     nl;
 }
