@@ -60,16 +60,46 @@ void init(){
 
 
 void solve(void){
-    vll v(5); rpt(i, 0, 5) cin >> v[i];
+    
+    ll n; cin >> n;
+    vll v(n); rpt(i, 0, n - 1) cin >> v[i];
 
-    rpt(i, 1, 5)
-        if(v[i] > v[0] / 2)
-            v[i] = v[0] - v[i] + 1;
+    vector<pair<ll, ll>> ans;
 
-    ll a = (v[2] < v[1] ? v[2] : v[1]),
-        b = (v[4] < v[3] ? v[4] : v[3]);
+    rpt(i, 0, n) {
 
-    cout << (abs(a - b));
+        ll a, b;
+
+        if(i == 0) {
+            a = v[0];
+        }
+        else {
+            a = ans[i - 1].se;
+        }
+
+        if(i != n - 1) {
+
+            if(a == v[i]) {
+                if(v[i + 1] > v[i]) 
+                    b = v[i];
+                else
+                    b = v[i + 1];
+            }
+            else {
+                b = v[i];
+            }
+
+        }
+        else {
+
+
+
+        }
+
+        ans.push_back({a, b});
+    }
+
+    debug(ans);
 
     nl;
 }
