@@ -89,7 +89,7 @@ void solve(void){
     }
 
 
-    bool turn = 0;
+    bool turn = 1;
     while(1) {
 
         if(tie(fn, sn))
