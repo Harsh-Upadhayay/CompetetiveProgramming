@@ -116,7 +116,7 @@ void solve() {
     }
 
     print(ans);
-
+    nl;
 }
 
 
