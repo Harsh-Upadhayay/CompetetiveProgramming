@@ -112,10 +112,9 @@ void solve(void){
     debug(mxN);
     vll ans;
     ll d = 0;
-    rpt(i, 1, mxN + 1) {
-        ans.push_back(i + d);
+    for(int i = 1; i <= mxN; i += d) 
+        ans.push_back(i),
         d++;
-    }
     print(ans);
     nl;
 }
