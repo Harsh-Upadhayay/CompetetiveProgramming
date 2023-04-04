@@ -77,7 +77,7 @@ void solve(void){
             a = ans[i - 1].se;
         }
 
-        if(i != n - 1) {
+        if(i != n - 2) {
 
             if(a == v[i]) {
                 if(v[i + 1] > v[i]) 
