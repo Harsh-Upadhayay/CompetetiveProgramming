@@ -67,6 +67,7 @@ void solve(void){
 
     while(ans.size() < k) {
 
+        debug(x, tx);
         if(tx + x <= d) {
             ans.push_back(ans.back() + x),
             x++,
@@ -74,7 +75,6 @@ void solve(void){
         }
         else
             ans.push_back(ans.back() + 1);
-        debug(x, tx);
 
     }
     print(ans);
