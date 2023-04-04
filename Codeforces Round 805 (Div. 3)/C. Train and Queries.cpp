@@ -70,7 +70,7 @@ void solve(void){
         if(tx + x <= d) {
             ans.push_back(ans.back() + x),
             x++,
-            tx += x;
+            tx += (x - 1);
         }
         else
             ans.push_back(ans.back() + 1);
