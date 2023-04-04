@@ -114,6 +114,7 @@ void solve(void){
         }
 
     }
+    cout << *a.end();
     if(a.size() != n)
         a.push_back(*a.end());
     debug(a);
