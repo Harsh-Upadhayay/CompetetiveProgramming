@@ -67,7 +67,7 @@ void solve(void){
     a.push_back(v[0]);
 
     rpt(i, 1, n - 1) {
-        if(max(v[i], a[i - 1]) != v[i])
+        if(max(v[i], a[i - 1]) != v[i - 1])
             a.push_back(0);
         a.push_back(v[i]);
 
