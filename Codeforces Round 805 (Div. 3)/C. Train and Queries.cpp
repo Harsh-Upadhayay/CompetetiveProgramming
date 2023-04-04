@@ -60,7 +60,7 @@ void init(){
 
 ll find(ll n,ll r, ll c) {
 
-    rpt(i, 1, n + 1) {
+    rpt(i, 0, n + 1) {
         if(r < n / 2 || c < n / 2) {
             if((r - i) == 0 || (c - i) == 0)
                 return i;
