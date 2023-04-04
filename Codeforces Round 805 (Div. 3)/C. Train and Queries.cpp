@@ -114,6 +114,8 @@ void solve(void){
         }
 
     }
+    if(a.size() != n)
+        a.push_back(0);
     debug(a);
 
     nl;
