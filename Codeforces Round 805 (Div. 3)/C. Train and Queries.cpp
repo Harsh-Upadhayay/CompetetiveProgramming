@@ -90,7 +90,7 @@ void solve(void){
         b = a,
         a = x;
 
-        debug(a);
+        debug(b);
     }
 
     nl;
