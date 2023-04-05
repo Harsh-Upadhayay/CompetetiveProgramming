@@ -110,12 +110,14 @@ void solve(void){
     bool ans = true;
 
     rpt(i, 1, v + 1) {
-        if(!vis.count(i))
-            dfs(adj, vis, compVis, i);
+        if(!vis.count(i)) {
+            dfs(adj, vis, compVis, i); 
+            ans &= isFlower(degree, compVis);
+            cout << "F";
+            compVis.clear();
+        }
 
-        ans &= isFlower(degree, compVis);
-        cout << "F";
-        compVis.clear();
+       
     }
     if(ans)
         yes
