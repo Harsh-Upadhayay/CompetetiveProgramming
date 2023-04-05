@@ -110,6 +110,11 @@ void solve(void){
 
         // }
 
+        for(auto ch : sa)
+            freq[ch]++;
+        for(auto ch : sb)
+            freq[ch]--;
+
     }
 
     ll chk = 0;
