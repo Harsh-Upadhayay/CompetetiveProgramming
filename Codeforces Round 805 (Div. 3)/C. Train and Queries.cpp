@@ -76,39 +76,28 @@ void solve(void){
 
         if(col) {
 
-            if(c + a <= c2) {
-
+            if(c + a <= c2) 
                 c2 -= a;
 
-            }
-            else if(c - a >= c1) {
-
+            
+            else if(c - a >= c1) 
                 c1 += a;
 
-            }
-            else {
+            else 
                 kill("NO");
-            }
 
             col = !col;
-        }
+        }        
         else {
 
-            if(r + a <= r2) {
-
+            if(r + a <= r2) 
                 r2 -= a;
 
-            }
-
-            else if(r - a >= r1) {
-
+            else if(r - a >= r1) 
                 r1 += a;
 
-            }
-
-            else {
+            else 
                 kill("NO");
-            }
 
             col = !col;
         }
