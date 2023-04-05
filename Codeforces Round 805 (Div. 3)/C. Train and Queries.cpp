@@ -69,29 +69,28 @@ void solve(void){
 
     debug(n, k, a, b);
 
-    map<char, ll> freqa, freqb;
+    map<char, vector<pair<ll, ll>>> freqa;
 
     rpt(i, 0, n) {
-        for(auto ch : a[i])
-            freqa[ch]++;
-        for(auto ch : b[i])
-            freqa[ch]--;
+        rpt(j, 0, a[i].size())
+            freqa[a[i][j]].push_back({i, j});
     }
 
-    ll chk = 0;
-    for(auto x : freqa) {
-        chk += x.se;
-        if(x.se > 0)
-            k -= x.se;
-    }
+    // ll chk = 0;
+    // for(auto x : freqa) {
+    //     chk += x.se;
+    //     if(x.se > 0)
+    //         k -= x.se;
+    // }
 
-    if(chk == 0 && k >= 0)
-        cout << "YES";
-    else
-        cout << "NO";
+    // if(chk == 0 && k >= 0)
+    //     cout << "YES";
+    // else
+    //     cout << "NO";
 
-    debug(freqa);
-    debug(freqb);
+    // debug(freqb);
+
+
 
     nl;
 }
