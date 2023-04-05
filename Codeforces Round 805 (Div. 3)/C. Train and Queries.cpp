@@ -109,7 +109,11 @@ void solve(void){
     set<ll> vis, compVis;
     bool ans = true;
 
+
     rpt(i, 1, v + 1) {
+        debug(i); ans &= isFlower(degree, compVis);
+        cout << "F";
+        compVis.clear();
         if(!vis.count(i)) {
             dfs(adj, vis, compVis, i); 
             ans &= isFlower(degree, compVis);
