@@ -58,7 +58,19 @@ void init(){
     return;
 }
 
-bool isFlower(map<ll, ll> &degree, set<ll> vis) {
+void modDfs(map<ll, vll> &adj, set<ll> &vis, ll src, ll dst) {
+
+    vis.insert(src);
+    if(src == dst)
+        return;
+
+    for(ll nd : adj[src])
+        if(!vis.count(nd))
+            modDfs(adj, vis, nd, dst);
+
+}
+
+bool isFlower(map<ll, vll> &adj, map<ll, ll> &degree, set<ll> vis) {
 
     ll v = vis.size();
     double clen = sqrt(v);
@@ -67,13 +79,28 @@ bool isFlower(map<ll, ll> &degree, set<ll> vis) {
         return false;
 
     vll freq(5, 0);
-    
+    vll corners;
     for(ll nd : vis) {
         if(degree[nd] == 2)
             freq[2]++;
         else if(degree[nd] == 4)
-            freq[4]++;
+            freq[4]++,
+            corners.push_back(nd);
         else
+            return false;
+    }
+
+    for(ll crn : corners) {
+
+        set<ll> vis;
+
+        for(ll nd : adj[crn])
+            if(degree[nd] == 2) {
+                modDfs(adj, vis, nd, crn);
+                break;
+            }
+
+        if(vis.size() != clen)
             return false;
     }
 
@@ -114,7 +141,7 @@ void solve(void){
         debug(i);
         if(!vis.count(i)) {
             dfs(adj, vis, compVis, i); 
-            ans &= isFlower(degree, compVis);
+            ans &= isFlower(adj, degree, compVis);
             compVis.clear();
         }
 
