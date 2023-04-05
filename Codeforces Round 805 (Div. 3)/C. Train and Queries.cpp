@@ -136,15 +136,17 @@ void solve(void){
     set<ll> vis, compVis;
     bool ans = true;
 
-
+    ll comp = 0;
     rpt(i, 1, v + 1) {
-        debug(i);
+
         if(!vis.count(i)) {
             dfs(adj, vis, compVis, i); 
             ans &= isFlower(adj, degree, compVis);
             compVis.clear();
+            comp ++;
         }
-
+        if(comp > 1)
+            kill("NO");
     }
 
 
