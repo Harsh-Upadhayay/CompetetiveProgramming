@@ -76,7 +76,7 @@ void solve(void){
             }
         }
     }
-    if(ctr) {
+    if(1) {
         cout << n << " " << bitset<6>(n) << " " << ctr;
         nl; 
     }
