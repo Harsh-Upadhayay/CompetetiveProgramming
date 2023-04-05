@@ -86,6 +86,7 @@ void solve(void){
     ll ans = ((pow(3, x)) + 3 - 3 * pow(2, x));
 
     cout << ans;
+    nl;
 }
 
 
