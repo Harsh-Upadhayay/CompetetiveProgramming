@@ -71,8 +71,6 @@ ll fun(ll n, ll k, string &num) {
         if(i != 4) {
             num += (char)(i + '0');
             ans += fun(n - 1, k, num);
-            if(ans > k)
-                return ans;
             num.pop_back();
         }
     return ans;
