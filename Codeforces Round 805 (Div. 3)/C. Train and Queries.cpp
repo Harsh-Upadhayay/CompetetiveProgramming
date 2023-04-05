@@ -70,7 +70,7 @@ ll fun(vll &v, ll totK, ll ind, ll k, ll prevE) {
 
     if(prevE == -1 || prevE == v[ind]) {
 
-        take = !((k + 1) % totK) + fun(v, totK, ind + 1, k + 1, ((!((k + 1) % totK)) ? -1 : v[ind]) );
+        take = !((k + 1) % totK) + fun(v, totK, ind + 1, (k + 1) % totK, ((!((k + 1) % totK)) ? -1 : v[ind]) );
 
     }
 
@@ -83,6 +83,8 @@ void solve(void){
     
     ll n, k; cin >> n >> k; 
     vll v(n); rpt(i, 0, n) cin >> v[i];
+
+
 
     cout << k * fun(v, k, 0, 0, -1);
 
