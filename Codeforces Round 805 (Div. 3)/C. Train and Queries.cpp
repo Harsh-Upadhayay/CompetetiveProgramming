@@ -76,7 +76,7 @@ void solve(void){
             }
         }
     }
-    cout << ctr;
+    cout << n << " " << ctr;
     nl; 
 }
 
