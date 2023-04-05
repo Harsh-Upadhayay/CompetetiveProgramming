@@ -99,7 +99,7 @@ void solve(void){
     // // }
 
     ll x = __builtin_popcount(n);
-    cout << power(3, 60) << " ";
+    
     ll ans = ((power(3, x)) + 3 - 3 * power(2, x));
 
     while(ans < 0)
