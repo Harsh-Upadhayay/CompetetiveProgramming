@@ -63,10 +63,11 @@ void solve(void){
     
     ll v, e; cin >> v >> e;
 
-    vll degree(v + 1, 0);
     if(ceil(sqrt(v)) != floor(sqrt(v)))
-        kill("NO");
-    
+        kill("NO")
+
+    map<ll, ll> degree;
+
     rpt(i, 0, e) {
         ll u, v; cin >> u >> v;
         degree[u]++;
@@ -74,14 +75,14 @@ void solve(void){
     }
 
     vll freq(5, 0);
-
+    
     rpt(i, 1, v + 1) {
         if(degree[i] == 2)
             freq[2]++;
         else if(degree[i] == 4)
             freq[4]++;
         else
-            kill("NO");
+            kill("NO")
     }
 
     if(freq[4] != sqrt(v))
