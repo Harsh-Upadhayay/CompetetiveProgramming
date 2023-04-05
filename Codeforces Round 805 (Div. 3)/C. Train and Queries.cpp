@@ -62,40 +62,22 @@ void init(){
 void solve(void){
     
     ll n; cin >> n;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
+    ll ctr = 0;
 
-    sort(all(v));
-    ll z = v[n - 1] + v[n - 2],
-        mxa = v[n - 1], mxb = v[n - 2];
+    rpt(x, 0, n) {
+        rpt(y, 0, n) {
+            rpt(z, 0, n) {
 
-    if(n == 2)
-        kill("NO");
+                if((((x | z) | y) == n ) && ((x + y + z) == n)) {
+                    cout << x << " " << y << " " << z << "\n";
+                    ctr++;
+                }
 
-    map<ll, ll> freq;
-    for(auto x : v) freq[x]++;
-
-    ll fa = freq[mxa], fb = freq[mxb];
-
-    if(mxa == mxb) {
-
-        ll lim = (n / 2) + (n % 2);
-        debug(lim);
-        if(fa <= lim)
-            cout << "YES";
-        else
-            cout << "NO";
-
+            }
+        }
     }
-    else {
-
-        if(fb != n - 1)
-            cout << "YES";
-        else
-            cout << "NO";
-
-    }
-
-    nl;
+    cout << ctr;
+    nl; 
 }
 
 
