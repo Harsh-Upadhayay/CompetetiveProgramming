@@ -63,6 +63,10 @@ void init(){
  * se = cnt
 **/
 
+ll add(ll x, ll y) {
+    return (((x % MOD) + (y % MOD)) % MOD);
+}
+
 pair<ll, ll> groups(vll &v, ll totK, vector<vector<vector<pair<ll, ll>>>> &dp, ll ind, ll k, ll prevIdx) {
 
     // debug(ind, k, prevE);
@@ -80,7 +84,7 @@ pair<ll, ll> groups(vll &v, ll totK, vector<vector<vector<pair<ll, ll>>>> &dp, l
     if(prevIdx == -1 || v[prevIdx] == v[ind]) {
         auto it = groups(v, totK, dp, ind + 1, (k + 1) % totK, ((!((k + 1) % totK)) ? -1 : ind) );
         ll gp = it.fi, cnt = it.se;
-        take = !((k + 1) % totK) + gp;
+        take = add(!((k + 1) % totK), gp);
         tcnt = cnt;
     }
 
@@ -105,7 +109,7 @@ pair<ll, ll> groups(vll &v, ll totK, vector<vector<vector<pair<ll, ll>>>> &dp, l
     }
     else {
 
-        return dp[ind][k][prevIdx + 1] = {take, ntcnt + tcnt};
+        return dp[ind][k][prevIdx + 1] = {take, add(ntcnt, tcnt)};
 
     }
     return dp[ind][k][prevIdx + 1] = {max(take, nottake), cnt};
