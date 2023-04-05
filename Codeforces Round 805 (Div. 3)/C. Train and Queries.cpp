@@ -83,7 +83,7 @@ void solve(void){
 
     ll x = __builtin_popcount(n);
 
-    ll ans = ((3 * x) + 3 - 3 * pow(2, x));
+    ll ans = ((pow(3, x)) + 3 - 3 * pow(2, x));
 
     cout << ans;
 }
