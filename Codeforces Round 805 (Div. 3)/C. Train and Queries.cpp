@@ -69,7 +69,7 @@ ll power(ll x, ll y)
             ans = ((ans % MOD) * (x % MOD)) % MOD;
  
         y = y >> 1,
-        x = ((x % MOD) * (x % MOD)) % MOD;
+        x = ((x) * (x));
     }
 
     return ans % MOD;
