@@ -62,21 +62,11 @@ void init(){
 void solve(void){
     
     ll n; cin >> n;
-    string s; cin >> s;
+    vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    string a = "0", b = "1";
-
-    rpt(i, 1, n)
-        a += (char)(((a[i - 1] - '0') ^ (s[i - 1] - '0')) + '0'),
-        b += (char)(((b[i - 1] - '0') ^ (s[i - 1] - '0')) + '0');
-
-    ll cnta = 0, cntb = 0;
-    rpt(i, 0, n)
-        cnta += (a[i] == '1'),
-        cntb += (b[i] == '1');
-
-    cout << max(cnta, cntb);
-
+    sort(all(v));
+    ll z = v[n - 1] + v[n - 2];
+    debug(z);
 
     nl;
 }
