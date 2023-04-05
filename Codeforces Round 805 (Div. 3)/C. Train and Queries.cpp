@@ -58,61 +58,17 @@ void init(){
     return;
 }
 
-ll power(ll x, ll y)
-{
- 
-    ll ans = 1;
- 
-    while (y > 0) {
- 
-        if (y % 2 == 1)
-            ans = ((ans % MOD) * (x % MOD)) % MOD;
- 
-        y = y >> 1,
-        x = ((x % MOD) * (x % MOD)) % MOD;
-    }
-
-    return ans % MOD;
-}
- 
-ll bf(ll n) {
-
-    ll ctr = 0;
-    rpt(x, 1, n) {
-        rpt(y, 1, n) {
-            rpt(z, 1, n) {
-
-                if((((x | z) | y) == n ) && ((x + y + z) == n)) {
-                    // cout << x << " " << y << " " << z << "\n";
-                    ctr++;
-                }
-
-            }
-        }
-    }
-
-    return ctr;
-}
 
 void solve(void){
     
-    ll n; cin >> n;
+    ll n, k; cin >> n >> k;
 
-    ll x = 0;
-    while(n)
-        x += (n & 1),
-        n = n >> 1; 
+    vector<string> a(n), b(n);
+    rpt(i, 0, n) cin >> a[i];
+    rpt(i, 0, n) cin >> b[i];
 
+    debug(n, k, a, b);
 
-    ll ans = ( (power(3, x)) + 3 - ((3 * power(2, x)) % MOD) );
-
-
-    while(ans < 0)
-        ans += MOD;
-
-    ans = ans % MOD;
-
-    cout << ans;
     nl;
 }
 
