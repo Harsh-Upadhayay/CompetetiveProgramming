@@ -61,54 +61,16 @@ void init(){
 
 void solve(void){
     
-    ll n, r, c; cin >> n >> r >> c;
+    ll n, k; cin >> n >> k;
 
-    ll a = 1, b = 1, x = 1;
+    string s; cin >> s;
 
-    rpt(i, 0, n)
-        x = a + b,
-        a = b,
-        b = x;
+    if(s[0] == '0')
+        s[0] = '1',
+        k--;
+    cout << s;
+    while(k--) cout << "0";
 
-    ll r1 = 1, r2 = a, c1 = 1, c2 = b;
-    bool col = true;
-    while(!((r1 == r2) && (c1 == c2) && (r1 == r) && (c1 == c))) {
-
-        if(col) {
-
-            if(c + a <= c2) 
-                c2 -= a;
-
-            
-            else if(c - a >= c1) 
-                c1 += a;
-
-            else 
-                kill("NO");
-
-            col = !col;
-        }        
-        else {
-
-            if(r + a <= r2) 
-                r2 -= a;
-
-            else if(r - a >= r1) 
-                r1 += a;
-
-            else 
-                kill("NO");
-
-            col = !col;
-        }
-
-        x = b - a,
-        b = a,
-        a = x;
-
-        debug(a);
-    }
-    cout << "YES";
     nl;
 }
 
