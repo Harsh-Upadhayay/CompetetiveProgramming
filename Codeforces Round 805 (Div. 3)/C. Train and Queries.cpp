@@ -117,7 +117,7 @@ void solve(void){
             vector<vector<pair<ll, ll>>> (k,
                 vector<pair<ll, ll>>(n, {-1, -1})));
 
-    ll maxLen = k * groups(v, k, dp, 0, 0, -1).fi;
+    ll maxLen = groups(v, k, dp, 0, 0, -1).se;
     debug(maxLen);
 
 
