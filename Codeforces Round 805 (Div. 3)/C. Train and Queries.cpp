@@ -64,7 +64,7 @@ void solve(void){
     ll v, e; cin >> v >> e;
 
     if(ceil(sqrt(v)) != floor(sqrt(v)))
-        kill("NO")
+        kill("NOh")
 
     map<ll, ll> degree;
 
