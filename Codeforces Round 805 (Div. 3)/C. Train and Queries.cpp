@@ -58,47 +58,33 @@ void init(){
     return;
 }
 
-ll fun(vll &dp, ll n, ll &k, string &num) {
+ll fun(vll &v, ll totK, ll ind, ll k, ll prevE) {
 
-    // if(dp[n] != -1)
-    //     return dp[n];
+    if(ind == v.size()) {
 
-    if(n == 0) {
-        // // cout << num << "\n";
-        // if(!k) {
-        //     cout << num << "\n";
-        // }
-        // k--;
-        return 1;
+        return !(k % totK);
     }
 
-    ll ans = 0;
+    ll take = 0, nottake = 0;
 
-    rpt(i, 0, 10)
-        if(i != 4) {
-            num += (char)(i + '0');
+    if(prevE == -1 || prevE == v[ind]) {
 
-            // if(k <= 0) {
-            //     cout << num << "\n";
-            //     return 0;
-            // }
-            ll x = fun(dp, n - 1, k, num);
-            k -= x;
-            ans += x;
-            if(k <= 0) {
-                cout << num << "\n";
-                return 0;
-            }
-            num.pop_back(); 
-        }
-    return dp[n] = ans;
+        take = fun(v, totK, ind + 1, k + 1, !((k + 1) % totK) ? -1 : prevE);
+
+    }
+
+    nottake = fun(v, totK, ind + 1, k, prevE);
+
+    return max(take, nottake);
 }
 
 void solve(void){
-    ll k; cin >> k;
-    string s = "";
-    vll dp(19, -1);
-    cout << fun(dp, 4, k, s);
+    
+    ll n, k; cin >> n >> k; 
+    vll v(n); rpt(i, 0, n) cin >> v[i];
+
+    cout << fun(v, k, 0, 0, -1);
+
     nl;
 }
 
