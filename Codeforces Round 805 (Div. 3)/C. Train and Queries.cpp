@@ -63,7 +63,9 @@ void solve(void){
     
     ll v, e; cin >> v >> e;
 
-    if(ceil(sqrt(v)) != floor(sqrt(v)))
+    double clen = sqrt(v);
+
+    if(ceil(clen) != floor(clen))
         kill("NO")
 
     map<ll, ll> degree;
@@ -85,10 +87,10 @@ void solve(void){
             kill("NO")
     }
 
-    if(freq[4] != sqrt(v) || freq[2] != (sqrt(v) * (sqrt(v) - 1)))
-        cout << "NO";
-    else
+    if(freq[4] == clen || freq[2] == (clen * (clen - 1)))
         cout << "YES";
+    else
+        cout << "NO";
 
     // rpt(i, 1, v + 1)
     //     cout << i << " " << degree[i] << "\n";
