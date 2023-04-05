@@ -60,6 +60,7 @@ void init(){
 
 ll fun(vll &v, ll totK, ll ind, ll k, ll prevE) {
 
+    debug(ind, k, prevE);
     if(ind == v.size()) {
 
         return 0;
