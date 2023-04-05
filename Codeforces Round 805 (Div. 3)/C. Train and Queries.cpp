@@ -90,8 +90,8 @@ void solve(void){
     else
         cout << "YES";
 
-    // rpt(i, 1, v + 1)
-    //     cout << i << " " << degree[i] << "\n";
+    rpt(i, 1, v + 1)
+        cout << i << " " << degree[i] << "\n";
 
 
 
