@@ -63,7 +63,7 @@ void solve(void){
     
     ll n, r, c; cin >> n >> r >> c;
 
-    ll a = 1, b = 1, x;
+    ll a = 1, b = 1, x = 1;
 
     rpt(i, 1, n)
         x = a + b,
