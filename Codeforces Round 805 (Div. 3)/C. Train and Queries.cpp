@@ -72,7 +72,7 @@ void solve(void){
     }
 
     rpt(i, 1, v + 1)
-        cout << i << " " << degree[i];
+        cout << i << " " << degree[i] << "\n";
 
     nl;
 }
