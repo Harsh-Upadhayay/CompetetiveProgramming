@@ -70,7 +70,7 @@ ll fun(vll &v, ll totK, ll ind, ll k, ll prevE) {
 
     if(prevE == -1 || prevE == v[ind]) {
 
-        take = !((k + 1) % totK) + fun(v, totK, ind + 1, k + 1, ((!((k + 1) % totK)) ? -1 : prevE));
+        take = !((k + 1) % totK) + fun(v, totK, ind + 1, k + 1, ((!((k + 1) % totK)) ? -1 : v[ind]) );
 
     }
 
