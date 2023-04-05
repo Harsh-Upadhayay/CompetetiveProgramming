@@ -113,7 +113,6 @@ void solve(void){
         if(!vis.count(i)) {
             dfs(adj, vis, compVis, i); 
             ans &= isFlower(degree, compVis);
-            cout << "F";
             compVis.clear();
         }
 
