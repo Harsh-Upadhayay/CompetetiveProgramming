@@ -72,8 +72,7 @@ void solve(void){
 
     ll r1 = 1, r2 = a, c1 = 1, c2 = b;
     bool col = true;
-    ll ctr = 44;
-    while(!((r1 == r2) && (c1 == c2) && (r1 == r) && (c1 == c)) && ctr--) {
+    while(!((r1 == r2) && (c1 == c2) && (r1 == r) && (c1 == c))) {
 
         if(col) {
 
