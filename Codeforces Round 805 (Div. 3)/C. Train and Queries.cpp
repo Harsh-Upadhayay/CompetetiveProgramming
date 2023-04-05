@@ -116,7 +116,7 @@ void solve(void){
             freq[ch]--;
 
     }
-
+    debug(freq);
     ll chk = 0;
     for(auto x : freq) {
         chk += x.se;
