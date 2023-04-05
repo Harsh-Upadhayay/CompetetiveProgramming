@@ -120,7 +120,7 @@ void solve(void){
             vector<vector<pair<ll, ll>>> (k,
                 vector<pair<ll, ll>>(n, {-1, -1})));
 
-    ll maxLen = groups(v, k, dp, 0, 0, -1).se;
+    ll maxLen = groups(v, k, dp, 0, 0, -1).fi;
     
 
     cout << maxLen;
