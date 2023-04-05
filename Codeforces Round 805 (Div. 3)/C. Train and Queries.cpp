@@ -64,22 +64,28 @@ void solve(void){
     ll n; cin >> n;
     ll ctr = 0;
 
-    rpt(x, 1, n) {
-        rpt(y, 1, n) {
-            rpt(z, 1, n) {
+    // rpt(x, 1, n) {
+    //     rpt(y, 1, n) {
+    //         rpt(z, 1, n) {
 
-                if((((x | z) | y) == n ) && ((x + y + z) == n)) {
-                    // cout << x << " " << y << " " << z << "\n";
-                    ctr++;
-                }
+    //             if((((x | z) | y) == n ) && ((x + y + z) == n)) {
+    //                 // cout << x << " " << y << " " << z << "\n";
+    //                 ctr++;
+    //             }
 
-            }
-        }
-    }
-    if(1) {
-        cout << n << " " << bitset<10>(n) << " " << ctr;
-        nl; 
-    }
+    //         }
+    //     }
+    // }
+    // if(1) {
+    //     cout << n << " " << bitset<10>(n) << " " << ctr;
+    //     nl; 
+    // }
+
+    ll x = __builtin_popcount(n);
+
+    ll ans = ((3 * x) + 3 - 3 * pow(2, x));
+
+    cout << ans;
 }
 
 
