@@ -61,7 +61,7 @@ void init(){
 ll fun(ll n, ll k, string &num) {
 
     if(n == 0) {
-        cout << num;
+        cout << num << "\n";
         return 1;
     }
 
