@@ -69,6 +69,18 @@ void solve(void){
 
     debug(n, k, a, b);
 
+    map<char, ll> freqa, freqb;
+
+    rpt(i, 0, n) {
+        for(auto ch : a[i])
+            freqa[ch]++;
+        for(auto ch : b[i])
+            freqb[ch]++;
+    }
+
+    // debug(freqa);
+    // debug(freqb);
+
     nl;
 }
 
