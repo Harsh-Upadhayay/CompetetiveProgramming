@@ -67,7 +67,7 @@ pair<ll, ll> groups(vll &v, ll totK, vector<vector<vector<pair<ll, ll>>>> &dp, l
 
     // debug(ind, k, prevE);
     if(ind == v.size()) {
-        return {0, 1};
+        return {0, 0};
     }
 
     if(dp[ind][k][prevIdx + 1].fi != -1 && dp[ind][k][prevIdx + 1].se != -1)
