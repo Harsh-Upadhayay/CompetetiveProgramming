@@ -103,7 +103,6 @@ void solve(void){
         x += (n & 1),
         n = n >> 1; 
 
-    cout << x;
 
     ll ans = ( (power(3, x)) + 3 - ((3 * power(2, x)) % MOD) );
 
