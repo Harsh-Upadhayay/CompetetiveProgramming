@@ -58,22 +58,24 @@ void init(){
     return;
 }
 
-ll fun(vll &v, ll totK, ll ind, ll k, ll prevIdx) {
+ll fun(vll &v, ll totK, vector<vector<vector<ll>>> &dp, ll ind, ll k, ll prevIdx) {
 
     // debug(ind, k, prevE);
     if(ind == v.size()) {
-
         return 0;
     }
+
+    if(dp[ind][k][prevIdx + 1] != -1)
+        return dp[ind][k][prevIdx + 1];
 
     ll take = 0, nottake = 0;
 
     if(prevIdx == -1 || v[prevIdx] == v[ind])
-        take = !((k + 1) % totK) + fun(v, totK, ind + 1, (k + 1) % totK, ((!((k + 1) % totK)) ? -1 : ind) );
+        take = !((k + 1) % totK) + fun(v, totK, dp, ind + 1, (k + 1) % totK, ((!((k + 1) % totK)) ? -1 : ind) );
 
-    nottake = fun(v, totK, ind + 1, k, prevIdx);
+    nottake = fun(v, totK, dp, ind + 1, k, prevIdx);
 
-    return max(take, nottake);
+    return dp[ind][k][prevIdx + 1] = max(take, nottake);
 }
 
 void solve(void){
@@ -85,7 +87,7 @@ void solve(void){
             vector<vector<ll>> (k,
                 vector<ll>(n, -1)));
 
-    cout << k * fun(v, k, 0, 0, -1);
+    cout << k * fun(v, k, dp, 0, 0, -1);
 
     nl;
 }
