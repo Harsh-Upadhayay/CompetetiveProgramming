@@ -78,6 +78,18 @@ void solve(void){
             freqa[ch]--;
     }
 
+    ll chk = 0;
+    for(auto x : freqa) {
+        chk += x.se;
+        if(x.se > 0)
+            k -= x.se;
+    }
+
+    if(chk == 0 && k >= 0)
+        cout << "YES";
+    else
+        cout << "NO";
+
     debug(freqa);
     debug(freqb);
 
