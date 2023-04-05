@@ -69,7 +69,7 @@ void solve(void){
             rpt(z, 1, n) {
 
                 if((((x | z) | y) == n ) && ((x + y + z) == n)) {
-                    cout << x << " " << y << " " << z << "\n";
+                    // cout << x << " " << y << " " << z << "\n";
                     ctr++;
                 }
 
