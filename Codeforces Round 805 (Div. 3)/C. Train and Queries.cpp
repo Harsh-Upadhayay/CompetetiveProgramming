@@ -104,6 +104,8 @@ void solve(void){
 
     ll ans = ( (power(3, x)) + 3 - ((3 * power(2, x)) % MOD) );
 
+    cout << ans;
+
     while(ans < 0)
         ans += MOD;
 
