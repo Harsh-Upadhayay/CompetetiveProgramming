@@ -78,8 +78,8 @@ void solve(void){
             freqb[ch]++;
     }
 
-    // debug(freqa);
-    // debug(freqb);
+    debug(freqa);
+    debug(freqb);
 
     nl;
 }
