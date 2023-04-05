@@ -99,11 +99,13 @@ void solve(void){
     // // }
 
     ll x = __builtin_popcount(n);
-    
-    ll ans = ((power(3, x)) + 3 - 3 * power(2, x));
+
+    ll ans = ( (power(3, x)) + 3 - ((3 * power(2, x)) % MOD) );
 
     while(ans < 0)
         ans += MOD;
+
+    ans = ans % MOD;
 
     cout << ans;
     nl;
