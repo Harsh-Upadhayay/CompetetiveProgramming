@@ -58,15 +58,17 @@ void init(){
     return;
 }
 
-ll fun(ll n, ll &k, string &num) {
+ll fun(vll &dp, ll n) {
 
+    if(dp[n] != -1)
+        return dp[n];
 
     if(n == 0) {
-        // cout << num << "\n";
-        if(!k) {
-            cout << num << "\n";
-        }
-        k--;
+        // // cout << num << "\n";
+        // if(!k) {
+        //     cout << num << "\n";
+        // }
+        // k--;
         return 1;
     }
 
@@ -74,17 +76,18 @@ ll fun(ll n, ll &k, string &num) {
 
     rpt(i, 0, 10)
         if(i != 4) {
-            num += (char)(i + '0');
-            ans += fun(n - 1, k, num);
-            num.pop_back();
+            // num += (char)(i + '0');
+            ans += fun(dp, n - 1);
+            // num.pop_back();
         }
-    return ans;
+    return dp[n] = ans;
 }
 
 void solve(void){
     ll k; cin >> k;
     string s = "";
-    cout << fun(3, k, s);
+    vll dp(19, -1);
+    cout << fun(dp, 18);
     nl;
 }
 
