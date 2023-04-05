@@ -73,7 +73,8 @@ ll fun(ll n, ll k, string &num) {
             ans += fun(n - 1, k, num);
             num.pop_back();
         }
-
+    if(ans > k)
+        return ans;
     return ans;
 }
 
