@@ -70,7 +70,7 @@ void solve(void){
         a = b,
         b = x;
 
-    debug(n, b, x);
+    debug(n, a, b);
 
     nl;
 }
