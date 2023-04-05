@@ -80,7 +80,7 @@ ll fun(ll n, ll k, string &num) {
 void solve(void){
     ll k; cin >> k;
     string s = "";
-    cout << fun(3, k, s);
+    cout << fun(2, k, s);
     nl;
 }
 
