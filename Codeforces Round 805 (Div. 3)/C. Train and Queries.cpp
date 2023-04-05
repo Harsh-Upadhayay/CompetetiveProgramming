@@ -117,7 +117,7 @@ void solve(void){
             compVis.clear();
         }
 
-       
+        debug(vis);       
     }
     if(ans)
         yes
