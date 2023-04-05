@@ -67,14 +67,14 @@ ll fun(ll n, ll k, string &num) {
 
     ll ans = 0;
 
+    if(ans > k)
+        return ans;
     rpt(i, 0, 10)
         if(i != 4) {
             num += (char)(i + '0');
             ans += fun(n - 1, k, num);
             num.pop_back();
         }
-    if(ans > k)
-        return ans;
     return ans;
 }
 
