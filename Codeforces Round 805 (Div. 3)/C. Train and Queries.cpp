@@ -121,9 +121,9 @@ void solve(void){
                 vector<pair<ll, ll>>(n, {-1, -1})));
 
     ll maxLen = groups(v, k, dp, 0, 0, -1).se;
-    debug(maxLen);
+    
 
-
+    cout << maxLen;
 
     nl;
 }
