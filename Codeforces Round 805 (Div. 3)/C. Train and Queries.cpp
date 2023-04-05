@@ -58,78 +58,19 @@ void init(){
     return;
 }
 
-/**
- * fi = len,
- * se = cnt
-**/
-
-ll add(ll x, ll y) {
-    return (((x % MOD) + (y % MOD)) % MOD);
-}
-
-pair<ll, ll> groups(vll &v, ll totK, vector<vector<vector<pair<ll, ll>>>> &dp, ll ind, ll k, ll prevIdx) {
-
-    // debug(ind, k, prevE);
-    if(ind == v.size()) {
-        return {0, 0};
-    }
-
-    if(dp[ind][k][prevIdx + 1].fi != -1 && dp[ind][k][prevIdx + 1].se != -1)
-        return dp[ind][k][prevIdx + 1];
-
-    ll take = 0, nottake = 0;
-
-    ll tcnt = 0, ntcnt = 0;
-
-    if(prevIdx == -1 || v[prevIdx] == v[ind]) {
-        auto it = groups(v, totK, dp, ind + 1, (k + 1) % totK, ((!((k + 1) % totK)) ? -1 : ind) );
-        ll gp = it.fi, cnt = it.se;
-        take = add(!((k + 1) % totK), gp);
-        tcnt = cnt;
-    }
-
-    auto it = groups(v, totK, dp, ind + 1, k, prevIdx);
-    ll gp = it.fi, cnt = it.se;
-
-    nottake = gp;
-    ntcnt = cnt;
-
-    if(ntcnt == 0 && nottake != 0) ntcnt = 1;
-    if(tcnt == 0 && take != 0) tcnt = 1;
-
-    if(take < nottake) {
-
-        return dp[ind][k][prevIdx + 1] = {nottake, ntcnt};
-
-    }
-    else if(take > nottake) {
-
-        return dp[ind][k][prevIdx + 1] = {take, tcnt};
-
-    }
-    else {
-
-        return dp[ind][k][prevIdx + 1] = {take, add(ntcnt, tcnt)};
-
-    }
-    return dp[ind][k][prevIdx + 1] = {max(take, nottake), cnt};
-}
 
 void solve(void){
     
-    ll n, k; cin >> n >> k; 
-    vll v(n); rpt(i, 0, n) cin >> v[i];
+    ll n, r, c; cin >> n >> r >> c;
 
-    vector<vector<vector<pair<ll, ll>>>> dp(n, 
-            vector<vector<pair<ll, ll>>> (k,
-                vector<pair<ll, ll>>(n, {-1, -1})));
+    ll a = 1, b = 1, x;
 
-    auto maxLen = groups(v, k, dp, 0, 0, -1);
-        
-    if(maxLen.fi == 0)
-        kill(1);
+    rpt(i, 1, n)
+        x = a + b,
+        a = b,
+        b = x;
 
-    cout << maxLen.se;
+    debug(a, b);
 
     nl;
 }
