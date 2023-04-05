@@ -64,9 +64,9 @@ void solve(void){
     ll n; cin >> n;
     ll ctr = 0;
 
-    rpt(x, 0, n) {
-        rpt(y, 0, n) {
-            rpt(z, 0, n) {
+    rpt(x, 1, n) {
+        rpt(y, 1, n) {
+            rpt(z, 1, n) {
 
                 if((((x | z) | y) == n ) && ((x + y + z) == n)) {
                     cout << x << " " << y << " " << z << "\n";
