@@ -120,7 +120,6 @@ void solve(void){
 
     }
 
-    debug(vis);
 
     if(ans)
         yes
