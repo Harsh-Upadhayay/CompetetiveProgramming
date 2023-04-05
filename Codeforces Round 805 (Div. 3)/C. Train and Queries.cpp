@@ -58,69 +58,29 @@ void init(){
     return;
 }
 
+ll fun(ll n, ll k, string &num) {
+
+    if(n == 0) {
+        cout << num;
+        return 1;
+    }
+
+    ll ans = 0;
+
+    rpt(i, 0, 10)
+        if(i != 4) {
+            num += (char)(i + '0');
+            ans += fun(n - 1, k, num);
+            num.pop_back();
+        }
+
+    return ans;
+}
 
 void solve(void){
-    
-    ll n; cin >> n;
-    vll v(n); rpt(i, 0, n - 1) cin >> v[i];
-
-    vector<pair<ll, ll>> ans;
-
-    rpt(i, 0, n - 1) {
-
-        ll a, b = -1;
-
-        if(i == 0) {
-            a = v[0];
-        }
-        else {
-            a = ans[i - 1].se;
-        }
-
-        if(i != n - 2) {
-
-            if(a == v[i]) {
-                if(v[i + 1] > v[i]) 
-                    b = v[i];
-                else
-                    b = v[i + 1];
-            }
-            else {
-                b = v[i];
-            }
-
-        }
-        else {
-
-            if(a != v[i])
-                b = v[i];
-        }
-
-        ans.push_back({a, b});
-    }
-
-    vll a;
-    rpt(i, 0, n - 1) {
-
-        if(i == 0) {
-            a.push_back(ans[i].fi);
-            if(ans[i].se != -1)
-                a.push_back(ans[i].se);
-        }
-        else {
-            if(ans[i].fi != ans[i - 1].se)
-                a.push_back(ans[i].fi);
-            if(ans[i].se != -1)
-                a.push_back(ans[i].se);
-        }
-
-    }
-
-    if(a.size() != n)
-        a.push_back(*(a.end() - 1));
-
-    print(a);
-
+    ll k; cin >> k;
+    string s = "";
+    cout << fun(3, k, s);
     nl;
 }
 
