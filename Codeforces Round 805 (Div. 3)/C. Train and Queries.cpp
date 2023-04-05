@@ -60,14 +60,13 @@ void init(){
 
 ll fun(ll n, ll &k, string &num) {
 
-    if(!k) {
-        cout << num;
-        return 0;
-    }
 
     if(n == 0) {
         // cout << num << "\n";
         k--;
+        if(!k) {
+            cout << num << "\n";
+        }
         return 1;
     }
 
