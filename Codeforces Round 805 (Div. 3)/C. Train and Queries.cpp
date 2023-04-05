@@ -75,7 +75,7 @@ void solve(void){
         for(auto ch : a[i])
             freqa[ch]++;
         for(auto ch : b[i])
-            freqb[ch]++;
+            freqa[ch]--;
     }
 
     debug(freqa);
