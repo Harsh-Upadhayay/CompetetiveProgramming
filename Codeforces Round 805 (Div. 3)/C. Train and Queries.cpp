@@ -77,7 +77,7 @@ void solve(void){
         }
     }
     if(1) {
-        cout << n << " " << bitset<6>(n) << " " << ctr;
+        cout << n << " " << bitset<10>(n) << " " << ctr;
         nl; 
     }
 }
