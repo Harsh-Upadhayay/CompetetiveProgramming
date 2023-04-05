@@ -69,33 +69,61 @@ void solve(void){
 
     debug(n, k, a, b);
 
-    map<char, vector<pair<ll, ll>>> freq;
+    // map<char, vector<pair<ll, ll>>> freq;
 
-    rpt(i, 0, n) {
-        rpt(j, 0, a[i].size())
-            freq[a[i][j]].push_back({i, j});
-    }
-
-    for(auto x : freq) {
-        cout << x.fi << ": ";
-        for(auto y : x.se) 
-            cout << y.fi << " " << y.se << ", ";
-        cout << "\n";
-    }
-
-    // ll chk = 0;
-    // for(auto x : freqa) {
-    //     chk += x.se;
-    //     if(x.se > 0)
-    //         k -= x.se;
+    // rpt(i, 0, n) {
+    //     rpt(j, 0, a[i].size())
+    //         freq[a[i][j]].push_back({i, j});
     // }
 
-    // if(chk == 0 && k >= 0)
-    //     cout << "YES";
-    // else
-    //     cout << "NO";
+    // // for(auto x : freq) {
+    // //     cout << x.fi << ": ";
+    // //     for(auto y : x.se) 
+    // //         cout << y.fi << " " << y.se << ", ";
+    // //     cout << "\n";
+    // // }
 
-    // debug(freqb);
+    // rpt(i, 0, n) {
+
+    //     ll sa = a[i], sb = b[i];
+
+
+
+    // }
+
+    map<char, ll> freq;
+
+    rpt(i, 0, n) {
+
+        auto sa = a[i], sb = b[i];
+
+        if(sa.size() != sb.size())
+            kill("NO");
+        // if(sb.size() < sa.size()) {
+
+        //     ll d = sb.size() - sa.size();
+        //     reverse(sb);
+        //     while(d--)
+        //         sb += '0';
+        //     reverse(sb);
+
+
+        // }
+
+    }
+
+    ll chk = 0;
+    for(auto x : freq) {
+        chk += x.se;
+        if(x.se > 0)
+            k -= x.se;
+    }
+
+    if(chk == 0 && k >= 0)
+        cout << "YES";
+    else
+        cout << "NO";
+
 
 
 
