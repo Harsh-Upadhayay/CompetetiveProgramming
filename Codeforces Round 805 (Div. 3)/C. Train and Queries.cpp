@@ -78,7 +78,7 @@ ll fun(vll &dp, ll n) {
         if(i != 4) {
             // num += (char)(i + '0');
             ans += fun(dp, n - 1);
-            // num.pop_back();
+            // num.pop_back(); 
         }
     return dp[n] = ans;
 }
@@ -87,7 +87,7 @@ void solve(void){
     ll k; cin >> k;
     string s = "";
     vll dp(19, -1);
-    cout << fun(dp, 4);
+    cout << fun(dp, 5);
     nl;
 }
 
