@@ -73,24 +73,24 @@ void solve(void){
         degree[v]++;
     }
 
-    // vll freq(5, 0);
+    vll freq(5, 0);
 
-    // rpt(i, 1, v + 1) {
-    //     if(degree[i] == 2)
-    //         freq[2]++;
-    //     else if(degree[i] == 4)
-    //         freq[4]++;
-    //     else
-    //         kill("NO");
-    // }
+    rpt(i, 1, v + 1) {
+        if(degree[i] == 2)
+            freq[2]++;
+        else if(degree[i] == 4)
+            freq[4]++;
+        else
+            kill("NO");
+    }
 
-    // if(freq[4] != sqrt(v))
-    //     cout << "NO";
-    // else
-    //     cout << "YES";
+    if(freq[4] != sqrt(v))
+        cout << "NO";
+    else
+        cout << "YES";
 
-    rpt(i, 1, v + 1)
-        cout << i << " " << degree[i] << "\n";
+    // rpt(i, 1, v + 1)
+    //     cout << i << " " << degree[i] << "\n";
 
 
 
