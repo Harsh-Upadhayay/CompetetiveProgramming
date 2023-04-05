@@ -84,7 +84,7 @@ void solve(void){
     ll n, k; cin >> n >> k; 
     vll v(n); rpt(i, 0, n) cin >> v[i];
 
-    cout << fun(v, k, 0, 0, -1);
+    cout << k * fun(v, k, 0, 0, -1);
 
     nl;
 }
