@@ -63,10 +63,10 @@ ll fun(ll n, ll &k, string &num) {
 
     if(n == 0) {
         // cout << num << "\n";
-        k--;
         if(!k) {
             cout << num << "\n";
         }
+        k--;
         return 1;
     }
 
