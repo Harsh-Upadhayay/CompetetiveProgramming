@@ -75,17 +75,36 @@ pair<ll, ll> groups(vll &v, ll totK, vector<vector<vector<pair<ll, ll>>>> &dp, l
 
     ll take = 0, nottake = 0;
 
+    ll tcnt = 0, ntcnt = 0;
+
     if(prevIdx == -1 || v[prevIdx] == v[ind]) {
         auto it = groups(v, totK, dp, ind + 1, (k + 1) % totK, ((!((k + 1) % totK)) ? -1 : ind) );
         ll gp = it.fi, cnt = it.se;
         take = !((k + 1) % totK) + gp;
+        tcnt = cnt;
     }
 
     auto it = groups(v, totK, dp, ind + 1, k, prevIdx);
     ll gp = it.fi, cnt = it.se;
 
     nottake = gp;
+    ntcnt = cnt;
 
+    if(take < nottake) {
+
+        return dp[ind][k][prevIdx + 1] = {nottake, ntcnt};
+
+    }
+    else if(take > nottake) {
+
+        return dp[ind][k][prevIdx + 1] = {take, tcnt};
+
+    }
+    else {
+
+        return dp[ind][k][prevIdx + 1] = {take, ntcnt + tcnt};
+
+    }
     return dp[ind][k][prevIdx + 1] = {max(take, nottake), cnt};
 }
 
