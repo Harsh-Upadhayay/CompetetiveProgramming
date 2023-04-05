@@ -89,6 +89,9 @@ void solve(void){
 
     ll maxLen = k * groups(v, k, dp, 0, 0, -1);
     debug(maxLen);
+
+    
+
     nl;
 }
 
