@@ -58,6 +58,23 @@ void init(){
     return;
 }
 
+ll power(ll x, ll y)
+{
+ 
+    ll ans = 1;
+ 
+    while (y > 0) {
+ 
+        if (y % 2 == 1)
+            ans = ((ans % MOD) * (x % MOD)) % MOD;
+ 
+        y = y >> 1,
+        x = ((x % MOD) * (x % MOD)) % MOD;
+    }
+
+    return ans % MOD;
+}
+ 
 
 void solve(void){
     
@@ -83,7 +100,7 @@ void solve(void){
 
     ll x = __builtin_popcount(n);
 
-    ll ans = ((pow(3, x)) + 3 - 3 * pow(2, x));
+    ll ans = ((power(3, x)) + 3 - 3 * power(2, x));
 
     cout << ans;
     nl;
