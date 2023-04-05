@@ -87,7 +87,7 @@ void solve(void){
     ll k; cin >> k;
     string s = "";
     vll dp(19, -1);
-    cout << fun(dp, 3);
+    cout << fun(dp, 4);
     nl;
 }
 
