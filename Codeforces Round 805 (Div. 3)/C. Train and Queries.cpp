@@ -65,7 +65,7 @@ void solve(void){
 
     double clen = sqrt(v);
 
-    if(ceil(clen) != floor(clen))
+    if(ceil(clen) != floor(clen) || clen < 3)
         kill("NO")
 
     map<ll, ll> degree;
