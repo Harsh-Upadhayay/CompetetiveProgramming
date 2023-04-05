@@ -76,9 +76,10 @@ void solve(void){
             }
         }
     }
-    if(ctr)
+    if(ctr) {
         cout << n << " " << ctr;
-    nl; 
+        nl; 
+    }
 }
 
 
