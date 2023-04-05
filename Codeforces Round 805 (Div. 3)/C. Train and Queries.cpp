@@ -61,76 +61,18 @@ void init(){
 
 void solve(void){
     
-    ll n, k; cin >> n >> k;
+    ll v, e; cin >> v >> e;
 
-    vector<string> a(n), b(n);
-    rpt(i, 0, n) cin >> a[i];
-    rpt(i, 0, n) cin >> b[i];
+    vll degree(v + 1, 0);
 
-    debug(n, k, a, b);
-
-    // map<char, vector<pair<ll, ll>>> freq;
-
-    // rpt(i, 0, n) {
-    //     rpt(j, 0, a[i].size())
-    //         freq[a[i][j]].push_back({i, j});
-    // }
-
-    // // for(auto x : freq) {
-    // //     cout << x.fi << ": ";
-    // //     for(auto y : x.se) 
-    // //         cout << y.fi << " " << y.se << ", ";
-    // //     cout << "\n";
-    // // }
-
-    // rpt(i, 0, n) {
-
-    //     ll sa = a[i], sb = b[i];
-
-
-
-    // }
-
-    map<char, ll> freq;
-
-    rpt(i, 0, n) {
-
-        auto sa = a[i], sb = b[i];
-
-        if(sa.size() != sb.size())
-            kill("NO");
-        // if(sb.size() < sa.size()) {
-
-        //     ll d = sb.size() - sa.size();
-        //     reverse(sb);
-        //     while(d--)
-        //         sb += '0';
-        //     reverse(sb);
-
-
-        // }
-
-        for(auto ch : sa)
-            freq[ch]++;
-        for(auto ch : sb)
-            freq[ch]--;
-
-    }
-    debug(freq);
-    ll chk = 0;
-    for(auto x : freq) {
-        chk += x.se;
-        if(x.se > 0)
-            k -= x.se;
+    rpt(i, 0, e) {
+        ll u, v; cin >> u >> v;
+        degree[u]++,
+        degree[v]++;
     }
 
-    if(chk == 0 && k >= 0)
-        cout << "YES";
-    else
-        cout << "NO";
-
-
-
+    rpt(i, 1, v + 1)
+        cout << i << " " << degree[i];
 
     nl;
 }
