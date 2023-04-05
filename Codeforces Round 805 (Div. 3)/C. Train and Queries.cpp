@@ -58,10 +58,16 @@ void init(){
     return;
 }
 
-ll fun(ll n, ll k, string &num) {
+ll fun(ll n, ll &k, string &num) {
+
+    if(!k) {
+        cout << num;
+        return 0;
+    }
 
     if(n == 0) {
-        cout << num << "\n";
+        // cout << num << "\n";
+        k--;
         return 1;
     }
 
