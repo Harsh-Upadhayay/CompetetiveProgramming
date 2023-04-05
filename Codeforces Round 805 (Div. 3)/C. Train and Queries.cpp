@@ -90,6 +90,9 @@ pair<ll, ll> groups(vll &v, ll totK, vector<vector<vector<pair<ll, ll>>>> &dp, l
     nottake = gp;
     ntcnt = cnt;
 
+    if(ntcnt == 0 && nottake != 0) ntcnt = 1;
+    if(tcnt == 0 && take != 0) tcnt = 1;
+
     if(take < nottake) {
 
         return dp[ind][k][prevIdx + 1] = {nottake, ntcnt};
