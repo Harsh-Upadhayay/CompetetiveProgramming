@@ -100,8 +100,6 @@ void solve(void){
 
     ll x = __builtin_popcount(n);
 
-    cout << x << " ";
-
     ll ans = ( (power(3, x)) + 3 - ((3 * power(2, x)) % MOD) );
 
     cout << bf(n);
