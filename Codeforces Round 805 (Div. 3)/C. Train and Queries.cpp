@@ -116,8 +116,10 @@ void solve(void){
             compVis.clear();
         }
 
-        debug(vis);       
     }
+
+    debug(vis);
+
     if(ans)
         yes
     else
