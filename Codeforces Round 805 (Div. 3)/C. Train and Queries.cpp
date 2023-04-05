@@ -69,9 +69,9 @@ void solve(void){
     map<ll, ll> degree;
 
     rpt(i, 0, e) {
-        ll u, v; cin >> u >> v;
+        ll u, t; cin >> u >> t;
         degree[u]++;
-        degree[v]++;
+        degree[t]++;
     }
 
     vll freq(5, 0);
