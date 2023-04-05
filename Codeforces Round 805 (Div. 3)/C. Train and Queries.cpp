@@ -65,7 +65,7 @@ void solve(void){
 
     ll a = 1, b = 1, x = 1;
 
-    rpt(i, 1, n)
+    rpt(i, 0, n)
         x = a + b,
         a = b,
         b = x;
