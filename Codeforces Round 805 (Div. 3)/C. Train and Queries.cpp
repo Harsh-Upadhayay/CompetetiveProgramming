@@ -88,7 +88,7 @@ void solve(void){
                 vector<ll>(n, -1)));
 
     ll maxLen = k * groups(v, k, dp, 0, 0, -1);
-
+    debug(maxLen);
     nl;
 }
 
