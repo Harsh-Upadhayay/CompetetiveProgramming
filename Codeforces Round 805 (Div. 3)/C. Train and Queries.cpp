@@ -58,44 +58,71 @@ void init(){
     return;
 }
 
+bool isFlower(map<ll, ll> &degree, set<ll> vis) {
+
+    ll v = vis.size();
+    double clen = sqrt(v);
+
+    if(float(clen) != ceil(clen))
+        return false;
+
+    vll freq(5, 0);
+    
+    for(ll nd : vis) {
+        if(degree[nd] == 2)
+            freq[2]++;
+        else if(degree[nd] == 4)
+            freq[4]++;
+        else
+            return false;
+    }
+
+    return (freq[4] == clen || freq[2] == (clen * (clen - 1)));
+}
+
+void dfs(map<ll, vll> &adj, set<ll> &vis, set<ll> &compVis, ll src) {
+
+    vis.insert(src);
+    compVis.insert(src);
+
+    for(ll x : adj[src])
+        if(!vis.count(x)) 
+            dfs(adj, vis, compVis, x);
+        
+}
 
 void solve(void){
     
     ll v, e; cin >> v >> e;
 
-    double clen = sqrt(v);
-
-    if(ceil(clen) != floor(clen) || clen < 3)
-        kill("NO")
-
     map<ll, ll> degree;
+    map<ll, vll> adj;
 
     rpt(i, 0, e) {
         ll u, t; cin >> u >> t;
         degree[u]++;
         degree[t]++;
+        adj[u].push_back(t),
+        adj[t].push_back(u);
     }
 
-    vll freq(5, 0);
-    
+    set<ll> vis, compVis;
+    bool ans = true;
+
     rpt(i, 1, v + 1) {
-        if(degree[i] == 2)
-            freq[2]++;
-        else if(degree[i] == 4)
-            freq[4]++;
-        else
-            kill("NO")
+        if(!vis.count(i))
+            dfs(adj, vis, compVis, i);
+
+        ans &= isFlower(degree, compVis);
+
+        compVis.clear();
     }
-
-    if(freq[4] == clen || freq[2] == (clen * (clen - 1)))
-        cout << "YES";
+    if(ans)
+        yes
     else
-        cout << "NO";
-
+        no
     // rpt(i, 1, v + 1)
     //     cout << i << " " << degree[i] << "\n";
-
-
 
     nl;
 }
