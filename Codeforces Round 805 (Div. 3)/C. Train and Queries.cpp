@@ -62,7 +62,7 @@ ll fun(vll &v, ll totK, ll ind, ll k, ll prevE) {
 
     if(ind == v.size()) {
 
-        return !(k % totK);
+        return 0;
     }
 
     ll take = 0, nottake = 0;
