@@ -85,7 +85,7 @@ void solve(void){
             kill("NO")
     }
 
-    if(freq[4] != sqrt(v))
+    if(freq[4] != sqrt(v) || freq[2] != (sqrt(v) * (sqrt(v) - 1)))
         cout << "NO";
     else
         cout << "YES";
