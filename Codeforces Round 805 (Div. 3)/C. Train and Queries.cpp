@@ -72,16 +72,44 @@ void solve(void){
 
     ll r1 = 1, r2 = a, c1 = 1, c2 = b;
     bool col = true;
-    ll ctr = 10;
+    ll ctr = 44;
     while(!((r1 == r2) && (c1 == c2) && (r1 == r) && (c1 == c)) && ctr--) {
 
         if(col) {
 
+            if(c + a <= c2) {
 
+                c2 -= a;
+
+            }
+            else if(c - a >= c1) {
+
+                c1 += a;
+
+            }
+            else {
+                kill("NO");
+            }
 
             col = !col;
         }
         else {
+
+            if(r + a <= r2) {
+
+                r2 -= a;
+
+            }
+
+            else if(r - a >= r1) {
+
+                r1 += a;
+
+            }
+
+            else {
+                kill("NO");
+            }
 
             col = !col;
         }
@@ -92,7 +120,7 @@ void solve(void){
 
         debug(a);
     }
-
+    cout << "YES";
     nl;
 }
 
