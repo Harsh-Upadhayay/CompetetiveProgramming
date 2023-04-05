@@ -78,10 +78,10 @@ ll fun(vll &dp, ll n, ll &k, string &num) {
         if(i != 4) {
             num += (char)(i + '0');
 
-            if(k <= 0) {
-                cout << num << "\n";
-                return 0;
-            }
+            // if(k <= 0) {
+            //     cout << num << "\n";
+            //     return 0;
+            // }
             ll x = fun(dp, n - 1, k, num);
             k -= x;
             ans += x;
