@@ -87,6 +87,27 @@ ll smallerCount(ll n) {
     return fun(rs, dp, sz, 1) - 1;
 }
 
+string rem4(ll mid) {
+
+    string str = to_string(mid);
+    string ans = "";
+    bool four = false;
+    for(char x : str)
+        if(four) {
+            ans += '9';
+        }
+        else
+        {
+            if(x == '4')
+                ans += --x,
+                four = true;
+            else
+                ans += x;
+        }
+
+    return ans;
+}
+
 void solve(void){
 
     ll n; cin >> n;
@@ -103,13 +124,7 @@ void solve(void){
         else if(midCnt > n)
             r = mid - 1;
         else {
-            ll t = mid;
-            bool four = false;
-            while(t)
-                four |= ((t % 10) == 4),
-                t /= 10;
-            mid -= four;
-            kill(mid);
+            kill(rem4(mid));
         }
 
     }
