@@ -59,6 +59,7 @@ void init(){
 }
 
 ll fun(string &num, vector<vector<ll>> &dp, ll n, bool tight) {
+    
     if(n == 0)
         return 1;
 
@@ -68,29 +69,43 @@ ll fun(string &num, vector<vector<ll>> &dp, ll n, bool tight) {
     ll ub = tight ? num[num.size() - n] - '0' : 9,
         ans = 0;
 
-    rpt(i, 0, ub + 1) {
-
-        if(i != 4) {
-
+    rpt(i, 0, ub + 1) 
+        if(i != 4)
             ans += fun(num, dp, n - 1, tight && (i == ub));
 
-        }
-
-    }
 
     return dp[n][tight] = ans;
 }
 
-void solve(void){
-
-    ll n; cin >> n;
+ll smallerCount(ll n) {
 
     string rs = to_string(n);
     ll sz = rs.size();
 
     vector<vector<ll>> dp(sz + 1, vector<ll> (2, -1));
 
-    cout << fun(rs, dp, sz, 1) - 1;
+    return fun(rs, dp, sz, 1) - 1;
+}
+
+void solve(void){
+
+    ll n; cin >> n;
+
+    ll l = 1, r = 1e14;
+
+    while(l <= r) {
+
+        ll mid = r - ((r - l) / 2),
+            midCnt = smallerCount(mid);
+
+        if(midCnt < n) 
+            l =  mid + 1;
+        else if(midCnt > n)
+            r = mid - 1;
+        else
+            kill(mid);
+
+    }
     
     nl;
 }
