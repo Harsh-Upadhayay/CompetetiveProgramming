@@ -69,7 +69,7 @@ pair<ll, ll> fun(vector<vector<ll>> &grid, vector<vector<pair<ll, ll>>> &dp, ll 
 
     ll n = grid.size(), m = grid[0].size();
 
-    if(i >= n)
+    if(i == n)
         return {x > 0 ? 1 : 0, -1};
 
     if(dp[i][x].first != -1)
