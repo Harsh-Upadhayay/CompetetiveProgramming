@@ -58,84 +58,10 @@ void init(){
     return;
 }
 
-ll smallerCount(ll n) {
-
-    string num = to_string(n);
-    ll sz = num.size();
-
-    vector<ll> prev(2, 1), curr(2, 1);
-
-    for(int n = 1; n <= sz; n++, prev = curr) 
-        for(int tight = 1; tight >= 0; tight--) {
-            ll ub = tight ? num[sz - n] - '0' : 9,
-            ans = 0;
-            rpt(i, 0, ub + 1) 
-                if(i != 4)
-                    ans += prev[tight && (i == ub)];
-
-
-            curr[tight] = ans;
-        }
-    return curr[1] - 1;
-}
-
-
-ll rem4(ll mid) {
-
-    string str = to_string(mid);
-    ll ans = 0;
-    bool four = false;
-    for(char x : str)
-        if(four) {
-            ans = ans * 10 + 9;
-        }
-        else
-        {
-            if(x == '4')
-                ans = (ans * 10) + (x - 1 - '0'),
-                four = true;
-            else
-                ans = (ans * 10) + (x - '0');
-        }
-
-    return ans;
-}
-
-ll optimized(ll n) {
-
-    ll l = 1, r = 1e13; 
-
-    while(l < r) {
-        // debug(l, r);
-        ll mid = r - ((r - l) / 2),
-            midCnt = smallerCount(mid);
-
-        if(midCnt < n) 
-            l =  mid + 1;
-        else if(midCnt > n)
-            r = mid - 1;
-        else {
-            return (rem4(mid));
-        }
-
-    }
-
-    return min(rem4(l), rem4(r));
-}
-
 
 void solve(void){
-
     ll n; cin >> n;
-
-    cout << optimized(n);
-
-    // rpt(i, 1, 1e4) {
-    //     // Timer _;
-    //     // debug(i);
-    //     optimized(1e12);
-    // }
-    
+    cout << n - 1;
     nl;
 }
 
