@@ -94,7 +94,7 @@ void solve(void){
     ll l = 1, r = 1e14;
 
     while(l <= r) {
-
+        debug(l, r);
         ll mid = r - ((r - l) / 2),
             midCnt = smallerCount(mid);
 
