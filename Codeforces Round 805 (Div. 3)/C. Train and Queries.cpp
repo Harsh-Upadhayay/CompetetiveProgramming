@@ -86,17 +86,17 @@ ll rem4(ll mid) {
     ll ans = 0;
     bool four = false;
     for(char x : str)
-        if(four) {
+        if(four) 
             ans = ans * 10 + 9;
-        }
+        
         else
-        {
+        
             if(x == '4')
                 ans = (ans * 10) + (x - 1 - '0'),
                 four = true;
             else
                 ans = (ans * 10) + (x - '0');
-        }
+        
 
     return ans;
 }
