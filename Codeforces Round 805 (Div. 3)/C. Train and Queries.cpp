@@ -121,7 +121,7 @@ ll rem4(ll mid) {
 
 ll optimized(ll n) {
 
-    ll l = 1, r = 1e14; 
+    ll l = 1, r = 1e13; 
 
     while(l <= r) {
         ll mid = r - ((r - l) / 2),
