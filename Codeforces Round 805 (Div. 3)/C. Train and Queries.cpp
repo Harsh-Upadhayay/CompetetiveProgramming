@@ -42,12 +42,6 @@ istream& operator>>(istream &is, vector<T> &v) {
     return is;
 }
 
-template <typename T>
-ostream& operator<<(ostream &os, vector<T> &v) {
-    rpt(i, 0, v.size()) os << v[i] << " ";
-    return os;
-}
-
 template<class T>
 T inline max(T a, T b, T c, T d = ninf, T e = ninf);
 template<class T>
@@ -71,36 +65,16 @@ void init(){
 }
 
 
+
+
 void solve(void){
     
-    ll n; cin >> n;
-    vll v(n); cin >> v;
-
-    set<ll> aset, bset;
-    rpt(i, 1, n + 1) aset.insert(i), bset.insert(i);
-
-    map<ll, ll> vmp;
-    rpt(i, 0, n) vmp[v[i]]++;
-    
-    vll avec(n, -1), bvec(n, -1);
-
-    rpt(i, 0, n) {
-
-        ll reqNum = v[i];
-
-        if(aset.count(reqNum)) {
-
-        }
-
-        else if(bset.count(reqNum)) {
-
-        }
-        else
-            kill("NO");
-    }
-
-    cout << "YES\n";
-    cout << avec << "\n" << bvec;
+    ll n, m; cin >> n >> m;
+    vector<vector<ll>> grid(n, vector<ll> (m, 0));
+    rpt(i, 0, n)
+        rpt(j, 0, m)
+            cin >> grid[i][j];
+    print(grid);
 
     nl;
 }
