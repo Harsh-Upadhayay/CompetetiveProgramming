@@ -87,7 +87,19 @@ ll smallerCount(ll n) {
     return fun(rs, dp, sz, 1) - 1;
 }
 
-string rem4(ll mid) {
+ll to_digit(string s) {
+
+    ll num = 0, x = 1;
+
+    for(int i = s.size() - 1; i >= 0; i--) 
+        num = (num * x) + (s[i] - '0'),
+        x *= 10;
+
+    return num;
+
+}
+
+ll rem4(ll mid) {
 
     string str = to_string(mid);
     string ans = "";
@@ -105,12 +117,10 @@ string rem4(ll mid) {
                 ans += x;
         }
 
-    return ans;
+    return to_digit(ans);
 }
 
-void solve(void){
-
-    ll n; cin >> n;
+ll optimized(ll n) {
 
     ll l = 1, r = 1e14; 
 
@@ -119,14 +129,20 @@ void solve(void){
             midCnt = smallerCount(mid);
 
         if(midCnt < n) 
-            l =  mid ;
+            l =  mid + 1;
         else if(midCnt > n)
-            r = mid;
+            r = mid - 1;
         else {
-            kill(rem4(mid));
+            return (rem4(mid));
         }
 
     }
+}
+
+void solve(void){
+
+    ll n; cin >> n;
+
     
     nl;
 }
