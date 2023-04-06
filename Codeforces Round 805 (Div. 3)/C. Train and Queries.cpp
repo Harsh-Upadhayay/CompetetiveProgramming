@@ -92,7 +92,7 @@ void solve(void){
     ll n; cin >> n;
 
     ll l = 1, r = 1e14; 
-    cout << smallerCount(54) << " ";
+    cout << smallerCount(55) << " ";
 
     while(l <= r) {
         debug(l, r);
