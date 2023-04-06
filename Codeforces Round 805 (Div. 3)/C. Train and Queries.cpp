@@ -75,7 +75,7 @@ void solve(void){
         else break;
 
 
-    double ans = (double)(n - sorted) / k;
+    double ans = (double)(n - sorted);
 
     debug(ans);
 
