@@ -65,7 +65,19 @@ void init(){
 }
 
 
+ll fun(vector<vector<ll>> &grid, ll i, ll x) {
 
+    ll n = grid.size(), m = grid[0].size();
+
+    if(i >= n)
+        return x;
+
+    ll ans = 0;
+
+    rpt(j, 0, m)
+        ans = max(ans, fun(grid, i + 1, x ^ grid[i][j]));
+    return ans;
+}
 
 void solve(void){
     
@@ -75,6 +87,8 @@ void solve(void){
         rpt(j, 0, m)
             cin >> grid[i][j];
     print(grid);
+
+    cout << fun(grid, 0, 0);
 
     nl;
 }
