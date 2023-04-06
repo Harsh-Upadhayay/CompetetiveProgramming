@@ -58,17 +58,39 @@ void init(){
     return;
 }
 
+ll ctr = 50;
+
+ll fun(string &num, ll n, ll tight) {
+    if(!ctr)
+        return 0;
+    ctr--;
+
+    if(n == 0)
+        return 1;
+
+    ll ub = tight ? num[num.size() - n] - '0' : 9,
+        ans = 0;
+
+    rpt(i, 0, ub + 1) {
+
+        if(i != 4) {
+
+            ans += fun(num, n - 1, tight && (i == ub));
+
+        }
+
+    }
+
+    return ans;
+}
 
 void solve(void){
 
     ll n; cin >> n;
 
-    string l = "00000000000001",
-            r = to_string(n);
-    ll sz = l.size();
-    cout << sz;
+    string r = to_string(n);
 
-    // cout << fun(, 1, 1)
+    cout << fun(r, r.size(), 1);
     
     nl;
 }
