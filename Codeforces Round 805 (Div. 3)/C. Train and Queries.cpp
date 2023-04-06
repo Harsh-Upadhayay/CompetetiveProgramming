@@ -65,25 +65,28 @@ void init(){
 }
 
 
-pair<ll, ll> fun(vector<vector<ll>> &grid, ll i, ll x) {
+pair<ll, ll> fun(vector<vector<ll>> &grid,vector<vector<pair<ll, ll>>> &dp, ll i, ll x) {
 
     ll n = grid.size(), m = grid[0].size();
 
     if(i >= n)
         return {x, -1};
 
+    if(dp[i][x].first != -1 && dp[i][x].second != -1)
+        return dp[i][x];
+
     ll ans = -1,
         idx = -1;
 
     rpt(j, 0, m) {
-        auto it = fun(grid, i + 1, x ^ grid[i][j]);
+        auto it = fun(grid, dp, i + 1, x ^ grid[i][j]);
 
         if(it.fi > ans) {
             ans = it.fi;
             idx = j;
         }
     }
-    return {ans, idx};
+    return dp[i][x] = {ans, idx};
 }
 
 void solve(void){
@@ -93,9 +96,10 @@ void solve(void){
     rpt(i, 0, n)
         rpt(j, 0, m)
             cin >> grid[i][j];
-    print(grid);
 
-    cout << fun(grid, 0, 0).fi;
+    vector<vector<pair<ll, ll>>> dp(n + 1, vector<pair<ll, ll>> (14, {-1, -1}));
+
+    cout << fun(grid, dp, 0, 0).fi;
 
     nl;
 }
