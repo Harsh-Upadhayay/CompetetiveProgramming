@@ -154,8 +154,10 @@ void solve(void){
 
     ll n; cin >> n;
 
-    
-    cout << optimized(n);
+    rpt(i, 1, 1e2) {
+        Timer _;
+        cout << optimized(i);
+    }
     
     nl;
 }
