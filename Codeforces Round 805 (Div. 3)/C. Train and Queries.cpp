@@ -154,7 +154,7 @@ void solve(void){
     ll n; cin >> n;
 
     rpt(i, 1, 1e4)
-        cout << optimized(n);
+        optimized(n);
     
     nl;
 }
