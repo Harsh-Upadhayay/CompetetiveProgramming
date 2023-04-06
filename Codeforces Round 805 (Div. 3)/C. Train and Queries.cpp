@@ -101,15 +101,20 @@ void solve(void){
 
     vector<vector<pair<ll, ll>>> dp(n + 1, vector<pair<ll, ll>> (xMax, {-1, -1}));
 
-    cout << fun(grid, dp, 0, 0).fi;
+    if(fun(grid, dp, 0, 0).fi == 0)
+        kill("NIE");
+
+    cout << "TAK\n";
 
     rpt(i, 0, n + 1) {
         rpt(j, 0, xMax) {
 
-            cout << "("<< dp[i][j].fi << ", " << dp[i][j].se << ") ";
+            if(dp[i][j].se != -1) {
+                cout << dp[i][j].se << " ";
+                break;
+            }
 
         }
-        cout << "\n";
     }
 
     nl;
