@@ -70,7 +70,7 @@ pair<ll, ll> fun(vector<vector<ll>> &grid, vector<vector<pair<ll, ll>>> &dp, ll 
     ll n = grid.size(), m = grid[0].size();
 
     if(i >= n)
-        return {x, -1};
+        return {x > 0 ? 1 : 0, -1};
 
     if(dp[i][x].first != -1)
         return dp[i][x];
@@ -81,12 +81,11 @@ pair<ll, ll> fun(vector<vector<ll>> &grid, vector<vector<pair<ll, ll>>> &dp, ll 
     rpt(j, 0, m) {
         auto it = fun(grid, dp, i + 1, x ^ grid[i][j]);
 
-        if(it.fi > ans) {
-            ans = it.fi;
-            idx = j;
+        if(it.fi == 1) {
+            return dp[i][x] = {1, j};
         }
     }
-    return dp[i][x] = {ans, idx};
+    // return dp[i][x] = {ans, idx};
 }
 
 void solve(void){
