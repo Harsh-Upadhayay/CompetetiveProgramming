@@ -136,7 +136,18 @@ ll optimized(ll n) {
         }
 
     }
+
+    return min(rem4(l), rem4(r));
 }
+
+
+// ll brute(ll n) {
+
+//     rpt(i, 1, 1e14) {
+
+//     }
+
+// }
 
 void solve(void){
 
