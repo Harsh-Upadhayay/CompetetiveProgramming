@@ -91,7 +91,7 @@ ll to_digit(string s) {
 
     ll num = 0, x = 1;
 
-    for(int i = s.size() - 1; i >= 0; i--) 
+    for(int i = 0; i < s.size(); i++) 
         num = (num * x) + (s[i] - '0'),
         x *= 10;
 
