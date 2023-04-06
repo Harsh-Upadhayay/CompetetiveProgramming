@@ -65,7 +65,7 @@ void init(){
 }
 
 
-pair<ll, ll> fun(vector<vector<ll>> &grid,vector<vector<pair<ll, ll>>> &dp, ll i, ll x) {
+pair<ll, ll> fun(vector<vector<ll>> &grid, vector<vector<pair<ll, ll>>> &dp, ll i, ll x) {
 
     ll n = grid.size(), m = grid[0].size();
 
