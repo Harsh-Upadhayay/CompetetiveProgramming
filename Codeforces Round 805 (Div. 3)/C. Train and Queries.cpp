@@ -58,25 +58,6 @@ void init(){
     return;
 }
 
-// ll fun(string &num, vector<vector<ll>> &dp, ll n, bool tight) {
-    
-//     if(n == 0)
-//         return 1;
-
-//     if(dp[n][tight] != -1)
-//         return dp[n][tight];
-
-//     ll ub = tight ? num[num.size() - n] - '0' : 9,
-//         ans = 0;
-
-//     rpt(i, 0, ub + 1) 
-//         if(i != 4)
-//             ans += fun(num, dp, n - 1, tight && (i == ub));
-
-
-//     return dp[n][tight] = ans;
-// }
-
 ll smallerCount(ll n) {
 
     string num = to_string(n);
@@ -87,8 +68,7 @@ ll smallerCount(ll n) {
     for(int n = 1; n <= sz; n++, prev = curr) 
         for(int tight = 1; tight >= 0; tight--) {
             ll ub = tight ? num[sz - n] - '0' : 9,
-                ans = 0;
-
+            ans = 0;
             rpt(i, 0, ub + 1) 
                 if(i != 4)
                     ans += prev[tight && (i == ub)];
@@ -96,8 +76,6 @@ ll smallerCount(ll n) {
 
             curr[tight] = ans;
         }
-    
-
     return curr[1] - 1;
 }
 
@@ -115,22 +93,22 @@ ll to_digit(string &s) {
 ll rem4(ll mid) {
 
     string str = to_string(mid);
-    string ans = "";
+    ll ans = 0;
     bool four = false;
     for(char x : str)
         if(four) {
-            ans += '9';
+            ans = ans * 10 + 9;
         }
         else
         {
             if(x == '4')
-                ans += --x,
+                ans = (ans * 10) + (x - 1 - '0'),
                 four = true;
             else
-                ans += x;
+                ans = (ans * 10) + (x - '0');
         }
 
-    return to_digit(ans);
+    return ans;
 }
 
 ll optimized(ll n) {
