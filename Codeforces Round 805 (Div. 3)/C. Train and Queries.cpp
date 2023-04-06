@@ -79,16 +79,6 @@ ll smallerCount(ll n) {
     return curr[1] - 1;
 }
 
-ll to_digit(string &s) {
-
-    ll num = 0, x = 10;
-
-    for(int i = 0; i < s.size(); i++) 
-        num = (num * x) + (s[i] - '0');
-
-    return num;
-
-}
 
 ll rem4(ll mid) {
 
@@ -136,15 +126,15 @@ ll optimized(ll n) {
 
 void solve(void){
 
-    ll n; cin >> n;
+    // ll n; cin >> n;
 
-    cout << optimized(n);
+    // cout << optimized(n);
 
-    // rpt(i, 1e11, 1e11 + 1e4) {
-    //     // Timer _;
-    //     // debug(i);
-    //     optimized(i);
-    // }
+    rpt(i, 1, 1e4) {
+        // Timer _;
+        // debug(i);
+        optimized(1e12);
+    }
     
     nl;
 }
