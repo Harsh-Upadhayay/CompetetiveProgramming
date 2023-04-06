@@ -103,8 +103,15 @@ void solve(void){
             l =  mid + 1;
         else if(midCnt > n)
             r = mid - 1;
-        else
+        else {
+            ll t = mid;
+            bool four = false;
+            while(t)
+                four |= ((t % 10) == 4),
+                t /= 10;
+            mid -= four;
             kill(mid);
+        }
 
     }
     
