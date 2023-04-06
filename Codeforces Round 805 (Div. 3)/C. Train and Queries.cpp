@@ -58,9 +58,12 @@ void init(){
     return;
 }
 
-ll fun(string &num, ll n, ll tight) {
+ll fun(string &num, vector<vector<ll>> &dp, ll n, bool tight) {
     if(n == 0)
         return 1;
+
+    if(dp[n][tight] != -1)
+        return dp[n][tight];
 
     ll ub = tight ? num[num.size() - n] - '0' : 9,
         ans = 0;
@@ -69,22 +72,25 @@ ll fun(string &num, ll n, ll tight) {
 
         if(i != 4) {
 
-            ans += fun(num, n - 1, tight && (i == ub));
+            ans += fun(num, dp, n - 1, tight && (i == ub));
 
         }
 
     }
 
-    return ans;
+    return dp[n][tight] = ans;
 }
 
 void solve(void){
 
     ll n; cin >> n;
 
-    string r = to_string(n);
+    string rs = to_string(n);
+    ll sz = rs.size();
 
-    cout << fun(r, r.size(), 1) - 1;
+    vector<vector<ll>> dp(sz + 1, vector<ll> (2, -1));
+
+    cout << fun(rs, dp, sz, 1) - 1;
     
     nl;
 }
