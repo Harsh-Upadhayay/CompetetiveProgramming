@@ -68,7 +68,6 @@ void solve(void){
     rpt(i, 0, n)
         idx[v[i]] = i;
 
-    debug(idx);
 
     ll sorted = 1;
     rpt(i, 2, n + 1)
@@ -77,6 +76,8 @@ void solve(void){
 
 
     double ans = (double)(n - sorted) / k;
+
+    debug(ans);
 
     cout << ceil(ans);
 
