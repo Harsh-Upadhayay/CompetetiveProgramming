@@ -38,7 +38,7 @@ using namespace std;
 
 template <typename T>
 istream& operator>>(istream &is, vector<T> &v) {
-    for(int i = 0; i < v.size(); i++) is >> v[i];
+    rpt(i, 0, v.size()) is >> v[i];
     return is;
 }
 
