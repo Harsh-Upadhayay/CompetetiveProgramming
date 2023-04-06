@@ -86,17 +86,17 @@ ll rem4(ll mid) {
     ll ans = 0;
     bool four = false;
     for(char x : str)
-        if(four) 
+        if(four) {
             ans = ans * 10 + 9;
-        
+        }
         else
-        
+        {
             if(x == '4')
                 ans = (ans * 10) + (x - 1 - '0'),
                 four = true;
             else
                 ans = (ans * 10) + (x - '0');
-        
+        }
 
     return ans;
 }
@@ -126,15 +126,15 @@ ll optimized(ll n) {
 
 void solve(void){
 
-    // ll n; cin >> n;
+    ll n; cin >> n;
 
-    // cout << optimized(n);
+    cout << optimized(n);
 
-    rpt(i, 1, 1e4) {
-        // Timer _;
-        // debug(i);
-        optimized(1e12);
-    }
+    // rpt(i, 1, 1e4) {
+    //     // Timer _;
+    //     // debug(i);
+    //     optimized(1e12);
+    // }
     
     nl;
 }
