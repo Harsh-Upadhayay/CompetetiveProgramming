@@ -91,7 +91,7 @@ pair<ll, ll> fun(vector<vector<ll>> &grid,vector<vector<pair<ll, ll>>> &dp, ll i
 
 void solve(void){
     
-    ll xMax = 14;
+    ll xMax = 1024;
 
     ll n, m; cin >> n >> m;
     vector<vector<ll>> grid(n, vector<ll> (m, 0));
@@ -105,7 +105,7 @@ void solve(void){
         kill("NIE");
 
     cout << "TAK\n";
-
+    debug(dp);
     rpt(i, 0, n + 1) {
         rpt(j, 0, xMax) {
 
