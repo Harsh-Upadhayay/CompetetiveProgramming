@@ -58,13 +58,7 @@ void init(){
     return;
 }
 
-ll ctr = 50;
-
 ll fun(string &num, ll n, ll tight) {
-    if(!ctr)
-        return 0;
-    ctr--;
-    debug(n, tight);
     if(n == 0)
         return 1;
 
