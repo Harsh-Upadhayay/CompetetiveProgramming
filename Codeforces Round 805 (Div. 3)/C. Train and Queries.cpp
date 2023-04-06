@@ -60,8 +60,16 @@ void init(){
 
 
 void solve(void){
-    ll n; cin >> n;
-    cout << n - 1;
+    
+    ll n, k; cin >> n >> k;
+    vll v(n); rpt(i, 0, n) cin >> v[i];
+
+    vll idx(n + 1, -1);
+    rpt(i, 0, n)
+        idx[v[i]] = i;
+
+    debug(idx);
+
     nl;
 }
 
