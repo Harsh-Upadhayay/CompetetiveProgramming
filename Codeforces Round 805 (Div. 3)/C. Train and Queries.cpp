@@ -156,7 +156,7 @@ void solve(void){
 
     rpt(i, 1, 1e3) {
         // Timer _;
-        debug(i);
+        // debug(i);
         optimized(i);
     }
     
