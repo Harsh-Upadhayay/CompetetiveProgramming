@@ -74,7 +74,11 @@ void solve(void){
     rpt(i, 2, n + 1)
         if(idx[i] < idx[i - 1]) sorted++;
         else break;
-    debug(sorted);
+
+
+    double ans = (double)(n - sorted) / k;
+
+    cout << ceil(ans);
 
     nl;
 }
