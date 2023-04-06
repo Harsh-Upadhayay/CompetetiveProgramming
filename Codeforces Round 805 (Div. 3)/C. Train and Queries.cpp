@@ -87,7 +87,7 @@ ll smallerCount(ll n) {
     return fun(rs, dp, sz, 1) - 1;
 }
 
-ll to_digit(string s) {
+ll to_digit(string &s) {
 
     ll num = 0, x = 10;
 
@@ -154,7 +154,7 @@ void solve(void){
     ll n; cin >> n;
 
     rpt(i, 1, 1e4)
-        optimized(n);
+        smallerCount(n);
     
     nl;
 }
