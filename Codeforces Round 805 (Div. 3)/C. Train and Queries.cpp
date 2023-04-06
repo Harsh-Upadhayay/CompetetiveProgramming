@@ -110,7 +110,7 @@ void solve(void){
         rpt(j, 0, xMax) {
 
             if(dp[i][j].se != -1) {
-                cout << dp[i][j].se << " ";
+                cout << dp[i][j].se + 1 << " ";
                 break;
             }
 
