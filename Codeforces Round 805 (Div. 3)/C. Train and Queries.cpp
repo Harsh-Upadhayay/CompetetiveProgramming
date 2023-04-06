@@ -82,14 +82,13 @@ ll smallerCount(ll n) {
     string num = to_string(n);
     ll sz = num.size();
 
-    vector<vector<ll>> dp(sz + 1, vector<ll> (2, 1));
     vector<ll> prev(2, 1), curr(2, 1);
 
-    for(int n = 1; n <= sz; n++) {
+    for(int n = 1; n <= sz; n++, prev = curr) {
         for(int tight = 1; tight >= 0; tight--) {
 
 
-            ll ub = tight ? num[num.size() - n] - '0' : 9,
+            ll ub = tight ? num[sz - n] - '0' : 9,
                 ans = 0;
 
             rpt(i, 0, ub + 1) 
@@ -100,7 +99,6 @@ ll smallerCount(ll n) {
             curr[tight] = ans;
 
         }
-        prev = curr;
     }
 
     return curr[1] - 1;
