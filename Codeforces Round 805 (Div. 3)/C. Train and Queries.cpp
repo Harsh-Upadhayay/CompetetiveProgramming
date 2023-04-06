@@ -91,15 +91,26 @@ pair<ll, ll> fun(vector<vector<ll>> &grid,vector<vector<pair<ll, ll>>> &dp, ll i
 
 void solve(void){
     
+    ll xMax = 14;
+
     ll n, m; cin >> n >> m;
     vector<vector<ll>> grid(n, vector<ll> (m, 0));
     rpt(i, 0, n)
         rpt(j, 0, m)
             cin >> grid[i][j];
 
-    vector<vector<pair<ll, ll>>> dp(n + 1, vector<pair<ll, ll>> (14, {-1, -1}));
+    vector<vector<pair<ll, ll>>> dp(n + 1, vector<pair<ll, ll>> (xMax, {-1, -1}));
 
     cout << fun(grid, dp, 0, 0).fi;
+
+    rpt(i, 0, n + 1) {
+        rpt(j, 0, xMax) {
+
+            cout << "("<< dp[i][j].fi << ", " << dp[i][j].se << ") ";
+
+        }
+        cout << "\n";
+    }
 
     nl;
 }
