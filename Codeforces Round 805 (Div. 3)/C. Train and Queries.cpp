@@ -84,10 +84,8 @@ ll smallerCount(ll n) {
 
     vector<ll> prev(2, 1), curr(2, 1);
 
-    for(int n = 1; n <= sz; n++, prev = curr) {
+    for(int n = 1; n <= sz; n++, prev = curr) 
         for(int tight = 1; tight >= 0; tight--) {
-
-
             ll ub = tight ? num[sz - n] - '0' : 9,
                 ans = 0;
 
@@ -97,9 +95,8 @@ ll smallerCount(ll n) {
 
 
             curr[tight] = ans;
-
         }
-    }
+    
 
     return curr[1] - 1;
 }
