@@ -124,7 +124,7 @@ ll optimized(ll n) {
     ll l = 1, r = 1e14; 
 
     while(l < r) {
-        debug(l, r);
+        // debug(l, r);
         ll mid = r - ((r - l) / 2),
             midCnt = smallerCount(mid);
 
@@ -156,7 +156,8 @@ void solve(void){
 
     rpt(i, 1, 1e2) {
         Timer _;
-        cout << optimized(i);
+        debug(i);
+        optimized(i);
     }
     
     nl;
