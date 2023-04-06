@@ -72,7 +72,7 @@ pair<ll, ll> fun(vector<vector<ll>> &grid,vector<vector<pair<ll, ll>>> &dp, ll i
     if(i >= n)
         return {x, -1};
 
-    if(dp[i][x].first != -1 && dp[i][x].second != -1)
+    if(dp[i][x].first != -1)
         return dp[i][x];
 
     ll ans = -1,
