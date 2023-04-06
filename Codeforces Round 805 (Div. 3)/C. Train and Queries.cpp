@@ -121,7 +121,7 @@ ll rem4(ll mid) {
 
 ll optimized(ll n) {
 
-    ll l = 1, r = 1e13; 
+    ll l = 1, r = 1e12; 
 
     while(l <= r) {
         ll mid = r - ((r - l) / 2),
@@ -154,7 +154,7 @@ void solve(void){
     ll n; cin >> n;
 
     rpt(i, 1, 1e4)
-        smallerCount(n);
+        optimized(n);
     
     nl;
 }
