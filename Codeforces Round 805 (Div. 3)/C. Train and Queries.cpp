@@ -143,6 +143,7 @@ void solve(void){
 
     ll n; cin >> n;
 
+    cout << optimized(n);
     
     nl;
 }
