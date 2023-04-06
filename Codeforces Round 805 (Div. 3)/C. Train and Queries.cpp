@@ -70,6 +70,12 @@ void solve(void){
 
     debug(idx);
 
+    ll sorted = 1;
+    rpt(i, 2, n + 1)
+        if(idx[i] < idx[i - 1]) sorted++;
+        else break;
+    debug(sorted);
+
     nl;
 }
 
