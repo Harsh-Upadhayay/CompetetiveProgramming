@@ -79,12 +79,30 @@ ll fun(string &num, vector<vector<ll>> &dp, ll n, bool tight) {
 
 ll smallerCount(ll n) {
 
-    string rs = to_string(n);
-    ll sz = rs.size();
+    string num = to_string(n);
+    ll sz = num.size();
 
-    vector<vector<ll>> dp(sz + 1, vector<ll> (2, -1));
+    vector<vector<ll>> dp(sz + 1, vector<ll> (2, 1));
+    dp[0][0] = dp[0][1] = 1;
 
-    return fun(rs, dp, sz, 1) - 1;
+    for(int n = 1; n <= sz; n++) {
+        for(int tight = 1; tight >= 0; tight--) {
+
+
+            ll ub = tight ? num[num.size() - n] - '0' : 9,
+                ans = 0;
+
+            rpt(i, 0, ub + 1) 
+                if(i != 4)
+                    ans += fun(num, dp, n - 1, tight && (i == ub));
+
+
+            dp[n][tight] = ans;
+
+        }
+    }
+
+    return dp[sz][1] - 1;
 }
 
 ll to_digit(string &s) {
@@ -142,23 +160,17 @@ ll optimized(ll n) {
 }
 
 
-// ll brute(ll n) {
-
-//     rpt(i, 1, 1e14) {
-
-//     }
-
-// }
-
 void solve(void){
 
     ll n; cin >> n;
 
-    rpt(i, 1e11, 1e11 + 1e4) {
-        // Timer _;
-        // debug(i);
-        optimized(i);
-    }
+    cout << optimized(n);
+
+    // rpt(i, 1e11, 1e11 + 1e4) {
+    //     // Timer _;
+    //     // debug(i);
+    //     optimized(i);
+    // }
     
     nl;
 }
