@@ -83,7 +83,7 @@ ll smallerCount(ll n) {
     ll sz = num.size();
 
     vector<vector<ll>> dp(sz + 1, vector<ll> (2, 1));
-    dp[0][0] = dp[0][1] = 1;
+    vector<ll> prev(2, 1), curr(2, 1);
 
     for(int n = 1; n <= sz; n++) {
         for(int tight = 1; tight >= 0; tight--) {
@@ -94,12 +94,13 @@ ll smallerCount(ll n) {
 
             rpt(i, 0, ub + 1) 
                 if(i != 4)
-                    ans += dp[n - 1][tight && (i == ub)];
+                    ans += prev[tight && (i == ub)];
 
 
-            dp[n][tight] = ans;
+            curr[tight] = ans;
 
         }
+        prev = curr;
     }
 
     return dp[sz][1] - 1;
