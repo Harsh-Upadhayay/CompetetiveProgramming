@@ -138,13 +138,13 @@ void solve(void){
 
     ll n; cin >> n;
 
-    // cout << optimized(n);
+    cout << optimized(n);
 
-    rpt(i, 1e11, 1e11 + 1e4) {
-        // Timer _;
-        // debug(i);
-        optimized(i);
-    }
+    // rpt(i, 1e11, 1e11 + 1e4) {
+    //     // Timer _;
+    //     // debug(i);
+    //     optimized(i);
+    // }
     
     nl;
 }
