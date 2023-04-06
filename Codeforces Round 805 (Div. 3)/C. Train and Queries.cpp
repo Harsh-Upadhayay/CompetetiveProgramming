@@ -85,6 +85,7 @@ pair<ll, ll> fun(vector<vector<ll>> &grid, vector<vector<pair<ll, ll>>> &dp, ll 
             return dp[i][x] = {1, j};
         }
     }
+    return {0, -1};
     // return dp[i][x] = {ans, idx};
 }
 
