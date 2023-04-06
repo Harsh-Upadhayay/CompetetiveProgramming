@@ -84,7 +84,7 @@ void solve(void){
 
     string r = to_string(n);
 
-    cout << fun(r, r.size(), 1);
+    cout << fun(r, r.size(), 1) - 1;
     
     nl;
 }
