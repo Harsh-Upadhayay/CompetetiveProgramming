@@ -36,6 +36,12 @@ using namespace std;
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
+template <typename T>
+istream& operator>>(istream &is, vector<T> &v) {
+    for(int i = 0; i < v.size(); i++) is >> v[i];
+    return is;
+}
+
 template<class T>
 T inline max(T a, T b, T c, T d = ninf, T e = ninf);
 template<class T>
@@ -61,23 +67,12 @@ void init(){
 
 void solve(void){
     
-    ll n, k; cin >> n >> k;
-    vll v(n); rpt(i, 0, n) cin >> v[i];
+    ll n; cin >> n;
+    vll v(n); cin >> v; 
 
-    vll idx(n + 1, -1);
-    rpt(i, 0, n)
-        idx[v[i]] = i;
+    debug(v);
 
 
-    ll sorted = 1;
-    rpt(i, 2, n + 1)
-        if(idx[i] > idx[i - 1]) sorted++;
-        else break;
-
-
-    double ans = (double)(n - sorted);
-
-    cout << ceil(ans / k);
 
     nl;
 }
