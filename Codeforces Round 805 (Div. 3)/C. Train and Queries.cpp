@@ -71,7 +71,7 @@ void solve(void){
 
     ll sorted = 1;
     rpt(i, 2, n + 1)
-        if(idx[i] < idx[i - 1]) sorted++;
+        if(idx[i] > idx[i - 1]) sorted++;
         else break;
 
 
