@@ -119,9 +119,9 @@ void solve(void){
             midCnt = smallerCount(mid);
 
         if(midCnt < n) 
-            l =  mid + 1;
+            l =  mid ;
         else if(midCnt > n)
-            r = mid - 1;
+            r = mid;
         else {
             kill(rem4(mid));
         }
