@@ -77,7 +77,7 @@ void solve(void){
 
     double ans = (double)(n - sorted);
 
-    debug(ans);
+    debug(sorted, ans);
 
     cout << ceil(ans);
 
