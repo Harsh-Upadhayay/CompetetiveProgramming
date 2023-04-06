@@ -68,11 +68,9 @@ void init(){
 void solve(void){
     
     ll n; cin >> n;
-    vll v(n); cin >> v; 
+    vll v(n); cin >> v;
 
-    debug(v);
-
-
+    
 
     nl;
 }
