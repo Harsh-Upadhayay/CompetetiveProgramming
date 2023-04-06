@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-#define TESTCASE
+// #define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -65,16 +65,56 @@ void init(){
 }
 
 
+pair<ll, ll> fun(vector<vector<ll>> &grid, vector<vector<pair<ll, ll>>> &dp, ll i, ll x) {
+
+    ll n = grid.size(), m = grid[0].size();
+
+    if(i == n)
+        return {x > 0 ? 1 : 0, -1};
+
+    if(dp[i][x].first != -1)
+        return dp[i][x];
+
+    ll ans = -1,
+        idx = -1;
+
+    rpt(j, 0, m) {
+        auto it = fun(grid, dp, i + 1, x ^ grid[i][j]);
+
+        if(it.fi == 1) {
+            return dp[i][x] = {1, j};
+        }
+    }
+    return dp[i][x] = {0, -1};
+}
+
 void solve(void){
     
-    ll n, k; cin >> n >> k;
+    ll xMax = 1024;
 
-    if(n % k)
-        kill("NO");
+    ll n, m; cin >> n >> m;
+    vector<vector<ll>> grid(n, vector<ll> (m, 0));
+    rpt(i, 0, n)
+        rpt(j, 0, m)
+            cin >> grid[i][j];
 
-    ll z = n / k;
+    vector<vector<pair<ll, ll>>> dp(n + 1, vector<pair<ll, ll>> (xMax, {-1, -1}));
 
-    cout << "YES";
+    if(fun(grid, dp, 0, 0).fi == 0)
+        kill("NIE");
+
+    cout << "TAK\n";
+    debug(dp);
+    rpt(i, 0, n + 1) {
+        rpt(j, 0, xMax) {
+
+            if(dp[i][j].se != -1) {
+                cout << dp[i][j].se + 1 << " ";
+                break;
+            }
+
+        }
+    }
 
     nl;
 }
