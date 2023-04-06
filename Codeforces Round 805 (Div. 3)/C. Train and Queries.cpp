@@ -154,7 +154,7 @@ void solve(void){
 
     ll n; cin >> n;
 
-    rpt(i, 1e11, 1e11 + 1e3) {
+    rpt(i, 1e11, 1e11 + 1e4) {
         // Timer _;
         // debug(i);
         optimized(i);
