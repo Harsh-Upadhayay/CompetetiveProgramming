@@ -58,105 +58,17 @@ void init(){
     return;
 }
 
-void modDfs(map<ll, vll> &adj, set<ll> &vis, ll src, ll dst) {
-
-    vis.insert(src);
-    if(src == dst)
-        return;
-
-    for(ll nd : adj[src])
-        if(!vis.count(nd))
-            modDfs(adj, vis, nd, dst);
-
-}
-
-bool isFlower(map<ll, vll> &adj, map<ll, ll> &degree, set<ll> vis) {
-
-    ll v = vis.size();
-    double clen = sqrt(v);
-
-    if(float(clen) != ceil(clen))
-        return false;
-
-    vll freq(5, 0);
-    vll corners;
-    for(ll nd : vis) {
-        if(degree[nd] == 2)
-            freq[2]++;
-        else if(degree[nd] == 4)
-            freq[4]++,
-            corners.push_back(nd);
-        else
-            return false;
-    }
-
-    for(ll crn : corners) {
-
-        set<ll> vis;
-
-        for(ll nd : adj[crn])
-            if(degree[nd] == 2) {
-                modDfs(adj, vis, nd, crn);
-                break;
-            }
-
-        if(vis.size() != clen)
-            return false;
-    }
-
-    return (freq[4] == clen || freq[2] == (clen * (clen - 1)));
-}
-
-void dfs(map<ll, vll> &adj, set<ll> &vis, set<ll> &compVis, ll src) {
-
-    vis.insert(src);
-    compVis.insert(src);
-
-    for(ll x : adj[src])
-        if(!vis.count(x)) 
-            dfs(adj, vis, compVis, x);
-        
-}
 
 void solve(void){
+
+    ll n; cin >> n;
+
+    string l = "00000000000001",
+            r = to_string(n);
+    cout << r;
+
+    // cout << fun(, 1, 1)
     
-    ll v, e; cin >> v >> e;
-
-    map<ll, ll> degree;
-    map<ll, vll> adj;
-
-    rpt(i, 0, e) {
-        ll u, t; cin >> u >> t;
-        degree[u]++;
-        degree[t]++;
-        adj[u].push_back(t),
-        adj[t].push_back(u);
-    }
-
-    set<ll> vis, compVis;
-    bool ans = true;
-
-    ll comp = 0;
-    rpt(i, 1, v + 1) {
-
-        if(!vis.count(i)) {
-            dfs(adj, vis, compVis, i); 
-            ans &= isFlower(adj, degree, compVis);
-            compVis.clear();
-            comp ++;
-        }
-        if(comp > 1)
-            kill("NO");
-    }
-
-
-    if(ans)
-        yes
-    else
-        no
-    // rpt(i, 1, v + 1)
-    //     cout << i << " " << degree[i] << "\n";
-
     nl;
 }
 
