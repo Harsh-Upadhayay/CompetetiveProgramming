@@ -65,18 +65,25 @@ void init(){
 }
 
 
-ll fun(vector<vector<ll>> &grid, ll i, ll x) {
+pair<ll, ll> fun(vector<vector<ll>> &grid, ll i, ll x) {
 
     ll n = grid.size(), m = grid[0].size();
 
     if(i >= n)
-        return x;
+        return {x, -1};
 
-    ll ans = 0;
+    ll ans = -1,
+        idx = -1;
 
-    rpt(j, 0, m)
-        ans = max(ans, fun(grid, i + 1, x ^ grid[i][j]));
-    return ans;
+    rpt(j, 0, m) {
+        auto it = fun(grid, i + 1, x ^ grid[i][j]);
+
+        if(it.fi > ans) {
+            ans = it.fi;
+            idx = j;
+        }
+    }
+    return {ans, idx};
 }
 
 void solve(void){
@@ -88,7 +95,7 @@ void solve(void){
             cin >> grid[i][j];
     print(grid);
 
-    cout << fun(grid, 0, 0);
+    cout << fun(grid, 0, 0).fi;
 
     nl;
 }
