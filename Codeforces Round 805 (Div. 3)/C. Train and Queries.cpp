@@ -58,24 +58,24 @@ void init(){
     return;
 }
 
-ll fun(string &num, vector<vector<ll>> &dp, ll n, bool tight) {
+// ll fun(string &num, vector<vector<ll>> &dp, ll n, bool tight) {
     
-    if(n == 0)
-        return 1;
+//     if(n == 0)
+//         return 1;
 
-    if(dp[n][tight] != -1)
-        return dp[n][tight];
+//     if(dp[n][tight] != -1)
+//         return dp[n][tight];
 
-    ll ub = tight ? num[num.size() - n] - '0' : 9,
-        ans = 0;
+//     ll ub = tight ? num[num.size() - n] - '0' : 9,
+//         ans = 0;
 
-    rpt(i, 0, ub + 1) 
-        if(i != 4)
-            ans += fun(num, dp, n - 1, tight && (i == ub));
+//     rpt(i, 0, ub + 1) 
+//         if(i != 4)
+//             ans += fun(num, dp, n - 1, tight && (i == ub));
 
 
-    return dp[n][tight] = ans;
-}
+//     return dp[n][tight] = ans;
+// }
 
 ll smallerCount(ll n) {
 
@@ -94,7 +94,7 @@ ll smallerCount(ll n) {
 
             rpt(i, 0, ub + 1) 
                 if(i != 4)
-                    ans += fun(num, dp, n - 1, tight && (i == ub));
+                    ans += dp[n - 1][tight && (i == ub)];
 
 
             dp[n][tight] = ans;
