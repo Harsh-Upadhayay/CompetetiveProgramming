@@ -103,7 +103,7 @@ ll smallerCount(ll n) {
         prev = curr;
     }
 
-    return prev[1] - 1;
+    return curr[1] - 1;
 }
 
 ll to_digit(string &s) {
