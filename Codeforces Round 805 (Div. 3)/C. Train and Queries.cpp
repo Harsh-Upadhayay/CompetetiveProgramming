@@ -65,7 +65,8 @@ void solve(void){
 
     string l = "00000000000001",
             r = to_string(n);
-    cout << r;
+    ll sz = l.size();
+    cout << sz;
 
     // cout << fun(, 1, 1)
     
