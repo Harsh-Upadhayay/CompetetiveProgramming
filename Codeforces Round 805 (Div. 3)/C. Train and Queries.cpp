@@ -99,7 +99,7 @@ void solve(void){
             kill("NO");
     }
 
-    cout << "YES";
+    cout << "YES\n";
     cout << avec << "\n" << bvec;
 
     nl;
