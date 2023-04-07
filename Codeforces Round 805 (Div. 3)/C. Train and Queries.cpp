@@ -94,17 +94,44 @@ void solve(void){
 
     ll n, m; cin >> n >> m;
     vector<vector<ll>> grid(n, vector<ll> (m, 0));
+
     rpt(i, 0, n)
         rpt(j, 0, m)
             cin >> grid[i][j];
 
     vector<vector<pair<ll, ll>>> dp(n + 1, vector<pair<ll, ll>> (xMax, {-1, -1}));
 
+
+    rpt(x, 1, xMax)
+        dp[n][x] = {1, -1};
+
+    for(int i = n - 1; i >= 0; i--) {
+
+        for(int x = 0; x < xMax; x++) {
+
+
+            ll ans = -1,
+                idx = -1;
+            pair<ll, ll> retVal = {0, -1};;
+            rpt(j, 0, m) {
+                auto it = dp[i + 1][x ^ grid[i][j]];
+
+                if(it.fi == 1) {
+                    retVal = {1, j};
+                    break;
+                }
+            }
+            dp[i][x] = retVal;
+
+        }
+
+    }
+
+
     if(fun(grid, dp, 0, 0).fi == 0)
         kill("NIE");
 
     cout << "TAK\n";
-    debug(dp);
     rpt(i, 0, n + 1) {
         rpt(j, 0, xMax) {
 
