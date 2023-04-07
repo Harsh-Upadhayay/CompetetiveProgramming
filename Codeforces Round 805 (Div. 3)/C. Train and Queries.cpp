@@ -102,8 +102,8 @@ void solve(void){
     vector<vector<pair<ll, ll>>> dp(n + 1, vector<pair<ll, ll>> (xMax, {-1, -1}));
 
 
-    // rpt(x, 1, xMax)
-    //     dp[n][x] = {1, -1};
+    rpt(x, 1, xMax)
+        dp[n][x] = {1, -1};
 
     // for(int i = n - 1; i >= 0; i--) {
 
