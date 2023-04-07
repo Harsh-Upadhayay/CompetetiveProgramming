@@ -128,6 +128,8 @@ void solve(void){
 
     fun(grid, dp, 0, 0);
 
+    debug(dp);
+
     if(dp[0][0].fi == 0)
         kill("NIE");
 
