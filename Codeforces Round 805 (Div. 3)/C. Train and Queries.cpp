@@ -90,7 +90,7 @@ pair<ll, ll> fun(vector<vector<ll>> &grid, vector<vector<pair<ll, ll>>> &dp, ll 
 
 void solve(void){
     
-    ll xMax = 16;
+    ll xMax = 15;
 
     ll n, m; cin >> n >> m;
     vector<vector<ll>> grid(n, vector<ll> (m, 0));
@@ -111,7 +111,7 @@ void solve(void){
 
     //         ll ans = -1,
     //             idx = -1;
-    //         pair<ll, ll> retVal = {0, -1};;
+    //         pair<ll, ll> retVal = {0, -1};
     //         rpt(j, 0, m) {
     //             auto it = dp[i + 1][x ^ grid[i][j]];
 
@@ -126,9 +126,8 @@ void solve(void){
 
     // }
 
-    fun(grid, dp, 0, 0);
+    // fun(grid, dp, 0, 0);
 
-    debug(dp);
 
     if(dp[0][0].fi == 0)
         kill("NIE");
