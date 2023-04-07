@@ -102,30 +102,31 @@ void solve(void){
     vector<vector<pair<ll, ll>>> dp(n + 1, vector<pair<ll, ll>> (xMax, {-1, -1}));
 
 
-    rpt(x, 1, xMax)
-        dp[n][x] = {1, -1};
+    // rpt(x, 1, xMax)
+    //     dp[n][x] = {1, -1};
 
-    for(int i = n - 1; i >= 0; i--) {
+    // for(int i = n - 1; i >= 0; i--) {
 
-        for(int x = 1023; x >= 0; x--) {
+    //     for(int x = 1023; x >= 0; x--) {
 
-            ll ans = -1,
-                idx = -1;
-            pair<ll, ll> retVal = {0, -1};;
-            rpt(j, 0, m) {
-                auto it = dp[i + 1][x ^ grid[i][j]];
+    //         ll ans = -1,
+    //             idx = -1;
+    //         pair<ll, ll> retVal = {0, -1};;
+    //         rpt(j, 0, m) {
+    //             auto it = dp[i + 1][x ^ grid[i][j]];
 
-                if(it.fi == 1) {
-                    retVal = {1, j};
-                    break;
-                }
-            }
-            dp[i][x] = retVal;
+    //             if(it.fi == 1) {
+    //                 retVal = {1, j};
+    //                 break;
+    //             }
+    //         }
+    //         dp[i][x] = retVal;
 
-        }
+    //     }
 
-    }
+    // }
 
+    fun(grid, dp, 0, 0);
 
     if(dp[0][0].fi == 0)
         kill("NIE");
