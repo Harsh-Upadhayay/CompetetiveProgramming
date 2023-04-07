@@ -90,7 +90,7 @@ pair<ll, ll> fun(vector<vector<ll>> &grid, vector<vector<pair<ll, ll>>> &dp, ll 
 
 void solve(void){
     
-    ll xMax = 15;
+    ll xMax = 16;
 
     ll n, m; cin >> n >> m;
     vector<vector<ll>> grid(n, vector<ll> (m, 0));
