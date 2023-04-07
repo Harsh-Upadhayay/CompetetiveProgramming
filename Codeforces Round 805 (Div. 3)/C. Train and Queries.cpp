@@ -128,7 +128,7 @@ void solve(void){
     }
 
 
-    if(fun(grid, dp, 0, 0).fi == 0)
+    if(dp[0][0].fi == 0)
         kill("NIE");
 
     cout << "TAK\n";
