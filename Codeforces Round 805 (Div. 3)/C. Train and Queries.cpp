@@ -125,7 +125,7 @@ void solve(void){
         }
 
     }
-
+    debug(dp);
     // fun(grid, dp, 0, 0);
 
 
