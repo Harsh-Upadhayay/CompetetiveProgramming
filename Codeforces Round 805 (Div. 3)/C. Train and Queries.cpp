@@ -107,8 +107,7 @@ void solve(void){
 
     for(int i = n - 1; i >= 0; i--) {
 
-        for(int x = 0; x < xMax; x++) {
-
+        for(int x = 1023; x >= 0; x--) {
 
             ll ans = -1,
                 idx = -1;
