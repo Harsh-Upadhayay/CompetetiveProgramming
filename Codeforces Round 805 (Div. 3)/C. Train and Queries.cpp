@@ -91,7 +91,7 @@ void solve(void){
     auto rot = rotateMatrix(mat);
 
     rpt(i, 0, n / 2 + (n % 2)) {
-        rpt(j, 0, n / 2 + (n % 2)) {
+        rpt(j, 0, n) {
 
             if(mat[i][j] != rot[i][j])
                 k--;
