@@ -76,14 +76,13 @@ ll power(ll n, ll a) {
         ll rem = a % 2;
 
         if(rem)
-            ans = ans * x;
+            ans = ((ans % MOD) * (x % MOD)) % MOD;
 
-        x = x * x;
+        x = (x * x) % MOD;
         a /= 2;
     }
 
     return ans;
-
 }
 
 void solve(void){
