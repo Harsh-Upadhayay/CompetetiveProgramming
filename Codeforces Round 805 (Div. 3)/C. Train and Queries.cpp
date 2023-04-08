@@ -91,7 +91,7 @@ ll power(ll n, ll a) {
         a /= 2;
     }
 
-    return ans;
+    return ans; 
 }
 
 void solve(void){
@@ -99,7 +99,7 @@ void solve(void){
     ll a, b, n; cin >> a >> b >> n;
     a = fact[min(a, b)];
     // cout << fact[1e5] << " ";
-    cout << power(n, a);
+    cout << power(n , a);
 
     nl;
 }
