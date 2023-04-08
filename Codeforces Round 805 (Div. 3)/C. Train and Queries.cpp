@@ -94,12 +94,12 @@ void solve(void){
     vector<vector<ll>> next(n + 1, vector<ll>(4, 0)), curr(next);
 
     for(int j = 0; j <= n; j++)
-        for(int k = 0; k <= 3; k++)
+        for(int k = 1; k <= 3; k++)
             next[j][k] = inf;
     
 
-    for(int j = 0; j <= n; j++)
-        next[j][0] = curr[j][0] = 0;
+    // for(int j = 0; j <= n; j++)
+    //     next[j][0] = curr[j][0] = 0;
 
     for(int i = n - 1; i >= 0; i--) {
         for(int j = n - 2; j >= -1; j--) {
