@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-#define TESTCASE
+// #define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -67,7 +67,7 @@ void init(){
 
 void solve(void){
     
-    ll n; cin >> n; cout << n;
+    ll n; cin >> n; 
     vll cost(n);
     vector<string> vit(n);
     rpt(i, 0, n) cin >> cost[i] >> vit[i];
