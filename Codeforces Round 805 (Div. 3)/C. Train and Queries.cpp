@@ -23,7 +23,7 @@ using namespace std;
 #define vll                     vector<ll>
 #define ninf                    ((ll)((-1)*1e18+5))
 #define inf                     ((ll)(1e18+5))
-#define MOD                     ((ll)(1e9 + 7))
+#define MOD                     ((ll)(1e9+7))
 #define nmin(v)                 *min_element(all(v))
 #define nmax(v)                 *max_element(all(v))
 #define rpt(i, begin, end)      for (__typeof(end) i = (begin) - ((begin) > (end)); i != (end) - ((begin) > (end)); i += 1 - 2 * ((begin) > (end)))
@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-#define TESTCASE
+// #define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -59,49 +59,36 @@ void storePrimes();
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
 
-vll fact(1e5 + 1, 1);
 void init(){
 
-    rpt(i, 1, (ll)1e5 + 1){
-         fact[i] = ((fact[i - 1] * i));
-        ll a = fact[i];
-        while(a>=MOD){
-            ll a1 = a/MOD;
-               a = a%MOD;
-               a += a1;
-        }
-        fact[i] = a;
-    }
-        
     return;
 }
 
-ll power(ll n, ll a) {
+ll fun(vll &s, vll &c, ll i, ll j, ll k) {
 
-    ll ans = 1, x = n;
+    if(k == 0)
+        return 0;
 
-    while(a) {
+    if(i >= s.size())
+        return inf;
 
-        ll rem = a % 2;
+    ll take = inf, nottake = inf;
 
-        if(rem)
-            ans = ((ans % MOD) * (x % MOD)) % MOD;
+    nottake = fun(s, c, i + 1, j, k);
 
-        x = (x * x) % MOD;
-        a /= 2;
-    }
+    if(j == -1 || s[i] > s[j])
+        take = c[i] + fun(s, c, i + 1, i, k--);
 
-    return ans; 
+    return min(take, nottake);
 }
 
 void solve(void){
     
-    ll a, b, n; cin >> a >> b >> n;
-    a = fact[min(a, b)];
-    // cout << fact[1e5] << " ";
+    ll n; cin >> n;
+    vll s(n), c(n); cin >> s >> c;
 
-    cout << power(2 , 1e9 + 8);
-
+    ll ans = fun(s, c, 0, -1, 3);
+    cout << ans;
     nl;
 }
 
