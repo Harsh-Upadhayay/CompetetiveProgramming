@@ -67,7 +67,7 @@ void init(){
 
 void solve(void){
     
-    ll n; cin >> n;
+    ll n; cin >> n; cout << n;
     vll cost(n);
     vector<string> vit(n);
     rpt(i, 0, n) cin >> cost[i] >> vit[i];
