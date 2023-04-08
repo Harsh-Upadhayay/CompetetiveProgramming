@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-// #define TESTCASE
+#define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -59,52 +59,19 @@ void storePrimes();
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
 
+vll fact(1e5 + 1, 1);
 void init(){
 
+    rpt(i, 1, (ll)1e5 + 1)
+        fact[i] = ((fact[i - 1] * i) % MOD);
     return;
 }
 
-ll fun(vector<vector<ll>> &costMat, vll &dp, ll i, vll &usedKeys) {
-
-    if(i >= costMat.size())
-        return ninf;
-
-    if(dp[i] != -1)
-        return dp[i];
-
-    ll ans = inf;
-    rpt(j, 0, costMat[0].size()) {
-
-        if(usedKeys[j]) continue;
-
-        usedKeys[j] = 1;
-
-        ans = min(ans, max(costMat[i][j], fun(costMat, dp, i + 1, usedKeys)));
-
-        usedKeys[j] = 0;
-
-    }
-
-    return dp[i] = ans;
-}
 
 void solve(void){
     
-     ll n, k, t; cin >> n >> k >> t;
-     vll pre(n), key(k); cin >> pre >> key;
-
-     vector<vector<ll>> costMat(n, vector<ll> (k, 0));
-
-     rpt(i, 0, n)
-        rpt(j, 0, k)
-            costMat[i][j] = abs(pre[i] - key[j]) + abs(key[j] - t);
-
-    vector<ll> usedKeys(k + 1, 0);
-
-    vll dp(n + 1, -1);
-
-    ll ans = fun(costMat, dp, 0, usedKeys);
-    cout << ans;
+    ll a, b, n; cin >> a >> b >> n;
+    debug(fact);
     nl;
 }
 
