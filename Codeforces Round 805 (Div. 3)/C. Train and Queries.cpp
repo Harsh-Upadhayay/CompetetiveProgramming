@@ -89,6 +89,14 @@ void solve(void){
     nl;
     print(rot);
 
+    vector<vector<ll>> finalMat(n, vector<ll>(n, 0));
+
+    rpt(i, 0, n)
+        rpt(j, 0, n)
+            finalMat[i][j] = max(rot[i][j], mat[i][j]);
+
+    print(finalMat);
+
     nl;
     nl;
 }
