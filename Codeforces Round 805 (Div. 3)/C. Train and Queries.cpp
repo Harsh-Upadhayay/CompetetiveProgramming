@@ -64,14 +64,17 @@ void init(){
     return;
 }
 
-ll fun(vll &cost, vector<string> &vit, ll i, ll a, ll b, ll c) {
+ll fun(vll &cost, vector<string> &vit, vector<vector<vector<vector<ll>>>> &dp, ll i, ll a, ll b, ll c) {
 
     if(i < 0) 
         return ((a & b & c) ? 0 : inf);
 
+    if(dp[i][a][b][c] != -1)
+        return dp[i][a][b][c];
+
     ll take, nottake;
 
-    nottake = fun(cost, vit, i - 1, a, b, c);
+    nottake = fun(cost, vit, dp, i - 1, a, b, c);
     
     ll curA = 0, curB = 0, curC = 0;
     
@@ -80,9 +83,9 @@ ll fun(vll &cost, vector<string> &vit, ll i, ll a, ll b, ll c) {
         curB |= (x == 'B'),
         curC |= (x == 'C');
 
-    take = cost[i] + fun(cost, vit, i - 1, a | curA, b | curB, c | curC);
+    take = cost[i] + fun(cost, vit, dp, i - 1, a | curA, b | curB, c | curC);
 
-    return min(take, nottake);
+    return dp[i][a][b][c] = min(take, nottake);
 }
 
 void solve(void){
@@ -98,7 +101,8 @@ void solve(void){
         vector<vector<vector<ll>>> (2, 
             vector<vector<ll>> (2, 
                 vector<ll> (2, -1))));
-    cout << fun(cost, vit, n - 1, 0, 0, 0);
+
+    cout << fun(cost, vit, dp, n - 1, 0, 0, 0);
     nl;
 }
 
