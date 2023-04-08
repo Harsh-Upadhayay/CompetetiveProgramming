@@ -64,16 +64,37 @@ void init(){
     return;
 }
 
+ll fun(vll &cost, vector<string> &vit, ll i, ll a, ll b, ll c) {
+
+    if(i < 0) 
+        return ((a & b & c) ? 0 : inf);
+
+    ll take, nottake;
+
+    nottake = fun(cost, vit, i - 1, a, b, c);
+    
+    ll curA = 0, curB = 0, curC = 0;
+    
+    for(auto x : vit[i])
+        curA |= (x == 'A'),
+        curB |= (x == 'B'),
+        curC |= (x == 'C');
+
+    take = cost[i] + fun(cost, vit, i - 1, a | curA, b | curB, c | curC);
+
+    return min(take, nottake);
+}
 
 void solve(void){
     
     ll n; cin >> n; 
     vll cost(n);
     vector<string> vit(n);
-    rpt(i, 0, n) cin >> cost[i] >> vit[i];
+    rpt(i, 0, n) {cin >> cost[i] >> vit[i]; sort(all(vit[i]));}
 
     debug(cost, vit);
 
+    cout << fun(cost, vit, n - 1, 0, 0, 0);
     nl;
 }
 
