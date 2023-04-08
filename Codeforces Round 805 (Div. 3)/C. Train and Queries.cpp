@@ -64,24 +64,30 @@ void init(){
     return;
 }
 
+vector<vector<ll>> rotateMatrix(vector<vector<ll>> &mat)
+{
+    ll n = mat.size();
+    vector<vector<ll>> retMat(n, vector<ll>(n, 0));
 
+    for (int i = n - 1; i >= 0; i--) 
+        for (int j = n - 1; j >= 0; j--)
+            retMat[n - i - 1][n - j - 1] = mat[i][j];
+    
+    return retMat;
+}
 void solve(void){
     
-    ll n, m; cin >> n >> m;
+    ll n, k; cin >> n >> k;
 
-    ll x1, x2, y1, y2; cin >> x1 >> y1 >> x2 >> y2;
+    vector<vector<ll>> mat(n, vector<ll> (n, 0));
+    rpt(i, 0, n) 
+        rpt(j, 0, n)
+            cin >> mat[i][j];
 
-    ll one = 4, two = 4;
+    print(mat);
+    auto rot = rotateMatrix(mat);
+    print(rot);
 
-    one -= ((x1 == 1) || (x1 == n));
-    one -= ((y1 == 1) || (y1 == m));
-
-    two -= ((x2 == 1) || (x2 == n));
-    two -= ((y2 == 1) || (y2 == m));
-
-
-
-    cout << min(one, two);
     nl;
 }
 
