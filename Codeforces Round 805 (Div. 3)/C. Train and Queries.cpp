@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-// #define TESTCASE
+#define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -67,51 +67,10 @@ void init(){
 
 void solve(void){
     
-    ll n; cin >> n; 
-    ll cost[n], vit[n][3];
+    ll n, k; cin >> n >> k;
+    vll a(n), b(n); cin >> a >> b;
+    debug(a, b);
 
-    rpt(i, 0, n) {
-        string s;
-        cin >> cost[i] >> s;
-        for(auto x : s)
-            vit[i][x - 'A'] = 1;
-
-    }
-
-    // // vector<vector<vector<ll>>> curr(2, 
-    // //         vector<vector<ll>> (2, 
-    // //             vector<ll> (2, inf))), prev(curr);
-
-    // // prev[1][1][1] = 0;
-
-    // // for(int i = 0; i < n; i++, prev = curr) {
-
-    // //     for(int a = 1; a >= 0; a--) {
-    // //         for(int b = 1; b >= 0; b--) {
-    // //             for(int c = 1; c >= 0; c--) {
-
-    // //                 ll take, nottake;
-
-    // //                 nottake = prev[a][b][c];
-                    
-    // //                 ll curA = 0, curB = 0, curC = 0;
-                    
-    // //                 for(auto x : vit[i])
-    // //                     curA |= (x == 'A'),
-    // //                     curB |= (x == 'B'),
-    // //                     curC |= (x == 'C');
-
-    // //                 take = cost[i] + prev[a | curA][b | curB][c | curC];
-
-    // //                 curr[a][b][c] = min(take, nottake);
-    // //             }
-    // //         }
-    // //     }
-
-    // // }
-
-    // // ll ans = prev[0][0][0]; 
-    // cout << (ans == inf ? -1 : ans);
     nl;
 }
 
