@@ -64,54 +64,23 @@ void init(){
     return;
 }
 
-ll fun(vll &s, vll &c,vector<vector<vector<ll>>> &dp, ll i, ll j, ll k) {
-    
-    if(k == 0)
-        return 0;
-
-    if(dp[i][j + 1][k] != -1)
-        return dp[i][j + 1][k];
-
-    if(i >= s.size())
-        return inf;
-
-    ll take = inf, nottake = inf;
-
-    nottake = fun(s, c, dp, i + 1, j, k);
-
-    if(j == -1 || s[i] > s[j])
-        take = c[i] + fun(s, c, dp, i + 1, i, k - 1);
-
-    return dp[i][j + 1][k] = min(take, nottake);
-}
-
 void solve(void){
     
     ll n; cin >> n;
     vll s(n), c(n); cin >> s >> c;
-
 
     vector<vector<ll>> next(n + 1, vector<ll>(4, 0)), curr(next);
 
     for(int j = 0; j <= n; j++)
         for(int k = 1; k <= 3; k++)
             next[j][k] = inf;
-    
 
-    for(int i = n - 1; i >= 0; i--) {
-        for(int j = n - 2; j >= -1; j--) {
-            for(int k = 3; k > 0; k--) {
-
-
+    for(int i = n - 1; i >= 0; i--, next = curr) 
+        for(int j = n - 2; j >= -1; j--) 
+            for(int k = 3; k > 0; k--) 
                 curr[j + 1][k] = min((j == -1 || s[i] > s[j]) ? c[i] + next[i + 1][k - 1] : inf, next[j + 1][k]);
 
-            }
-        }
-        next = curr;
-    }
-
-    ll ans = curr[0][3];
-    cout << (ans == inf ? -1 : ans);
+    cout << (curr[0][3] == inf ? -1 : curr[0][3]);
     nl;
 }
 
