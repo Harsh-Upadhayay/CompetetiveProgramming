@@ -96,6 +96,7 @@ void solve(void){
         }
     }
 
+    debug(k);
     if(k < 0)
         kill("NO");
 
@@ -106,7 +107,6 @@ void solve(void){
 
     // print(finalMat);
 
-    nl;
     nl;
 }
 
