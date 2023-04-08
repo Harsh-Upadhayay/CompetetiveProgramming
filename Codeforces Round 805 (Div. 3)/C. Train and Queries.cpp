@@ -86,8 +86,10 @@ void solve(void){
 
     print(mat);
     auto rot = rotateMatrix(mat);
+    nl;
     print(rot);
 
+    nl;
     nl;
 }
 
