@@ -100,7 +100,7 @@ void solve(void){
     a = fact[min(a, b)];
     // cout << fact[1e5] << " ";
 
-    cout << power(2 , 7489789789478348);
+    cout << power(2 , 74897478348);
 
     nl;
 }
