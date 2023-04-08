@@ -97,6 +97,11 @@ void solve(void){
         for(int k = 0; k <= 3; k++)
             next[j][k] = inf;
     
+
+    // for(int i = 0; i <= n; i++)
+    //     for(int j = 0; j <= n; j++)
+    //         dp[i][j][0] = 0;
+
     for(int i = n - 1; i >= 0; i--) {
         for(int j = n - 2; j >= -1; j--) {
             for(int k = 3; k > 0; k--) {
@@ -116,7 +121,7 @@ void solve(void){
         next = curr;
     }
 
-    ll ans = next[0][3];
+    ll ans = curr[0][3];
     cout << (ans == inf ? -1 : ans);
     nl;
 }
