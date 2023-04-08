@@ -64,29 +64,6 @@ void init(){
     return;
 }
 
-ll fun(vll &cost, vector<string> &vit, vector<vector<vector<vector<ll>>>> &dp, ll i, ll a, ll b, ll c) {
-
-    if(i < 0) 
-        return ((a & b & c) ? 0 : inf);
-
-    if(dp[i][a][b][c] != -1)
-        return dp[i][a][b][c];
-
-    ll take, nottake;
-
-    nottake = fun(cost, vit, dp, i - 1, a, b, c);
-    
-    ll curA = 0, curB = 0, curC = 0;
-    
-    for(auto x : vit[i])
-        curA |= (x == 'A'),
-        curB |= (x == 'B'),
-        curC |= (x == 'C');
-
-    take = cost[i] + fun(cost, vit, dp, i - 1, a | curA, b | curB, c | curC);
-
-    return dp[i][a][b][c] = min(take, nottake);
-}
 
 void solve(void){
     
@@ -101,7 +78,9 @@ void solve(void){
         vector<vector<vector<ll>>> (2, 
             vector<vector<ll>> (2, 
                 vector<ll> (2, inf))));
-
+    vector<vector<vector<ll>>> curr(2, 
+            vector<vector<ll>> (2, 
+                vector<ll> (2, inf))), prev(curr);
     dp[0][1][1][1] = 0;
 
     for(int i = 0; i < n; i++) {
