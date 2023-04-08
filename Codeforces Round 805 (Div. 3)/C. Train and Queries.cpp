@@ -78,10 +78,11 @@ void solve(void){
         vector<vector<vector<ll>>> (2, 
             vector<vector<ll>> (2, 
                 vector<ll> (2, inf))));
+
     vector<vector<vector<ll>>> curr(2, 
             vector<vector<ll>> (2, 
                 vector<ll> (2, inf))), prev(curr);
-    dp[0][1][1][1] = 0;
+    prev[1][1][1] = 0;
 
     for(int i = 0; i < n; i++) {
 
@@ -91,7 +92,7 @@ void solve(void){
 
                     ll take, nottake;
 
-                    nottake = dp[i][a][b][c];
+                    nottake = prev[a][b][c];
                     
                     ll curA = 0, curB = 0, curC = 0;
                     
@@ -100,16 +101,17 @@ void solve(void){
                         curB |= (x == 'B'),
                         curC |= (x == 'C');
 
-                    take = cost[i] + dp[i][a | curA][b | curB][c | curC];
+                    take = cost[i] + prev[a | curA][b | curB][c | curC];
 
-                    dp[i + 1][a][b][c] = min(take, nottake);
+                    curr[a][b][c] = min(take, nottake);
                 }
             }
         }
 
+        prev = curr;
     }
 
-    ll ans = dp[n][0][0][0]; 
+    ll ans = prev[0][0][0]; 
     cout << (ans == inf ? -1 : ans);
     nl;
 }
