@@ -65,9 +65,10 @@ void init(){
 }
 
 ll fun(vll &s, vll &c,vector<vector<vector<ll>>> &dp, ll i, ll j, ll k) {
-    debug(i, j, k);
+    
     if(k == 0)
         return 0;
+
     if(dp[i][j + 1][k] != -1)
         return dp[i][j + 1][k];
 
@@ -93,7 +94,34 @@ void solve(void){
         vector<vector<ll>>(n + 1, 
             vector<ll>(4, -1)));
 
-    ll ans = fun(s, c, dp, 0, -1, 3);
+    for(int j = 0; j <= n; j++)
+        for(int k = 0; k <= 3; k++)
+            dp[n][j][k] = inf;
+    
+
+    for(int i = 0; i <= n; i++)
+        for(int j = 0; j <= n; j++)
+            dp[i][j][0] = 0;
+
+    for(int i = n - 1; i >= 0; i--) {
+        for(int j = n - 2; j >= -1; j--) {
+            for(int k = 3; k > 0; k--) {
+
+
+                ll take = inf, nottake = inf;
+
+                nottake = dp[i + 1][j + 1][k];
+
+                if(j == -1 || s[i] > s[j])
+                    take = c[i] + dp[i + 1][i + 1][k - 1];
+
+                dp[i][j + 1][k] = min(take, nottake);
+
+            }
+        }
+    }
+
+    ll ans = dp[0][0][3];
     cout << (ans == inf ? -1 : ans);
     nl;
 }
