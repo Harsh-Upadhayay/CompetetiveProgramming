@@ -77,7 +77,7 @@ ll fun(vll &s, vll &c, ll i, ll j, ll k) {
     nottake = fun(s, c, i + 1, j, k);
 
     if(j == -1 || s[i] > s[j])
-        take = c[i] + fun(s, c, i + 1, i, k--);
+        take = c[i] + fun(s, c, i + 1, i, k - 1);
 
     return min(take, nottake);
 }
