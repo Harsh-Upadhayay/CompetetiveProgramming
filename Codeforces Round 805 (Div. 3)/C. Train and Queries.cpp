@@ -65,84 +65,11 @@ void init(){
 }
 
 
-pair<ll, ll> fun(vector<vector<ll>> &grid, vector<vector<pair<ll, ll>>> &dp, ll i, ll x) {
-
-    ll n = grid.size(), m = grid[0].size();
-
-    if(i == n)
-        return {x > 0 ? 1 : 0, -1};
-
-    if(dp[i][x].first != -1)
-        return dp[i][x];
-
-    ll ans = -1,
-        idx = -1;
-
-    rpt(j, 0, m) {
-        auto it = fun(grid, dp, i + 1, x ^ grid[i][j]);
-
-        if(it.fi == 1) {
-            return dp[i][x] = {1, j};
-        }
-    }
-    return dp[i][x] = {0, -1};
-}
-
 void solve(void){
     
-    ll xMax = 16;
+    ll n; cin >> n;
 
-    ll n, m; cin >> n >> m;
-    vector<vector<ll>> grid(n, vector<ll> (m, 0));
-
-    rpt(i, 0, n)
-        rpt(j, 0, m)
-            cin >> grid[i][j];
-
-    vector<vector<pair<ll, ll>>> dp(n + 1, vector<pair<ll, ll>> (xMax, {-1, -1}));
-
-
-    // rpt(x, 1, xMax)
-    //     dp[n][x] = {1, -1};
-
-    // for(int i = n - 1; i >= 0; i--) {
-
-    //     for(int x = xMax -  1; x >= 0; x--) {
-
-    //         ll ans = -1,
-    //             idx = -1;
-    //         pair<ll, ll> retVal = {0, -1};
-    //         rpt(j, 0, m) {
-    //             auto it = dp[i + 1][x ^ grid[i][j]];
-
-    //             if(it.fi == 1) {
-    //                 retVal = {1, j};
-    //                 break;
-    //             }
-    //         }
-    //         dp[i][x] = retVal;
-
-    //     }
-
-    // }
-    // debug(dp);
-    fun(grid, dp, 0, 0);
-
-
-    if(dp[0][0].fi == 0)
-        kill("NIE");
-
-    cout << "TAK\n";
-    rpt(i, 0, n + 1) {
-        rpt(j, 0, xMax) {
-
-            if(dp[i][j].se != -1) {
-                cout << dp[i][j].se + 1 << " ";
-                break;
-            }
-
-        }
-    }
+    cout << (n % 2 ? 0 : pow(2, n / 2));
 
     nl;
 }
