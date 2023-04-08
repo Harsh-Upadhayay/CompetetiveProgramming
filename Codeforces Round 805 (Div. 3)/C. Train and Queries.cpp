@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-// #define TESTCASE
+#define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -63,30 +63,16 @@ void init(){
 
     return;
 }
-#define sub(x) (((x) * (x + 1)) / 2)
-ll fun(string &s, vll &have, ll i, ll j) {
 
-    if(i < 0) return sub(j);
-
-    if(have[s[i] - 'a'])
-        return fun(s, have, i - 1, j + 1);
-    else
-        return sub(j) + fun(s, have, i - 1, 0);
-
-}
 
 void solve(void){
     
-    ll n, k; cin >> n >> k;
-    string s; cin >> s;
-    vll have(26, 0);
-    rpt(i, 0, k) {
-        char x; cin >> x;
+    ll n; cin >> n;
+    vll cost(n);
+    vector<string> vit(n);
+    rpt(i, 0, n) cin >> cost[i] >> vit[i];
 
-        have[x - 'a'] = 1;
-    }
-    debug(have);
-    cout << fun(s, have, n - 1, 0);
+    debug(cost, vit);
 
     nl;
 }
