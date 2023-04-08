@@ -82,6 +82,7 @@ void solve(void){
     vll have(26, 0);
     rpt(i, 0, k) {
         ll x; cin >> x;
+        cout << x;
         have[x - 'a'] = 1;
     }
     debug(have);
