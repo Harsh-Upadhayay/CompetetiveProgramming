@@ -69,7 +69,7 @@ void solve(void){
     
     ll n; cin >> n;
 
-    cout << (n % 2 ? 0 : pow(2, n / 2));
+    cout << (n % 2 ? 0 : (ll)pow(2, n / 2));
 
     nl;
 }
