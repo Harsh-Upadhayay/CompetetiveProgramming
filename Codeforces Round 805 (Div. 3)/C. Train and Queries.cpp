@@ -80,11 +80,11 @@ void solve(void){
     ll n, k; cin >> n >> k;
     string s; cin >> s;
     vll have(26, 0);
-    rpt(i, 0, n) {
+    rpt(i, 0, k) {
         ll x; cin >> x;
         have[x - 'a'] = 1;
     }
-
+    debug(have);
     cout << fun(s, have, n - 1, 0);
 
     nl;
