@@ -89,7 +89,7 @@ void solve(void){
     
     ll a, b, n; cin >> a >> b >> n;
     a = fact[min(a, b)];
-    rpt(x, 12, 20)
+    rpt(x, 19, 20)
         cout << fact[x] << "\n";
     cout << power(n, a);
 
