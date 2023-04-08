@@ -100,9 +100,37 @@ void solve(void){
     vector<vector<vector<vector<ll>>>> dp(n + 1, 
         vector<vector<vector<ll>>> (2, 
             vector<vector<ll>> (2, 
-                vector<ll> (2, -1))));
+                vector<ll> (2, inf))));
 
-    ll ans = fun(cost, vit, dp, n - 1, 0, 0, 0); 
+    dp[0][1][1][1] = 0;
+
+    for(int i = 0; i < n; i++) {
+
+        for(int a = 1; a >= 0; a--) {
+            for(int b = 1; b >= 0; b--) {
+                for(int c = 1; c >= 0; c--) {
+
+                    ll take, nottake;
+
+                    nottake = dp[i][a][b][c];
+                    
+                    ll curA = 0, curB = 0, curC = 0;
+                    
+                    for(auto x : vit[i])
+                        curA |= (x == 'A'),
+                        curB |= (x == 'B'),
+                        curC |= (x == 'C');
+
+                    take = cost[i] + dp[i][a | curA][b | curB][c | curC];
+
+                    dp[i + 1][a][b][c] = min(take, nottake);
+                }
+            }
+        }
+
+    }
+
+    ll ans = dp[n][0][0][0]; 
     cout << (ans == inf ? -1 : ans);
     nl;
 }
