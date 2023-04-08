@@ -84,10 +84,10 @@ void solve(void){
         rpt(j, 0, n)
             cin >> mat[i][j];
 
-    print(mat);
+    // print(mat);
     auto rot = rotateMatrix(mat);
     nl;
-    print(rot);
+    // print(rot);
 
     vector<vector<ll>> finalMat(n, vector<ll>(n, 0));
 
