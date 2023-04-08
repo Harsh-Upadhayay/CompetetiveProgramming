@@ -67,11 +67,32 @@ void init(){
     return;
 }
 
+ll power(ll n, ll a) {
+
+    ll ans = 1, x = n;
+
+    while(a) {
+
+        ll rem = a % 2;
+
+        if(rem)
+            ans = ans * x;
+
+        x = x * x;
+        a /= 2;
+    }
+
+    return ans;
+
+}
 
 void solve(void){
     
     ll a, b, n; cin >> a >> b >> n;
-    // debug(fact);
+    a = fact[min(a, b)];
+
+    cout << power(n, a);
+
     nl;
 }
 
