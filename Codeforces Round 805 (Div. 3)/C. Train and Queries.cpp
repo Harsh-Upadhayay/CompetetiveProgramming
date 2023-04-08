@@ -59,38 +59,29 @@ void storePrimes();
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
 
-vll fact(1e5 + 1, 1);
 void init(){
 
-    rpt(i, 1, (ll)1e5 + 1)
-        fact[i] = ((fact[i - 1] * i) % MOD);
     return;
 }
 
-ll power(ll n, ll a) {
-
-    ll ans = 1, x = n;
-
-    while(a) {
-
-        ll rem = a % 2;
-
-        if(rem)
-            ans = ((ans % MOD) * (x % MOD)) % MOD;
-
-        x = (x * x) % MOD;
-        a /= 2;
-    }
-
-    return ans;
-}
 
 void solve(void){
     
-    ll a, b, n; cin >> a >> b >> n;
-    a = fact[min(a, b)];
-    cout << power(n, a);
+    ll n, m; cin >> n >> m;
 
+    ll x1, x2, y1, y2; cin >> x1 >> y1 >> x2 >> y2;
+
+    ll one = 4, two = 4;
+
+    one -= ((x1 == 1) || (x1 == n));
+    one -= ((y1 == 1) || (y1 == m));
+
+    two -= ((x2 == 1) || (x2 == n));
+    two -= ((y2 == 1) || (y2 == m));
+
+
+
+    cout << min(one, two);
     nl;
 }
 
