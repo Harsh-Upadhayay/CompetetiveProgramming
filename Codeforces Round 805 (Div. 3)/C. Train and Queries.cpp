@@ -68,51 +68,50 @@ void init(){
 void solve(void){
     
     ll n; cin >> n; 
-    vll cost(n);
-    vector<string> vit(n);
-    rpt(i, 0, n) {cin >> cost[i] >> vit[i]; sort(all(vit[i]));}
+    ll cost[n], vit[n][3];
 
-    debug(cost, vit);
+    rpt(i, 0, n) {
+        string s;
+        cin >> cost[i] >> s;
+        for(auto x : s)
+            vit[i][x - 'A'] = 1;
 
-    vector<vector<vector<vector<ll>>>> dp(n + 1, 
-        vector<vector<vector<ll>>> (2, 
-            vector<vector<ll>> (2, 
-                vector<ll> (2, inf))));
-
-    vector<vector<vector<ll>>> curr(2, 
-            vector<vector<ll>> (2, 
-                vector<ll> (2, inf))), prev(curr);
-    prev[1][1][1] = 0;
-
-    for(int i = 0; i < n; i++) {
-
-        for(int a = 1; a >= 0; a--) {
-            for(int b = 1; b >= 0; b--) {
-                for(int c = 1; c >= 0; c--) {
-
-                    ll take, nottake;
-
-                    nottake = prev[a][b][c];
-                    
-                    ll curA = 0, curB = 0, curC = 0;
-                    
-                    for(auto x : vit[i])
-                        curA |= (x == 'A'),
-                        curB |= (x == 'B'),
-                        curC |= (x == 'C');
-
-                    take = cost[i] + prev[a | curA][b | curB][c | curC];
-
-                    curr[a][b][c] = min(take, nottake);
-                }
-            }
-        }
-
-        prev = curr;
     }
 
-    ll ans = prev[0][0][0]; 
-    cout << (ans == inf ? -1 : ans);
+    // // vector<vector<vector<ll>>> curr(2, 
+    // //         vector<vector<ll>> (2, 
+    // //             vector<ll> (2, inf))), prev(curr);
+
+    // // prev[1][1][1] = 0;
+
+    // // for(int i = 0; i < n; i++, prev = curr) {
+
+    // //     for(int a = 1; a >= 0; a--) {
+    // //         for(int b = 1; b >= 0; b--) {
+    // //             for(int c = 1; c >= 0; c--) {
+
+    // //                 ll take, nottake;
+
+    // //                 nottake = prev[a][b][c];
+                    
+    // //                 ll curA = 0, curB = 0, curC = 0;
+                    
+    // //                 for(auto x : vit[i])
+    // //                     curA |= (x == 'A'),
+    // //                     curB |= (x == 'B'),
+    // //                     curC |= (x == 'C');
+
+    // //                 take = cost[i] + prev[a | curA][b | curB][c | curC];
+
+    // //                 curr[a][b][c] = min(take, nottake);
+    // //             }
+    // //         }
+    // //     }
+
+    // // }
+
+    // // ll ans = prev[0][0][0]; 
+    // cout << (ans == inf ? -1 : ans);
     nl;
 }
 
