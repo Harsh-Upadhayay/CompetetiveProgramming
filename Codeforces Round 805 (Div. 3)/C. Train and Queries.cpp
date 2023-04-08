@@ -84,16 +84,30 @@ void solve(void){
         rpt(j, 0, n)
             cin >> mat[i][j];
 
-    // print(mat);
+    print(mat);
     auto rot = rotateMatrix(mat);
     nl;
-    // print(rot);
+    print(rot);
 
     vector<vector<ll>> finalMat(n, vector<ll>(n, 0));
 
-    rpt(i, 0, n)
-        rpt(j, 0, n)
-            finalMat[i][j] = max(rot[i][j], mat[i][j]);
+    rpt(i, 0, n) {
+        if((n % 2) && i == (n / 2)) continue;
+        rpt(j, 0, n){
+
+            if(i < n / 2) {
+
+                
+
+            }
+            else {
+
+
+
+            }
+
+        }
+    }
 
     print(finalMat);
 
