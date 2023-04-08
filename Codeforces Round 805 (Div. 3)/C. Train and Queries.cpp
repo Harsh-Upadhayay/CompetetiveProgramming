@@ -84,32 +84,27 @@ void solve(void){
         rpt(j, 0, n)
             cin >> mat[i][j];
 
-    print(mat);
+    // print(mat);
     auto rot = rotateMatrix(mat);
-    nl;
-    print(rot);
-    nl;
-    vector<vector<ll>> finalMat(n, vector<ll>(n, 0));
 
     rpt(i, 0, n) {
-        if((n % 2) && i == (n / 2)) continue;
-        rpt(j, 0, n){
+        rpt(j, 0, n) {
 
-            if(i < n / 2) {
-
-
-
-            }
-            else {
-
-
-
-            }
+            if(mat[i][j] != rot[i][j])
+                k--;
 
         }
     }
 
-    print(finalMat);
+    if(k < 0)
+        kill("NO");
+
+    if(!(k % 2))
+        cout << "YES";
+    else
+        cout << "NO";
+
+    // print(finalMat);
 
     nl;
     nl;
