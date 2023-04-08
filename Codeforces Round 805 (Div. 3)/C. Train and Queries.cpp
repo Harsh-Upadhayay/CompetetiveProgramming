@@ -65,12 +65,24 @@ void init(){
 }
 
 
+
 void solve(void){
-    
+
     ll n, k; cin >> n >> k;
     vll a(n), b(n); cin >> a >> b;
     debug(a, b);
+    vll preSumA(n, a[0]), preSumC(n, b[0] * a[0]);
+    rpt(i, 1, n)
+        preSumA[i] = preSumA[i - 1] + a[i],
+        preSumC[i] = preSumC[i -1 ] + a[i] * b[i];
 
+    debug(preSumA, preSumC);
+
+    for(int i = 0; i + k - 1 < n; i++){
+
+    }
+
+    // cout << ans;
     nl;
 }
 
