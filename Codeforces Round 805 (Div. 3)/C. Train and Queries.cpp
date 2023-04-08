@@ -98,22 +98,12 @@ void solve(void){
             next[j][k] = inf;
     
 
-    // for(int j = 0; j <= n; j++)
-    //     next[j][0] = curr[j][0] = 0;
-
     for(int i = n - 1; i >= 0; i--) {
         for(int j = n - 2; j >= -1; j--) {
             for(int k = 3; k > 0; k--) {
 
 
-                ll take = inf, nottake = inf;
-
-                nottake = next[j + 1][k];
-
-                if(j == -1 || s[i] > s[j])
-                    take = c[i] + next[i + 1][k - 1];
-
-                curr[j + 1][k] = min(take, nottake);
+                curr[j + 1][k] = min((j == -1 || s[i] > s[j]) ? c[i] + next[i + 1][k - 1] : inf, next[j + 1][k]);
 
             }
         }
