@@ -62,8 +62,17 @@ void storePrimes();
 vll fact(1e5 + 1, 1);
 void init(){
 
-    rpt(i, 1, (ll)1e5 + 1)
-        fact[i] = ((fact[i - 1] * i) % MOD);
+    rpt(i, 1, (ll)1e5 + 1){
+         fact[i] = ((fact[i - 1] * i));
+        ll a = fact[i];
+        while(a>=MOD){
+            ll a1 = a/MOD;
+               a = a%MOD;
+               a += a1;
+        }
+        fact[i] = a;
+    }
+        
     return;
 }
 
@@ -89,7 +98,7 @@ void solve(void){
     
     ll a, b, n; cin >> a >> b >> n;
     a = fact[min(a, b)];
-    cout << fact[1e5] << " ";
+    // cout << fact[1e5] << " ";
     cout << power(n, a);
 
     nl;
