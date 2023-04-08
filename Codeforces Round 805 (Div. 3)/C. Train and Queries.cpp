@@ -70,8 +70,17 @@ void solve(void){
      ll n, k, t; cin >> n >> k >> t;
      vll pre(n), key(k); cin >> pre >> key;
 
-     debug(pre, key);
+     vector<vector<ll>> costMat(n, vector<ll> (k, 0));
 
+     rpt(i, 0, n) {
+        rpt(j, 0, k) {
+
+            costMat[i][j] = abs(pre[i] - key[j]) + abs(key[j] - t);
+
+        }
+     }
+
+     print(costMat);
     nl;
 }
 
