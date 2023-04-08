@@ -71,7 +71,7 @@ void init(){
 void solve(void){
     
     ll a, b, n; cin >> a >> b >> n;
-    debug(fact);
+    // debug(fact);
     nl;
 }
 
