@@ -94,16 +94,16 @@ void solve(void){
         vector<vector<ll>>(n + 1, 
             vector<ll>(4, -1)));
 
-    vector<vector<ll>> next(n + 1, vector<ll>(4, -1)), curr(next);
+    vector<vector<ll>> next(n + 1, vector<ll>(4, 0)), curr(next);
 
     for(int j = 0; j <= n; j++)
         for(int k = 0; k <= 3; k++)
-            dp[n][j][k] = inf;
+            next[j][k] = inf;
     
 
-    for(int i = 0; i <= n; i++)
-        for(int j = 0; j <= n; j++)
-            dp[i][j][0] = 0;
+    // for(int i = 0; i <= n; i++)
+    //     for(int j = 0; j <= n; j++)
+    //         dp[i][j][0] = 0;
 
     for(int i = n - 1; i >= 0; i--) {
         for(int j = n - 2; j >= -1; j--) {
@@ -112,18 +112,19 @@ void solve(void){
 
                 ll take = inf, nottake = inf;
 
-                nottake = dp[i + 1][j + 1][k];
+                nottake = next[j + 1][k];
 
                 if(j == -1 || s[i] > s[j])
-                    take = c[i] + dp[i + 1][i + 1][k - 1];
+                    take = c[i] + next[i + 1][k - 1];
 
-                dp[i][j + 1][k] = min(take, nottake);
+                curr[j + 1][k] = min(take, nottake);
 
             }
         }
+        next = curr;
     }
 
-    ll ans = dp[0][0][3];
+    ll ans = next[0][3];
     cout << (ans == inf ? -1 : ans);
     nl;
 }
