@@ -90,7 +90,7 @@ void solve(void){
     rpt(i, 0, n) {
         rpt(j, 0, n) {
 
-            if(mat[i][j] != rot[i][j])
+            if(mat[i][j] != rot[i][j] && mat[i][j] == 1)
                 k--;
 
         }
