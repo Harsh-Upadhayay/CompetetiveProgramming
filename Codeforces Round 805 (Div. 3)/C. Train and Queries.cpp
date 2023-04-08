@@ -94,6 +94,10 @@ void solve(void){
 
     debug(cost, vit);
 
+    vector<vector<vector<vector<ll>>>> dp(n + 1, 
+        vector<vector<vector<ll>>> (2, 
+            vector<vector<ll>> (2, 
+                vector<ll> (2, -1))));
     cout << fun(cost, vit, n - 1, 0, 0, 0);
     nl;
 }
