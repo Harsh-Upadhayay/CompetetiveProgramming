@@ -78,11 +78,25 @@ void solve(void){
 
     debug(preSumA, preSumC);
 
+    ll maxSum = 0;
+
     for(int i = 0; i + k - 1 < n; i++){
 
+        ll curSum = 0, left = 0, right = 0, mid = 0;
+
+        mid = preSumA[i + k - 1] - (i ? preSumA[i - 1] : 0);
+
+        if(i)
+            left = preSumC[i - 1];
+
+        right = preSumC[n - 1] - preSumC[i + k - 1];
+
+        curSum = left + mid + right;
+        debug(curSum);
+        maxSum = max(maxSum, curSum);
     }
 
-    // cout << ans;
+    cout << maxSum;
     nl;
 }
 
