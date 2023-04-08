@@ -90,7 +90,7 @@ void solve(void){
     // print(mat);
     auto rot = rotateMatrix(mat);
 
-    rpt(i, 0, n) {
+    rpt(i, 0, n / 2) {
         rpt(j, 0, n) {
 
             if(mat[i][j] != rot[i][j] && mat[i][j] == 1)
