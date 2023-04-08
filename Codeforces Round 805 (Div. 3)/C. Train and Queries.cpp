@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-// #define TESTCASE
+#define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -65,38 +65,13 @@ void init(){
 }
 
 
-
 void solve(void){
+    
+     ll n, k, t; cin >> n >> k >> t;
+     vll pre(n), key(k); cin >> pre >> key;
 
-    ll n, k; cin >> n >> k;
-    vll a(n), b(n); cin >> a >> b;
-    debug(a, b);
-    vll preSumA(n, a[0]), preSumC(n, b[0] * a[0]);
-    rpt(i, 1, n)
-        preSumA[i] = preSumA[i - 1] + a[i],
-        preSumC[i] = preSumC[i -1 ] + a[i] * b[i];
+     debug(pre, key);
 
-    debug(preSumA, preSumC);
-
-    ll maxSum = 0;
-
-    for(int i = 0; i + k - 1 < n; i++){
-
-        ll curSum = 0, left = 0, right = 0, mid = 0;
-
-        mid = preSumA[i + k - 1] - (i ? preSumA[i - 1] : 0);
-
-        if(i)
-            left = preSumC[i - 1];
-
-        right = preSumC[n - 1] - preSumC[i + k - 1];
-
-        curSum = left + mid + right;
-        debug(curSum);
-        maxSum = max(maxSum, curSum);
-    }
-
-    cout << maxSum;
     nl;
 }
 
