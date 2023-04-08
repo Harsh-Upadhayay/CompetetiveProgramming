@@ -65,7 +65,7 @@ void init(){
 }
 
 ll fun(vll &s, vll &c, ll i, ll j, ll k) {
-
+    debug(i, j, k);
     if(k == 0)
         return 0;
 
