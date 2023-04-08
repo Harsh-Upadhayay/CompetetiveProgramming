@@ -64,10 +64,13 @@ void init(){
     return;
 }
 
-ll fun(vector<vector<ll>> &costMat, ll i, vll &usedKeys) {
+ll fun(vector<vector<ll>> &costMat, map<pair<ll, vll>, ll> &dp, ll i, vll &usedKeys) {
 
     if(i >= costMat.size())
         return ninf;
+
+    if(dp.count({i, usedKeys}))
+        return dp[{i, usedKeys}];
 
     ll ans = inf;
     rpt(j, 0, costMat[0].size()) {
@@ -76,13 +79,13 @@ ll fun(vector<vector<ll>> &costMat, ll i, vll &usedKeys) {
 
         usedKeys[j] = 1;
 
-        ans = min(ans, max(costMat[i][j], fun(costMat, i + 1, usedKeys)));
+        ans = min(ans, max(costMat[i][j], fun(costMat, dp, i + 1, usedKeys)));
 
         usedKeys[j] = 0;
 
     }
 
-    return ans;
+    return dp[{i, usedKeys}] = ans;
 }
 
 void solve(void){
@@ -97,7 +100,10 @@ void solve(void){
             costMat[i][j] = abs(pre[i] - key[j]) + abs(key[j] - t);
 
     vector<ll> usedKeys(k + 1, 0);
-    ll ans = fun(costMat, 0, usedKeys);
+
+    map<pair<ll, vll>, ll> dp;
+
+    ll ans = fun(costMat, dp, 0, usedKeys);
     cout << ans;
     nl;
 }
