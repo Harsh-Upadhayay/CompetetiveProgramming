@@ -64,6 +64,26 @@ void init(){
     return;
 }
 
+ll fun(vector<vector<ll>> &costMat, ll i, set<ll> &usedKeys) {
+    debug(i);
+    if(i >= costMat.size())
+        return ninf;
+
+    ll ans = inf;
+    rpt(j, 0, costMat[0].size()) {
+
+        if(usedKeys.count(j)) continue;
+
+        usedKeys.insert(j);
+
+        ans = min(ans, max(costMat[i][j], fun(costMat, i + 1, usedKeys)));
+
+        usedKeys.erase(j);
+
+    }
+
+    return ans;
+}
 
 void solve(void){
     
@@ -72,15 +92,13 @@ void solve(void){
 
      vector<vector<ll>> costMat(n, vector<ll> (k, 0));
 
-     rpt(i, 0, n) {
-        rpt(j, 0, k) {
-
+     rpt(i, 0, n)
+        rpt(j, 0, k)
             costMat[i][j] = abs(pre[i] - key[j]) + abs(key[j] - t);
 
-        }
-     }
-
-     print(costMat);
+    set<ll> usedKeys;
+    ll ans = fun(costMat, 0, usedKeys);
+    cout << ans;
     nl;
 }
 
