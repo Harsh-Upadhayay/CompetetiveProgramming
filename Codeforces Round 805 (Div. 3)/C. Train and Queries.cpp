@@ -63,13 +63,29 @@ void init(){
 
     return;
 }
+#define sub(x) (((x) * (x + 1)) / 2)
+ll fun(string &s, vll &have, ll i, ll j) {
 
+    if(i < 0) return sub(j);
+
+    if(have[s[i] - 'a'])
+        return fun(s, have, i - 1, j + 1);
+    else
+        return sub(j) + fun(s, have, i - 1, 0);
+
+}
 
 void solve(void){
     
-    ll n; cin >> n;
+    ll n, k; cin >> n >> k;
+    string s; cin >> s;
+    vll have(26, 0);
+    rpt(i, 0, n) {
+        ll x; cin >> x;
+        have[x - 'a'] = 1;
+    }
 
-    cout << (n % 2 ? 0 : (ll)pow(2, n / 2));
+    cout << fun(s, have, n - 1, 0);
 
     nl;
 }
