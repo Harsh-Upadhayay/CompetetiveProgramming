@@ -94,6 +94,8 @@ void solve(void){
         vector<vector<ll>>(n + 1, 
             vector<ll>(4, -1)));
 
+    vector<vector<ll>> next(n + 1, vector<ll>(4, -1)), curr(next);
+
     for(int j = 0; j <= n; j++)
         for(int k = 0; k <= 3; k++)
             dp[n][j][k] = inf;
