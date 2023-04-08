@@ -88,7 +88,7 @@ void solve(void){
     auto rot = rotateMatrix(mat);
     nl;
     print(rot);
-
+    nl;
     vector<vector<ll>> finalMat(n, vector<ll>(n, 0));
 
     rpt(i, 0, n) {
@@ -97,7 +97,7 @@ void solve(void){
 
             if(i < n / 2) {
 
-                
+
 
             }
             else {
