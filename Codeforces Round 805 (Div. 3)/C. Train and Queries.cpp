@@ -98,6 +98,7 @@ void solve(void){
 
         }
     }
+
     if(n % 2) {
         rpt(j, 0, n / 2)
             if(mat[n / 2][j] != rot[n / 2][j])
@@ -108,7 +109,7 @@ void solve(void){
     if(k < 0)
         kill("NO");
 
-    if(!(k % 2))
+    if(!(k % 2) || (n % 2))
         cout << "YES";
     else
         cout << "NO";
