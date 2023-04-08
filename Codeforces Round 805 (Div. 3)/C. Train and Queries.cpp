@@ -59,62 +59,38 @@ void storePrimes();
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
 
+vll fact(1e5 + 1, 1);
 void init(){
 
+    rpt(i, 1, (ll)1e5 + 1)
+        fact[i] = ((fact[i - 1] * i) % MOD);
     return;
 }
 
-vector<vector<ll>> rotateMatrix(vector<vector<ll>> &mat)
-{
-    ll n = mat.size();
-    vector<vector<ll>> retMat(n, vector<ll>(n, 0));
+ll power(ll n, ll a) {
 
-    for (int i = n - 1; i >= 0; i--) 
-        for (int j = n - 1; j >= 0; j--)
-            retMat[n - i - 1][n - j - 1] = mat[i][j];
-    
-    return retMat;
+    ll ans = 1, x = n;
+
+    while(a) {
+
+        ll rem = a % 2;
+
+        if(rem)
+            ans = ((ans % MOD) * (x % MOD)) % MOD;
+
+        x = (x * x) % MOD;
+        a /= 2;
+    }
+
+    return ans;
 }
-
-
 
 void solve(void){
     
-    ll n, k; cin >> n >> k;
-
-    vector<vector<ll>> mat(n, vector<ll> (n, 0));
-    rpt(i, 0, n) 
-        rpt(j, 0, n)
-            cin >> mat[i][j];
-
-    // print(mat);
-    auto rot = rotateMatrix(mat);
-
-    rpt(i, 0, n / 2) {
-        rpt(j, 0, n) {
-
-            if(mat[i][j] != rot[i][j])
-                k--;
-
-        }
-    }
-
-    if(n % 2) {
-        rpt(j, 0, n / 2)
-            if(mat[n / 2][j] != rot[n / 2][j])
-                k--;
-    }
-
-    debug(k);
-    if(k < 0)
-        kill("NO");
-
-    if(!(k % 2) || (n % 2))
-        cout << "YES";
-    else
-        cout << "NO";
-
-    // print(finalMat);
+    ll a, b, n; cin >> a >> b >> n;
+    a = fact[min(a, b)];
+    cout << fact[1e5] << " ";
+    cout << power(n, a);
 
     nl;
 }
