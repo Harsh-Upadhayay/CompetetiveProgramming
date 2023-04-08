@@ -102,7 +102,8 @@ void solve(void){
             vector<vector<ll>> (2, 
                 vector<ll> (2, -1))));
 
-    cout << fun(cost, vit, dp, n - 1, 0, 0, 0);
+    ll ans = fun(cost, vit, dp, n - 1, 0, 0, 0); 
+    cout << (ans == inf ? -1 : ans);
     nl;
 }
 
