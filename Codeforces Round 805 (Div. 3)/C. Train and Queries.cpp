@@ -82,10 +82,11 @@ void solve(void){
         if(it == mp.end())
             continue;
 
+        ll tableId = it->second.back();
+        it->second.pop_back();
         // if(it -> second == 0)
         //     mp.erase(it);
 
-        ll tableId = -1;
 
         price += mon;
         ans.push_back({reqId, tableId});
