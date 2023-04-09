@@ -76,6 +76,8 @@ ll calcMax1(vll &v) {
             curAns = 0;
         maxAns = max(curAns + f, maxAns);
     }
+
+    return maxAns;
 }
 
 void solve(void){
