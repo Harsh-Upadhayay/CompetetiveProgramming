@@ -85,6 +85,8 @@ void solve(void){
         else 
             v[0][n - j] = k++;
     }
+    for(int j = 1; j < n; j += 2)
+        swap(v[1][j], v[0][j - 1]);
     print(v);
     nl;
 }
