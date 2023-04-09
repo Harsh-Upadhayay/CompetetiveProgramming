@@ -68,13 +68,12 @@ void solve(void){
     
     ll n; cin >> n;
 
-    vll c(n), p(n);
-    rpt(i, 0, n) cin >> c[i] >> p[i];
+    vector<pair<ll, ll>> requests(n);
+    rpt(i, 0, n) cin >> requests[i].first >> requests[i].second;
 
     ll k; cin >> k;
     vll v(k); cin >> v;
-
-    debug(v);
+    sort(all(v));
 
     nl;
 }
