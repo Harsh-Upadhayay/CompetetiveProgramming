@@ -76,7 +76,7 @@ void solve(void){
         if(!(j % 2))
             v[0][j] = k--;
         else 
-            v[1][j] = k--;
+            v[1][n - j - 1] = k--;
     }
     k = 1;
     rpt(j, 0, n) {
