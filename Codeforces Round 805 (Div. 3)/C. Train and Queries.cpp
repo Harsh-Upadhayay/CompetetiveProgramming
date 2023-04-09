@@ -73,7 +73,7 @@ void solve(void){
     for(int j = 1; j <= k; j++, prev = curr) 
         for(int i = n; i >= 1; i--) 
             for(f = 1, curr[i] = 0; i * f <= n; f++)
-                curr[i] += prev[i * f];
+                curr[i] = (curr[i] + (prev[i * f] % MOD)) % MOD ;
 
     cout << curr[1];
 }
