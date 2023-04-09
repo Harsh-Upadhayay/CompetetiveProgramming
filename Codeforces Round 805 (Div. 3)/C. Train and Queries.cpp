@@ -74,7 +74,7 @@ void solve(void){
     ll k = 1;
     rpt(j, 0, n) {
 
-        v[0][(j + 1) % (2* n)] = 2 * (j + 1), 
+        v[0][(j + 1) % (n)] = 2 * (j + 1), 
         v[1][j] = (2 * j) + 1;
     }
     print(v);
