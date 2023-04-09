@@ -79,7 +79,7 @@ void solve(void){
     rpt(i, 0, n) {
         ll curAns = 1, maxAns = 1;
         rpt(j, 0, m - 1) {
-            if(grid[i][j] == grid[i][j + 1])
+            if((grid[i][j] == 1) && grid[i][j] == grid[i][j + 1])
                 curAns++;
             else
                 curAns = 1;
