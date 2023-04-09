@@ -66,17 +66,11 @@ void init(){
 
 void solve(void){
     
-    ll n; cin >> n;
-
-    vector<pair<ll, pair<ll, ll>>> requests(n);
-    rpt(i, 0, n) {cin >> requests[i].first >> requests[i].second.first; requests[i].second.second = i + 1;}
-
-    ll k, price = 0; cin >> k;
-    map<ll, ll> mp ;
-    rpt(i, 0, k) {ll x; cin >> x; mp[x]++;}
+    ll n; cin >> n;    vector<pair<ll, pair<ll, ll>>> requests(n);    rpt(i, 0, n) {cin >> requests[i].first >> requests[i].second.first; requests[i].second.second = i + 1;}
+    ll k, price = 0; cin >> k;    map<ll, set<ll>> mp ;    rpt(i, 0, k) {ll x; cin >> x; mp[x].insert(i + 1);}
     sort(all(requests), [](pair<ll, pair<ll, ll>> &a, pair<ll, pair<ll, ll>> &b) {return a.second.first > b.second.first;});
     
-
+    vector<pair<ll, ll>> ans;
     for(auto req : requests) {
 
         ll sz = req.first,
@@ -88,11 +82,13 @@ void solve(void){
         if(it == mp.end())
             continue;
 
-        it -> second--;
-        if(it -> second == 0)
-            mp.erase(it);
+        // if(it -> second == 0)
+        //     mp.erase(it);
+
+        ll tableId = -1;
 
         price += mon;
+        ans.push_back({reqId, tableId});
     }
 
 
