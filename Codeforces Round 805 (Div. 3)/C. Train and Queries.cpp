@@ -61,8 +61,8 @@ void storePrimes();
 
 void fun(ll x, ll y) {
 
-    rpt(i, 1, 1000) {
-        rpt(j, 1, 1000)  {
+    rpt(i, 1, 100000) {
+        rpt(j, 1, 100000)  {
             if(__gcd(i, j) != 1 && (__gcd(i - 1, j - 1) != 1 && __gcd(i, j - 1) != 1 && __gcd(i - 1, j) != 1 && __gcd(i + 1, j + 1) != 1 && __gcd(i, j + 1) != 1 && __gcd(i + 1, j) != 1))
                 cout << i << " " << j << ": " << __gcd(i, j) << " " << __gcd(i - 1, j - 1) << "\n";
         }
