@@ -81,9 +81,9 @@ void solve(void){
     k = 1;
     rpt(j, 0, n) {
         if(!(j % 2))
-            v[1][n - j] = k++;
+            v[1][j] = k++;
         else 
-            v[0][j] = k++;
+            v[0][n - j] = k++;
     }
     print(v);
     nl;
