@@ -91,7 +91,11 @@ void solve(void){
         ans.push_back({reqId, tableId});
     }
 
-
+    for(auto it : mp) {
+        cout << it.first << ": ";
+        for(auto x : it.second)
+            cout << x << " ";
+    }
 
     nl;
 }
