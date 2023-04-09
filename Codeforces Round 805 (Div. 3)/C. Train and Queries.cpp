@@ -94,8 +94,8 @@ void solve(void){
         price += mon;
         served.push_back(req);
     }
-
-    cout << (mp.lower_bound(5)->second --);
+    debug(mp);
+    cout << (mp.lower_bound(5)->second);
 
     nl;
 }
