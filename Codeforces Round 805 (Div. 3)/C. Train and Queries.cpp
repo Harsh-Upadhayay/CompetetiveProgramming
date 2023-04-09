@@ -36,7 +36,7 @@ using namespace std;
 /*_________________________________________________________________________________________________________________________________________*/
 
 template <typename T>
-istream& operator>>(istream &is, vector<T> &v) {
+istream& operator>>(istream &is, multiset<T> &v) {
     rpt(i, 0, v.size()) is >> v[i];
     return is;
 }
@@ -68,14 +68,28 @@ void solve(void){
     
     ll n; cin >> n;
 
-    vector<pair<ll, ll>> requests(n);
+    vector<pair<ll, ll>> requests(n), served;
     rpt(i, 0, n) cin >> requests[i].first >> requests[i].second;
 
     ll k; cin >> k;
-    vll v(k); cin >> v;
-    sort(all(v));
+    multiset<ll> v; 
+    rpt(i, 0, k) {ll x; cin >> x; v.insert(x);}
     sort(all(requests), [](pair<ll, ll> &a, pair<ll, ll> &b) {return a.second > b.second;});
-    debug(requests);
+    
+
+    for(auto req : requests) {
+
+        ll sz = req.first,
+            mon = req.second;
+
+        auto it = lower_bound(all(v), sz);
+
+        if(it == v.end())
+            continue;
+
+
+
+    }
 
     nl;
 }
