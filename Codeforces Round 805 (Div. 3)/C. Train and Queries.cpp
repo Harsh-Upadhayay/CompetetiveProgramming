@@ -98,7 +98,10 @@ void solve(void){
     //     nl;
     // }
 
-    cout << price;
+    cout << ans.size() << " " << price << "\n";
+    for(auto x : ans)
+        cout << x.first << " " << x.second << "\n";
+    
 
     nl;
 }
