@@ -84,7 +84,7 @@ void solve(void){
                 f = 1;
             else
                 curAns = 0;
-            maxAns = max((curAns == 0 ? f : curAns), maxAns);
+            maxAns = max(curAns + f, maxAns);
         }
 
         dp[i] = maxAns;
