@@ -84,8 +84,8 @@ void solve(void){
 
         ll tableId = it->second.back();
         it->second.pop_back();
-        // if(it -> second == 0)
-        //     mp.erase(it);
+        if(it -> second.size() == 0)
+            mp.erase(it);
 
 
         price += mon;
