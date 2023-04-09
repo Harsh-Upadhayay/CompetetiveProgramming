@@ -63,6 +63,7 @@ void fun(ll x, ll y) {
 
     rpt(i, 1, 1000) {
         rpt(j, 1, 1000)  {
+            if(__gcd(i, j) != 1)
             cout << i << " " << j << ": " << __gcd(i, j) << " " << __gcd(i - 1, j - 1) << "\n";
         }
 
