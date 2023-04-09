@@ -87,7 +87,7 @@ void solve(void){
         rpt(j, 0, m)
             cin >> grid[i][j];
 
-    vector<int> dp(n, inf);
+    vll dp(n, inf);
 
     rpt(i, 0, n) 
         dp[i] = calcMax1(grid[i]);
