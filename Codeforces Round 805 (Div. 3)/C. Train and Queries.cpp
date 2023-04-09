@@ -85,7 +85,7 @@ void solve(void){
 
         }
 
-    debug(v);
+        debug(v);
     }
     cout << (v[n - 1] >= 0 ? "YES" : "NO");
 
