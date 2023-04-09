@@ -62,16 +62,23 @@ void storePrimes();
 void fun(ll x, ll y) {
 
     rpt(i, 1, 100) {
-        rpt(j, 1, 100) 
+        rpt(j, 1, 100)  {
             if(__gcd(i, j) == 1 && __gcd(abs(x - i), abs(y - j)) == 1)
                 cout << i << " " << j << "\n";
+                return;
+        }
+
     }
 
 }
 
 void init(){
 
-    fun(10, 15);
+    rpt(i, 1, 100)
+        rpt(j, 1, 100) {
+            cout << i << " " << j << ": ";
+            fun(i, j);
+        }
 
     return;
 }
