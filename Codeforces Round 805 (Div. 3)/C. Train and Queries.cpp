@@ -71,7 +71,7 @@ void solve(void){
     vector<pair<ll, ll>> requests(n), served;
     rpt(i, 0, n) cin >> requests[i].first >> requests[i].second;
 
-    ll k; cin >> k;
+    ll k, price = 0; cin >> k;
     map<ll, ll> mp ;
     rpt(i, 0, k) {ll x; cin >> x; mp[x]++;}
     sort(all(requests), [](pair<ll, ll> &a, pair<ll, ll> &b) {return a.second > b.second;});
@@ -87,12 +87,15 @@ void solve(void){
         if(it == mp.end())
             continue;
 
+        it -> second--;
+        if(it -> second == 0)
+            mp.erase(it);
 
-
+        price += mon;
+        served.push_back(req);
     }
 
     cout << (mp.lower_bound(5)->second --);
-    cout << mp[6];
 
     nl;
 }
