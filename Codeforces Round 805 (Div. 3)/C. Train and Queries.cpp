@@ -86,8 +86,24 @@ void solve(void){
     
     ll n, k; cin >> n >> k;
 
-    vector<vector<ll>> dp(n + 1, vector<ll>(k + 1, -1));
-    cout << fun(n, dp, 1, k);
+    vector<vector<ll>> dp(k + 1, vector<ll>(n + 1, 1));
+
+
+        for(int j = 1; j <= k; j++) {
+            for(int i = n; i >= 1; i--) { 
+
+              ll take = 0;
+
+                ll f = 1;
+                while(i * f <= n)
+                    take += dp[j - 1][i * f],
+                    f++;
+
+                dp[j][i] = take;
+        }
+    }
+
+    cout << dp[k][1];
 
     nl;
 }
