@@ -67,7 +67,7 @@ void init(){
 void solve(void){
     
     ll n; cin >> n;    vector<pair<ll, pair<ll, ll>>> requests(n);    rpt(i, 0, n) {cin >> requests[i].first >> requests[i].second.first; requests[i].second.second = i + 1;}
-    ll k, price = 0; cin >> k;    map<ll, set<ll>> mp ;    rpt(i, 0, k) {ll x; cin >> x; mp[x].insert(i + 1);}
+    ll k, price = 0; cin >> k;    map<ll, vll> mp ;    rpt(i, 0, k) {ll x; cin >> x; mp[x].push_back(i + 1);}
     sort(all(requests), [](pair<ll, pair<ll, ll>> &a, pair<ll, pair<ll, ll>> &b) {return a.second.first > b.second.first;});
     
     vector<pair<ll, ll>> ans;
@@ -95,6 +95,7 @@ void solve(void){
         cout << it.first << ": ";
         for(auto x : it.second)
             cout << x << " ";
+        nl;
     }
 
     nl;
