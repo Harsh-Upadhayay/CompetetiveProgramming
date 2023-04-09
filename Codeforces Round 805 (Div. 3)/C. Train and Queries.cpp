@@ -64,31 +64,30 @@ void init(){
     return;
 }
 
-ll fun(ll n, ll i, ll k) {
-    debug(i, k);
+ll fun(ll n, vector<vector<ll>> &dp, ll i, ll k) {
+
     if(k == 0)
         return 1;
 
-    if(i > n)
-        return 0;       
+    if(dp[i][k] != -1)
+        return dp[i][k];
 
-    ll take = 0, nottake = 0;
-
-    // nottake = fun(n, i + 1, k);
+    ll take = 0;
 
     ll f = 1;
     while(i * f <= n)
-        take += fun(n, i * f, k - 1),
+        take += fun(n, dp, i * f, k - 1),
         f++;
 
-    return take + nottake;
+    return dp[i][k] = take;
 }
 
 void solve(void){
     
     ll n, k; cin >> n >> k;
 
-    cout << fun(n, 1, k);
+    vector<vector<ll>> dp(n + 1, vector<ll>(k + 1, -1));
+    cout << fun(n, dp, 1, k);
 
     nl;
 }
