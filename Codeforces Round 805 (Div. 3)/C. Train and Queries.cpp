@@ -64,6 +64,19 @@ void init(){
     return;
 }
 
+ll calcMax1(vll &v) {
+    ll curAns = 0, maxAns = 0, f = 0, m = v.size();
+    rpt(j, 0, m - 1) {
+        if(v[j] == 1) {
+            if(v[j] == v[j + 1])
+                curAns += 1;
+            f = 1;
+        }
+        else
+            curAns = 0;
+        maxAns = max(curAns + f, maxAns);
+    }
+}
 
 void solve(void){
     
@@ -76,21 +89,9 @@ void solve(void){
 
     vector<int> dp(n, inf);
 
-    rpt(i, 0, n) {
-        ll curAns = 0, maxAns = 0, f = 0;
-        rpt(j, 0, m - 1) {
-            if(grid[i][j] == 1) {
-                if(grid[i][j] == grid[i][j + 1])
-                    curAns += 1;
-                f = 1;
-            }
-            else
-                curAns = 0;
-            maxAns = max(curAns + f, maxAns);
-        }
-
-        dp[i] = maxAns;
-    }
+    rpt(i, 0, n) 
+        dp[i] = calcMax1(grid[i]);
+    
 
     debug(dp);
 
