@@ -14,7 +14,6 @@ using namespace std;
 #define ll                      long long int
 #define ull                     unsigned ll
 #define ld                      long double
-#define p(x, y)                 pair<x, y> 
 #define pb                      push_back
 #define fi                      first
 #define se                      second
@@ -64,18 +63,20 @@ void init(){
     return;
 }
 
+
 void solve(void){
     
-    ll n, k, f; cin >> n >> k;
+    ll n; cin >> n;
 
-    vector<ll> curr(n + 1, 0), prev(n + 1, 1);
+    vll c(n), p(n);
+    rpt(i, 0, n) cin >> c[i] >> p[i];
 
-    for(int j = 1; j <= k; j++, prev = curr) 
-        for(int i = n; i >= 1; i--) 
-            for(f = 1, curr[i] = 0; i * f <= n; f++)
-                curr[i] = (curr[i] + (prev[i * f] % MOD)) % MOD ;
+    ll k; cin >> k;
+    vll v(k); cin >> v;
 
-    cout << curr[1];
+    debug(v);
+
+    nl;
 }
 
 
