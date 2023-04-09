@@ -68,26 +68,27 @@ void init(){
 void solve(void){
     
     ll n; cin >> n;
+    vll v(n); cin >> v;
 
-    vector<vector<ll>> v(2, vll(n, 0)); 
+    rpt(i, 0, n - 1) {
 
-    ll k = 2 * n;
-    rpt(j, 0, n) {
-        if(!(j % 2))
-            v[0][j] = k--;
-        else 
-            v[1][n - j] = k--;
+        if(v[i] < 0) {
+
+            v[i + 1] += (-1 * v[i]);
+            v[i] += (-1 * v[i]);
+
+        }
+        else if(v[i] > 0) {
+
+            v[i + 1] -= v[i];
+            v[i] -= v[i];
+
+        }
+
     }
-    k = 1;
-    rpt(j, 0, n) {
-        if(!(j % 2))
-            v[1][j] = k++;
-        else 
-            v[0][j] = k++;
-    }
-    // for(int j = 1; j < n; j += 2)
-    //     swap(v[0][j], v[1][j - 1]);
-    print(v);
+
+    cout << (v[n - 1] >= 0 ? "YES" : "NO");
+
     nl;
 }
 
