@@ -73,7 +73,7 @@ void fun(ll x, ll y) {
 
 void init(){
 
-    // fun(1, 1);
+    fun(1, 1);
     return;
 }
 
