@@ -91,7 +91,8 @@ void solve(void){
 
     }
 
-    cout << (mp.lower_bound(5)->second);
+    cout << (mp.lower_bound(5)->second --);
+    cout << mp[6];
 
     nl;
 }
