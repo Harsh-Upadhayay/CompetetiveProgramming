@@ -72,8 +72,8 @@ void solve(void){
     rpt(i, 0, n) cin >> requests[i].first >> requests[i].second;
 
     ll k; cin >> k;
-    multiset<ll> v; 
-    rpt(i, 0, k) {ll x; cin >> x; v.insert(x);}
+    map<ll, ll> mp ;
+    rpt(i, 0, k) {ll x; cin >> x; mp[x]++;}
     sort(all(requests), [](pair<ll, ll> &a, pair<ll, ll> &b) {return a.second > b.second;});
     
 
@@ -82,14 +82,16 @@ void solve(void){
         ll sz = req.first,
             mon = req.second;
 
-        auto it = v.lower_bound(sz);
+        auto it = mp.lower_bound(sz);
 
-        if(it == v.end())
+        if(it == mp.end())
             continue;
 
 
 
     }
+
+    cout << (mp.lower_bound(5)->first);
 
     nl;
 }
