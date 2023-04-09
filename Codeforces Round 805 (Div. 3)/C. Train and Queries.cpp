@@ -71,11 +71,12 @@ void solve(void){
 
     vector<vector<ll>> v(2, vll(n, 0)); 
 
-    ll k = 1;
+    ll k = 2 * n;
     rpt(j, 0, n) {
-
-        v[0][(j + 1) % (n)] = 2 * (j + 1), 
-        v[1][j] = (2 * j) + 1;
+        if(!(j % 2))
+            v[0][j] = k--;
+        else 
+            v[1][j] = k--;
     }
     print(v);
     nl;
