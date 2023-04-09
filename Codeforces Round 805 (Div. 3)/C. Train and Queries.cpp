@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-#define TESTCASE
+// #define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -60,14 +60,42 @@ void storePrimes();
 /*_________________________________________________________________________________________________________________________________________*/
 
 void init(){
-    setSieve();
+
     return;
 }
 
 
 void solve(void){
     
-    cout << isComposit[11] << " " << isComposit[10];
+    ll n, m, q; cin >> n >> m >> q;
+    vector<vector<ll>> grid(n, vector<ll>(m, 0));
+
+    rpt(i, 0, n)
+        rpt(j, 0, m)
+            cin >> grid[i][j];
+
+    vector<int> dp(n, inf);
+
+    rpt(i, 0, n) {
+        ll curAns = 1, maxAns = 1;
+        rpt(j, 0, m - 1) {
+            if(grid[i][j] == grid[i][j + 1])
+                curAns++;
+            else
+                curAns = 1;
+            maxAns = max(curAns, maxAns);
+        }
+
+        dp[i] = maxAns;
+    }
+
+    debug(dp);
+
+    while(q--) {
+
+        ll r, c; cin >> r >> c;
+
+    }
 
     nl;
 }
