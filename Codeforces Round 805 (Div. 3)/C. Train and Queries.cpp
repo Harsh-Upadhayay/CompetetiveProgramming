@@ -82,7 +82,7 @@ void solve(void){
         ll sz = req.first,
             mon = req.second;
 
-        auto it = lower_bound(all(v), sz);
+        auto it = v.lower_bound(sz);
 
         if(it == v.end())
             continue;
