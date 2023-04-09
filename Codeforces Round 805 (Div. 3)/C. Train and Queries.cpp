@@ -74,6 +74,8 @@ void solve(void){
     ll k; cin >> k;
     vll v(k); cin >> v;
     sort(all(v));
+    sort(all(requests), [](pair<ll, ll> &a, pair<ll, ll> &b) {return a.second < b.second;});
+
 
     nl;
 }
