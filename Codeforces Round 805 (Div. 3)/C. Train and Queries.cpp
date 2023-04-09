@@ -73,11 +73,9 @@ void solve(void){
     for(int j = 1; j <= k; j++, prev = curr) 
         for(int i = n; i >= 1; i--) {
             curr[i] = 0;
-
             ll f = 1;
-            while(i * f <= n)
-                curr[i] += prev[i * f],
-                f++;
+            for(curr[i] = 0; i * f <= n; f++)
+                curr[i] += prev[i * f];
 
         }
     
