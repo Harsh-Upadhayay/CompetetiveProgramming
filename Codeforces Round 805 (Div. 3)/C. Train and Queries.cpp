@@ -78,6 +78,13 @@ void solve(void){
         else 
             v[1][j] = k--;
     }
+    k = 1;
+    rpt(j, 0, n) {
+        if(!(j % 2))
+            v[1][j] = k++;
+        else 
+            v[0][j] = k++;
+    }
     print(v);
     nl;
 }
