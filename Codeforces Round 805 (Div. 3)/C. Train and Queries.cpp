@@ -70,19 +70,17 @@ void solve(void){
 
     vector<ll> curr(n + 1, 1), prev(n + 1, 1);
 
-    for(int j = 1; j <= k; j++, prev = curr) {
-        for(int i = n; i >= 1; i--) { 
-
-          ll take = 0;
+    for(int j = 1; j <= k; j++, prev = curr) 
+        for(int i = n; i >= 1; i--) {
+            curr[i] = 0;
 
             ll f = 1;
             while(i * f <= n)
-                take += prev[i * f],
+                curr[i] += prev[i * f],
                 f++;
 
-            curr[i] = take;
         }
-    }
+    
 
     cout << curr[1];
 
