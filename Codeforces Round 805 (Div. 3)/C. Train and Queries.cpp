@@ -81,18 +81,39 @@ void solve(void){
     
     ll a, b; cin >> a >> b;
 
-    // if(__gcd(a, b) == 1) {
-    //     cout << "1\n" << a << " " << b << "\n";
-    //     return ;
-    // }
+    if(__gcd(a, b) == 1) {
+        cout << "1\n" << a << " " << b << "\n";
+        return ;
+    }
+    ll na, nb;
+    
+    if(__gcd(a - 1, b - 1) == 1)
+        na = a - 1,
+        nb = b - 1;
+    else if(__gcd(a, b - 1) == 1)
+        na = a,
+        nb = b - 1;
+    else if(__gcd(a - 1, b) == 1)
+        na = a - 1,
+        nb = b;
+    else if(__gcd(a + 1, b + 1) == 1)
+        na = a + 1, 
+        nb = b + 1;
+    else if(__gcd(a, b + 1) == 1)
+        na = a,
+        nb = b + 1;
+    else if(__gcd(a + 1, b) == 1)
+        na = a + 1, 
+        nb = b;
 
 
-    // cout << "2\n";
-    // if(a > b)
-    //     cout << (a - 1) << " " << (b) << "\n";
-    // else
-    //     cout << (a) << " " << (b - 1) << "\n";
-    // cout << a << " " << b << "\n";
+
+    cout << "2\n";
+    if(a > b) 
+        cout << (a - 1) << " " << (b) << "\n";
+    else
+        cout << na << " " << nb << "\n";
+    cout << a << " " << b << "\n";
 
 }
 
