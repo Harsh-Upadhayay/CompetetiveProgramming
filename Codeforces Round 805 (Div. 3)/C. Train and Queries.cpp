@@ -87,17 +87,18 @@ void solve(void){
         if(it -> second.size() == 0)
             mp.erase(it);
 
-
         price += mon;
         ans.push_back({reqId, tableId});
     }
 
-    for(auto it : mp) {
-        cout << it.first << ": ";
-        for(auto x : it.second)
-            cout << x << " ";
-        nl;
-    }
+    // for(auto it : mp) {
+    //     cout << it.first << ": ";
+    //     for(auto x : it.second)
+    //         cout << x << " ";
+    //     nl;
+    // }
+
+    cout << price;
 
     nl;
 }
