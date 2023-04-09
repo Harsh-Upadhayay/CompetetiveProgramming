@@ -83,7 +83,7 @@ void solve(void){
         if(!(j % 2))
             v[1][j] = k++;
         else 
-            v[0][j] = k++;
+            v[0][n - j] = k++;
     }
     print(v);
     nl;
