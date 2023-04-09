@@ -80,7 +80,7 @@ void solve(void){
         ll curAns = 0, maxAns = 0;
         rpt(j, 0, m - 1) {
             if((grid[i][j] == 1) && (grid[i][j] == grid[i][j + 1]))
-                curAns++;
+                curAns += (curAns ? 1 : 2);
             else
                 curAns = 0;
             maxAns = max(curAns, maxAns);
