@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-// #define TESTCASE
+#define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -59,51 +59,40 @@ void storePrimes();
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
 
+void fun(ll x, ll y) {
+
+    rpt(i, 1, 100) {
+        rpt(j, 1, 100) 
+            if(__gcd(i, j) == 1 && __gcd(abs(x - i), abs(y - j)) == 1)
+                cout << i << " " << j << "\n";
+    }
+
+}
+
 void init(){
+
+    fun(10, 15);
 
     return;
 }
 
-ll calcMax1(vll &v) {
-    ll curAns = 0, maxAns = 0, f = 0, m = v.size();
-    rpt(j, 0, m - 1) {
-        if(v[j] == 1) {
-            if(v[j] == v[j + 1])
-                curAns += 1;
-            f = 1;
-        }
-        else
-            curAns = 0;
-        maxAns = max(curAns + f, maxAns);
-    }
-
-    return maxAns;
-}
-
 void solve(void){
     
-    ll n, m, q; cin >> n >> m >> q;
-    vector<vector<ll>> grid(n, vector<ll>(m, 0));
+    ll a, b; cin >> a >> b;
 
-    rpt(i, 0, n)
-        rpt(j, 0, m)
-            cin >> grid[i][j];
+    // if(__gcd(a, b) == 1) {
+    //     cout << "1\n" << a << " " << b << "\n";
+    //     return ;
+    // }
 
-    vll dp(n, inf);
 
-    rpt(i, 0, n) 
-        dp[i] = calcMax1(grid[i]);
-    
+    // cout << "2\n";
+    // if(a > b)
+    //     cout << (a - 1) << " " << (b) << "\n";
+    // else
+    //     cout << (a) << " " << (b - 1) << "\n";
+    // cout << a << " " << b << "\n";
 
-    debug(dp);
-
-    while(q--) {
-
-        ll r, c; cin >> r >> c;
-
-    }
-
-    nl;
 }
 
 
