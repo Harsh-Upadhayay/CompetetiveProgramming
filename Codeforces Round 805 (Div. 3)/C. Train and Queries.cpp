@@ -64,46 +64,27 @@ void init(){
     return;
 }
 
-ll fun(ll n, vector<vector<ll>> &dp, ll i, ll k) {
-
-    if(k == 0)
-        return 1;
-
-    if(dp[i][k] != -1)
-        return dp[i][k];
-
-    ll take = 0;
-
-    ll f = 1;
-    while(i * f <= n)
-        take += fun(n, dp, i * f, k - 1),
-        f++;
-
-    return dp[i][k] = take;
-}
-
 void solve(void){
     
     ll n, k; cin >> n >> k;
 
-    vector<vector<ll>> dp(k + 1, vector<ll>(n + 1, 1));
+    vector<ll> curr(n + 1, 1), prev(n + 1, 1);
 
+    for(int j = 1; j <= k; j++, prev = curr) {
+        for(int i = n; i >= 1; i--) { 
 
-        for(int j = 1; j <= k; j++) {
-            for(int i = n; i >= 1; i--) { 
+          ll take = 0;
 
-              ll take = 0;
+            ll f = 1;
+            while(i * f <= n)
+                take += prev[i * f],
+                f++;
 
-                ll f = 1;
-                while(i * f <= n)
-                    take += dp[j - 1][i * f],
-                    f++;
-
-                dp[j][i] = take;
+            curr[i] = take;
         }
     }
 
-    cout << dp[k][1];
+    cout << curr[1];
 
     nl;
 }
