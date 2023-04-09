@@ -70,6 +70,8 @@ void solve(void){
     ll n; cin >> n;
     vll v(n); cin >> v;
 
+    if(n % 2) kill("YES");
+
     rpt(i, 0, n - 1) {
 
         if(v[i] < 0) {
