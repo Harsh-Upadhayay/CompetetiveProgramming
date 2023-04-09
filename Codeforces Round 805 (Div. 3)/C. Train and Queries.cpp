@@ -63,9 +63,7 @@ void fun(ll x, ll y) {
 
     rpt(i, 1, 1000) {
         rpt(j, 1, 1000)  {
-            if(__gcd(i, j) == 1 && __gcd(abs(x - i), abs(y - j)) == 1)
-                cout << i << " " << j ;
-                return;
+            cout << i << " " << j << ": " << __gcd(i, j) << " " << __gcd(i - 1, j - 1) << "\n";
         }
 
     }
@@ -74,13 +72,7 @@ void fun(ll x, ll y) {
 
 void init(){
 
-    rpt(i, 1, 100)
-        rpt(j, 1, 100) {
-            cout << i << " " << j << ": ";
-            fun(i, j);
-            cout << "\n";
-        }
-
+    fun(1, 1);
     return;
 }
 
