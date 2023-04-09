@@ -73,7 +73,7 @@ void fun(ll x, ll y) {
 
 void init(){
 
-    fun(1, 1);
+    // fun(1, 1);
     return;
 }
 
@@ -105,7 +105,6 @@ void solve(void){
     else if(__gcd(a + 1, b) == 1)
         na = a + 1, 
         nb = b;
-
 
 
     cout << "2\n";
