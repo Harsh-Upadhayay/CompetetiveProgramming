@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-// #define TESTCASE
+#define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -64,35 +64,13 @@ void init(){
     return;
 }
 
-ll fun(ll dst, ll mxD, vector<vector<ll>> &dp, ll tmR, ll src) {
-    debug(tmR, src);
-    if(src - ((tmR - 1) * mxD) > dst) 
-        return ninf;
-
-    if(src - ((tmR - 1) * mxD) == dst)
-        return (tmR * (src + dst)) / 2;
-
-    if(tmR == 0)
-        return (src == dst ? 0 : ninf);
-
-    if(dp[tmR][src] != -1)
-        return dp[tmR][src];
-
-    ll mxLen = ninf;
-
-    for(int i = 0; i <= mxD; i++) 
-
-        mxLen = max(mxLen, src + fun(dst, mxD, dp, tmR - 1, src + i));
-
-    return dp[tmR][src] = mxLen;
-}
+#define ask(r, c) cout << "? " << r << " " << c << "\n";
 
 void solve(void){
     
-    ll v1, v2, t, d; cin >> v1 >> v2 >> t >> d;
+    ll n, m; cin >> n >> m;
 
-    vector<vector<ll>> dp(t + 1, vector<ll>(100000, -1));
-    cout << fun(v2, d, dp, t, v1);
+    ask(1, 1);
 
     nl;
 }
