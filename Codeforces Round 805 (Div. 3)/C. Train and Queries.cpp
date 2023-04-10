@@ -106,9 +106,9 @@ void solve(void){
                 take = max(v[1][i] + dp[i][1], v[0][i] + dp[i][2]);
             else {
                 if(j == 0)
-                    take = v[j][i] + dp[i][1];
-                else if(j == 1)
                     take = v[j][i] + dp[i][2];
+                else if(j == 1)
+                    take = v[j][i] + dp[i][1];
             }
 
 
