@@ -106,6 +106,7 @@ void solve(void){
                 take = max(v[1][i] + dp[i][1], v[0][i] + dp[i][2]);
             else
                 take = v[j][i] + dp[i][j ^ 3];
+            cout << (j ^ 3);
 
             dp[i + 1][j + 1] = max(take, nottake);
 
