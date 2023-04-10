@@ -64,6 +64,17 @@ void init(){
     return;
 }
 
+ll dfs(map<string, vector<string>> &adj, set<string> &vis, string &src) {
+
+    vis.insert(src);
+    ll mxDpth = 0;
+
+    for(auto adjN : adj[src])
+        if(!vis.count(adjN))
+            mxDpth = max(mxDpth, 1 + dfs(adj, vis, adjN));
+
+    return mxDpth;
+}
 
 void solve(void){
     
@@ -76,11 +87,12 @@ void solve(void){
         transform(u.begin(), u.end(), u.begin(), ::tolower);
         transform(v.begin(), v.end(), v.begin(), ::tolower);
         adj[v].push_back(u);
-        cout << u << " " << v;
 
     }
-
+    string src = "ploycarp";
+    set<string> vis;
     debug(adj);
+    cout << dfs(adj, vis, src);
     nl;
 }
 
