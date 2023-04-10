@@ -64,17 +64,25 @@ void init(){
     return;
 }
 
-#define ask(r, c) cout << "? " << r << " " << c << "\n"; cout.flush();
+#define ask(r, c, d) cout << "? " << r << " " << c << "\n"; cout.flush(); ll d; cin >> d;
 
 void solve(void){
     
     ll n, m; cin >> n >> m;
 
-    ask(1, 1);
-
-    ll d; cin >> d;
+    ask(1, 1, d);
 
 
+    if(1 + d <= m) {
+
+        ask(1, 1 + d, d2);
+
+    }
+    else {
+
+        ask(1 + d, 1, d2);
+
+    }
 
     nl;
 }
