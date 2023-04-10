@@ -89,7 +89,7 @@ void solve(void){
     debug(v);
 
     vector<vector<ll>> dp(n + 1, vll(2, -1));
-    cout << fun(v, dp, n - 1, 0);
+    cout << max(fun(v, dp, n - 1, 0), fun(v, dp, n - 1, 1));
 
     nl;
 }
