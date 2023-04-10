@@ -71,7 +71,7 @@ ll fun(vll &v, vll &dp, ll i) {
     if(dp[i] != -1)
         return dp[i];
 
-    return dp[i] = (v[i] > v[i - 1] ? 1 + fun(v, dp, i - 1) : 1);
+    return dp[i] = max((v[i] > v[i - 1] ? 1 + fun(v, dp, i - 1) : 1), 1ll);;
 }
 
 void solve(void){
@@ -79,15 +79,6 @@ void solve(void){
     ll n; cin >> n;
     vll v(n); cin >> v;
 
-    ll mx = 1, cur = 1;
-    rpt(i, 0, n - 1) {
-        if(v[i + 1] > v[i])
-            cur += 1;
-        else
-            cur = 1;
-
-        mx = max(mx, cur);
-    }
     vll dp(n, -1);
     cout << fun(v, dp, n - 1);
 
