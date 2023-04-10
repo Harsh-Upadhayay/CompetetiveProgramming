@@ -92,7 +92,7 @@ void solve(void){
     string src = "polycarp";
     set<string> vis;
     debug(adj);
-    cout << dfs(adj, vis, src);
+    cout << dfs(adj, vis, src) + 1;
     nl;
 }
 
