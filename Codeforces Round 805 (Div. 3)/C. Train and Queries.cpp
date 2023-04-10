@@ -76,6 +76,7 @@ void solve(void){
         string u, v; cin >> u >> v >> v;
 
         adj[v].push_back(u);
+        cout << u << " " << v;
 
     }
 
