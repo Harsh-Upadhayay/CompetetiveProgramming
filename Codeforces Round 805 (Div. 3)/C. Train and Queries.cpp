@@ -70,9 +70,9 @@ void solve(void){
     ll n, k; cin >> n >> k;
     vll v(n); cin >> v;
 
-    ll mnSum = inf, curSum = 0, idx = 0;
+    ll mnSum = 0, curSum = 0, idx = 0;
     rpt(i, 0, k)
-        curSum += v[i];
+        mnSum = curSum += v[i];
 
     rpt(i, k, n) {
 
