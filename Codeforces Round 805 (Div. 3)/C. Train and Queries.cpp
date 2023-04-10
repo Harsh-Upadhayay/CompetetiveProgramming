@@ -71,7 +71,7 @@ ll fun(vll &v, vll &dp, ll i) {
     if(dp[i] != -1)
         return dp[i];
 
-    return dp[i] = v[i] > v[i - 1] ? 1 + fun(v, dp, i - 1) : 1;
+    return dp[i] = (v[i] > v[i - 1] ? 1 + fun(v, dp, i - 1) : 1);
 }
 
 void solve(void){
