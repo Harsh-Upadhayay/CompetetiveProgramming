@@ -81,7 +81,7 @@ ll fun(vll &v, ll i) {
 void solve(void){
     
     ll n; cin >> n;
-    vll v(n); cin >> v;debug(v);
+    vll v(n); cin >> v;
 
     cout << fun(v, 2);
     nl;
