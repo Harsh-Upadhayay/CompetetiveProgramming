@@ -67,27 +67,15 @@ void init(){
 
 void solve(void){
     
-    ll n, k; cin >> n >> k;
-    vll v(n); cin >> v;
+    string s; cin >> s;
+    ll n = s.size(); vll v(n, 0);
+    rpt(i, 1, n)
+        v[i] = s[i] == s[i - 1];
 
-    ll mnSum = 0, curSum = 0, idx = 0;
-    rpt(i, 0, k)
-        mnSum = curSum += v[i];
-    
-    rpt(i, k, n) {
+    rpt(i, 1, n)
+        v[i] = v[i - 1] + v[i];
 
-        curSum += v[i],
-        curSum -= v[i - k];
-
-        if(curSum < mnSum)
-            mnSum = curSum,
-            idx = i - k + 1;
-
-        cerr << curSum << " ";
-    }
-
-    cout << idx + 1;
-
+    debug(v);
     nl;
 }
 
