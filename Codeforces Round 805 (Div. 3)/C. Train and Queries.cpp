@@ -66,12 +66,14 @@ void init(){
 
 ll maxD = 3000;
 
-ll fun(map<ll, ll> &dim, ll i, ll j) {
+ll fun(map<ll, ll> &dim,  vector<vector<ll>> &dp, ll i, ll j) {
     debug(i, j);
-    if(i > 30 || j == 0) {
+    if(i > maxD || j == 0) {
         return 0;
     }
 
+    if(dp[i][j] != -1)
+        return dp[i][j];
     ll add = 0, sub = 0;
 
     // pth.push_back(i);
@@ -85,7 +87,7 @@ ll fun(map<ll, ll> &dim, ll i, ll j) {
     // pth.pop_back();
 
 
-    return dim[i] + max({fun(dim, i + j + 1, j + 1), fun(dim, i + j, j), fun(dim, i + j - 1, j - 1)});
+    return dp[i][j] = dim[i] + max({fun(dim, dp, i + j + 1, j + 1), fun(dim, dp, i + j, j), fun(dim, dp, i + j - 1, j - 1)});
 }
 
 void solve(void){
