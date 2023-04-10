@@ -64,6 +64,7 @@ void init(){
     return;
 }
 
+ll dp[101][101];
 
 ll fun(ll dst, ll mxD, ll tmR, ll src) {
 
@@ -75,18 +76,16 @@ ll fun(ll dst, ll mxD, ll tmR, ll src) {
 
     ll mxLen = ninf;
 
-    for(int i = 0; i <= mxD; i++) {
+    for(int i = 0; i <= mxD; i++) 
 
-        ll curLen = src + fun(dst, mxD, tmR - 1, src + i);
-
-        mxLen = max(mxLen, curLen);
-    }
+        mxLen = max(mxLen, src + fun(dst, mxD, tmR - 1, src + i));
 
     return mxLen;
 }
 
 void solve(void){
     
+    // memset(dp, sizeof(dp), -1);
     ll v1, v2, t, d; cin >> v1 >> v2 >> t >> d;
 
     cout << fun(v2, d, t, v1);
