@@ -71,12 +71,8 @@ void solve(void){
     vll curr(3, 0), prev(3, 0);
 
     for(int i = 0; i < n; i++, prev = curr) 
-
-        for(int j = -1; j < 2; j++) {
-
+        for(int j = -1; j < 2; j++) 
             curr[j + 1] = max(j == -1 ? max(v[1][i] + prev[1], v[0][i] + prev[2]) : v[j][i] + prev[1 + !j], prev[j + 1]);
-
-        }
 
     cout << curr[0];
 
