@@ -135,7 +135,7 @@ void solve(void){
         }
 
     }
-    cout << dp[d][d + 1];
+    cout << dp[d][d - 1];
     nl;
 }
 
