@@ -82,6 +82,8 @@ void solve(void){
         if(curSum < mnSum)
             mnSum = curSum,
             idx = i - k + 1;
+
+        cout << curSum << " ";
     }
 
     cout << idx + 1;
