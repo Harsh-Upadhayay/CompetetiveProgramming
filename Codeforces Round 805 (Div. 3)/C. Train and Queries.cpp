@@ -64,23 +64,30 @@ void init(){
     return;
 }
 
-ll fun(vll &v, vll &dp, ll i) {
+ll fun(string &s, string &t, ll i, ll j) {
 
-    if(i == 0)
+    if(j == t.size())
         return 1;
-    if(dp[i] != -1)
-        return dp[i];
 
-    return dp[i] = max((v[i] > v[i - 1] ? 1 + fun(v, dp, i - 1) : 1), 1ll);;
+    if(i == s.size())
+        return 0;
+
+    int take = 0, nottake = 0;
+
+    nottake = fun(s, t, i + 1, j);
+
+    if(s[i] == t[j])
+        take = fun(s, t, i + 1, j + 1);
+
+    return take + nottake;
 }
 
 void solve(void){
     
-    ll n; cin >> n;
-    vll v(n); cin >> v;
+    string s; cin >> s;
+    string t = "QAQ";
 
-    vll dp(n, -1);
-    cout << fun(v, dp, n - 1);
+    cout << fun(s, t, 0, 0);
 
     nl;
 }
