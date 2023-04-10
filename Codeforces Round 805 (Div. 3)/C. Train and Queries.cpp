@@ -69,16 +69,19 @@ ll fun(vector<vector<ll>> &v, vector<vector<ll>> &dp, ll i, ll j) {
     if(i < 0)
         return 0;
 
-    if(dp[i][j] != -1)
-        return dp[i][j];
+    if(dp[i][j + 1] != -1)
+        return dp[i][j + 1];
 
     ll take = 0, nottake = 0;
 
     nottake = fun(v, dp, i - 1, j);
 
-    take = v[j][i] + fun(v, dp, i - 1, !j);
+    if(j == -1)
+        take = max(v[1][i] + fun(v, dp, i - 1, 0), v[0][i] + fun(v, dp, i - 1, 1));
+    else
+        take = v[j][i] + fun(v, dp, i - 1, !j);
 
-    return dp[i][j] = max(take, nottake);
+    return dp[i][j + 1] = max(take, nottake);
 }
 
 void solve(void){
@@ -88,8 +91,8 @@ void solve(void){
 
     debug(v);
 
-    vector<vector<ll>> dp(n + 1, vll(2, -1));
-    cout << max(fun(v, dp, n - 1, 0), fun(v, dp, n - 1, 1));
+    vector<vector<ll>> dp(n + 1, vll(3, -1));
+    cout << fun(v, dp, n - 1, -1);
 
     nl;
 }
