@@ -76,6 +76,13 @@ void solve(void){
         v[i] = v[i - 1] + v[i];
 
     debug(v);
+
+    ll q; cin >> q;
+    while(q--) {
+        ll l, r; cin >> l >> r;
+        cout << v[r - 1] - v[l - 1] << "\n";
+    }
+
     nl;
 }
 
