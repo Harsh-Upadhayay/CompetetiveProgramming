@@ -83,7 +83,7 @@ void solve(void){
             mnSum = curSum,
             idx = i - k + 1;
 
-        cout << curSum << " ";
+        cerr << curSum << " ";
     }
 
     cout << idx + 1;
