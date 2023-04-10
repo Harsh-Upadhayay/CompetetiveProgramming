@@ -64,51 +64,23 @@ void init(){
     return;
 }
 
-#define ask(r, c, d) cout << "? " << r << " " << c << "\n"; cout.flush(); ll d; cin >> d;
-#define give(r, c) {cout << "! " << r << " " << c << "\n"; cout.flush();}
 
 void solve(void){
     
-    ll n, m; cin >> n >> m;
-    ask(1, 1, d);
+    ll n; cin >> n;
+    vll v(n); cin >> v;
 
-    ll r = -1, c = -1;
-
-    // ans in column
-    if(1 + d > m) {
-
-        c = m,
-        r = 1 + d;
-
-        ask(r, c, d1);
-        give(r, c - d1);
-
-    }
-    // ans in row
-    else if(1 + d > n) {
-
-        c = 1 + d,
-        r = n;
-
-        ask(r, c, d1);
-        give(r - d1, c);
-
-    }
-
-    else {
-
-        c = 1 + d,
-        r = 1 + d;
-
-        ask(r, c, d1);
-        ask(r - d1, c, d2);
-
-        if(d2 == 0)
-            give(r - d1, c)
+    ll mx = 1, cur = 1;
+    rpt(i, 0, n - 1) {
+        if(v[i + 1] > v[i])
+            cur += 1;
         else
-            give(r, c - d1)
+            cur = 1;
 
+        mx = max(mx, cur);
     }
+
+    cout << mx;
 
     nl;
 }
