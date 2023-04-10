@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-// #define TESTCASE
+#define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -64,35 +64,29 @@ void init(){
     return;
 }
 
-ll dfs(map<string, vector<string>> &adj, set<string> &vis, string &src) {
-    debug(src);
-    vis.insert(src);
-    ll mxDpth = 0;
+ll fun(vll &v, ll i, ll j) {
 
-    for(auto adjN : adj[src])
-        if(!vis.count(adjN))
-            mxDpth = max(mxDpth, 1 + dfs(adj, vis, adjN));
+    if(i < 0)
+        return 0;
 
-    return mxDpth;
+    ll take = ninf, nottake = ninf;
+
+    nottake = fun(v, i - 1, j);
+
+    if(j)
+        take = fun(v, i - 1, !j) + v[i];
+    else
+        take = fun(v, i -1 , !j) - v[i];
+
+    return max(take, nottake);
 }
 
 void solve(void){
     
-    ll n; cin >> n;
-    map<string, vector<string>> adj;
+    ll n, k; cin >> n >> k;
+    vll v(n); cin >> v;
 
-    rpt(i, 0, n) {
-
-        string u, v; cin >> u >> v >> v;
-        transform(u.begin(), u.end(), u.begin(), ::tolower);
-        transform(v.begin(), v.end(), v.begin(), ::tolower);
-        adj[v].push_back(u);
-
-    }
-    string src = "polycarp";
-    set<string> vis;
-    debug(adj);
-    cout << dfs(adj, vis, src) + 1;
+    cout << fun(v, n - 1, 1);
     nl;
 }
 
