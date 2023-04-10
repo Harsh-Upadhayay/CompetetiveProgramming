@@ -65,27 +65,50 @@ void init(){
 }
 
 #define ask(r, c, d) cout << "? " << r << " " << c << "\n"; cout.flush(); ll d; cin >> d;
+#define give(r, c) {cout << "! " << r << " " << c << "\n"; cout.flush();}
 
 void solve(void){
     
     ll n, m; cin >> n >> m;
-
     ask(1, 1, d);
 
-    ll r = min(1 + d, n), c = min(1 + d, m);
+    ll r = -1, c = -1;
 
-    ask(r, c, d1);
+    // ans in column
+    if(1 + d > m) {
 
-    ll d3 = 0;
-    if(r - d1 <= n) 
-        {cout << "? " << r - d1 << " " << c << "\n"; cout.flush(); cin >> d3;}
-    else
-        {cout << "? " << r << " " << c - d1 << "\n"; cout.flush(); cin >> d3;}
+        c = m,
+        r = 1 + d;
 
-    if(d3 == 0)
-        cout << "! " << (r - d3) << " " << c << endl;
-    else
-        cout << "! " << r << " " << c - d3 << endl;
+        ask(r, c, d1);
+        give(r, c - d1);
+
+    }
+    // ans in row
+    else if(1 + d > n) {
+
+        c = 1 + d,
+        r = n;
+
+        ask(r, c, d1);
+        give(r - d1, c);
+
+    }
+
+    else {
+
+        c = 1 + d,
+        r = 1 + d;
+
+        ask(r, c, d1);
+        ask(r - d1, c, d2);
+
+        if(d2 == 0)
+            give(r - d1, c)
+        else
+            give(r, c - d1)
+
+    }
 
     nl;
 }
