@@ -73,8 +73,8 @@ void solve(void){
     rpt(i, 0, n) {
 
         string u, v; cin >> u >> v >> v;
-        transform(u.begin(), u.end(), u.begin(), ::toupper);
-        transform(v.begin(), v.end(), v.begin(), ::toupper);
+        transform(u.begin(), u.end(), u.begin(), ::tolower);
+        transform(v.begin(), v.end(), v.begin(), ::tolower);
         adj[v].push_back(u);
         cout << u << " " << v;
 
