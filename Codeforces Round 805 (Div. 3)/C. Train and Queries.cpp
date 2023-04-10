@@ -74,18 +74,6 @@ ll fun(map<ll, ll> &dim,  vector<vector<ll>> &dp, ll i, ll j) {
 
     if(dp[i][j] != -1)
         return dp[i][j];
-    ll add = 0, sub = 0;
-
-    // pth.push_back(i);
-    // add = dim[i] + fun(dim, i + j + 1, j + 1, pth);
-    // pth.pop_back();
-
-
-    
-    // pth.push_back(i);
-    // sub = dim[i] + fun(dim, i + j - 1, j - 1, pth);
-    // pth.pop_back();
-
 
     return dp[i][j] = dim[i] + max({fun(dim, dp, i + j + 1, j + 1), fun(dim, dp, i + j, j), fun(dim, dp, i + j - 1, j - 1)});}
 
@@ -116,7 +104,7 @@ void solve(void){
 
     }
     debug(dp);
-    cout << dp[d][d];
+    cout << dp[d][0];
     nl;
 }
 
