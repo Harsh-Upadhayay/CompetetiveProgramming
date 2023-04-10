@@ -85,7 +85,7 @@ ll fun(map<ll, ll> &dim, ll i, ll j) {
     // pth.pop_back();
 
 
-    return max({fun(dim, i + j + 1, j + 1), fun(dim, i + j, j), fun(dim, i + j - 1, j - 1)});
+    return dim[i] + max({fun(dim, i + j + 1, j + 1), fun(dim, i + j, j), fun(dim, i + j - 1, j - 1)});
 }
 
 void solve(void){
