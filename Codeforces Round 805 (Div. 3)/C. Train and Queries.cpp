@@ -64,6 +64,13 @@ void init(){
     return;
 }
 
+ll fun(vll &v, ll i) {
+
+    if(i == 0)
+        return 1;
+
+    return v[i] > v[i - 1] ? 1 + fun(v, i - 1) : 1;
+}
 
 void solve(void){
     
@@ -80,7 +87,7 @@ void solve(void){
         mx = max(mx, cur);
     }
 
-    cout << mx;
+    cout << fun(v, n - 1);
 
     nl;
 }
