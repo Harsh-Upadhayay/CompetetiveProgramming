@@ -64,9 +64,7 @@ void init(){
     return;
 }
 
-ll dp[101][101];
-
-ll fun(ll dst, ll mxD, ll tmR, ll src) {
+ll fun(ll dst, ll mxD, vector<vector<ll>> &dp, ll tmR, ll src) {
 
     if(src - ((tmR - 1) * mxD) > dst) 
         return ninf;
@@ -74,21 +72,24 @@ ll fun(ll dst, ll mxD, ll tmR, ll src) {
     if(src - ((tmR - 1) * mxD) == dst)
         return (tmR * (src + dst)) / 2;
 
+    if(dp[tmR][src] != -1)
+        return dp[tmR][src];
+
     ll mxLen = ninf;
 
     for(int i = 0; i <= mxD; i++) 
 
-        mxLen = max(mxLen, src + fun(dst, mxD, tmR - 1, src + i));
+        mxLen = max(mxLen, src + fun(dst, mxD, dp, tmR - 1, src + i));
 
-    return mxLen;
+    return dp[tmR][src] = mxLen;
 }
 
 void solve(void){
     
-    // memset(dp, sizeof(dp), -1);
     ll v1, v2, t, d; cin >> v1 >> v2 >> t >> d;
 
-    cout << fun(v2, d, t, v1);
+    vector<vector<ll>> dp(t + 1, vector<ll>(v1 + t * d + 1, -1));
+    cout << fun(v2, d, dp, t, v1);
 
     nl;
 }
