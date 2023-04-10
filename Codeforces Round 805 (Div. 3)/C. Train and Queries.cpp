@@ -66,25 +66,26 @@ void init(){
 
 ll maxD = 30;
 
-ll fun(map<ll, ll> &dim, ll i, ll j, vll &pth) {
+ll fun(map<ll, ll> &dim, ll i, ll j) {
     debug(i, j);
     if(i > maxD || j == 0) {
-        print(pth);nl;
         return 0;
     }
 
     ll add = 0, sub = 0;
 
-    pth.push_back(i);
-    add = dim[i] + fun(dim, i + j + 1, j + 1, pth);
-    pth.pop_back();
-    if(j - 1) {
-        pth.push_back(i);
-        sub = dim[i] + fun(dim, i + j - 1, j - 1, pth);
-        pth.pop_back();
-    }
+    // pth.push_back(i);
+    // add = dim[i] + fun(dim, i + j + 1, j + 1, pth);
+    // pth.pop_back();
 
-    return max(add, sub);
+
+    
+    // pth.push_back(i);
+    // sub = dim[i] + fun(dim, i + j - 1, j - 1, pth);
+    // pth.pop_back();
+
+
+    return max({fun(dim, i + j + 1, j + 1), fun(dim, i + j, j), fun(dim, i + j - 1, j - 1)});
 }
 
 void solve(void){
@@ -96,7 +97,7 @@ void solve(void){
     for(ll x : v) dim[x]++;
 
     vll x;
-    cout << fun(dim, d, d, x);
+    cout << fun(dim, d, d);
     nl;
 }
 
