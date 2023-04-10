@@ -76,7 +76,12 @@ void solve(void){
 
     ask(r, c, d1);
 
-    ask(r - d1, c, d3);
+    ll d3 = 0;
+    if(r - d1 <= n) 
+        {cout << "? " << r - d1 << " " << c << "\n"; cout.flush(); cin >> d3;}
+    else
+        {cout << "? " << r << " " << c - d1 << "\n"; cout.flush(); cin >> d3;}
+
     if(d3 == 0)
         cout << "! " << (r - d3) << " " << c << endl;
     else
