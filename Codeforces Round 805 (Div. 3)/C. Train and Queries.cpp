@@ -72,7 +72,7 @@ ll fun(vll &v, ll i) {
     ll ans = ninf;
 
     for(int it = i; it < v.size(); it += i)
-        if(v[it] > v[i])
+        if(v[it - 1] > v[i - 1])
             ans = max(ans, 1 + fun(v, it));
 
     return ans;
