@@ -64,35 +64,29 @@ void init(){
     return;
 }
 
-ll fun(vll &v, vector<vector<ll>> &dp, ll i, ll j) {
+ll fun(vector<vector<ll>> &v, ll i, ll j) {
 
     if(i < 0)
         return 0;
-    if(dp[i][j] != -1)
-        return dp[i][j];
 
-    ll take = ninf, nottake = ninf;
+    ll take = 0, nottake = 0;
 
-    nottake = fun(v, dp, i - 1, j);
+    nottake = fun(v, i - 1, j);
 
-    if(j)
-        take = fun(v, dp, i - 1, !j) + v[i];
-    else
-        take = fun(v, dp, i -1 , !j) - v[i];
+    take = v[j][i] + fun(v, i - 1, !j);
 
-    return dp[i][j] = max(take, nottake);
+    return max(take, nottake);
 }
 
 void solve(void){
     
-    ll n, k; cin >> n >> k;
-    vll v(n); cin >> v;
+    ll n; cin >> n;
+    vector<vector<ll>> v(2, vll(n)); cin >> v[0] >> v[1];
 
-    vector<vector<ll>> dp(n + 1, vector<ll> (2, -1));
-    cout << fun(v, dp, n - 1, 1);
+    cout << fun(v, n - 1, 0);
+
     nl;
 }
-        
 
 
 /*_________________________________________________________________________________________________________________________________________*/
