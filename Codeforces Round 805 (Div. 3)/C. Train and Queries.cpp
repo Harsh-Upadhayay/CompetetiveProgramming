@@ -79,12 +79,7 @@ void solve(void){
 
     }
 
-    for(auto x : adj) {
-        cout << x.first << ": ";
-        for(auto y : x.second)
-            cout << y << " ";
-        cerr << "\n";
-    }
+    debug(adj);
     nl;
 }
 
