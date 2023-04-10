@@ -64,7 +64,7 @@ void init(){
     return;
 }
 
-ll maxD = 3000;
+ll maxD = 300;
 
 ll fun(map<ll, ll> &dim,  vector<vector<ll>> &dp, ll i, ll j) {
     
@@ -99,9 +99,8 @@ void solve(void){
 
     vector<vector<ll>> dp(maxD + 4, vll (maxD + 1, 0));
     
-    for(int i = maxD; i >= d; i--) {
-
-        for(int j = 1; j <= maxD; j++) {
+    for(int j = 1; j <= maxD; j++) {
+        for(int i = maxD; i >= d; i--) {
 
                 ll r = 0, m = 0, l = 0;
                 if(i + j + 1 <= maxD)
@@ -116,7 +115,7 @@ void solve(void){
         }
 
     }
-
+    debug(dp);
     cout << dp[d][d];
     nl;
 }
