@@ -73,7 +73,7 @@ void solve(void){
     ll mnSum = 0, curSum = 0, idx = 0;
     rpt(i, 0, k)
         mnSum = curSum += v[i];
-
+    debug(mnSum);
     rpt(i, k, n) {
 
         curSum += v[i],
