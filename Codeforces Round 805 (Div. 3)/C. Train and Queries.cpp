@@ -122,7 +122,6 @@ void solve(void){
         }
 
     }
-    debug(dp);
     cout << dp[d][d];
     nl;
 }
