@@ -67,7 +67,7 @@ void init(){
 ll fun(vll &v, ll i) {
     debug(i);
     if(i > v.size())
-        return 0;
+        return 1;
 
     ll ans = 0;
 
