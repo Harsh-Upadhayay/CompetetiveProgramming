@@ -69,7 +69,7 @@ ll fun(vll &v, ll i) {
     if(i > v.size())
         return 0;
 
-    ll ans = ninf;
+    ll ans = 0;
 
     for(int it = 2 * i; it <= v.size(); it += i)
         if(v[it - 1] > v[i - 1])
