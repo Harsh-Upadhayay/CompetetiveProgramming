@@ -86,6 +86,8 @@ void solve(void){
     ll n; cin >> n;
     vector<vector<ll>> v(2, vll(n)); cin >> v[0] >> v[1];
 
+    debug(v);
+
     vector<vector<ll>> dp(n + 1, vll(2, -1));
     cout << fun(v, dp, n - 1, 0);
 
