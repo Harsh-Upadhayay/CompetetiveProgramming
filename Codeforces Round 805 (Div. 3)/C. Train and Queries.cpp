@@ -74,7 +74,8 @@ ll fun(map<ll, ll> &dim, ll i, ll j) {
     ll add = 0, sub = 0;
 
     add = dim[i] + fun(dim, i + j + 1, j + 1);
-    sub = dim[i] + fun(dim, i + j - 1, j - 1);
+    if(j - 1)
+        sub = dim[i] + fun(dim, i + j - 1, j - 1);
 
     return max(add, sub);
 }
