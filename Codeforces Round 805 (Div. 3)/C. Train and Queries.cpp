@@ -72,17 +72,15 @@ void solve(void){
 
     ask(1, 1, d);
 
+    ll r = min(1 + d, n), c = min(1 + d, m);
 
-    if(1 + d <= m) {
+    ask(r, c, d1);
 
-        ask(1, 1 + d, d2);
-
-    }
-    else {
-
-        ask(1 + d, 1, d2);
-
-    }
+    ask(r - d1, c, d3);
+    if(d3 == 0)
+        cout << "! " << (r - d3) << " " << c << endl;
+    else
+        cout << "! " << r << " " << c - d3 << endl;
 
     nl;
 }
