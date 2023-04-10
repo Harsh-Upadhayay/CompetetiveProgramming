@@ -83,7 +83,7 @@ void solve(void){
     ll n; cin >> n;
     vll v(n); cin >> v;
 
-    cout << fun(v, 1);
+    cout << fun(v, 2);
     nl;
 }
 
