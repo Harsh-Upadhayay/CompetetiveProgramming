@@ -68,25 +68,16 @@ void solve(void){
     
     ll n; cin >> n;
     vector<vector<ll>> v(2, vll(n)); cin >> v[0] >> v[1];
-
-    vector<vector<ll>> dp(n + 1, vll(3, 0));
     vll curr(3, 0), prev(3, 0);
 
-    for(int i = 0; i < n; i++, prev = curr) {
+    for(int i = 0; i < n; i++, prev = curr) 
 
         for(int j = -1; j < 2; j++) {
 
-            ll take = 0;
-            if(j == -1)
-                take = max(v[1][i] + prev[1], v[0][i] + prev[2]);
-            else 
-                take = v[j][i] + prev[1 + !j];
-
-            curr[j + 1] = max(take, dp[i][j + 1]);
+            curr[j + 1] = max(j == -1 ? max(v[1][i] + prev[1], v[0][i] + prev[2]) : v[j][i] + prev[1 + !j], prev[j + 1]);
 
         }
 
-    }
     cout << curr[0];
 
     nl;
