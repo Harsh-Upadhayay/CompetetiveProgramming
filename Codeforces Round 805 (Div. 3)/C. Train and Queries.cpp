@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-// #define TESTCASE
+#define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -64,18 +64,26 @@ void init(){
     return;
 }
 
+ll fun(vll &v, ll i) {
+
+    if(i > v.size())
+        return 0;
+
+    ll ans = ninf;
+
+    for(int it = i; it < v.size(); it += i)
+        if(v[it] > v[i])
+            ans = max(ans, 1 + fun(v, it));
+
+    return ans;
+}
+
 void solve(void){
     
     ll n; cin >> n;
-    vector<vector<ll>> v(2, vll(n)); cin >> v[0] >> v[1];
-    vll curr(3, 0), prev(3, 0);
+    vll v(n); cin >> v;
 
-    for(int i = 0; i < n; i++, prev = curr) 
-        for(int j = -1; j < 2; j++) 
-            curr[j + 1] = max(j == -1 ? max(v[1][i] + prev[1], v[0][i] + prev[2]) : v[j][i] + prev[1 + !j], prev[j + 1]);
-
-    cout << curr[0];
-
+    cout << fun(v, 1);
     nl;
 }
 
