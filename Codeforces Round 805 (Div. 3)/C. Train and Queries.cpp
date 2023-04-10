@@ -64,7 +64,7 @@ void init(){
     return;
 }
 
-ll maxD = 27;
+ll maxD = 78;
 
 ll fun(map<ll, ll> &dim, ll i, ll j) {
     debug(i, j);
