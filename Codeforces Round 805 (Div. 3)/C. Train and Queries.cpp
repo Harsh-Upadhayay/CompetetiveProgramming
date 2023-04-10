@@ -97,7 +97,7 @@ void solve(void){
     map<ll, ll> dim;
     for(ll x : v) dim[x]++;
 
-    vector<vector<ll>> dp(maxD + 1, vll (maxD + 4, 0));
+    vector<vector<ll>> dp(maxD + 4, vll (maxD + 4, 0));
     
     // for(int i = maxD; i >= d; i--) {
 
@@ -121,10 +121,13 @@ void solve(void){
         for(int j = maxD; j >= d; j--) {
 
             ll r = 0, m = 0, l = 0;
+
             if(i + j + 1 <= maxD)
                 r = dp[i + 1][i + j + 1];
+            
             if(i + j <= maxD)
                 m = dp[i][i + j];
+            
             if(i != 1 && i + j - 1 <= maxD)
                 l = dp[i - 1][i + j - 1];
 
