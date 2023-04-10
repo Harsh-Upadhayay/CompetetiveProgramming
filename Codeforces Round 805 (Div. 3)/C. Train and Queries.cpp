@@ -77,18 +77,14 @@ void solve(void){
         for(int j = -1; j < 2; j++) {
 
 
-            ll take = 0, nottake = 0;
-
-            nottake = dp[i][j + 1];
-
+            ll take = 0;
             if(j == -1)
                 take = max(v[1][i] + dp[i][1], v[0][i] + dp[i][2]);
-            else {
+            else 
                 take = v[j][i] + dp[i][1 + !j];
-            }
 
 
-            dp[i + 1][j + 1] = max(take, nottake);
+            dp[i + 1][j + 1] = max(take, dp[i][j + 1]);
 
         }
 
