@@ -65,7 +65,7 @@ void init(){
 }
 
 ll dfs(map<string, vector<string>> &adj, set<string> &vis, string &src) {
-
+    debug(src);
     vis.insert(src);
     ll mxDpth = 0;
 
