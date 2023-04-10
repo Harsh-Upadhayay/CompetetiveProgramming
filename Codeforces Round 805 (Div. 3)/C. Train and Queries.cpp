@@ -128,7 +128,7 @@ void solve(void){
             if(i != 1 && i + j - 1 <= maxD)
                 l = dp[i - 1][i + j - 1];
 
-            dp[j][i] = dim[j] + max({r, m, l});
+            dp[i][j] = dim[j] + max({r, m, l});
         }
 
     }
