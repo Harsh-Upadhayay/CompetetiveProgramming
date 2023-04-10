@@ -87,8 +87,7 @@ ll fun(map<ll, ll> &dim,  vector<vector<ll>> &dp, ll i, ll j) {
     // pth.pop_back();
 
 
-    return dp[i][j] = dim[i] + max({fun(dim, dp, i + j + 1, j + 1), fun(dim, dp, i + j, j), fun(dim, dp, i + j - 1, j - 1)});
-}
+    return dp[i][j] = dim[i] + max({fun(dim, dp, i + j + 1, j + 1), fun(dim, dp, i + j, j), fun(dim, dp, i + j - 1, j - 1)});}
 
 void solve(void){
     
@@ -98,8 +97,27 @@ void solve(void){
     map<ll, ll> dim;
     for(ll x : v) dim[x]++;
 
-    vector<vector<ll>> dp(maxD + 1, vll (maxD + 1, -1));
-    cout << fun(dim, dp, d, d);
+    vector<vector<ll>> dp(maxD + 1, vll (maxD + 1, 0));
+    
+    for(int i = maxD; i >= d; i--) {
+
+        for(int j = 1; j <= maxD; j++) {
+
+                ll r = 0, m = 0, l = 0;
+                if(i + j + 1 <= maxD)
+                    r = dp[i + j + 1][j + 1];
+                if(i + j <= maxD)
+                    m = dp[i + j][j];
+                if(j != 1 && i + j - 1 <= maxD)
+                    l = dp[i + j - 1][j - 1];
+
+                dp[i][j] = dim[i] + max({r, m, l});
+
+        }
+
+    }
+
+    cout << dp[d][d];
     nl;
 }
 
