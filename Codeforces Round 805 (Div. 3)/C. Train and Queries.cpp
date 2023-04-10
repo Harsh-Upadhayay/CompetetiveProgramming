@@ -86,42 +86,42 @@ void solve(void){
     map<ll, ll> dim;
     for(ll x : v) dim[x]++;
 
-    vector<vector<ll>> dp(maxD + 4, vll (maxD + 1, 0));
+    vector<vector<ll>> dp(maxD + 4, vll (maxD + 4, 0));
     
-    // for(int j = 1; j <= maxD; j++) {
-    //     for(int i = maxD; i >= d; i--) {
+    for(int i = maxD; i >= d; i--) {
+        for(int j = 1; j <= maxD; j++) {
 
-    //             ll r = 0, m = 0, l = 0;
-    //             if(i + j + 1 <= maxD)
-    //                 r = dp[j + 1][i + j + 1];
-    //             if(i + j <= maxD)
-    //                 m = dp[j][i + j];
-    //             if(j != 1 && i + j - 1 <= maxD)
-    //                 l = dp[j - 1][i + j - 1];
+                ll r = 0, m = 0, l = 0;
+                if(i + j + 1 <= maxD)
+                    r = dp[i + j + 1][j + 1];
+                if(i + j <= maxD)
+                    m = dp[i + j][j];
+                if(j != 1 && i + j - 1 <= maxD)
+                    l = dp[i + j - 1][j - 1];
 
-    //             dp[j][i] = dim[i] + max({r, m, l});
+                dp[i][j - 1] = dim[i] + max({r, m, l});
 
-    //     }
-
-    // }
-    // debug(dp);
-
-    for(int i = 1; i <= maxD; i++) {
-
-        for(int j = maxD; j >= d; j--) {
-
-            ll r = 0, m = 0, l = 0;
-            if(i + j + 1 <= maxD)
-                r = dp[i + 1][i + j + 1];
-            if(i + j <= maxD)
-                m = dp[i][i + j];
-            if(i != 1 && i + j - 1 <= maxD)
-                l = dp[i - 1][i + j - 1];
-
-            dp[i][j] = dim[i] + max({r, m, l});
         }
 
     }
+    // debug(dp);
+
+    // for(int i = 1; i <= maxD; i++) {
+
+    //     for(int j = maxD; j >= d; j--) {
+
+    //         ll r = 0, m = 0, l = 0;
+    //         if(i + j + 1 <= maxD)
+    //             r = dp[i + 1][i + j + 1];
+    //         if(i + j <= maxD)
+    //             m = dp[i][i + j];
+    //         if(i != 1 && i + j - 1 <= maxD)
+    //             l = dp[i - 1][i + j - 1];
+
+    //         dp[i][j] = dim[j] + max({r, m, l});
+    //     }
+
+    // }
     cout << dp[d][d];
     nl;
 }
