@@ -65,12 +65,15 @@ void init(){
 }
 
 ll fun(ll dst, ll mxD, vector<vector<ll>> &dp, ll tmR, ll src) {
-
+    debug(tmR, src);
     if(src - ((tmR - 1) * mxD) > dst) 
         return ninf;
 
     if(src - ((tmR - 1) * mxD) == dst)
         return (tmR * (src + dst)) / 2;
+
+    if(tmR == 0)
+        return (src == dst ? 0 : ninf);
 
     if(dp[tmR][src] != -1)
         return dp[tmR][src];
@@ -88,7 +91,7 @@ void solve(void){
     
     ll v1, v2, t, d; cin >> v1 >> v2 >> t >> d;
 
-    vector<vector<ll>> dp(t + 1, vector<ll>(v1 + t * d + 1, -1));
+    vector<vector<ll>> dp(t + 1, vector<ll>(100000, -1));
     cout << fun(v2, d, dp, t, v1);
 
     nl;
