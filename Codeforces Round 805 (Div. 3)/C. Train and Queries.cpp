@@ -89,7 +89,7 @@ void solve(void){
         adj[v].push_back(u);
 
     }
-    string src = "ploycarp";
+    string src = "polycarp";
     set<string> vis;
     debug(adj);
     cout << dfs(adj, vis, src);
