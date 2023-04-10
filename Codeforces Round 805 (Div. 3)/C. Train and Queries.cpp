@@ -14,6 +14,7 @@ using namespace std;
 #define ll                      long long int
 #define ull                     unsigned ll
 #define ld                      long double
+#define p(x, y)                 pair<x, y> 
 #define pb                      push_back
 #define fi                      first
 #define se                      second
@@ -31,12 +32,12 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-// #define TESTCASE
+#define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
 template <typename T>
-istream& operator>>(istream &is, multiset<T> &v) {
+istream& operator>>(istream &is, vector<T> &v) {
     rpt(i, 0, v.size()) is >> v[i];
     return is;
 }
@@ -64,44 +65,31 @@ void init(){
 }
 
 
-void solve(void){
-    
-    ll n; cin >> n;    vector<pair<ll, pair<ll, ll>>> requests(n);    rpt(i, 0, n) {cin >> requests[i].first >> requests[i].second.first; requests[i].second.second = i + 1;}
-    ll k, price = 0; cin >> k;    map<ll, vll> mp ;    rpt(i, 0, k) {ll x; cin >> x; mp[x].push_back(i + 1);}
-    sort(all(requests), [](pair<ll, pair<ll, ll>> &a, pair<ll, pair<ll, ll>> &b) {return a.second.first > b.second.first;});
-    
-    vector<pair<ll, ll>> ans;
-    for(auto req : requests) {
+ll fun(ll dst, ll mxD, ll tmR, ll src) {
 
-        ll sz = req.first,
-            mon = req.second.first,
-            reqId = req.second.second;
+    if(src - ((tmR - 1) * mxD) > dst) 
+        return ninf;
 
-        auto it = mp.lower_bound(sz);
+    if(src - ((tmR - 1) * mxD) == dst)
+        return (tmR * (src + dst)) / 2;
 
-        if(it == mp.end())
-            continue;
+    ll mxLen = ninf;
 
-        ll tableId = it->second.back();
-        it->second.pop_back();
-        if(it -> second.size() == 0)
-            mp.erase(it);
+    for(int i = 0; i <= mxD; i++) {
 
-        price += mon;
-        ans.push_back({reqId, tableId});
+        ll curLen = src + fun(dst, mxD, tmR - 1, src + i);
+
+        mxLen = max(mxLen, curLen);
     }
 
-    // for(auto it : mp) {
-    //     cout << it.first << ": ";
-    //     for(auto x : it.second)
-    //         cout << x << " ";
-    //     nl;
-    // }
+    return mxLen;
+}
 
-    cout << ans.size() << " " << price << "\n";
-    for(auto x : ans)
-        cout << x.first << " " << x.second << "\n";
+void solve(void){
     
+    ll v1, v2, t, d; cin >> v1 >> v2 >> t >> d;
+
+    cout << fun(v2, d, t, v1);
 
     nl;
 }
