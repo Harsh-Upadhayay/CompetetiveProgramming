@@ -68,7 +68,7 @@ void init(){
 void solve(void){
     
     ll n; cin >> n;
-
+    debug(n);
     map<string, vector<string>> adj;
 
     rpt(i, 0, n) {
