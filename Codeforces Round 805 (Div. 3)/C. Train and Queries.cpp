@@ -110,15 +110,15 @@ void solve(void){
 
         for(int j = maxD; j >= d; j--) {
 
-                ll r = 0, m = 0, l = 0;
-                if(i + j + 1 <= maxD)
-                    r = dp[i + 1][i + j + 1];
-                if(i + j <= maxD)
-                    m = dp[i][i + j];
-                if(j != 1 && i + j - 1 <= maxD)
-                    l = dp[i - 1][i + j - 1];
+            ll r = 0, m = 0, l = 0;
+            if(i + j + 1 <= maxD)
+                r = dp[i + 1][i + j + 1];
+            if(i + j <= maxD)
+                m = dp[i][i + j];
+            if(i != 1 && i + j - 1 <= maxD)
+                l = dp[i - 1][i + j - 1];
 
-                dp[i][j] = dim[j] + max({r, m, l});
+            dp[i][j] = dim[j] + max({r, m, l});
         }
 
     }
