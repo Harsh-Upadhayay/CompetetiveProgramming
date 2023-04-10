@@ -64,12 +64,14 @@ void init(){
     return;
 }
 
-ll fun(vll &v, ll i) {
+ll fun(vll &v, vll &dp, ll i) {
 
     if(i == 0)
         return 1;
+    if(dp[i] != -1)
+        return dp[i];
 
-    return v[i] > v[i - 1] ? 1 + fun(v, i - 1) : 1;
+    return dp[i] = v[i] > v[i - 1] ? 1 + fun(v, dp, i - 1) : 1;
 }
 
 void solve(void){
@@ -86,8 +88,8 @@ void solve(void){
 
         mx = max(mx, cur);
     }
-
-    cout << fun(v, n - 1);
+    vll dp(n, -1);
+    cout << fun(v, dp, n - 1);
 
     nl;
 }
