@@ -68,8 +68,20 @@ void init(){
 void solve(void){
     
     ll n; cin >> n;
-    rpt(i, 0, n)
-        cout << i << ",";
+    vll v(n); cin >> v;
+
+    ll cr = 0, ctr = 0;
+    double sr;
+    for(int i = 0; i < n; i++)  {
+        cr += v[i];
+
+        sr = (cr * 100) / (i + 1);
+
+        if(sr == 100)
+            ctr++;
+    }
+
+    cout << ctr;
 
     nl;
 }
