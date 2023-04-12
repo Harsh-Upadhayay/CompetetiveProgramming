@@ -65,6 +65,7 @@ void init(){
 }
 
 
+
 void solve(void){
     
     ll n; cin >> n;
