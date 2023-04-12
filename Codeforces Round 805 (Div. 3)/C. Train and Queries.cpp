@@ -64,78 +64,55 @@ void init(){
     return;
 }
 
-ll maxD = 300;
+bool fun(vll &v, ll m, vector<vector<vector<ll>>> &dp, ll i, ll j, ll k) {
 
-ll fun(map<ll, ll> &dim,  vector<vector<ll>> &dp, ll i, ll j) {
-    
-    if(i > maxD || j == 0) {
-        return 0;
-    }
+    if(i < 0)
+        return k && !(j % m);
 
-    if(dp[i][j] != -1)
-        return dp[i][j];
-    ll add = 0, sub = 0;
+    if(dp[i][j][k] != -1)
+        return dp[i][j][k];
 
-    // pth.push_back(i);
-    // add = dim[i] + fun(dim, i + j + 1, j + 1, pth);
-    // pth.pop_back();
+    if(k & !(j % m))
+        return 1;
 
+    ll take = 0, nottake = 0;
 
-    
-    // pth.push_back(i);
-    // sub = dim[i] + fun(dim, i + j - 1, j - 1, pth);
-    // pth.pop_back();
+    take = fun(v, m, dp, i - 1, (j + v[i]) % m, 1);
+    nottake = fun(v, m, dp, i - 1, j, k);
 
-
-    return dp[i][j] = dim[i] + max({fun(dim, dp, i + j + 1, j + 1), fun(dim, dp, i + j, j), fun(dim, dp, i + j - 1, j - 1)});}
+    return dp[i][j][k] = take | nottake;
+}
 
 void solve(void){
     
-    ll n, d; cin >> n >> d;
-
-    vll v(n); cin >> v;
-    map<ll, ll> dim;
-    for(ll x : v) dim[x]++;
-
-    vector<vector<ll>> dp(maxD + 4, vll (maxD + 4, 0));
+    ll n, m; cin >> n >> m;
     
-    // for(int i = maxD; i >= d; i--) {
+    vector<vector<ll>> prv(m, vector<ll>(2, 0)), cur(prv);
 
-    //     for(int j = 1; j <= maxD; j++) {
+    rpt(j, 0, m) 
+        prv[j][1] = !(j % m);
 
-    //             ll r = 0, m = 0, l = 0;
-    //             if(i + j + 1 <= maxD)
-    //                 r = dp[i + j + 1][j + 1];
-    //             if(i + j <= maxD)
-    //                 m = dp[i + j][j];
-    //             if(j != 1 && i + j - 1 <= maxD)
-    //                 l = dp[i + j - 1][j - 1];
+    for(int i = 0; i < n; i++, prv = cur) {
+        for(int j = 0; j < m; j++) {
+            for(int k = 1; k >= 0; k--) {
 
-    //             dp[i][j] = dim[i] + max({r, m, l});
+                ll take = 0, nottake = 0, z; cin >> z;
 
-    //     }
+                take = prv[(j + z) % m][1];
+                nottake = prv[j][k];
 
-    // }
-    for(int i = 1; i <= maxD; i++) {
+                cur[j][k] = take | nottake;               
 
-        for(int j = maxD; j >= d; j--) {
-
-            ll r = 0, m = 0, l = 0;
-
-            if(i + j + 1 <= maxD)
-                r = dp[i + 1][i + j + 1];
-            
-            if(i + j <= maxD)
-                m = dp[i][i + j];
-            
-            if(i != 1 && i + j - 1 <= maxD)
-                l = dp[i - 1][i + j - 1];
-
-            dp[i][j] = dim[j] + max({r, m, l});
+            }
         }
-
     }
-    cout << dp[d][d ];
+    bool ans = prv[0][0];
+
+    if(ans)
+        cout << "YES";
+    else
+        cout <<"NO";
+
     nl;
 }
 
