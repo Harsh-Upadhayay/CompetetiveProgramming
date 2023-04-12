@@ -97,7 +97,7 @@ void solve(void){
             for(int k = 1; k >= 0; k--) {
 
                 ll take = 0, nottake = 0, z; cin >> z;
-
+                debug(z);
                 take = prv[(j + z) % m][1];
                 nottake = prv[j][k];
 
