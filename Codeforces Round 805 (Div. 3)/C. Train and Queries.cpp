@@ -77,6 +77,10 @@ void solve(void){
     ll idx = ceil(n / 2.0);
     debug(n, idx);
 
+    idx -= 2;
+
+    cout << (n - 1 + idx);
+
     nl;
 }
 
