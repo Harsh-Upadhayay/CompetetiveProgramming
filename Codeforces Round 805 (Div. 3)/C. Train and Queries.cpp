@@ -86,7 +86,8 @@ bool fun(vll &v, ll m, vector<vector<vector<ll>>> &dp, ll i, ll j, ll k) {
 void solve(void){
     
     ll n, m; cin >> n >> m;
-    
+    if(n > m)
+        kill("YES")
     vector<vector<ll>> prv(m, vector<ll>(2, 0)), cur(prv);
 
     rpt(j, 0, m) 
@@ -98,7 +99,6 @@ void solve(void){
             for(int k = 1; k >= 0; k--) {
 
                 ll take = 0, nottake = 0;
-                debug(z);
                 take = prv[(j + z) % m][1];
                 nottake = prv[j][k];
 
