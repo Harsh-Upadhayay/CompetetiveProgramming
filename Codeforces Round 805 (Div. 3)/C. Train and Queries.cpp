@@ -67,22 +67,16 @@ void init(){
 
 void solve(void){
     
-    string s; cin >> s;
+    ll n; cin >> n;
 
-    string sn = "";
+    if(n < 3)
+        kill("0");
+    if(n < 5)
+        kill(n - 1);
 
-    if(s.size() == 1)
-        sn += s[0];
-    else
-        sn += (s[s.size() - 2]),
-        sn += (s[s.size() - 1]);
+    ll idx = ceil(n / 2.0);
+    debug(idx);
 
-
-    ll n = stoi(sn);
-    debug(n);
-
-    cout << (n % 20);
-    
     nl;
 }
 
