@@ -79,6 +79,8 @@ void solve(void){
 
     ll n = stoi(sn);
     debug(n);
+
+    cout << (n % 20);
     
     nl;
 }
