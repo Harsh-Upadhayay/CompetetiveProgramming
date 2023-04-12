@@ -75,7 +75,7 @@ void solve(void){
         kill(n - 1);
 
     ll idx = ceil(n / 2.0);
-    debug(idx);
+    debug(n, idx);
 
     nl;
 }
