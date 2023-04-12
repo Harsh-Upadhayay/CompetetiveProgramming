@@ -32,7 +32,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-// #define TESTCASE
+#define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
@@ -64,55 +64,12 @@ void init(){
     return;
 }
 
-bool fun(vll &v, ll m, vector<vector<vector<ll>>> &dp, ll i, ll j, ll k) {
-
-    if(i < 0)
-        return k && !(j % m);
-
-    if(dp[i][j][k] != -1)
-        return dp[i][j][k];
-
-    if(k & !(j % m))
-        return 1;
-
-    ll take = 0, nottake = 0;
-
-    take = fun(v, m, dp, i - 1, (j + v[i]) % m, 1);
-    nottake = fun(v, m, dp, i - 1, j, k);
-
-    return dp[i][j][k] = take | nottake;
-}
 
 void solve(void){
     
-    ll n, m; cin >> n >> m;
-    if(n > m)
-        kill("YES")
-    vector<vector<ll>> prv(m, vector<ll>(2, 0)), cur(prv);
-
-    rpt(j, 0, m) 
-        prv[j][1] = !(j % m);
-
-    for(int i = 0; i < n; i++, prv = cur) {
-        ll z; cin >> z;
-        for(int j = 0; j < m; j++) {
-            for(int k = 1; k >= 0; k--) {
-
-                ll take = 0, nottake = 0;
-                take = prv[(j + z) % m][1];
-                nottake = prv[j][k];
-
-                cur[j][k] = take | nottake;               
-
-            }
-        }
-    }
-    bool ans = prv[0][0];
-
-    if(ans)
-        cout << "YES";
-    else
-        cout <<"NO";
+    ll n; cin >> n;
+    rpt(i, 0, n)
+        cout << i << ",";
 
     nl;
 }
