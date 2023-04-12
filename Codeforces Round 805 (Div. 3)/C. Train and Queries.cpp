@@ -78,6 +78,7 @@ void solve(void){
         sn += (s[s.size() - 1]);
 
     ll n = stoi(sn);
+    debug(n);
     
     nl;
 }
