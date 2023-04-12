@@ -93,10 +93,11 @@ void solve(void){
         prv[j][1] = !(j % m);
 
     for(int i = 0; i < n; i++, prv = cur) {
+        ll z; cin >> z;
         for(int j = 0; j < m; j++) {
             for(int k = 1; k >= 0; k--) {
 
-                ll take = 0, nottake = 0, z; cin >> z;
+                ll take = 0, nottake = 0;
                 debug(z);
                 take = prv[(j + z) % m][1];
                 nottake = prv[j][k];
