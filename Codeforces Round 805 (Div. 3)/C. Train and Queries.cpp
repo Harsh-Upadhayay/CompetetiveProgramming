@@ -74,7 +74,8 @@ void solve(void){
     if(s.size() == 1)
         sn += s[0];
     else
-        sn += (s[s.size() - 2] + s[s.size() - 1]);
+        sn += (s[s.size() - 2]),
+        sn += (s[s.size() - 1]);
 
     debug(sn);
     
