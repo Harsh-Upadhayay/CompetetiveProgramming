@@ -65,25 +65,19 @@ void init(){
 }
 
 
-
 void solve(void){
     
-    ll n; cin >> n;
-    vll v(n); cin >> v;
-    debug(n);
-    ll cr = 0, ctr = 0;
-    double sr;
-    for(int i = 0; i < n; i++)  {
-        cr += v[i];
+    string s; cin >> s;
 
-        sr = (cr * 100) / (i + 1);
+    string sn = "";
 
-        if(sr == 100)
-            ctr++;
-    }
+    if(s.size() == 1)
+        sn += s[0];
+    else
+        sn += (s[s.size() - 2] + s[s.size() - 1]);
 
-    cout << ctr;
-
+    debug(sn);
+    
     nl;
 }
 
