@@ -69,7 +69,7 @@ void solve(void){
     
     ll n; cin >> n;
     vll v(n); cin >> v;
-
+    debug(v);
     ll cr = 0, ctr = 0;
     double sr;
     for(int i = 0; i < n; i++)  {
