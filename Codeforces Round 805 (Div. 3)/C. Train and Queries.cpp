@@ -72,8 +72,8 @@ ll fun(string &l, string &r, ll n, ll ut, ll lt, ll fd) {
     ll ub = ut ? r[r.size() - n] - '0' : 9,
        lb = lt ? l[l.size() - n] - '0' : 0;
 
-    // if(n == 1)
-    //     return (fd >= lb && fd <= ub);
+    if(n == 1)
+        return (fd >= lb && fd <= ub);
 
     ll ans = 0;
 
