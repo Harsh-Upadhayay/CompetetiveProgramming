@@ -75,8 +75,13 @@ ll fun(string &l, string &r, ll n, ll ut, ll lt, ll fd) {
     if(n == 1)
         return (fd >= lb && fd <= ub);
 
+    ll ans = 0;
 
-    return 0;
+    rpt(i, 0, 10)
+        if((i >= lb && i <= ub))
+            ans += fun(l, r, n - 1, ut & (i == ub), lt & (i == lb), fd);
+        
+    return ans;
 
 }
 
