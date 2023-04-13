@@ -90,12 +90,12 @@ void solve(void){
 
     debug(n, m, v);
 
-    vector<vector<vector<ll>>> dp(n + 1, vector<vector<ll>> (m, vector<ll>(2, 0)));
+    // vector<vector<vector<ll>>> dp(n + 1, vector<vector<ll>> (m, vector<ll>(2, 0)));
 
-    // vector<vector<ll>> prv(m, vector<ll>(2, 0)), cur(prv);
+    vector<vector<ll>> prv(m, vector<ll>(2, 0)), cur(prv);
 
     rpt(j, 0, m) 
-        dp[0][j][1] = !(j % m);
+        prv[j][1] = !(j % m);
 
     for(int i = 0; i < n; i++) {
         for(int j = 0; j < m; j++) {
@@ -103,16 +103,18 @@ void solve(void){
 
                 ll take = 0, nottake = 0;
 
-                take = dp[i][(j + v[i]) % m][1];
-                nottake = dp[i][j][k];
+                take = prv[(j + v[i]) % m][1];
+                nottake = prv[j][k];
 
-                dp[i + 1][j][k] = take | nottake;               
+                cur[j][k] = take | nottake;               
 
             }
         }
+
+        prv = cur;
     }
 
-    bool ans = dp[n][0][0];
+    bool ans = cur[0][0];
 
     if(ans)
         cout << "YES";
