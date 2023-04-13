@@ -90,6 +90,8 @@ void solve(void){
         l += '0';
     reverse(all(l));
 
+    debug(l, r);
+
     ll ans = 0;
 
     rpt(i, 0, 10)
