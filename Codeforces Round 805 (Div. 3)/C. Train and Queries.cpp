@@ -73,16 +73,16 @@ void solve(void){
 
     vector<vector<ll>> dp(maxD + 4, vll (maxD + 1, 0));
 
-    for(int j = 1; j <= maxD; j++) {
-        for(int i = maxD; i >= d; i--) {
-                ll r = 0, m = 0, l = 0;
-                if(i + j + 1 <= maxD)
-                    r = dp[i + j + 1][j + 1];
-                if(i + j <= maxD)
-                    m = dp[i + j][j];
-                if(j != 1 && i + j - 1 <= maxD)
-                    l = dp[i + j - 1][j - 1];
-                dp[i][j] = dim[i] + max({r, m, l});
+    for(int i = maxD; i >= d; i--) {
+        for(int j = 1; j <= maxD; j++) { 
+            ll r = 0, m = 0, l = 0;
+            if(i + j + 1 <= maxD)
+                r = dp[i + j + 1][j + 1];
+            if(i + j <= maxD)
+                m = dp[i + j][j];
+            if(j != 1 && i + j - 1 <= maxD)
+                l = dp[i + j - 1][j - 1];
+            dp[i][j] = dim[i] + max({r, m, l});
         }
     }
     // debug(dp);
