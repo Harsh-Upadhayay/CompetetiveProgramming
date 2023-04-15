@@ -84,19 +84,10 @@ void init(){
 #define TESTCASE
 void solve(ll __T__){
 
-    ll m, r, n; cin >> m >> r >> n;
-    vll v(n); cin >> v;
+    ll n, m; cin >> n >> m;
+    vvll v(n, vll(m)); cin >> v;
 
-    vector<pair<ll, ll>> rng;
-
-    ll ans = 0;
-
-    for(ll x : v)
-        rng.push_back({max(0ll, x - r), min(x + r, m)});
-
-    cerr << rng << "\n";
-    
-    cout << "Case #" << __T__ << ": " << ans;
+    cout << v;
 
     nl;
 }
