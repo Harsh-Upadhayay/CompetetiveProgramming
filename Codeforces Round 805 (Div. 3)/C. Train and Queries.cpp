@@ -37,15 +37,15 @@ using namespace std;
 /*_________________________________________________________________________________________________________________________________________*/
 
 template <typename T>
-istream& operator>>(istream &is, vector<T> &v) {
-    for(T &x : v) is >> x;
-    return is;
-}
-
-template <typename T>
 ostream& operator<<(ostream &os, vector<T> &v) {
     for(T x : v) os << x << " ";
     return os;
+}
+
+template <typename T>
+istream& operator>>(istream &is, vector<T> &v) {
+    for(T &x : v) is >> x;
+    return is;
 }
 
 template <typename T1, typename T2>
@@ -85,10 +85,12 @@ void init(){
 void solve(ll __T__){
 
     ll n, m; cin >> n >> m;
-    vvll grid(n, vll(m)); cin >> grid;
+    vvll grid(n, vll(m, 0)); cin >> grid;
+
     cout << grid;
-    pair<ll, ll> p = {1, 2};
-    cerr << p;
+    cerr << grid;
+    debug(grid);
+
     nl;
 }
 
