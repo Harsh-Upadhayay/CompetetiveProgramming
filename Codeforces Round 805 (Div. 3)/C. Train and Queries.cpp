@@ -32,14 +32,19 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-#define TESTCASE
 #define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
 template <typename T>
 istream& operator>>(istream &is, vector<T> &v) {
-    rpt(i, 0, v.size()) is >> v[i];
+    for(T &x : v) is >> x;
     return is;
+}
+
+template <typename T>
+ostream& operator<<(ostream &os, vector<T> &v) {
+    for(T x : v) os << x << " ";
+    return os;
 }
 
 template<class T>
@@ -65,9 +70,12 @@ void init(){
 }
 
 
+#define TESTCASE
 void solve(ll __T__){
     
-    cout << "Case : " << __T__;
+    ll n; cin >> n;
+    vll v(n); cin >> v;
+    cout << v;
 
     nl;
 }
