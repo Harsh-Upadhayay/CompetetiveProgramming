@@ -90,11 +90,11 @@ void solve(ll __T__){
     expr += sqrt((26 * 26) + (8 * 26 * sn));
     expr /= (2 * 26);
 
-    debug(expr);
-
     ll n = floor(expr);
-    debug(expr, n);
+    
+    
 
+    debug(expr, n);
     nl;
 }
 
