@@ -94,7 +94,7 @@ void solve(ll __T__){
     for(ll x : v)
         rng.push_back({max(0ll, x - r), min(x + r, m)});
 
-    cerr << rng;
+    cerr << rng << "\n";
     
     cout << "Case #" << __T__ << ": " << ans;
 
