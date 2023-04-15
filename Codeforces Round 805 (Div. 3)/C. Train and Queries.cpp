@@ -87,14 +87,11 @@ ll fun(vll &v, ll i, ll j) {
     if(i > v.size())
         return 0;
 
-    // if(j != -1 && v[i - 1] < v[j - 1])
-    //     return ninf;
-
     ll ans = ninf;
 
     for(int it = 2; it * i <= v.size(); it++) {
 
-        if(j == -1 || v[i * it - 1] > v[j - 1])
+        if(j == -1 || v[(i * it) - 1] >= v[j - 1])
             ans = max(ans, 1 + fun(v, i * it, i));
 
     }
