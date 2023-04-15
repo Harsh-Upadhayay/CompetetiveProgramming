@@ -97,18 +97,21 @@ void solve(ll __T__){
     if(n) 
         offset = (n * (52 + (n - 1) * 26)) / 2;
 
-    ll curPos = sn - offset;
+    long double curPos = sn - offset, curB = n + 1;
+
+    char ans;
 
     if(curPos == 0) {
-
-
-
+        ans = 'Z';
     }
     else {
 
-
+        ll alph = floor(curPos / curB);
+        ans = (char) alph;
 
     }
+
+    cout << "Case #" << __T__ << ": " << ans;
 
     debug(expr, n, offset, curPos);
     nl;
