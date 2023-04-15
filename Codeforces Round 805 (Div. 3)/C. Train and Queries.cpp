@@ -1,4 +1,4 @@
-/*  */
+/*  *//*  */
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -21,6 +21,7 @@ using namespace std;
 #define lb                      lower_bound
 #define ub                      upper_bound
 #define vll                     vector<ll>
+#define vvll                    vector<vector<ll>>
 #define ninf                    ((ll)((-1)*1e18+5))
 #define inf                     ((ll)(1e18+5))
 #define MOD                     ((ll)(1e9+7))
@@ -47,12 +48,18 @@ ostream& operator<<(ostream &os, vector<T> &v) {
     return os;
 }
 
-template<class T>
-T inline max(T a, T b, T c, T d = ninf, T e = ninf);
-template<class T>
-T inline min(T a, T b, T c, T d = inf, T e = inf);
-template<class T>
-void inline print(vector<T> v);
+template <typename T>
+istream& operator>>(istream &is, vector<vector<T>> &v) {
+    for(auto &x : v) is >> x;
+    return is;
+}
+
+template <typename T>
+ostream& operator<<(ostream &os, vector<vector<T>> &v) {
+    for(auto x : v) os << x << "\n";
+    return os;
+}
+
 template<class T>
 void inline print(vector<vector<T>> v);
 
@@ -72,10 +79,10 @@ void init(){
 
 #define TESTCASE
 void solve(ll __T__){
-    
-    ll n; cin >> n;
-    vll v(n); cin >> v;
-    cout << v;
+
+    ll n, m; cin >> n >> m;
+    vvll grid(n, vll(m)); cin >> grid;
+    cout << grid;
 
     nl;
 }
@@ -112,21 +119,6 @@ int main() {
 
 /*_________________________________________________________________________________________________________________________________________*/
 
-template<class T>
-T inline max(T a, T b, T c, T d, T e){
-    return max(max(max(a, b), max(c, d)), e);
-}
-
-template<class T>
-T inline min(T a, T b, T c, T d, T e){
-    return min(min(min(a, b), min(c, d)), e);
-}
-
-template<class T>
-void inline print(vector<T> v){
-    for(auto x : v)
-        cout << x << " ";
-}
 
 template<class T>
 void inline print(vector<vector<T>> v){
