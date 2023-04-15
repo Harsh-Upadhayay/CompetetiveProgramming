@@ -114,7 +114,7 @@ void solve(ll __T__){
 
     cout << "Case #" << __T__ << ": " << ans;
 
-    debug(expr, n, offset, curPos);
+    debug(expr, n, offset, curPos, curB);
     nl;
 }
 
