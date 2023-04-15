@@ -92,7 +92,7 @@ void solve(ll __T__){
 
     ll n = floor(expr);
     
-    long double offset = sn;
+    long double offset = 0;
 
     if(n) 
         offset = (n * (52 + (n - 1) * 26)) / 2;
