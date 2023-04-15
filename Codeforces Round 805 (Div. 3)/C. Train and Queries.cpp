@@ -104,9 +104,9 @@ void solve(ll __T__){
         }
     }
     if(flag)
-        cout << "Case #" << __T__ << " " << "IMPOSSIBLE";
+        cout << "Case #" << __T__ << ": " << "IMPOSSIBLE";
     else
-        cout << "Case #" << __T__ << " " << ans;
+        cout << "Case #" << __T__ << ": " << ans;
 
     nl;
 }
