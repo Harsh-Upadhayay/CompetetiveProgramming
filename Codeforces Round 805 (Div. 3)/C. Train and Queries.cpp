@@ -92,7 +92,7 @@ void solve(ll __T__){
     vll ans;
 
     bool flag = false;
-    for(ll x : v)
+    for(ll x : v) {
         if(prv == x) continue;
         else {
             if(st.count(x))
@@ -101,6 +101,7 @@ void solve(ll __T__){
                 st.insert(x),
                 ans.push_back(x);
         }
+    }
     if(flag)
         cout << "Case #" << __T__ << " " << "IMPOSSIBLE";
     else
