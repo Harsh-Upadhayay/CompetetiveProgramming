@@ -84,29 +84,13 @@ void init(){
 #define TESTCASE
 void solve(ll __T__){
 
-    ll n; cin >> n;
-    vll v(n); cin >> v;
+    ll sn; cin >> sn;
 
-    set<ll> st;
-    ll prv = -1;
-    vll ans;
+    double expr = -1 * 26;
+    expr += sqrt((26 * 26) + (8 * 26 * sn));
+    expr /= (2 * 26);
 
-    bool flag = false;
-    for(ll x : v) {
-        if(prv == x) continue;
-        else {
-            if(st.count(x))
-                flag = true;
-            else
-                st.insert(x),
-                ans.push_back(x),
-                prv = x;
-        }
-    }
-    if(flag)
-        cout << "Case #" << __T__ << ": " << "IMPOSSIBLE";
-    else
-        cout << "Case #" << __T__ << ": " << ans;
+    debug(expr);
 
     nl;
 }
