@@ -87,7 +87,7 @@ ll fun(vll &v, ll i, ll j) {
     if(i > v.size())
         return 0;
 
-    ll ans = ninf;
+    ll ans = fun(v, i + 1, j);
 
     for(int it = 2; it * i <= v.size(); it++) {
 
