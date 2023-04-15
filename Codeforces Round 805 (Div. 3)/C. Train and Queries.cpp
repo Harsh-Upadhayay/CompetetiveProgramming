@@ -48,6 +48,12 @@ ostream& operator<<(ostream &os, vector<T> &v) {
     return os;
 }
 
+template <typename T1, typename T2>
+ostream& operator<<(ostream &os, pair<T1, T2> &x) {
+    cout << "(" << x.fi << "," << x.se << ")";
+    return os;
+}
+
 template <typename T>
 istream& operator>>(istream &is, vector<vector<T>> &v) {
     for(auto &x : v) is >> x;
@@ -80,7 +86,7 @@ void solve(ll __T__){
 
     ll n, m; cin >> n >> m;
     vvll grid(n, vll(m)); cin >> grid;
-    cerr << grid;
+    cout << grid;
 
     nl;
 }
