@@ -103,7 +103,7 @@ void solve(ll __T__){
     }
 
 
-    string ans = con ? "NO" : "YES";
+    string ans = !con ? "NO" : "YES";
 
     cout << "Case #" << __T__ << " " << ans;
 
