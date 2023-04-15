@@ -60,8 +60,6 @@ ostream& operator<<(ostream &os, vector<vector<T>> &v) {
     return os;
 }
 
-template<class T>
-void inline print(vector<vector<T>> v);
 
 bitset<SIEVE_SIZE> isComposit;
 void setSieve();
@@ -82,7 +80,7 @@ void solve(ll __T__){
 
     ll n, m; cin >> n >> m;
     vvll grid(n, vll(m)); cin >> grid;
-    cout << grid;
+    cerr << grid;
 
     nl;
 }
@@ -118,16 +116,6 @@ int main() {
 }
 
 /*_________________________________________________________________________________________________________________________________________*/
-
-
-template<class T>
-void inline print(vector<vector<T>> v){
-    for(auto x : v){
-        for(auto y : x)
-            cout << y << " ";
-        nl;
-    }
-}
 
 void setSieve(){
     isComposit[0] = isComposit[1] = 1;
