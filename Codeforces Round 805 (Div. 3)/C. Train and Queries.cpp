@@ -84,37 +84,20 @@ void init(){
 #define TESTCASE
 void solve(ll __T__){
 
-    ll sn; cin >> sn;
+    ll m, r, n; cin >> m >> r >> n;
+    vll v(n); cin >> v;
 
-    long double expr = -1 * 26;
-    expr += sqrt((26 * 26) + (8 * 26 * sn));
-    expr /= (2 * 26);
+    vector<pair<ll, ll>> rng;
 
-    ll n = floor(expr);
+    ll ans;
+
+    for(ll x : v)
+        rng.push_back({max(0ll, x - r), min(x + r, m)});
+
+    cerr << rng;
     
-    long double offset = 0;
-
-    if(n) 
-        offset = (n * (52 + (n - 1) * 26)) / 2;
-
-    long double curPos = sn - offset, curB = n + 1;
-
-    char ans;
-
-    if(curPos == 0) {
-        ans = 'Z';
-    }
-    else {
-
-        ll alph = ceil(curPos / curB);
-        ans = (char) alph + 'A' - 1;
-
-        debug(alph);
-    }
-
     cout << "Case #" << __T__ << ": " << ans;
 
-    debug(expr, n, offset, curPos, curB);
     nl;
 }
 
