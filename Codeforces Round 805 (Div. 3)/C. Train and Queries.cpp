@@ -84,12 +84,17 @@ void init(){
 #define TESTCASE
 void solve(ll __T__){
 
-    ll n, m; cin >> n >> m;
-    vvll grid(n, vll(m, 0)); cin >> grid;
+    ll n; cin >> n;
+    vector<char> code(26); cin >> code;
+    debug(code);
+    ll k; cin >> k;
+    bool con = false;
 
-    cout << grid;
-    cerr << grid;
-    debug(grid);
+    set<string> st;
+
+    string ans = con ? "NO" : "YES";
+
+    cout << "Case #" << __T__ << " " << ans;
 
     nl;
 }
