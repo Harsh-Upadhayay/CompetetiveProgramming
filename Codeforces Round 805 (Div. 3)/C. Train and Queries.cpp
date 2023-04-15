@@ -107,7 +107,7 @@ void solve(ll __T__){
     else {
 
         ll alph = floor(curPos / curB);
-        ans = (char) alph + 'A';
+        ans = (char) alph + 'A' - 1;
 
         debug(alph);
     }
