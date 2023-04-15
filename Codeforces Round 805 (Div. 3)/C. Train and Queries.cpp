@@ -87,8 +87,8 @@ ll fun(vll &v, ll i, ll j) {
     if(i > v.size())
         return 0;
 
-    if(j != -1 && v[i - 1] < v[j - 1])
-        return ninf;
+    // if(j != -1 && v[i - 1] < v[j - 1])
+    //     return ninf;
 
     ll ans = ninf;
 
