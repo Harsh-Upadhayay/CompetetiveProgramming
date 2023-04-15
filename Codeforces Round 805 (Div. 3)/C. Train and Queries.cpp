@@ -92,6 +92,9 @@ void solve(ll __T__){
 
     debug(expr);
 
+    ll n = floor(expr);
+    debug(expr, n);
+
     nl;
 }
 
