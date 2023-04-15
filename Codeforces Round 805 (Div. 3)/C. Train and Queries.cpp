@@ -84,7 +84,6 @@ void init(){
 #define TESTCASE
 void solve(ll __T__){
 
-    ll n; cin >> n;
     vector<char> code(26); cin >> code;
     debug(code);
     ll k; cin >> k;
