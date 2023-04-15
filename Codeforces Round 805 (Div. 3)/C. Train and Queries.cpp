@@ -109,6 +109,7 @@ void solve(ll __T__){
         ll alph = floor(curPos / curB);
         ans = (char) alph;
 
+        debug(alph);
     }
 
     cout << "Case #" << __T__ << ": " << ans;
