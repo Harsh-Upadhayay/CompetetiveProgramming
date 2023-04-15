@@ -86,7 +86,7 @@ void solve(ll __T__){
 
     ll sn; cin >> sn;
 
-    double expr = -1 * 26;
+    long double expr = -1 * 26;
     expr += sqrt((26 * 26) + (8 * 26 * sn));
     expr /= (2 * 26);
 
@@ -98,6 +98,17 @@ void solve(ll __T__){
         offset = (n * (52 + (n - 1) * 26)) / 2;
 
     ll curPos = sn - offset;
+
+    if(curPos == 0) {
+
+
+
+    }
+    else {
+
+
+
+    }
 
     debug(expr, n, offset, curPos);
     nl;
