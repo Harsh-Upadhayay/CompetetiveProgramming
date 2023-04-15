@@ -87,7 +87,8 @@ void solve(ll __T__){
     ll n, m; cin >> n >> m;
     vvll grid(n, vll(m)); cin >> grid;
     cout << grid;
-
+    pair<ll, ll> p = {1, 2};
+    cerr << p;
     nl;
 }
 
