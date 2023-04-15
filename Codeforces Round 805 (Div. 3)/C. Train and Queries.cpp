@@ -84,28 +84,9 @@ void init(){
 #define TESTCASE
 void solve(ll __T__){
 
-    vector<char> code(26); cin >> code;
-
-    ll k; cin >> k;
-    bool con = false;
-
-    set<string> st;
-    while(k--) {
-        string s; cin >> s;
-        string cd = "";
-        for(auto x : s)
-            cd += code[x - 'A'];
-
-        if(st.count(cd))
-            con = true;
-        else
-            st.insert(cd);
-    }
-
-
-    string ans = !con ? "NO" : "YES";
-
-    cout << "Case #" << __T__ << ": " << ans;
+    ll m, r, n; cin >> m >> r >> n;
+    vll v(n); cin >> v;
+    debug(v);
 
     nl;
 }
@@ -160,3 +141,4 @@ void storePrimes(){
 }
 
 /*_________________________________________________________________________________________________________________________________________*/
+
