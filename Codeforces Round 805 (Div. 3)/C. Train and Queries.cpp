@@ -97,8 +97,9 @@ void solve(ll __T__){
     if(n) 
         offset = (n * (52 + (n - 1) * 26)) / 2;
 
+    ll curPos = sn - offset;
 
-    debug(expr, n, offset);
+    debug(expr, n, offset, curPos);
     nl;
 }
 
