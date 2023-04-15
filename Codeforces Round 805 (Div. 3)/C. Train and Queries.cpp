@@ -89,7 +89,7 @@ void solve(ll __T__){
 
     vector<pair<ll, ll>> rng;
 
-    ll ans;
+    ll ans = 0;
 
     for(ll x : v)
         rng.push_back({max(0ll, x - r), min(x + r, m)});
