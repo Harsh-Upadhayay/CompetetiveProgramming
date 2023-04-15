@@ -99,7 +99,8 @@ void solve(ll __T__){
                 flag = true;
             else
                 st.insert(x),
-                ans.push_back(x);
+                ans.push_back(x),
+                prv = x;
         }
     }
     if(flag)
