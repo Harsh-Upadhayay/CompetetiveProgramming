@@ -86,7 +86,7 @@ ll lcs(string &a, string &b, ll i, ll j) {
         return 0;
 
     if(a[i] == b[j])
-        return lcs(a, b, i - 1, j - 1);
+        return 1 + lcs(a, b, i - 1, j - 1);
     
     ll ch1, ch2;
 
