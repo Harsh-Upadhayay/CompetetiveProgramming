@@ -102,7 +102,7 @@ void solve(ll __T__){
 
     vll dp(n + 1, 0);
 
-    for(int i = n - 1; i >= 0; i--) {
+    for(int i = n - 2; i >= 0; i--) {
         ll one = inf, two = inf;
 
         one = abs(v[i] - v[i + 1]) + dp[i + 1];
