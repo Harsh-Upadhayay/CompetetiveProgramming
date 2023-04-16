@@ -106,7 +106,7 @@ void solve(ll __T__){
         ll one = inf, two = inf;
 
         one = abs(v[i] - v[i + 1]) + dp[i + 1];
-        if(i + 2 < v.size())
+        if(i + 2 < n)
             two = abs(v[i] - v[i + 2]) + dp[i + 2];
 
         dp[i] = min(one, two);
