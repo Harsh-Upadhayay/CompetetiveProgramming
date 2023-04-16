@@ -80,25 +80,27 @@ void init(){
     return;
 }
 
+ll fun(vll &v, ll i) {
 
-#define TESTCASE
+    if(i == v.size() - 1)
+        return 0;
+
+    int one = inf, two = inf;
+
+    one = abs(v[i] - v[i + 1]) + fun(v, i + 1);
+    if(i + 2 < v.size())
+        two = abs(v[i] - v[i + 2]) + fun(v, i + 2);
+
+    return min(one, two);
+}
+
+// #define TESTCASE
 void solve(ll __T__){
 
     ll n; cin >> n;
     vll v(n); cin >> v;
 
-    if(n % 2) kill("YES");
-
-    for(int i = 0; i < n - 1; i++) {
-        v[i + 1] -= v[i];
-        v[i] = 0;
-        debug(v);
-    }
-    
-    if(*(v.end() - 1) >= 0)
-        cout << "YES";
-    else 
-        cout << "NO";
+    cout << fun(v, 0);
 
     nl;
 }
