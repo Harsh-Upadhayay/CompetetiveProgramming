@@ -82,7 +82,7 @@ void init(){
 
 string mx = "";
 
-ll lcs(string &a, string &b, ll i, ll j, string &seq) {
+ll lcs(string &a, string &b, vvll &dp, ll i, ll j, string &seq) {
 
     if(i < 0 || j < 0) {
         if(mx.size() < seq.size())
@@ -90,20 +90,23 @@ ll lcs(string &a, string &b, ll i, ll j, string &seq) {
         return 0;
     }
 
+    if(dp[i][j] != -1)
+        return dp[i][j];
+
     if(a[i] == b[j]) {
         seq += a[i];
-        ll ans = 1 + lcs(a, b, i - 1, j - 1, seq);
+        ll ans = 1 + lcs(a, b, dp, i - 1, j - 1, seq);
         seq.pop_back();
         return ans;
     }
     
     ll ch1, ch2;
 
-    ch1 = lcs(a, b, i - 1, j, seq);
+    ch1 = lcs(a, b, dp, i - 1, j, seq);
 
-    ch2 = lcs(a, b, i, j - 1, seq);
+    ch2 = lcs(a, b, dp, i, j - 1, seq);
 
-    return max(ch1, ch2);
+    return dp[i][j] = max(ch1, ch2);
 }
 
 // #define TESTCASE
@@ -112,7 +115,8 @@ void solve(ll __T__){
     string a, b; cin >> a >> b;
     ll n = a.size(), m = b.size();
     string s = "";
-    cout << lcs(a, b, n - 1, m - 1, s);
+    vvll dp(n + 1, vll(m + 1, -1));
+    lcs(a, b, dp, n - 1, m - 1, s);
     reverse(all(mx));
     cout<<mx;
     nl;
