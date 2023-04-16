@@ -92,6 +92,7 @@ void solve(ll __T__){
             v[i + 1] += v[i];
         else
             v[i + 1] -= v[i];
+        v[i] = 0;
         debug(v);
     }
 
