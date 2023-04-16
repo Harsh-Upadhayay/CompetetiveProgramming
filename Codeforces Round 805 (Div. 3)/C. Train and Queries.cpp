@@ -81,13 +81,26 @@ void init(){
 }
 
 
+ll fun(vvll &v, ll i, ll j) {
+
+    if(i >= v.size())
+        return 0;
+
+    ll ans = ninf;
+    for(int k = 0; k < 3; k++)
+        if(k != j)
+            ans = max(v[i][k] + fun(v, i + 1, k), ans);
+
+    return ans;
+}
+
 // #define TESTCASE
 void solve(ll __T__){
 
     ll n; cin >> n;
     vvll v(n, vll(3, 0)); cin >> v;
 
-    cout << v;
+    cout << fun(v, 0, 3);
 
     nl;
 }
