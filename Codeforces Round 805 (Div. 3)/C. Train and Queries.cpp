@@ -100,20 +100,11 @@ void solve(ll __T__){
     ll n; cin >> n;
     vll v(n); cin >> v;
 
-    vll dp(n + 1, 0);
     ll prev = 0, pprev = 0, cur = 0;
 
-    for(int i = n - 2; i >= 0; i--, pprev = prev, prev = cur) {
-        ll one = inf, two = inf;
-
-        one = abs(v[i] - v[i + 1]) + prev;
-        if(i + 2 < n)
-            two = abs(v[i] - v[i + 2]) + pprev;
-
-        cur = min(one, two);
-    }
-
-
+    for(int i = n - 2; i >= 0; i--, pprev = prev, prev = cur) 
+        cur = min(abs(v[i] - v[i + 1]) + prev, (i + 2 < n) ? abs(v[i] - v[i + 2]) + pprev : inf);
+    
     cout << cur;
 
     nl;
