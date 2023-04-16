@@ -80,19 +80,6 @@ void init(){
     return;
 }
 
-ll lcs(string &a, string &b, vvll &dp, ll i, ll j) {
-
-    if(i < 0 || j < 0) 
-        return 0;
-    
-    if(dp[i][j] != -1)
-        return dp[i][j];
-
-    if(a[i] == b[j]) 
-        return dp[i][j] = 1 + lcs(a, b, dp, i - 1, j - 1);
-    
-    return dp[i][j] = max(lcs(a, b, dp, i - 1, j), lcs(a, b, dp, i, j - 1));
-}
 
 // #define TESTCASE
 void solve(ll __T__){
@@ -101,16 +88,15 @@ void solve(ll __T__){
     ll n = a.size(), m = b.size();
     vvll dp(n + 1, vll(m + 1, 0));
 
-    for(int i = 0; i < n; i++) {
-        for(int j = 0; j < m; j++) {
+    for(int i = 0; i < n; i++) 
+        for(int j = 0; j < m; j++) 
 
             if(a[i] == b[j]) 
                 dp[i + 1][j + 1] = 1 + dp[i][j];
             else
                 dp[i + 1][j + 1] = max(dp[i][j + 1], dp[i + 1][j]);
 
-        }
-    }
+    cout << dp;
 
     cout << dp[n][m];
     nl;
