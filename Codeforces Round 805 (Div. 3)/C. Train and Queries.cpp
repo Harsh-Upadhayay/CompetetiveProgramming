@@ -70,7 +70,7 @@ ostream& operator<<(ostream &os, vector<vector<T>> &v) {
 bitset<SIEVE_SIZE> isComposit;
 void setSieve();
 
-set<ll> allPrimes;  
+set<ll> allPrimes;
 void storePrimes();
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
@@ -80,32 +80,14 @@ void init(){
     return;
 }
 
-ll fun(vll &v, ll i) {
-
-    if(i == v.size() - 1)
-        return 0;
-
-    ll one = inf, two = inf;
-
-    one = abs(v[i] - v[i + 1]) + fun(v, i + 1);
-    if(i + 2 < v.size())
-        two = abs(v[i] - v[i + 2]) + fun(v, i + 2);
-
-    return min(one, two);
-}
 
 // #define TESTCASE
 void solve(ll __T__){
 
     ll n; cin >> n;
-    vll v(n); cin >> v;
+    vvll v(n, vll(3, 0)); cin >> v;
 
-    ll prev = 0, pprev = 0, cur = 0;
-
-    for(int i = n - 2; i >= 0; i--, pprev = prev, prev = cur) 
-        cur = min(abs(v[i] - v[i + 1]) + prev, (i + 2 < n) ? abs(v[i] - v[i + 2]) + pprev : inf);
-    
-    cout << cur;
+    cout << v;
 
     nl;
 }
