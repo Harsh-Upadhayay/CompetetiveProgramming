@@ -80,40 +80,29 @@ void init(){
     return;
 }
 
+ll lcs(string &a, string &b, ll i, ll j) {
 
-ll fun(vvll &v, ll i, ll j) {
-
-    if(i >= v.size())
+    if(i < 0 || j < 0)
         return 0;
 
-    ll ans = ninf;
-    for(int k = 0; k < 3; k++)
-        if(k != j)
-            ans = max(v[i][k] + fun(v, i + 1, k), ans);
+    if(a[i] == b[j])
+        return lcs(a, b, i - 1, j - 1);
+    
+    ll ch1, ch2;
 
-    return ans;
+    ch1 = lcs(a, b, i - 1, j);
+
+    ch2 = lcs(a, b, i, j - 1);
+
+    return max(ch1, ch2);
 }
 
 // #define TESTCASE
 void solve(ll __T__){
 
-    ll n; cin >> n;
-    vvll v(n, vll(3, 0)); cin >> v;
-
-    vll curr(4, 0), next(curr);
-
-    for(int i = n - 1; i >= 0 ; i--, next = curr) {
-        for(int j = 0; j < 4; j++) {
-            ll ans = ninf;
-            for(int k = 0; k < 3; k++)
-                if(k != j)
-                    ans = max(v[i][k] + next[k], ans);
-
-            curr[j] = ans;
-        }
-    }
-
-    cout << curr[3];
+    string a, b; cin >> a >> b;
+    ll n = a.size(), m = b.size();
+    cout << lcs(a, b, n - 1, m - 1);
 
     nl;
 }
