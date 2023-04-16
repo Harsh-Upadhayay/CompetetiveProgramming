@@ -85,7 +85,7 @@ ll fun(vll &v, ll i) {
     if(i == v.size() - 1)
         return 0;
 
-    int one = inf, two = inf;
+    ll one = inf, two = inf;
 
     one = abs(v[i] - v[i + 1]) + fun(v, i + 1);
     if(i + 2 < v.size())
