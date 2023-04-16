@@ -99,8 +99,20 @@ void solve(ll __T__){
 
     string a, b; cin >> a >> b;
     ll n = a.size(), m = b.size();
-    vvll dp(n + 1, vll(m + 1, -1));
-    cout << lcs(a, b, dp, n - 1, m - 1);
+    vvll dp(n + 1, vll(m + 1, 0));
+
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < m; j++) {
+
+            if(a[i] == b[j]) 
+                dp[i + 1][j + 1] = 1 + dp[i][j];
+            else
+                dp[i + 1][j + 1] = max(dp[i][j + 1], dp[i + 1][j]);
+
+        }
+    }
+
+    cout << dp[n][m];
     nl;
 }
 
