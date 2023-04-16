@@ -100,7 +100,20 @@ void solve(ll __T__){
     ll n; cin >> n;
     vvll v(n, vll(3, 0)); cin >> v;
 
-    cout << fun(v, 0, 3);
+    vvll dp(n + 1, vll(4, 0));
+
+    for(int i = n - 1; i >= 0 ; i--) {
+        for(int j = 0; j < 4; j++) {
+            ll ans = ninf;
+            for(int k = 0; k < 3; k++)
+                if(k != j)
+                    ans = max(v[i][k] + dp[i + 1][k], ans);
+
+            dp[i][j] = ans;
+        }
+    }
+
+    cout << dp[0][3];
 
     nl;
 }
