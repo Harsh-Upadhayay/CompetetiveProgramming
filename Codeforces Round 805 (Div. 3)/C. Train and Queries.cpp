@@ -80,24 +80,6 @@ void init(){
     return;
 }
 
-ll fun(vll &v, ll i, ll j) {
-
-    debug(i, j);
-
-    if(i > v.size())
-        return 0;
-
-    ll ans = fun(v, i + 1, j);
-
-    for(int it = 2; it * i <= v.size(); it++) {
-
-        if(j == -1 || v[(i * it) - 1] >= v[j - 1])
-            ans = max(ans, 1 + fun(v, i * it, i));
-
-    }
-
-    return ans;
-}
 
 #define TESTCASE
 void solve(ll __T__){
@@ -105,7 +87,14 @@ void solve(ll __T__){
     ll n; cin >> n;
     vll v(n); cin >> v;
 
-    cout << fun(v, 1, -1);
+    for(int i = 0; i < n - 1; i++) {
+        if(v[i] < 0)
+            v[i + 1] += v[i];
+        else
+            v[i + 1] -= v[i];
+        debug(v);
+    }
+
     nl;
 }
 
