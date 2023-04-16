@@ -94,7 +94,7 @@ void solve(ll __T__){
         v[i] = 0;
         debug(v);
     }
-
+    cout << (*v.end());
     if(*v.end() >= 0)
         cout << "YES";
     else 
