@@ -87,11 +87,18 @@ void solve(ll __T__){
     ll n; cin >> n;
     vll v(n); cin >> v;
 
+    if(n % 2) kill("YES");
+
     for(int i = 0; i < n - 1; i++) {
         v[i + 1] -= v[i];
         v[i] = 0;
         debug(v);
     }
+
+    if(*v.end() >= 0)
+        cout << "YES";
+    else 
+        cout << "NO";
 
     nl;
 }
