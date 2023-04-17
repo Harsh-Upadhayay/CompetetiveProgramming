@@ -92,7 +92,6 @@ ll dfs(vll adj[], vll &vis, vll &dp, ll i) {
     ll mxD = 0;
 
     for(auto j : adj[i])
-        if(!vis[j])
             mxD = max(mxD, 1 + dfs(adj, vis, dp, j));
 
     return dp[i] = mxD;
@@ -114,7 +113,6 @@ void solve(ll __T__){
     vll vis(n + 1, 0), dp(n + 1, -1);   
 
     rpt(i, 1, n + 1)
-        if(!vis[i])
             mx = max(mx, dfs(adj, vis, dp, i));
     debug(dp);
     cout << mx;
