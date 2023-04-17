@@ -84,8 +84,8 @@ ll dfs(vll adj[], vll &vis, vll &dp, ll i) {
 
     debug(i);
 
-    if(dp[i] != -1)
-        return dp[i];
+    // if(dp[i] != -1)
+    //     return dp[i];
 
     vis[i] = 1;
 
@@ -116,7 +116,7 @@ void solve(ll __T__){
     rpt(i, 1, n + 1)
         mx = max(mx, dfs(adj, vis, dp, i));
     debug(dp);
-    cout << mx + 1;
+    cout << mx;
     nl;
 }
 
