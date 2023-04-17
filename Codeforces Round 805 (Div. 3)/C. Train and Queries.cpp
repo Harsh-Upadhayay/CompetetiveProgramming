@@ -87,12 +87,14 @@ ll fun(vll &v, ll k, ll t) {
     ll optVal = t ? +1 : -1;
 
     for(ll x : v) {
-        if(t)
+        if(t) {
             if(x <= k)
                 optVal = min(optVal, fun(v, k - x, !t));
-        else
+        }
+        else{
             if(x <= k)
                 optVal = max(optVal, fun(v, k - x, !t));
+        }
     }
 
     return optVal;
