@@ -80,65 +80,48 @@ void init(){
     return;
 }
 
-ll fun(vll &v, vvll &dp, ll k, ll t) {
+ll fun(vll &w, vll &v, vvll &dp, ll i, ll val)  {
+    
+    if(val == 0)
+        return 0;
 
-    debug(k, t);
-    if(dp[k][t] != -1)
-        return dp[k][t];
-    ll optVal = t ? +1 : -1;
+    if(i == v.size())
+        return inf;
 
-    for(ll x : v) {
-        if(t) {
-            if(x <= k)
-                optVal = min(optVal, fun(v, dp, k - x, !t));
-        }
-        else{
-            if(x <= k)
-                optVal = max(optVal, fun(v, dp, k - x, !t));
-        }
-    }
+    if(dp[i][val] != -1)
+        return dp[i][val];
 
-    return dp[k][t] = optVal;
+    ll take = inf, nottake inf;
+
+    nottake = fun(w, v, dp, i + 1, val);
+
+    if(v[i] <= val)
+        take = w[i] + fun(w, v, dp, i + 1, val - v[i]);
+
+    return dp[i][val] = min(take, nottake);
 }
+
+
 
 // #define TESTCASE
 void solve(ll __T__){
 
-    ll n, _k; cin >> n >> _k;
-    vll v(n); cin >> v;
+    ll n, c; cin >> n >> c;
+    vll v(n), w(n);
 
-    sort(all(v));
-    vvll dp(_k + 1, vll (2, 0));
+    rpt(i, 0, n)
+        cin >> w[i] >> v[i];
 
-    for(int k = 0; k <= _k; k++) {
 
-        for(int t = 1; t >= 0; t--) {
+    ll mxVal = 0; rpt(i, 0, n) mxVal += v[i];
 
-            ll optVal = t ? +1 : -1;
+    vvll dp(n + 1, vll(mxVal + 1, -1));
 
-            for(ll x : v) {
-                if(t) {
-                    if(x <= k)
-                        optVal = min(optVal, dp[k - x][!t]);
-                }
-                else{
-                    if(x <= k)
-                        optVal = max(optVal, dp[k - x][!t]);
-                }
-            }
+    while(mxVal--) 
+        if(fun(w, v, dp, 0, mxVal) < c)
+            kill(mxVal);
 
-            dp[k][t] = optVal;
-
-        }
-
-    }
-
-    ll ans = dp[_k][0];
-    if(ans > 0)
-        cout << "First";
-    else
-        cout << "Second";
-    
+    cout << 0;
 
     nl;
 }
