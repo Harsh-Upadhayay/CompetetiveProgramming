@@ -80,18 +80,22 @@ void init(){
     return;
 }
 
-ll dfs(vll adj[], vll &vis, ll i) {
+ll dfs(vll adj[], vll &vis, vll &dp, ll i) {
 
     debug(i);
+
+    if(dp[i] != -1)
+        return dp[i];
+
     vis[i] = 1;
 
     ll mxD = 0;
 
     for(auto j : adj[i])
         if(!vis[j])
-            mxD = max(mxD, 1 + dfs(adj, vis, j));
+            mxD = max(mxD, 1 + dfs(adj, vis, dp, j));
 
-    return mxD;
+    return dp[i] = mxD;
 }
 
 
@@ -109,8 +113,10 @@ void solve(ll __T__){
     ll mx = ninf;
     vll vis(n + 1, 0), dp(n + 1, -1);   
 
-    cout << dfs(adj, vis, 1);
+    rpt(i, 1, n + 1)
+        mx = max(mx, dfs(adj, vis, dp, 1));
 
+    cout << mx + 1;
     nl;
 }
 
