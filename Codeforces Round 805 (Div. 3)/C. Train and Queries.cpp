@@ -80,32 +80,32 @@ void init(){
     return;
 }
 
-long double fun(vector<long double> &v, vector<vector<long double>> &dp, ll i, ll j) {
+ll fun(vll &v, ll k, ll t) {
 
-    if(j == 0)
-        return 1;
+    debug(k, t);
+    
+    ll optVal = t ? +1 : -1;
 
-    if(i == v.size())
-        return 0;
+    for(ll x : v) {
+        if(t)
+            if(x <= k)
+                optVal = min(optVal, fun(v, k - x, !t));
+        else
+            if(x <= k)
+            optVal = max(optVal, fun(v, k - x, !t));
+    }
 
-    if(dp[i][j] != -1)
-        return dp[i][j];
-
-    return dp[i][j] = ((v[i] * fun(v, dp, i + 1, j - 1)) + ((1 - v[i]) * fun(v, dp, i + 1 , j)));
-
+    return optVal;
 }
 
 // #define TESTCASE
 void solve(ll __T__){
 
-    ll n; cin >> n;
-    vector<long double> v(n); cin >> v;
+    ll n, k; cin >> n >> k;
+    vll v(n); cin >> v;
 
-    ll t = floor(v.size() / 2.0) + 1;
-
-    debug(n, v, t);
-    vector<vector<long double>> dp(n + 1, vector<long double>(t + 1, -1));
-    cout << setprecision(10) << fun(v, dp, 0, t);
+    sort(all(v));
+    cout << fun(v, k, 0);
 
     nl;
 }
