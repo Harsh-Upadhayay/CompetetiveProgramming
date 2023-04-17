@@ -89,10 +89,10 @@ ll fun(vvll &v, ll i, ll j) {
 
     ll dwn = 0, rgt = 0;
 
-    if(i + 1 < n)
+    if(i + 1 < n && v[i + 1][j] == 0)
         dwn = fun(v, i + 1, j);
 
-    if(j + 1 < m)
+    if(j + 1 < m && v[i][j + 1] == 0)
         rgt = fun(v, i, j + 1);
 
     return dwn + rgt;
