@@ -103,8 +103,7 @@ void solve(ll __T__){
     vll adj[n + 1];
     while(m--) {
         ll u, v; cin >> u >> v;
-        adj[u].push_back(v),
-        adj[v].push_back(u);
+        adj[u].push_back(v);
     }
 
     ll mx = ninf;
