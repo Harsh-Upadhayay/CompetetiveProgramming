@@ -111,8 +111,25 @@ void solve(ll __T__){
             char x; cin >> x;
             v[i][j] = x == '#';
         }
-    vvll dp(n, vll(m, -1));
-    cout << fun(v, dp, 0, 0);
+    vvll dp(n, vll(m, 1));
+
+    for(int i = n - 1; i >= 0; i--) {
+        for(int j = m - 1; j >= 0; j--) {
+            if(i == n - 1 && j == m - 1) continue;
+
+            ll dwn = 0, rgt = 0;
+
+            if(i + 1 < n && v[i + 1][j] == 0)
+                dwn = dp[i + 1][j];
+
+            if(j + 1 < m && v[i][j + 1] == 0)
+                rgt = dp[i][j + 1];
+
+            dp[i][j] = (dwn + rgt) % MOD;
+        }
+    }
+
+    cout << dp[0][0];
     nl;
 }
 
