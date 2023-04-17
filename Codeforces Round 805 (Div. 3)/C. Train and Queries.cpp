@@ -98,7 +98,7 @@ ll fun(vvll &v, vvll &dp, ll i, ll j) {
     if(j + 1 < m && v[i][j + 1] == 0)
         rgt = fun(v, dp, i, j + 1);
 
-    return dp[i][j] = dwn + rgt;
+    return dp[i][j] = (dwn + rgt) % MOD;
 }
 
 // #define TESTCASE
