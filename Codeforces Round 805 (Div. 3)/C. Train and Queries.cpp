@@ -80,50 +80,30 @@ void init(){
     return;
 }
 
-ll fun(vll &w, vll &v, vvll &dp, ll i, ll val)  {
-    debug(i, val);
-    if(val == 0)
+ll fun(vll &v, ll i, ll k) {
+
+    if(i < 0 && k == 0)
+        return 1;
+
+    if(i < 0 || k == 0)
         return 0;
 
-    if(i == v.size())
-        return inf;
+    ll ways = 0;
 
-    if(dp[i][val] != -1)
-        return dp[i][val];
+    for(ll x : v)
+        if(x <= k)
+            ways += fun(v, i - 1, k - x);
 
-    ll take = inf, nottake inf;
-
-    nottake = fun(w, v, dp, i + 1, val);
-
-    if(v[i] <= val)
-        take = w[i] + fun(w, v, dp, i + 1, val - v[i]);
-
-    return dp[i][val] = min(take, nottake);
+    return ways;
 }
-
-
 
 // #define TESTCASE
 void solve(ll __T__){
 
-    ll n, c; cin >> n >> c;
-    vll v(n), w(n);
+    ll n, k; cin >> n >> k;
+    vll v(n); cin >> v;
 
-    rpt(i, 0, n)
-        cin >> w[i] >> v[i];
-
-
-    ll mxVal = 0; rpt(i, 0, n) mxVal += v[i];
-
-    vvll dp(n + 1, vll(mxVal + 1, -1));
-
-    while(mxVal) {
-        if(fun(w, v, dp, 0, mxVal) <= c)
-            kill(mxVal);
-        mxVal -= 1;
-    }
-
-    cout << 0;
+    cout << fun(v, n - 1, k);    
 
     nl;
 }
