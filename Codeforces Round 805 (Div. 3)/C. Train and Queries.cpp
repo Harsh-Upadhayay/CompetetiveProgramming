@@ -80,56 +80,27 @@ void init(){
     return;
 }
 
-ll fun(vvll &v, vvll &dp, ll i, ll j) {
+long double fun(vll &v, ll i, ll j) {
 
-    ll n = v.size(), m = v[0].size();
-
-    if(i == n - 1 && j == m - 1)
+    if(j == 0)
         return 1;
 
-    if(dp[i][j] != -1)
-        return dp[i][j];
+    if(i == v.size())
+        return 0;
 
-    ll dwn = 0, rgt = 0;
+    return ((v[i] * fun(v, i + 1, j - 1)) + ((1 - v[i]) * fun(v, i + 1 , j)));
 
-    if(i + 1 < n && v[i + 1][j] == 0)
-        dwn = fun(v, dp, i + 1, j);
-
-    if(j + 1 < m && v[i][j + 1] == 0)
-        rgt = fun(v, dp, i, j + 1);
-
-    return dp[i][j] = (dwn + rgt) % MOD;
 }
 
 // #define TESTCASE
 void solve(ll __T__){
 
-    ll n, m; cin >> n >> m;
-    vvll v(n, vll(m, 0));
-    rpt(i, 0, n)
-        rpt(j, 0, m) {
-            char x; cin >> x;
-            v[i][j] = x == '#';
-        }
-    vvll dp(n, vll(m, 1));
+    ll n; cin >> n;
+    vll v(n); cin >> v;
 
-    for(int i = n - 1; i >= 0; i--) {
-        for(int j = m - 1; j >= 0; j--) {
-            if(i == n - 1 && j == m - 1) continue;
+    ll t = floor(v.size() / 2.0) + 1;
+    cout << fun(v, 0, t);
 
-            ll dwn = 0, rgt = 0;
-
-            if(i + 1 < n && v[i + 1][j] == 0)
-                dwn = dp[i + 1][j];
-
-            if(j + 1 < m && v[i][j + 1] == 0)
-                rgt = dp[i][j + 1];
-
-            dp[i][j] = (dwn + rgt) % MOD;
-        }
-    }
-
-    cout << dp[0][0];
     nl;
 }
 
