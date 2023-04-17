@@ -84,10 +84,10 @@ ll dfs(vll adj[], vll &vis, vll &dp, ll i) {
 
     debug(i);
 
-    // if(dp[i] != -1)
-    //     return dp[i];
 
     vis[i] = 1;
+    if(dp[i] != -1)
+        return dp[i];
 
     ll mxD = 0;
 
