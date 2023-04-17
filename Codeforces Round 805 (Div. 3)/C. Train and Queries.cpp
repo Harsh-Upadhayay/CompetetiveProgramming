@@ -116,7 +116,7 @@ void solve(ll __T__){
     rpt(i, 1, n + 1)
         mx = max(mx, dfs(adj, vis, dp, i));
 
-    cout << mx;
+    cout << mx + 1;
     nl;
 }
 
