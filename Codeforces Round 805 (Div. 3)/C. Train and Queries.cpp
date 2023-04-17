@@ -50,7 +50,7 @@ istream& operator>>(istream &is, vector<T> &v) {
 
 template <typename T1, typename T2>
 ostream& operator<<(ostream &os, pair<T1, T2> &x) {
-    os << "(" << x.fi << "," << x.se << ")";
+    cout << "(" << x.fi << "," << x.se << ")";
     return os;
 }
 
@@ -80,42 +80,20 @@ void init(){
     return;
 }
 
-ll dfs(vll adj[], vll &vis, vll &dp, ll i) {
 
-    debug(i);
-
-
-    vis[i] = 1;
-    if(dp[i] != -1)
-        return dp[i];
-
-    ll mxD = 0;
-
-    for(auto j : adj[i])
-            mxD = max(mxD, 1 + dfs(adj, vis, dp, j));
-
-    return dp[i] = mxD;
-}
-
-
-// #define TESTCASE
+#define TESTCASE
 void solve(ll __T__){
 
     ll n, m; cin >> n >> m;
+    vvll v(n + 1, vll(m, 0));
 
-    vll adj[n + 1];
-    while(m--) {
-        ll u, v; cin >> u >> v;
-        adj[u].push_back(v);
-    }
+    rpt(i, 0, n)
+        rpt(j, 0, m) {
+            char x; cin >> x;
+            v[i][j] = x == '#';
+        }
 
-    ll mx = ninf;
-    vll vis(n + 1, 0), dp(n + 1, -1);   
-
-    rpt(i, 1, n + 1)
-            mx = max(mx, dfs(adj, vis, dp, i));
-    debug(dp);
-    cout << mx;
+    cout << v;
     nl;
 }
 
