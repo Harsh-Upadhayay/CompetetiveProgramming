@@ -117,9 +117,12 @@ void solve(ll __T__){
 
     vvll dp(n + 1, vll(mxVal + 1, -1));
 
-    while(mxVal--) 
+    while(mxVal--) {
+        cout << mxVal;
+        break;
         if(fun(w, v, dp, 0, mxVal) < c)
             kill(mxVal);
+    }
 
     cout << 0;
 
