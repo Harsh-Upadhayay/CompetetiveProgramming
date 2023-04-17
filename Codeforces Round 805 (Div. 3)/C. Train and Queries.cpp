@@ -90,7 +90,7 @@ ll fun(vll &v, ll i, ll k) {
 
     ll ways = 0;
 
-    rpt(x, 1, v[i] + 1)
+    rpt(x, 0, v[i] + 1)
         if(x <= k)
             ways += fun(v, i - 1, k - x);
 
