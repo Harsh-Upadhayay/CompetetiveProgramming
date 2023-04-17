@@ -101,7 +101,7 @@ void solve(ll __T__){
     ll t = floor(v.size() / 2.0) + 1;
 
     debug(n, v, t);
-    cout << fun(v, 0, t);
+    cout << setprecision(9) << fun(v, 0, t);
 
     nl;
 }
