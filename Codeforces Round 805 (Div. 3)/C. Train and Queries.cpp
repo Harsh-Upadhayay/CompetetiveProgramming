@@ -92,7 +92,7 @@ ll fun(vll &v, ll k, ll t) {
                 optVal = min(optVal, fun(v, k - x, !t));
         else
             if(x <= k)
-            optVal = max(optVal, fun(v, k - x, !t));
+                optVal = max(optVal, fun(v, k - x, !t));
     }
 
     return optVal;
