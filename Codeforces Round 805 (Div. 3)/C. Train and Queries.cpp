@@ -104,12 +104,36 @@ ll fun(vll &v, vvll &dp, ll k, ll t) {
 // #define TESTCASE
 void solve(ll __T__){
 
-    ll n, k; cin >> n >> k;
+    ll n, _k; cin >> n >> _k;
     vll v(n); cin >> v;
 
     sort(all(v));
-    vvll dp(k + 1, vll (2, -1));
-    ll ans = fun(v, dp, k, 0);
+    vvll dp(_k + 1, vll (2, 0));
+
+    for(int k = 0; k <= _k; k++) {
+
+        for(int t = 1; t >= 0; t--) {
+
+            ll optVal = t ? +1 : -1;
+
+            for(ll x : v) {
+                if(t) {
+                    if(x <= k)
+                        optVal = min(optVal, dp[k - x][!t]);
+                }
+                else{
+                    if(x <= k)
+                        optVal = max(optVal, dp[k - x][!t]);
+                }
+            }
+
+            dp[k][t] = optVal;
+
+        }
+
+    }
+
+    ll ans = dp[_k][0];
     if(ans > 0)
         cout << "First";
     else
