@@ -90,9 +90,9 @@ ll fun(vll &v, ll i, ll k) {
 
     ll ways = 0;
 
-    for(ll x : v)
-        if(x <= k)
-            ways += fun(v, i - 1, k - x);
+    rpt(j, 1, v[i] + 1)
+        if(j <= k)
+            ways += fun(v, i - 1, k - j);
 
     return ways;
 }
