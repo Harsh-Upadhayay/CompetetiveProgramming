@@ -80,39 +80,37 @@ void init(){
     return;
 }
 
+ll dfs(vll adj[], vll &vis, ll i) {
+
+    debug(i);
+    vis[i] = 1;
+
+    ll mxD = 0;
+
+    for(auto j : adj[i])
+        if(!vis[j])
+            mxD = max(mxD, 1 + dfs(adj, vis, j));
+
+    return mxD;
+}
+
 
 // #define TESTCASE
 void solve(ll __T__){
 
-    string a, b; cin >> a >> b;
-    ll n = a.size(), m = b.size();
-    vvll dp(n + 1, vll(m + 1, 0));
+    ll n, m; cin >> n >> m;
 
-    rpt(i, 0, n) 
-        rpt(j, 0, m) 
-            if(a[i] == b[j]) 
-                dp[i + 1][j + 1] = 1 + dp[i][j];
-            else
-                dp[i + 1][j + 1] = max(dp[i][j + 1], dp[i + 1][j]);
-
-    string lcs = "";
-    int i = n, j = m;
-
-    while(i > 0 && j > 0) {
-
-        if(a[i - 1] == b[j - 1])
-            lcs += a[i - 1],
-            i -= 1,
-            j -= 1;
-        else if(dp[i - 1][j] > dp[i][j - 1])
-            i -= 1;
-        else
-            j -= 1;
+    vll adj[n + 1];
+    while(m--) {
+        ll u, v; cin >> u >> v;
+        adj[u].push_back(v),
+        adj[v].push_back(u);
     }
 
-    reverse(all(lcs));
+    ll mx = ninf;
+    vll vis(n + 1, 0), dp(n + 1, -1);   
 
-    cout << lcs;
+    cout << dfs(adj, vis, 1);
 
     nl;
 }
