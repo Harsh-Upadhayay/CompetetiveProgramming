@@ -80,19 +80,24 @@ void init(){
     return;
 }
 
-ll fun(vll &v, ll i, ll k) {
+ll fun(vll &v, ll i, ll k, vll &seq) {
     debug(i, k);
-    if(i < 0 && k == 0)
+    if(i < 0 && k == 0) {
+        cout << seq << "\n";
         return 1;
+    }
 
     if(i < 0 || k == 0)
         return 0;
 
     ll ways = 0;
 
-    rpt(x, 0, v[i] + 1)
+    rpt(x, 0, v[i] + 1) {
         if(x <= k)
-            ways += fun(v, i - 1, k - x);
+            seq.push_back(x),
+            ways += fun(v, i - 1, k - x, seq),
+            seq.pop_back();
+    }
 
     return ways;
 }
@@ -102,8 +107,8 @@ void solve(ll __T__){
 
     ll n, k; cin >> n >> k;
     vll v(n); cin >> v;
-
-    cout << fun(v, n - 1, k);    
+    vll s;
+    cout << fun(v, n - 1, k, s);    
 
     nl;
 }
