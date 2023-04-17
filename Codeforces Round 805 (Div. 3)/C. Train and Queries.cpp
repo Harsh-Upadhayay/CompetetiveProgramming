@@ -80,7 +80,7 @@ void init(){
     return;
 }
 
-long double fun(vll &v, ll i, ll j) {
+long double fun(vector<long double> &v, ll i, ll j) {
 
     if(j == 0)
         return 1;
@@ -96,7 +96,7 @@ long double fun(vll &v, ll i, ll j) {
 void solve(ll __T__){
 
     ll n; cin >> n;
-    vll v(n); cin >> v;
+    vector<long double> v(n); cin >> v;
 
     ll t = floor(v.size() / 2.0) + 1;
 
