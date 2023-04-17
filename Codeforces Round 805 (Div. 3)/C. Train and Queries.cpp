@@ -85,7 +85,7 @@ void init(){
 void solve(ll __T__){
 
     ll n, m; cin >> n >> m;
-    vvll v(n + 1, vll(m, 0));
+    vvll v(n, vll(m, 0));
     cout << v;
     rpt(i, 0, n)
         rpt(j, 0, m) {
