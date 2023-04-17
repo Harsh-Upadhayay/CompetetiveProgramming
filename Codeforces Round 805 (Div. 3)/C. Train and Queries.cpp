@@ -92,7 +92,7 @@ void solve(ll __T__){
             char x; cin >> x;
             v[i][j] = x == '#';
         }
-
+        debug(v);
     cout << v;
     nl;
 }
