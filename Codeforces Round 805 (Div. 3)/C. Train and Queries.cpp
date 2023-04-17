@@ -80,24 +80,25 @@ void init(){
     return;
 }
 
-ll fun(vll &v, ll k, ll t) {
+ll fun(vll &v, vvll &dp, ll k, ll t) {
 
     debug(k, t);
-    
+    if(dp[k][t] != -1)
+        return dp[k][t];
     ll optVal = t ? +1 : -1;
 
     for(ll x : v) {
         if(t) {
             if(x <= k)
-                optVal = min(optVal, fun(v, k - x, !t));
+                optVal = min(optVal, fun(v, dp, k - x, !t));
         }
         else{
             if(x <= k)
-                optVal = max(optVal, fun(v, k - x, !t));
+                optVal = max(optVal, fun(v, dp, k - x, !t));
         }
     }
 
-    return optVal;
+    return dp[k][t] = optVal;
 }
 
 // #define TESTCASE
@@ -107,7 +108,13 @@ void solve(ll __T__){
     vll v(n); cin >> v;
 
     sort(all(v));
-    cout << fun(v, k, 0);
+    vvll dp(k + 1, vll (2, -1));
+    ll ans = fun(v, dp, k, 0);
+    if(ans > 0)
+        cout << "First";
+    else
+        cout << "Second";
+    
 
     nl;
 }
