@@ -50,7 +50,7 @@ istream& operator>>(istream &is, vector<T> &v) {
 
 template <typename T1, typename T2>
 ostream& operator<<(ostream &os, pair<T1, T2> &x) {
-    cout << "(" << x.fi << "," << x.se << ")";
+    os << "(" << x.fi << "," << x.se << ")";
     return os;
 }
 
@@ -114,7 +114,8 @@ void solve(ll __T__){
     vll vis(n + 1, 0), dp(n + 1, -1);   
 
     rpt(i, 1, n + 1)
-        mx = max(mx, dfs(adj, vis, dp, i));
+        if(!vis[i])
+            mx = max(mx, dfs(adj, vis, dp, i));
     debug(dp);
     cout << mx;
     nl;
