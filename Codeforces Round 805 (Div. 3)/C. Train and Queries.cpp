@@ -99,6 +99,8 @@ void solve(ll __T__){
     vll v(n); cin >> v;
 
     ll t = floor(v.size() / 2.0) + 1;
+
+    debug(n, v, t);
     cout << fun(v, 0, t);
 
     nl;
