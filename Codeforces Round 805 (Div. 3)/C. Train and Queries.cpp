@@ -80,6 +80,23 @@ void init(){
     return;
 }
 
+ll fun(vvll &v, ll i, ll j) {
+
+    ll n = v.size(), m = v[0].size();
+    
+    if(i == n - 1 && j == m - 1)
+        return 1;
+
+    ll dwn = 0, rgt = 0;
+
+    if(i + 1 < n)
+        dwn = fun(v, i + 1, j);
+
+    if(j + 1 < m)
+        rgt = fun(v, i, j + 1);
+
+    return dwn + rgt;
+}
 
 // #define TESTCASE
 void solve(ll __T__){
@@ -91,8 +108,8 @@ void solve(ll __T__){
             char x; cin >> x;
             v[i][j] = x == '#';
         }
-        debug(v);
-    cout << v;
+
+    cout << fun(v, 0, 0);
     nl;
 }
 
