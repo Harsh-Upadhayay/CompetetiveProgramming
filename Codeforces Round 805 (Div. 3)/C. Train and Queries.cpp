@@ -80,22 +80,25 @@ void init(){
     return;
 }
 
-ll fun(vvll &v, ll i, ll j) {
+ll fun(vvll &v, vvll &dp, ll i, ll j) {
 
     ll n = v.size(), m = v[0].size();
-    
+
     if(i == n - 1 && j == m - 1)
         return 1;
+
+    if(dp[i][j] != -1)
+        return dp[i][j];
 
     ll dwn = 0, rgt = 0;
 
     if(i + 1 < n && v[i + 1][j] == 0)
-        dwn = fun(v, i + 1, j);
+        dwn = fun(v, dp, i + 1, j);
 
     if(j + 1 < m && v[i][j + 1] == 0)
-        rgt = fun(v, i, j + 1);
+        rgt = fun(v, dp, i, j + 1);
 
-    return dwn + rgt;
+    return dp[i][j] = dwn + rgt;
 }
 
 // #define TESTCASE
@@ -108,8 +111,8 @@ void solve(ll __T__){
             char x; cin >> x;
             v[i][j] = x == '#';
         }
-
-    cout << fun(v, 0, 0);
+    vvll dp(n, vll(m, -1));
+    cout << fun(v, dp, 0, 0);
     nl;
 }
 
