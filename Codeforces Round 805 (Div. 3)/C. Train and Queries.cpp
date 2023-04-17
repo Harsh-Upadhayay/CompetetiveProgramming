@@ -80,7 +80,7 @@ void init(){
     return;
 }
 
-long double fun(vector<long double> &v, ll i, ll j) {
+long double fun(vector<long double> &v, vector<vector<long double>> &dp, ll i, ll j) {
 
     if(j == 0)
         return 1;
@@ -88,7 +88,10 @@ long double fun(vector<long double> &v, ll i, ll j) {
     if(i == v.size())
         return 0;
 
-    return ((v[i] * fun(v, i + 1, j - 1)) + ((1 - v[i]) * fun(v, i + 1 , j)));
+    if(dp[i][j] != -1)
+        return dp[i][j];
+
+    return dp[i][j] = ((v[i] * fun(v, dp, i + 1, j - 1)) + ((1 - v[i]) * fun(v, dp, i + 1 , j)));
 
 }
 
@@ -101,7 +104,8 @@ void solve(ll __T__){
     ll t = floor(v.size() / 2.0) + 1;
 
     debug(n, v, t);
-    cout << setprecision(10) << fun(v, 0, t);
+    vector<vector<long double>> dp(n + 1, vector<long double>(t + 1, -1));
+    cout << setprecision(10) << fun(v, dp, 0, t);
 
     nl;
 }
