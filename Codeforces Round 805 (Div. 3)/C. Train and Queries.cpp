@@ -80,35 +80,38 @@ void init(){
     return;
 }
 
-ll fun(vll &v, ll i, ll k, vll &seq) {
-    debug(i, k);
-    if(i < 0 && k == 0) {
-        cout << seq << "\n";
-        return 1;
-    }
 
-    if(i < 0 || k == 0)
+ll fun(vll v) {
+
+    if(v.size() <= 1)
         return 0;
 
-    ll ways = 0;
+    ll mn = inf;
 
-    rpt(x, 0, v[i] + 1) {
-        if(x <= k)
-            seq.push_back(x),
-            ways += fun(v, i - 1, k - x, seq),
-            seq.pop_back();
+    for(int i = 0; i < v.size() - 1; i++) {
+
+        vll t;
+
+        for(int j = 0; j < i; j++) t.push_back(v[i]);
+        t.push_back(v[i] + v[i + 1]);
+        for(int j = i + 2; j < v.size(); j++) t.push_back(v[i]);
+
+
+        mn = min(mn, v[i] + v[i + 1] + fun(t));
     }
 
-    return ways;
+
+    return mn;
 }
+
 
 // #define TESTCASE
 void solve(ll __T__){
 
-    ll n, k; cin >> n >> k;
+    ll n; cin >> n;
     vll v(n); cin >> v;
-    vll s;
-    cout << fun(v, n - 1, k, s);    
+
+    cout << fun(v);
 
     nl;
 }
