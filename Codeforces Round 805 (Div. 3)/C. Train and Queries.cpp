@@ -92,9 +92,9 @@ ll fun(vll v) {
 
         vll t;
 
-        for(int j = 0; j < i; j++) t.push_back(v[i]);
+        for(int j = 0; j < i; j++) t.push_back(v[j]);
         t.push_back(v[i] + v[i + 1]);
-        for(int j = i + 2; j < v.size(); j++) t.push_back(v[i]);
+        for(int j = i + 2; j < v.size(); j++) t.push_back(v[j]);
 
 
         mn = min(mn, v[i] + v[i + 1] + fun(t));
