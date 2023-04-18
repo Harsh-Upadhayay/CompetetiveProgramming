@@ -82,7 +82,7 @@ void init(){
 
 
 ll fun(vll v) {
-
+    debug(v);
     if(v.size() <= 1)
         return 0;
 
