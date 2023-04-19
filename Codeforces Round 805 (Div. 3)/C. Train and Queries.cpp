@@ -116,8 +116,8 @@ ll fun(vll &v, ll beforeMe, ll afterMe, ll startFrom, ll endAt) {
     ll minCost = inf;
 
     // chk Before
-    // if(beforeMe != 0) 
-    //     minCost = min(minCost, (beforeMe + v[startFrom]) + fun(v, beforeMe + v[startFrom], afterMe, startFrom + 1, endAt));
+    if(beforeMe != 0) 
+        minCost = min(minCost, (beforeMe + v[startFrom]) + fun(v, beforeMe + v[startFrom], afterMe, startFrom + 1, endAt));
 
     // loop
     for(int k = startFrom; k < endAt; k++) {
@@ -127,18 +127,18 @@ ll fun(vll &v, ll beforeMe, ll afterMe, ll startFrom, ll endAt) {
             rightCost = fun(v, curCost, afterMe, k + 2, endAt);
 
 
-        minCost = min(minCost, leftCost + curCost + rightCost);
+        minCost = min({minCost, leftCost + curCost, curCost + rightCost});
     }
 
     // chk After
-    // if(afterMe != 0)
-    //     minCost = min(minCost, fun(v, beforeMe, afterMe + v[endAt], startFrom, endAt - 1) + (v[endAt] + afterMe));
+    if(afterMe != 0)
+        minCost = min(minCost, fun(v, beforeMe, afterMe + v[endAt], startFrom, endAt - 1) + (v[endAt] + afterMe));
 
     // return best ans;
     return minCost;
 }
 
-ll optimized(vll &v) {
+ll op(vll &v, ll d) {
     ll n = v.size();
 
     return fun(v, 0, 0, 0, n - 1);
@@ -150,7 +150,7 @@ void solve(ll __T__){
     ll n; cin >> n;
     vll v(n); cin >> v;
 
-    cout << bf(v, 0);
+    cout << op(v, 0);
 
     nl;
 }
