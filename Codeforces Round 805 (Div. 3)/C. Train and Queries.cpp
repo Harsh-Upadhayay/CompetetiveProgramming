@@ -81,8 +81,9 @@ void init(){
 }
 
 
-ll fun(vll v) {
+ll bf(vll v) {
     debug(v);
+
     if(v.size() <= 1)
         return 0;
 
@@ -96,13 +97,49 @@ ll fun(vll v) {
         t.push_back(v[i] + v[i + 1]);
         for(int j = i + 2; j < v.size(); j++) t.push_back(v[j]);
 
-        mn = min(mn, v[i] + v[i + 1] + fun(t));
+        mn = min(mn, v[i] + v[i + 1] + bf(t));
     }
 
 
     return mn;
 }
 
+ll fun(vll &v, ll beforeMe, ll afterMe, ll startFrom, ll endAt) {
+
+    debug(startFrom, endAt);
+    if(startFrom >= endAt)
+        return 0;
+
+    ll minCost = inf;
+
+    // chk Before
+    // if(beforeMe != 0) 
+    //     minCost = min(minCost, (beforeMe + v[startFrom]) + fun(v, beforeMe + v[startFrom], afterMe, startFrom + 1, endAt));
+
+    // loop
+    for(int k = startFrom; k < endAt; k++) {
+
+        ll  curCost = v[k] + v[k + 1],
+            leftCost = fun(v, beforeMe, curCost, startFrom, k - 1),
+            rightCost = fun(v, curCost, afterMe, k + 2, endAt);
+
+
+        minCost = min(minCost, leftCost + curCost + rightCost);
+    }
+
+    // chk After
+    // if(afterMe != 0)
+    //     minCost = min(minCost, fun(v, beforeMe, afterMe + v[endAt], startFrom, endAt - 1) + (v[endAt] + afterMe));
+
+    // return best ans;
+    return minCost;
+}
+
+ll optimized(vll &v) {
+    ll n = v.size();
+
+    return fun(v, 0, 0, 0, n - 1);
+}
 
 // #define TESTCASE
 void solve(ll __T__){
@@ -110,7 +147,7 @@ void solve(ll __T__){
     ll n; cin >> n;
     vll v(n); cin >> v;
 
-    cout << fun(v);
+    cout << bf(v);
 
     nl;
 }
