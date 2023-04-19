@@ -85,7 +85,7 @@ ll bf(vll v, ll d) {
     rpt(i, 0, d)
         cout << " ";
 
-    cout << v;
+    cout << v << "\n";
 
     if(v.size() <= 1) 
         return 0;
