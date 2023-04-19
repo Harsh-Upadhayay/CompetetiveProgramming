@@ -81,10 +81,13 @@ void init(){
 }
 
 
-ll bf(vll v) {
-    debug(v);
+ll bf(vll v, ll d) {
+    rpt(i, 0, d)
+        cout << " ";
 
-    if(v.size() <= 1)
+    cout << v;
+
+    if(v.size() <= 1) 
         return 0;
 
     ll mn = inf;
@@ -97,7 +100,7 @@ ll bf(vll v) {
         t.push_back(v[i] + v[i + 1]);
         for(int j = i + 2; j < v.size(); j++) t.push_back(v[j]);
 
-        mn = min(mn, v[i] + v[i + 1] + bf(t));
+        mn = min(mn, v[i] + v[i + 1] + bf(t, d + 1));
     }
 
 
@@ -147,7 +150,7 @@ void solve(ll __T__){
     ll n; cin >> n;
     vll v(n); cin >> v;
 
-    cout << bf(v);
+    cout << bf(v, 0);
 
     nl;
 }
