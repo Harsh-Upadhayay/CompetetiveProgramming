@@ -127,7 +127,7 @@ ll fun(vll &v, ll beforeMe, ll afterMe, ll startFrom, ll endAt) {
             rightCost = fun(v, curCost, afterMe, k + 2, endAt);
 
 
-        minCost = min({minCost, leftCost + curCost, curCost + rightCost});
+        minCost = min({minCost, leftCost + curCost + rightCost});
     }
 
     // chk After
