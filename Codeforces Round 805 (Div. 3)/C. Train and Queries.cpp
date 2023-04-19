@@ -83,7 +83,7 @@ void init(){
 
 ll bf(vll v, ll d) {
     rpt(i, 0, d)
-        cout << " ";
+        cout << "\t";
 
     cout << v << "\n";
 
