@@ -81,77 +81,32 @@ void init(){
 }
 
 
-ll bf(vll v, ll d) {
-    rpt(i, 0, d)
-        cout << "\t";
-
-    cout << v << "\n";
-
-    if(v.size() <= 1) 
-        return 0;
-
-    ll mn = inf;
-
-    for(int i = 0; i < v.size() - 1; i++) {
-
-        vll t;
-
-        for(int j = 0; j < i; j++) t.push_back(v[j]);
-        t.push_back(v[i] + v[i + 1]);
-        for(int j = i + 2; j < v.size(); j++) t.push_back(v[j]);
-
-        mn = min(mn, v[i] + v[i + 1] + bf(t, d + 1));
-    }
-
-
-    return mn;
-}
-
-ll fun(vll &v, ll beforeMe, ll afterMe, ll startFrom, ll endAt) {
-
-    debug(startFrom, endAt);
-    if(startFrom >= endAt)
-        return 0;
-
-    ll minCost = inf;
-
-    // chk Before
-    if(beforeMe != 0) 
-        minCost = min(minCost, (beforeMe + v[startFrom]) + fun(v, beforeMe + v[startFrom], afterMe, startFrom + 1, endAt));
-
-    // loop
-    for(int k = startFrom; k < endAt; k++) {
-
-        ll  curCost = v[k] + v[k + 1],
-            leftCost = fun(v, beforeMe, curCost, startFrom, k - 1),
-            rightCost = fun(v, curCost, afterMe, k + 2, endAt);
-
-
-        minCost = min({minCost, leftCost + curCost + rightCost});
-    }
-
-    // chk After
-    if(afterMe != 0)
-        minCost = min(minCost, fun(v, beforeMe, afterMe + v[endAt], startFrom, endAt - 1) + (v[endAt] + afterMe));
-
-    // return best ans;
-    return minCost;
-}
-
-ll op(vll &v, ll d) {
-    ll n = v.size();
-
-    return fun(v, 0, 0, 0, n - 1);
-}
-
-// #define TESTCASE
+#define TESTCASE
 void solve(ll __T__){
 
-    ll n; cin >> n;
-    vll v(n); cin >> v;
+    string s; cin >> s;
 
-    cout << op(v, 0);
+    if(s[0] == '0')
+        kill("0");
 
+    bool fd = true;
+
+    ll ans = 1;
+
+    for(auto ch : s) {
+
+        if(ch >= '1' && ch <= '9')
+            fd = false;
+
+        if(ch == '?') {
+            if(fd)
+                ans *= 9,
+                fd = false;
+            else
+                ans *= 10;
+        }
+    }
+    cout << ans;
     nl;
 }
 
