@@ -87,7 +87,7 @@ void solve(ll __T__){
     string s; cin >> s;
 
     if(s[0] == '0')
-        kill("0");
+        kill("0")
 
     bool fd = true;
 
