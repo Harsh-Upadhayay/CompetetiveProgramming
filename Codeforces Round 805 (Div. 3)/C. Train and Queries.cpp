@@ -82,7 +82,7 @@ void init(){
 
 ll fun(string &s, char ch) {
 
-    vll idx(1, 0);
+    vll idx(1, -1);
     rpt(i, 0, s.size())
         if(s[i] == ch)
             idx.push_back(i);
