@@ -80,33 +80,34 @@ void init(){
     return;
 }
 
+ll fun(string &s, char ch) {
+
+    vll idx(1, 0);
+    rpt(i, 0, s.size())
+        if(s[i] == ch)
+            idx.push_back(i);
+
+    ll mx = ninf;
+    idx.push_back(s.size() - 1);
+
+    rpt(i, 0, idx.size() - 1)
+        mx = max(mx, idx[i + 1] - idx[i]);
+
+    return ceil(log2(mx));
+}
 
 #define TESTCASE
 void solve(ll __T__){
 
     string s; cin >> s;
 
-    if(s[0] == '0')
-        kill("0")
+    ll ans = inf;
 
-    bool fd = true;
+    for(char ch = 'a'; ch <= 'z'; ch++) 
+        ans = min(ans, fun(s, ch));
 
-    ll ans = 1;
-
-    for(auto ch : s) {
-
-        if(ch >= '1' && ch <= '9')
-            fd = false;
-
-        if(ch == '?') {
-            if(fd)
-                ans *= 9,
-                fd = false;
-            else
-                ans *= 10;
-        }
-    }
     cout << ans;
+
     nl;
 }
 
