@@ -93,6 +93,7 @@ ll fun(string &s, char ch) {
     rpt(i, 0, idx.size() - 1)
         mx = max(mx, idx[i + 1] - idx[i]);
 
+    debug(ch, mx);
     return ceil(log2(mx));
 }
 
