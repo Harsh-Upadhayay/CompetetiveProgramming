@@ -88,7 +88,7 @@ ll fun(string &s, char ch) {
             idx.push_back(i);
 
     ll mx = ninf;
-    idx.push_back(s.size() - 1);
+    idx.push_back(s.size());
 
     rpt(i, 0, idx.size() - 1)
         mx = max(mx, idx[i + 1] - idx[i]);
