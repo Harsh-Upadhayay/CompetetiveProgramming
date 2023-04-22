@@ -111,31 +111,31 @@ void solve(ll __T__){
         cin >> v[i].fi >> v[i].se.fi >> v[i].se.se;
 
 
-    vector<int> dp(n + 1, 0);
+    vector<int> dp(n + 1, -1);
 
     sort(v.begin(), v.end());
 
     vector<int> temp;
     for(auto x : v) temp.push_back(x.fi);
         
-    for(int i = n - 1; i >= 0; i--) {
+    // for(int i = n - 1; i >= 0; i--) {
 
 
-        int take = -1 * 1e9, nottake = 0;
+    //     int take = -1 * 1e9, nottake = 0;
 
-        nottake = dp[i + 1];
+    //     nottake = dp[i + 1];
 
-        auto x = lower_bound(temp.begin() + i, temp.end(), v[i].se.fi);
-        int idx = x - temp.begin();
+    //     auto x = lower_bound(temp.begin() + i, temp.end(), v[i].se.fi);
+    //     int idx = x - temp.begin();
 
-        if(idx < n)
-            take = v[i].se.se + dp[idx];
+    //     if(idx < n)
+    //         take = v[i].se.se + dp[idx];
 
-        dp[i] = max(take, nottake);
+    //     dp[i] = max(take, nottake);
 
-    }
+    // }
 
-    cout << dp[0];
+    cout << fun(v, temp, dp, 0);
 
 }
 
