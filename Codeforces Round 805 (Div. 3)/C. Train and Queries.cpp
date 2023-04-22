@@ -80,7 +80,7 @@ void init(){
     return;
 }
 
-ll fun(vvll &v, ll x, ll i, ll j, ll cx) {
+ll fun(vvll &v, ll x, map<pair<ll, pair<ll, ll>>, ll> &dp, ll i, ll j, ll cx) {
     debug(x, i, j,  cx);
 
     ll n = v.size(), m = v[0].size();
@@ -88,15 +88,18 @@ ll fun(vvll &v, ll x, ll i, ll j, ll cx) {
     if(i == n - 1 && j == m - 1)
         return (cx ^ v[i][j]) == x;
 
+    if(dp.count({i, {j, cx}}))
+        return dp[{i, {j, cx}}];
+
     ll rt = 0, dn = 0;
 
     if(j + 1 < v[0].size())
-        rt = fun(v, x, i, j + 1, cx ^ v[i][j]);
+        rt = fun(v, x, dp, i, j + 1, cx ^ v[i][j]);
 
     if(i + 1 < v.size())
-        dn = fun(v, x, i + 1, j, cx ^ v[i][j]);
+        dn = fun(v, x, dp, i + 1, j, cx ^ v[i][j]);
 
-    return rt + dn;
+    return dp[{i, {j, cx}}] = rt + dn;
 }
 
 // #define TESTCASE
@@ -105,7 +108,9 @@ void solve(ll __T__){
     ll n, m, x; cin >> n >> m >> x;
     vvll v(n, vll(m, 0)); cin >> v;
 
-    cout << fun(v, x, 0, 0, 0);
+    map<pair<ll, pair<ll, ll>>, ll> dp;
+
+    cout << fun(v, x, dp, 0, 0, 0);
 
     nl;
 }
