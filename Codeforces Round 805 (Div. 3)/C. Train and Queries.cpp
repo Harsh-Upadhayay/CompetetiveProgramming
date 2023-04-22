@@ -88,6 +88,8 @@ void solve(ll __T__){
     for(int i = 0; i < n; i++)
         cin >> v[i].fi >> v[i].se.fi >> v[i].se.se;
 
+    sort(v.begin(), v.end());
+
     debug(v);
 }
 
