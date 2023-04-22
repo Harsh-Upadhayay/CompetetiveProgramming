@@ -132,7 +132,7 @@ void solve(ll __T__){
 
     }
 
-    cout << fun(v, temp, dp, 0);
+    cout << dp[0];
 
 }
 
