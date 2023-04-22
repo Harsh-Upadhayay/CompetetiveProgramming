@@ -80,34 +80,40 @@ void init(){
     return;
 }
 
-ll fun(string &s, char ch) {
+ll fun(string &num, ll dig, ll ut, ll sum) {
 
-    vll idx(1, -1);
-    rpt(i, 0, s.size())
-        if(s[i] == ch)
-            idx.push_back(i);
+    if(dig < 0) 
+        return !sum;
 
-    ll mx = ninf;
-    idx.push_back(s.size());
+    ll ub = ut ? num[num.size() - dig] - '0' : 9;
 
-    rpt(i, 0, idx.size() - 1)
-        mx = max(mx, idx[i + 1] - idx[i]);
+    ll ans = 0;
 
-    debug(ch, mx);
-    return ceil(log2(mx));
+    rpt(i, 0, 10) {
+
+        if(i <= ub) {
+
+            if(dig <= sum) {
+
+                ans += fun(num, dig - 1, ut && (i == ub), sum - i);
+
+            }            
+
+        }
+
+    }
+
+    return ans;
+
 }
 
-#define TESTCASE
+// #define TESTCASE
 void solve(ll __T__){
 
-    string s; cin >> s;
+    string n; cin >> n;
+    ll d; cin >> d;
 
-    ll ans = inf;
-
-    for(char ch = 'a'; ch <= 'z'; ch++) 
-        ans = min(ans, fun(s, ch));
-
-    cout << ans;
+    cout << fun(n, n.size(), 1, d);
 
     nl;
 }
