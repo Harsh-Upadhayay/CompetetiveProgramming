@@ -80,6 +80,9 @@ void init(){
     return;
 }
 
+#define fi                      first
+#define se                      second
+
 int fun(vector<pair<int, pair<int, int>>> &v, vector<int> &temp, vector<int> &dp, int i) {
 
     if(i >= v.size())
