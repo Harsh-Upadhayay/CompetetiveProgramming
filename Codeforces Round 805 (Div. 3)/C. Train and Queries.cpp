@@ -80,127 +80,46 @@ void init(){
     return;
 }
 
-ll fun(string &num, ll m, vector<vector<vector<ll>>> &dp, ll dig, ll ut, ll sum) {
-    
-    if(dig == 0) {
-        return !(sum % m);
-    }
 
-    if(dp[dig][ut][sum] != -1)
-        return dp[dig][ut][sum];
-
-    ll ub = (ut ? (num[num.size() - dig] - '0') : 9);
-
-    ll ans = 0;
-
-    rpt(i, 0, ub + 1) {
-
-        ans += (fun(num, m, dp, dig - 1, ut && (i == ub), (sum + i) % m) % MOD);
-    }
-
-    return dp[dig][ut][sum] = (ans % MOD);
-
-}
-
-// #define TESTCASE
 void solve(ll __T__){
 
-    string n; cin >> n;
-    ll d; cin >> d;
+    int n; cin >> n;
+    vector<pair<int, pair<int, int>>> v(n);
+    for(int i = 0; i < n; i++)
+        cin >> v[i].fi >> v[i].se.fi >> v[i].se.se;
 
-    vector<vector<vector<ll>>> dp(n.size() + 1, 
-            vector<vector<ll>> (2, 
-                    vector<ll> (d + 1, -1)));
-
-    cout << fun(n, d, dp, n.size(), 1, 0) - 1;
-
-    nl;
+    debug(v);
 }
 
-
-bool check(int mid, int array[], int n, int K)
-{
-    int count = 0;
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        if (array[i] > mid)
-            return false;
-        sum += array[i];
-        if (sum > mid) {
-            count++;
-            sum = array[i];
-        }
-    }
-    count++;
-    if (count <= K)
-        return true;
-    return false;
-}
-
-int solve(int array[], int n, int K)
-{
-    int* max = max_element(array, array + n);
-    int start = *max; 
-    int end = 0;
-
-    for (int i = 0; i < n; i++) {
-        end += array[i]; 
-    }
-
-    int answer = 0;
-    while (start <= end) {
-        int mid = (start + end) / 2;
-
-      
-        if (check(mid, array, n, K)) {
-            answer = mid;
-            end = mid - 1;
-        }
-        else {
-            start = mid + 1;
-        }
-    }
-
-    return answer;
-}
-
-
-int main()
-{
-    int array[] = {26, 13, 10, 3};
-    int n = sizeof(array) / sizeof(array[0]);
-    int K = 5;
-    cout << solve(array, n, K);
-}
 
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
 
-// int main() {
-//     Timer _;
-//     srand(time(0));
-//     #ifdef DarkLord
-//         freopen("input.txt","r",stdin);
-//         freopen("output.txt","w",stdout);
-//         freopen("err.txt","w",stderr);
-//     #endif
+int main() {
+    Timer _;
+    srand(time(0));
+    #ifdef DarkLord
+        freopen("input.txt","r",stdin);
+        freopen("output.txt","w",stdout);
+        freopen("err.txt","w",stderr);
+    #endif
 
-//     ios_base::sync_with_stdio(0);
-//     cin.tie(NULL);
+    ios_base::sync_with_stdio(0);
+    cin.tie(NULL);
     
-//     init();
+    init();
 
-//     ll t = 1;
+    ll t = 1;
 
-//     #ifdef TESTCASE
-//         cin >> t;
-//     #endif
+    #ifdef TESTCASE
+        cin >> t;
+    #endif
 
-//     rpt(i, 1, t + 1) 
-//         solve(i);
+    rpt(i, 1, t + 1) 
+        solve(i);
 
-//     return 0;
-// }
+    return 0;
+}
 
 /*_________________________________________________________________________________________________________________________________________*/
 
