@@ -115,6 +115,7 @@ void solve(ll __T__){
 
     vector<int> temp;
     for(auto x : v) temp.push_back(x.fi);
+        debug(temp);
         
     for(int i = n - 1; i >= 0; i--) {
 
