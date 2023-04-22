@@ -104,11 +104,11 @@ void solve(ll __T__){
     for(int i = 0; i < n; i++)
         cin >> v[i].fi >> v[i].se.fi >> v[i].se.se;
 
-    vector<int> temp;
-    for(auto x : v) temp.push_back(x.fi);
-
     sort(v.begin(), v.end());
 
+    vector<int> temp;
+    for(auto x : v) temp.push_back(x.fi);
+        
     cout << fun(v, temp, 0);
 
     debug(v);
