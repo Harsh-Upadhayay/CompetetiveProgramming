@@ -119,7 +119,7 @@ void solve(ll __T__){
     for(int i = n - 1; i >= 0; i--) {
 
 
-        int take = 0, nottake = 0;
+        int take = v[i].se.se, nottake = 0;
 
         nottake = dp[i + 1];
 
@@ -127,7 +127,7 @@ void solve(ll __T__){
         int idx = x - temp.begin();
 
         if(idx < n)
-            take = v[i].se.se + dp[idx];
+            take += dp[idx];
 
         dp[i] = max(take, nottake);
 
