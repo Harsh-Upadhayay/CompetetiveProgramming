@@ -115,12 +115,11 @@ void solve(ll __T__){
 
     vector<int> temp;
     for(auto x : v) temp.push_back(x.fi);
-        debug(temp);
-        
+
     for(int i = n - 1; i >= 0; i--) {
 
 
-        int take = -1 * 1e9, nottake = 0;
+        int take = 0, nottake = 0;
 
         nottake = dp[i + 1];
 
