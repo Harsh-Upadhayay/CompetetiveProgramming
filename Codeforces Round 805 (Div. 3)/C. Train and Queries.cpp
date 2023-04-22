@@ -80,40 +80,14 @@ void init(){
     return;
 }
 
-ll fun(ll row, ll col, set<pair<ll, ll>> &walls, ll i, ll j) {
-
-    if(i > row || j > col)
-        return 0;
-
-    if(i == row && j == col)
-        return 1;
-
-    pair<ll, ll> rt(i, j + 1), dn(i + 1, j);
-
-    ll right = 0, down = 0;
-
-    if(!walls.count(rt))
-        right = fun(row, col, walls, i, j + 1);
-
-    if(!walls.count(dn))
-        down = fun(row, col, walls, i + 1, j);
-
-    return right + down;
-}
 
 // #define TESTCASE
 void solve(ll __T__){
 
-    ll row, col, n; cin >> row >> col >> n;
+    ll n, m, x; cin >> n >> m >> x;
+    vvll v(n, vll(m, 0)); cin >> v;
 
-    set<pair<ll, ll>> walls;
-
-    rpt(i, 0, n) {
-        ll r, c; cin >> r >> c;
-        walls.insert({r, c});
-    }
-    
-    cout << fun(row, col, walls, 1, 1);
+    cout << v;
 
     nl;
 }
