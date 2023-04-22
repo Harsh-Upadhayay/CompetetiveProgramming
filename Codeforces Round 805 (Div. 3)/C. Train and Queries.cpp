@@ -80,44 +80,43 @@ void init(){
     return;
 }
 
+ll fun(ll row, ll col, set<pair<ll, ll>> &walls, ll i, ll j) {
 
-ll fun(string &num, ll m, vector<vector<vector<ll>>> &dp, ll dig, ll ut, ll sum) {
-    
-    if(dig == 0) {
-        return !(sum % m);
-    }
+    if(i > row || j > col)
+        return 0;
 
-    if(dp[dig][ut][sum] != -1)
-        return dp[dig][ut][sum];
+    if(i == row && j == col)
+        return 1;
 
-    ll ub = (ut ? (num[num.size() - dig] - '0') : 9);
+    pair<ll, ll> rt(i, j + 1), dn(i + 1, j);
 
-    ll ans = 0;
+    ll right = 0, down = 0;
 
-    rpt(i, 0, ub + 1) {
+    if(!walls.count(rt))
+        right = fun(row, col, walls, i, j + 1);
 
-        ans += (fun(num, m, dp, dig - 1, ut && (i == ub), (sum + i) % m) % MOD);
-    }
+    if(!walls.count(dn))
+        down = fun(row, col, walls, i + 1, j);
 
-    return dp[dig][ut][sum] = (ans % MOD);
-
+    return right + down;
 }
 
 // #define TESTCASE
 void solve(ll __T__){
 
-    string n; cin >> n;
-    ll d; cin >> d;
+    ll row, col, n; cin >> row >> col >> n;
 
-    vector<vector<vector<ll>>> dp(n.size() + 1, 
-            vector<vector<ll>> (2, 
-                    vector<ll> (d + 1, -1)));
+    set<pair<ll, ll>> walls;
 
-    cout << (fun(n, d, dp, n.size(), 1, 0) - 1 + MOD) % MOD;
+    rpt(i, 0, n) {
+        ll r, c; cin >> r >> c;
+        walls.insert({r, c});
+    }
+    
+    cout << fun(row, col, walls, 1, 1);
 
     nl;
 }
-
 
 
 /*_________________________________________________________________________________________________________________________________________*/
