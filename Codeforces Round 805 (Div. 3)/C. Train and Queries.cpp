@@ -93,9 +93,9 @@ ll fun(string &num, ll dig, ll ut, ll sum, string &curN) {
 
     ll ans = 0;
 
-    rpt(i, 0, 10) {
+    rpt(i, 0, ub + 1) {
 
-        if(i <= ub) {
+        
 
             if(i <= sum) {
                 curN += (char)(i + '0');
@@ -104,7 +104,7 @@ ll fun(string &num, ll dig, ll ut, ll sum, string &curN) {
 
             }            
 
-        }
+        
 
     }
 
