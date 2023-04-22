@@ -81,60 +81,43 @@ void init(){
 }
 
 
-int fun(vector<pair<int, pair<int, int>>> &v, vector<int> &temp, vector<int> &dp, int i) {
-
-    if(i >= v.size())
-        return 0;
-
-    if(dp[i] != -1)
-        return dp[i];
-
-    int take = 0, nottake = 0;
-
-    nottake = fun(v, temp, dp, i + 1);
-
-    auto x = lower_bound(temp.begin() + i, temp.end(), v[i].se.fi);
-    int idx = x - temp.begin();
-
-    take = v[i].se.se + fun(v, temp, dp, idx);
-
-    return dp[i] = max(take, nottake);
-}
-
-void solve(ll __T__){
-
-    int n; cin >> n;
-    vector<pair<int, pair<int, int>>> v(n);
-    for(int i = 0; i < n; i++)
-        cin >> v[i].fi >> v[i].se.fi >> v[i].se.se;
-
-
-    vector<int> dp(n + 1, 0);
-
-    sort(v.begin(), v.end());
-
-    vector<int> temp;
-    for(auto x : v) temp.push_back(x.fi);
-
-    for(int i = n - 1; i >= 0; i--) {
-
-
-        int take = v[i].se.se, nottake = 0;
-
-        nottake = dp[i + 1];
-
-        int idx = lower_bound(temp.begin() + i, temp.end(), v[i].se.fi) - temp.begin();
-
-        if(idx < n)
-            take += dp[idx];
-
-        dp[i] = max(take, nottake);
-
+ll fun(string &num, ll m, vector<vector<vector<ll>>> &dp, ll dig, ll ut, ll sum) {
+    
+    if(dig == 0) {
+        return !(sum % m);
     }
 
-    cout << dp[0];
+    if(dp[dig][ut][sum] != -1)
+        return dp[dig][ut][sum];
+
+    ll ub = (ut ? (num[num.size() - dig] - '0') : 9);
+
+    ll ans = 0;
+
+    rpt(i, 0, ub + 1) {
+
+        ans += (fun(num, m, dp, dig - 1, ut && (i == ub), (sum + i) % m) % MOD);
+    }
+
+    return dp[dig][ut][sum] = (ans % MOD);
 
 }
+
+// #define TESTCASE
+void solve(ll __T__){
+
+    string n; cin >> n;
+    ll d; cin >> d;
+
+    vector<vector<vector<ll>>> dp(n.size() + 1, 
+            vector<vector<ll>> (2, 
+                    vector<ll> (d + 1, -1)));
+
+    cout << (fun(n, d, dp, n.size(), 1, 0) - 1) % MOD;
+
+    nl;
+}
+
 
 
 /*_________________________________________________________________________________________________________________________________________*/
