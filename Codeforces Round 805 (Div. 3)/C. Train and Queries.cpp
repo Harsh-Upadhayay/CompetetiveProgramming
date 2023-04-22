@@ -90,19 +90,19 @@ ll fun(string &num, ll dig, ll ut, ll sum, string &curN) {
     }
 
     ll ub = (ut ? (num[num.size() - dig] - '0') : 9);
-
+    debug(ub);
     ll ans = 0;
 
     rpt(i, 0, ub + 1) {
 
-        
+            
 
-            if(i <= sum) {
-                curN += (char)(i + '0');
-                ans += fun(num, dig - 1, ut && (i == ub), sum - i, curN);
-                curN.pop_back();
+        if(i <= sum) {
+            curN += (char)(i + '0');
+            ans += fun(num, dig - 1, ut && (i == ub), sum - i, curN);
+            curN.pop_back();
 
-            }            
+        }            
 
         
 
