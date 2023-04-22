@@ -83,7 +83,7 @@ void init(){
 ll fun(vvll &v, ll x, ll i, ll j, ll cx) {
     debug(x, i, j,  cx);
     if(i == v.size() && j == v[0].size())
-        return cx == x;
+        return (cx ^ v[i][j]) == x;
 
     ll rt = 0, dn = 0;
 
