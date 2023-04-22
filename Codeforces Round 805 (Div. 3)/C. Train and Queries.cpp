@@ -81,7 +81,7 @@ void init(){
 }
 
 ll fun(string &num, ll dig, ll ut, ll sum, string &curN) {
-
+    debug(num, dig, ut, sum, curN);
     if(dig < 0) {
         reverse(all(curN));
         if(!sum)
