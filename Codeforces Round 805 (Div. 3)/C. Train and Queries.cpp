@@ -88,8 +88,8 @@ ll fun(vvll &v, ll x, map<pair<ll, pair<ll, ll>>, ll> &dp, ll i, ll j, ll cx) {
     if(i == n - 1 && j == m - 1)
         return (cx ^ v[i][j]) == x;
 
-    if(dp.count({i, {j, cx}}))
-        return dp[{i, {j, cx}}];
+    // if(dp.count({i, {j, cx}}))
+    //     return dp[{i, {j, cx}}];
 
     ll rt = 0, dn = 0;
 
