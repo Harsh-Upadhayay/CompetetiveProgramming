@@ -80,10 +80,14 @@ void init(){
     return;
 }
 
-ll fun(string &num, ll dig, ll ut, ll sum) {
+ll fun(string &num, ll dig, ll ut, ll sum, string &curN) {
 
-    if(dig < 0) 
+    if(dig < 0) {
+        reverse(all(curN));
+        if(!sum)
+            cout << curN << "\n";
         return !sum;
+    }
 
     ll ub = ut ? num[num.size() - dig] - '0' : 9;
 
@@ -94,8 +98,9 @@ ll fun(string &num, ll dig, ll ut, ll sum) {
         if(i <= ub) {
 
             if(dig <= sum) {
-
-                ans += fun(num, dig - 1, ut && (i == ub), sum - i);
+                curN += (char)(i + '0');
+                ans += fun(num, dig - 1, ut && (i == ub), sum - i, curN);
+                curN.pop_back();
 
             }            
 
@@ -112,8 +117,8 @@ void solve(ll __T__){
 
     string n; cin >> n;
     ll d; cin >> d;
-
-    cout << fun(n, n.size(), 1, d);
+    string s;
+    cout << fun(n, n.size(), 1, d, s);
 
     nl;
 }
