@@ -80,23 +80,25 @@ void init(){
     return;
 }
 
-ll fun(string &num, ll m, ll dig, ll ut, ll sum) {
+ll fun(string &num, ll m, vector<vector<vector<ll>>> &dp, ll dig, ll ut, ll sum) {
     
     if(dig == 0) {
-        
         return !(sum % m);
     }
 
+    if(dp[dig][ut][sum] != -1)
+        return dp[dig][ut][sum];
+
     ll ub = (ut ? (num[num.size() - dig] - '0') : 9);
-    debug(ub);
+
     ll ans = 0;
 
     rpt(i, 0, ub + 1) {
 
-        ans += fun(num, m, dig - 1, ut && (i == ub), (sum + i) % m);
+        ans += (fun(num, m, dp, dig - 1, ut && (i == ub), (sum + i) % m) % MOD);
     }
 
-    return ans;
+    return dp[dig][ut][sum] = (ans % MOD);
 
 }
 
@@ -106,7 +108,11 @@ void solve(ll __T__){
     string n; cin >> n;
     ll d; cin >> d;
 
-    cout << fun(n, d, n.size(), 1, 0);
+    vector<vector<vector<ll>>> dp(n.size() + 1, 
+            vector<vector<ll>> (2, 
+                    vector<ll> (d + 1, -1)));
+
+    cout << fun(n, d, dp, n.size(), 1, 0) - 1;
 
     nl;
 }
