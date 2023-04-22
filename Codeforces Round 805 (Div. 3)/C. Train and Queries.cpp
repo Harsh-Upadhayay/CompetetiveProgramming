@@ -80,6 +80,22 @@ void init(){
     return;
 }
 
+int fun(vector<pair<int, pair<int, int>>> &v, vector<int> &temp, int i) {
+
+    if(i >= v.size())
+        return 0;
+
+    int take = -1 * 1e9, nottake = 0;
+
+    nottake = fun(v, temp, i + 1);
+
+    auto x = lower_bound(temp.begin(), temp.end(), v[i].se.fi);
+    int idx = x - temp.begin();
+
+    take = v[i].se.se + fun(v, temp, idx);
+
+    return max(take, nottake);
+}
 
 void solve(ll __T__){
 
@@ -88,7 +104,12 @@ void solve(ll __T__){
     for(int i = 0; i < n; i++)
         cin >> v[i].fi >> v[i].se.fi >> v[i].se.se;
 
+    vector<int> temp;
+    for(auto x : v) temp.push_back(x.fi);
+
     sort(v.begin(), v.end());
+
+    cout << fun(v, temp, 0);
 
     debug(v);
 }
