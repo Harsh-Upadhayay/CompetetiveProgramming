@@ -95,7 +95,7 @@ int fun(vector<pair<int, pair<int, int>>> &v, vector<int> &temp, vector<int> &dp
 
     nottake = fun(v, temp, dp, i + 1);
 
-    auto x = lower_bound(temp.begin(), temp.end(), v[i].se.fi);
+    auto x = lower_bound(temp.begin() + i, temp.end(), v[i].se.fi);
     int idx = x - temp.begin();
 
     take = v[i].se.se + fun(v, temp, dp, idx);
@@ -118,6 +118,23 @@ void solve(ll __T__){
     vector<int> temp;
     for(auto x : v) temp.push_back(x.fi);
         
+    // for(int i = n - 1; i >= 0; i--) {
+
+
+    //     int take = -1 * 1e9, nottake = 0;
+
+    //     nottake = dp[i + 1];
+
+    //     auto x = lower_bound(temp.begin(), temp.end(), v[i].se.fi);
+    //     int idx = x - temp.begin();
+
+    //     if(idx )
+    //         take = v[i].se.se + fun(v, temp, dp, idx);
+
+    //     return dp[i] = max(take, nottake);
+
+    // }
+
     cout << fun(v, temp, dp, 0);
 
 }
