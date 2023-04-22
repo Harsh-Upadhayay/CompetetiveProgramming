@@ -89,7 +89,7 @@ ll fun(string &num, ll dig, ll ut, ll sum, string &curN) {
         return !sum;
     }
 
-    ll ub = ut ? num[num.size() - dig] - '0' : 9;
+    ll ub = (ut ? num[num.size() - dig] - '0' : 9);
 
     ll ans = 0;
 
