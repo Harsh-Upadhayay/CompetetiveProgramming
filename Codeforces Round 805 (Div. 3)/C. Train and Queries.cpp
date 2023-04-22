@@ -80,21 +80,24 @@ void init(){
     return;
 }
 
-int fun(vector<pair<int, pair<int, int>>> &v, vector<int> &temp, int i) {
+int fun(vector<pair<int, pair<int, int>>> &v, vector<int> &temp, vector<int> &dp, int i) {
 
     if(i >= v.size())
         return 0;
 
+    if(dp[i] != -1)
+        return dp[i];
+
     int take = -1 * 1e9, nottake = 0;
 
-    nottake = fun(v, temp, i + 1);
+    nottake = fun(v, temp, dp, i + 1);
 
     auto x = lower_bound(temp.begin(), temp.end(), v[i].se.fi);
     int idx = x - temp.begin();
 
-    take = v[i].se.se + fun(v, temp, idx);
+    take = v[i].se.se + fun(v, temp, dp, idx);
 
-    return max(take, nottake);
+    return dp[i] = max(take, nottake);
 }
 
 void solve(ll __T__){
@@ -104,14 +107,16 @@ void solve(ll __T__){
     for(int i = 0; i < n; i++)
         cin >> v[i].fi >> v[i].se.fi >> v[i].se.se;
 
+
+    vector<int> dp(n + 1, -1);
+
     sort(v.begin(), v.end());
 
     vector<int> temp;
     for(auto x : v) temp.push_back(x.fi);
         
-    cout << fun(v, temp, 0);
+    cout << fun(v, temp, dp, 0);
 
-    debug(v);
 }
 
 
