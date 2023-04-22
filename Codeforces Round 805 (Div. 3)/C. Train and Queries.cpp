@@ -169,7 +169,7 @@ int main()
 {
     int array[] = { 15,26,37,13,9,25,27,38, 10, 11 };
     int n = sizeof(array) / sizeof(array[0]);
-    int K = 3;
+    int K = 2;
     cout << solve(array, n, K);
 }
 
