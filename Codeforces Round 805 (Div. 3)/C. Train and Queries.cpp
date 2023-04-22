@@ -123,8 +123,7 @@ void solve(ll __T__){
 
         nottake = dp[i + 1];
 
-        auto x = lower_bound(temp.begin() + i, temp.end(), v[i].se.fi);
-        int idx = x - temp.begin();
+        int idx = lower_bound(temp.begin() + i, temp.end(), v[i].se.fi) - temp.begin();
 
         if(idx < n)
             take += dp[idx];
