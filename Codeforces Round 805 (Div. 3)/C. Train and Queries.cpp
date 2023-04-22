@@ -80,8 +80,6 @@ void init(){
     return;
 }
 
-#define fi                      first
-#define se                      second
 
 int fun(vector<pair<int, pair<int, int>>> &v, vector<int> &temp, vector<int> &dp, int i) {
 
@@ -91,7 +89,7 @@ int fun(vector<pair<int, pair<int, int>>> &v, vector<int> &temp, vector<int> &dp
     if(dp[i] != -1)
         return dp[i];
 
-    int take = -1 * 1e9, nottake = 0;
+    int take = 0, nottake = 0;
 
     nottake = fun(v, temp, dp, i + 1);
 
