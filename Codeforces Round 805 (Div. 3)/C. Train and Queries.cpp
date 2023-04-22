@@ -118,34 +118,89 @@ void solve(ll __T__){
 }
 
 
-/*_________________________________________________________________________________________________________________________________________*/
-/*_________________________________________________________________________________________________________________________________________*/
-
-int main() {
-    Timer _;
-    srand(time(0));
-    #ifdef DarkLord
-        freopen("input.txt","r",stdin);
-        freopen("output.txt","w",stdout);
-        freopen("err.txt","w",stderr);
-    #endif
-
-    ios_base::sync_with_stdio(0);
-    cin.tie(NULL);
-    
-    init();
-
-    ll t = 1;
-
-    #ifdef TESTCASE
-        cin >> t;
-    #endif
-
-    rpt(i, 1, t + 1) 
-        solve(i);
-
-    return 0;
+bool check(int mid, int array[], int n, int K)
+{
+    int count = 0;
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        if (array[i] > mid)
+            return false;
+        sum += array[i];
+        if (sum > mid) {
+            count++;
+            sum = array[i];
+        }
+    }
+    count++;
+    if (count <= K)
+        return true;
+    return false;
 }
+
+int solve(int array[], int n, int K)
+{
+    int* max = max_element(array, array + n);
+    int start = *max; 
+    int end = 0;
+
+    for (int i = 0; i < n; i++) {
+        end += array[i]; 
+    }
+
+    int answer = 0;
+    while (start <= end) {
+        int mid = (start + end) / 2;
+
+      
+        if (check(mid, array, n, K)) {
+            answer = mid;
+            end = mid - 1;
+        }
+        else {
+            start = mid + 1;
+        }
+    }
+
+    return answer;
+}
+
+
+int main()
+{
+    int array[] = { 15,26,37,13,9,25,27,38, 10, 11 };
+    int n = sizeof(array) / sizeof(array[0]);
+    int K = 3;
+    cout << solve(array, n, K);
+}
+
+/*_________________________________________________________________________________________________________________________________________*/
+/*_________________________________________________________________________________________________________________________________________*/
+
+// int main() {
+//     Timer _;
+//     srand(time(0));
+//     #ifdef DarkLord
+//         freopen("input.txt","r",stdin);
+//         freopen("output.txt","w",stdout);
+//         freopen("err.txt","w",stderr);
+//     #endif
+
+//     ios_base::sync_with_stdio(0);
+//     cin.tie(NULL);
+    
+//     init();
+
+//     ll t = 1;
+
+//     #ifdef TESTCASE
+//         cin >> t;
+//     #endif
+
+//     rpt(i, 1, t + 1) 
+//         solve(i);
+
+//     return 0;
+// }
 
 /*_________________________________________________________________________________________________________________________________________*/
 
