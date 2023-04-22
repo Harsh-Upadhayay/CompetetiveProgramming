@@ -113,7 +113,7 @@ void solve(ll __T__){
             vector<vector<ll>> (2, 
                     vector<ll> (d + 1, -1)));
 
-    cout << (fun(n, d, dp, n.size(), 1, 0) - 1) % MOD;
+    cout << (fun(n, d, dp, n.size(), 1, 0) - 1 + MOD) % MOD;
 
     nl;
 }
