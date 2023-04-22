@@ -167,9 +167,9 @@ int solve(int array[], int n, int K)
 
 int main()
 {
-    int array[] = { 15,26,37,13,9,25,27,38, 10, 11 };
+    int array[] = {26, 13, 10, 3};
     int n = sizeof(array) / sizeof(array[0]);
-    int K = 2;
+    int K = 4;
     cout << solve(array, n, K);
 }
 
