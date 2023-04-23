@@ -101,6 +101,7 @@ void solve(ll __T__){
         int new_size = smallest1 + smallest2;
         total_size += new_size;
         envelopes.push(new_size);
+        debug(total_size);
     }
     cout << total_size << endl;
 }
