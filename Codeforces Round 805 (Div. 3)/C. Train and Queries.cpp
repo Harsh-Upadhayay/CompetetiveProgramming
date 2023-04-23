@@ -80,40 +80,31 @@ void init(){
     return;
 }
 
-ll fun(vvll &v, ll x, map<pair<ll, pair<ll, ll>>, ll> &dp, ll i, ll j, ll cx) {
-    debug(x, i, j,  cx);
 
-    ll n = v.size(), m = v[0].size();
-
-    if(i == n - 1 && j == m - 1)
-        return (cx ^ v[i][j]) == x;
-
-    if(dp.count({i, {j, cx}}))
-        return dp[{i, {j, cx}}];
-
-    ll rt = 0, dn = 0;
-
-    if(j + 1 < v[0].size())
-        rt = fun(v, x, dp, i, j + 1, cx ^ v[i][j]);
-
-    if(i + 1 < v.size())
-        dn = fun(v, x, dp, i + 1, j, cx ^ v[i][j]);
-
-    return dp[{i, {j, cx}}] = rt + dn;
-}
-
-// #define TESTCASE
+ 
+#define TESTCASE
 void solve(ll __T__){
-
-    ll n, m, x; cin >> n >> m >> x;
-    vvll v(n, vll(m, 0)); cin >> v;
-
-    map<pair<ll, pair<ll, ll>>, ll> dp;
-
-    cout << fun(v, x, dp, 0, 0, 0);
-
-    nl;
+    int n;
+    cin >> n;
+    priority_queue<int, vector<int>, greater<int>> envelopes;
+    for (int i = 0; i < n; i++) {
+        int size;
+        cin >> size;
+        envelopes.push(size);
+    }
+    int total_size = 0;
+    while (envelopes.size() > 1) {
+        int smallest1 = envelopes.top();
+        envelopes.pop();
+        int smallest2 = envelopes.top();
+        envelopes.pop();
+        int new_size = smallest1 + smallest2;
+        total_size += new_size;
+        envelopes.push(new_size);
+    }
+    cout << total_size << endl;
 }
+
 
 
 /*_________________________________________________________________________________________________________________________________________*/
