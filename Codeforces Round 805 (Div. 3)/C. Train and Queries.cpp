@@ -144,7 +144,7 @@ void solve(ll __T__){
 
 
     cout << fun(adj, dp, 1, 3);
-
+nl;
     cout << dp;
 
     nl;
