@@ -91,9 +91,18 @@ void solve(ll __T__){
         kill(-1);
 
     map<ll, char> mp;
+    map<char, ll> freq;
     rpt(i, 0, n / 2) 
         if(s[i] == s[n - i - 1])
-            mp[i] = s[i];
+            mp[i] = s[i],
+            freq[s[i]]++;
+
+    ll mxfreq = 0;
+    for(auto x : freq)
+        mxfreq = max(mxfreq, x.se);
+
+    if(mxfreq > (mp.size() / 2.0))
+        kill(-1);
 
     ll ans = ceil(mp.size() / 2.0);
     cout << ans;
