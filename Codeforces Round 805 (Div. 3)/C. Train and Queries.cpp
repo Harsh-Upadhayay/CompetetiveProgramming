@@ -94,10 +94,10 @@ struct nd {
     }
 };
 
-ll fun(vector<nd> adj[], vvll &dp, ll src, ll places) {
+ll fun(vector<nd> adj[], ll dst, vvll &dp, ll src, ll places) {
     debug(src, places);
     if(places == 0)
-        return 0;
+        return src == dst ? 0 : inf;
 
     if(dp[src][places] != -1)
         return dp[src][places];
@@ -107,7 +107,7 @@ ll fun(vector<nd> adj[], vvll &dp, ll src, ll places) {
     for(auto adjN : adj[src]) {
 
         minT = min(minT, 
-                        adjN.t + fun(adj, dp, adjN.v, places - 1));
+                        adjN.t + fun(adj, dst, dp, adjN.v, places - 1));
 
     }
 
@@ -158,7 +158,7 @@ void solve(ll __T__){
 
     ll tgt = -1;
     rpt(place, n + 1, 0) {
-        if(fun(adj, dp, 1, place) <= tim) { 
+        if(fun(adj, n, dp, 1, place) <= tim) { 
             tgt = place + 1;
             cout << place + 1 << "\n";
             break;
