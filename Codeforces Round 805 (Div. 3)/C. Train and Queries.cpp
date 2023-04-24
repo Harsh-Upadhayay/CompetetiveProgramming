@@ -87,7 +87,7 @@ void solve(ll __T__){
     ll n; cin >> n;
     string s; cin >> s;
 
-    if(!(n % 2))
+    if((n % 2))
         kill(-1);
 
     map<ll, char> mp;
