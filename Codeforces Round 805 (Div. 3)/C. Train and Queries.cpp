@@ -38,7 +38,7 @@ using namespace std;
 
 template <typename T>
 ostream& operator<<(ostream &os, vector<T> &v) {
-    for(T x : v) os << (x == inf ? -1 : x) << " ";
+    for(T x : v) os << (x == inf ? "inf" : to_string(x)) << " ";
     return os;
 }
 
@@ -180,8 +180,8 @@ void solve(ll __T__){
         src = minAdj(adj, dp, src, tgt - 1);
     } 
 
-    // nl;
-    // cout << dp;
+    nl;
+    cout << dp;
 
     nl;
 }
