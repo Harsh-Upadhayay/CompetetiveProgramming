@@ -146,7 +146,7 @@ void solve(ll __T__){
 
     rpt(place, n + 1, 1) {
         if(fun(adj, dp, 1, place) <= tim) 
-            cout << place;
+            cout << place<<"(";
     }
 
     nl;
