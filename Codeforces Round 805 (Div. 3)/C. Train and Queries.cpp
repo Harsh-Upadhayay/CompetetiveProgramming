@@ -99,17 +99,18 @@ void solve(ll __T__){
 
     ll n; cin >> n;
 
-    vll v(n);
-    rpt(i, 1, n + 1)
-        v[i - 1] = i;
-
+    // vll v(n);
+    // rpt(i, 1, n + 1)
+    //     v[i - 1] = i;
+    vll v = {6,5,2,3,4,1};
+    cout << isS(v);
     cout << v << "\n";
     ll it = 721;
     while(it--) {
         if(isS(v)) {
             cout << v << "\n";
         }
-        cout << v << "\n";
+
         next_permutation(all(v));
 
     }
