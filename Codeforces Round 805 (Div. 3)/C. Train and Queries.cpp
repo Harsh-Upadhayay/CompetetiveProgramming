@@ -38,7 +38,7 @@ using namespace std;
 
 template <typename T>
 ostream& operator<<(ostream &os, vector<T> &v) {
-    for(T x : v) os << (x == inf ? "inf" : to_string(x)) << " ";
+    for(T x : v) os << (x == inf ? "i" : to_string(x)) << " ";
     return os;
 }
 
