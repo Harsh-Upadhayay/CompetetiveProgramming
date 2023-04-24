@@ -178,8 +178,8 @@ void solve(ll __T__){
         tgt -= 1;
     } 
 
-    // nl;
-    // cout << dp;
+    nl;
+    cout << dp;
 
     nl;
 }
