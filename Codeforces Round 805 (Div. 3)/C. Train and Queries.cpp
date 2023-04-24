@@ -123,6 +123,7 @@ ll minAdj(vector<nd> adj[], vvll &dp, ll i, ll j) {
             n = adjN.v;
     }
     cost += t;
+    cout << " " << cost;
     return n;
 }
 
@@ -181,7 +182,6 @@ void solve(ll __T__){
 
         src = minAdj(adj, dp, src, tgt);
     } 
-    cout << " " << cost;
     nl;
     cout << dp;
 
