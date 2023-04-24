@@ -94,22 +94,24 @@ struct nd {
     }
 };
 
-ll fun(vector<nd> adj[], ll src, ll places) {
+ll fun(vector<nd> adj[], vvll &dp, ll src, ll places) {
 
     if(places == 0)
         return 0;
+
+    if(dp[src][places] != -1)
+        return dp[src][places];
 
     ll minT = inf;
 
     for(auto adjN : adj[src]) {
 
         minT = min(minT, 
-                        adjN.t + fun(adj, adjN.v, places - 1));
+                        adjN.t + fun(adj, dp, adjN.v, places - 1));
 
     }
 
-    return minT;
-
+    return dp[src][places] = minT;
 }
 
 // #define TESTCASE
@@ -138,7 +140,9 @@ void solve(ll __T__){
         }
     */
 
-    cout << fun(adj, 1, 3);
+    vvll dp(n + 1, vll(n + 1, -1));
+
+    cout << fun(adj, dp, 1, 3);
 
     nl;
 }
