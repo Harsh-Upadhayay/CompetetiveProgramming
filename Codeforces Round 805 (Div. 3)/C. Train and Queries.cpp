@@ -99,7 +99,7 @@ ll fun(vector<nd> adj[], ll dst, vvll &dp, ll src, ll places) {
     if(dp[src][places] != -1)
         return dp[src][places];    
     if(places == 0)
-        return src == dst ? 0 : inf;
+        return dp[src][places] = src == dst ? 0 : inf;
 
     if(dp[src][places] != -1)
         return dp[src][places];
