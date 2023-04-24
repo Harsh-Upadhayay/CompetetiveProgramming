@@ -80,32 +80,23 @@ void init(){
     return;
 }
 
+struct node {
+    ll u, v, t;
+};
 
- 
 #define TESTCASE
 void solve(ll __T__){
-    int n;
-    cin >> n;
-    priority_queue<int, vector<int>, greater<int>> envelopes;
-    for (int i = 0; i < n; i++) {
-        int size;
-        cin >> size;
-        envelopes.push(size);
-    }
-    int total_size = 0;
-    while (envelopes.size() > 1) {
-        int smallest1 = envelopes.top();
-        envelopes.pop();
-        int smallest2 = envelopes.top();
-        envelopes.pop();
-        int new_size = smallest1 + smallest2;
-        total_size += new_size;
-        envelopes.push(new_size);
-        debug(total_size, new_size);
-    }
-    cout << total_size << endl;
-}
 
+    ll n, m; cin >> n >> m;
+    vector<node> adj[n + 1];
+
+    rpt(i, 0, m) {
+        ll u, v, t; cin >> u >> v >> t;
+
+    }
+
+    nl;
+}
 
 
 /*_________________________________________________________________________________________________________________________________________*/
