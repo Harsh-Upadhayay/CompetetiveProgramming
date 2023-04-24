@@ -92,48 +92,49 @@ struct nd {
 
 vll ans;
 
-ll fun(vector<nd> adj[], ll dst, vvll &dp, ll src, ll places) {
+pair<ll, ll> fun(vector<nd> adj[], ll dst, vector<vector<pair<ll, ll>>> &dp, ll src, ll places) {
 
-    if(dp[src][places] != -1)
+    if(dp[src][places].fi != -1)
         return dp[src][places];    
-    if(places == 0)
-        return dp[src][places] = (src == dst ? 0 : inf);
-
-    if(dp[src][places] != -1)
-        return dp[src][places];
+    if(places == 0) {
+        if(src == dst)
+            dp[src][places] = {0, src};
+        else
+            return  dp[src][places] = {inf, inf};
+    }
 
     ll minT = inf, minN = -1;
 
     for(auto adjN : adj[src]) {
 
-        ll x = adjN.t + fun(adj, dst, dp, adjN.v, places - 1);
+        auto x = fun(adj, dst, dp, adjN.v, places - 1);
 
-        if(x < minT)
-            minT = x, 
+        if(x.fi + adjN.t < minT)
+            minT = x.fi, 
             minN = adjN.v;
 
     }
     if(minN != -1)
         ans.push_back(minN);
 
-    return dp[src][places] = minT;
+    return dp[src][places] = {minT, minN};
 }
 ll cost;
 
-ll minAdj(vector<nd> adj[], vvll &dp, ll i, ll j) {
-    if(j < 0)
-        return 0;
-    ll n = -1, t = inf;
+// ll minAdj(vector<nd> adj[], vvll &dp, ll i, ll j) {
+//     if(j < 0)
+//         return 0;
+//     ll n = -1, t = inf;
 
-    for(auto adjN : adj[i]) {
-        if(t >= dp[adjN.v][j]) 
-            t = dp[adjN.v][j],
-            n = adjN.v;
-    }
-    cost += t;
-    debug(i, j, n, t, cost);
-    return n;
-}
+//     for(auto adjN : adj[i]) {
+//         if(t >= dp[adjN.v][j]) 
+//             t = dp[adjN.v][j],
+//             n = adjN.v;
+//     }
+//     cost += t;
+//     debug(i, j, n, t, cost);
+//     return n;
+// }
 
 // #define TESTCASE
 void solve(ll __T__){
@@ -162,13 +163,13 @@ void solve(ll __T__){
     }
     */
 
-    vvll dp(n + 1, vll(n + 1, -1));
+    vector<vector<pair<ll, ll>>> dp(n + 1, vector<pair<ll, ll>>(n + 1, {-1, -1}));
 
     ll tgt = -1;
     rpt(place, n + 1, 0) { 
         ans.clear();
-
-        if(fun(adj, n, dp, 1, place) <= tim) { 
+        auto it = fun(adj, n, dp, 1, place);
+        if(it.fi <= tim) { 
             tgt = place;
             cout << place + 1 << "\n1 ";
             reverse(all(ans));
@@ -180,19 +181,19 @@ void solve(ll __T__){
     if(tgt == -1)
         return;
 
-    for(auto &x : dp)
-        for(auto &y : x)
-            if(y == -1)
-                y = inf;
+    // for(auto &x : dp)
+    //     for(auto &y : x)
+    //         if(y == -1)
+    //             y = inf;
 
-    ll src = 1;
-    while(tgt >= 0) {
+    // ll src = 1;
+    // while(tgt >= 0) {
 
-        // cout << src << " ";        
-        tgt -= 1;
+    //     // cout << src << " ";        
+    //     tgt -= 1;
 
-        src = minAdj(adj, dp, src, tgt);
-    } 
+    //     src = minAdj(adj, dp, src, tgt);
+    // } 
     // nl;
     // cout << dp;
 
