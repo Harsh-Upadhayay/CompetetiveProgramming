@@ -122,7 +122,7 @@ ll minAdj(vector<nd> adj[], vvll &dp, ll i, ll j) {
             n = adjN.v;
     }
     cost += t;
-    debug(i, j, cost);
+    debug(i, j, n, t, cost);
     return n;
 }
 
