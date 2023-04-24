@@ -99,11 +99,9 @@ void solve(ll __T__){
 
     ll n; cin >> n;
 
-    // vll v(n);
-    // rpt(i, 1, n + 1)
-    //     v[i - 1] = i;
-    vll v = {6,5,2,3,4,1};
-    cout << isS(v);
+    vll v(n);
+    rpt(i, 1, n + 1)
+        v[i - 1] = i;
     cout << v << "\n";
     ll it = 721;
     while(it--) {
