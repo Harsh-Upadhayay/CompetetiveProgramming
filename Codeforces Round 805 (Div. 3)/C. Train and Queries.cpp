@@ -115,7 +115,6 @@ void solve(ll __T__){
             endA = i;
 
     vll disB(n + 1, inf);
-    debug(endA);
     dfs(adj, disB, endA, 0);
     debug(disB);
 
@@ -128,7 +127,21 @@ void solve(ll __T__){
 
     ll sp = val * k;
 
+    vll disC(n + 1, inf);
+    dfs(adj, disC, endB, 0);
 
+    ll mxprofit = 0;
+
+    rpt(i, 1, n + 1) {
+
+        ll sp = max(disC[i], disB[i]) * k;
+        ll cst = c * disA[i];
+
+        mxprofit = max(mxprofit, sp - cst);
+
+    }
+
+    cout << mxprofit;
 
     nl;
 }
