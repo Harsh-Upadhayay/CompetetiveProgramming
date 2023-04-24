@@ -89,8 +89,11 @@ void solve(ll __T__){
 
     sort(all(v));
 
-    rpt(i, 5, 1)
-        cout << i;
+    map<ll, ll> mp;
+    rpt(i, n - 1, 0)
+        mp[v[i + 1]]++;
+
+    debug(mp);
 
     nl;
 }
