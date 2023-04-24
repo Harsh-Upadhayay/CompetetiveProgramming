@@ -114,13 +114,13 @@ ll fun(vector<nd> adj[], ll dst, vvll &dp, ll src, ll places) {
     return dp[src][places] = minT;
 }
 
-ll minAdj(vector<nd> adj[], vvll &dp, ll i) {
+ll minAdj(vector<nd> adj[], vvll &dp, ll i, ll j) {
 
     ll n = -1, t = inf;
 
     for(auto adjN : adj[i]) {
-        if(t > adjN.t) 
-            t = adjN.t,
+        if(t > dp[adjN.v][j]) 
+            t = dp[adjN.v][j],
             n = adjN.v;
     }
 
@@ -171,11 +171,10 @@ void solve(ll __T__){
     ll src = 1;
     while(tgt) {
 
-        cout << src << " ";
-        cout << tgt;
-        src = minAdj(adj, dp, src);
-
+        cout << src << " ";        
         tgt -= 1;
+
+        src = minAdj(adj, dp, src, tgt - 1);
     } 
 
     nl;
