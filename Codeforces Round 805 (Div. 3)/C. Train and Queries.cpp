@@ -121,7 +121,7 @@ ll minAdj(vector<nd> adj[], vvll &dp, ll i, ll j) {
     ll n = -1, t = inf;
 
     for(auto adjN : adj[i]) {
-        if(t > dp[adjN.v][j]) 
+        if(t >= dp[adjN.v][j]) 
             t = dp[adjN.v][j],
             n = adjN.v;
     }
