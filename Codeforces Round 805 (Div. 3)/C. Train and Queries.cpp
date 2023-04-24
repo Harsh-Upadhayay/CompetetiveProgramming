@@ -138,7 +138,7 @@ void solve(ll __T__){
         }
     */
 
-    cout << fun(adj, 1, 4);
+    cout << fun(adj, 1, 3);
 
     nl;
 }
