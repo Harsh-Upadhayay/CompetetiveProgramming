@@ -170,6 +170,11 @@ void solve(ll __T__){
     if(tgt == -1)
         return;
 
+    for(auto &x : dp)
+        for(auto &y : x)
+            if(y == -1)
+                y = inf;
+
     ll src = 1;
     while(tgt) {
 
