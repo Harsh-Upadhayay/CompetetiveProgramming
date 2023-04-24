@@ -93,6 +93,7 @@ void solve(ll __T__){
     if(a.size() < 2)
         kill(0);
 
+    sort(all(a));
     ll m = a.size();
 
     ll mx = a[0] * a[1],
