@@ -95,7 +95,7 @@ struct nd {
 };
 
 ll fun(vector<nd> adj[], ll dst, vvll &dp, ll src, ll places) {
-    debug(src, places);
+    
     if(places == 0)
         return src == dst ? 0 : inf;
 
@@ -115,7 +115,7 @@ ll fun(vector<nd> adj[], ll dst, vvll &dp, ll src, ll places) {
 }
 
 ll minAdj(vector<nd> adj[], vvll &dp, ll i, ll j) {
-
+    debug(i, j);
     ll n = -1, t = inf;
 
     for(auto adjN : adj[i]) {
