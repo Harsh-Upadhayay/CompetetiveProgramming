@@ -97,7 +97,7 @@ void solve(ll __T__){
 
     ll mx = a[0] * a[1],
         mn = a[m - 1] * a[m - 2];
-    debug(mx, mn);
+    debug(v, mx, mn);
     cout << max(mx, mn);
 
     nl;
