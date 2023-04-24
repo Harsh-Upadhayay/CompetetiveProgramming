@@ -95,7 +95,7 @@ struct nd {
 };
 
 ll fun(vector<nd> adj[], vvll &dp, ll src, ll places) {
-
+    debug(src, places);
     if(places == 0)
         return 0;
 
