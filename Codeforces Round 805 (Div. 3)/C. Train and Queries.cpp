@@ -98,7 +98,14 @@ void solve(ll __T__){
 
     rpt(i, 0, m) {
         ll u, v, t; cin >> u >> v >> t;
-        adj[i].push_back(nd(u, v, t));
+        adj[u].push_back(nd(u, v, t));
+    }
+
+    rpt(i, 1, n + 1) {
+        cout << i << ": ";
+        for(auto x : adj[i])
+            cout << x.v << "," << x.t << "   ";
+        cout << "\n";
     }
 
     nl;
