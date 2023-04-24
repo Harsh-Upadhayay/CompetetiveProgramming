@@ -168,7 +168,7 @@ void solve(ll __T__){
     if(tgt == -1)
         return;
 
-    cout << tgt + 1;
+    cout << tgt + 1 << "\n";
 
     for(auto &x : dp)
         for(auto &y : x)
