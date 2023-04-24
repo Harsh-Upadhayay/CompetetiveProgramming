@@ -153,22 +153,19 @@ void solve(ll __T__){
     */
 
     vvll dp(n + 1, vll(n + 1, -1));
-    bool flag = false;
-    ll tgt = -1;
-    rpt(src, 1, n + 1) {
-        rpt(place, n + 1, 0) {
 
-            if(fun(adj, n, dp, src, place) <= tim && !flag) { 
-                tgt = place;
-                flag = true;
-            }
+    ll tgt = -1;
+    rpt(place, n + 1, 0) {
+
+        if(fun(adj, n, dp, 1, place) <= tim) { 
+            tgt = place;
+            cout << place + 1 << "\n";
+            break;
         }
     }
 
     if(tgt == -1)
         return;
-
-    cout << tgt + 1 << "\n";
 
     for(auto &x : dp)
         for(auto &y : x)
