@@ -170,7 +170,7 @@ void solve(ll __T__){
 
         if(fun(adj, n, dp, 1, place) <= tim) { 
             tgt = place;
-            cout << place + 1 << "\n";
+            cout << place + 1 << "\n1 ";
             reverse(all(ans));
             cout << ans;
             break;
