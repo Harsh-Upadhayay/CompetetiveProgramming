@@ -93,7 +93,11 @@ bool isS(vll &v) {
     return st.empty();
 
 }
-
+ll fact(ll x) {
+    if(x < 2)
+        return 1;
+    return x * fact(x - 1);
+}
 #define TESTCASE
 void solve(ll __T__){
 
@@ -103,7 +107,8 @@ void solve(ll __T__){
     rpt(i, 1, n + 1)
         v[i - 1] = i;
     // cout << v << "\n";
-    ll it = 721;    while(it--) {
+    ll it = fact(v.size());
+    while(it--) {
         if(isS(v)) {
             cout << v << "\n";
         }
