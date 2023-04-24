@@ -172,7 +172,7 @@ void solve(ll __T__){
     while(tgt) {
 
         cout << src << " ";
-
+        cout << tgt;
         src = minAdj(adj, dp, src);
 
         tgt -= 1;
