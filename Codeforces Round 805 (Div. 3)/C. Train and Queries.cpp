@@ -38,7 +38,7 @@ using namespace std;
 
 template <typename T>
 ostream& operator<<(ostream &os, vector<T> &v) {
-    for(T x : v) os << (x == inf ? "i" : to_string(x)) << " ";
+    for(T x : v) os << x << " ";
     return os;
 }
 
@@ -80,108 +80,17 @@ void init(){
     return;
 }
 
-struct nd {
-    ll u, v, t;
-
-    nd(ll _u, ll _v, ll _t) {
-        u = _u;
-        v = _v;
-        t = _t;
-    }
-};
-
-ll fun(vector<nd> adj[], ll dst, vvll &dp, ll src, ll places) {
-
-    if(dp[src][places] != -1)
-        return dp[src][places];    
-    if(places == 0)
-        return dp[src][places] = (src == dst ? 0 : inf);
-
-    if(dp[src][places] != -1)
-        return dp[src][places];
-
-    ll minT = inf;
-
-    for(auto adjN : adj[src]) {
-
-        minT = min(minT, 
-                        adjN.t + fun(adj, dst, dp, adjN.v, places - 1));
-
-    }
-
-    return dp[src][places] = minT;
-}
-
-ll minAdj(vector<nd> adj[], vvll &dp, ll i, ll j) {
-    debug(i, j);
-    ll n = -1, t = inf;
-
-    for(auto adjN : adj[i]) {
-        if(t >= dp[adjN.v][j]) 
-            t = dp[adjN.v][j],
-            n = adjN.v;
-    }
-
-    return n;
-}
 
 // #define TESTCASE
 void solve(ll __T__){
 
-    ll n, m, tim; cin >> n >> m >> tim;
-    vector<nd> adj[n + 1];
+    string s;
+    getline(cin, s);
 
-    rpt(i, 0, m) {
-        ll u, v, t; cin >> u >> v >> t;
-        adj[u].push_back(nd(u, v, t));
-    }
-
-    // rpt(i, 1, n + 1) {
-    //     cout << i << ": ";
-    //     for(auto x : adj[i])
-    //         cout << x.v << "," << x.t << "   ";
-    //     cout << "\n";
-    // }
-
-    /* fun(src, place) -> minimum time to visit place number of showplaces from source. */
-
-    /* 
-    rpt(place, 1, n + 1) {
-        if(fun(1, place) <= tim)
-            cout << place;
-    }
-    */
-
-    vvll dp(n + 1, vll(n + 1, -1));
-
-    ll tgt = -1;
-    rpt(place, n + 1, 0) {
-        if(fun(adj, n, dp, 1, place) <= tim) { 
-            tgt = place + 1;
-            cout << place + 1 << "\n";
-            break;
-        }
-    }
-
-    if(tgt == -1)
-        return;
-
-    for(auto &x : dp)
-        for(auto &y : x)
-            if(y == -1)
-                y = inf;
-
-    ll src = 1;
-    while(tgt) {
-
-        cout << src << " ";        
-        tgt -= 1;
-
-        src = minAdj(adj, dp, src, tgt - 1);
-    } 
-
-    nl;
-    cout << dp;
+    ll i = 0;
+    for(auto x : s)
+        i += (x == ' ');
+    cout << i;
 
     nl;
 }
