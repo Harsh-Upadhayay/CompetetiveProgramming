@@ -105,7 +105,25 @@ void solve(ll __T__){
     if(mxfreq <= (mp.size() / 2.0))
         kill(ceil(mp.size() / 2.0));
 
-    ll ans = mp.size() - mp.size() / 2;
+    ll ans = (mp.size() / 2) + (mxfreq - (mp.size() / 2));
+
+    char mxEle;
+    for(auto x : freq)
+        if(x.se == mxfreq)
+            mxEle = x.fi;
+
+    ll rem = (mxfreq - (mp.size() / 2));
+
+    rpt(i, 0, n / 2) {
+
+        if(s[i] != mxEle && mp.count(i) != 0)
+            rem--;
+
+    }
+
+    if(rem > 0)
+        kill(-1);
+
     cout << ans;
     debug(mp);
 
