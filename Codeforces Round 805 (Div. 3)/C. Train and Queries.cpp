@@ -104,7 +104,7 @@ void solve(ll __T__){
         v[i - 1] = i;
 
     cout << v << "\n";
-    ll it = 720;
+    ll it = 721;
     while(it--) {
         if(isS(v)) {
             cout << v << "\n";
