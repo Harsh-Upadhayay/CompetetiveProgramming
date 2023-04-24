@@ -156,7 +156,7 @@ void solve(ll __T__){
 
     ll tgt = -1;
     rpt(place, n + 1, 0) {
-        cout << place << " ";
+        
         if(fun(adj, n, dp, 1, place) <= tim) { 
             tgt = place + 1;
             cout << place + 1 << "\n";
