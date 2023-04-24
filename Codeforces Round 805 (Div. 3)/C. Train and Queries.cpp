@@ -144,7 +144,7 @@ void solve(ll __T__){
     vvll dp(n + 1, vll(n + 1, -1));
 
 
-    rpt(place, 1, n + 1) {
+    rpt(place, n + 1, 1) {
         if(fun(adj, dp, 1, place) <= tim) 
             cout << place;
     }
