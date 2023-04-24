@@ -92,7 +92,7 @@ void solve(ll __T__){
 
     map<ll, char> mp;
     rpt(i, 0, n / 2) 
-        if(s[i] == s[n - i + 1])
+        if(s[i] == s[n - i - 1])
             mp[i] = s[i];
     debug(mp);
 
