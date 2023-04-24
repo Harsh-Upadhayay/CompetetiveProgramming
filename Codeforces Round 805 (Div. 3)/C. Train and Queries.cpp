@@ -83,7 +83,7 @@ void init(){
 bool isS(vll &v) {
 
     set<ll> st(all(v));
-
+    debug(st);
     ll sum = 0, n = v.size();
     for(auto x : v) {
         sum += x;
