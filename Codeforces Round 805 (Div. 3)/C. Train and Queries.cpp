@@ -104,14 +104,15 @@ void solve(ll __T__){
         v[i - 1] = i;
     // cout << v << "\n";
     ll it = 721;
-    while(it--) {
-        if(isS(v)) {
-            cout << v << "\n";
-        }
+    cout << isS(v);
+    // while(it--) {
+    //     if(isS(v)) {
+    //         cout << v << "\n";
+    //     }
 
-        next_permutation(all(v));
+    //     next_permutation(all(v));
 
-    }
+    // }
     cout << "\n";
 
     nl;
