@@ -38,7 +38,7 @@ using namespace std;
 
 template <typename T>
 ostream& operator<<(ostream &os, vector<T> &v) {
-    for(T x : v) os << (x == inf ? "i" : to_string(x)) << " ";
+    for(T x : v) os << x << " ";
     return os;
 }
 
@@ -80,122 +80,23 @@ void init(){
     return;
 }
 
-struct nd {
-    ll u, v, t;
 
-    nd(ll _u, ll _v, ll _t) {
-        u = _u;
-        v = _v;
-        t = _t;
-    }
-};
-
-vll ans;
-
-pair<ll, ll> fun(vector<nd> adj[], ll dst, vector<vector<pair<ll, ll>>> &dp, ll src, ll places) {
-
-    if(dp[src][places].fi != -1)
-        return dp[src][places];    
-    if(places == 0) {
-        if(src == dst)
-            dp[src][places] = {0, src};
-        else
-            return  dp[src][places] = {inf, inf};
-    }
-
-    ll minT = inf, minN = -1;
-
-    for(auto adjN : adj[src]) {
-
-        auto x = fun(adj, dst, dp, adjN.v, places - 1);
-
-        if(x.fi + adjN.t < minT)
-            minT = x.fi, 
-            minN = adjN.v;
-
-    }
-    if(minN != -1)
-        ans.push_back(minN);
-
-    return dp[src][places] = {minT, minN};
-}
-ll cost;
-
-// ll minAdj(vector<nd> adj[], vvll &dp, ll i, ll j) {
-//     if(j < 0)
-//         return 0;
-//     ll n = -1, t = inf;
-
-//     for(auto adjN : adj[i]) {
-//         if(t >= dp[adjN.v][j]) 
-//             t = dp[adjN.v][j],
-//             n = adjN.v;
-//     }
-//     cost += t;
-//     debug(i, j, n, t, cost);
-//     return n;
-// }
-
-// #define TESTCASE
+#define TESTCASE
 void solve(ll __T__){
-    cost = 0;
-    ll n, m, tim; cin >> n >> m >> tim;
-    vector<nd> adj[n + 1];
 
-    rpt(i, 0, m) {
-        ll u, v, t; cin >> u >> v >> t;
-        adj[u].push_back(nd(u, v, t));
+    ll n, t; cin >> n >> t;
+    vll a(n), b(n); cin >> a >> b;
+
+    rpt(i, 0, n) a[i] += i;
+
+    ll idx = -1, val = ninf;
+    rpt(i, 0, n) {
+        if(a[i] <= t && val < b[i])
+            val = b[i],
+            idx = i;
     }
 
-    // rpt(i, 1, n + 1) {
-    //     cout << i << ": ";
-    //     for(auto x : adj[i])
-    //         cout << x.v << "," << x.t << "   ";
-    //     cout << "\n";
-    // }
-
-    /* fun(src, place) -> minimum time to visit place number of showplaces from source. */
-
-    /* 
-    rpt(place, 1, n + 1) {
-        if(fun(1, place) <= tim)
-            cout << place;
-    }
-    */
-
-    vector<vector<pair<ll, ll>>> dp(n + 1, vector<pair<ll, ll>>(n + 1, {-1, -1}));
-
-    ll tgt = -1;
-    rpt(place, n + 1, 0) { 
-        ans.clear();
-        auto it = fun(adj, n, dp, 1, place);
-        if(it.fi <= tim) { 
-            tgt = place;
-            cout << place + 1 << "\n1 ";
-            reverse(all(ans));
-            cout << ans;
-            break;
-        }
-    }
-
-    if(tgt == -1)
-        return;
-
-    // for(auto &x : dp)
-    //     for(auto &y : x)
-    //         if(y == -1)
-    //             y = inf;
-
-    // ll src = 1;
-    // while(tgt >= 0) {
-
-    //     // cout << src << " ";        
-    //     tgt -= 1;
-
-    //     src = minAdj(adj, dp, src, tgt);
-    // } 
-    // nl;
-    // cout << dp;
+    cout << idx + 1;
 
     nl;
 }
@@ -250,7 +151,4 @@ void storePrimes(){
 }
 
 /*_________________________________________________________________________________________________________________________________________*/
-//  123 153 
-// 1 48 33 103 87 114 73 134 11 141    49 94     18 88 93 53 82 112 111 39 60 61 57 3 152 110 143 66 2 27 149 65 4 119 133 109 138 70 37 10 74 67 21 69 42 83 121 36 104 40 144 97 147 130 29 127 98 22 7 107 148 31 8 106 5 38 117 132 150 124 59 118 56 99 84 71 142 43 100 90 113 146 47 95 50 85 136 135 137 45 86 145 76 52 129 44 79 28 140 78 34 81 51 19 54 32 91 154 92 25 75 23 16 80 131 46 77 17 26 126 125 122 96 9 35 13 20 116 115 55 105 6 58 12 30 72 41 14 102 108 120 128 15 68 63 89 151 101 139 24 156 ...
-// 1 48 33 103 87 114 73 153 11 141 64 62 94 155 18 88 93 53 82 112 111 39 60 61 57 3 152 110 143 66 2 27 149 65 4 119 133 109 138 70 37 10 74 67 21 69 42 83 121 36 104 40 144 97 147 130 29 127 98 22 7 107 148 31 8 106 5 38 117 132 150 124 59 118 56 99 84 71 142 43 100 90 113 146 47 95 50 85 136 135 137 45 86 145 76 52 129 44 79 28 140 78 34 81 51 19 54 32 91 154 92 25 75 23 16 80 131 46 77 17 26 126 125 122 96 9 35 13 20 116 115 55 105 6 58 12 30 72 41 14 102 108 120 128 15 68 63 89 151 101 139 24 156 
-// ...
+
