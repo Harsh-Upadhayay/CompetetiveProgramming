@@ -80,52 +80,35 @@ void init(){
     return;
 }
 
+bool isS(vll &v) {
+
+    set<ll> st(all(v));
+
+    ll sum = 0, n = v.size();
+    for(auto x : v) {
+        sum += x;
+        st.erase(x % n);        
+    }
+
+    return !st.size();
+
+}
 
 #define TESTCASE
 void solve(ll __T__){
 
     ll n; cin >> n;
-    string s; cin >> s;
 
-    if((n % 2))
-        kill(-1);
+    vll v(n);
+    rpt(i, 1, n + 1)
+        v[i - 1] = i;
 
-    map<ll, char> mp;
-    map<char, ll> freq;
-    rpt(i, 0, n / 2) 
-        if(s[i] == s[n - i - 1])
-            mp[i] = s[i],
-            freq[s[i]]++;
-
-    ll mxfreq = 0;
-    for(auto x : freq)
-        mxfreq = max(mxfreq, x.se);
-    
-
-    if(mxfreq <= (mp.size() / 2.0))
-        kill(ceil(mp.size() / 2.0));
-
-    ll ans = (mp.size() / 2) + (mxfreq - (mp.size() / 2));
-
-    char mxEle;
-    for(auto x : freq)
-        if(x.se == mxfreq)
-            mxEle = x.fi;
-
-    ll rem = (mxfreq - (mp.size() / 2));
-
-    rpt(i, 0, n / 2) {
-
-        if(s[i] != mxEle && mp.count(i) == 0)
-            rem--;
-
+    cout << v << "\n";
+    if(isS(v)) {
+        cout << v << "\n";
+        next_permutation(all(v));
     }
-
-    if(rem > 0)
-        kill(-1);
-
-    cout << ans;
-    debug(mp);
+    cout << "\n";
 
     nl;
 }
