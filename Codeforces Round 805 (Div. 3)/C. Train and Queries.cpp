@@ -85,8 +85,16 @@ void init(){
 void solve(ll __T__){
 
     ll n; cin >> n;
+    string s; cin >> s;
 
-    cout << ((n + 1)*(n + 1) + 1);
+    if(!(n % 2))
+        kill(-1);
+
+    map<ll, char> mp;
+    rpt(i, 0, n / 2) 
+        if(s[i] == s[n - i + 1])
+            mp[i] = s[i];
+    debug(mp);
 
     nl;
 }
