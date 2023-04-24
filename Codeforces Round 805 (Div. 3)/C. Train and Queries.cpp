@@ -89,7 +89,7 @@ void solve(ll __T__){
 
     rpt(i, 0, n) a[i] += i;
 
-    ll idx = -1, val = ninf;
+    ll idx = -2, val = ninf;
     rpt(i, 0, n) {
         if(a[i] <= t && val < b[i])
             val = b[i],
