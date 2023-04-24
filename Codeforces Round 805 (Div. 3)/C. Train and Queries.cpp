@@ -158,7 +158,7 @@ void solve(ll __T__){
     rpt(src, 1, n + 1) {
         rpt(place, n + 1, 0) {
 
-            if(fun(adj, n, dp, 1, place) <= tim && !flag) { 
+            if(fun(adj, n, dp, src, place) <= tim && !flag) { 
                 tgt = place;
                 flag = true;
             }
