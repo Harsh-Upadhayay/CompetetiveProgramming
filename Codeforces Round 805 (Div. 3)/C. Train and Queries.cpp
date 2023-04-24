@@ -87,7 +87,7 @@ bool isS(vll &v) {
     ll sum = 0, n = v.size();
     for(auto x : v) {
         sum += x;
-        st.erase(x % n);        
+        st.erase((x % n) + 1);        
     }
 
     return st.empty();
