@@ -156,9 +156,9 @@ void solve(ll __T__){
 
     ll tgt = -1;
     rpt(place, n + 1, 0) {
-        
+
         if(fun(adj, n, dp, 1, place) <= tim) { 
-            tgt = place + 1;
+            tgt = place;
             cout << place + 1 << "\n";
             break;
         }
@@ -173,7 +173,7 @@ void solve(ll __T__){
                 y = inf;
 
     ll src = 1;
-    while(tgt) {
+    while(tgt >= 0) {
 
         cout << src << " ";        
         tgt -= 1;
