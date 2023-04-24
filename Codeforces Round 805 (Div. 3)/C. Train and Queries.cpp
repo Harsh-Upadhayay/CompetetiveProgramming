@@ -111,6 +111,7 @@ ll fun(vector<nd> adj[], ll dst, vvll &dp, ll src, ll places) {
 
     return dp[src][places] = minT;
 }
+ll cost;
 
 ll minAdj(vector<nd> adj[], vvll &dp, ll i, ll j) {
     debug(i, j);
@@ -121,13 +122,13 @@ ll minAdj(vector<nd> adj[], vvll &dp, ll i, ll j) {
             t = dp[adjN.v][j],
             n = adjN.v;
     }
-
+    cost += t;
     return n;
 }
 
 // #define TESTCASE
 void solve(ll __T__){
-
+    cost = 0;
     ll n, m, tim; cin >> n >> m >> tim;
     vector<nd> adj[n + 1];
 
@@ -180,7 +181,7 @@ void solve(ll __T__){
 
         src = minAdj(adj, dp, src, tgt);
     } 
-
+    cout << " " << cost;
     nl;
     cout << dp;
 
