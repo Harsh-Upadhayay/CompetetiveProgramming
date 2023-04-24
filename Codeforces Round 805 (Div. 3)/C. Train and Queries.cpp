@@ -115,6 +115,7 @@ void solve(ll __T__){
             endA = i;
 
     vll disB(n + 1, inf);
+    debug(endA);
     dfs(adj, disB, endA, 0);
     debug(disB);
 
