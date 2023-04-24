@@ -143,7 +143,7 @@ void solve(ll __T__){
     vvll dp(n + 1, vll(n + 1, -1));
 
 
-    cout << fun(adj, dp, 1, 1);
+    cout << fun(adj, dp, 1, 2);
     nl;
     cout << dp;
 
