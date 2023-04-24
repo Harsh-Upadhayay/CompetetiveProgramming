@@ -80,19 +80,25 @@ void init(){
     return;
 }
 
-struct node {
+struct nd {
     ll u, v, t;
+
+    nd(ll _u, ll _v, ll _t) {
+        u = _u;
+        v = _v;
+        t = _t;
+    }
 };
 
 #define TESTCASE
 void solve(ll __T__){
 
     ll n, m; cin >> n >> m;
-    vector<node> adj[n + 1];
+    vector<nd> adj[n + 1];
 
     rpt(i, 0, m) {
         ll u, v, t; cin >> u >> v >> t;
-
+        adj[i].push_back(nd(u, v, t));
     }
 
     nl;
