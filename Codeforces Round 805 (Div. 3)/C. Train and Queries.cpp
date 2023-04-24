@@ -109,6 +109,7 @@ void solve(ll __T__){
         if(isS(v)) {
             cout << v << "\n";
         }
+        cout << v;
         next_permutation(all(v));
 
     }
