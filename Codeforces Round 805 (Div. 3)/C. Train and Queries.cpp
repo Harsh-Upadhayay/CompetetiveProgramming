@@ -117,7 +117,7 @@ ll fun(vector<nd> adj[], vvll &dp, ll src, ll places) {
 // #define TESTCASE
 void solve(ll __T__){
 
-    ll n, m, t; cin >> n >> m >> t;
+    ll n, m, tim; cin >> n >> m >> tim;
     vector<nd> adj[n + 1];
 
     rpt(i, 0, m) {
@@ -134,16 +134,21 @@ void solve(ll __T__){
 
     /* fun(src, place) -> minimum time to visit place number of showplaces from source. */
 
-    /* rpt(place, 1, n + 1) {
-        if(fun(1, place) <= tim) {
+    /* 
+    rpt(place, 1, n + 1) {
+        if(fun(1, place) <= tim)
             cout << place;
-        }
+    }
     */
 
     vvll dp(n + 1, vll(n + 1, -1));
 
 
-    cout << fun(adj, dp, 1, 2);
+    rpt(place, 1, n + 1) {
+        if(fun(adj, dp, 1, place) <= tim) 
+            cout << place;
+    }
+
     nl;
     cout << dp;
 
