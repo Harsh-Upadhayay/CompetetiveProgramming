@@ -90,10 +90,10 @@ struct nd {
     }
 };
 
-#define TESTCASE
+// #define TESTCASE
 void solve(ll __T__){
 
-    ll n, m; cin >> n >> m;
+    ll n, m, t; cin >> n >> m >> t;
     vector<nd> adj[n + 1];
 
     rpt(i, 0, m) {
