@@ -85,30 +85,8 @@ void init(){
 void solve(ll __T__){
 
     ll n; cin >> n;
-    vll v(n); cin >> v;
 
-    vll a;
-    bool z = false;
-    for(auto x : v) if(x != 0) a.push_back(x); else z = true;
-
-    if(a.size() < 2)
-        kill(0);
-
-    sort(all(a));
-
-    ll m = a.size();
-
-    ll mx = a[0] * a[1],
-        mn = a[m - 1] * a[m - 2];
-    debug(v, mx, mn);
-
-    if(max(mx, mn) < 0) {
-        if(z) cout << 0;
-        else cout << max(mx, mn);
-    }
-    else
-        cout << max(mx, mn);
-    
+    cout << ((n + 1)*(n + 1) + 1);
 
     nl;
 }
