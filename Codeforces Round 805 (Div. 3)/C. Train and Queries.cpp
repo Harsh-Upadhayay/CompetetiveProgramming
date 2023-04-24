@@ -122,7 +122,7 @@ void solve(ll __T__){
     }
 
     if(rem > 0)
-        kill(-2);
+        kill(-1);
 
     cout << ans;
     debug(mp);
