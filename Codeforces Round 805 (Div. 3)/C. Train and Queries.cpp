@@ -145,8 +145,10 @@ void solve(ll __T__){
 
 
     rpt(place, n + 1, 1) {
-        if(fun(adj, dp, 1, place) <= tim) 
-            cout << place<<"(";
+        if(fun(adj, dp, 1, place) <= tim) { 
+            cout << place;
+            break;
+        }
     }
 
     nl;
