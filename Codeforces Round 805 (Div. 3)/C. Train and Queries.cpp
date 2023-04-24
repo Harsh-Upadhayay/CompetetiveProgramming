@@ -113,7 +113,7 @@ void solve(ll __T__){
             mxEle = x.fi;
 
     ll rem = (mxfreq - (mp.size() / 2));
-
+    cout << rem;
     rpt(i, 0, n / 2) {
 
         if(s[i] != mxEle && mp.count(i) != 0)
