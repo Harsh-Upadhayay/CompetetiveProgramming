@@ -117,6 +117,11 @@ void solve(ll __T__){
 
     // }
     // cout << "\n";
+
+
+    if((n % 2))
+        kill((n == 1 ? 1 : -1));
+
     vll ans(n);
     ll i = 0, j = n - 1, fptr = 1, lptr = n;
     bool asc = false;
