@@ -87,7 +87,7 @@ bool isS(vll &v) {
     ll sum = 0, n = v.size();
     for(auto x : v) {
         sum += x;
-        st.erase((x % n) + 1);        
+        st.erase((sum % n) + 1);        
     }
 
     return st.empty();
@@ -103,16 +103,14 @@ void solve(ll __T__){
     rpt(i, 1, n + 1)
         v[i - 1] = i;
     // cout << v << "\n";
-    ll it = 721;
-    cout << isS(v);
-    // while(it--) {
-    //     if(isS(v)) {
-    //         cout << v << "\n";
-    //     }
+    ll it = 721;    while(it--) {
+        if(isS(v)) {
+            cout << v << "\n";
+        }
 
-    //     next_permutation(all(v));
+        next_permutation(all(v));
 
-    // }
+    }
     cout << "\n";
 
     nl;
