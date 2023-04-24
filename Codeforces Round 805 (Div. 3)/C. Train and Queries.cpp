@@ -114,7 +114,6 @@ ll fun(vector<nd> adj[], ll dst, vvll &dp, ll src, ll places) {
 ll cost;
 
 ll minAdj(vector<nd> adj[], vvll &dp, ll i, ll j) {
-    debug(i, j);
     ll n = -1, t = inf;
 
     for(auto adjN : adj[i]) {
@@ -123,7 +122,7 @@ ll minAdj(vector<nd> adj[], vvll &dp, ll i, ll j) {
             n = adjN.v;
     }
     cost += t;
-    cout << " " << cost;
+    debug(i, j, cost);
     return n;
 }
 
