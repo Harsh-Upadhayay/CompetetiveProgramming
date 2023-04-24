@@ -80,68 +80,17 @@ void init(){
     return;
 }
 
-void dfs(vll adj[], vll &dis, ll i, ll d) {
-    dis[i] = d;
-
-    for(auto x : adj[i]) 
-        if(dis[x] == inf)
-            dfs(adj, dis, x, d + 1);
-
-}
 
 #define TESTCASE
 void solve(ll __T__){
 
-    ll n, k, c; cin >> n >> k >> c;
+    ll n; cin >> n; 
+    vll v(n); cin >> v;
 
-    vll adj[n + 1];
+    sort(all(v));
 
-    rpt(i, 0, n - 1) {
-        ll u, v; cin >> u >> v;
-
-        adj[u].push_back(v),
-        adj[v].push_back(u);
-    }
-
-    vll disA(n + 1, inf);
-    dfs(adj, disA, 1, 0);
-    debug(disA);
-
-    ll endA, val = ninf;
-
-    rpt(i, 1, n + 1)
-        if(val < disA[i])
-            val = disA[i],
-            endA = i;
-
-    vll disB(n + 1, inf);
-    dfs(adj, disB, endA, 0);
-    debug(disB);
-
-    ll endB; val = ninf;
-
-    rpt(i, 1, n + 1)
-        if(val < disB[i])
-            val = disB[i],
-            endB = i;
-
-    ll sp = val * k;
-
-    vll disC(n + 1, inf);
-    dfs(adj, disC, endB, 0);
-
-    ll mxprofit = 0;
-
-    rpt(i, 1, n + 1) {
-
-        ll sp = max(disC[i], disB[i]) * k;
-        ll cst = c * disA[i];
-
-        mxprofit = max(mxprofit, sp - cst);
-
-    }
-
-    cout << mxprofit;
+    rpt(i, 5, 1)
+        cout << i;
 
     nl;
 }
