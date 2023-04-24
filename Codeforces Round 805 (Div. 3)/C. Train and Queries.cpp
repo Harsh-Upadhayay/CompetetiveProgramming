@@ -188,7 +188,7 @@ void solve(ll __T__){
     ll src = 1;
     while(tgt >= 0) {
 
-        cout << src << " ";        
+        // cout << src << " ";        
         tgt -= 1;
 
         src = minAdj(adj, dp, src, tgt);
