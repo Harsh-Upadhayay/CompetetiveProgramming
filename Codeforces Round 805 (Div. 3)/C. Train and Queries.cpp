@@ -103,20 +103,40 @@ void solve(ll __T__){
 
     ll n; cin >> n;
 
-    vll v(n);
-    rpt(i, 1, n + 1)
-        v[i - 1] = i;
-    // cout << v << "\n";
-    ll it = fact(v.size());
-    while(it--) {
-        if(isS(v)) {
-            cout << v << "\n";
+    // vll v(n);
+    // rpt(i, 1, n + 1)
+    //     v[i - 1] = i;
+    // // cout << v << "\n";
+    // ll it = fact(v.size());
+    // while(it--) {
+    //     if(isS(v)) {
+    //         cout << v << "\n";
+    //     }
+
+    //     next_permutation(all(v));
+
+    // }
+    // cout << "\n";
+    vll ans(n);
+    ll i = 0, j = n - 1, fptr = 1, lptr = n;
+    bool asc = false;
+    while(i < j) {
+
+        if(asc) {
+            ans[i] = fptr++,
+            ans[j] = fptr++;
+        }
+        else {
+            ans[i] = lptr--,
+            ans[j] = lptr--;
         }
 
-        next_permutation(all(v));
-
+        asc = !asc;
+        i += 1,
+        j -= 1;
     }
-    cout << "\n";
+
+    cout << ans;
 
     nl;
 }
