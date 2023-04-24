@@ -94,6 +94,24 @@ struct nd {
     }
 };
 
+ll fun(vector<nd> adj[], ll src, ll places) {
+
+    if(places == 0)
+        return 0;
+
+    ll minT = inf;
+
+    for(auto adjN : adj[src]) {
+
+        minT = min(minT, 
+                        adjN.t + fun(adj, adjN.v, places - 1));
+
+    }
+
+    return minT;
+
+}
+
 // #define TESTCASE
 void solve(ll __T__){
 
@@ -111,6 +129,16 @@ void solve(ll __T__){
             cout << x.v << "," << x.t << "   ";
         cout << "\n";
     }
+
+    /* fun(src, place) -> minimum time to visit place number of showplaces from source. */
+
+    /* rpt(place, 1, n + 1) {
+        if(fun(1, place) <= tim) {
+            cout << place;
+        }
+    */
+
+    cout << fun(adj, 1, 4);
 
     nl;
 }
