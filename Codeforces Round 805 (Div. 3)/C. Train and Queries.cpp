@@ -114,7 +114,7 @@ ll fun(vector<nd> adj[], ll dst, vvll &dp, ll src, ll places) {
     return dp[src][places] = minT;
 }
 
-ll minAdj(vector<nd> adj[], ll i) {
+ll minAdj(vector<nd> adj[], vvll &dp, ll i) {
 
     ll n = -1, t = inf;
 
@@ -173,13 +173,13 @@ void solve(ll __T__){
 
         cout << src << " ";
 
-        src = minAdj(adj, src);
+        src = minAdj(adj, dp, src);
 
         tgt -= 1;
     } 
 
-    // nl;
-    // cout << dp;
+    nl;
+    cout << dp;
 
     nl;
 }
