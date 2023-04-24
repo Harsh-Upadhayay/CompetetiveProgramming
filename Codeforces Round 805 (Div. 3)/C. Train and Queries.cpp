@@ -80,68 +80,33 @@ void init(){
     return;
 }
 
-bool isS(vll &v) {
+void dfs(vll adj[], vll &dis, ll i, ll d) {
+    dis[i] = d;
 
-    set<ll> st(all(v));
-    
-    ll sum = 0, n = v.size();
-    for(auto x : v) {
-        sum += x;
-        st.erase((sum % n) + 1);        
-    }
-
-    return st.empty();
+    for(auto x : adj[i]) 
+        if(dis[i] == inf)
+            dfs(adj, dis, x, d + 1);
 
 }
-ll fact(ll x) {
-    if(x < 2)
-        return 1;
-    return x * fact(x - 1);
-}
+
 #define TESTCASE
 void solve(ll __T__){
 
-    ll n; cin >> n;
+    ll n, k, c; cin >> n >> k >> c;
 
-    // vll v(n);
-    // rpt(i, 1, n + 1)
-    //     v[i - 1] = i;
-    // // cout << v << "\n";
-    // ll it = fact(v.size());
-    // while(it--) {
-    //     if(isS(v)) {
-    //         cout << v << "\n";
-    //     }
+    vll adj[n + 1];
 
-    //     next_permutation(all(v));
+    rpt(i, 0, n - 1) {
+        ll u, v; cin >> u >> v;
 
-    // }
-    // cout << "\n";
-
-
-    if((n % 2))
-        kill((n == 1 ? 1 : -1));
-
-    vll ans(n);
-    ll i = 0, j = n - 1, fptr = 1, lptr = n;
-    bool asc = false;
-    while(i < j) {
-
-        if(asc) {
-            ans[i] = fptr++,
-            ans[j] = fptr++;
-        }
-        else {
-            ans[i] = lptr--,
-            ans[j] = lptr--;
-        }
-
-        asc = !asc;
-        i += 1,
-        j -= 1;
+        adj[u].push_back(v),
+        adj[v].push_back(u);
     }
 
-    cout << ans;
+    vll disA(n + 1, inf);
+    dfs(adj, disA, 1, 0);
+    debug(disA);
+
 
     nl;
 }
