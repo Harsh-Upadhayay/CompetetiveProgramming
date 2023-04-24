@@ -88,6 +88,10 @@ struct nd {
         v = _v;
         t = _t;
     }
+    nd(ll _v, ll _t) {
+        v = _v;
+        t = _t;
+    }
 };
 
 // #define TESTCASE
