@@ -84,7 +84,7 @@ void dfs(vll adj[], vll &dis, ll i, ll d) {
     dis[i] = d;
 
     for(auto x : adj[i]) 
-        if(dis[i] == inf)
+        if(dis[x] == inf)
             dfs(adj, dis, x, d + 1);
 
 }
