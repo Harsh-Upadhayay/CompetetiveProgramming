@@ -159,7 +159,7 @@ void solve(ll __T__){
     ll tgt = -1;
     rpt(place, n + 1, 0) {
         if(fun(adj, dp, 1, place) <= tim) { 
-            tgt = place;
+            tgt = place + 1;
             cout << place + 1 << "\n";
             break;
         }
@@ -170,7 +170,7 @@ void solve(ll __T__){
 
     ll src = 1;
     while(tgt) {
-        cout << tgt;
+
         cout << src << " ";
 
         src = minAdj(adj, src);
