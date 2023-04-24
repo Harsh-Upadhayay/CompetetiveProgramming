@@ -102,7 +102,7 @@ void solve(ll __T__){
     vll v(n);
     rpt(i, 1, n + 1)
         v[i - 1] = i;
-    cout << v << "\n";
+    // cout << v << "\n";
     ll it = 721;
     while(it--) {
         if(isS(v)) {
