@@ -84,19 +84,20 @@ void init(){
 #define TESTCASE
 void solve(ll __T__){
 
-    ll n, t; cin >> n >> t;
-    vll a(n), b(n); cin >> a >> b;
+    ll n; cin >> n;
+    vll v(n); cin >> v;
 
-    rpt(i, 0, n) a[i] += i;
+    vll a;
+    for(auto x : v) if(x != 0) a.push_back(x);
 
-    ll idx = -2, val = ninf;
-    rpt(i, 0, n) {
-        if(a[i] <= t && val < b[i])
-            val = b[i],
-            idx = i;
-    }
+    if(a.size() < 2)
+        kill(0);
 
-    cout << idx + 1;
+    ll m = a.size();
+    ll mx = a[0] * a[1],
+        mn = a[m - 1] * a[m - 2];
+
+    cout << max(mx, mn);
 
     nl;
 }
