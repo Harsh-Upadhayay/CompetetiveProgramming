@@ -107,6 +107,27 @@ void solve(ll __T__){
     dfs(adj, disA, 1, 0);
     debug(disA);
 
+    ll endA, val = ninf;
+
+    rpt(i, 1, n + 1)
+        if(val < disA[i])
+            val = disA[i],
+            endA = i;
+
+    vll disB(n + 1, inf);
+    dfs(adj, disB, endA, 0);
+    debug(disB);
+
+    ll endB; val = ninf;
+
+    rpt(i, 1, n + 1)
+        if(val < disB[i])
+            val = disB[i],
+            endB = i;
+
+    ll sp = val * k;
+
+
 
     nl;
 }
