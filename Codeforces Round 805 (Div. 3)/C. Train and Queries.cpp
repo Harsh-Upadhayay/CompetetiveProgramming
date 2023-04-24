@@ -139,12 +139,12 @@ void solve(ll __T__){
         adj[u].push_back(nd(u, v, t));
     }
 
-    rpt(i, 1, n + 1) {
-        cout << i << ": ";
-        for(auto x : adj[i])
-            cout << x.v << "," << x.t << "   ";
-        cout << "\n";
-    }
+    // rpt(i, 1, n + 1) {
+    //     cout << i << ": ";
+    //     for(auto x : adj[i])
+    //         cout << x.v << "," << x.t << "   ";
+    //     cout << "\n";
+    // }
 
     /* fun(src, place) -> minimum time to visit place number of showplaces from source. */
 
@@ -183,8 +183,8 @@ void solve(ll __T__){
 
         src = minAdj(adj, dp, src, tgt);
     } 
-    nl;
-    cout << dp;
+    // nl;
+    // cout << dp;
 
     nl;
 }
