@@ -90,7 +90,7 @@ bool isS(vll &v) {
         st.erase(x % n);        
     }
 
-    return !st.size();
+    return st.empty();
 
 }
 
