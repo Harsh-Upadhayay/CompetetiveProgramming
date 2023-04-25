@@ -131,6 +131,10 @@ void solve(ll __T__){
         build(0, 0, el - 1, arr, seg, 0);
     else
         build(0, 0, el - 1, arr, seg, 1);
+    vll v(4 * el + 1);
+    rpt(i, 0, 4 * el + 1)
+        v[i] = i;
+    debug(v);
     debug(seg);
     while(m--) {
 
