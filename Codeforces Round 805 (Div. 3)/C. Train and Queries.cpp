@@ -66,6 +66,13 @@ ostream& operator<<(ostream &os, vector<vector<T>> &v) {
     return os;
 }
 
+template <typename T>
+ostream& operator<<(ostream &os, vll v[]) {
+    ll n = sizeof(v) / sizeof(v[0]);
+    // for(auto x : v) os << x << "\n";
+    return os;
+}
+
 
 bitset<SIEVE_SIZE> isComposit;
 void setSieve();
@@ -80,33 +87,23 @@ void init(){
     return;
 }
 
-ll fun(vll &v, vector<vvll> &dp, ll i, ll j, ll k){
 
-    if(i == j)
-        return k ? 0 : v[i];
-
-    if(dp[i][j][k] != -1)
-        return dp[i][j][k];
-
-    ll  lt = !k * v[i] + fun(v, dp, i + 1, j, !k),
-        rt = !k * v[j] + fun(v, dp, i, j - 1, !k);
-
-    return dp[i][j][k] = k ? min(lt, rt) : max(lt, rt);
-}
 
 // #define TESTCASE
 void solve(ll __T__){
 
     ll n; cin >> n;
-    vll v(n); cin >> v;
 
-    ll sum = 0;
-    for(ll x : v) sum += x;
+    vll adj[n + 1];
 
-    vector<vvll> dp(n , vvll(n, vll(2, -1)));
+    rpt(i, 0, n - 1) {
+        ll u, v; cin >> u >> v;
 
-    // for(int i = 0; i < n; i++)
-    cout << 2 * fun(v, dp, 0, n - 1, 0) - sum;
+        adj[u].push_back(v),
+        adj[v].push_back(u);
+    }
+
+    cout << adj;
 
     nl;
 }
