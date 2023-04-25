@@ -81,7 +81,7 @@ void init(){
 }
 
 ll fun(vll &v, ll i, ll j, ll mn, ll d = 0) {
-    rpt(i, 0, d) cerr << " ";
+    rpt(i, 0, d) cerr << "  ";
     debug(i, j, mn);
     if(i > j)
         return 0;
