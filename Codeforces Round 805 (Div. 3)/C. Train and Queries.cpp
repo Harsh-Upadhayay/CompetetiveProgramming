@@ -81,7 +81,7 @@ void init(){
 }
 
 ll fun(vll &v, ll i, ll j, ll mn, ll d = 0) {
-    rpt(i, 0, d) cerr << "    ";
+    rpt(i, 0, d) cerr << "\t";
     debug(i, j, mn);
     if(i > j)
         return 0;
@@ -91,24 +91,14 @@ ll fun(vll &v, ll i, ll j, ll mn, ll d = 0) {
 
     ll rt, lt, ans;
 
-    if(mn) {
-
-        rt = inf, lt = inf;
-
-        lt = v[i] + fun(v, i + 1, j, !mn, d + 1);
-        rt = v[j] + fun(v, i, j - 1, !mn, d + 1);
-
+    lt = v[i] + fun(v, i + 1, j, !mn, d + 1);
+    rt = v[j] + fun(v, i, j - 1, !mn, d + 1);
+    
+    if(mn) 
         ans = min(rt, lt);
-    }
-    else {
-
-        rt = ninf, lt = ninf;
-
-        lt = v[i] + fun(v, i + 1, j, !mn, d + 1);
-        rt = v[j] + fun(v, i, j - 1, !mn, d + 1);
-
+    else 
         ans = max(rt, lt);
-    }
+    
 
     return ans;
 }
