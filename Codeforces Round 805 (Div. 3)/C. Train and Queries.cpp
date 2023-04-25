@@ -69,7 +69,8 @@ ostream& operator<<(ostream &os, vector<vector<T>> &v) {
 template <typename T>
 ostream& operator<<(ostream &os, vll v[]) {
     ll n = sizeof(v) / sizeof(v[0]);
-    // for(auto x : v) os << x << "\n";
+    rpt(i, 1, n + 1)
+        cout << i << ": " << v[i];
     return os;
 }
 
