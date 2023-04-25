@@ -107,12 +107,12 @@ void solve(ll __T__){
 
 
     ll ans = (mp.size() / 2) + (mxfreq - (mp.size() / 2));
-    cout << ans;
+
     char mxEle;
     for(auto x : freq)
         if(x.se == mxfreq)
             mxEle = x.fi;
-
+    debug(mxEle);
     ll rem = (mxfreq - (mp.size() / 2));
 
     rpt(i, 0, n / 2) {
