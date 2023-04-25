@@ -98,25 +98,25 @@ void solve(ll __T__){
     for(int i = n - 3; i >= 0; i--) {
 
         ll it = 2;
+
         do {
             
             a = v[i],
             b = v[i] * it,
             c = v[i] * it * it;
             debug(it, a, b, c);
-            if(mp.count(c) == 1 && mp.count(b) == 1) {
+
+            if(mp.count(c) == 1 && mp.count(b) == 1) 
                 ans += mp[c] * mp[b];
-            }
 
             it++;
 
         } while((c) < (mp.rbegin() -> fi));
 
+        mp[v[i]]++;
     }
 
     cout << ans;
-
-    debug(mp);
 
     nl;
 }
