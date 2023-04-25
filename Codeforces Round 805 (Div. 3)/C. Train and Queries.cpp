@@ -126,7 +126,7 @@ void solve(ll __T__){
     ll el = pow(2, n);
     vll arr(el); cin >> arr;
     vll seg(4 * el, 0);
-
+    cout << arr;
     if(n % 2 == 0)
         build(0, 0, el - 1, arr, seg, 0);
     else
