@@ -97,7 +97,7 @@ void solve(ll __T__){
 
 
     ll ans = 0, a, b, c;
-    for(int i = n - 3; i >= 0; i--) {
+    for(int i = n - 2; i >= 0; i--) {
 
         ll it = 2;
 
@@ -112,6 +112,7 @@ void solve(ll __T__){
             it++;
 
         } while((c) < (mp.rbegin() -> fi));
+
         debug(v[i], ans);
         mp[v[i]]++;
     }
