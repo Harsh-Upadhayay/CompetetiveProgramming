@@ -80,53 +80,46 @@ void init(){
     return;
 }
 
+void dfs(vll adj[], vll &dis, ll i, ll d) {
+    dis[i] = d;
+
+    for(auto x : adj[i]) 
+        if(dis[x] == inf)
+            dfs(adj, dis, x, d + 1);
+
+}
 
 #define TESTCASE
 void solve(ll __T__){
 
-    ll n; cin >> n;
-    string s; cin >> s;
+    ll n, k, c; cin >> n >> k >> c;
 
-    if((n % 2))
-        kill(-1);
+    vll adj[n + 1];
 
-    map<ll, char> mp;
-    map<char, ll> freq;
-    rpt(i, 0, n / 2) 
-        if(s[i] == s[n - i - 1])
-            mp[i] = s[i],
-            freq[s[i]]++;
+    rpt(i, 0, n - 1) {
+        ll u, v; cin >> u >> v;
 
-    ll mxfreq = 0;
-    for(auto x : freq)
-        mxfreq = max(mxfreq, x.se);
-    
-
-    if(mxfreq <= (mp.size() / 2.0))
-        kill(ceil(mp.size() / 2.0));
-
-
-    ll ans = (mp.size() / 2) + (mxfreq - (mp.size() / 2));
-
-    char mxEle;
-    for(auto x : freq)
-        if(x.se == mxfreq)
-            mxEle = x.fi;
-
-    ll rem = (mxfreq - (mp.size() / 2));
-    cout << rem;
-    rpt(i, 0, n / 2) {
-
-        if(s[i] != mxEle && mp.count(i) == 0)
-            rem--;
-
+        adj[u].push_back(v),
+        adj[v].push_back(u);
     }
 
-    if(rem > 0)
-        kill(-1);
+    vll disA(n + 1, inf);
+    dfs(adj, disA, 1, 0);
+    ll endA = max_element(all(disA)) - disA.begin();
 
-    cout << ans;
-    debug(mp);
+    vll disB(n + 1, inf);
+    dfs(adj, disB, endA, 0);
+    ll endB = max_element(all(disB)) - disB.begin();
+
+    vll disC(n + 1, inf);
+    dfs(adj, disC, endB, 0);
+
+    ll mxprofit = 0;
+
+    rpt(i, 1, n + 1) 
+        mxprofit = max(mxprofit, max(disC[i], disB[i]) * k - c * disA[i]);
+
+    cout << mxprofit;
 
     nl;
 }
