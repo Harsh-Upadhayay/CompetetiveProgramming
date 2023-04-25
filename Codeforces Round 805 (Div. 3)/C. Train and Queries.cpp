@@ -122,7 +122,7 @@ void solve(ll __T__){
     ll sum = 0;
     for(ll x : v) sum += x;
 
-    cout << fun(v, 0, n - 1, 0);
+    cout << 2 * fun(v, 0, n - 1, 0) - sum;
 
     nl;
 }
