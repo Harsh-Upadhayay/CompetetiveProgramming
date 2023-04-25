@@ -141,7 +141,7 @@ void solve(ll __T__){
         else
             update(0, 0, el - 1, seg, 1, i, val);
 
-        cout << seg[0];
+        cout << seg[0] << "\n";
     }
 
     nl;
