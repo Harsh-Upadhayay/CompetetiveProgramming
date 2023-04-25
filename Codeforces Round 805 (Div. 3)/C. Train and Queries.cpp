@@ -84,45 +84,48 @@ void init(){
 #define TESTCASE
 void solve(ll __T__){
 
-    ll n; cin >> n; 
-    vll v(n); cin >> v;
+    ll n; cin >> n;
+    string s; cin >> s;
 
-    sort(all(v));
+    if((n % 2))
+        kill(-1);
 
-    // cout << v << "\n";
+    map<ll, char> mp;
+    map<char, ll> freq;
+    rpt(i, 0, n / 2) 
+        if(s[i] == s[n - i - 1])
+            mp[i] = s[i],
+            freq[s[i]]++;
 
-    map<ll, ll> mp;
-    mp[v[n - 1]]++,
-    mp[v[n - 2]]++;
+    ll mxfreq = 0;
+    for(auto x : freq)
+        mxfreq = max(mxfreq, x.se);
+    
 
-    ll ans = 0, a, b, c;
-    for(int i = n - 3; i >= 0; i--) {
+    if(mxfreq <= (mp.size() / 2.0))
+        kill(ceil(mp.size() / 2.0));
 
-        ll it = 2;
+    ll ans = (mp.size() / 2) + (mxfreq - (mp.size() / 2));
 
-        do {
-            a = v[i],
-            b = v[i] * it,
-            c = v[i] * it * it;
+    char mxEle;
+    for(auto x : freq)
+        if(x.se == mxfreq)
+            mxEle = x.fi;
 
-            if(mp.count(c) == 1 && mp.count(b) == 1) 
-                ans += mp[c] * mp[b];
+    ll rem = (mxfreq - (mp.size() / 2));
 
-            it++;
+    rpt(i, 0, n / 2) {
 
-        } while((c) < (mp.rbegin() -> fi));
+        if(s[i] != mxEle && mp.count(i) == 0)
+            rem--;
 
-        debug(v[i], ans);
-        mp[v[i]]++;
     }
 
-    for(auto x : mp) {
-        if(x.se > 2) {
-            ans += ((x.se) * (x.se - 1) * (x.se - 2));
-        }
-    }
+    if(rem > 0)
+        kill(-1);
 
     cout << ans;
+    debug(mp);
 
     nl;
 }
@@ -177,4 +180,3 @@ void storePrimes(){
 }
 
 /*_________________________________________________________________________________________________________________________________________*/
-
