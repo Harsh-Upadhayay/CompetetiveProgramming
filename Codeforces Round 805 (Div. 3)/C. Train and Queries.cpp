@@ -94,19 +94,23 @@ void solve(ll __T__){
     mp[v[n - 2]]++;
 
 
-    ll ans = 0;
+    ll ans = 0, a, b, c;
     for(int i = n - 3; i >= 0; i--) {
 
         ll it = 2;
-        while((v[i] * it * it) < (mp.rbegin() -> fi)) {
-            debug(it, v[i]);
-            if(mp.count(v[i] * it * it) == 1 && mp.count(v[i] * it) == 1) {
-                ans += mp[v[i] * it * it] * mp[v[i] * it];
+        do {
+            
+            a = v[i],
+            b = v[i] * it,
+            c = v[i] * it * it;
+            debug(it, a, b, c);
+            if(mp.count(c) == 1 && mp.count(b) == 1) {
+                ans += mp[c] * mp[b];
             }
 
             it++;
 
-        }
+        } while((c) < (mp.rbegin() -> fi));
 
     }
 
