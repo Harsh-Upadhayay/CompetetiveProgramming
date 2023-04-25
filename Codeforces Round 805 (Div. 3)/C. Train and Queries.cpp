@@ -100,7 +100,7 @@ void build(ll ind, ll low, ll high, vll &arr, vll &seg, ll orr) {
 
 void update(ll ind, ll low, ll high, vll &seg, ll orr, ll i, ll val) {
 
-    debug(low, high);
+    // debug(low, high);
     if(low == high) {
         seg[ind] = val;
         return;
