@@ -95,7 +95,7 @@ void solve(ll __T__){
     mp[v[n - 1]]++,
     mp[v[n - 2]]++;
 
-
+    debug(mp);
     ll ans = 0, a, b, c;
     for(int i = n - 2; i >= 0; i--) {
 
