@@ -99,9 +99,9 @@ void solve(ll __T__){
 
         ll it = 2;
         while(v[i] * it * it < (mp.rbegin() -> fi)) {
-            debug(it);
+            debug(it, v[i]);
             if(mp.count(v[i] * it * it) == 1 && mp.count(v[i] * it) == 1) {
-            ans += mp[v[i] * it * it] * mp[v[i] * it];
+                ans += mp[v[i] * it * it] * mp[v[i] * it];
             }
 
             it++;
