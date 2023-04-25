@@ -91,14 +91,24 @@ ll fun(vll &v, ll i, ll j, ll mn, ll d = 0) {
 
     ll rt, lt, ans;
 
-    lt = v[i] + fun(v, i + 1, j, !mn, d + 1);
-    rt = v[j] + fun(v, i, j - 1, !mn, d + 1);
-    
-    if(mn) 
+    if(mn) {
+
+        rt = inf, lt = inf;
+
+        lt = fun(v, i + 1, j, !mn, d + 1);
+        rt = fun(v, i, j - 1, !mn, d + 1);
+
         ans = min(rt, lt);
-    else 
+    }
+    else {
+
+        rt = ninf, lt = ninf;
+
+        lt = v[i] + fun(v, i + 1, j, !mn, d + 1);
+        rt = v[j] + fun(v, i, j - 1, !mn, d + 1);
+
         ans = max(rt, lt);
-    
+    }
 
     return ans;
 }
