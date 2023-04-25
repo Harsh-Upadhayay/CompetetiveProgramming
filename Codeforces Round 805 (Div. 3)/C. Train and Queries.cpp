@@ -95,7 +95,6 @@ void solve(ll __T__){
     mp[v[n - 1]]++,
     mp[v[n - 2]]++;
 
-    debug(mp, n, v.size());
     ll ans = 0, a, b, c;
     for(int i = n - 3; i >= 0; i--) {
 
@@ -119,7 +118,7 @@ void solve(ll __T__){
 
     for(auto x : mp) {
         if(x.se > 2) {
-            ans += ((x.se) * (x.se - 1));
+            ans += ((x.se) * (x.se - 1) * (x.se - 1));
         }
     }
 
