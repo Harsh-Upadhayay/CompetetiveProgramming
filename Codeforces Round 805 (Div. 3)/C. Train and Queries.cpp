@@ -105,7 +105,6 @@ void update(ll ind, ll low, ll high, vll &seg, ll orr, ll i, ll val) {
         seg[ind] = val;
         return;
     }
-    debug(seg);
     ll mid = (low + high) / 2;
 
     if(i <= mid)
@@ -132,6 +131,7 @@ void solve(ll __T__){
         build(0, 0, el - 1, arr, seg, 0);
     else
         build(0, 0, el - 1, arr, seg, 1);
+    debug(seg);
     while(m--) {
 
         ll i, val; cin >> i >> val;
