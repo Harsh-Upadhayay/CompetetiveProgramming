@@ -96,20 +96,21 @@ ll fun(vvll &adj, vvll &dp, ll src, ll col, ll prt, ll d = 0) {
     // if(dp[src][col] != -1)
     //     return dp[src][col];
 
-    ll cnt = 0;
+    ll cnt = 1;
 
     for(auto adjN : adj[src]) {
         if(adjN == prt) continue;
 
-        cnt += fun(adj, dp, adjN, !col, src, d + 1);
+        cnt *= fun(adj, dp, adjN, !col, src, d + 1);
+
         if(col == 1)
-            cnt +=fun(adj, dp, adjN, col, src, d + 1);
+            cnt *= fun(adj, dp, adjN, col, src, d + 1);
     }
 
     if(cnt == 0)
         return dp[src][col] = 1;
     else
-    return dp[src][col] = cnt;
+        return dp[src][col] = cnt;
 }
 
 // #define TESTCASE
