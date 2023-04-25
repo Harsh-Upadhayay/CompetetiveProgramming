@@ -103,7 +103,7 @@ void solve(ll __T__){
     
 
     if(mxfreq <= (mp.size() / 2.0))
-        kill(ceil(mp.size() / 1.0));
+        kill(ceil(mp.size() / 2.0));
 
 
     ll ans = (mp.size() / 2) + (mxfreq - (mp.size() / 2));
