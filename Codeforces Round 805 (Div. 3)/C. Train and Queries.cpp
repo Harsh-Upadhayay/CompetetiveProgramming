@@ -81,7 +81,7 @@ void init(){
 }
 
 ll fun(vll &v, ll i, ll j, ll mn) {
-
+    debug(i, j);
     if(i < j)
         return 0;
 
