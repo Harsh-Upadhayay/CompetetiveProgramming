@@ -105,7 +105,7 @@ void solve(ll __T__){
         adj[v].push_back(u);
     }
 
-    cout << adj;
+    cerr << adj;
 
     nl;
 }
