@@ -103,6 +103,11 @@ void solve(ll __T__){
             if((mp.rbegin() -> fi) < it * it)
                 break;
 
+            if(mp.count(v[i] * it * it) == 0 || mp.count(v[i] * it) == 0)
+                continue;
+
+            
+
         } 
 
     }
