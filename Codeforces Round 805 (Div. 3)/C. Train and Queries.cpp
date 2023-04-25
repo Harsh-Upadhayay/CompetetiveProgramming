@@ -81,8 +81,7 @@ void init(){
 }
 
 ll fun(vll &v, ll i, ll j, ll mn, ll d = 0) {
-    rpt(i, 0, d) cerr << "\t";
-    debug(i, j, mn);
+
     if(i > j)
         return 0;
 
@@ -122,6 +121,7 @@ void solve(ll __T__){
     ll sum = 0;
     for(ll x : v) sum += x;
 
+    vector<vvll> dp(n + 1, vvll(n + 1, vll(2, -1)));
     cout << 2 * fun(v, 0, n - 1, 0) - sum;
 
     nl;
