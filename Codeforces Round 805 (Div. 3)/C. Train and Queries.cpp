@@ -80,7 +80,7 @@ void init(){
     return;
 }
 
-ll fun(vll &v, vector<vvll> &dp, ll i, ll j, ll k ){
+ll fun(vll &v, vector<vvll> &dp, ll i, ll j, ll k){
 
     if(i == j)
         return k ? 0 : v[i];
@@ -92,7 +92,6 @@ ll fun(vll &v, vector<vvll> &dp, ll i, ll j, ll k ){
         rt = !k * v[j] + fun(v, dp, i, j - 1, !k);
 
     return dp[i][j][k] = k ? min(lt, rt) : max(lt, rt);
-    
 }
 
 // #define TESTCASE
@@ -104,7 +103,9 @@ void solve(ll __T__){
     ll sum = 0;
     for(ll x : v) sum += x;
 
-    vector<vvll> dp(n + 1, vvll(n + 1, vll(2, -1)));
+    vector<vvll> dp(n, vvll(n, vll(2, 0)));
+
+    // for(int i = 0; i < n; i++)
     cout << 2 * fun(v, dp, 0, n - 1, 0) - sum;
 
     nl;
