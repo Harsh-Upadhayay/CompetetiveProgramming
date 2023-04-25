@@ -89,8 +89,10 @@ void init(){
     return;
 }
 
-ll fun(vvll &adj, vvll &dp, ll src, ll col, ll prt) {
+ll fun(vvll &adj, vvll &dp, ll src, ll col, ll prt, ll d = 0) {
 
+    rpt(i, 0, d) cerr << "\t";
+    debug(src, col, prt);
     // if(dp[src][col] != -1)
     //     return dp[src][col];
 
@@ -99,10 +101,9 @@ ll fun(vvll &adj, vvll &dp, ll src, ll col, ll prt) {
     for(auto adjN : adj[src]) {
         if(adjN == prt) continue;
 
+        cnt += fun(adj, dp, adjN, !col, src, d + 1);
         if(col == 1)
-            cnt += (fun(adj, dp, adjN, !col, src) + fun(adj, dp, adjN, col, src));
-        else
-            cnt += fun(adj, dp, adjN, !col, src);
+            cnt +=fun(adj, dp, adjN, !col, src, d + 1);
     }
 
     if(cnt == 0)
