@@ -62,7 +62,7 @@ istream& operator>>(istream &is, vector<vector<T>> &v) {
 
 template <typename T>
 ostream& operator<<(ostream &os, vector<vector<T>> &v) {
-    for(auto x : v) os << x << "\n";
+    ll i = 1; for(auto x : v) os << i << ": "<< x << "\n";
     return os;
 }
 
