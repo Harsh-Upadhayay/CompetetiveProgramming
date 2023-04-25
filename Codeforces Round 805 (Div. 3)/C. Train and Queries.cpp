@@ -105,7 +105,6 @@ void solve(ll __T__){
             a = v[i],
             b = v[i] * it,
             c = v[i] * it * it;
-            debug(it, a, b, c);
 
             if(mp.count(c) == 1 && mp.count(b) == 1) 
                 ans += mp[c] * mp[b];
