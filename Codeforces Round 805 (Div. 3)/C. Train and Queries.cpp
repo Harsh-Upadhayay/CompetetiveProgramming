@@ -62,16 +62,7 @@ istream& operator>>(istream &is, vector<vector<T>> &v) {
 
 template <typename T>
 ostream& operator<<(ostream &os, vector<vector<T>> &v) {
-    rpt(i, 1, v.size()) os << i << ": " << v[i] << "\n";
-    return os;
-}
-
-template <typename T>
-ostream& operator<<(ostream &os, vll v[]) {
-    ll n = sizeof(v) / sizeof(v[0]);
-    debug(n);
-    rpt(i, 1, n + 1)
-        cout << i << ": " << v[i] << "\n";
+    for(auto x : v) os << x << "\n";
     return os;
 }
 
@@ -89,49 +80,69 @@ void init(){
     return;
 }
 
-ll fun(vvll &adj, vvll &dp, ll src, ll col, ll prt, ll d = 0) {
+void build(ll ind, ll low, ll high, vll &arr, vll &seg, ll orr) {
 
-    rpt(i, 0, d) cerr << "\t";
-    debug(src, col, prt);
-    // if(dp[src][col] != -1)
-    //     return dp[src][col];
-
-    ll cnt = 0;
-
-    for(auto adjN : adj[src]) {
-        if(adjN == prt) continue;
-
-        cnt += fun(adj, dp, adjN, !col, src, d + 1);
-
-        if(col == 1)
-            cnt += fun(adj, dp, adjN, col, src, d + 1);
+    if(low == high) {
+        seg[ind] = low;
+        return;
     }
 
-    if(cnt == 0)
-        return dp[src][col] = 1;
+    ll mid = (low + high) / 2;
+
+    build(2 * ind + 1, low, mid, arr, seg, !orr);
+    build(2 * ind + 2, mid + 1, high, arr, seg, !orr);
+
+    if(orr)
+        seg[ind] = seg[2 * ind + 1] | seg[2 * ind + 2];
     else
-        return dp[src][col] = cnt;
+        seg[ind] = seg[2 * ind + 1] ^ seg[2 * ind + 2];
+}
+
+void update(ll ind, ll low, ll high, vll &seg, ll orr, ll i, ll val) {
+
+    debug(low, high);
+    if(low == high) {
+        seg[ind] = val;
+        return;
+    }
+
+    ll mid = (low + high) / 2;
+
+    if(i <= mid)
+        update(2 * ind + 1, low, mid, seg, !orr, i, val);
+    else
+        update(2 * ind + 2, mid + 1, high, seg, !orr, i, val);
+
+    if(orr)
+        seg[ind] = seg[2 * ind + 1] | seg[2 * ind + 2];
+    else
+        seg[ind] = seg[2 * ind + 1] ^ seg[2 * ind + 2];
+
 }
 
 // #define TESTCASE
 void solve(ll __T__){
 
-    ll n; cin >> n;
+    ll n, m; cin >> n >> m;
+    ll el = pow(2, n);
+    vll arr(el); cin >> arr;
+    vll seg(4 * el, 0);
 
-    vvll adj(n + 1);
+    if(n % 2 == 0)
+        build(0, 0, el - 1, arr, seg, 0);
+    else
+        build(0, 0, el - 1, arr, seg, 1);
+    while(m--) {
 
-    rpt(i, 0, n - 1) {
-        ll u, v; cin >> u >> v;
+        ll i, val; cin >> i >> val;
+        i -= 1;
+        if(n % 2)
+            update(0, 0, el - 1, seg, 0, i, val);
+        else
+            update(0, 0, el - 1, seg, 1, i, val);
 
-        adj[u].push_back(v),
-        adj[v].push_back(u);
+        cout << seg[0];
     }
-
-    cerr << adj;
-
-    vvll dp(n + 1, vll (2, -1));
-
-    cout << fun(adj, dp, 1, 1, -1) + fun(adj, dp, 1, 0, -1);
 
     nl;
 }
