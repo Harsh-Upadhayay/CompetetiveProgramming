@@ -126,22 +126,24 @@ void solve(ll __T__){
     ll el = pow(2, n);
     vll arr(el); cin >> arr;
     vll seg(4 * el, 0);
-    cout << arr;
+
     if(n % 2 == 0)
         build(0, 0, el - 1, arr, seg, 0);
     else
         build(0, 0, el - 1, arr, seg, 1);
+
     vll ver(4 * el + 1);
     rpt(i, 0, 4 * el + 1)
         ver[i] = i;
     debug(ver);
     debug(seg);
+    
     while(m--) {
 
         ll i, val; cin >> i >> val;
 
         i -= 1;
-        if(n % 2)
+        if(n % 2 == 0)
             update(0, 0, el - 1, seg, 0, i, val);
         else
             update(0, 0, el - 1, seg, 1, i, val);
