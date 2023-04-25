@@ -90,25 +90,23 @@ void solve(ll __T__){
     sort(all(v));
 
     map<ll, ll> mp;
-    rpt(i, n - 1, 0)
-        mp[v[i + 1]]++;
+    mp[v[n - 1]]++,
+    mp[v[n - 2]]++;
 
 
     ll ans = 0;
-    rpt(i, 0, n - 2) {
+    for(int i = n - 3; i >= 0; i--) {
 
-        rpt(it, 2, n + 1) {
+        ll it = 2;
+        while(v[i] * it * it < (mp.rbegin() -> fi)) {
+            debug(it);
+            if(mp.count(v[i] * it * it) == 1 && mp.count(v[i] * it) == 1) {
+            ans += mp[v[i] * it * it] * mp[v[i] * it];
+            }
 
-            ll fctr = it * it;
-            if((mp.rbegin() -> fi) < it * it)
-                break;
+            it++;
 
-            if(mp.count(v[i] * it * it) == 0 || mp.count(v[i] * it) == 0)
-                continue;
-
-            
-
-        } 
+        }
 
     }
 
