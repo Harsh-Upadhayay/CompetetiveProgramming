@@ -80,46 +80,48 @@ void init(){
     return;
 }
 
-void dfs(vll adj[], vll &dis, ll i, ll d) {
-    dis[i] = d;
+ll fun(vll &v, ll i, ll j, ll mn) {
 
-    for(auto x : adj[i]) 
-        if(dis[x] == inf)
-            dfs(adj, dis, x, d + 1);
+    if(i < j)
+        return 0;
 
+    if(i == j)
+        return v[i];
+
+    ll rt, lt, ans;
+
+    if(mn) {
+
+        rt = inf, lt = inf;
+
+        rt = v[j] + fun(v, i, j - 1, !mn);
+        lt = v[i] + fun(v, i + 1, j, !mn);
+
+        ans = min(rt, lt);
+    }
+    else {
+
+        rt = ninf, lt = ninf;
+
+        rt = v[j] + fun(v, i, j - 1, !mn);
+        lt = v[i] + fun(v, i + 1, j, !mn);
+
+        ans = max(rt, lt);
+    }
+
+    return ans;
 }
 
 #define TESTCASE
 void solve(ll __T__){
 
-    ll n, k, c; cin >> n >> k >> c;
+    ll n; cin >> n;
+    vll v(n); cin >> v;
 
-    vll adj[n + 1];
+    ll sum = 0;
+    for(ll x : v) sum += x;
 
-    rpt(i, 0, n - 1) {
-        ll u, v; cin >> u >> v;
-
-        adj[u].push_back(v),
-        adj[v].push_back(u);
-    }
-
-    vll disA(n + 1, inf);
-    dfs(adj, disA, 1, 0);
-    ll endA = max_element(all(disA)) - disA.begin();
-
-    vll disB(n + 1, inf);
-    dfs(adj, disB, endA, 0);
-    ll endB = max_element(all(disB)) - disB.begin();
-
-    vll disC(n + 1, inf);
-    dfs(adj, disC, endB, 0);
-
-    ll mxprofit = 0;
-
-    rpt(i, 1, n + 1) 
-        mxprofit = max(mxprofit, max(disC[i], disB[i]) * k - c * disA[i]);
-
-    cout << mxprofit;
+    cout << 2 * fun(v, 0, n - 1, 0) - sum;
 
     nl;
 }
@@ -174,3 +176,4 @@ void storePrimes(){
 }
 
 /*_________________________________________________________________________________________________________________________________________*/
+
