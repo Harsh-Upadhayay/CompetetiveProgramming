@@ -82,9 +82,6 @@ void init(){
 
 ll fun(vll &v, vector<vvll> &dp, ll i, ll j, ll mn, ll d = 0) {
 
-    if(i > j)
-        return 0;
-
     if(i == j)
         return mn ? 0 : v[i];
 
