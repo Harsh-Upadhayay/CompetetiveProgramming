@@ -83,7 +83,7 @@ void init(){
 void build(ll ind, ll low, ll high, vll &arr, vll &seg, ll orr) {
 
     if(low == high) {
-        seg[ind] = low;
+        seg[ind] = arr[low];
         return;
     }
 
