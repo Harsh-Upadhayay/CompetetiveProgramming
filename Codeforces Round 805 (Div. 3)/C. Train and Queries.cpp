@@ -107,7 +107,7 @@ void solve(ll __T__){
 
 
     ll ans = (mp.size() / 2) + (mxfreq - (mp.size() / 2));
-    debug(mp.size());
+    debug(mp);
     char mxEle;
     for(auto x : freq)
         if(x.se == mxfreq)
