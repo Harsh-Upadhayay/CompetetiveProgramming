@@ -103,7 +103,7 @@ ll fun(vvll &adj, vvll &dp, ll src, ll col, ll prt, ll d = 0) {
 
         cnt += fun(adj, dp, adjN, !col, src, d + 1);
         if(col == 1)
-            cnt +=fun(adj, dp, adjN, !col, src, d + 1);
+            cnt +=fun(adj, dp, adjN, col, src, d + 1);
     }
 
     if(cnt == 0)
