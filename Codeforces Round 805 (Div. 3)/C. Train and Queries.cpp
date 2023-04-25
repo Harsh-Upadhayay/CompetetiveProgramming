@@ -89,7 +89,27 @@ void init(){
     return;
 }
 
+ll fun(vvll &adj, vvll &dp, ll src, ll col, ll prt) {
 
+    if(dp[src][col] != -1)
+        return dp[src][col];
+
+    ll cnt = 0;
+
+    for(auto adjN : adj[src]) {
+        if(adjN == prt) continue;
+
+        if(col == 1)
+            cnt += (fun(adj, dp, adjN, !col, src) + fun(adj, dp, adjN, col, src));
+        else
+            cnt += fun(adj, dp, adjN, !col, src);
+    }
+
+    if(cnt == 0)
+        return dp[src][col] = 1;
+    else
+    return dp[src][col] = cnt;
+}
 
 // #define TESTCASE
 void solve(ll __T__){
@@ -107,7 +127,9 @@ void solve(ll __T__){
 
     cerr << adj;
 
-    
+    vvll dp(n + 1, vll (2, -1));
+
+    cout << fun(adj, dp, 1, 1, -1) + fun(adj, dp, 1, 0, -1);
 
     nl;
 }
