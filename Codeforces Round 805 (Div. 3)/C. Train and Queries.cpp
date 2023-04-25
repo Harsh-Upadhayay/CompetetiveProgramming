@@ -96,7 +96,7 @@ void solve(ll __T__){
 
     ll n; cin >> n;
 
-    vll adj[n + 1];
+    vvll adj(n + 1);
 
     rpt(i, 0, n - 1) {
         ll u, v; cin >> u >> v;
