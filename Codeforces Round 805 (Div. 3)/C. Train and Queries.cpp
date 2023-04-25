@@ -80,7 +80,7 @@ void init(){
     return;
 }
 
-ll fun(vll &v, ll i, ll j, ll mn, ll d = 0) {
+ll fun(vll &v, vector<vvll> &dp, ll i, ll j, ll mn, ll d = 0) {
 
     if(i > j)
         return 0;
@@ -88,14 +88,17 @@ ll fun(vll &v, ll i, ll j, ll mn, ll d = 0) {
     if(i == j)
         return mn ? 0 : v[i];
 
+    if(dp[i][j][mn] != -1)
+        return dp[i][j][mn];
+
     ll rt, lt, ans;
 
     if(mn) {
 
         rt = inf, lt = inf;
 
-        lt = fun(v, i + 1, j, !mn, d + 1);
-        rt = fun(v, i, j - 1, !mn, d + 1);
+        lt = fun(v, dp, i + 1, j, !mn, d + 1);
+        rt = fun(v, dp, i, j - 1, !mn, d + 1);
 
         ans = min(rt, lt);
     }
@@ -103,13 +106,13 @@ ll fun(vll &v, ll i, ll j, ll mn, ll d = 0) {
 
         rt = ninf, lt = ninf;
 
-        lt = v[i] + fun(v, i + 1, j, !mn, d + 1);
-        rt = v[j] + fun(v, i, j - 1, !mn, d + 1);
+        lt = v[i] + fun(v, dp, i + 1, j, !mn, d + 1);
+        rt = v[j] + fun(v, dp, i, j - 1, !mn, d + 1);
 
         ans = max(rt, lt);
     }
 
-    return ans;
+    return dp[i][j][mn] = ans;
 }
 
 // #define TESTCASE
@@ -122,7 +125,7 @@ void solve(ll __T__){
     for(ll x : v) sum += x;
 
     vector<vvll> dp(n + 1, vvll(n + 1, vll(2, -1)));
-    cout << 2 * fun(v, 0, n - 1, 0) - sum;
+    cout << 2 * fun(v, dp, 0, n - 1, 0) - sum;
 
     nl;
 }
