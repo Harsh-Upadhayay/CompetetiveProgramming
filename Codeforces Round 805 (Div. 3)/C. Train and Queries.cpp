@@ -93,19 +93,19 @@ void solve(ll __T__){
     rpt(i, n - 1, 0)
         mp[v[i + 1]]++;
 
-    cout << (mp.rbegin()->fi);
+
     ll ans = 0;
-    // rpt(i, 0, n - 2) {
+    rpt(i, 0, n - 2) {
 
-    //     rpt(it, 2, n + 1) {
+        rpt(it, 2, n + 1) {
 
-    //         ll fctr = it * it;
-    //         if(--(mp.end()) ->fi < it * it)
-    //             break;
+            ll fctr = it * it;
+            if((mp.rbegin() -> fi) < it * it)
+                break;
 
-    //     } 
+        } 
 
-    // }
+    }
 
     cout << ans;
 
