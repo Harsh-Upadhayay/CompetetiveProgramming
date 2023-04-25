@@ -105,7 +105,7 @@ void update(ll ind, ll low, ll high, vll &seg, ll orr, ll i, ll val) {
         seg[ind] = val;
         return;
     }
-
+    debug(seg);
     ll mid = (low + high) / 2;
 
     if(i <= mid)
