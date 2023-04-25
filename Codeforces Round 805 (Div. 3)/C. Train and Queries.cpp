@@ -87,7 +87,7 @@ ll fun(vll &v, ll i, ll j, ll mn, ll d = 0) {
         return 0;
 
     if(i == j)
-        return v[i];
+        return mn ? 0 : v[i];
 
     ll rt, lt, ans;
 
@@ -122,7 +122,7 @@ void solve(ll __T__){
     ll sum = 0;
     for(ll x : v) sum += x;
 
-    cout <<  2 * fun(v, 0, n - 1, 0) - sum;
+    cout << fun(v, 0, n - 1, 0);
 
     nl;
 }
