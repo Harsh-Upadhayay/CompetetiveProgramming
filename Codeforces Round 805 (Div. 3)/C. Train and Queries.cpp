@@ -113,7 +113,7 @@ void solve(ll __T__){
             it++;
 
         } while((c) < (mp.rbegin() -> fi));
-
+        debug(v[i], ans);
         mp[v[i]]++;
     }
 
