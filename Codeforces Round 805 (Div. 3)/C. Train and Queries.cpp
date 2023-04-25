@@ -135,6 +135,7 @@ void solve(ll __T__){
     while(m--) {
 
         ll i, val; cin >> i >> val;
+        debug(i, val);
         i -= 1;
         if(n % 2)
             update(0, 0, el - 1, seg, 0, i, val);
