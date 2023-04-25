@@ -112,9 +112,9 @@ void solve(ll __T__){
     for(auto x : freq)
         if(x.se == mxfreq)
             mxEle = x.fi;
-    debug(mxEle);
-    ll rem = (mxfreq - (mp.size() / 2));
 
+    ll rem = (mxfreq - (mp.size() / 2));
+    cout << rem;
     rpt(i, 0, n / 2) {
 
         if(s[i] != mxEle && mp.count(i) == 0)
