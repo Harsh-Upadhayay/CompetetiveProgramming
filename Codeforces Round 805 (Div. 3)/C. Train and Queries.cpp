@@ -80,76 +80,13 @@ void init(){
     return;
 }
 
-void build(ll ind, ll low, ll high, vll &arr, vll &seg, ll orr) {
 
-    if(low == high) {
-        seg[ind] = arr[low];
-        return;
-    }
-
-    ll mid = (low + high) / 2;
-
-    build(2 * ind + 1, low, mid, arr, seg, !orr);
-    build(2 * ind + 2, mid + 1, high, arr, seg, !orr);
-
-    if(orr)
-        seg[ind] = seg[2 * ind + 1] | seg[2 * ind + 2];
-    else
-        seg[ind] = seg[2 * ind + 1] ^ seg[2 * ind + 2];
-}
-
-void update(ll ind, ll low, ll high, vll &seg, ll orr, ll i, ll val) {
-
-    // debug(low, high);
-    if(low == high) {
-        seg[ind] = val;
-        return;
-    }
-    ll mid = (low + high) / 2;
-
-    if(i <= mid)
-        update(2 * ind + 1, low, mid, seg, !orr, i, val);
-    else
-        update(2 * ind + 2, mid + 1, high, seg, !orr, i, val);
-
-    if(orr)
-        seg[ind] = seg[2 * ind + 1] | seg[2 * ind + 2];
-    else
-        seg[ind] = seg[2 * ind + 1] ^ seg[2 * ind + 2];
-
-}
-
-// #define TESTCASE
+#define TESTCASE
 void solve(ll __T__){
 
-    ll n, m; cin >> n >> m;
-    ll el = pow(2, n);
-    vll arr(el); cin >> arr;
-    vll seg(4 * el, 0);
-
-    if(n % 2 == 0)
-        build(0, 0, el - 1, arr, seg, 0);
-    else
-        build(0, 0, el - 1, arr, seg, 1);
-
-    vll ver(4 * el + 1);
-    rpt(i, 0, 4 * el + 1)
-        ver[i] = i;
-    debug(ver);
-    debug(seg);
-    
-    while(m--) {
-
-        ll i, val; cin >> i >> val;
-
-        i -= 1;
-        if(n % 2 == 0)
-            update(0, 0, el - 1, seg, 0, i, val);
-        else
-            update(0, 0, el - 1, seg, 1, i, val);
-        debug(seg);
-        cout << seg[0] << "\n";
-    }
+    set<int> a;
+    a.insert(1);
+    cout << (*a.begin());
 
     nl;
 }
