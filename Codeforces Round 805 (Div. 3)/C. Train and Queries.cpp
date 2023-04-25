@@ -101,10 +101,10 @@ void solve(ll __T__){
     for(auto x : freq)
         mxfreq = max(mxfreq, x.se);
     
-    cout << mxfreq;
 
     if(mxfreq <= (mp.size() / 2.0))
-        kill(ceil(mp.size() / 2.0));
+        kill(ceil(mp.size() / 1.0));
+
 
     ll ans = (mp.size() / 2) + (mxfreq - (mp.size() / 2));
 
