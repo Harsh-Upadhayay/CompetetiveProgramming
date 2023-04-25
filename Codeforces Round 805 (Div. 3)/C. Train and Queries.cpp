@@ -80,36 +80,19 @@ void init(){
     return;
 }
 
-ll fun(vll &v, vector<vvll> &dp, ll i, ll j, ll mn, ll d = 0) {
+ll fun(vll &v, vector<vvll> &dp, ll i, ll j, ll k ){
 
     if(i == j)
-        return mn ? 0 : v[i];
+        return k ? 0 : v[i];
 
-    if(dp[i][j][mn] != -1)
-        return dp[i][j][mn];
+    if(dp[i][j][k] != -1)
+        return dp[i][j][k];
 
-    ll rt, lt, ans;
+    ll  lt = !k * v[i] + fun(v, dp, i + 1, j, !k),
+        rt = !k * v[j] + fun(v, dp, i, j - 1, !k);
 
-    if(mn) {
-
-        rt = inf, lt = inf;
-
-        lt = fun(v, dp, i + 1, j, !mn, d + 1);
-        rt = fun(v, dp, i, j - 1, !mn, d + 1);
-
-        ans = min(rt, lt);
-    }
-    else {
-
-        rt = ninf, lt = ninf;
-
-        lt = v[i] + fun(v, dp, i + 1, j, !mn, d + 1);
-        rt = v[j] + fun(v, dp, i, j - 1, !mn, d + 1);
-
-        ans = max(rt, lt);
-    }
-
-    return dp[i][j][mn] = ans;
+    return dp[i][j][k] = k ? min(lt, rt) : max(lt, rt);
+    
 }
 
 // #define TESTCASE
