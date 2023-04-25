@@ -91,8 +91,8 @@ void init(){
 
 ll fun(vvll &adj, vvll &dp, ll src, ll col, ll prt) {
 
-    // if(dp[src][col] != -1)
-    //     return dp[src][col];
+    if(dp[src][col] != -1)
+        return dp[src][col];
 
     ll cnt = 0;
 
