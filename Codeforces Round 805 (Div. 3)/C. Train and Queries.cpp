@@ -112,7 +112,7 @@ ll fun(vll &v, ll i, ll j, ll mn) {
     return ans;
 }
 
-#define TESTCASE
+// #define TESTCASE
 void solve(ll __T__){
 
     ll n; cin >> n;
