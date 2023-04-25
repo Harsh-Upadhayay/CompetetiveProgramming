@@ -100,7 +100,6 @@ void solve(ll __T__){
         ll it = 2;
 
         do {
-            
             a = v[i],
             b = v[i] * it,
             c = v[i] * it * it;
