@@ -70,7 +70,7 @@ template <typename T>
 ostream& operator<<(ostream &os, vll v[]) {
     ll n = sizeof(v) / sizeof(v[0]);
     rpt(i, 1, n + 1)
-        cout << i << ": " << v[i];
+        cout << i << ": " << v[i] << "\n";
     return os;
 }
 
