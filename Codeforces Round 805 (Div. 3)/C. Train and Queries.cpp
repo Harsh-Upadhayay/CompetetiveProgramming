@@ -96,7 +96,7 @@ vector<nd> segT;
 
 
 void build(string &s, ll ind, ll low, ll high) {
-    debug(ind, low, high);
+    // debug(ind, low, high);
     if(low == high) {
         segT[ind] = nd(s[low] == '(', 0, s[high] == ')');
         return;
@@ -118,6 +118,36 @@ void build(string &s, ll ind, ll low, ll high) {
 
 }
 
+nd query(ll ind, ll low, ll high, ll qlow, ll qhigh) {
+
+    // full
+    if(qlow <= low && qhigh >= high) 
+        return segT[ind];
+    // none 
+    if(qlow > high || qhigh < low)
+        return nd(-1);
+    // partial 
+
+    ll mid = (low + high) / 2;
+
+    nd lft = query(2 * ind + 1, low, mid, qlow, qhigh),
+        rgt = query(2 * ind + 2, mid + 1, high, qlow, qhigh);
+
+    
+    if(lft.o == -1)
+        return rgt;
+    if(rgt.o == -1)
+        return lft;
+
+    nd retVal(lft.o + rgt.o, lft.p + rgt.p, lft.c + rgt.c);
+
+    retVal.p += min(lft.o - lft.p, 
+                    rgt.c - rgt.p
+                    );
+
+    return retVal;
+}
+
  // #define TESTCASE
  void solve(ll __T__){
  
@@ -125,12 +155,14 @@ void build(string &s, ll ind, ll low, ll high) {
      ll n = s.size();
 
      segT.resize(4 * n);
-
      build(s, 0, 0, n - 1);
 
-     cout << segT;
+     ll q; cin >> q;
+     while(q--) { 
 
-
+        ll l, r; cin >> l >> r;
+        cout << (2 * query(0, 0, n - 1, l, r).p) << "\n";
+     }
  
      nl;
  }
