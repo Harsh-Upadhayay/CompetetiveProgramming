@@ -79,7 +79,7 @@ void init(){
 
     return;
 }
-/* go simple 
+/* Think simple : Simplicity is the ultimate sophistication. 
 
 ll dp[10][10];
 
@@ -127,6 +127,9 @@ void solve(ll __T__){
     sort(all(edges), [](edge &a, edge &b){return a.w < b.w;});
 
     cerr << edges;
+
+    for(auto edg : edges) 
+        dp[edg.v] = 1 + dp[edg.u];
 
     ll ans = ninf;
 
