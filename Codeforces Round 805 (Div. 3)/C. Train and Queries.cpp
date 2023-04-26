@@ -86,9 +86,9 @@ void solve(ll __T__){
 
     ll n; cin >> n;
     vll v(n); cin >> v;
-    debug(v);
-    // sort(all(v));
-    // ll mxB = v[n - 1] - v[0];
+    
+    sort(all(v));
+    ll mxB = v[n - 1] - v[0];
 
     // map<ll, ll> mp;
     // for(ll x : v) mp[x]++;
