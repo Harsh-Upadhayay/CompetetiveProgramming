@@ -91,15 +91,13 @@ void solve(ll __T__){
     ll mxB = v[n - 1] - v[0];
 
     map<ll, ll> mp;
+    set<ll> st(all(v));
+
     for(ll x : v) mp[x]++;
 
     ll ans = 0;
-    for(auto it : mp) {
-        ll n = it.fi, 
-            f = it.se;
-
-        ans += (f );
-    }
+    for(auto x : st) 
+        ans += (mp[x] * mp[x + mxB]);
 
     cout << ans;
 
