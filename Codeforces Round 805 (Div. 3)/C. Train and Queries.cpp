@@ -92,7 +92,8 @@ void solve(ll __T__){
         adj[u].push_back({v, w});
     }    
 
-    cout << adj;
+    cerr << adj;
+
 
     nl;
 }
