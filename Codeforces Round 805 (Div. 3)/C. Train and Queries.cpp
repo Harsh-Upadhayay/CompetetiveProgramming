@@ -86,11 +86,14 @@ ll fun(vector<vector<pair<ll, ll>>> &adj, ll i, ll j) {
     debug(i, j);
     ll d = 0;
 
+    if(dp[i][j] != -1)
+        return dp[i][j];
+
     for(auto adjN : adj[i]) 
         if(adjN.se > j)
             d = max(d, 1 + fun(adj, adjN.fi, adjN.se));
 
-    return d;
+    return dp[i][j] = d;
 }
 
 // #define TESTCASE
