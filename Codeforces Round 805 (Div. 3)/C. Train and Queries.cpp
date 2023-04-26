@@ -103,9 +103,12 @@ void solve(ll __T__){
 
     ll x = 0;
 
-    vll maxFromLeft(n, v[0]);
+    vll maxFromLeft(n, v[0]), minFromRight(n, v[n - 1]);
     for(int i = 1; i < n; i++)
         maxFromLeft[i] = max(maxFromLeft[i - 1], v[i]);
+
+    for(int i = n - 2; i >= 0; i--)
+        minFromRight[i] = min(minFromRight[i + 1], v[i]);
 
     debug(maxFromLeft);
     debug(v);
