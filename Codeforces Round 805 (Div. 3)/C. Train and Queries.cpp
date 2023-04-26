@@ -99,7 +99,7 @@ void solve(ll __T__){
     for(auto x : st) 
         ans += (mp[x] * mp[x + mxB]);
 
-    cout << mxB << " " << (mxB ? ans : (n * (n + 1)) / 2);
+    cout << mxB << " " << (mxB ? ans : (n * (n - 1)) / 2);
 
     nl;
 }
