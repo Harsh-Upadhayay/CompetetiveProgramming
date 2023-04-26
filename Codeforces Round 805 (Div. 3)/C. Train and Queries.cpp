@@ -79,6 +79,7 @@ void init(){
 
     return;
 }
+/* go simple 
 
 ll dp[10][10];
 
@@ -96,24 +97,31 @@ ll fun(vector<vector<pair<ll, ll>>> &adj, ll i, ll j) {
     return dp[i][j] = d;
 }
 
+*/
+
+struct edge{
+    ll u, v, w;
+    edge() {}
+    edge(ll x, ll y, ll z) : u(x), v(y), w(z) {}
+};
+
 // #define TESTCASE
 void solve(ll __T__){
 
     ll n, m; cin >> n >> m;
-    vector<vector<pair<ll, ll>>> adj(n + 1, vector<pair<ll, ll>>());
-    memset(dp, -1, sizeof(dp));
+
+    vll dp(n + 1, 0);
+    vector<edge> edges;
 
     while(m--) {
         ll u, v, w; cin >> u >> v >> w;
-        adj[u].push_back({v, w});
+        edges.push_back(edge(u, v, w));
     }    
-
-    cerr << adj;
 
     ll ans = ninf;
 
     rpt(i, 1, n + 1)
-        ans = max(ans, fun(adj, i, 0));
+        ans = max(ans, dp[i]);
 
     cout << ans;
     nl;
