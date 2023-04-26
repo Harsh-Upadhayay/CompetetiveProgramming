@@ -50,7 +50,7 @@ istream& operator>>(istream &is, vector<T> &v) {
 
 template <typename T1, typename T2>
 ostream& operator<<(ostream &os, pair<T1, T2> &x) {
-    os << "(" << x.fi << "," << x.se << ")";
+    cout << "(" << x.fi << "," << x.se << ")";
     return os;
 }
 
@@ -79,64 +79,40 @@ void init(){
 
     return;
 }
-/* Think simple : Simplicity is the ultimate sophistication. 
-
-ll dp[10][10];
-
-ll fun(vector<vector<pair<ll, ll>>> &adj, ll i, ll j) {
-    debug(i, j);
-    ll d = 0;
-
-    if(dp[i][j] != -1)
-        return dp[i][j];
-
-    for(auto adjN : adj[i]) 
-        if(adjN.se > j)
-            d = max(d, 1 + fun(adj, adjN.fi, adjN.se));
-
-    return dp[i][j] = d;
-}
-
-*/
-
-struct edge{
-    ll u, v, w;
-    edge() {}
-    edge(ll x, ll y, ll z) : u(x), v(y), w(z) {}
-};
 
 
-ostream& operator<<(ostream &os, edge &e) {
-    os << e.u << "," << e.v << "," << e.w;
-    return os;
-}
-
-// #define TESTCASE
+#define TESTCASE
 void solve(ll __T__){
 
-    ll n, m; cin >> n >> m;
+    ll x; cin >> x;
 
-    vll dp(n + 1, 0);
-    vector<edge> edges;
+    ll a, b, c;
+    if(x % 2) {
+        // odd
+        
+        c = 1;
+        x -= 1;
 
-    while(m--) {
-        ll u, v, w; cin >> u >> v >> w;
-        edges.push_back(edge(u, v, w));
-    }    
+        for(ll i = 1; i * i < x; i++) 
+            if(!(x % i))
+                a = i,
+                b = x / i;
 
-    sort(all(edges), [](edge &a, edge &b){return a.w < b.w;});
 
-    cerr << edges;
+    }
+    else {
 
-    for(auto edg : edges) 
-        dp[edg.v] = 1 + dp[edg.u];
+        c = 2;
+        x -= 2;
 
-    ll ans = ninf;
+        for(ll i = 1; i * i < x; i++) 
+            if(!(x % i))
+                a = i,
+                b = x / i;
 
-    rpt(i, 1, n + 1)
-        ans = max(ans, dp[i]);
+    }
 
-    cout << ans;
+    cout << a << " " << b << " " << c;
     nl;
 }
 
