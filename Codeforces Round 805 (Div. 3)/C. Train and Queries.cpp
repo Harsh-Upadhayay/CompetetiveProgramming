@@ -88,8 +88,12 @@ void solve(ll __T__){
 
     ll n; cin >> n;
     vll v(n); cin >> v;
-
     debug(v);
+
+    for(ll x : v) freq[x]++;
+
+    rpt(i, n, 0)
+        cout << i;
 
     nl;
 }
