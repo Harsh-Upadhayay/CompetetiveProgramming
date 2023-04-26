@@ -98,7 +98,7 @@ void solve(ll __T__){
 
     ll n, m; cin >> n >> m;
     vector<vector<pair<ll, ll>>> adj(n + 1, vector<pair<ll, ll>>());
-    // memset(dp, sizeof(dp), -1);
+    memset(dp, -1, sizeof(dp));
 
     while(m--) {
         ll u, v, w; cin >> u >> v >> w;
