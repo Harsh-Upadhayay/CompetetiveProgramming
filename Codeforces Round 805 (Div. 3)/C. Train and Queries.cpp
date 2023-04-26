@@ -86,18 +86,19 @@ void solve(ll __T__){
 
     ll n; cin >> n;
     vll v(n); cin >> v;
-    
+
     sort(all(v));
     ll mxB = v[n - 1] - v[0];
 
     map<ll, ll> mp;
     for(ll x : v) mp[x]++;
 
-    // ll ans = 0;
+    ll ans = 0;
+debug(mp);
     // for (auto it : mp) 
     //     ans += (it.se * mp[it.fi + mxB]);
 
-    // cout << ans;
+    cout << ans;
 
     nl;
 }
