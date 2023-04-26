@@ -101,18 +101,16 @@ void solve(ll __T__){
     ll n; cin >> n;
     vll v(n); cin >> v;
 
-    ll l = -1, r = -1;
-    for(int i = 0; i < n; i++)
-        if(v[i] != i + 1) {
-            l = i;
-            break;
-        }
-    for(int i = n - 1; i >= 0; i--)
-        if(v[i] != i + 1) {
-            r = i;
-            break;
-        }
-    debug(l, r);
+    ll l = 0, r = 0, x = 0;
+
+    ll lead = ninf;
+    for(int i = n- 1; i >= 0; i--) 
+        if(v[i] > lead)
+            lead = v[i],
+            x += 1;
+    
+
+    debug(x);
     if(l == -1)
         cout << ((power(2, n) - 1 + MOD) % MOD);
     else
