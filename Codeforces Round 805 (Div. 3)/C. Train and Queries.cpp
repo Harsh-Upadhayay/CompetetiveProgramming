@@ -116,9 +116,10 @@ void solve(ll __T__){
 
     for(int i = 1; i < n - 1; i++) {
         debug(maxFromLeft[i - 1], v[i], minFromRight[i + 1]);
-        x += !(v[i] > maxFromLeft[i - 1] && v[i] < minFromRight[i + 1]);
+        x += (v[i] > maxFromLeft[i - 1] && v[i] < minFromRight[i + 1]);
     }
     debug(x);
+
     x += (v[0] < minFromRight[1]);
     x += (v[n - 1] > maxFromLeft[n - 2]);
 
