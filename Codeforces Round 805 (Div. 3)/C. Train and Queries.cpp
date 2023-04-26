@@ -95,7 +95,7 @@ vector<nd> segT;
 
 
 void build(string &s, ll ind, ll low, ll high) {
-
+    debug(ind, low, high);
     if(low == high) {
         segT[ind] = nd(s[low] == '(', 0, s[high] == ')');
         return;
