@@ -37,7 +37,7 @@
  
  template <typename T>
  ostream& operator<<(ostream &os, vector<T> &v) {
-     for(T x : v) os << x << " ";
+     ll it = 0; for(T x : v) os << it << ": " << x << "\n";
      return os;
  }
  
