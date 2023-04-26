@@ -93,7 +93,7 @@ void solve(ll __T__){
     for(ll x : v) freq[x]++;
 
     rpt(i, n, 0)
-        cout << i;
+        cout << v[i];
 
     nl;
 }
