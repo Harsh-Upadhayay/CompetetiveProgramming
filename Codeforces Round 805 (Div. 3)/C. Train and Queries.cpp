@@ -97,7 +97,8 @@ void solve(ll __T__){
     for(auto it : mp) {
         ll n = it.fi, 
             f = it.se;
-        cout << n << " " << f;
+
+        ans += (f );
     }
 
     cout << ans;
