@@ -85,8 +85,8 @@ void init(){
 #define TESTCASE
 void solve(ll __T__){
 
-    // ll x; cin >> x;
-    ll x = __T__;
+    ll x; cin >> x;
+    // ll x = __T__;
     ll a, b, c;
     if(x == 1)
         kill(-1);
