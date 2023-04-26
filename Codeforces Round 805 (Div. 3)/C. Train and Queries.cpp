@@ -94,9 +94,11 @@ void solve(ll __T__){
     for(ll x : v) mp[x]++;
 
     ll ans = 0;
-debug(mp);
-    // for (auto it : mp) 
-    //     ans += (it.se * mp[it.fi + mxB]);
+    for(auto it : mp) {
+        ll n = it.fi, 
+            f = it.se;
+        cout << n << " " << f;
+    }
 
     cout << ans;
 
