@@ -85,8 +85,8 @@ void init(){
 #define TESTCASE
 void solve(ll __T__){
 
-    // ll x; cin >> x;
-    ll x = __T__;
+    ll x; cin >> x;
+    // ll x = __T__;
     ll a, b, c;
 
     a = b = sqrt(x);
