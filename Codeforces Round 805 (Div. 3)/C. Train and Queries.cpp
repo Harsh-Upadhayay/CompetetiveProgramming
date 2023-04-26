@@ -161,7 +161,7 @@ nd query(ll ind, ll low, ll high, ll qlow, ll qhigh) {
      while(q--) { 
 
         ll l, r; cin >> l >> r;
-        cout << (2 * query(0, 0, n - 1, l, r).p) << "\n";
+        cout << (2 * query(0, 0, n - 1, l - 1, r - 1).p) << "\n";
      }
  
      nl;
