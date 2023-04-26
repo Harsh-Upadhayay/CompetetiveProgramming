@@ -80,7 +80,7 @@ void init(){
     return;
 }
 
-
+vll freq(1e7 + 1, 0);
 
 #define TESTCASE
 void solve(ll __T__){
