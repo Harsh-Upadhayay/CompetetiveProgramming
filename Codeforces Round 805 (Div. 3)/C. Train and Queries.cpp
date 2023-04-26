@@ -24,7 +24,7 @@ using namespace std;
 #define vvll                    vector<vector<ll>>
 #define ninf                    ((ll)((-1)*1e18+5))
 #define inf                     ((ll)(1e18+5))
-#define MOD                     ((ll)(1e9+7))
+#define MOD                     ((ll)(998244353))
 #define nmin(v)                 *min_element(all(v))
 #define nmax(v)                 *max_element(all(v))
 #define rpt(i, begin, end)      for (__typeof(end) i = (begin) - ((begin) > (end)); i != (end) - ((begin) > (end)); i += 1 - 2 * ((begin) > (end)))
@@ -80,28 +80,45 @@ void init(){
     return;
 }
 
+int power(int x, int y)
+{
+ 
+    int res = 1;
+    while (y > 0) {
+ 
+        if (y % 2 == 1)
+            res = (res * x);
+        y = y >> 1;
+        x = (x * x);
+    }
+    return res % MOD;
+}
 
 
 #define TESTCASE
 void solve(ll __T__){
 
-    ll x; cin >> x;
-    // ll x = __T__;
-    ll a, b, c;
-    if(x == 1)
-        kill(-1);
-    a = b = sqrt(x);
+    ll n; cin >> n;
+    vll v(n); cin >> v;
 
-    if(a * b == x) 
-        a -= 1;
+    ll l = -1, r = -1;
+    for(int i = 0; i < n; i++)
+        if(v[i] != i + 1) {
+            l = i;
+            break;
+        }
+    for(int i = n - 1; i >= 0; i--)
+        if(v[i] != i + 1) {
+            r = i;
+            break;
+        }
 
-    c = x - (a * b);
+    if(l == -1)
+        cout << ((power(2, n) - 1 + MOD) % MOD);
+    else
+        cout << (power(2, l + (n - r - 1) - 1 + MOD) % MOD);
 
-    // if(a * b + c == x) {
-        
-        cout << a << " " << b << " " << c;
-    // }
-    nl;
+
 }
 
 
