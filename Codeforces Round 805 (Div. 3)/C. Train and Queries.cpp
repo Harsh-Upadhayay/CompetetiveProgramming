@@ -101,15 +101,19 @@ void solve(ll __T__){
     ll n; cin >> n;
     vll v(n); cin >> v;
 
-    ll l = 0, r = 0, x = 0;
+    ll x = 0;
 
-    ll minTN = v[n - 1];
-    for(int i = n - 2; i >= 0; i--) {
-        x += (v[i] > minTN);
-        minTN = min(minTN, v[i]);
+    vll rt(n, v[n - 1]), lt(n, v[0]);
 
-    } 
-    
+    for(int i = 1; i < n; i++)
+        lt[i] = min(lt[i - 1], v[i]);
+
+    for(int i = n - 2; i >= 0; i--)
+        rt[i] = min(rt[i - 1], v[i]);
+
+    debug(lt);
+    debug(rt);
+    debug(v);
 
     debug(x);
     if(x == 0)
