@@ -105,6 +105,12 @@ struct edge{
     edge(ll x, ll y, ll z) : u(x), v(y), w(z) {}
 };
 
+
+ostream& operator<<(ostream &os, edge &e) {
+    os << e.u << "," << e.v << "," << e.w;
+    return os;
+}
+
 // #define TESTCASE
 void solve(ll __T__){
 
@@ -119,6 +125,8 @@ void solve(ll __T__){
     }    
 
     sort(all(edges), [](edge &a, edge &b){return a.w < b.w;});
+
+    cerr << edges;
 
     ll ans = ninf;
 
