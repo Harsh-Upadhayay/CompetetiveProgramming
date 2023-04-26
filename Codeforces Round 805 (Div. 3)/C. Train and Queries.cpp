@@ -84,23 +84,20 @@ void init(){
 // #define TESTCASE
 void solve(ll __T__){
 
-    ll a, b, c, d; cin >> a >> b >> c >> d;
+    ll n; cin >> n;
+    vll v(n); cin >> v;
 
-    if(a == b && b == c && c == d)
-        cout << "-1";
-    else if(b == d) {
-        ll x = a - c;
-        cout << a << " " << (b + x) << " " << c << " " << (d + x);
-    }
-    else if(a == c) {
-        ll x = b - d;
-        cout << (a + x) << " " << (b) << " " << (c + x) << " " << (d);
-    }
-    else if(abs(a - c) == abs(b - d))
-        cout << c << " " << b << " " << a << " " << d;
-    else
-        cout << "-1";
+    // sort(all(v));
+    // ll mxB = v[n - 1] - v[0];
 
+    // map<ll, ll> mp;
+    // for(ll x : v) mp[x]++;
+
+    // ll ans = 0;
+    // for (auto it : mp) 
+    //     ans += (it.se * mp[it.fi + mxB]);
+
+    // cout << ans;
 
     nl;
 }
