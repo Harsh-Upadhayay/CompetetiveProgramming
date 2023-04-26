@@ -80,20 +80,27 @@ void init(){
     return;
 }
 
-vll freq(1e7 + 1, 0);
-vll segT(4 * (1e7 + 1), 0);
 
 #define TESTCASE
 void solve(ll __T__){
 
-    ll n; cin >> n;
-    vll v(n); cin >> v;
-    debug(v);
+    ll a, b, c, d; cin >> a >> b >> c >> d;
 
-    for(ll x : v) freq[x]++;
+    if(a == b && b == c && c == d)
+        cout << "-1";
+    else if(b == d) {
+        ll x = a - c;
+        cout << a << " " << (b + x) << " " << c << " " << (d + x);
+    }
+    else if(a == c) {
+        ll x = b - d;
+        cout << (a + x) << " " << (b) << " " << (c + x) << " " << (d);
+    }
+    else if((a - c) == (b - d))
+        cout << c << " " << b << " " << a << " " << d;
+    else
+        cout << "-1";
 
-    rpt(i, n, 0)
-        cout << v[i];
 
     nl;
 }
