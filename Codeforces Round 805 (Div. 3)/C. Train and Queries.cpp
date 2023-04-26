@@ -110,8 +110,8 @@ void build(string &s, ll ind, ll low, ll high) {
     segT[ind].p = segT[2 * ind + 1].p + segT[2 * ind + 2].p;
     segT[ind].c = segT[2 * ind + 1].c + segT[2 * ind + 2].c;
     
-    segT[ind].p += min({segT[2 * ind + 1].o - segT[2 * ind + 1].p, 
-                        segT[2 * ind + 2].o - segT[2 * ind + 2].p, 0ll});
+    segT[ind].p += max(0ll, min(segT[2 * ind + 1].o - segT[2 * ind + 1].p, 
+                        segT[2 * ind + 2].o - segT[2 * ind + 2].p));
 
 }
 
