@@ -121,9 +121,9 @@ void solve(ll __T__){
 
     x += (v[0] < minFromRight[1]);
     x += (v[n - 1] > maxFromLeft[n - 2]);   
-    debug(x == n);
+    debug(x);
 
-    cout << ((power(2, n) - (x == n)) % MOD);
+    cout << ((power(2, x) - (x == n)) % MOD);
 
     nl;
 
