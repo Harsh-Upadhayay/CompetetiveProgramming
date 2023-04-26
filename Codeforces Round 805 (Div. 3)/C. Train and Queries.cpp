@@ -81,7 +81,7 @@ void init(){
 }
 
 vll freq(1e7 + 1, 0);
-vll segT(4 * 1e7 + 1, 0);
+vll segT(4 * (1e7 + 1), 0);
 
 #define TESTCASE
 void solve(ll __T__){
