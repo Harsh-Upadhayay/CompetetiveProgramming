@@ -103,8 +103,8 @@ void solve(ll __T__){
 
     ll l = 0, r = 0, x = 0;
 
-    ll lead = ninf;
-    for(int i = n- 1; i >= 0; i--) 
+    ll lead = v[n - 1];
+    for(int i = n - 2; i >= 0; i--) 
         if(v[i] > lead)
             lead = v[i],
             x += 1;
