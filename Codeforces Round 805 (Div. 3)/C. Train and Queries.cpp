@@ -115,7 +115,11 @@ void solve(ll __T__){
 
     x += (v[0] < minFromRight[1]);
     x += (v[n - 1] > maxFromLeft[n - 2]);   
-    cerr << power(2, 100000) << "\n";
+
+    debug(v);
+    debug(maxFromLeft);
+    debug(minFromRight);
+
     cout << ((power(2, x) - (x == n)) % MOD);
 
     nl;
