@@ -79,19 +79,31 @@
      return;
  }
  
+
  struct nd {
     ll o, p, c;
+    nd() {};
     nd(ll x, ll y, ll z) : o(x), p(y), c(z) {}
  };
  
- #define TESTCASE
+vector<nd> segT;
+
+
+void build(string &s, ll ind, ll low, ll high) {
+
+}
+
+ // #define TESTCASE
  void solve(ll __T__){
  
      string s; cin >> s;
+     ll n = s.size();
 
-     // build
+     segT.resize(n);
 
-     ll n; cin >> n;
+     build(s, 0, 0, n - 1);
+
+     
 
 
  
