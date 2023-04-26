@@ -95,7 +95,7 @@ vector<nd> segT;
 
 
 void build(string &s, ll ind, ll low, ll high) {
-    debug(ind, low, high);
+
     if(low == high) {
         segT[ind] = nd(s[low] == '(', 0, s[high] == ')');
         return;
@@ -107,10 +107,11 @@ void build(string &s, ll ind, ll low, ll high) {
     build(s, 2 * ind + 2, mid + 1, high);
 
     segT[ind].o = segT[2 * ind + 1].o + segT[2 * ind + 2].o;
-    segT[ind].c = segT[2 * ind + 1].c + segT[2 * ind + 2].c;
     segT[ind].p = segT[2 * ind + 1].p + segT[2 * ind + 2].p;
-    segT[ind].p += min(segT[2 * ind + 1].o - segT[2 * ind + 1].p, 
-                        segT[2 * ind + 2].o - segT[2 * ind + 2].p);
+    segT[ind].c = segT[2 * ind + 1].c + segT[2 * ind + 2].c;
+    
+    segT[ind].p += min({segT[2 * ind + 1].o - segT[2 * ind + 1].p, 
+                        segT[2 * ind + 2].o - segT[2 * ind + 2].p, 0ll});
 
 }
 
