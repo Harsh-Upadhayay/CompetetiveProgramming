@@ -109,7 +109,7 @@ void solve(ll __T__){
         lt[i] = min(lt[i - 1], v[i]);
 
     for(int i = n - 2; i >= 0; i--)
-        rt[i] = min(rt[i - 1], v[i]);
+        rt[i] = max(rt[i - 1], v[i]);
 
     debug(lt);
     debug(rt);
