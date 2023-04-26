@@ -120,7 +120,6 @@ void solve(ll __T__){
     x += (v[0] < minFromRight[1]);
     x += (v[n - 1] > maxFromLeft[n - 2]);
 
-    debug(x);
     if(x == 0)
         cout << ((power(2, n) - 1) % MOD);
     else
