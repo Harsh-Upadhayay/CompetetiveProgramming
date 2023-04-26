@@ -85,10 +85,11 @@ void init(){
 #define TESTCASE
 void solve(ll __T__){
 
-    ll x; cin >> x;
-    // ll x = __T__;
+    // ll x; cin >> x;
+    ll x = __T__;
     ll a, b, c;
-
+    if(x == 1)
+        kill(-1);
     a = b = sqrt(x);
 
     if(a * b == x) 
@@ -97,11 +98,8 @@ void solve(ll __T__){
     c = x - (a * b);
 
     // if(a * b + c == x) {
-        if(a <= 0 || b <= 0 || c <= 0 ||
-            a > 1e6 || b > 1e6 || c > 1e6)
-            cout << -1;
-        else
-            cout << a << " " << b << " " << c;
+        
+        cout << a << " " << b << " " << c;
     // }
     nl;
 }
