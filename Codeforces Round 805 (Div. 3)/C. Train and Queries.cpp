@@ -90,8 +90,8 @@ void solve(ll __T__){
     sort(all(v));
     ll mxB = v[n - 1] - v[0];
 
-    // map<ll, ll> mp;
-    // for(ll x : v) mp[x]++;
+    map<ll, ll> mp;
+    for(ll x : v) mp[x]++;
 
     // ll ans = 0;
     // for (auto it : mp) 
