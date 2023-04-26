@@ -50,7 +50,7 @@ istream& operator>>(istream &is, vector<T> &v) {
 
 template <typename T1, typename T2>
 ostream& operator<<(ostream &os, pair<T1, T2> &x) {
-    cout << "(" << x.fi << "," << x.se << ")";
+    os << "(" << x.fi << "," << x.se << ")";
     return os;
 }
 
@@ -93,6 +93,7 @@ void solve(ll __T__){
     }    
 
     cerr << adj;
+
 
 
     nl;
