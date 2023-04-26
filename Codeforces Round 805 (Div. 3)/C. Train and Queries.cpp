@@ -111,6 +111,7 @@ void solve(ll __T__){
         minFromRight[i] = min(minFromRight[i + 1], v[i]);
 
     debug(maxFromLeft);
+    debug(minFromRight);
     debug(v);
 
     debug(x);
