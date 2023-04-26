@@ -91,6 +91,10 @@ vector<nd> segT;
 
 void build(string &s, ll ind, ll low, ll high) {
 
+    if(low == high) {
+        segT[ind] = nd(s[low] == '(', 0, s[high] == ')');
+    }
+
 }
 
  // #define TESTCASE
