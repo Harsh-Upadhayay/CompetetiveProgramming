@@ -118,6 +118,7 @@ void solve(ll __T__){
     else
         cout << (power(2, l + (n - r - 1) - 1 + MOD) % MOD);
 
+    nl;
 
 }
 
