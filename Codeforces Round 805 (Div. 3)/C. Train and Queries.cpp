@@ -80,12 +80,25 @@ void init(){
     return;
 }
 
+ll dp[10][10];
+
+ll fun(vector<vector<pair<ll, ll>>> &adj, ll i, ll j) {
+    debug(i, j);
+    ll d = 0;
+
+    for(auto adjN : adj[i]) 
+        if(adjN.se > j)
+            d = max(d, 1 + fun(adj, adjN.fi, adjN.se));
+
+    return d;
+}
 
 // #define TESTCASE
 void solve(ll __T__){
 
     ll n, m; cin >> n >> m;
     vector<vector<pair<ll, ll>>> adj(n + 1, vector<pair<ll, ll>>());
+    // memset(dp, sizeof(dp), -1);
 
     while(m--) {
         ll u, v, w; cin >> u >> v >> w;
@@ -94,8 +107,12 @@ void solve(ll __T__){
 
     cerr << adj;
 
+    ll ans = ninf;
 
+    // rpt(i, 1, n + 1)
+    //     ans = max(ans, fun(adj, i, 0));
 
+    cout << ans;
     nl;
 }
 
