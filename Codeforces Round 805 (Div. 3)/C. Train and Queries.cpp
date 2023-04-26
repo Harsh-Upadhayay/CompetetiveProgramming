@@ -96,7 +96,7 @@ void solve(ll __T__){
         ll x = b - d;
         cout << (a + x) << " " << (b) << " " << (c + x) << " " << (d);
     }
-    else if((a - c) == (b - d))
+    else if(abs(a - c) == abs(b - d))
         cout << c << " " << b << " " << a << " " << d;
     else
         cout << "-1";
