@@ -103,16 +103,16 @@ void solve(ll __T__){
 
     ll x = 0;
 
-    vll rt(n, v[n - 1]), lt(n, v[0]);
+    vll mxA(n, v[0]), mnA(n, v[n - 1]);
 
     for(int i = 1; i < n; i++)
-        lt[i] = max(lt[i - 1], v[i]);
+        mxA[i] = max(mxA[i - 1], v[i]);
 
     for(int i = n - 2; i >= 0; i--)
-        rt[i] = min(rt[i + 1], v[i]);
+        mnA[i] = min(mnA[i + 1], v[i]);
 
-    debug(lt);
-    debug(rt);
+    debug(mxA);
+    debug(mnA);
     debug(v);
 
     debug(x);
