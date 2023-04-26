@@ -96,7 +96,7 @@ void solve(ll __T__){
 
     c = x - (a * b);
 
-    if(a * b + c != x) {
+    if(a * b + c == x) {
         if(a <= 0 || b <= 0 || c <= 0 ||
             a > 1e6 || b > 1e6 || c > 1e6)
             cout << -1;
