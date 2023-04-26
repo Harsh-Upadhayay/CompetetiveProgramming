@@ -103,7 +103,7 @@ void solve(ll __T__){
         else
             cout << a << " " << b << " " << c;
     }
-    // nl;
+    nl;
 }
 
 
