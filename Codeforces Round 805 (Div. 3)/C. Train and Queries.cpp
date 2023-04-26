@@ -87,9 +87,9 @@ int power(int x, int y)
     while (y > 0) {
  
         if (y % 2 == 1)
-            res = (res * x);
+            res = ((res % MOD) * (x % MOD)) % MOD;
         y = y >> 1;
-        x = (x * x);
+        x = ((x % MOD) * (x % MOD)) % MOD;
     }
     return res % MOD;
 }
@@ -110,19 +110,12 @@ void solve(ll __T__){
     for(int i = n - 2; i >= 0; i--)
         minFromRight[i] = min(minFromRight[i + 1], v[i]);
 
-    debug(maxFromLeft);
-    debug(minFromRight);
-    debug(v);
-
-    for(int i = 1; i < n - 1; i++) {
-        debug(maxFromLeft[i - 1], v[i], minFromRight[i + 1]);
+    for(int i = 1; i < n - 1; i++) 
         x += (v[i] > maxFromLeft[i - 1] && v[i] < minFromRight[i + 1]);
-    }
 
     x += (v[0] < minFromRight[1]);
     x += (v[n - 1] > maxFromLeft[n - 2]);   
-    debug(x);
-
+    
     cout << ((power(2, x) - (x == n)) % MOD);
 
     nl;
