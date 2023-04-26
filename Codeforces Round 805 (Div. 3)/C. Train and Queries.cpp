@@ -84,22 +84,15 @@ void init(){
 // #define TESTCASE
 void solve(ll __T__){
 
-    ll n; cin >> n;
-    vll v(n); cin >> v;
+    ll n, m; cin >> n >> m;
+    vector<vector<pair<ll, ll>>> adj(n + 1, vector<pair<ll, ll>>());
 
-    sort(all(v));
-    ll mxB = v[n - 1] - v[0];
+    while(m--) {
+        ll u, v, w; cin >> u >> v >> w;
+        adj[u].push_back({v, w});
+    }    
 
-    map<ll, ll> mp;
-    set<ll> st(all(v));
-
-    for(ll x : v) mp[x]++;
-
-    ll ans = 0;
-    for(auto x : st) 
-        ans += (mp[x] * mp[x + mxB]);
-
-    cout << mxB << " " << (mxB ? ans : (n * (n - 1)) / 2);
+    cout << adj;
 
     nl;
 }
