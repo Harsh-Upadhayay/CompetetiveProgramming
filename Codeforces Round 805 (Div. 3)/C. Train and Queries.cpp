@@ -112,7 +112,7 @@ void solve(ll __T__){
             r = i;
             break;
         }
-
+    debug(l, r);
     if(l == -1)
         cout << ((power(2, n) - 1 + MOD) % MOD);
     else
