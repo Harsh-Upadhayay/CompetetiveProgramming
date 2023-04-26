@@ -109,8 +109,8 @@ void solve(ll __T__){
 
     ll ans = ninf;
 
-    // rpt(i, 1, n + 1)
-    //     ans = max(ans, fun(adj, i, 0));
+    rpt(i, 1, n + 1)
+        ans = max(ans, fun(adj, i, 0));
 
     cout << ans;
     nl;
