@@ -87,31 +87,15 @@ void solve(ll __T__){
     ll x; cin >> x;
 
     ll a, b, c;
-    if(x % 2) {
-        // odd
-        
-        c = 1;
-        x -= 1;
 
-        for(ll i = 1; i * i < x; i++) 
-            if(!(x % i))
-                a = i,
-                b = x / i;
+    a = b = sqrt(x);
 
+    if(a * b == x) 
+        a -= 1,
+        b -= 1;
 
-    }
-    else {
-
-        c = 2;
-        x -= 2;
-
-        for(ll i = 1; i * i < x; i++) 
-            if(!(x % i))
-                a = i,
-                b = x / i;
-
-    }
-
+    c = x - (a * b);
+   
     cout << a << " " << b << " " << c;
     nl;
 }
