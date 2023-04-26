@@ -83,6 +83,7 @@
  struct nd {
     ll o, p, c;
     nd() {};
+    nd(ll x) : o(x), p(x), c(x) {}
     nd(ll x, ll y, ll z) : o(x), p(y), c(z) {}
  };
 
