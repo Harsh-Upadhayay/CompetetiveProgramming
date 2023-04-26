@@ -85,6 +85,11 @@
     nd() {};
     nd(ll x, ll y, ll z) : o(x), p(y), c(z) {}
  };
+
+ ostream& operator<<(ostream &os, nd &n) {
+     os << n.o << "," << n.p << "," << n.c;
+     return os;
+ }
  
 vector<nd> segT;
 
@@ -119,7 +124,7 @@ void build(string &s, ll ind, ll low, ll high) {
 
      build(s, 0, 0, n - 1);
 
-     
+     cout << segT;
 
 
  
