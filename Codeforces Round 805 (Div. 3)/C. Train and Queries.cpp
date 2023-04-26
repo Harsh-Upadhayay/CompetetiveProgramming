@@ -105,7 +105,7 @@ void solve(ll __T__){
 
     ll lead = v[n - 1];
     for(int i = n - 2; i >= 0; i--) 
-        if(v[i] > lead)
+        if(v[i] < lead)
             lead = v[i],
             x += 1;
     
