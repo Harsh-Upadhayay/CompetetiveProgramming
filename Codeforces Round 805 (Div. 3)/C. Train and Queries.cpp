@@ -81,7 +81,7 @@ void init(){
 }
 
 
-#define TESTCASE
+// #define TESTCASE
 void solve(ll __T__){
 
     ll a, b, c, d; cin >> a >> b >> c >> d;
