@@ -106,10 +106,10 @@ void solve(ll __T__){
     vll rt(n, v[n - 1]), lt(n, v[0]);
 
     for(int i = 1; i < n; i++)
-        lt[i] = min(lt[i - 1], v[i]);
+        lt[i] = max(lt[i - 1], v[i]);
 
     for(int i = n - 2; i >= 0; i--)
-        rt[i] = max(rt[i + 1], v[i]);
+        rt[i] = min(rt[i + 1], v[i]);
 
     debug(lt);
     debug(rt);
