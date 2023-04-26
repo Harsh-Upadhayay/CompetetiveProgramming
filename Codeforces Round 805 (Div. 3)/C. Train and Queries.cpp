@@ -118,6 +118,8 @@ void solve(ll __T__){
         edges.push_back(edge(u, v, w));
     }    
 
+    sort(all(edges), [](edge &a, edge &b){return a.w < b.w;});
+
     ll ans = ninf;
 
     rpt(i, 1, n + 1)
