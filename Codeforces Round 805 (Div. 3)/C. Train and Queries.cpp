@@ -86,7 +86,7 @@ void solve(ll __T__){
 
     ll n, k; cin >> n >> k;
     vll v(n); cin >> v;
-    cout << isComposit[5];
+    cout << isComposit[6];
     // for(int i = 0; i + k < )
 
     nl;
