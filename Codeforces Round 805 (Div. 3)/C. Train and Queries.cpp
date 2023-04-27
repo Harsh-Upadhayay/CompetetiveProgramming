@@ -77,7 +77,7 @@ void storePrimes();
 
 vll arr;
 
-bool isS(ll n) {
+bool isS(ll x) {
     return false;
 }
 
