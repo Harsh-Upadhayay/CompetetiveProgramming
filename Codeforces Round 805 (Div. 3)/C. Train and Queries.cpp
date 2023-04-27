@@ -77,18 +77,28 @@ void storePrimes();
 
 vll arr;
 
+bool isP(ll n) {
+
+    for(int i = 2; i * i <= n; i++) 
+        if(!(n % i))
+            return false;
+
+    return true;
+
+}
+
 bool isS(ll n) {
     ll p = 0, c = 0;
     for (int i = 1; i * i <= n; i++) 
         if (!(n % i))
         {
             if (n/i == i)
-                p += !isComposit[i];
+                p += isP(i);
             else
-                p += !isComposit[i],
-                p += !isComposit[n / i],
-                c += isComposit[i],
-                c += isComposit[n / i];
+                p += isP(i),
+                p += isP(n / i),
+                c += !isP(i),
+                c += !isP(n / i);
 
         }
     
@@ -100,23 +110,10 @@ void init(){
     rpt(i, 1, (ll)(40))
         if(isS(i))
             arr.push_back(i);
-
+        cerr << arr;
     return;
 }
 
-ll fun(ll i, ll tgt) {
-    debug(i, tgt);
-    if(i == arr.size() || tgt)
-        return tgt == 1;
-
-    ll take = 0, 
-    nottake = fun(i + 1, tgt);
-
-    if(!(tgt % i))
-        take = 1 + fun(i, tgt / i);
-
-    return max(take, nottake);
-}
 
 #define TESTCASE
 void solve(ll __T__){
@@ -127,7 +124,6 @@ void solve(ll __T__){
     ll tgt = 1;
     for(auto x : v) tgt *= x;
 
-    cout << fun(0, tgt);
 
     nl;
 }
