@@ -24,7 +24,7 @@ using namespace std;
 #define vvll                    vector<vector<ll>>
 #define ninf                    ((ll)((-1)*1e18+5))
 #define inf                     ((ll)(1e18+5))
-#define MOD                     ((ll)(998244353))
+#define MOD                     ((ll)(1e9+7))
 #define nmin(v)                 *min_element(all(v))
 #define nmax(v)                 *max_element(all(v))
 #define rpt(i, begin, end)      for (__typeof(end) i = (begin) - ((begin) > (end)); i != (end) - ((begin) > (end)); i += 1 - 2 * ((begin) > (end)))
@@ -80,50 +80,39 @@ void init(){
     return;
 }
 
-int power(int x, int y)
-{
- 
-    int res = 1;
-    while (y > 0) {
- 
-        if (y % 2 == 1)
-            res = ((res % MOD) * (x % MOD)) % MOD;
-        y = y >> 1;
-        x = ((x % MOD) * (x % MOD)) % MOD;
-    }
-    return res % MOD;
-}
-
 
 #define TESTCASE
 void solve(ll __T__){
 
-    ll n; cin >> n;
-    vll v(n); cin >> v;
+    ll n, k; cin >> n >> k;
 
-    ll x = 0;
+    ll rt = 2 * k + n;
 
-    vll maxFromLeft(n, v[0]), minFromRight(n, v[n - 1]);
-    for(int i = 1; i < n; i++)
-        maxFromLeft[i] = max(maxFromLeft[i - 1], v[i]);
+    ll a = -1, b = -1;
+    bool flag = false;
 
-    for(int i = n - 2; i >= 0; i--)
-        minFromRight[i] = min(minFromRight[i + 1], v[i]);
+    rpt(a, 0, 100) {
+        b = n - a;
 
-    for(int i = 1; i < n - 1; i++) 
-        x += (v[i] > maxFromLeft[i - 1] && v[i] < minFromRight[i + 1]);
+        if(a * a + b * b == rt) {
+            flag = true;
+            break; 
+        }
+    }
 
-    x += (v[0] < minFromRight[1]);
-    x += (v[n - 1] > maxFromLeft[n - 2]);   
+    if(flag) {
 
-    debug(v);
-    debug(maxFromLeft);
-    debug(minFromRight);
+        cout << "YES";
+        rpt(i, 0, a)
+            cout << -1 << " ";
+        rpt(j, 0, b)
+            cout << 1 << " ";
 
-    cout << ((power(2, x) - (x == n)) % MOD);
+    }
+    else
+        cout << "NO";
 
     nl;
-
 }
 
 
