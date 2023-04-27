@@ -111,7 +111,11 @@ void solve(ll __T__){
     ll n; cin >> n;
     vll v(n);
 
+    for(auto x : v) 
+        if(!isComposit[x])
+            kill(0);
 
+    
 
     nl;
 }
