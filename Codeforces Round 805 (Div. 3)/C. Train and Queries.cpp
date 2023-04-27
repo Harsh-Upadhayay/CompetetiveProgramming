@@ -122,7 +122,7 @@ void solve(ll __T__){
     ll n; cin >> n;
     vll v(n); cin >> v;
     
-    isS(8);
+    cout << isS(8);
 
     nl;
 }
