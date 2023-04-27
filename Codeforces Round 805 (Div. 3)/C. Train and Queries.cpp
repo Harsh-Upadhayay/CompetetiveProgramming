@@ -77,14 +77,29 @@ void storePrimes();
 
 vll arr;
 
-bool isS(ll x) {
-    for(int i = 1; i * i < x; i++);
-    return false;
+bool isS(ll n) {
+    ll p = 0, c = 0;
+    for (int i = 1; i * i <= n; i++)
+
+        {
+            if (!(n % i))
+            {
+                if (n/i == i)
+                    p += !isComposit[i];
+                else
+                    p += !isComposit[i],
+                    p += !isComposit[n / i],
+                    c += isComposit[i],
+                    c += isComposit[i];
+
+            }
+        }
+    return c > p;
 }
 
 void init(){
     setSieve();
-    rpt(i, 1, (ll)(1e7 + 1))
+    rpt(i, 1, (ll)(1e5 + 1))
         if(isS(i))
             arr.push_back(i);
 
