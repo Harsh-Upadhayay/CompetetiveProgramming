@@ -102,7 +102,7 @@ void init(){
     rpt(i, 1, (ll)(1e5 + 1))
         if(isS(i))
             arr.push_back(i);
-
+    cerr << arr;
     return;
 }
 
