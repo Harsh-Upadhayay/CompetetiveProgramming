@@ -33,7 +33,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-#define SIEVE_SIZE                ((ll)(1e5))
+#define SIEVE_SIZE                ((ll)(1e7))
 /*_________________________________________________________________________________________________________________________________________*/
 
 template <typename T>
@@ -75,8 +75,18 @@ void storePrimes();
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
 
+vll arr;
+
+bool isS(ll n) {
+    return false;
+}
+
 void init(){
-    
+    setSieve();
+    rpt(i, 1, (ll)(1e7 + 1))
+        if(isS(i))
+            arr.push_back(i);
+
     return;
 }
 
@@ -84,36 +94,10 @@ void init(){
 #define TESTCASE
 void solve(ll __T__){
 
-    ll n, k; cin >> n >> k;
-    vll v(n); cin >> v;
+    ll n; cin >> n;
+    vll v(n);
 
-    ll diff = 0;
 
-    for(int start = 0; start < k; start++) {
-
-        set<ll> eleSet, idxSet;
-
-        for(int i = start; i < n; i+= k) {
-
-            eleSet.insert(v[i]),
-            idxSet.insert(i + 1);
-
-        }
-
-        for(ll x : eleSet) 
-            if(idxSet.count(x) != 1)
-                diff += 1;
-
-    }
-
-    debug(diff);
-
-    if(diff == 0)
-        cout << 0;
-    else if(diff == 2)
-        cout << 1;
-    else
-        cout << -1;
 
     nl;
 }
