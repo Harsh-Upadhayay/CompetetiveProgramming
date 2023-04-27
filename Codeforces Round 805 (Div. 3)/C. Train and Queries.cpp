@@ -90,7 +90,7 @@ bool isS(ll n) {
                     p += !isComposit[i],
                     p += !isComposit[n / i],
                     c += isComposit[i],
-                    c += isComposit[i];
+                    c += isComposit[n / i];
 
             }
         }
