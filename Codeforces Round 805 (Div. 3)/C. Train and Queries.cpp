@@ -78,6 +78,7 @@ void storePrimes();
 vll arr;
 
 bool isS(ll x) {
+    for(int i = 1; i * i < x; i++);
     return false;
 }
 
