@@ -121,10 +121,7 @@ void solve(ll __T__){
     ll n; cin >> n;
     vll v(n); cin >> v;
     
-    ll tgt = 1;
-    for(auto x : v) tgt *= x;
-
-
+    cout << isP(5) << isP(6);
     nl;
 }
 
