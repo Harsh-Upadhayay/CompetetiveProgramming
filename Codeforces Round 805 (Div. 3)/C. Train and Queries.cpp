@@ -100,17 +100,37 @@ void init(){
     rpt(i, 1, (ll)(1e5 + 1))
         if(isS(i))
             arr.push_back(i);
-    cerr << arr;
+
+    rpt(i, 0, arr.size() - 1)
+        cout << arr[i + 1] - arr[i] <<  " ";
+
     return;
 }
 
+ll fun(ll i, ll tgt) {
+
+    if(i == arr.size() || tgt)
+        return tgt == 1;
+
+    ll take = 0, 
+    nottake = fun(i + 1, tgt);
+
+    if(!(tgt % i))
+        take = 1 + fun(i, tgt / i);
+
+    return max(take, nottake);
+}
 
 #define TESTCASE
 void solve(ll __T__){
 
     ll n; cin >> n;
     vll v(n); cin >> v;
+    
+    ll tgt = 1;
+    for(auto x : v) tgt *= x;
 
+    cout << fun(0, tgt);
 
     nl;
 }
