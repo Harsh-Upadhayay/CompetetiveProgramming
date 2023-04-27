@@ -105,7 +105,7 @@ void init(){
 }
 
 ll fun(ll i, ll tgt) {
-
+    debug(i, tgt);
     if(i == arr.size() || tgt)
         return tgt == 1;
 
