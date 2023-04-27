@@ -94,7 +94,7 @@ void solve(ll __T__){
     rpt(a, 0, 100) {
         b = n - a;
 
-        if(a * a + b * b == rt) {
+        if((a * a) + (b * b) == rt) {
             flag = true;
             break; 
         }
@@ -106,7 +106,7 @@ void solve(ll __T__){
         rpt(i, 0, a)
             cout << -1 << " ";
         rpt(j, 0, b)
-            cout << 1 << " ";
+            cout << 1 << "* ";
 
     }
     else
