@@ -79,21 +79,19 @@ vll arr;
 
 bool isS(ll n) {
     ll p = 0, c = 0;
-    for (int i = 1; i * i <= n; i++)
-
+    for (int i = 1; i * i <= n; i++) 
+        if (!(n % i))
         {
-            if (!(n % i))
-            {
-                if (n/i == i)
-                    p += !isComposit[i];
-                else
-                    p += !isComposit[i],
-                    p += !isComposit[n / i],
-                    c += isComposit[i],
-                    c += isComposit[n / i];
+            if (n/i == i)
+                p += !isComposit[i];
+            else
+                p += !isComposit[i],
+                p += !isComposit[n / i],
+                c += isComposit[i],
+                c += isComposit[n / i];
 
-            }
         }
+    
     return c > p;
 }
 
