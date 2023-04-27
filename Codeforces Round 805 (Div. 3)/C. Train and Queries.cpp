@@ -76,7 +76,7 @@ void storePrimes();
 /*_________________________________________________________________________________________________________________________________________*/
 
 void init(){
-
+    setSieve();
     return;
 }
 
@@ -85,32 +85,9 @@ void init(){
 void solve(ll __T__){
 
     ll n, k; cin >> n >> k;
-
-    ll rt = 2 * k + n;
-
-    ll a = -1, b = -1;
-    bool flag = false;
-
-    for(a = 0; a <= 100; a++) {
-        b = n - a;
-
-        if((a * a) + (b * b) == rt) {
-            flag = true;
-            break; 
-        }
-    }
-    debug(n, a, b);
-    if(flag) {
-
-        cout << "YES\n";
-        rpt(i, 0, a)
-            cout << -1 << " ";
-        rpt(j, 0, b)
-            cout << 1 << " ";
-
-    }
-    else
-        cout << "NO";
+    vll v(n); cin >> v;
+    cout << isComposit[5];
+    // for(int i = 0; i + k < )
 
     nl;
 }
