@@ -99,14 +99,14 @@ void solve(ll __T__){
             break; 
         }
     }
-
+    debug(n, a, b);
     if(flag) {
 
         cout << "YES\n";
         rpt(i, 0, a)
             cout << -1 << " ";
         rpt(j, 0, b)
-            cout << 1 << "* ";
+            cout << 1 << " ";
 
     }
     else
