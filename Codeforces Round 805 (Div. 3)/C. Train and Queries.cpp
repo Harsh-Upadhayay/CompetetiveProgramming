@@ -100,7 +100,7 @@ void init(){
     rpt(i, 1, (ll)(1e5 + 1))
         if(isS(i))
             arr.push_back(i);
-    // cerr << arr;
+    cerr << arr;
     return;
 }
 
@@ -110,9 +110,6 @@ void solve(ll __T__){
 
     ll n; cin >> n;
     vll v(n); cin >> v;
-
-
-    debug(v);
 
 
     nl;
