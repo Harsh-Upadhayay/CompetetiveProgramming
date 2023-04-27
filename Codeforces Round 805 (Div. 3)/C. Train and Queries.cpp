@@ -97,12 +97,9 @@ bool isS(ll n) {
 
 void init(){
     setSieve();
-    rpt(i, 1, (ll)(1e5 + 1))
+    rpt(i, 1, (ll)(40))
         if(isS(i))
             arr.push_back(i);
-
-    rpt(i, 0, arr.size() - 1)
-        cerr << arr[i + 1] - arr[i] <<  " ";
 
     return;
 }
