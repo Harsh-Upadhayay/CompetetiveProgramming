@@ -93,7 +93,8 @@ bool isS(ll n) {
         if (!(n % i))
         {
             if (n/i == i)
-                p += isP(i);
+                p += isP(i),
+                c += !isP(i);
             else
                 p += isP(i),
                 p += isP(n / i),
@@ -121,7 +122,7 @@ void solve(ll __T__){
     ll n; cin >> n;
     vll v(n); cin >> v;
     
-    cout << isP(5) << isP(6);
+
     nl;
 }
 
