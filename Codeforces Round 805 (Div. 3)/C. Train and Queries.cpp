@@ -102,7 +102,7 @@ void init(){
             arr.push_back(i);
 
     rpt(i, 0, arr.size() - 1)
-        cout << arr[i + 1] - arr[i] <<  " ";
+        cerr << arr[i + 1] - arr[i] <<  " ";
 
     return;
 }
