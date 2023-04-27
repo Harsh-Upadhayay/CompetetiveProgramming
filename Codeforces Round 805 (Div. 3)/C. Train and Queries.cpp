@@ -102,7 +102,7 @@ void solve(ll __T__){
 
     if(flag) {
 
-        cout << "YES";
+        cout << "YES\n";
         rpt(i, 0, a)
             cout << -1 << " ";
         rpt(j, 0, b)
