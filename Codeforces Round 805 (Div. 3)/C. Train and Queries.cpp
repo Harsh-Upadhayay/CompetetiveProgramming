@@ -91,7 +91,7 @@ void solve(ll __T__){
     ll a = -1, b = -1;
     bool flag = false;
 
-    rpt(a, 0, 100) {
+    for(a = 0; a <= 100; a++) {
         b = n - a;
 
         if((a * a) + (b * b) == rt) {
