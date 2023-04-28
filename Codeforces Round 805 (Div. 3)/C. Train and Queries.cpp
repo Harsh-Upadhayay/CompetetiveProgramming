@@ -110,7 +110,7 @@ void solve(ll __T__){
             f = true;
     }
 
-    if(f) kill("NO");
+    if(f) kill("-1");
 
     vll vis(n + 1, 0);
     dfs(adj, vis, edgW, 1, 2);
