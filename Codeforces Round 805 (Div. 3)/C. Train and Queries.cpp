@@ -81,20 +81,42 @@ void init(){
     return;
 }
 
+void dfs(vll adj[], vll &vis, map<pair<ll, ll>, ll> &edgW, ll u, ll w) {
+    vis[u] = 1;
+
+    for(auto v : adj[u])
+        if(!vis[v])
+            edgW[{u, v}] = w,
+            edgW[{v, u}] = w,
+            dfs(adj, vis, edgW, v, w == 2 ? 3 : 2);
+}
 
 #define TESTCASE
 void solve(ll __T__){
 
-    
-    for(int i = 2; i < 1e5; i++) {
-        if(!allPrimes.count(i)) continue;
-        for(int j = i + 1; j  < 1e5; j++) {
-            if(!allPrimes.count(j)) continue;
+    map<pair<ll, ll>, ll> edgW;
+    vector<pair<ll, ll>> edges;
+    ll n; cin >> n;
+    vll adj[n + 1]; 
 
-            if(allPrimes.count(j - i))
-                cout << i << " " << j << "\n";
-        }
+    bool f;
+    rpt(i, 0, n - 1) {
+        ll u, v; cin >> u >> v;
+        edges.push_back({u, v});
+        adj[u].push_back(v),
+        adj[v].push_back(u);
+
+        if(adj[u].size() > 2 || adj[v].size() > 2)
+            f = true;
     }
+
+    if(f) kill("NO");
+
+    vll vis(n + 1, 0);
+    dfs(adj, vis, edgW, 1, 2);
+
+    for(auto edge : edges)
+        cout << edgW[edge] << "\n";
 
     nl;
 }
