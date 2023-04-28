@@ -116,7 +116,7 @@ void solve(ll __T__){
     dfs(adj, vis, edgW, 1, 2);
 
     for(auto edge : edges)
-        cout << edgW[edge] << "\n";
+        cout << edgW[edge] << " ";
 
     nl;
 }
