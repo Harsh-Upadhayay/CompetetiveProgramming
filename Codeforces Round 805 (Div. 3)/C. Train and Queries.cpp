@@ -76,71 +76,27 @@ void storePrimes();
 /*_________________________________________________________________________________________________________________________________________*/
 class Solution {
 
-    int fun(vector<int> v, vector<vector<int>> &dp, int i, int j) {
+    int fun(vector<int> &nums, int j) {
+
+        if(j < 0) return 0;
+        if(j == 0) return 1;
+
+        int cnt = 0;
+        for(int i = 0; i < nums.size(); i++)
+            cnt += fun(nums, j - nums[i]);
         
-        if(i == j)
-            return 0;
-        if(dp[i][j] != -1) 
-            return dp[i][j];
+        return cnt;
 
-        int n = v.size(),
-        optAns = 0, totSum = 0, curSum = 0;
-
-        for(int k = i; k <= j; k++)
-            totSum += v[k];
-
-        for(int k = i; k < j; k++) {
-
-            curSum += v[k];
-
-            if(curSum < (totSum - curSum))
-                optAns = max(optAns, curSum + fun(v, dp, i, k));
-            
-            else if(curSum > (totSum - curSum))
-                optAns = max(optAns, (totSum - curSum) + fun(v, dp, k + 1, j));
-
-            else
-                optAns = max({optAns, curSum + fun(v, dp, i, k), (totSum - curSum) + fun(v, dp, k + 1, j)});
-        }
-        
-        return dp[i][j] = optAns;
     }
-
 public:
-    int stoneGameV(vector<int>& v) {
-        int n = v.size();
-        vector<vector<int>> dp(n + 1, vector<int> (n + 1, 0));
-
-        for(int i = n - 1; i >= 0; i--) {
-            for(int j = i + 1; j < n; j++) {
-
-                int optAns = 0, totSum = 0, curSum = 0;
-
-                for(int k = i; k <= j; k++)
-                    totSum += v[k];
-
-                for(int k = i; k < j; k++) {
-
-                    curSum += v[k];
-
-                    if(curSum < (totSum - curSum))
-                        optAns = max(optAns, curSum + dp[i][k]);
-                    
-                    else if(curSum > (totSum - curSum))
-                        optAns = max(optAns, (totSum - curSum) + dp[k + 1][j]);
-
-                    else
-                        optAns = max({optAns, curSum + dp[i][k], (totSum - curSum) + dp[k + 1][j]});
-                }
-                
-                dp[i][j] = optAns;
-
-            }
-        }
-
-        return fun(v, dp, 0, n - 1);
+    int combinationSum4(vector<int>& nums, int target) {
+        int n = nums.size();
+        // vector<vector<int>> dp(n + 1, vector<int> dp(target + 1, -1));
+        return fun(nums, target);
     }
 };
+
+
 void init(){
 
     return;
@@ -150,11 +106,11 @@ void init(){
 #define TESTCASE
 void solve(ll __T__){
 
-    ll n; cin >>  n;
+    ll n, t; cin >>  n >> t;
     vector<int> v(n); cin >> v;
 
     auto obj = Solution();
-    cout << obj.stoneGameV(v);
+    cout << obj.combinationSum4(v, t);
 
     nl;
 }
