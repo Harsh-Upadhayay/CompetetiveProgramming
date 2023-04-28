@@ -74,31 +74,10 @@ set<ll> allPrimes;
 void storePrimes();
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
-class Solution {
-
-    int fun(vector<int> &nums, int j) {
-
-        if(j < 0) return 0;
-        if(j == 0) return 1;
-
-        int cnt = 0;
-        for(int i = 0; i < nums.size(); i++)
-            cnt += fun(nums, j - nums[i]);
-        
-        return cnt;
-
-    }
-public:
-    int combinationSum4(vector<int>& nums, int target) {
-        int n = nums.size();
-        // vector<vector<int>> dp(n + 1, vector<int> dp(target + 1, -1));
-        return fun(nums, target);
-    }
-};
-
 
 void init(){
-
+    setSieve();
+    storePrimes();
     return;
 }
 
@@ -106,11 +85,8 @@ void init(){
 #define TESTCASE
 void solve(ll __T__){
 
-    ll n, t; cin >>  n >> t;
-    vector<int> v(n); cin >> v;
-
-    auto obj = Solution();
-    cout << obj.combinationSum4(v, t);
+    set<ll> pSet(all(allPrimes));
+    debug(pSet);
 
     nl;
 }
