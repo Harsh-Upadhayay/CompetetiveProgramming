@@ -128,11 +128,29 @@ void solve(ll __T__){
 
     cerr << edges;
 
-    ll prvW = -1, i = 0;
-    map<ll, ll> updates;
-    while(i < m) {
+    ll prvW = edges[0].w, i = 1;
+    dp[edges[0].v] = dp[edges[0].v] + 1;
 
-        
+    vector<pair<ll, ll>> updates;
+    while(i < m) {  
+
+        ll u = edges[i].u,
+            v = edges[i].v,
+            w = edges[i].w;
+
+        if(prvW == w) {
+
+            updates.push_back({v, 1 + dp[u]});
+
+        }
+        else {
+
+            for(auto upd : updates)
+                dp[upd.fi] = max(dp[upd.fi], upd.se);
+            updates.clear();
+
+            dp[v] = max(dp[v], 1 + dp[u]);
+        }
 
         i++;
     }
