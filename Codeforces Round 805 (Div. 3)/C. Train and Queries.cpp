@@ -85,8 +85,16 @@ void init(){
 #define TESTCASE
 void solve(ll __T__){
 
-    set<ll> pSet(all(allPrimes));
-    debug(pSet);
+    
+    for(int i = 2; i < 1e5; i++) {
+        if(!allPrimes.count(i)) continue;
+        for(int j = i + 1; j  < 1e5; j++) {
+            if(!allPrimes.count(j)) continue;
+
+            if(allPrimes.count(j - i))
+                cout << i << " " << j << "\n";
+        }
+    }
 
     nl;
 }
