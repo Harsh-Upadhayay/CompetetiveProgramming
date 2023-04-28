@@ -88,7 +88,8 @@ void dfs(vll adj[], vll &vis, map<pair<ll, ll>, ll> &edgW, ll u, ll w) {
         if(!vis[v])
             edgW[{u, v}] = w,
             edgW[{v, u}] = w,
-            dfs(adj, vis, edgW, v, w == 2 ? 3 : 2);
+            w = (w == 2 ? 3 : 2),
+            dfs(adj, vis, edgW, v, w);
 }
 
 #define TESTCASE
