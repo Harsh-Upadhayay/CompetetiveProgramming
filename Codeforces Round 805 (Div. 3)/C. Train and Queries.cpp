@@ -50,7 +50,7 @@ istream& operator>>(istream &is, vector<T> &v) {
 
 template <typename T1, typename T2>
 ostream& operator<<(ostream &os, pair<T1, T2> &x) {
-    cout << "(" << x.fi << "," << x.se << ")";
+    os << "(" << x.fi << "," << x.se << ")";
     return os;
 }
 
@@ -76,49 +76,73 @@ void storePrimes();
 /*_________________________________________________________________________________________________________________________________________*/
 
 void init(){
-    setSieve();
-    storePrimes();
+
     return;
 }
+/* Think simple : Simplicity is the ultimate sophistication. 
 
-void dfs(vll adj[], vll &vis, map<pair<ll, ll>, ll> &edgW, ll u, ll w) {
-    vis[u] = 1;
+ll dp[10][10];
 
-    for(auto v : adj[u])
-        if(!vis[v])
-            edgW[{u, v}] = w,
-            edgW[{v, u}] = w,
-            w = (w == 2 ? 3 : 2),
-            dfs(adj, vis, edgW, v, w);
+ll fun(vector<vector<pair<ll, ll>>> &adj, ll i, ll j) {
+    debug(i, j);
+    ll d = 0;
+
+    if(dp[i][j] != -1)
+        return dp[i][j];
+
+    for(auto adjN : adj[i]) 
+        if(adjN.se > j)
+            d = max(d, 1 + fun(adj, adjN.fi, adjN.se));
+
+    return dp[i][j] = d;
 }
 
-#define TESTCASE
+*/
+
+struct edge{
+    ll u, v, w;
+    edge() {}
+    edge(ll x, ll y, ll z) : u(x), v(y), w(z) {}
+};
+
+
+ostream& operator<<(ostream &os, edge &e) {
+    os << e.u << "," << e.v << "," << e.w;
+    return os;
+}
+
+// #define TESTCASE
 void solve(ll __T__){
 
-    map<pair<ll, ll>, ll> edgW;
-    vector<pair<ll, ll>> edges;
-    ll n; cin >> n;
-    vll adj[n + 1]; 
+    ll n, m; cin >> n >> m;
 
-    bool f = false;
-    rpt(i, 0, n - 1) {
-        ll u, v; cin >> u >> v;
-        edges.push_back({u, v});
-        adj[u].push_back(v),
-        adj[v].push_back(u);
+    vll dp(n + 1, 0);
+    vector<edge> edges;
 
-        if(adj[u].size() > 2 || adj[v].size() > 2)
-            f = true;
+    rpt(i, 0, m) {
+        ll u, v, w; cin >> u >> v >> w;
+        edges.push_back(edge(u, v, w));
+    }    
+
+    sort(all(edges), [](edge &a, edge &b){return a.w < b.w;});
+
+    cerr << edges;
+
+    ll prvW = -1, i = 0;
+    map<ll, ll> updates;
+    while(i < m) {
+
+        
+
+        i++;
     }
 
-    if(f) kill("-1");
+    ll ans = ninf;
 
-    vll vis(n + 1, 0);
-    dfs(adj, vis, edgW, 1, 2);
+    rpt(i, 1, n + 1)
+        ans = max(ans, dp[i]);
 
-    for(auto edge : edges)
-        cout << edgW[edge] << " ";
-
+    cout << ans;
     nl;
 }
 
