@@ -126,7 +126,7 @@ void solve(ll __T__){
 
     sort(all(edges), [](edge &a, edge &b){return a.w < b.w;});
 
-    cerr << edges;
+    // cerr << edges;
 
     ll prvW = edges[0].w, i = 1;
     dp[edges[0].v] = dp[edges[0].v] + 1;
@@ -152,6 +152,7 @@ void solve(ll __T__){
             dp[v] = max(dp[v], 1 + dp[u]);
         }
 
+        prvW = w;
         i++;
     }
 
