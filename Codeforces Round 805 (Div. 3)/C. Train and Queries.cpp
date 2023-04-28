@@ -100,7 +100,7 @@ void solve(ll __T__){
     ll n; cin >> n;
     vll adj[n + 1]; 
 
-    bool f;
+    bool f = false;
     rpt(i, 0, n - 1) {
         ll u, v; cin >> u >> v;
         edges.push_back({u, v});
