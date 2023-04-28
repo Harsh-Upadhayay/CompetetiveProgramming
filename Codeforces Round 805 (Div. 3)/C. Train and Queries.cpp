@@ -33,7 +33,7 @@ using namespace std;
 #define no                      cout << "NO";
 #define nl                      cout << "\n";
 #define kill(x)                 {cout << x << "\n"; return; }
-#define SIEVE_SIZE                ((ll)(1e7))
+#define SIEVE_SIZE                ((ll)(1e5))
 /*_________________________________________________________________________________________________________________________________________*/
 
 template <typename T>
@@ -74,44 +74,75 @@ set<ll> allPrimes;
 void storePrimes();
 /*_________________________________________________________________________________________________________________________________________*/
 /*_________________________________________________________________________________________________________________________________________*/
+class Solution {
 
-vll arr;
+    int fun(vector<int> v, vector<vector<int>> &dp, int i, int j) {
+        
+        if(i == j)
+            return 0;
+        if(dp[i][j] != -1) 
+            return dp[i][j];
 
-bool isP(ll n) {
+        int n = v.size(),
+        optAns = 0, totSum = 0, curSum = 0;
 
-    for(int i = 2; i * i <= n; i++) 
-        if(!(n % i))
-            return false;
+        for(int k = i; k <= j; k++)
+            totSum += v[k];
 
-    return true;
+        for(int k = i; k < j; k++) {
 
-}
+            curSum += v[k];
 
-bool isS(ll n) {
-    ll p = 0, c = 0;
-    for (int i = 1; i * i <= n; i++) 
-        if (!(n % i))
-        {
-            if (n/i == i)
-                p += isP(i),
-                c += !isP(i);
+            if(curSum < (totSum - curSum))
+                optAns = max(optAns, curSum + fun(v, dp, i, k));
+            
+            else if(curSum > (totSum - curSum))
+                optAns = max(optAns, (totSum - curSum) + fun(v, dp, k + 1, j));
+
             else
-                p += isP(i),
-                p += isP(n / i),
-                c += !isP(i),
-                c += !isP(n / i);
-
+                optAns = max({optAns, curSum + fun(v, dp, i, k), (totSum - curSum) + fun(v, dp, k + 1, j)});
         }
-    
-    return c > p;
-}
+        
+        return dp[i][j] = optAns;
+    }
 
+public:
+    int stoneGameV(vector<int>& v) {
+        int n = v.size();
+        vector<vector<int>> dp(n + 1, vector<int> (n + 1, 0));
+
+        for(int i = n - 1; i >= 0; i--) {
+            for(int j = i + 1; j < n; j++) {
+
+                int optAns = 0, totSum = 0, curSum = 0;
+
+                for(int k = i; k <= j; k++)
+                    totSum += v[k];
+
+                for(int k = i; k < j; k++) {
+
+                    curSum += v[k];
+
+                    if(curSum < (totSum - curSum))
+                        optAns = max(optAns, curSum + dp[i][k]);
+                    
+                    else if(curSum > (totSum - curSum))
+                        optAns = max(optAns, (totSum - curSum) + dp[k + 1][j]);
+
+                    else
+                        optAns = max({optAns, curSum + dp[i][k], (totSum - curSum) + dp[k + 1][j]});
+                }
+                
+                dp[i][j] = optAns;
+
+            }
+        }
+
+        return fun(v, dp, 0, n - 1);
+    }
+};
 void init(){
-    setSieve();
-    rpt(i, 1, (ll)(40))
-        if(isS(i))
-            arr.push_back(i);
-        cerr << arr;
+
     return;
 }
 
@@ -119,10 +150,11 @@ void init(){
 #define TESTCASE
 void solve(ll __T__){
 
-    ll n; cin >> n;
-    vll v(n); cin >> v;
-    
-    cout << isS(8);
+    ll n; cin >>  n;
+    vector<int> v(n); cin >> v;
+
+    auto obj = Solution();
+    cout << obj.stoneGameV(v);
 
     nl;
 }
