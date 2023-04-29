@@ -127,8 +127,15 @@ void Union(ll u, ll v) {
 vll components() {
 
     vll ans;
-    
-        
+    map<ll, ll> freq;
+
+    for(ll x : parent)
+        freq[findP(x)]++;
+
+    for(auto x : freq)
+        ans.push_back(x.se);
+    sort(all(ans));
+
     return ans;
 }
 
