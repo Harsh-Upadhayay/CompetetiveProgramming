@@ -118,7 +118,7 @@ void Union(ll u, ll v) {
     }
     else {
 
-        parent[pv] = pu;
+        // parent[pv] = pu;
         myRank[pv] += 1;
 
     }
