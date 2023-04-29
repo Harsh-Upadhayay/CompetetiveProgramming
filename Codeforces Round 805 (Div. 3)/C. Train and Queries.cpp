@@ -108,17 +108,17 @@ void Union(ll u, ll v) {
 
     if(rv < ru) {
 
-        // parent[pv] = pu;
+        parent[pv] = pu;
 
     }
     else if(ru < rv) {
 
-        // parent[pu] = pv;
+        parent[pu] = pv;
 
     }
     else {
 
-        // parent[pv] = pu;
+        parent[pv] = pu;
         myRank[pv] += 1;
 
     }
@@ -127,8 +127,8 @@ void Union(ll u, ll v) {
 vll components() {
 
     vll ans;
-
-
+    
+        
     return ans;
 }
 
