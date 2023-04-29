@@ -153,6 +153,7 @@ void solve(ll __T__){
         // cout << parent << "\n";
         vll cmp = components();
         cout << cmp;
+        cout << "\n";
 
     }
     nl;
