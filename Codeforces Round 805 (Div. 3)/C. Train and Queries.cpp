@@ -150,9 +150,9 @@ void solve(ll __T__){
 
         ll u, v; cin >> u >> v;
         Union(u - 1, v - 1);
-        cout << parent << "\n";
-        // vll cmp = components();
-        // cout << cmp;
+        // cout << parent << "\n";
+        vll cmp = components();
+        cout << cmp;
 
     }
     nl;
