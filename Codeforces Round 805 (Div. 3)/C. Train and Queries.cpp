@@ -50,7 +50,7 @@ istream& operator>>(istream &is, vector<T> &v) {
 
 template <typename T1, typename T2>
 ostream& operator<<(ostream &os, pair<T1, T2> &x) {
-    os << "(" << x.fi << "," << x.se << ")";
+    cout << "(" << x.fi << "," << x.se << ")";
     return os;
 }
 
@@ -76,92 +76,79 @@ void storePrimes();
 /*_________________________________________________________________________________________________________________________________________*/
 
 void init(){
-
+setSieve();
     return;
 }
-/* Think simple : Simplicity is the ultimate sophistication. 
 
-ll dp[10][10];
+// vll rank, parent;
+// void initialize(ll n) {
+//     rank.resize(n, 0), parent.resize(n, 0);
+//     rpt(i, 0, n) parent[i] = i;
+// }
 
-ll fun(vector<vector<pair<ll, ll>>> &adj, ll i, ll j) {
-    debug(i, j);
-    ll d = 0;
+// ll findP(ll u) {
 
-    if(dp[i][j] != -1)
-        return dp[i][j];
+//     if(parent[u] == u)
+//         return u;
 
-    for(auto adjN : adj[i]) 
-        if(adjN.se > j)
-            d = max(d, 1 + fun(adj, adjN.fi, adjN.se));
+//     return parent[u] = findP(u);
 
-    return dp[i][j] = d;
-}
+// }
 
-*/
+// void union(ll u, ll v) {
 
-struct edge{
-    ll u, v, w;
-    edge() {}
-    edge(ll x, ll y, ll z) : u(x), v(y), w(z) {}
-};
+//     ll  pv = findP(v),
+//         pu = findP(u);
+
+//     if(pv == pu) return;
+
+//     ll  rv = rank[pv],
+//         ru = rank[ru];
+
+//     if(rv < ru) {
+
+//         parent[pv] = pu;
+
+//     }
+//     else if(ru < rv) {
+
+//         parent[pu] = pv;
+
+//     }
+//     else {
+
+//         parent[pv] = pu;
+//         rank[pv] += 1;
+
+//     }
+// }
+
+// vll components() {
 
 
-ostream& operator<<(ostream &os, edge &e) {
-    os << e.u << "," << e.v << "," << e.w;
-    return os;
-}
+
+// }
 
 // #define TESTCASE
 void solve(ll __T__){
+    ll cnt = 0;
+    // ll n, m; cin >> n >> m;
 
-    ll n, m; cin >> n >> m;
+    // initialize(n);
 
-    vll dp(n + 1, 0);
-    vector<edge> edges;
+    // while(m--) { 
 
-    rpt(i, 0, m) {
-        ll u, v, w; cin >> u >> v >> w;
-        edges.push_back(edge(u, v, w));
-    }    
+    //     ll u, v; cin >> u >> v;
+    //     union(u - 1, v - 1);
+    //     cout << components();
 
-    sort(all(edges), [](edge &a, edge &b){return a.w < b.w;});
+    // }
+    rpt(i, 100, 201) {
+        if(isComposit[i] && ((i % 2) && (i % 3 )&& (i % 5) && (i % 7)))
+            cnt ++;
 
-    // cerr << edges;
-
-    ll prvW = edges[0].w, i = 1;
-    dp[edges[0].v] = dp[edges[0].v] + 1;
-
-    vector<pair<ll, ll>> updates;
-    while(i < m) {  
-
-        ll u = edges[i].u,
-            v = edges[i].v,
-            w = edges[i].w;
-
-        if(prvW == w) {
-
-            updates.push_back({v, 1 + dp[u]});
-
-        }
-        else {
-
-            for(auto upd : updates)
-                dp[upd.fi] = max(dp[upd.fi], upd.se);
-            updates.clear();
-
-            dp[v] = max(dp[v], 1 + dp[u]);
-        }
-
-        prvW = w;
-        i++;
-    }
-
-    ll ans = ninf;
-
-    rpt(i, 1, n + 1)
-        ans = max(ans, dp[i]);
-
-    cout << ans;
+    } 
+    cout << cnt;
     nl;
 }
 
