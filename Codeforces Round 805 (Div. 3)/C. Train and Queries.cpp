@@ -80,75 +80,73 @@ setSieve();
     return;
 }
 
-// vll rank, parent;
-// void initialize(ll n) {
-//     rank.resize(n, 0), parent.resize(n, 0);
-//     rpt(i, 0, n) parent[i] = i;
-// }
+vll myRank, parent;
+void initialize(ll n) {
+    myRank.resize(n, 0),
+    parent.resize(n, 0);
+    rpt(i, 0, n) parent[i] = i;
+}
 
-// ll findP(ll u) {
+ll findP(ll u) {
+    debug(u);
+    if(parent[u] == u)
+        return u;
 
-//     if(parent[u] == u)
-//         return u;
+    return parent[u] = findP(parent[u]);
+}
 
-//     return parent[u] = findP(u);
+void Union(ll u, ll v) {
 
-// }
+    ll  pv = findP(v),
+        pu = findP(u);
+    debug(pv, pu);
 
-// void union(ll u, ll v) {
+    if(pv == pu) return;
 
-//     ll  pv = findP(v),
-//         pu = findP(u);
+    ll  rv = myRank[pv],
+        ru = myRank[pu];
 
-//     if(pv == pu) return;
+    if(rv < ru) {
 
-//     ll  rv = rank[pv],
-//         ru = rank[ru];
+        parent[pv] = pu;
 
-//     if(rv < ru) {
+    }
+    else if(ru < rv) {
 
-//         parent[pv] = pu;
+        parent[pu] = pv;
 
-//     }
-//     else if(ru < rv) {
+    }
+    else {
 
-//         parent[pu] = pv;
+        parent[pv] = pu;
+        myRank[pv] += 1;
 
-//     }
-//     else {
+    }
+}
 
-//         parent[pv] = pu;
-//         rank[pv] += 1;
+vll components() {
 
-//     }
-// }
-
-// vll components() {
-
+    vll ans;
 
 
-// }
+    return ans;
+}
 
 // #define TESTCASE
 void solve(ll __T__){
     ll cnt = 0;
-    // ll n, m; cin >> n >> m;
+    ll n, m; cin >> n >> m;
 
-    // initialize(n);
+    initialize(n);
 
-    // while(m--) { 
+    while(m--) { 
 
-    //     ll u, v; cin >> u >> v;
-    //     union(u - 1, v - 1);
-    //     cout << components();
+        ll u, v; cin >> u >> v;
+        Union(u - 1, v - 1);
+        // vll cmp = components();
+        // cout << cmp;
 
-    // }
-    rpt(i, 100, 201) {
-        if(isComposit[i] && ((i % 2) && (i % 3 )&& (i % 5) && (i % 7)))
-            cnt ++;
-
-    } 
-    cout << cnt;
+    }
     nl;
 }
 
