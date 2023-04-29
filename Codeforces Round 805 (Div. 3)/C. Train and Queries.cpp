@@ -138,7 +138,7 @@ void solve(ll __T__){
     ll n, m; cin >> n >> m;
 
     initialize(n);
-
+    cout << parent;
     while(m--) { 
 
         ll u, v; cin >> u >> v;
