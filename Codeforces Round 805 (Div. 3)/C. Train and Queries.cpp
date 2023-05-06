@@ -80,17 +80,29 @@ void init(){
     return;
 }
 
+vvll fun(ll n) {
+    vll nums(n);
+    vvll ans;
+    for (int i = 0; i < n; i++) {
+        nums[i] = i + 1;
+    }
+
+    // Print all permutations of the vector
+    do {
+        ans.push_back(nums);
+    } while (next_permutation(nums.begin(), nums.end()));
+
+    return ans;
+}
 
 #define TESTCASE
 void solve(ll __T__){
 
-    ll n, k; cin >> n >> k;
+    ll n; cin >> n;
 
-    ll cnt = 0;
-    vector<string> v(n); cin >> v;
-    for(auto x : v) cnt += (v[0] == x);
+    vvll x = fun(n);
 
-    cout << cnt ;
+    cout << x;
 
     nl;
 }
