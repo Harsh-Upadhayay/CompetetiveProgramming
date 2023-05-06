@@ -124,7 +124,7 @@ void solve(ll __T__){
 
     for(auto x : v)
         if(chk(x))
-            cout << x;
+            cout << x << "\n";
 
     nl;
 }
