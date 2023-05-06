@@ -95,14 +95,36 @@ vvll fun(ll n) {
     return ans;
 }
 
+bool chk(vll &v) {
+
+    for(ll l = 0; l < v.size(); l++) {
+        for(ll r = l + 1; r < v.size(); r++) {
+
+            ll sum  = 0;
+            for(int k = l; k <= r; k++) {
+                sum += v[k];
+            }
+
+            if(!(sum % (r - l + 1)))
+                return false;
+
+        }
+    }
+
+    return true;
+
+}
+
 #define TESTCASE
 void solve(ll __T__){
 
     ll n; cin >> n;
 
-    vvll x = fun(n);
+    vvll v = fun(n);
 
-    cout << x;
+    for(auto x : v)
+        if(chk(x))
+            cout << x;
 
     nl;
 }
