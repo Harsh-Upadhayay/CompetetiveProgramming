@@ -76,85 +76,22 @@ void storePrimes();
 /*_________________________________________________________________________________________________________________________________________*/
 
 void init(){
-setSieve();
+
     return;
 }
 
-vll myRank, parent;
-void initialize(ll n) {
-    myRank.resize(n, 0),
-    parent.resize(n, 0);
-    rpt(i, 0, n) parent[i] = i;
-}
 
-ll findP(ll u) {
-    debug(u);
-    if(parent[u] == u)
-        return u;
-
-    return parent[u] = findP(parent[u]);
-}
-
-void Union(ll u, ll v) {
-
-    ll  pv = findP(v),
-        pu = findP(u);
-    debug(pv, pu);
-
-    if(pv == pu) return;
-
-    ll  rv = myRank[pv],
-        ru = myRank[pu];
-
-    if(rv < ru) {
-
-        parent[pv] = pu;
-
-    }
-    else if(ru < rv) {
-
-        parent[pu] = pv;
-
-    }
-    else {
-
-        parent[pv] = pu;
-        myRank[pv] += 1;
-
-    }
-}
-
-vll components() {
-
-    vll ans;
-    map<ll, ll> freq;
-
-    for(ll x : parent)
-        freq[findP(x)]++;
-
-    for(auto x : freq)
-        ans.push_back(x.se);
-    sort(all(ans));
-
-    return ans;
-}
-
-// #define TESTCASE
+#define TESTCASE
 void solve(ll __T__){
+
+    ll n, k; cin >> n >> k;
+
     ll cnt = 0;
-    ll n, m; cin >> n >> m;
+    vector<string> v(n); cin >> v;
+    for(auto x : v) cnt += (v[0] == x);
 
-    initialize(n);
-    while(m--) { 
+    cout << cnt ;
 
-        ll u, v; cin >> u >> v;
-        Union(u - 1, v - 1);
-        // cout << parent << "\n";
-        vll cmp = components();
-        cout << cmp;
-        cout << "\n";
-
-    }
     nl;
 }
 
