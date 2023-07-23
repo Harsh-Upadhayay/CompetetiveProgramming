@@ -31,33 +31,42 @@ struct Node {
 class Solution
 {
     public:
-    Node* reverseBetween(Node* head, int m, int n) {
-        Node *curr = head, *prev = NULL;
-        int i;
-        for (i = 1; i < m; i++) {
-            prev = curr;
-            curr = curr->next;
-        }
-        Node* rtail = curr;
-        Node* rhead = NULL;
-    
-        while (i <= n) {
-            Node* next = curr->next;
-            curr->next = rhead;
-            rhead = curr;
-            curr = next;
-            i++;
-        }
-      
-        if (prev != NULL)
-            prev->next = rhead;
-        else
-            head = rhead;
-    
-        rtail->next = curr;
-    
-        return head;
+    Node* reverseBetween(Node* head, int left, int right){
+    if (left == right || head == nullptr) {
+      return head;
     }
+
+    Node *prevLeft = nullptr;
+    Node *current = head;
+    int position = 1;
+
+    while (current && position < left) {
+      prevLeft = current;
+      current = current->next;
+      position++;
+    }
+
+    Node *prev = nullptr;
+    Node *next = nullptr;
+    Node *leftNode = current;
+
+    while (current && position <= right) {
+      next = current->next;
+      current->next = prev;
+      prev = current;
+      current = next;
+      position++;
+    }
+
+    if (prevLeft) {
+      prevLeft->next = prev;
+    } else {
+      head = prev;
+    }
+    leftNode->next = current;
+    
+    return head;
+  }
 };
 
 //{ Driver Code Starts.
